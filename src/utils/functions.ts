@@ -1,4 +1,4 @@
-import { ArtWork } from "@/types/types";
+import { ArtWork, TeamMemberData } from "@/types/types";
 import { ref } from "firebase/storage";
 import { getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
@@ -38,3 +38,11 @@ export async function transformArtworksPhotos(
       return "";
     }
   }
+
+  export async function transformMemberPhotos(members: TeamMemberData): Promise<TeamMemberData> {
+    const promises = members.map(async member => ({
+        ...member,
+        photo: await getUrlPhoto(member.photo)
+    }))
+    return Promise.all(promises);
+}

@@ -15,3 +15,12 @@ export type ArtWork = {
 }
 
 export type Lang = 'CN' | 'EN' | 'FR'
+
+export type TeamMemberData = {
+    text1: Record<Lang, string>
+    text2: Record<Lang, string>
+    role: Record<Lang, string>
+    name: string
+    photo: string
+}[];
+
