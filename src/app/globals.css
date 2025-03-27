@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card: #1d1c1c;
+  --text: #ffffff;
+  --background: #131313;
+  --purple: #6052ff;
+  --header-height: 90px;
+  --footer-height: 300px;
+  --font-unbounded: "Unbounded", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", serif;
+}
+
+.bricolage-grotesque {
+  font-family: "Bricolage Grotesque", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "width" 100;
+}
+
+.unbounded {
+  font-family: "Unbounded", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.swiper-slide {
+  width: fit-content;
+}
+
+.bg-gradient::before {
+  content: '';
+  height: 100%;
+  width: 10%;
+  position: absolute;
+  left: -3px;
+  top: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.9038209033613446) 0%, rgba(255,255,255,0) 50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.bg-gradient::after {
+  content: '';
+  height: 100%;
+  width: 10%;
+  position: absolute;
+  right: -3px;
+  top: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 50%, rgba(0,0,0,0.9038209033613446) 100%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.swiper-slide {
+  height: auto!important;
+}
+
+.roadmap-line {
+  /* position: relative; */
+}
+.roadmap-line::before {
+  content: '';
+  height: 7%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: linear-gradient( #131313 0%, #6052FF 100%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.roadmap-line::after {
+  content: '';
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 7%;
+  background: #6052FF ;
+  z-index: 20;
+  border-radius: 50%;
+  left: -11px;
+}
