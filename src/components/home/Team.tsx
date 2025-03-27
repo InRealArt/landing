@@ -18,8 +18,8 @@ export default function Team() {
   return (
     <section className="mt-36 max-w-screen-2xl m-auto">
       <div className="max-w-90 xl:max-w-screen-xl md:flex justify-between w-full m-auto items-center">
-        <h1 className="bricolage-grotesque text-4xl md:text-5xl">Découvrez les membres de l’équipe</h1>
-        <Button text="L'équipe" additionalClassName="bg-purpleColor mr-6 mt-6 md:mt-0" icon={<ArrowRight />} />
+        <h1 className="bricolage-grotesque text-4xl md:text-5xl">Découvrez les membres de l&apos;équipe</h1>
+        <Button text="L&apos;équipe" link="/team" additionalClassName="bg-purpleColor mr-6 mt-6 md:mt-0" icon={<ArrowRight />} />
       </div>
       <Slider context="team" items={teamImages} additionnalClassName="relative bg-gradient" />
     </section>

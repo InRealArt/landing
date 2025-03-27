@@ -7,9 +7,9 @@ import { ArrowRight } from "lucide-react";
 
 export default function Artists() {
   const teamImages = [
-    { image: teamMember, name: 'Boucheix François', role: 'Mouvement Artistique', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d'un avenir meilleur et partagé." },
-    { image: teamMember, name: 'Gilles Bruno', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d'un avenir meilleur et partagé." },
-    { image: teamMember, name: 'Nino Lamoureux', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d'un avenir meilleur et partagé." },
+    { image: teamMember, name: 'Boucheix François', role: 'Mouvement Artistique', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
+    { image: teamMember, name: 'Gilles Bruno', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
+    { image: teamMember, name: 'Nino Lamoureux', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
   ]
 
   const artworkImages = [
@@ -34,12 +34,12 @@ export default function Artists() {
 
         <section className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 items-center mt-32">
           <div className="flex-1">
-            <h1 className="bricolage-grotesque text-6xl mb-3">Le mot de <br />l’expert(e)</h1>
-            <p className="bricolage-grotesque text-md">Forte de +80 années d’expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.</p>
+            <h1 className="bricolage-grotesque text-6xl mb-3">Le mot de <br />l&apos;expert(e)</h1>
+            <p className="bricolage-grotesque text-md">Forte de +80 années d&apos;expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.</p>
           </div>
           <div className="flex-1">
-            <p className="bricolage-grotesque text-md mb-5">Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.
-              Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative</p>
+            <p className="bricolage-grotesque text-md mb-5">Ici, chaque œuvre, qu&apos;elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.
+              Pour les collectionneurs aguerris comme pour les novices, la possibilité d&apos;acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative</p>
             <Button text="Voir la marketplace" additionalClassName="bg-purpleColor" icon={<ArrowRight />} />
           </div>
         </section>

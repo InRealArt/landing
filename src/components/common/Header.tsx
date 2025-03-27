@@ -14,7 +14,7 @@ const Header = () => {
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
           <li>Pourquoi Nous ?</li>
           <li>White Paper</li>
-          <li>Cas d'usage</li>
+          <li>Cas d&apos;usage</li>
           <li>AirDrop/Testnet</li>
           <li>Blog</li>
         </ul>

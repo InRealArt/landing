@@ -16,7 +16,7 @@ const TeamCard = ({ image, name, role, socials, additionalClassName }: TeamCardP
       <p className="mt-4 inter text-2xl font-semibold">{name}</p>
       <p className="mt-2 inter">{role}</p>
       {socials.map((social, index) => (
-        <Link href={social.link}>
+        <Link key={index} href={social.link}>
           <img src={social.icon} alt="social" />
         </Link>
       ))}

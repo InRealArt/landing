@@ -51,7 +51,7 @@ export default function BioSlider({ items, title, hasArtistName }: BioSliderProp
             <div className='w-full rounded-lg h-auto lg:h-[30rem] flex flex-col lg:flex-row bg-cardBackground'>
               <div className='bg-cover bg-no-repeat bg-center h-96 lg:h-full w-full lg:w-1/3  rounded-lg' style={{ backgroundImage: ` url('${item.image.src}')` }} />
               <div className='p-6 lg:px-20 lg:py-24 flex-1 flex flex-col gap-6'>
-                <h1 className='inter font-bold text-md md:text-lg text-white'>"{item.intro}"</h1>
+                <h1 className='inter font-bold text-md md:text-lg text-white'>&ldquo;{item.intro}&rdquo,</h1>
                 <h2 className='inter text-md font-medium'>{item.description}</h2>
                 <div>
                   <p className='inter font-bold text-md text-white mb-2'>{item.name}</p>

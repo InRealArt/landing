@@ -43,7 +43,7 @@ const Roadmap = () => {
       description: [
         'Final Development of Platform: Complete all platform development, ensuring smooth Shopify integration, advanced fractionalization options, and user-friendly navigation.',
         'Begin Community Gallery Curation: DAO members vote to curate featured galleries based on their artistic preferences ',
-        'Marketing and Partnerships: Secure strategic partnerships with art institutions, galleries, and other RWA projects to expand the platform’s reach.',
+        'Marketing and Partnerships: Secure strategic partnerships with art institutions, galleries, and other RWA projects to expand the platform\'s reach.',
       ]
     }
   ]
@@ -53,7 +53,11 @@ const Roadmap = () => {
         return <div className="flex items-center justify-around mt-20 gap-[70px] lg:gap-[200px]" key={item.title}>
           <h1 className="text-2xl md:text-5xl bricolage-grotesque mb-8 w-1/2 text-right" dangerouslySetInnerHTML={{ __html: item.title }} />
           <ul className="w-1/2">
-            {item.description.map((desc, index) => <li className="flex-1 bricolage-grotesque text-xs md:text-lg flex items-center gap-4 mb-4 leading-[1]"><ArrowRight className="block w-full max-w-[24px] h-auto" /> {desc}</li>)}
+            {item.description.map((desc, index) => (
+              <li key={index} className="flex-1 bricolage-grotesque text-xs md:text-lg flex items-center gap-4 mb-4 leading-[1]">
+                <ArrowRight className="block w-full max-w-[24px] h-auto" /> {desc}
+              </li>
+            ))}
           </ul>
         </div>
       })}
