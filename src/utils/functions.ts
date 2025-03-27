@@ -1,0 +1,40 @@
+import { ArtWork } from "@/types/types";
+import { ref } from "firebase/storage";
+import { getDownloadURL } from "firebase/storage";
+import { storage } from "./firebase";
+
+export async function transformArtworksPhotos(
+    artworks: ArtWork[]
+  ): Promise<ArtWork[]> {
+    const promises = artworks.map(async (artwork) => {
+      return {
+        ...artwork,
+        url: await getUrlPhoto(artwork.image),
+        url2: await getUrlPhoto(artwork.image2),
+        mockups:
+          artwork.mockups?.length > 0
+            ? await Promise.all(
+                artwork.mockups.map(async (art) => await getUrlPhoto(art))
+              )
+            : [],
+      };
+    });
+
+    return Promise.all(promises);
+  }
+
+
+  export async function getUrlPhoto(photo: string): Promise<string> {
+    if (photo === "") {
+      return "";
+    }
+
+    let imageRef: any = null;
+    try {
+      imageRef = ref(storage, photo);
+      const urlPhoto = await getDownloadURL(imageRef);
+      return urlPhoto;
+    } catch (error) {
+      return "";
+    }
+  }

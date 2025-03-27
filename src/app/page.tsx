@@ -9,25 +9,15 @@ import Team from "@/components/home/Team";
 import HowItWorks from "@/components/home/HowItWorks";
 import Explore from "@/components/home/Explore";
 import ArtistSlider from "@/components/home/ArtistSlider";
+import ArtworkSlider from "@/components/home/ArtworkSlider";
 
 export default function Home() {
-  const artworkImages = [
-    { image: artworkImage, name: "Artwork 1" },
-    { image: artworkImage, name: "Artwork 2" },
-    { image: artworkImage, name: "Artwork 3" },
-    { image: artworkImage, name: "Artwork 4" },
-    { image: artworkImage, name: "Artwork 1" },
-    { image: artworkImage, name: "Artwork 2" },
-    { image: artworkImage, name: "Artwork 3" },
-    { image: artworkImage, name: "Artwork 4" },
-  ]
-
   return (
     <>
       <Intro />
       <div className="relative bg-gradient max-w-screen-2xl m-auto">
         <ArtistSlider />
-        <Slider context="artwork" items={artworkImages} isReverse />
+        <ArtworkSlider />
       </div>
       <Statistics />
       <Team />

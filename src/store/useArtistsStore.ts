@@ -3,19 +3,19 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db, storage } from '@/utils/firebase'
 import { ListResult, StorageReference, getDownloadURL, listAll, ref } from "firebase/storage";
 
-export interface ArtistImage {
+export interface Artist {
     image: string
     name: string
     // Ajoutez d'autres propriétés si nécessaires selon la structure de allArtists_
 }
 
-interface ArtistImagesState {
-    artistImages: ArtistImage[]
+interface ArtistsState {
+    artists: Artist[]
     isLoading: boolean
     hasError: boolean
     errorMessage: string | null
     fetchArtists: () => Promise<void>
-    getArtistByName: (name: string) => ArtistImage | undefined
+    getArtistByName: (name: string) => Artist | undefined
 }
 
 const getUrl = async (image: string) => {
@@ -24,8 +24,8 @@ const getUrl = async (image: string) => {
 }
 
 
-export const useArtistImagesStore = create<ArtistImagesState>((set, get) => ({
-    artistImages: [],
+export const useArtistImagesStore = create<ArtistsState>((set, get) => ({
+    artists: [],
     isLoading: false,
     hasError: false,
     errorMessage: null,
@@ -36,19 +36,16 @@ export const useArtistImagesStore = create<ArtistImagesState>((set, get) => ({
         try {
             const artistsCollection = collection(db, 'Artists')
             const artistsSnapshot = await getDocs(artistsCollection)
-            console.log("artistsSnapshot : ", artistsSnapshot.docs)
-
-            let allArtists: ArtistImage[] = []
+            
+            let allArtists: Artist[] = []
 
             // Traitement de chaque document
             for (const doc of artistsSnapshot.docs) {
                 const data = doc.data()
-                console.log("data : ", data)
-
+                
                 // Récupérer le tableau d'artistes
                 const docArtists = data['artists'] || []
-                console.log("allArtists_ : ", docArtists)
-
+            
                 // Traitement des images
                 for (let i = 0; i < docArtists.length; i++) {
                     const imageName = docArtists[i].image
@@ -60,8 +57,7 @@ export const useArtistImagesStore = create<ArtistImagesState>((set, get) => ({
                 allArtists = [...allArtists, ...docArtists]
             }
 
-            console.log("artists : ", allArtists)
-            set({ artistImages: allArtists, isLoading: false })
+            set({ artists: allArtists, isLoading: false })
         } catch (error) {
             console.error('Erreur lors de la récupération des images des artistes:', error)
             set({
@@ -73,8 +69,8 @@ export const useArtistImagesStore = create<ArtistImagesState>((set, get) => ({
     },
 
     getArtistByName: (name: string) => {
-        const { artistImages } = get()
-        return artistImages.find(artist =>
+        const { artists } = get()
+        return artists.find(artist =>
             artist.name.toLowerCase() === name.toLowerCase()
         )
     }
