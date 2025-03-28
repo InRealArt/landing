@@ -1,9 +1,6 @@
 import { create } from 'zustand'
-import { collection, getDocs } from 'firebase/firestore'
-import { db, storage } from '@/utils/firebase'
-import { getDownloadURL, ref } from 'firebase/storage'
-import { Lang, TeamMemberData } from '@/types/types'
-import { transformMemberPhotos } from '@/utils/functions'
+import { Lang, TeamMemberData as AppTeamMemberData } from '@/types/types'
+import { getTeamMembers, TeamMemberData as PrismaTeamMemberData } from '@/actions/teamActions'
 
 export interface TeamMember {
     photo: string
@@ -13,16 +10,36 @@ export interface TeamMember {
 }
 
 interface TeamState {
-    members: TeamMemberData
+    members: AppTeamMemberData
     isLoading: boolean
     hasError: boolean
     errorMessage: string | null
     fetchTeamMembers: () => Promise<void>
 }
 
-const getUrl = async (image: string) => {
-    const imageRef = ref(storage, `team/${image}`)
-    return await getDownloadURL(imageRef)
+// Interface pour les données retournées par Prisma
+interface TeamMemberPrisma {
+    firstName: string
+    lastName: string
+    role: string
+    photoUrl1: string | null
+    description: string | null
+    intro: string | null
+    linkedinUrl: string | null
+    instagramUrl: string | null
+    facebookUrl: string | null
+    githubUrl: string | null
+    twitterUrl: string | null
+    websiteUrl: string | null
+}
+
+// Fonction pour créer un objet avec les langues
+const createLangObject = (value: string): Record<Lang, string> => {
+    return {
+        FR: value,
+        EN: value,
+        CN: value
+    }
 }
 
 export const useTeamStore = create<TeamState>((set, get) => ({
@@ -35,18 +52,25 @@ export const useTeamStore = create<TeamState>((set, get) => ({
         set({ isLoading: true, hasError: false, errorMessage: null })
 
         try {
-            const teamCollection = collection(db, 'Team')
-            const teamSnapshot = await getDocs(teamCollection)
+            // Récupérer les membres de l'équipe via le server action
+            const teamMembers = await getTeamMembers()
 
-            let allMembers: TeamMember[] = []
+            // Transformer les données au format attendu par l'application
+            const formattedMembers: AppTeamMemberData = teamMembers.map((member: PrismaTeamMemberData) => ({
+                name: `${member.firstName} ${member.lastName}`,
+                photo: member.photoUrl1 || '',
+                role: createLangObject(member.role),
+                text1: createLangObject(member.intro || ''),
+                text2: createLangObject(member.description || ''),
+                linkedinUrl: member.linkedinUrl || undefined,
+                instagramUrl: member.instagramUrl || undefined,
+                facebookUrl: member.facebookUrl || undefined,
+                githubUrl: member.githubUrl || undefined,
+                twitterUrl: member.twitterUrl || undefined,
+                websiteUrl: member.websiteUrl || undefined
+            }))
 
-            const teamData = teamSnapshot.docs.map(doc => doc.data());
-            let members_ = teamData[0]['members'] as TeamMemberData
-            const members_tmp = await transformMemberPhotos(members_)
-            const title_ = teamData[0]['title'] as Record<Lang, string>
-
-            console.log('members_tmp : ', members_tmp)
-            set({ members: members_tmp, isLoading: false })
+            set({ members: formattedMembers, isLoading: false })
         } catch (error) {
             console.error('Erreur lors de la récupération des membres de l\'équipe:', error)
             set({

@@ -1,26 +1,74 @@
 'use client'
 
+import { useEffect } from 'react'
 import BioSlider from '@/components/common/slider/BioSlider'
 import TeamCard from '@/components/common/cards/TeamCard'
-import { TeamMemberData } from '@/types/types'
+import { useTeamStore } from '@/store/useTeamStore'
 
-interface TeamContentProps {
-  members: TeamMemberData
+interface SocialLink {
+  link: string
+  icon: string
 }
 
-export default function TeamContent({ members }: TeamContentProps) {
+export default function TeamContent() {
+  const { members, isLoading, hasError, errorMessage, fetchTeamMembers } = useTeamStore()
+
+  useEffect(() => {
+    fetchTeamMembers()
+  }, [fetchTeamMembers])
+
+  if (isLoading) {
+    return <div className="text-center py-10">Chargement en cours...</div>
+  }
+
+  if (hasError) {
+    return <div className="text-center py-10 text-red-500">
+      Une erreur est survenue: {errorMessage || 'Erreur inconnue'}
+    </div>
+  }
+
   if (!members || members.length === 0) {
     return <div className="text-center py-10">Aucun membre d'équipe trouvé.</div>
   }
 
-  const teamItems = members.map(member => ({
-    socials: [],
-    image: { src: member.photo },
-    name: member.name,
-    role: member.role.FR,
-    intro: member.text1.FR,
-    description: member.text2.FR
-  }))
+  const teamItems = members.map(member => {
+    // Préparation des liens sociaux depuis les données
+    const socials: SocialLink[] = []
+    
+    // Ajouter les réseaux sociaux disponibles
+    if (member?.linkedinUrl) {
+      socials.push({ link: member.linkedinUrl, icon: '/images/icons/linkedin.svg' })
+    }
+    
+    if (member?.instagramUrl) {
+      socials.push({ link: member.instagramUrl, icon: '/images/icons/instagram.svg' })
+    }
+    
+    if (member?.facebookUrl) {
+      socials.push({ link: member.facebookUrl, icon: '/images/icons/facebook.svg' })
+    }
+    
+    if (member?.githubUrl) {
+      socials.push({ link: member.githubUrl, icon: '/images/icons/github.svg' })
+    }
+    
+    if (member?.twitterUrl) {
+      socials.push({ link: member.twitterUrl, icon: '/images/icons/twitter.svg' })
+    }
+    
+    if (member?.websiteUrl) {
+      socials.push({ link: member.websiteUrl, icon: '/images/icons/globe.svg' })
+    }
+    
+    return {
+      socials,
+      image: { src: member.photo },
+      name: member.name,
+      role: member.role.FR,
+      intro: member.text1.FR,
+      description: member.text2.FR
+    }
+  })
 
   return (
     <>

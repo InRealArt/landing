@@ -22,5 +22,11 @@ export type TeamMemberData = {
     role: Record<Lang, string>
     name: string
     photo: string
+    linkedinUrl?: string
+    instagramUrl?: string
+    facebookUrl?: string
+    githubUrl?: string
+    twitterUrl?: string
+    websiteUrl?: string
 }[];
 
