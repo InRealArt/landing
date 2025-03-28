@@ -1,24 +1,23 @@
+'use client'
 import Image from 'next/image'
 import Logo from '/icons/Logo.png';
 import Button from '../Button';
 import Question from './subcomponents/Question';
 import { titleClassName } from '@/utils/classes';
+import { useFaqStore } from '@/store/useFaqStore';
+import { useEffect } from 'react';
 
 const FAQ = () => {
-  const faq = [
-    {
-      question: 'Comment fonctionne InRealArt ?',
-      answer: 'InRealArt est une plateforme de NFT qui permet aux artistes de vendre leurs œuvres sous forme de NFT. Les acheteurs peuvent'
-    },
-    {
-      question: 'Pour qui ?',
-      answer: 'InRealArt est une plateforme de NFT qui permet aux artistes de vendre leurs œuvres sous forme de NFT. Les acheteurs peuvent'
-    },
-    {
-      question: 'Y a t’il un guide de démarrage ?',
-      answer: 'InRealArt est une plateforme de NFT qui permet aux artistes de vendre leurs œuvres sous forme de NFT. Les acheteurs peuvent'
-    }
-  ]
+  const { faqs, isLoading, hasError, fetchFaqs } = useFaqStore();
+  
+  useEffect(() => {
+    fetchFaqs();
+  }, [fetchFaqs]);
+  
+  // Utiliser les données du store si disponibles, sinon utiliser les données par défaut
+  // Trier les items par le champ order pour s'assurer que l'ordre est respecté
+  const faqItems = faqs.sort((a, b) => a.order - b.order);
+
   return (
     <section className="w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl">
       <div className='w-full md:w-1/3'>
@@ -27,8 +26,8 @@ const FAQ = () => {
         <Button text="Consulter la FAQ" additionalClassName="bg-purpleColor mt-8" />
       </div>
       <div className='h-full w-full md:w-2/3'>
-        {faq.map((item, index) => (
-          <Question key={index} question={item.question} answer={item.answer} />
+        {faqItems.map((item, index) => (
+          <Question key={item.id} question={item.question} answer={item.answer} />
         ))}
       </div>
     </section>
