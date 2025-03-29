@@ -1,34 +1,64 @@
+'use client'
+import { useEffect } from 'react';
 import BioSlider from "@/components/common/slider/BioSlider";
-import teamMember from "../../../public/images/artist-slider.png";
-import artworkImage from "../../../public/images/artwork.png";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import Button from "@/components/common/Button";
 import { ArrowRight } from "lucide-react";
+import { useArtistStore } from '@/store/useArtistStore';
+import Image from 'next/image';
 
 export default function Artists() {
-  const teamImages = [
-    { image: teamMember, name: 'Boucheix François', role: 'Mouvement Artistique', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
-    { image: teamMember, name: 'Gilles Bruno', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
-    { image: teamMember, name: 'Nino Lamoureux', role: 'CTO', intro: "Passionné par l'art et les hommes, je m'inspire de la perfection artistique pour m'améliorer sans cesse, poursuivant inlassablement mes objectifs avec un esprit autodidacte", description: "Enrichi par mes expériences en finance et passionné par l'art, je rêve de créer un projet innovant et inclusif pour tous. Mon parcours m'inspire à mêler expertise financière et expression artistique, dans la quête d&apos;un avenir meilleur et partagé." },
-  ]
+  const { 
+    artists, 
+    fetchArtists, 
+    isLoading, 
+    hasError, 
+    setCurrentArtistIndex, 
+    getCurrentArtistArtworks 
+  } = useArtistStore();
 
-  const artworkImages = [
-    { image: artworkImage, name: "Artist 1", price: 10000 },
-    { image: artworkImage, name: "Artist 2", price: 10000 },
-    { image: artworkImage, name: "Artist 3", price: 10000 },
-    { image: artworkImage, name: "Artist 4", price: 10000 },
-    { image: artworkImage, name: "Artist 5", price: 10000 },
-    { image: artworkImage, name: "Artist 6", price: 10000 },
-  ]
+  useEffect(() => {
+    fetchArtists();
+  }, [fetchArtists]);
+
+  const formattedArtists = artists.map(artist => ({
+    name: artist.name,
+    role: artist.role,
+    intro: artist.intro,
+    description: artist.description,
+    image: { src: artist.photo }
+  }));
+
+  const artworkImages = getCurrentArtistArtworks().map(artwork => ({
+    ...artwork,
+    image: { src: artwork.image }
+  }));
+
+  if (isLoading) {
+    return <div className="mt-headerSize text-center">Chargement des artistes...</div>;
+  }
+
+  if (hasError) {
+    return <div className="mt-headerSize text-center">Erreur lors du chargement des artistes</div>;
+  }
+
+  if (artists.length === 0) {
+    return <div className="mt-headerSize text-center">Aucun artiste trouvé</div>;
+  }
 
   return (
     <>
       <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
-        <BioSlider items={teamImages} title="Qui est" hasArtistName />
+        <BioSlider 
+          items={formattedArtists} 
+          title="Qui est" 
+          hasArtistName 
+          onSlideChange={setCurrentArtistIndex} 
+        />
         <div className="mt-20">
           <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>Découvrez les œuvres de notre artiste</h1>
-          <div className="flex flex-wrap gap-4 ">
-            {artworkImages.map((item) => <ArtworkCard key={item.name} {...item} />)}
+          <div className="flex flex-wrap gap-4">
+            {artworkImages.map((item, index) => <ArtworkCard key={`${item.name}-${index}`} {...item} />)}
           </div>
         </div>
 

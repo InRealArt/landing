@@ -19,13 +19,21 @@ interface BioSliderProps {
   title: string;
   items: TeamInfos[];
   hasArtistName?: boolean;
+  onSlideChange?: (index: number) => void;
 }
 
-export default function BioSlider({ items, title, hasArtistName }: BioSliderProps) {
+export default function BioSlider({ items, title, hasArtistName, onSlideChange }: BioSliderProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const swiperRef = useRef<any>(null);
   const leftDisabled: boolean = activeSlide <= 0;
   const rightDisabled: boolean = activeSlide >= items.length - 1;
+
+  const handleSlideChange = (index: number) => {
+    setActiveSlide(index);
+    if (onSlideChange) {
+      onSlideChange(index);
+    }
+  };
 
   return (
     <>
@@ -37,11 +45,10 @@ export default function BioSlider({ items, title, hasArtistName }: BioSliderProp
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        onSlideChange={(swiper) =>
-          setActiveSlide(
-            swiper.isEnd ? items.length - 1 : swiperRef.current.activeIndex
-          )
-        }
+        onSlideChange={(swiper) => {
+          const index = swiper.isEnd ? items.length - 1 : swiper.activeIndex;
+          handleSlideChange(index);
+        }}
         slidesPerView={1}
         centeredSlidesBounds
         centeredSlides
