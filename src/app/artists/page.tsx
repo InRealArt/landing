@@ -31,7 +31,7 @@ export default function Artists() {
 
   const artworkImages = getCurrentArtistArtworks().map(artwork => ({
     ...artwork,
-    image: { src: artwork.image }
+    image: { src: artwork.url }
   }));
 
   if (isLoading) {

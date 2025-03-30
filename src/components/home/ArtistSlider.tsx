@@ -3,10 +3,9 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import Slider from './Slider'
-import { useArtistImagesStore  } from '@/store/useArtistsStore'
-
+import { useArtistStore } from '@/store/useArtistStore'
 function ArtistSlider() {
-  const { artists, isLoading, hasError, fetchArtists } = useArtistImagesStore()
+  const { artists, isLoading, hasError, fetchArtists } = useArtistStore()
 
   useEffect(() => {
     fetchArtists()
@@ -15,8 +14,9 @@ function ArtistSlider() {
   // Adapter les données pour les rendre compatibles avec le composant Slider
   const formattedArtistImages = artists.map(artist => ({
     name: artist.name,
+    description: artist.description,
     image: {
-      src: artist.image
+      src: artist.photo
     }
   }))
 

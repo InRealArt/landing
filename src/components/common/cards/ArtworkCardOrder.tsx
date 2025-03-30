@@ -15,7 +15,6 @@ const ArtworkCardOrder = ({ image, name, price }: ArtworkCardOrderProps) => {
       <div className="bg-cover m-auto bg-no-repeat bg-top h-80 md:h-96 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
       <div className="flex justify-between">
         <p className="mt-4">{name}</p>
-        <p className="mt-4 text-right"><b>Prix actuel</b> <br/> {price} €</p>
       </div>
       <Button additionalClassName="mt-6 w-full text-center justify-center bg-purpleColor" text="Voir tout" />
     </div>

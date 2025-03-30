@@ -24,6 +24,7 @@ export async function getArtists(): Promise<ArtistData[]> {
                 id: true,
                 name: true,
                 surname: true,
+                description: true,
                 artworkStyle: true,
                 artistsPage: true,
                 imageUrl: true,
@@ -32,7 +33,7 @@ export async function getArtists(): Promise<ArtistData[]> {
                 artworkImages: true
             }
         })
-        console.log('artists', artists)
+        console.log('artistsssssss', artists)
         return artists
     } catch (error) {
         console.error('Erreur lors de la récupération des artistes:', error)

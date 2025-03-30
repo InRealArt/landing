@@ -12,12 +12,16 @@ export interface ArtistData {
     artworkImages: {
         image: string
         name: string
-        price: number
+        price?: number
+        url: string
     }[]
 }
 
 interface ArtistState {
+    // Données des artistes transformées pour l'application
     artists: ArtistData[]
+    // Données brutes des artistes issues de Prisma
+    rawArtists: PrismaArtistData[]
     currentArtistIndex: number
     isLoading: boolean
     hasError: boolean
@@ -25,11 +29,14 @@ interface ArtistState {
     fetchArtists: () => Promise<void>
     setCurrentArtistIndex: (index: number) => void
     getCurrentArtist: () => ArtistData | undefined
-    getCurrentArtistArtworks: () => { image: string, name: string, price: number }[] | []
+    getCurrentArtistArtworks: () => { image: string, name: string, price: number, url: string }[] | []
+    // Méthode de l'ancien useArtistsStore
+    getArtistByName: (name: string) => PrismaArtistData | undefined
 }
 
 export const useArtistStore = create<ArtistState>((set, get) => ({
     artists: [],
+    rawArtists: [],
     currentArtistIndex: 0,
     isLoading: false,
     hasError: false,
@@ -41,6 +48,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         try {
             // Récupérer les artistes via le server action
             const artistsData = await getArtists()
+            // Stocker les données brutes
+            set({ rawArtists: artistsData })
 
             // Transformer les données au format attendu par l'application
             const formattedArtists: ArtistData[] = artistsData.map((artist: PrismaArtistData) => {
@@ -53,7 +62,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     photo: artist.imageUrl || '',
                     role: styleText || 'Artiste',
                     intro: styleText.substring(0, 150),
-                    description: styleText,
+                    description: (artist as any).description || styleText,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -80,8 +89,23 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
 
     getCurrentArtistArtworks: () => {
         const { artists, currentArtistIndex } = get()
-        return currentArtistIndex >= 0 && currentArtistIndex < artists.length
+        const artworks = currentArtistIndex >= 0 && currentArtistIndex < artists.length
             ? artists[currentArtistIndex].artworkImages || []
             : []
+
+        // Ajout d'un prix par défaut si non présent et assurer que image/url sont présents
+        return artworks.map(artwork => ({
+            ...artwork,
+            price: artwork.price || 0,
+            url: artwork.url || artwork.image || '' // Utiliser url s'il existe, sinon image
+        }))
+    },
+
+    // Méthode de l'ancien useArtistsStore
+    getArtistByName: (name: string) => {
+        const { rawArtists } = get()
+        return rawArtists.find(artist =>
+            artist.name.toLowerCase() === name.toLowerCase()
+        )
     }
 })) 
