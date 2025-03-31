@@ -85,12 +85,14 @@ export default function Marketplace() {
         >
           {steps.map((step, index) => (
             <SwiperSlide key={index}>
-              <div className="w-full rounded-lg p-10 md:p-16 bg-gradient-to-r from-[#1E1E1E] via-[#2E287A] to-[#1E1E1E]">
-                <div className="max-w-3xl mx-auto text-center">
+              <div className="w-full rounded-lg p-10 md:p-16 bg-gradient-to-r from-[#1E1E1E] via-[#2E287A] to-[#1E1E1E] h-full">
+                <div className="max-w-3xl mx-auto text-center flex flex-col">
                   <h3 className="text-6xl md:text-8xl bricolage-grotesque text-white mb-4">{step.number}</h3>
                   <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-white mb-6">{step.title}</h4>
                   <p className="text-sm md:text-base inter text-white leading-relaxed">{step.description}</p>
-                  <div className="h-0.5 w-64 bg-white/20 mx-auto mt-10"></div>
+                  <div className="flex mt-10 justify-between">
+                  {steps.map((_step, index) => <div onClick={() => swiperRef.current?.slideTo(index)} className={`${activeSlide === index ? '!bg-white' : ''} h-1.5 w-1/4 bg-black/20 `}></div>)}
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
@@ -125,10 +127,10 @@ export default function Marketplace() {
               Achetez, vendez, ou investissez dans des œuvres d'art avec une garantie de
               provenance et une sécurité sans compromis.
             </p>
-            <Button 
-              text="Consulter la FAQ" 
-              additionalClassName="bg-purpleColor" 
-              icon={<ArrowRight />} 
+            <Button
+              text="Consulter la FAQ"
+              additionalClassName="bg-purpleColor"
+              icon={<ArrowRight />}
             />
           </div>
           <div className="w-full md:w-1/2">
