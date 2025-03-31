@@ -97,3 +97,9 @@ body {
   border-radius: 50%;
   left: -11px;
 }
+
+.stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.30);
+  text-stroke: 1px rgba(255, 255, 255, 0.30);
+  text-shadow: 0 0 13px #ffffff08;
+}

@@ -23,7 +23,7 @@ const FAQ = () => {
       <div className='w-full md:w-1/3'>
         <h1 className={titleClassName}>FAQ</h1>
         <p className='mt-8'>Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ</p>
-        <Button text="Consulter la FAQ" additionalClassName="bg-purpleColor mt-8" />
+        <Button text="Consulter la FAQ" additionalClassName="bg-purpleColor mt-8" link='/faq'/>
       </div>
       <div className='h-full w-full md:w-2/3'>
         {faqItems.map((item, index) => (

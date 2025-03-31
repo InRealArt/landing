@@ -13,6 +13,8 @@ export default function Team() {
   
   useEffect(() => {
     fetchTeamMembers();
+    console.log('fetchTeamMembers');
+    
   }, [fetchTeamMembers]);
   
   // Données temporaires pour l'affichage en attendant le chargement depuis Firebase

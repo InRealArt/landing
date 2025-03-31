@@ -26,6 +26,7 @@ export default function Prestige() {
             text="Consulter la FAQ"
             additionalClassName="bg-purpleColor"
             icon={<ArrowRight />}
+            link='/faq'
           />
         </div>
         <div className="w-full md:w-1/2">

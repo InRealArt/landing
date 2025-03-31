@@ -12,11 +12,11 @@ const Header = () => {
           <Image src={`/icons/Logo.png`} alt='IRA-LOGO' width="101" height="32" />
         </Link>
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
-          <li>Pourquoi Nous ?</li>
-          <li>White Paper</li>
-          <li>Cas d&apos;usage</li>
-          <li>AirDrop/Testnet</li>
-          <li>Blog</li>
+          <Link href="/faq">Pourquoi Nous ?</Link>
+          <Link href="/whitepaper">White Paper</Link>
+          <Link href="/usecase">Cas d&apos;usage</Link>
+          <Link href="/airdrop">AirDrop/Testnet</Link>
+          <Link href="/blog">Blog</Link>
         </ul>
         <div>
         <Button text="Pre-sales" additionalClassName="bg-purpleColor" icon={<ArrowRight />} center link="/presale" />

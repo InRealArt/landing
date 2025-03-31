@@ -24,6 +24,7 @@ export default {
       },
       spacing: {
         headerSize: "calc(var(--header-height) + 4rem)",
+        fullMinusHeader: "calc(100% - 200px)",
         90: '91.666667%',
         65: '65%',
         30: '30%',
