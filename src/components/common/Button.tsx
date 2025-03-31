@@ -28,6 +28,7 @@ const Button = ({
     return (
       <Link className={className} href={link} onClick={action}>
         <span className='unbounded font-semibold'>{text}</span>
+        {icon}
       </Link>
     );
 
