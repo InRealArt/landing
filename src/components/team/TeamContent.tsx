@@ -28,7 +28,7 @@ export default function TeamContent() {
   }
 
   if (!members || members.length === 0) {
-    return <div className="text-center py-10">Aucun membre d'équipe trouvé.</div>
+    return <div className="text-center py-10">Aucun membre d&apos;équipe trouvé.</div>
   }
 
   const teamItems = members.map(member => {

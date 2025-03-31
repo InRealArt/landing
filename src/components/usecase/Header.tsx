@@ -32,7 +32,7 @@ export default function Header() {
             Case studies
           </h1>
           <p className="text-lg md:text-xl inter text-gray-300">
-            Une plateforme conçue pour les artistes, par des passionnés d'art.
+            Une plateforme conçue pour les artistes, par des passionnés d&apos;art.
           </p>
         </div>
         

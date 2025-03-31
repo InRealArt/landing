@@ -12,7 +12,7 @@ const Header = () => {
           <Image src={`/icons/Logo.png`} alt='IRA-LOGO' width="101" height="32" />
         </Link>
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
-          <Link href="/faq">Pourquoi Nous ?</Link>
+          <Link href="/">Pourquoi Nous ?</Link>
           <Link href="/whitepaper">White Paper</Link>
           <Link href="/usecase">Cas d&apos;usage</Link>
           <Link href="/airdrop">AirDrop/Testnet</Link>

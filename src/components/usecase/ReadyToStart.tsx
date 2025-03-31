@@ -28,7 +28,7 @@ export default function ReadyToStart() {
         Ready to give a go ?
       </h2>
       <p className="text-md md:text-lg inter text-gray-300 mb-10">
-        Explorez une collection unique de toiles physiques et de sculpture rare, de leurs copies numériques (NFT), accompagnées de leurs droits d'auteur.
+        Explorez une collection unique de toiles physiques et de sculpture rare, de leurs copies numériques (NFT), accompagnées de leurs droits d&apos;auteur.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

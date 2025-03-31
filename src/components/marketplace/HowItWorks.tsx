@@ -55,7 +55,7 @@ export default function HowItWorks() {
                 <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-white mb-6">{step.title}</h4>
                 <p className="text-sm md:text-base inter text-white leading-relaxed">{step.description}</p>
                 <div className="flex mt-10 justify-between">
-                {steps.map((_step, index) => <div onClick={() => swiperRef.current?.slideTo(index)} className={`${activeSlide === index ? '!bg-white' : ''} h-1.5 w-1/4 bg-black/20 cursor-pointer`}></div>)}
+                {steps.map((step, index) => <div key={step.number} onClick={() => swiperRef.current?.slideTo(index)} className={`${activeSlide === index ? '!bg-white' : ''} h-1.5 w-1/4 bg-black/20 cursor-pointer`}></div>)}
                 </div>
               </div>
             </div>

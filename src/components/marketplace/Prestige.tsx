@@ -13,13 +13,13 @@ export default function Prestige() {
           <h3 className="text-lg md:text-xl bricolage-grotesque mb-2">Authenticité et Traçabilité Inégalées</h3>
           <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-6">
             InRealArt : Un Marché de<br />
-            Confiance pour l'Art de<br />
+            Confiance pour l&apos;Art de<br />
             Prestige
           </h2>
           <p className="inter text-sm md:text-base mb-8 text-gray-300 max-w-xl">
-            InRealArt transforme le marché de l'art haut de gamme en offrant une marketplace où
-            la transparence, l'authenticité et l'exclusivité sont au cœur de chaque transaction.
-            Achetez, vendez, ou investissez dans des œuvres d'art avec une garantie de
+            InRealArt transforme le marché de l&apos;art haut de gamme en offrant une marketplace où
+            la transparence, l&apos;authenticité et l&apos;exclusivité sont au cœur de chaque transaction.
+            Achetez, vendez, ou investissez dans des œuvres d&apos;art avec une garantie de
             provenance et une sécurité sans compromis.
           </p>
           <Button
