@@ -48,6 +48,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         try {
             // Récupérer les artistes via le server action
             const artistsData = await getArtists()
+            console.log('artistsData', artistsData)
             // Stocker les données brutes
             set({ rawArtists: artistsData })
 
@@ -61,8 +62,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     name: `${artist.name} ${artist.surname}`,
                     photo: artist.imageUrl || '',
                     role: styleText || 'Artiste',
-                    intro: styleText.substring(0, 150),
-                    description: (artist as any).description || styleText,
+                    intro: (artist as any).intro,
+                    description: (artist as any).description,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -88,16 +89,40 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
     },
 
     getCurrentArtistArtworks: () => {
-        const { artists, currentArtistIndex } = get()
-        const artworks = currentArtistIndex >= 0 && currentArtistIndex < artists.length
-            ? artists[currentArtistIndex].artworkImages || []
-            : []
+        const { artists, currentArtistIndex, rawArtists } = get()
 
-        // Ajout d'un prix par défaut si non présent et assurer que image/url sont présents
-        return artworks.map(artwork => ({
-            ...artwork,
+        if (currentArtistIndex < 0 || currentArtistIndex >= artists.length) {
+            return []
+        }
+
+        const currentArtist = artists[currentArtistIndex]
+        const rawArtist = rawArtists.find(artist => artist.id === currentArtist.id)
+
+        if (!rawArtist || !rawArtist.artworkImages) {
+            return []
+        }
+
+        // Tenter de parser les artworkImages si c'est une chaîne JSON
+        let artworkImagesArray = []
+        try {
+            if (typeof rawArtist.artworkImages === 'string') {
+                artworkImagesArray = JSON.parse(rawArtist.artworkImages)
+            } else {
+                artworkImagesArray = Array.isArray(rawArtist.artworkImages)
+                    ? rawArtist.artworkImages
+                    : [rawArtist.artworkImages]
+            }
+        } catch (error) {
+            console.error('Erreur lors du parsing des images d\'œuvres d\'art:', error)
+            artworkImagesArray = []
+        }
+
+        // Normaliser les données pour correspondre au format attendu
+        return artworkImagesArray.map((artwork: any) => ({
+            image: artwork.image || '',
+            name: artwork.name || 'Sans titre',
             price: artwork.price || 0,
-            url: artwork.url || artwork.image || '' // Utiliser url s'il existe, sinon image
+            url: artwork.url || artwork.image || ''
         }))
     },
 

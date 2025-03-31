@@ -72,15 +72,28 @@ model Artist {
   name            String
   surname         String
   pseudo          String   @unique
-  artworkImages   Json     @default("[]")
   intro           String?
   description     String   @unique
   artworkStyle    String?
-  artistsPage     Boolean? @default(false)
   publicKey       String   @unique
   imageUrl        String   @unique
   isGallery       Boolean  @default(false)
   backgroundImage String?
+  LandingArtist   LandingArtist[]
 
   @@schema("public")
+}
+
+model LandingArtist {
+  id            Int      @id @default(autoincrement())
+  intro         String?
+  artworkImages Json     @default("[]")
+  artworkStyle  String?
+  artistsPage   Boolean? @default(false)
+  imageUrl      String   @unique
+  artistId      Int
+  artist        Artist   @relation(fields: [artistId], references: [id])
+
+  @@index([artistId])
+  @@schema("landing")
 }
