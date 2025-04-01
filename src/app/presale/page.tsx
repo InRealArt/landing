@@ -1,24 +1,50 @@
+'use client'
+import { useEffect } from 'react'
 import Intro from "@/components/presale/Intro";
-import artworkImage from "../../../public/images/artwork.png";
-import Explore from "@/components/home/Explore";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import Button from "@/components/common/Button";
 import BuyProcess from "@/components/presale/BuyProcess";
+import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 
 export default function Presale() {
-  const artworkImages = [
-    { image: artworkImage, name: "Artist 1", price: 10000 },
-    { image: artworkImage, name: "Artist 2", price: 10000 },
-    { image: artworkImage, name: "Artist 3", price: 10000 },
-    { image: artworkImage, name: "Artist 4", price: 10000 },
-    { image: artworkImage, name: "Artist 5", price: 10000 },
-    { image: artworkImage, name: "Artist 6", price: 10000 },
-    { image: artworkImage, name: "Artist 7", price: 10000 },
-    { image: artworkImage, name: "Artist 8", price: 10000 },
-    { image: artworkImage, name: "Artist 9", price: 10000 },
-    { image: artworkImage, name: "Artist 10", price: 10000 },
-  ]
+  const { 
+    artworks,
+    fetchPresaleArtworks, 
+    isLoading, 
+    hasError 
+  } = usePresaleArtworkStore()
 
+  useEffect(() => {
+    fetchPresaleArtworks()
+  }, [fetchPresaleArtworks])
+
+  const artworkImages = artworks.map(artwork => ({
+    image: { src: artwork.url },
+    name: artwork.name,
+    price: artwork.price
+  }))
+
+  if (isLoading) {
+    return (
+      <>
+        <Intro />
+        <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
+          Chargement des œuvres...
+        </div>
+      </>
+    )
+  }
+
+  if (hasError) {
+    return (
+      <>
+        <Intro />
+        <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
+          Erreur lors du chargement des œuvres
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
@@ -29,10 +55,9 @@ export default function Presale() {
           <Button additionalClassName="mt-10" text="Voir tout" />
         </div>
         <div className="flex flex-wrap gap-4">
-          {artworkImages.map((item) => <ArtworkCard key={item.name} {...item} />)}
+          {artworkImages.map((item, index) => <ArtworkCard key={`${item.name}-${index}`} {...item} />)}
         </div>
-        <BuyProcess />
-
+        {/* <BuyProcess /> */}
       </div>
     </>
   );

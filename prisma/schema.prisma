@@ -80,6 +80,7 @@ model Artist {
   isGallery       Boolean  @default(false)
   backgroundImage String?
   LandingArtist   LandingArtist[]
+  presaleArtworks PresaleArtwork[]
 
   @@schema("public")
 }
@@ -93,6 +94,22 @@ model LandingArtist {
   imageUrl      String   @unique
   artistId      Int
   artist        Artist   @relation(fields: [artistId], references: [id])
+
+  @@index([artistId])
+  @@schema("landing")
+}
+
+
+model PresaleArtwork {
+  id       Int    @id @default(autoincrement())
+  name     String
+  description String?
+  order     Int?
+  artistId  Int
+  price     Int
+  imageUrl    String   @unique
+  mockupUrls  Json     @default("[]")
+  artist   Artist @relation(fields: [artistId], references: [id])
 
   @@index([artistId])
   @@schema("landing")
