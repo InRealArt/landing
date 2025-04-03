@@ -53,7 +53,7 @@ export default function ArtistPage() {
   })()
 
   if (isLoading) {
-    return <div className="mt-headerSize text-center">Chargement de l'artiste...</div>
+    return <div className="mt-headerSize text-center">Chargement de l&quot;artiste...</div>
   }
 
   if (hasError || !artist) {
