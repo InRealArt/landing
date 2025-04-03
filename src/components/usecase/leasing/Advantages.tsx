@@ -8,7 +8,7 @@ export default function Advantages() {
           Simplicité, souplesse et optimisation
         </h2>
         <p className="text-sm inter  mb-8 max-w-lg">
-          Location avec option d'achat (LOA) sur oeuvres d'art
+          Location avec option d&quot;achat (LOA) sur oeuvres d&quot;art
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

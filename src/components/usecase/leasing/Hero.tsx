@@ -35,13 +35,13 @@ export default function Hero() {
           {/* Right Column - Text */}
           <div className="text-lg inter text-gray-200">
             <p className="mb-4">
-              La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.
+              La location avec option d&quot;achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d&quot;art ou du mobilier pour leurs espaces professionnels.
             </p>
             <p className="mb-4">
-              Contrairement à l'achat, elle offre des avantages fiscaux et financiers : les loyers sont déductibles du résultat imposable, réduisant ainsi l'impôt (IS ou IRPP).
+              Contrairement à l&quot;achat, elle offre des avantages fiscaux et financiers : les loyers sont déductibles du résultat imposable, réduisant ainsi l&quot;impôt (IS ou IRPP).
             </p>
             <p>
-              Elle répartit aussi le coût sur la durée du contrat, générant des économies fiscales. À terme, l'acquisition est possible à une valeur résiduelle avantageuse.
+              Elle répartit aussi le coût sur la durée du contrat, générant des économies fiscales. À terme, l&quot;acquisition est possible à une valeur résiduelle avantageuse.
             </p>
           </div>
         </div>
