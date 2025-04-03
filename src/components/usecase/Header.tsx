@@ -3,23 +3,26 @@
 import BG from "../../../public/images/intro-background.png";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Header() {
+  const { t } = useLanguageStore();
+
   const caseStudies = [
     {
-      title: "Fractionnement des œuvres d'art",
+      title: t('usecase.items.collector.title'),
       link: "/usecase/fractionnement"
     },
     {
-      title: "Une marketplace Exclusive",
+      title: t('usecase.items.artist.title'),
       link: "/usecase/marketplace"
     },
     {
-      title: "Fractionnement des œuvres d'art",
+      title: t('usecase.items.investor.title'),
       link: "/usecase/fractionnement-2"
     },
     {
-      title: "Une marketplace Exclusive",
+      title: t('usecase.items.gallery.title'),
       link: "/usecase/marketplace-2"
     }
   ];
@@ -29,10 +32,10 @@ export default function Header() {
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4">
-            Case studies
+            {t('usecase.intro.title')}
           </h1>
           <p className="text-lg md:text-xl inter text-gray-300">
-            Une plateforme conçue pour les artistes, par des passionnés d&apos;art.
+            {t('usecase.intro.subtitle')}
           </p>
         </div>
         
@@ -41,7 +44,7 @@ export default function Header() {
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{caseStudy.title}</h3>
               <Button 
-                text="Voir le Use Case" 
+                text={t('buttons.readMore')} 
                 additionalClassName="bg-purpleColor w-full justify-center" 
                 icon={<ArrowRight />} 
                 link={caseStudy.link}

@@ -1,21 +1,54 @@
+'use client'
+
 import Image from "next/image";
 import Button from "../common/Button";
 import { ArrowRight } from 'lucide-react';
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Explore() {
+  const { t } = useLanguageStore();
+
   const items = [
-    { name: "Very Rare", label: "Forte de +80 années d’expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.", description: "Ici, chaque œuvre, qu&apos;elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.Pour les collectionneurs aguerris comme pour les novices, la possibilité d&apos;acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative" },
-    { name: "Une Marketplace unique", label: "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d&apos;auteur fractionnés. ", description: "Grâce à l'utilisation de la blockchain, nous garantissons la transparence et la sécurité des transactions, tout en permettant une traçabilité claire de chaque pièce. Cette combinaison novatrice offre aux collectionneurs un accès inédit à des œuvres diversifiées et exclusives, tout en offrant la possibilité d&apos;acquérir des droits d&apos;auteur et de participer à un marché artistique de pointe" },
-    { name: "Opportunité d’investissement", label: "L&apos;art est plus qu&apos;une simple passion, c&apos;est aussi une opportunité d&apos;investissement. ", description: "Notre marketplace vous offre la possibilité de diversifier votre portefeuille en acquérant des œuvres d&apos;art physiques et numériques, ainsi que des droits d&apos;auteur. Grâce à la rareté des pièces proposées, chaque acquisition a le potentiel d&apos;augmenter en valeur avec le temps. Que vous soyez un collectionneur débutant ou averti, vous avez ici la chance de faire partie d&apos;un marché dynamique où chaque œuvre peut devenir une source de valorisation à long terme" },
+    { 
+      key: 'rare',
+      name: t('home.explore.items.rare.title'),
+      label: t('home.explore.items.rare.label'),
+      description: t('home.explore.items.rare.description'),
+      buttons: {
+        presales: t('home.explore.items.rare.buttons.presales'),
+        whitepaper: t('home.explore.items.rare.buttons.whitepaper')
+      }
+    },
+    { 
+      key: 'marketplace',
+      name: t('home.explore.items.marketplace.title'),
+      label: t('home.explore.items.marketplace.label'),
+      description: t('home.explore.items.marketplace.description'),
+      buttons: {
+        presales: t('home.explore.items.marketplace.buttons.presales'),
+        whitepaper: t('home.explore.items.marketplace.buttons.whitepaper')
+      }
+    },
+    { 
+      key: 'investment',
+      name: t('home.explore.items.investment.title'),
+      label: t('home.explore.items.investment.label'),
+      description: t('home.explore.items.investment.description'),
+      buttons: {
+        presales: t('home.explore.items.investment.buttons.presales'),
+        whitepaper: t('home.explore.items.investment.buttons.whitepaper')
+      }
+    }
   ]
+
   return (
     <section className="w-full mt-36">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <h1 className="text-lg lg:text-xl bricolage-grotesque flex gap-4 ">
           <Image src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width="33" height="33" />
-          Avec InRealArt
+          {t('home.explore.title')}
         </h1>
-        <label className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug">Explorez une <span className="text-purpleColor">collection unique</span> de <span className="text-purpleColor">toiles physiques</span> et de <span className="text-purpleColor">sculptures</span> <span className="opacity-50 hover:opacity-100">rares, de leurs copies numériques (NFT), accompagnées de leurs droits d&apos;auteur.</span></label>
+        <label className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug" dangerouslySetInnerHTML={{ __html: t('home.explore.subtitle') }} />
       </div>
       <Image className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/explore.png`} alt='IRA-IMAGE' width="1440" height="450" />
 
@@ -23,15 +56,15 @@ export default function Explore() {
         {items.map((item, index) => {
           const reverseClassName = index % 2 !== 0 ? 'md:flex-row-reverse' : '';
           return (
-            <div key={index} className={`w-full flex flex-col md:flex-row gap-6 md:gap-20 mt-28 items-center ${reverseClassName}`}>
+            <div key={item.key} className={`w-full flex flex-col md:flex-row gap-6 md:gap-20 mt-28 items-center ${reverseClassName}`}>
               <div className="basis-1/2">
-                <h1 className="text-2xl lg:text-5xl bricolage-grotesque">{item.name} </h1>
+                <h1 className="text-2xl lg:text-5xl bricolage-grotesque">{item.name}</h1>
                 <label className="my-4 block bricolage-grotesque">{item.label}</label>
               </div>
               <div className="basis-1/2">
                 <label className="my-4 block bricolage-grotesque">{item.description}</label>
-                <Button text="Pre-sales" additionalClassName="bg-purpleColor" icon={<ArrowRight />} center />
-                <Button text="Lire notre whitepaper" additionalClassName="mt-4 md:ml-4 md:mt-0" />
+                <Button text={item.buttons.presales} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center />
+                <Button text={item.buttons.whitepaper} additionalClassName="mt-4 md:ml-4 md:mt-0" />
               </div>
             </div>
           )

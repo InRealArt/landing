@@ -12,7 +12,7 @@ interface SocialLink {
 }
 
 export default function TeamContent() {
-  const { members, isLoading, hasError, errorMessage, fetchTeamMembers } = useTeamStore()
+  const { members, isLoading, hasError, errorMessage, fetchTeamMembers, getTranslatedMembers } = useTeamStore()
   const { t, language } = useLanguageStore()
 
   useEffect(() => {
@@ -21,11 +21,8 @@ export default function TeamContent() {
 
   // Re-exécuter lorsque la langue change pour mettre à jour les traductions
   useEffect(() => {
-    if (members.length > 0) {
-      // Le store gère déjà les traductions, mais nous devons forcer un re-render
-      fetchTeamMembers()
-    }
-  }, [language, members.length, fetchTeamMembers])
+      getTranslatedMembers()
+  }, [language])
 
   if (isLoading) {
     return <div className="text-center py-10">{t('common.loading')}</div>

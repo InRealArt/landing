@@ -5,32 +5,34 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function HowItWorks() {
+  const { t } = useLanguageStore();
   const [activeSlide, setActiveSlide] = useState(0);
   const swiperRef = useRef<any>(null);
 
   const steps = [
     {
-      number: "01",
-      title: "Sélection d'Œuvres Certifiées",
-      description: "En partenariat avec des artistes et galeries de renommée mondiale, InRealArt propose une collection haut de gamme d'œuvres d'art. Celle-ci réunit des créations de grands noms de l'art contemporain, des talents émergents prometteurs ainsi que des œuvres de maîtres incontournables."
+      number: t('marketplace.howItWorks.steps.selection.number'),
+      title: t('marketplace.howItWorks.steps.selection.title'),
+      description: t('marketplace.howItWorks.steps.selection.description')
     },
     {
-      number: "02",
-      title: "Processus de Vérification",
-      description: "Chaque œuvre est soumise à un processus rigoureux de vérification et d'authentification par nos experts."
+      number: t('marketplace.howItWorks.steps.verification.number'),
+      title: t('marketplace.howItWorks.steps.verification.title'),
+      description: t('marketplace.howItWorks.steps.verification.description')
     },
     {
-      number: "03",
-      title: "Tokenisation Sécurisée",
-      description: "Les œuvres sont tokenisées sur la blockchain, créant un certificat de propriété numérique unique et inviolable."
+      number: t('marketplace.howItWorks.steps.tokenization.number'),
+      title: t('marketplace.howItWorks.steps.tokenization.title'),
+      description: t('marketplace.howItWorks.steps.tokenization.description')
     }
   ];
 
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-20">
-      <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-10">Comment ça fonctionne</h2>
+      <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-10">{t('marketplace.howItWorks.title')}</h2>
       <Swiper
         modules={[Pagination]}
         ref={swiperRef}

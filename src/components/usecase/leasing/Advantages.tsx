@@ -1,14 +1,33 @@
-import { advantagesItems } from "@/data/leasing";
+'use client'
+
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Advantages() {
+  const { t } = useLanguageStore();
+
+  const advantagesItems = [
+    {
+      title: t('leasing.advantages.items.0.title'),
+      description: t('leasing.advantages.items.0.description')
+    },
+    {
+      title: t('leasing.advantages.items.1.title'),
+      description: t('leasing.advantages.items.1.description')
+    },
+    {
+      title: t('leasing.advantages.items.2.title'),
+      description: t('leasing.advantages.items.2.description')
+    }
+  ];
+
   return (
     <section className="py-16 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-5xl bricolage-grotesque font-medium mb-4">
-          Simplicité, souplesse et optimisation
+          {t('leasing.advantages.title')}
         </h2>
-        <p className="text-sm inter  mb-8 max-w-lg">
-          Location avec option d&quot;achat (LOA) sur oeuvres d&quot;art
+        <p className="text-sm inter mb-8 max-w-lg">
+          {t('leasing.advantages.subtitle')}
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -6,8 +6,10 @@ import Button from "../common/Button";
 import { ArrowRight } from 'lucide-react';
 import { useTeamStore } from '@/store/useTeamStore';
 import { useEffect, useState } from 'react';
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Team() {
+  const { t } = useLanguageStore();
   const { members, isLoading, fetchTeamMembers } = useTeamStore();
   const [key, setKey] = useState(0); // Ajouter une clé pour forcer le rendu
   
@@ -71,8 +73,8 @@ export default function Team() {
   return (
     <section className="mt-36 max-w-screen-2xl m-auto">
       <div className="max-w-90 xl:max-w-screen-xl md:flex justify-between w-full m-auto items-center">
-        <h1 className="bricolage-grotesque text-4xl md:text-5xl">Découvrez les membres de l&apos;équipe</h1>
-        <Button text="L&apos;équipe" link="/team" additionalClassName="bg-purpleColor mr-6 mt-6 md:mt-0" icon={<ArrowRight />} />
+        <h1 className="bricolage-grotesque text-4xl md:text-5xl">{t('home.team.title')}</h1>
+        <Button text={t('buttons.team')} link="/team" additionalClassName="bg-purpleColor mr-6 mt-6 md:mt-0" icon={<ArrowRight />} />
       </div>
       <Slider 
         key={key} // Ajouter une clé pour forcer le rendu

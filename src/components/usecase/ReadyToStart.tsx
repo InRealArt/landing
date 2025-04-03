@@ -2,22 +2,31 @@
 
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
+import { useLanguageStore } from '@/store/languageStore';
+
+interface Gallery {
+  title: string;
+  description: string;
+  link: string;
+}
 
 export default function ReadyToStart() {
-  const galleries = [
+  const { t } = useLanguageStore();
+
+  const galleries: Gallery[] = [
     {
-      title: "Mais c'est aussi une galerie d'art ouverte à tous",
-      description: "Au-delà du de l'aspect tradition InRealArt c'est aussi le moyen d'acquérir des fractions d'œuvres d'art, de vous proposer des artistes et oeuvres de notre éco-système.",
+      title: t('usecase.items.gallery.title'),
+      description: t('usecase.items.gallery.description'),
       link: "/usecase/gallery"
     },
     {
-      title: "Mais c'est aussi une galerie d'art ouverte à tous",
-      description: "Au-delà du de l'aspect tradition InRealArt c'est aussi le moyen d'acquérir des fractions d'œuvres d'art, de vous proposer des artistes et oeuvres de notre éco-système.",
+      title: t('usecase.items.gallery.title'),
+      description: t('usecase.items.gallery.description'),
       link: "/usecase/gallery-2"
     },
     {
-      title: "Mais c'est aussi une galerie d'art ouverte à tous",
-      description: "Au-delà du de l'aspect tradition InRealArt c'est aussi le moyen d'acquérir des fractions d'œuvres d'art, de vous proposer des artistes et oeuvres de notre éco-système.",
+      title: t('usecase.items.gallery.title'),
+      description: t('usecase.items.gallery.description'),
       link: "/usecase/gallery-3"
     }
   ];
@@ -25,10 +34,10 @@ export default function ReadyToStart() {
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-32 mb-20">
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
-        Ready to give a go ?
+        {t('usecase.items.gallery.title')}
       </h2>
       <p className="text-base md:text-lg inter text-gray-300 mb-10">
-        Explorez une collection unique de toiles physiques et de sculpture rare, de leurs copies numériques (NFT), accompagnées de leurs droits d&apos;auteur.
+        {t('usecase.items.gallery.description')}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -37,7 +46,7 @@ export default function ReadyToStart() {
             <h3 className="text-xl bricolage-grotesque font-medium mb-4">{gallery.title}</h3>
             <p className="text-sm inter mb-6">{gallery.description}</p>
             <Button 
-              text="Voir le Use Case" 
+              text={t('buttons.readMore')} 
               additionalClassName="bg-purpleColor w-full justify-center" 
               icon={<ArrowRight />} 
               link={gallery.link}

@@ -1,11 +1,33 @@
-import { benefitsItems } from "@/data/leasing";
+'use client'
+
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Benefits() {
+  const { t } = useLanguageStore();
+
+  const benefitsItems = [
+    {
+      id: t('leasing.benefits.items.0.id'),
+      title: t('leasing.benefits.items.0.title'),
+      description: t('leasing.benefits.items.0.description')
+    },
+    {
+      id: t('leasing.benefits.items.1.id'),
+      title: t('leasing.benefits.items.1.title'),
+      description: t('leasing.benefits.items.1.description')
+    },
+    {
+      id: t('leasing.benefits.items.2.id'),
+      title: t('leasing.benefits.items.2.title'),
+      description: t('leasing.benefits.items.2.description')
+    }
+  ];
+
   return (
     <section className="py-16 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-12">
-          Les avantages de lier art et leasing
+          {t('leasing.benefits.title')}
         </h2>
         
         <div className="space-y-8">

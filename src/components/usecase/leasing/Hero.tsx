@@ -1,21 +1,24 @@
+'use client'
+
 import Image from "next/image";
 import Button from "@/components/common/Button";
 import marketplaceImage from "../../../../public/images/marketplace.png";
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Hero() {
+  const { t } = useLanguageStore();
+
   return (
-      <section className="relative bg-cover m-auto bg-no-repeat bg-top h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${marketplaceImage.src}')` }}>      
+    <section className="relative bg-cover m-auto bg-no-repeat bg-top h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${marketplaceImage.src}')` }}>      
       {/* Content Overlay */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">
-            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6">
-              IRA Art Leasing <br /> Entreprises
-            </h1>
+            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6" dangerouslySetInnerHTML={{ __html: t('leasing.hero.title') }} />
             <div className="mt-auto">
               <Button 
-                text="Simmulateur" 
+                text={t('leasing.hero.button')}
                 additionalClassName="bg-purpleColor"
                 link="/simulateur"
               />
@@ -25,13 +28,13 @@ export default function Hero() {
           {/* Right Column - Text */}
           <div className="text-lg inter text-gray-200">
             <p className="mb-4">
-              La location avec option d&quot;achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d&quot;art ou du mobilier pour leurs espaces professionnels.
+              {t('leasing.hero.description.p1')}
             </p>
             <p className="mb-4">
-              Contrairement à l&quot;achat, elle offre des avantages fiscaux et financiers : les loyers sont déductibles du résultat imposable, réduisant ainsi l&quot;impôt (IS ou IRPP).
+              {t('leasing.hero.description.p2')}
             </p>
             <p>
-              Elle répartit aussi le coût sur la durée du contrat, générant des économies fiscales. À terme, l&quot;acquisition est possible à une valeur résiduelle avantageuse.
+              {t('leasing.hero.description.p3')}
             </p>
           </div>
         </div>

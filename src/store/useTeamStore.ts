@@ -98,7 +98,7 @@ export const useTeamStore = create<TeamState>((set, get) => ({
         const { rawMembers } = get()
         const { language } = useLanguageStore.getState()
 
-        return rawMembers.map(member => {
+        const membersTranslated = rawMembers.map(member => {
             // Récupérer les valeurs traduites ou utiliser les valeurs par défaut
             const role = member.translations?.role?.[language.toLowerCase()] || member.role
             const intro = member.translations?.intro?.[language.toLowerCase()] || member.intro || ''
@@ -119,5 +119,8 @@ export const useTeamStore = create<TeamState>((set, get) => ({
                 websiteUrl: member.websiteUrl || undefined
             }
         })
+        set({ members: membersTranslated })
+
+        return membersTranslated
     }
 })) 

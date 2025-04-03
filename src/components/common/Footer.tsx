@@ -14,23 +14,23 @@ const Footer = () => {
         </div>
         <div className='flex flex-wrap gap-12'>
           <ul className="flex flex-col gap-2">
-            <h2 className='font-semibold unbounded mb-2'>Nos Pages</h2>
+            <h2 className='font-semibold unbounded mb-2'>{t('footer.pages')}</h2>
             <li>{t('nav.home')}</li>
             <li>{t('nav.team')}</li>
             <li>{t('nav.marketplace')}</li>
             <li>{t('nav.faq')}</li>
           </ul>
           <ul className="flex flex-col gap-2">
-            <h2 className='font-semibold unbounded mb-2'>Entreprise</h2>
+            <h2 className='font-semibold unbounded mb-2'>{t('footer.company')}</h2>
             <li>{t('nav.team')}</li>
-            <li>Partenaire</li>
+            <li>{t('footer.partner')}</li>
             <li>{t('footer.terms')}</li>
           </ul>
           <div />
           <ul className="flex flex-col gap-2">
             <h2 className='font-semibold unbounded mb-2'>{t('footer.contact')}</h2>
-            <li>Paris</li>
-            <li>teaminrealart@gmail.com</li>
+            <li>{t('footer.location')}</li>
+            <li>{t('footer.email')}</li>
             <input className='w-72 md:w-80 bg-transparent border border-white bricolage-grotesque rounded-3xl font-semibold border-1 py-6 px-4 mt-4 outline-0' type="text" placeholder={t('buttons.subscribe')} />
           </ul>
         </div>

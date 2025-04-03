@@ -1,23 +1,44 @@
+'use client'
+
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
-import { sliderItems } from "@/data/leasing";
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function SliderSection() {
+  const { t } = useLanguageStore();
   const [activeSlide, setActiveSlide] = useState(0);
   const swiperRef = useRef<any>(null);
+
+  const sliderItems = [
+    {
+      id: t('leasing.slider.items.0.id'),
+      title: t('leasing.slider.items.0.title'),
+      description: t('leasing.slider.items.0.description')
+    },
+    {
+      id: t('leasing.slider.items.1.id'),
+      title: t('leasing.slider.items.1.title'),
+      description: t('leasing.slider.items.1.description')
+    },
+    {
+      id: t('leasing.slider.items.2.id'),
+      title: t('leasing.slider.items.2.title'),
+      description: t('leasing.slider.items.2.description')
+    }
+  ];
 
   return (
     <section className="py-16 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-12">
-          Combinez leasing, NFT et droits d&quot;auteur
+          {t('leasing.slider.title')}
         </h2>
         
         <p className="text-sm inter text-gray-300 mb-10 max-w-3xl">
-          Les secteurs de l&quot;art et de la technologie sont en constante évolution. C&quot;est pourquoi InRealArt vous propose un modèle d&quot;optimisation innovant, combinant leasing, NFT, smart contract et blockchain pour répondre à vos besoins.
+          {t('leasing.slider.subtitle')}
         </p>
         
         <Swiper

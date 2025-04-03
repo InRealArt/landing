@@ -5,8 +5,10 @@ import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import Button from "@/components/common/Button";
 import BuyProcess from "@/components/presale/BuyProcess";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Presale() {
+  const { t } = useLanguageStore();
   const { 
     artworks,
     fetchPresaleArtworks, 
@@ -29,7 +31,7 @@ export default function Presale() {
       <>
         <Intro />
         <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
-          Chargement des œuvres...
+          {t('team.loading')}
         </div>
       </>
     )
@@ -40,7 +42,7 @@ export default function Presale() {
       <>
         <Intro />
         <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
-          Erreur lors du chargement des œuvres
+          {t('team.error')}
         </div>
       </>
     )
@@ -51,8 +53,8 @@ export default function Presale() {
       <Intro />
       <div className="relative max-w-90 xl:max-w-screen-xl m-auto">
         <div className="flex justify-between mb-6">
-          <h1 className="text-2xl md:text-4xl font-bold mt-10">Presales on demand</h1>
-          <Button additionalClassName="mt-10" text="Voir tout" />
+          <h1 className="text-2xl md:text-4xl font-bold mt-10">{t('presale.onDemand')}</h1>
+          <Button additionalClassName="mt-10" text={t('presale.viewAll')} />
         </div>
         <div className="flex flex-wrap gap-4">
           {artworkImages.map((item, index) => <ArtworkCard key={`${item.name}-${index}`} {...item} />)}

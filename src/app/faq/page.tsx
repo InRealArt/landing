@@ -5,9 +5,11 @@ import { faqItems, faqTabs } from "@/data/faq";
 import Header from "@/components/common/annexe/Header";
 import TabFilter from "@/components/common/annexe/TabFilter";
 import ContentGrid from "@/components/common/annexe/ContentGrid";
+import { useLanguageStore } from '@/store/languageStore';
 
 export default function Faq() {
   const [activeTab, setActiveTab] = useState("NFT");
+  const { t } = useLanguageStore();
   
   const filteredItems = faqItems.filter(item => 
     item.categories?.includes(activeTab)
@@ -16,8 +18,8 @@ export default function Faq() {
   return (
     <div className="min-h-screen">
       <Header 
-        title="FAQ"
-        description="Retrouvez ici toute les FAQ pour vous donner ce dont vous avez besoin de savoir concernant notre plateforme, son fonctionnement et ce qu'elle peut vous offrir"
+        title={t('faq.page.title')}
+        description={t('faq.page.description')}
       />
       <TabFilter 
         activeTab={activeTab} 

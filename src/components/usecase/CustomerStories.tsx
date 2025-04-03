@@ -2,27 +2,34 @@
 
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
+import { useLanguageStore } from '@/store/languageStore';
+
+interface Story {
+  title: string;
+  benefits: string[];
+  link: string;
+}
 
 export default function CustomerStories() {
-  const stories = [
+  const { t } = useLanguageStore();
+
+  // Define features explicitly
+  const investorFeatures = [
+    t('usecase.items.investor.features.0'),
+    t('usecase.items.investor.features.1'),
+    t('usecase.items.investor.features.2'),
+    t('usecase.items.investor.features.3')
+  ];
+
+  const stories: Story[] = [
     {
-      title: "Accès simplifié aux investissements en art grâce à la fractionnalisation des œuvres d'art",
-      benefits: [
-        "Accès à l'art de grande valeur",
-        "Liquidité de l'investissement",
-        "Suivi et transparence",
-        "Rendement potentiel"
-      ],
+      title: t('usecase.items.investor.description'),
+      benefits: investorFeatures,
       link: "/usecase/investment"
     },
     {
-      title: "Accès simplifié aux investissements en art grâce à la fractionnalisation des œuvres d'art",
-      benefits: [
-        "Accès à l'art de grande valeur",
-        "Liquidité de l'investissement",
-        "Suivi et transparence",
-        "Rendement potentiel"
-      ],
+      title: t('usecase.items.investor.description'),
+      benefits: investorFeatures,
       link: "/usecase/investment-2"
     }
   ];
@@ -30,10 +37,10 @@ export default function CustomerStories() {
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-32">
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
-        Recent customers stories
+        {t('usecase.items.investor.title')}
       </h2>
       <p className="text-base md:text-lg inter text-gray-300 mb-10">
-        Explorez une collection unique de toiles physiques et de sculpture rare, de leurs copies numériques (NFT), accompagnées de leurs droits d&apos;auteur.
+        {t('usecase.items.investor.description')}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -41,7 +48,7 @@ export default function CustomerStories() {
           <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
             <h3 className="text-xl bricolage-grotesque font-medium mb-6">{story.title}</h3>
             <ul className="mb-6">
-              {story.benefits.map((benefit, bIndex) => (
+              {story.benefits.map((benefit: string, bIndex: number) => (
                 <li key={bIndex} className="flex items-center mb-2">
                   <span className="w-1 h-1 bg-purpleColor rounded-full mr-2"></span>
                   <span className="text-sm inter">{benefit}</span>
@@ -49,7 +56,7 @@ export default function CustomerStories() {
               ))}
             </ul>
             <Button 
-              text="Voir le Use Case" 
+              text={t('buttons.readMore')} 
               additionalClassName="bg-purpleColor w-full justify-center" 
               icon={<ArrowRight />} 
               link={story.link}

@@ -1,16 +1,16 @@
 {
   "title": "InRealArt",
   "nav": {
-    "home": "Pourquoi Nous ?",
-    "marketplace": "Marché",
+    "home": "Accueil",
+    "marketplace": "Marketplace",
     "roadmap": "Feuille de route",
     "faq": "FAQ",
     "team": "Équipe",
     "glossary": "Glossaire",
     "artists": "Artistes",
-    "presale": "Prévente",
-    "usecase": "Cas d'usage",
-    "whitepaper": "White Paper",
+    "presale": "Pré-vente",
+    "usecase": "Cas d'Utilisation",
+    "whitepaper": "Livre Blanc",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog"
   },
@@ -22,33 +22,168 @@
     "title": "Le catalogue InRealArt c'est : ",
     "description": "Statistiques sur le marché de l'art"
   },
-  "faq": {
-    "title": "FAQ",
-    "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ"
-  },
   "footer": {
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
-    "terms": "Conditions d'utilisation",
-    "contact": "Contact"
+    "terms": "Conditions Générales",
+    "contact": "Nous Contacter",
+    "pages": "Nos Pages",
+    "company": "Entreprise",
+    "partner": "Partenaire",
+    "location": "Paris",
+    "email": "teaminrealart@gmail.com"
   },
   "buttons": {
     "readMore": "En savoir plus",
     "learnMore": "Découvrir",
-    "subscribe": "S'abonner",
+    "subscribe": "S'abonner à notre newsletter",
     "submit": "Soumettre",
     "connect": "Connecter",
-    "presale": "Prévente"
+    "presale": "Pré-vente",
+    "readWhitepaper": "Lire notre whitepaper",
+    "team": "L'équipe",
+    "viewFAQ": "Consulter la FAQ"
+  },
+  "language": {
+    "switchTo": "Passer en français",
+    "current": "FR"
+  },
+  "home": {
+    "intro": {
+      "title": "La Tokenisation de l'Art\naccessible pour tous",
+      "subtitle": "Oeuvres rares et exclusives"
+    },
+    "howItWorks": {
+      "title": "Comment ça fonctionne ?",
+      "subtitle": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exception",
+      "items": {
+        "bridge": {
+          "title": "Pont réel digital",
+          "description": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exeption"
+        },
+        "token": {
+          "title": "Un token unique",
+          "description": "Éco-systeme permettant la selection et la création de galeries communautaires interconnectées à notre marketplace et notre dao"
+        },
+        "art": {
+          "title": "L'art",
+          "description": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exeption"
+        }
+      }
+    },
+    "team": {
+      "title": "Découvrez les membres de l'équipe"
+    },
+    "explore": {
+      "title": "Avec InRealArt",
+      "subtitle": "Explorez une <span class='text-purpleColor'>collection unique</span> de <span class='text-purpleColor'>toiles physiques</span> et de <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rares, de leurs copies numériques (NFT), accompagnées de leurs droits d'auteur.</span>",
+      "items": {
+        "rare": {
+          "title": "Very Rare",
+          "label": "Forte de +80 années d'expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.",
+          "description": "Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique. Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative",
+          "buttons": {
+            "presales": "Pre-sales",
+            "whitepaper": "Lire notre whitepaper"
+          }
+        },
+        "marketplace": {
+          "title": "Une Marketplace unique",
+          "label": "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d'auteur fractionnés.",
+          "description": "Grâce à l'utilisation de la blockchain, nous garantissons la transparence et la sécurité des transactions, tout en permettant une traçabilité claire de chaque pièce. Cette combinaison novatrice offre aux collectionneurs un accès inédit à des œuvres diversifiées et exclusives, tout en offrant la possibilité d'acquérir des droits d'auteur et de participer à un marché artistique de pointe",
+          "buttons": {
+            "presales": "Pre-sales",
+            "whitepaper": "Lire notre whitepaper"
+          }
+        },
+        "investment": {
+          "title": "Opportunité d'investissement",
+          "label": "L'art est plus qu'une simple passion, c'est aussi une opportunité d'investissement.",
+          "description": "Notre marketplace vous offre la possibilité de diversifier votre portefeuille en acquérant des œuvres d'art physiques et numériques, ainsi que des droits d'auteur. Grâce à la rareté des pièces proposées, chaque acquisition a le potentiel d'augmenter en valeur avec le temps. Que vous soyez un collectionneur débutant ou averti, vous avez ici la chance de faire partie d'un marché dynamique où chaque œuvre peut devenir une source de valorisation à long terme",
+          "buttons": {
+            "presales": "Pre-sales",
+            "whitepaper": "Lire notre whitepaper"
+          }
+        }
+      }
+    },
+    "statistics": {
+      "title": "Le catalogue InRealArt c'est :",
+      "items": {
+        "artists": {
+          "number": "15+",
+          "label": "Artistes sélectionnés dans notre catalogue global"
+        },
+        "works": {
+          "number": "< 100",
+          "label": "Oeuvres soigneusement choisies pour embellir votre collection"
+        },
+        "transactions": {
+          "number": "1000+",
+          "label": "Transactions réalisées sur notre marketplace"
+        },
+        "ranking": {
+          "number": "50%",
+          "label": "de nos artistes figurent dans le classement 50-60 de l'ICAC"
+        }
+      }
+    }
+  },
+  "marketplace": {
+    "hero": {
+      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d'Art et\nInvestisseurs de Prestige"
+    },
+    "benefits": {
+      "title": "Bénéfices",
+      "items": {
+        "authenticity": {
+          "title": "Authenticité et Traçabilité intégrales",
+          "description": "Chaque œuvre est authentifiée des experts et certifiée sur la blockchain pour une transparence totale."
+        },
+        "exclusivity": {
+          "title": "Exclusivité et Confiance",
+          "description": "La marketplace n'héberge que diverses œuvres vérifiées, chaque achat est une assurance de garantie authentiquement pour des œuvres de dernier cri."
+        },
+        "resale": {
+          "title": "Possibilité de Revente Sécurisée",
+          "description": "Grâce au NFT de propriété, la revente est simple, rapide et sécurisée, faisant la liaison d'authentifiée pour les acheteurs."
+        },
+        "copyright": {
+          "title": "Achat de droits d'auteurs",
+          "description": "Possibilité d'achat de une part d'œuvre d'exception pour davantage de contrôle, avec une liquidité intégrée lors d'une acquisition future."
+        }
+      }
+    },
+    "prestige": {
+      "subtitle": "Authenticité et Traçabilité Inégalées",
+      "title": "InRealArt : Un Marché de\nConfiance pour l'Art de\nPrestige",
+      "description": "InRealArt transforme le marché de l'art haut de gamme en offrant une marketplace où la transparence, l'authenticité et l'exclusivité sont au cœur de chaque transaction. Achetez, vendez, ou investissez dans des œuvres d'art avec une garantie de provenance et une sécurité sans compromis."
+    },
+    "howItWorks": {
+      "title": "Comment ça fonctionne",
+      "steps": {
+        "selection": {
+          "number": "01",
+          "title": "Sélection d'Œuvres Certifiées",
+          "description": "En partenariat avec des artistes et galeries de renommée mondiale, InRealArt propose une collection haut de gamme d'œuvres d'art. Celle-ci réunit des créations de grands noms de l'art contemporain, des talents émergents prometteurs ainsi que des œuvres de maîtres incontournables."
+        },
+        "verification": {
+          "number": "02",
+          "title": "Processus de Vérification",
+          "description": "Chaque œuvre est soumise à un processus rigoureux de vérification et d'authentification par nos experts."
+        },
+        "tokenization": {
+          "number": "03",
+          "title": "Tokenisation Sécurisée",
+          "description": "Les œuvres sont tokenisées sur la blockchain, créant un certificat de propriété numérique unique et inviolable."
+        }
+      }
+    }
   },
   "common": {
     "loading": "Chargement en cours...",
     "error": "Une erreur est survenue",
     "unknownError": "Erreur inconnue"
-  },
-  "team": {
-    "discoverTeam": "Découvrez notre équipe",
-    "meetTeam": "Rencontrez toute l'équipe",
-    "noMembers": "Aucun membre d'équipe trouvé."
   },
   "artistPage": {
     "whoIs": "Qui est ",
@@ -57,7 +192,247 @@
     "expert": "Le mot de l'expert",
     "expertDescription": "Forte de +80 années d'expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.",
     "expertDescription2": "Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique. Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative",
-    "seeMarketplace": "Voir la marketplace",
-    "notFound": "Artiste non trouvé"
+    "seeMarketplace": "Voir la marketplace"
+  },
+  "team": {
+    "loading": "Chargement en cours...",
+    "error": "Une erreur est survenue: ",
+    "unknownError": "Erreur inconnue",
+    "noMembers": "Aucun membre d'équipe trouvé.",
+    "discoverTeam": "Découvrez notre équipe",
+    "meetTeam": "Rencontrez toute l'équipe"
+  },
+  "faq": {
+    "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ",
+    "tabs": {
+      "nft": "NFT",
+      "token": "Token",
+      "dao": "DAO",
+      "ico": "ICO",
+      "project": "Projet"
+    },
+    "page": {
+      "title": "FAQ",
+      "description": "Retrouvez ici toute les FAQ pour vous donner ce dont vous avez besoin de savoir concernant notre plateforme, son fonctionnement et ce qu'elle peut vous offrir"
+    }
+  },
+  "roadmap": {
+    "intro": {
+      "title": "Les grandes étapes",
+      "subtitle": "L'art c'est ouvert à de nouvelle horizon avec les RWA et aujourd'hui nous souhaitons partager ces œuvres au monde entier",
+      "buttons": {
+        "marketplace": "Voir la marketplace",
+        "whitepaper": "Lire notre white paper"
+      }
+    },
+    "items": {
+      "q1_2025": {
+        "title": "Q1 2025",
+        "description": {
+          "0": "Lancement de la Marketplace d'Art sur Testnet : Ouvrir l'environnement de test pour que les utilisateurs explorent la plateforme, testent les fonctionnalités et fournissent des retours.",
+          "1": "Introduction des Fonctionnalités de Fractionnement : Permettre la propriété tokenisée des actifs artistiques sur la plateforme, permettant aux utilisateurs de posséder fractionnellement des œuvres d'art.",
+          "2": "Conformité Réglementaire",
+          "3": "Audits Solid Proof"
+        }
+      },
+      "q2_2025": {
+        "title": "Q2 2025",
+        "description": {
+          "0": "Lancement des Préventes : Commencer l'ICO pour lever des fonds pour le développement et l'expansion de la plateforme, offrant des tokens aux premiers supporters.",
+          "1": "Développement de l'Intégration des Paiements Shopify : Travailler sur l'intégration de Shopify pour des paiements et transactions fluides au sein de la marketplace.",
+          "2": "Phase de Prévente pour la Propriété d'Œuvres d'Art : Commencer les préventes pour des pièces d'art en édition limitée avec l'option de propriété fractionnée tokenisée."
+        }
+      },
+      "q3_2025": {
+        "title": "Q3 2025",
+        "description": {
+          "0": "Développement des Outils de Création de Galeries : Permettre aux utilisateurs de créer des galeries virtuelles, présentant à la fois des œuvres tokenisées et traditionnelles.",
+          "1": "Vente Officielle de Tokens : Lancer la vente officielle de tokens, où les utilisateurs peuvent acheter des tokens via des tours privés et publics.",
+          "2": "Fonctionnalités DAO Améliorées : Implémenter des fonctionnalités DAO supplémentaires pour une gouvernance améliorée, un engagement communautaire et des votes sur les fonctionnalités de la plateforme."
+        }
+      },
+      "q4_2025": {
+        "title": "Q4 2025",
+        "description": {
+          "0": "Lancement de la Plateforme Complète : Transition du testnet vers le mainnet et lancement de la plateforme complète au public avec toutes les fonctionnalités de paiement et de fractionnement.",
+          "1": "Expansion de la Création de Galeries : Faciliter la création de galeries physiques ou numériques pour les artistes, intégrées à la marketplace.",
+          "2": "Lancement du Marché Secondaire : Permettre une marketplace pour l'achat et la vente d'œuvres d'art fractionnées."
+        }
+      },
+      "q1_2026": {
+        "title": "Q1 2026",
+        "description": {
+          "0": "Développement Final de la Plateforme : Terminer tout le développement de la plateforme, assurant une intégration fluide de Shopify, des options avancées de fractionnement et une navigation conviviale.",
+          "1": "Début de la Curation des Galeries Communautaires : Les membres de la DAO votent pour curater des galeries en vedette basées sur leurs préférences artistiques.",
+          "2": "Marketing et Partenariats : Sécuriser des partenariats stratégiques avec des institutions d'art, des galeries et d'autres projets RWA pour étendre la portée de la plateforme."
+        }
+      }
+    }
+  },
+  "presale": {
+    "intro": {
+      "title": "L'art n'a jamais été aussi disponible",
+      "subtitle": "Acquérez des oeuvres rares physiques pouvant être liées avec des nft et leurs droits d'auteurs. Explorez le fractionnemment d'oeuvres et ouvrez votre portefeuille aux actifs du futur",
+      "buttons": {
+        "catalog": "Catalogue 2024",
+        "whitepaper": "Lire notre white paper"
+      }
+    },
+    "buyProcess": {
+      "title": "Processus d'achat",
+      "subtitle": "un processus pour vous sécuriez",
+      "step": "Étape",
+      "steps": {
+        "1": {
+          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
+        },
+        "2": {
+          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
+        },
+        "3": {
+          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
+        },
+        "4": {
+          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
+        }
+      },
+      "buttons": {
+        "previous": "Précedent",
+        "next": "Suivant"
+      }
+    },
+    "onDemand": "Préventes à la demande",
+    "viewAll": "Voir tout"
+  },
+  "usecase": {
+    "intro": {
+      "title": "Cas d'Utilisation",
+      "subtitle": "Découvrez comment InRealArt transforme le marché de l'art à travers des cas d'utilisation innovants"
+    },
+    "items": {
+      "collector": {
+        "title": "Pour les Collectionneurs",
+        "description": "Accédez à une sélection d'œuvres d'art rares, physiques et numériques, avec une authenticité et une provenance garanties. Construisez votre collection en toute confiance et profitez d'avantages exclusifs.",
+        "features": [
+          "Accès à des œuvres rares et exclusives",
+          "Authenticité et provenance garanties",
+          "Propriété sécurisée via la blockchain",
+          "Avantages exclusifs pour les collectionneurs"
+        ]
+      },
+      "artist": {
+        "title": "Pour les Artistes",
+        "description": "Présentez votre travail à un public mondial, maintenez le contrôle de vos créations et bénéficiez de nouvelles sources de revenus grâce à la tokenisation et la gestion des droits d'auteur.",
+        "features": [
+          "Exposition mondiale de vos œuvres",
+          "Contrôle de vos créations",
+          "Nouvelles opportunités de revenus",
+          "Gestion des droits d'auteur"
+        ]
+      },
+      "investor": {
+        "title": "Pour les Investisseurs",
+        "description": "Diversifiez votre portefeuille avec des investissements dans l'art, bénéficiez de la potentielle appréciation des œuvres rares et participez à un marché en croissance avec des transactions transparentes.",
+        "features": [
+          "Opportunités d'investissement dans l'art",
+          "Diversification du portefeuille",
+          "Transactions transparentes",
+          "Potentiel de croissance du marché"
+        ]
+      },
+      "gallery": {
+        "title": "Pour les Galeries",
+        "description": "Étendez votre portée, connectez-vous avec de nouveaux collectionneurs et utilisez la technologie blockchain pour améliorer la valeur et la traçabilité de vos œuvres.",
+        "features": [
+          "Portée de marché élargie",
+          "Nouvelles connexions avec les collectionneurs",
+          "Valeur des œuvres améliorée",
+          "Traçabilité améliorée"
+        ]
+      }
+    }
+  },
+  "leasing": {
+    "hero": {
+      "title": "IRA Art Leasing <br/> Entreprises",
+      "button": "Simulateur",
+      "description": {
+        "p1": "La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.",
+        "p2": "Contrairement à l'achat, elle offre des avantages fiscaux et financiers : les loyers sont déductibles du résultat imposable, réduisant ainsi l'impôt (IS ou IRPP).",
+        "p3": "Elle répartit aussi le coût sur la durée du contrat, générant des économies fiscales. À terme, l'acquisition est possible à une valeur résiduelle avantageuse."
+      }
+    },
+    "advantages": {
+      "title": "Simplicité, souplesse et optimisation",
+      "subtitle": "Location avec option d'achat (LOA) sur œuvres d'art",
+      "items": [
+        {
+          "title": "Avantage fiscal",
+          "description": "Les frais sont déductibles de l'assiette imposable, permettant une optimisation fiscale tout en investissant dans l'art pour les professionnels."
+        },
+        {
+          "title": "Flexibilité financière",
+          "description": "Le coût de financement est étalé sur une durée déterminée de 24 à 60 mois."
+        },
+        {
+          "title": "Option d'achat",
+          "description": "À la fin du contrat, les œuvres peuvent être acquises à une valeur résiduelle avantageuse."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Les avantages de lier art et leasing",
+      "items": [
+        {
+          "id": "01",
+          "title": "Avantages fiscaux et comptables",
+          "description": "Le leasing permet d'intégrer l'art contemporain dans les charges comptables comme un bien professionnel, optimisant la position fiscale de l'entreprise."
+        },
+        {
+          "id": "02",
+          "title": "Accès à une offre artistique variée",
+          "description": "Découvrez notre sélection d'artistes contemporains français et internationaux, proposant un large choix d'œuvres du marché de l'art contemporain, via un réseau de galeries référencées."
+        },
+        {
+          "id": "03",
+          "title": "Valorisation du patrimoine",
+          "description": "Investissez dans des œuvres d'art tout en bénéficiant d'avantages fiscaux et financiers, contribuant à la valorisation de votre patrimoine d'entreprise."
+        }
+      ]
+    },
+    "slider": {
+      "title": "Combinez leasing, NFT et droits d'auteur",
+      "subtitle": "Les secteurs de l'art et de la technologie sont en constante évolution. C'est pourquoi InRealArt vous propose un modèle d'optimisation innovant, combinant leasing, NFT, smart contract et blockchain pour répondre à vos besoins.",
+      "items": [
+        {
+          "id": "01",
+          "title": "Traçabilité et sécurité grâce à la blockchain",
+          "description": "Le NFT associé à l'œuvre d'art physique permet de garantir son authenticité, suivre sa provenance et gérer les droits d'auteur de manière transparente. Cette technologie facilite la gestion de l'œuvre et assure aux acquéreurs une traçabilité et une sécurité optimales."
+        },
+        {
+          "id": "02",
+          "title": "Gestion simplifiée des droits",
+          "description": "Les smart contracts permettent une gestion automatisée des droits d'auteur et des redevances, assurant une répartition équitable et transparente des revenus entre les différentes parties prenantes."
+        },
+        {
+          "id": "03",
+          "title": "Valorisation numérique",
+          "description": "La tokenisation de l'œuvre d'art ouvre de nouvelles possibilités de valorisation et d'exposition dans l'univers numérique, augmentant sa visibilité et son potentiel de valeur."
+        }
+      ]
+    },
+    "investment": {
+      "title": "Investir dans l'art en entreprise",
+      "description": "Les conseils d'un expert du marché de l'art, Code Général des Impôts, le leasing artistique derrière des collections d'entreprise, tout en créant une véritable démarche RSE grâce à un suivi personnalisé de votre projet selon vos objectifs, votre image de marque et d'innovations.",
+      "bullets": [
+        "Objectifs et expertise du marché d'art pour une stratégie d'image et de patrimoine",
+        "Fiscalité déductible à 100% avec avantages ESG, optimisation du bilan, réduction de l'IS (déblocage ainsi du cashflow et réaffectation de l'épargne)",
+        "Protection contre l'Inflation (diversification d'actifs non corrélés et résilients) pour les PME"
+      ]
+    }
   }
 }
