@@ -1,6 +1,4 @@
-import { bigTitleClassName } from "@/utils/classes";
-import BG from "../../../public/images/presale/intro.png";
-import Button from "../common/Button";
+'use client'
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from '@/store/languageStore';
 
