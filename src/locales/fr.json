@@ -434,5 +434,64 @@
         "Protection contre l'Inflation (diversification d'actifs non corrélés et résilients) pour les PME"
       ]
     }
+  },
+  "companies": {
+    "hero": {
+      "title": "Ira Projet d'art <br /> d'entreprises",
+      "button": "Contactez-nous",
+      "description": {
+        "p1": "L'art au service de votre communication et de votre marque ! Captez l'attention et renforcez vos messages grâce à l'art !",
+        "p2": "InRealArt conçoit des expositions et projets artistiques adaptés à tous les budgets, valorisant votre marque employeur et votre stratégie RSE",
+        "p3": "Avec des œuvres personnalisées ou en rotation, l'art devient un levier puissant pour une communication innovante et engageante."
+      }
+    },
+    "expert": {
+      "title": "Contactez nos experts",
+      "quote": "\"InRealArt vous accompagne dans la création de <span class='text-purpleColor'>projets artistiques sur mesure</span>, offre une <span class='text-purpleColor'>expertise en financement</span> au services des entreprises, institutions et collectivités de toutes tailles.\"",
+      "name": "Catherine Meulemans",
+      "position": "Head of Sales InRealArt",
+      "company": "Arthema Gallery CEO",
+      "button": "Appelez Catherine maintenant"
+    },
+    "possibilities": {
+      "title": "Découvrez l'ensemble des possibilités",
+      "sections": {
+        "customization": {
+          "title": "Commande / Œuvre sur mesure",
+          "description": "Créer une fresque murale pour définir ou personnaliser un espace de grande envergure, offrir une œuvre monumentale pour l'inauguration d'un nouveau siège, concevoir une exposition qui reflète les valeurs de l'entreprise, ou encore accueillir un artiste en résidence pour souligner ses engagements.."
+        },
+        "impact": {
+          "title": "Impact / Responsabilité Sociétale",
+          "description": "Initier un dialogue autour de la Responsabilité Sociétale et Culturelle des Entreprises, réinterroger les métiers, ou mobiliser les parties prenantes autour de thématiques à fort impact telles que la Diversité, l’Équité et l’Inclusion (DEI), la Santé et la Sécurité au travail, ou encore le sport.."
+        },
+        "art": {
+          "title": "Art / Solidarité",
+          "description": "Organiser des rencontres avec les artistes, participer à des ateliers, ou découvrir les œuvres avec vos équipes, clients et partenaires lors d’événements d’entreprise. InRealart rend l'art accessible grâce à des cartels, QR codes, guides et catalogues, dans un esprit similaire à celui des galeries ou musées.."
+        },
+        "events": {
+          "title": "Événements / Médiation",
+          "description": "Fresques solidaires, mécénat culturel, fondations d’entreprise, programmes d’éducation et d’inclusion, ventes aux enchères caritatives... Chaque projet artistique devient un vecteur de partage, permettant à chacun de contribuer à son « entreprise » au sens originel : entreprendre et agir ensemble."
+        }
+      },
+      "steps": {
+        "title": "Définissez",
+        "step1": {
+          "number": "Étape 01",
+          "title": "Définissez",
+          "description": "Fixez votre budget, vos objectifs et le format du projet : exposition, fresque, commande d'œuvre, ou initiative solidaire..."
+        },
+        "step2": {
+          "number": "Étape 02",
+          "title": "Sélectionnez",
+          "description": "Choisissez les artistes et/ou œuvres, et validez le concept avec vos équipes."
+        },
+        "step3": {
+          "number": "Étape 03",
+          "title": "Entrer en contact",
+          "description": "Nos experts vous accompagnent dans la conception et la mise en place de vos projets artistiques, en offrant des solutions sur mesure adaptées à vos besoins."
+        }
+      },
+      "contactButton": "Contactez un expert B2B InRealArt"
+    }
   }
 }

@@ -435,5 +435,64 @@
         "Protection against inflation (diversification of uncorrelated and resilient assets) for SMEs"
       ]
     }
+  },
+  "companies": {
+    "hero": {
+      "title": "Art for Companies",
+      "button": "Contact us",
+      "description": {
+        "p1": "Art serving your communication and brand! Capture attention and strengthen your messages through art!",
+        "p2": "InRealArt designs exhibitions and artistic projects adapted to all budgets, enhancing your employer brand and CSR strategy",
+        "p3": "With customized or rotating artworks, art becomes a powerful lever for innovative and engaging communication."
+      }
+    },
+    "expert": {
+      "title": "Contact our experts",
+      "quote": "\"InRealArt accompanies you in creating <span class='text-purpleColor'>business art projects</span> and offers <span class='text-purpleColor'>made-to-measure customization</span> at the service of your businesses, brands, institutions, and communities of all sizes.\"",
+      "name": "Catherine Meulemans",
+      "position": "Head of Sales InRealArt",
+      "company": "Arthema Gallery CEO",
+      "button": "Schedule with Catherine now"
+    },
+    "possibilities": {
+      "title": "Discover all possibilities",
+      "sections": {
+        "customization": {
+          "title": "Commission / Custom Artwork",
+          "description": "Create a mural to define or customize a large space, offer a monumental artwork for a new headquarters inauguration, design an exhibition that reflects company values, or host an artist in residence to highlight your commitments."
+        },
+        "impact": {
+          "title": "Impact / Social Responsibility",
+          "description": "Initiate dialogue around Corporate Social and Cultural Responsibility, re-examine business practices, or mobilize stakeholders around high-impact themes such as Diversity, Equity and Inclusion (DEI), Workplace Health and Safety, or sports."
+        },
+        "art": {
+          "title": "Art / Solidarity",
+          "description": "Organize meetings with artists, participate in workshops, or discover artworks with your teams, clients, and partners during corporate events. InRealart makes art accessible through labels, QR codes, guides, and catalogs, in a spirit similar to galleries or museums."
+        },
+        "events": {
+          "title": "Events / Mediation",
+          "description": "Solidarity murals, cultural sponsorship, corporate foundations, education and inclusion programs, charity auctions... Each artistic project becomes a vector for sharing, allowing everyone to contribute to their 'enterprise' in its original sense: undertaking and acting together."
+        }
+      },
+      "steps": {
+        "title": "Our Process",
+        "step1": {
+          "number": "Step 01",
+          "title": "Define",
+          "description": "Set your budget, objectives, and project format: exhibition, fresco, artwork commission, or solidarity initiative..."
+        },
+        "step2": {
+          "number": "Step 02",
+          "title": "Select",
+          "description": "Choose the artists and/or artworks, and validate the concept with your teams."
+        },
+        "step3": {
+          "number": "Step 03",
+          "title": "Contact our experts",
+          "description": "Our experts assist you in designing and implementing your artistic projects, offering tailored solutions to meet your needs."
+        }
+      },
+      "contactButton": "Contact a B2B InRealArt expert"
+    }
   }
 }
