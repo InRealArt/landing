@@ -49,7 +49,7 @@ export default function Team() {
   const formattedMembers = members.map(member => ({
     name: member.name,
     image: { src: member.photo },
-    role: member.role.FR,
+    role: member.role,
     socials: []
   }));
 
