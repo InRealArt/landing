@@ -18,11 +18,6 @@ const Intro = () => {
           accessible pour tous
         </h1>
 
-        {/* <div className="relative">
-          <div className="text-[180px] md:text-[320px] bricolage-grotesque font-medium text-transparent leading-none stroke">
-            43%
-          </div>
-        </div> */}
         <Image src={text43} alt="artist" />
 
 
