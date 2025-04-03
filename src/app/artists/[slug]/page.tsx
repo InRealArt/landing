@@ -5,13 +5,13 @@ import Button from '@/components/common/Button'
 import { ArrowRight } from 'lucide-react'
 import { useArtistStore } from '@/store/useArtistStore'
 import { useParams } from 'next/navigation'
-
+import { useLanguageStore } from '@/store/languageStore'
 export default function ArtistPage() {
   const params = useParams()
   const slug = params.slug as string
   const { fetchArtists, isLoading, hasError, artists, getArtistBySlug } = useArtistStore()
   const [artist, setArtist] = useState<any>(null)
-
+  const { t } = useLanguageStore()
   useEffect(() => {
     const loadArtist = async () => {
       await fetchArtists()
@@ -65,7 +65,7 @@ export default function ArtistPage() {
       <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
         {/* Version sans Swiper pour bioslider */}
         <div>
-          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>Qui est {artist.name} ?</h1>
+          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('artistPage.whoIs')} {artist.name} ?</h1>
           <div className='w-full rounded-lg h-full flex flex-col lg:flex-row bg-cardBackground'>
             <div 
               className='bg-cover bg-no-repeat bg-center h-96 lg:h-auto w-full lg:w-1/3 rounded-lg' 
@@ -83,7 +83,7 @@ export default function ArtistPage() {
         </div>
 
         <div className="mt-20">
-          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>Découvrez les œuvres de {artist.name}</h1>
+          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('artistPage.discover')} {artist.name}</h1>
           <div className="flex flex-wrap gap-4">
             {artworkImages.map((item: any, index: number) => 
               <ArtworkCard key={`${item.name}-${index}`} {...item} />
@@ -93,13 +93,12 @@ export default function ArtistPage() {
 
         <section className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 items-center mt-32">
           <div className="flex-1">
-            <h1 className="bricolage-grotesque text-6xl mb-3">Le mot de <br />l&apos;expert(e)</h1>
-            <p className="bricolage-grotesque text-base">Forte de +80 années d&apos;expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.</p>
+            <h1 className="bricolage-grotesque text-6xl mb-3">{t('artistPage.expert')}</h1>
+            <p className="bricolage-grotesque text-base">{t('artistPage.expertDescription')}</p>
           </div>
           <div className="flex-1">
-            <p className="bricolage-grotesque text-base mb-5">Ici, chaque œuvre, qu&apos;elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.
-              Pour les collectionneurs aguerris comme pour les novices, la possibilité d&apos;acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative</p>
-            <Button text="Voir la marketplace" additionalClassName="bg-purpleColor" icon={<ArrowRight />} />
+            <p className="bricolage-grotesque text-base mb-5">{t('artistPage.expertDescription2')}</p>
+            <Button text={t('artistPage.seeMarketplace')} additionalClassName="bg-purpleColor" icon={<ArrowRight />} />
           </div>
         </section>
       </section>
