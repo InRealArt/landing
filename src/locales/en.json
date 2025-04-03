@@ -14,6 +14,18 @@
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog"
   },
+  "intro": {
+    "title": "The Tokenization of Art accessible to all",
+    "description": "Rare and exclusive artworks"
+  },
+  "statistics": {
+    "title": "The InRealArt catalog is:",
+    "description": "Statistics on the art market"
+  },
+  "faq": {
+    "title": "FAQ",
+    "description": "Often you have legitimate questions, so we anticipated this! And if you have another question, consult the FAQ page"
+  },
   "footer": {
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",

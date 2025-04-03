@@ -23,8 +23,8 @@ const FAQ = () => {
   return (
     <section className="w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl">
       <div className='w-full md:w-1/3'>
-        <h1 className={titleClassName}>{t('nav.faq')}</h1>
-        <p className='mt-8'>Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ</p>
+        <h1 className={titleClassName}>{t('faq.title')}</h1>
+        <p className='mt-8'>{t('faq.description')}</p>
         <Button text={`${t('buttons.readMore')} ${t('nav.faq')}`} additionalClassName="bg-purpleColor mt-8" link='/faq'/>
       </div>
       <div className='h-full w-full md:w-2/3'>
