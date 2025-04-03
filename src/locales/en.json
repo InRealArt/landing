@@ -1,0 +1,31 @@
+{
+  "title": "InRealArt",
+  "nav": {
+    "home": "Why Us?",
+    "marketplace": "Marketplace",
+    "roadmap": "Roadmap",
+    "faq": "FAQ",
+    "team": "Team",
+    "glossary": "Glossary",
+    "artists": "Artists",
+    "presale": "Presale",
+    "usecase": "Use Cases",
+    "whitepaper": "White Paper",
+    "airdrop": "AirDrop/Testnet",
+    "blog": "Blog"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "subscribe": "Subscribe",
+    "submit": "Submit",
+    "connect": "Connect",
+    "presale": "Pre-sales"
+  }
+}

@@ -6,9 +6,11 @@ import Question from './subcomponents/Question';
 import { titleClassName } from '@/utils/classes';
 import { useFaqStore } from '@/store/useFaqStore';
 import { useEffect } from 'react';
+import { useLanguageStore } from '@/store/languageStore';
 
 const FAQ = () => {
   const { faqs, isLoading, hasError, fetchFaqs } = useFaqStore();
+  const { t } = useLanguageStore();
   
   useEffect(() => {
     fetchFaqs();
@@ -21,9 +23,9 @@ const FAQ = () => {
   return (
     <section className="w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl">
       <div className='w-full md:w-1/3'>
-        <h1 className={titleClassName}>FAQ</h1>
+        <h1 className={titleClassName}>{t('nav.faq')}</h1>
         <p className='mt-8'>Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ</p>
-        <Button text="Consulter la FAQ" additionalClassName="bg-purpleColor mt-8" link='/faq'/>
+        <Button text={`${t('buttons.readMore')} ${t('nav.faq')}`} additionalClassName="bg-purpleColor mt-8" link='/faq'/>
       </div>
       <div className='h-full w-full md:w-2/3'>
         {faqItems.map((item, index) => (

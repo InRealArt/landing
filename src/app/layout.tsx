@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter, Unbounded } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import FAQ from "@/components/common/FAQ/FAQ";
+import LanguageProvider from "@/components/providers/LanguageProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,10 +26,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <FAQ />
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          {children}
+          <FAQ />
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
