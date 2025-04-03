@@ -44,7 +44,7 @@ const Slider = ({ context, items, isReverse, additionnalClassName }: {
       case 'artwork':
         return <ArtworkCard name={infos.name} image={infos.image} />
       case 'team':
-        return <TeamCard name={infos.name} image={infos.image} role={(infos as TeamCardInfos).role} socials={(infos as TeamCardInfos).socials} />
+        return <TeamCard name={infos.name} image={infos.image} role={(infos as TeamCardInfos).role} socials={(infos as TeamCardInfos).socials} isSlider={true} />
       default:
         return null;
     }

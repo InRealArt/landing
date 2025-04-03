@@ -27,7 +27,7 @@ export default function ReadyToStart() {
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
         Ready to give a go ?
       </h2>
-      <p className="text-md md:text-lg inter text-gray-300 mb-10">
+      <p className="text-base md:text-lg inter text-gray-300 mb-10">
         Explorez une collection unique de toiles physiques et de sculpture rare, de leurs copies numériques (NFT), accompagnées de leurs droits d&apos;auteur.
       </p>
 

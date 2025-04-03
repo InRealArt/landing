@@ -7,12 +7,13 @@ interface TeamCardProps {
   role: string;
   socials: { link: string; icon: string; }[];
   additionalClassName?: string;
+  isSlider?: boolean;
 }
 
-const TeamCard = ({ image, name, role, socials, additionalClassName }: TeamCardProps) => {
+const TeamCard = ({ image, name, role, socials, additionalClassName, isSlider }: TeamCardProps) => {
   return (
-    <div className={`p-4 border rounded-lg bg-cardBackground bg-center h-full ${additionalClassName ?? ''}`}>
-      <div className="bg-cover m-auto bg-no-repeat bg-top h-28 md:h-64 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
+    <div className={`p-4 border rounded-lg bg-cardBackground bg-center ${isSlider ? 'h-full' : 'h-auto'}  ${additionalClassName ?? ''}`}>
+      <div className={`bg-cover m-auto bg-no-repeat bg-top h-80 w-full rounded-lg ${isSlider ? 'h-48 md:h-80' : ''}`} style={{ backgroundImage: ` url('${image.src}')` }} />
       <p className="mt-4 inter text-2xl font-semibold">{name}</p>
       <p className="mt-2 inter">{role}</p>
       {socials.map((social, index) => (

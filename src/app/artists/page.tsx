@@ -65,10 +65,10 @@ export default function Artists() {
         <section className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 items-center mt-32">
           <div className="flex-1">
             <h1 className="bricolage-grotesque text-6xl mb-3">Le mot de <br />l&apos;expert(e)</h1>
-            <p className="bricolage-grotesque text-md">Forte de +80 années d&apos;expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.</p>
+            <p className="bricolage-grotesque text-base">Forte de +80 années d&apos;expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.</p>
           </div>
           <div className="flex-1">
-            <p className="bricolage-grotesque text-md mb-5">Ici, chaque œuvre, qu&apos;elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.
+            <p className="bricolage-grotesque text-base mb-5">Ici, chaque œuvre, qu&apos;elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique.
               Pour les collectionneurs aguerris comme pour les novices, la possibilité d&apos;acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative</p>
             <Button text="Voir la marketplace" additionalClassName="bg-purpleColor" icon={<ArrowRight />} />
           </div>

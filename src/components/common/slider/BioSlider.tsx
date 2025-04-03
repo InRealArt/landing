@@ -53,18 +53,18 @@ export default function BioSlider({ items, title, hasArtistName, onSlideChange }
         centeredSlidesBounds
         centeredSlides
       >
-        {items.map((item, index) => (
+        {items.map(({intro, description, name, role, image}, index) => (
           <SwiperSlide key={index}>
-            <div className='w-full rounded-lg h-auto lg:h-[30rem] flex flex-col lg:flex-row bg-cardBackground'>
-              <div className='bg-cover bg-no-repeat bg-center h-96 lg:h-full w-full lg:w-1/3  rounded-lg' style={{ backgroundImage: ` url('${item.image.src}')` }} />
-              <div className='p-6 lg:px-20 lg:py-24 flex-1 flex flex-col gap-6'>
-                <h1 className='inter font-bold text-md md:text-lg text-white'>&ldquo;{item.intro}&rdquo;</h1>
-                <h2 className='inter text-md font-medium'>{item.description}</h2>
+            <div className='w-full rounded-lg h-full flex flex-col lg:flex-row bg-cardBackground'>
+              <div className='bg-cover bg-no-repeat bg-center h-96 lg:h-auto w-full lg:w-1/3  rounded-lg' style={{ backgroundImage: ` url('${image.src}')` }} />
+              <div className='p-6 lg:px-20 lg:pt-20 lg:pb-6 flex-1 flex flex-col gap-6'>
+                {intro && <h1 className='inter font-bold text-base md:text-lg text-white'>&ldquo;{intro}&rdquo;</h1>}
+                <h2 className='inter text-xs font-medium md:text-base'>{description}</h2>
                 <div>
-                  <p className='inter font-bold text-md text-white mb-2'>{item.name}</p>
-                  <p className='inter text-md font-medium'>{item.role}</p>
+                  <p className='inter font-bold text-base text-white mb-2'>{name}</p>
+                  <p className='inter text-base font-medium'>{role}</p>
                 </div>
-                <div className='flex self-end'>
+                <div className='flex self-end mt-auto'>
                   <MoveLeft className={`cursor-pointer w-14 h-14 mr-4 ${leftDisabled ? 'pointer-events-none text-[#a7a7a7]' : ''}`} onClick={() => swiperRef.current.slidePrev()} />
                   <MoveRight className={`cursor-pointer w-14 h-14 ${rightDisabled ? 'pointer-events-none text-[#a7a7a7]' : ''}`} onClick={() => swiperRef.current.slideNext()} />
                 </div>
