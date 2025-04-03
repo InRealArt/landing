@@ -15,6 +15,7 @@ interface ArtworkCardInfos {
   image: {
     src: string;
   };
+  slug?: string;
 }
 
 interface TeamCardInfos {
@@ -24,12 +25,14 @@ interface TeamCardInfos {
   };
   role: string;
   socials: { link: string; icon: string; }[];
+  slug?: string;
 }
-const Slider = ({ context, items, isReverse, additionnalClassName }: {
+const Slider = ({ context, items, isReverse, additionnalClassName, onItemClick }: {
   context: 'artist' | 'artwork' | 'team',
   items: (ArtworkCardInfos | TeamCardInfos)[],
   isReverse?: boolean,
-  additionnalClassName?: string
+  additionnalClassName?: string,
+  onItemClick?: (slug: string) => void
 }) => {
   const [mounted, setMounted] = useState(false);
 
@@ -39,10 +42,18 @@ const Slider = ({ context, items, isReverse, additionnalClassName }: {
   }, []);
 
   const renderCard = ({ infos }: { infos: ArtworkCardInfos | TeamCardInfos }) => {
+    const handleClick = () => {
+      if (onItemClick && infos.slug) {
+        onItemClick(infos.slug);
+      }
+    };
+
     switch (context) {
       case 'artist':
       case 'artwork':
-        return <ArtworkCard name={infos.name} image={infos.image} />
+        return <div onClick={handleClick} className={onItemClick ? 'cursor-pointer' : ''}>
+          <ArtworkCard name={infos.name} image={infos.image} />
+        </div>
       case 'team':
         return <TeamCard name={infos.name} image={infos.image} role={(infos as TeamCardInfos).role} socials={(infos as TeamCardInfos).socials} isSlider={true} />
       default:

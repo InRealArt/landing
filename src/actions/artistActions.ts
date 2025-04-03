@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma'
 
 export interface ArtistData {
     id: number
+    slug: string
     name: string
     surname: string
     pseudo: string
@@ -23,6 +24,7 @@ export async function getArtists(): Promise<ArtistData[]> {
             },
             select: {
                 id: true,
+                slug: true,
                 intro: true,
                 artworkImages: true,
                 artworkStyle: true,
@@ -46,6 +48,7 @@ export async function getArtists(): Promise<ArtistData[]> {
         const artists: ArtistData[] = landingArtists.map(la => {
             return {
                 id: la.id,
+                slug: la.slug,
                 name: la.artist.name,
                 surname: la.artist.surname,
                 pseudo: la.artist.pseudo,

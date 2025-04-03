@@ -12,10 +12,13 @@ interface LanguageState {
     t: (key: string) => string
 }
 
+// On définit la langue par défaut côté serveur pour éviter les problèmes d'hydration
+const DEFAULT_LANGUAGE: Language = 'fr'
+
 export const useLanguageStore = create<LanguageState>()(
     persist(
         (set, get) => ({
-            language: 'fr',
+            language: DEFAULT_LANGUAGE,
             setLanguage: (language) => set({ language }),
             translations: {
                 fr: frTranslations,
@@ -38,7 +41,8 @@ export const useLanguageStore = create<LanguageState>()(
         }),
         {
             name: 'language-storage',
-            skipHydration: typeof window === 'undefined'
+            // Désactiver l'hydration côté serveur pour éviter les différences
+            skipHydration: true
         }
     )
 ) 

@@ -9,6 +9,7 @@ export interface ArtistData {
     photo: string
     intro: string
     description: string
+    slug: string
     artworkImages: {
         image: string
         name: string
@@ -32,6 +33,8 @@ interface ArtistState {
     getCurrentArtistArtworks: () => { image: string, name: string, price: number, url: string }[] | []
     // Méthode de l'ancien useArtistsStore
     getArtistByName: (name: string) => PrismaArtistData | undefined
+    // Nouvelle méthode pour récupérer un artiste par son slug
+    getArtistBySlug: (slug: string) => ArtistData | undefined
 }
 
 export const useArtistStore = create<ArtistState>((set, get) => ({
@@ -64,6 +67,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     role: styleText || 'Artiste',
                     intro: (artist as any).intro,
                     description: (artist as any).description,
+                    slug: artist.slug,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -132,5 +136,11 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         return rawArtists.find(artist =>
             artist.name.toLowerCase() === name.toLowerCase()
         )
+    },
+
+    // Nouvelle méthode pour récupérer un artiste par son slug
+    getArtistBySlug: (slug: string) => {
+        const { artists } = get()
+        return artists.find(artist => artist.slug === slug)
     }
 })) 

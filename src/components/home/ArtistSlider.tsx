@@ -4,8 +4,11 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 import Slider from './Slider'
 import { useArtistStore } from '@/store/useArtistStore'
+import { useRouter } from 'next/navigation'
+
 function ArtistSlider() {
   const { artists, isLoading, hasError, fetchArtists } = useArtistStore()
+  const router = useRouter()
 
   useEffect(() => {
     fetchArtists()
@@ -15,10 +18,15 @@ function ArtistSlider() {
   const formattedArtistImages = artists.map(artist => ({
     name: artist.name,
     description: artist.description,
+    slug: artist.slug,
     image: {
       src: artist.photo
     }
   }))
+
+  const handleArtistClick = (slug: string) => {
+    router.push(`/artists/${slug}`)
+  }
 
   if (isLoading) {
     return <div className="flex justify-center items-center p-8">Chargement des artistes...</div>
@@ -33,7 +41,7 @@ function ArtistSlider() {
     return <div className="flex justify-center items-center p-8">Aucun artiste disponible</div>
   }
 
-  return <Slider context="artist" items={formattedArtistImages} />
+  return <Slider context="artist" items={formattedArtistImages} onItemClick={handleArtistClick} />
 }
 
 export default ArtistSlider 
