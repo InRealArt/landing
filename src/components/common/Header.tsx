@@ -2,13 +2,20 @@
 
 import Image from 'next/image'
 import Button from './Button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguageStore } from '@/store/languageStore';
+import { useState } from 'react';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
   const { t } = useLanguageStore()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header className="w-full h-headerSize bg-backgroundColor fixed top-0 z-50">
@@ -25,10 +32,17 @@ const Header = () => {
         </ul>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Button text={t('buttons.presale')} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center link="/presale" />
+          <Button text={t('buttons.presale')} additionalClassName="bg-purpleColor hidden lg:flex" icon={<ArrowRight />} center link="/presale" />
+          <button 
+            className="text-white p-2 lg:hidden" 
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <Menu size={24} />
+          </button>
         </div>
       </div>
-      
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   );
 }
