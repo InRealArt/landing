@@ -28,6 +28,10 @@
     "connect": "Connect",
     "presale": "Pre-sales"
   },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
   "artistPage": {
     "whoIs": "Who is ",
     "discover": "Discover the artworks of ",
@@ -35,6 +39,7 @@
     "expert": "The expert's word",
     "expertDescription": "With over 80 years of combined experience, our sales team carefully selects less than 100 works by top artists.",
     "expertDescription2": "Here, each work, whether physical or digital, is carefully selected for its unique character. For seasoned collectors as well as newcomers, the opportunity to acquire rare works is a privilege that allows them to stand out while significantly enriching a collection.",
-    "seeMarketplace": "See the marketplace"
+    "seeMarketplace": "See the marketplace",
+    "notFound": "Artist not found"
   }
 }

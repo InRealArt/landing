@@ -6,12 +6,14 @@ import { ArrowRight } from 'lucide-react'
 import { useArtistStore } from '@/store/useArtistStore'
 import { useParams } from 'next/navigation'
 import { useLanguageStore } from '@/store/languageStore'
+
 export default function ArtistPage() {
   const params = useParams()
   const slug = params.slug as string
   const { fetchArtists, isLoading, hasError, artists, getArtistBySlug } = useArtistStore()
   const [artist, setArtist] = useState<any>(null)
-  const { t } = useLanguageStore()
+  const { t, language } = useLanguageStore()
+
   useEffect(() => {
     const loadArtist = async () => {
       await fetchArtists()
@@ -21,6 +23,14 @@ export default function ArtistPage() {
     
     loadArtist()
   }, [fetchArtists, getArtistBySlug, slug])
+
+  // Surveiller les changements de langue pour mettre à jour l'artiste
+  useEffect(() => {
+    if (artists.length > 0) {
+      const foundArtist = getArtistBySlug(slug)
+      setArtist(foundArtist)
+    }
+  }, [language, artists, getArtistBySlug, slug])
 
   // S'assurer que artworkImages est un tableau avant d'utiliser map
   const artworkImages = (() => {
@@ -53,11 +63,11 @@ export default function ArtistPage() {
   })()
 
   if (isLoading) {
-    return <div className="mt-headerSize text-center">Chargement de l&quot;artiste...</div>
+    return <div className="mt-headerSize text-center">{t('common.loading')}</div>
   }
 
   if (hasError || !artist) {
-    return <div className="mt-headerSize text-center">Artiste non trouvé</div>
+    return <div className="mt-headerSize text-center">{t('artistPage.notFound')}</div>
   }
 
   return (

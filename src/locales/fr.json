@@ -28,6 +28,10 @@
     "connect": "Connecter",
     "presale": "Prévente"
   },
+  "common": {
+    "loading": "Chargement en cours...",
+    "error": "Une erreur est survenue"
+  },
   "artistPage": {
     "whoIs": "Qui est ",
     "discover": "Découvrez les œuvres de ",
@@ -35,6 +39,7 @@
     "expert": "Le mot de l'expert",
     "expertDescription": "Forte de +80 années d'expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.",
     "expertDescription2": "Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique. Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative",
-    "seeMarketplace": "Voir la marketplace"
+    "seeMarketplace": "Voir la marketplace",
+    "notFound": "Artiste non trouvé"
   }
 }

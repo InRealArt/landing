@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { Lang } from '@/types/types'
 import { getArtists, ArtistData as PrismaArtistData } from '@/actions/artistActions'
+import { useLanguageStore } from './languageStore'
 
 export interface ArtistData {
     id: number
@@ -35,6 +36,8 @@ interface ArtistState {
     getArtistByName: (name: string) => PrismaArtistData | undefined
     // Nouvelle méthode pour récupérer un artiste par son slug
     getArtistBySlug: (slug: string) => ArtistData | undefined
+    // Récupérer le texte traduit pour un champ donné
+    getTranslatedField: (artistId: number, field: string, defaultValue: string) => string
 }
 
 export const useArtistStore = create<ArtistState>((set, get) => ({
@@ -57,16 +60,21 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
 
             // Transformer les données au format attendu par l'application
             const formattedArtists: ArtistData[] = artistsData.map((artist: PrismaArtistData) => {
-                // Création d'une introduction et description à partir des données disponibles
-                const styleText = artist.artworkStyle || '';
+                // Récupérer la langue actuelle
+                const { language } = useLanguageStore.getState()
+
+                // Utiliser les traductions si disponibles, sinon utiliser les valeurs par défaut
+                const intro = artist.translations?.intro?.[language] || artist.intro || ''
+                const description = artist.translations?.description?.[language] || artist.description || ''
+                const artworkStyle = artist.translations?.artworkStyle?.[language] || artist.artworkStyle || ''
 
                 return {
                     id: artist.id,
                     name: `${artist.name} ${artist.surname}`,
                     photo: artist.imageUrl || '',
-                    role: styleText || 'Artiste',
-                    intro: (artist as any).intro,
-                    description: (artist as any).description,
+                    role: artworkStyle || 'Artiste',
+                    intro,
+                    description,
                     slug: artist.slug,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
@@ -140,7 +148,36 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
 
     // Nouvelle méthode pour récupérer un artiste par son slug
     getArtistBySlug: (slug: string) => {
-        const { artists } = get()
-        return artists.find(artist => artist.slug === slug)
+        const { artists, rawArtists } = get()
+        const { language } = useLanguageStore.getState()
+
+        const artist = artists.find(artist => artist.slug === slug)
+        if (!artist) return undefined
+
+        // Trouver les données brutes correspondantes pour accéder aux traductions
+        const rawArtist = rawArtists.find(raw => raw.id === artist.id)
+        if (!rawArtist || !rawArtist.translations) return artist
+
+        // Appliquer les traductions selon la langue actuelle
+        return {
+            ...artist,
+            intro: rawArtist.translations.intro?.[language] || rawArtist.intro || artist.intro,
+            description: rawArtist.translations.description?.[language] || rawArtist.description || artist.description,
+            role: rawArtist.translations.artworkStyle?.[language] || rawArtist.artworkStyle || artist.role
+        }
+    },
+
+    // Méthode utilitaire pour récupérer un champ traduit
+    getTranslatedField: (artistId: number, field: string, defaultValue: string) => {
+        const { rawArtists } = get()
+        const { language } = useLanguageStore.getState()
+
+        const artist = rawArtists.find(a => a.id === artistId)
+        if (!artist || !artist.translations) return defaultValue
+
+        const fieldTranslations = artist.translations[field as keyof typeof artist.translations]
+        if (!fieldTranslations) return defaultValue
+
+        return fieldTranslations[language] || defaultValue
     }
 })) 
