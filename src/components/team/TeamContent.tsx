@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import BioSlider from '@/components/common/slider/BioSlider'
 import TeamCard from '@/components/common/cards/TeamCard'
 import { useTeamStore } from '@/store/useTeamStore'
+import { useLanguageStore } from '@/store/languageStore'
 
 interface SocialLink {
   link: string
@@ -12,25 +13,35 @@ interface SocialLink {
 
 export default function TeamContent() {
   const { members, isLoading, hasError, errorMessage, fetchTeamMembers } = useTeamStore()
+  const { t, language } = useLanguageStore()
 
   useEffect(() => {
     fetchTeamMembers()
   }, [fetchTeamMembers])
 
+  // Re-exécuter lorsque la langue change pour mettre à jour les traductions
+  useEffect(() => {
+    if (members.length > 0) {
+      // Le store gère déjà les traductions, mais nous devons forcer un re-render
+      fetchTeamMembers()
+    }
+  }, [language, members.length, fetchTeamMembers])
+
   if (isLoading) {
-    return <div className="text-center py-10">Chargement en cours...</div>
+    return <div className="text-center py-10">{t('common.loading')}</div>
   }
 
   if (hasError) {
     return <div className="text-center py-10 text-red-500">
-      Une erreur est survenue: {errorMessage || 'Erreur inconnue'}
+      {t('common.error')}: {errorMessage || t('common.unknownError')}
     </div>
   }
 
   if (!members || members.length === 0) {
-    return <div className="text-center py-10">Aucun membre d&apos;équipe trouvé.</div>
+    return <div className="text-center py-10">{t('team.noMembers')}</div>
   }
 
+  // Transformer les membres pour les adapter au format attendu par les composants
   const teamItems = members.map(member => {
     // Préparation des liens sociaux depuis les données
     const socials: SocialLink[] = []
@@ -64,17 +75,17 @@ export default function TeamContent() {
       socials,
       image: { src: member.photo },
       name: member.name,
-      role: member.role.FR,
-      intro: member.text1.FR,
-      description: member.text2.FR
+      role: member.role,
+      intro: member.intro,
+      description: member.description
     }
   })
 
   return (
     <>
-      <BioSlider items={teamItems} title="Découvrez notre équipe" />
+      <BioSlider items={teamItems} title={t('team.discoverTeam')} />
       <div className="mt-20">
-        <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>Rencontrez toute l&apos;équipe</h1>
+        <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('team.meetTeam')}</h1>
         <div className="flex flex-wrap gap-4">
           {teamItems.map((item) =>
             <TeamCard key={item.name} {...item} additionalClassName="w-full lg:w-cardLarge" />

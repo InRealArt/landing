@@ -42,7 +42,13 @@
   },
   "common": {
     "loading": "Loading...",
-    "error": "An error occurred"
+    "error": "An error occurred",
+    "unknownError": "Unknown error"
+  },
+  "team": {
+    "discoverTeam": "Discover our team",
+    "meetTeam": "Meet the entire team",
+    "noMembers": "No team members found."
   },
   "artistPage": {
     "whoIs": "Who is ",

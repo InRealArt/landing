@@ -19,7 +19,7 @@
     "description": "Oeuvres rares et exclusives"
   },
   "statistics": {
-    "title": "Le catalogue InRealArt c’est : ",
+    "title": "Le catalogue InRealArt c'est : ",
     "description": "Statistiques sur le marché de l'art"
   },
   "faq": {
@@ -42,7 +42,13 @@
   },
   "common": {
     "loading": "Chargement en cours...",
-    "error": "Une erreur est survenue"
+    "error": "Une erreur est survenue",
+    "unknownError": "Erreur inconnue"
+  },
+  "team": {
+    "discoverTeam": "Découvrez notre équipe",
+    "meetTeam": "Rencontrez toute l'équipe",
+    "noMembers": "Aucun membre d'équipe trouvé."
   },
   "artistPage": {
     "whoIs": "Qui est ",

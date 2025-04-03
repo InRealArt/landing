@@ -16,6 +16,11 @@ export interface TeamMemberData {
     githubUrl: string | null
     twitterUrl: string | null
     websiteUrl: string | null
+    translations?: {
+        role?: Record<string, string>
+        description?: Record<string, string>
+        intro?: Record<string, string>
+    }
 }
 
 export async function getTeamMembers(): Promise<TeamMemberData[]> {
@@ -38,7 +43,41 @@ export async function getTeamMembers(): Promise<TeamMemberData[]> {
             }
         })
 
-        return teamMembers
+        // Récupérer les traductions pour chaque membre
+        const result = await Promise.all(teamMembers.map(async (member) => {
+            const translations = await prisma.translation.findMany({
+                where: {
+                    entityType: 'Team',
+                    entityId: member.id
+                },
+                include: {
+                    language: true
+                }
+            })
+
+            // Organiser les traductions par champ et par langue
+            const formattedTranslations = {
+                role: {},
+                description: {},
+                intro: {}
+            }
+
+            translations.forEach(t => {
+                if (t.field === 'role' || t.field === 'description' || t.field === 'intro') {
+                    formattedTranslations[t.field as keyof typeof formattedTranslations] = {
+                        ...formattedTranslations[t.field as keyof typeof formattedTranslations],
+                        [t.language.code]: t.value
+                    }
+                }
+            })
+
+            return {
+                ...member,
+                translations: formattedTranslations
+            }
+        }))
+
+        return result
     } catch (error) {
         console.error('Erreur lors de la récupération des membres de l\'équipe:', error)
         throw new Error('Impossible de récupérer les membres de l\'équipe')
