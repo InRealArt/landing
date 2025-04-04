@@ -499,6 +499,7 @@
         "success": "Votre inscription a été effectuée avec succès",
         "error": "Une erreur est survenue lors de l'inscription"
       },
-      "emailValidationError": "Votre email n'est pas valide"
+      "emailValidationError": "Votre email n'est pas valide",
+      "emailValidationRequired": "Email requis"
     }
 }
