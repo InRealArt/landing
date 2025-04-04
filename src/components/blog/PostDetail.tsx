@@ -64,7 +64,7 @@ export default function PostDetail({ post }: PostDetailProps) {
 
       {/* Post content */}
       <div
-        className="prose prose-invert max-w-none"
+        className="prose prose-invert max-w-none inter"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>
