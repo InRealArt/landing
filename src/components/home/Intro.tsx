@@ -15,7 +15,7 @@ const Intro = () => {
   const { t } = useLanguageStore();
 
   return (
-    <section className="bg-cover m-auto bg-no-repeat bg-top h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${BG.src}')` }}>
+    <section className="bg-cover m-auto bg-no-repeat bg-bottom h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${BG.src}')` }}>
       <div className="max-w-90 xl:max-w-screen-xl m-auto md:mt-headerSize flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-7xl bricolage-grotesque font-medium max-w-4xl mb-12 md:mb-4">
           {t('home.intro.title')}

@@ -8,7 +8,7 @@ import Investment from "@/components/usecase/leasing/Investment";
 
 export default function LeasingPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen  text-white">
       <Hero />
       <Advantages />
       <Benefits />

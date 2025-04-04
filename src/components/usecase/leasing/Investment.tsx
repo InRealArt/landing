@@ -7,7 +7,7 @@ export default function Investment() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>

@@ -37,7 +37,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
 
   return (
-    <div className={`fixed inset-0 z-50 bg-black bg-opacity-80 flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed inset-0 z-50  bg-opacity-80 flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className={`bg-cardBackground min-h-[100vh] w-full max-w-[85%] p-6 flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex justify-end mb-8">
           <button onClick={onClose} className="text-white p-2">
@@ -83,7 +83,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
         </nav>
         
-        <div className="mt-auto pt-8">
+        <div className="mt-16 ">
           <Button 
             text={t('buttons.presale')} 
             additionalClassName="bg-purpleColor w-full" 

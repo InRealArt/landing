@@ -28,7 +28,7 @@ export default function Header() {
   ];
 
   return (
-    <section className="bg-cover bg-no-repeat bg-top py-20 w-full pt-headerSize" style={{ backgroundImage: `url('${BG.src}')`}}>
+    <section className="bg-cover bg-no-repeat bg-bottom py-20 w-full pt-headerSize" style={{ backgroundImage: `url('${BG.src}')`}}>
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4">

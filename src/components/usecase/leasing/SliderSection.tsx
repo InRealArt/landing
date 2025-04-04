@@ -31,7 +31,7 @@ export default function SliderSection() {
   ];
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-12">
           {t('leasing.slider.title')}
@@ -69,7 +69,7 @@ export default function SliderSection() {
                       <div 
                         key={idx} 
                         onClick={() => swiperRef.current?.slideTo(idx)} 
-                        className={`${activeSlide === idx ? '!bg-white' : ''} h-1.5 w-1/4 bg-black/20 cursor-pointer`}
+                        className={`${activeSlide === idx ? '!bg-white' : ''} h-1.5 w-1/4 /20 cursor-pointer`}
                       ></div>
                     ))}
                   </div>

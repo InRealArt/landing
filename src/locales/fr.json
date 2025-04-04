@@ -462,15 +462,15 @@
         },
         "impact": {
           "title": "Impact / Responsabilité Sociétale",
-          "description": "Initier un dialogue autour de la Responsabilité Sociétale et Culturelle des Entreprises, réinterroger les métiers, ou mobiliser les parties prenantes autour de thématiques à fort impact telles que la Diversité, l’Équité et l’Inclusion (DEI), la Santé et la Sécurité au travail, ou encore le sport.."
+          "description": "Initier un dialogue autour de la Responsabilité Sociétale et Culturelle des Entreprises, réinterroger les métiers, ou mobiliser les parties prenantes autour de thématiques à fort impact telles que la Diversité, l'Équité et l'Inclusion (DEI), la Santé et la Sécurité au travail, ou encore le sport.."
         },
         "art": {
           "title": "Art / Solidarité",
-          "description": "Organiser des rencontres avec les artistes, participer à des ateliers, ou découvrir les œuvres avec vos équipes, clients et partenaires lors d’événements d’entreprise. InRealart rend l'art accessible grâce à des cartels, QR codes, guides et catalogues, dans un esprit similaire à celui des galeries ou musées.."
+          "description": "Organiser des rencontres avec les artistes, participer à des ateliers, ou découvrir les œuvres avec vos équipes, clients et partenaires lors d'événements d'entreprise. InRealart rend l'art accessible grâce à des cartels, QR codes, guides et catalogues, dans un esprit similaire à celui des galeries ou musées.."
         },
         "events": {
           "title": "Événements / Médiation",
-          "description": "Fresques solidaires, mécénat culturel, fondations d’entreprise, programmes d’éducation et d’inclusion, ventes aux enchères caritatives... Chaque projet artistique devient un vecteur de partage, permettant à chacun de contribuer à son « entreprise » au sens originel : entreprendre et agir ensemble."
+          "description": "Fresques solidaires, mécénat culturel, fondations d'entreprise, programmes d'éducation et d'inclusion, ventes aux enchères caritatives... Chaque projet artistique devient un vecteur de partage, permettant à chacun de contribuer à son « entreprise » au sens originel : entreprendre et agir ensemble."
         }
       },
       "steps": {
@@ -494,12 +494,97 @@
       "contactButton": "Contactez un expert B2B InRealArt"
     }
   },
-    "toaster": {
-      "newsletter": {
-        "success": "Votre inscription a été effectuée avec succès",
-        "error": "Une erreur est survenue lors de l'inscription"
-      },
-      "emailValidationError": "Votre email n'est pas valide",
-      "emailValidationRequired": "Email requis"
+  "toaster": {
+    "newsletter": {
+      "success": "Votre inscription a été effectuée avec succès",
+      "error": "Une erreur est survenue lors de l'inscription"
+    },
+    "emailValidationError": "Votre email n'est pas valide",
+    "emailValidationRequired": "Email requis"
+  },
+  "lending": {
+    "hero": {
+      "title": "InRealArt Lending Nouvelle Génération : Financement Innovant pour le Marché de l'Art",
+      "description": "Transformez vos œuvres en liquidités avec InRealArt Lending, une solution flexible et sécurisée pour financer votre développement sans passer par un prêt bancaire.",
+      "button": "Contactez-nous"
+    },
+    "advantages": {
+      "title": "InRealArt Lending",
+      "subtitle": "Profitez d'un financement sécurisé et transparent grâce au NFT. Utilisez vos œuvres comme garantie et obtenez des fonds tout en conservant le contrôle et assurant une traçabilité irréprochable sur la blockchain.",
+      "description": "InRealArt Lending répond aux besoins financiers des galeries, collectionneurs et marchands d'art. Nous proposons pour chaque métier et catégorie une approche sur mesure.",
+      "button": "Contactez-nous"
+    },
+    "solutions": {
+      "title": "De solutions sur mesures",
+      "description": "InRealArt Lending répond aux besoins financiers des galeries, collectionneurs et marchands d'art. Nous vous aidons à générer la liquidité et la valeur de vos actifs, nous assurons la gestion et l'évaluation des collections tout en garantissant une approche sur mesure pour une tranquillité d'esprit totale.",
+      "button": "Contactez-nous"
+    },
+    "alternative": {
+      "title": "InRealArt Lending offre <span class=\"text-purpleColor\">une alternative flexible aux prêts bancaires</span> et <span class=\"text-purpleColor\">financer</span> vos acquisitions, expansions ou projets artistiques."
+    },
+    "forWho": {
+      "title": "Pour qui ?",
+      "items": [
+        "Galeries et Professionnels du Marché de l'Art : Transformez votre stock en actifs pour saisir des opportunités de croissance",
+        "Collectionneurs et Amateurs d'Art : Développez votre collection tout en optimisant votre patrimoine",
+        "Institutions et Fondations : Valorisez vos actifs artistiques pour financer de nouveaux projets"
+      ]
+    },
+    "whyChoose": {
+      "title": "Pourquoi choisir InRealArt lending",
+      "items": [
+        "Optimisation Financière et Flexibilité : Accédez à des liquidités tout en gardant vos œuvres",
+        "Sécurité et Transparence via la Blockchain : Profitez de haute traçabilité et sécurité",
+        "Accès à la Finance Décentralisée (DeFi) : Profitez des nouvelles opportunités du Web3 pour optimiser vos actifs artistiques"
+      ]
     }
+  },
+  "fractionate": {
+    "hero": {
+      "title": "Accédez à des œuvres d'art fractionnées via une marketplace exclusive.",
+      "description": "Accédez à des œuvres d'art fractionnées via une marketplace exclusive, offrant des opportunités d'investissement uniques et accessibles. Idéale pour les collectionneurs et investisseurs souhaitant diversifier leur portefeuille tout en profitant de la valeur croissante de l'art.",
+      "button": "Contactez-nous"
+    },
+    "howItWorks": {
+      "title": "Comment ça fonctionne",
+      "steps": {
+        "selection": {
+          "number": "01",
+          "title": "Sélection d'Œuvres Certifiées",
+          "description": "En partenariat avec des artistes et galeries de renommée mondiale, InRealArt propose une collection haut de gamme d'œuvres d'art. Celle-ci réunit des créations de grands noms de l'art contemporain, des talents émergents prometteurs ainsi que des œuvres de maîtres incontournables."
+        },
+        "verification": {
+          "number": "02",
+          "title": "Processus de Vérification",
+          "description": "Chaque œuvre est soumise à un processus rigoureux de vérification et d'authentification par nos experts."
+        },
+        "tokenization": {
+          "number": "03",
+          "title": "Tokenisation et Fractionnement",
+          "description": "Les œuvres sont tokenisées et fractionnées sur la blockchain, permettant aux investisseurs d'acquérir des parts d'œuvres d'art de grande valeur via des certificats de propriété numériques uniques et inviolables."
+        }
+      }
+    },
+    "benefits": {
+      "title": "Avantages",
+      "items": {
+        "accessibility": {
+          "title": "Accédez à des œuvres d'art de prestige",
+          "description": "La tokenisation fractionnée vous permet d'investir dans des œuvres d'art rares et prestigieuses, même avec un budget limité. En achetant des fractions d'œuvres, vous devenez propriétaire d'une part d'art, sans avoir à investir dans l'intégralité de l'œuvre."
+        },
+        "diversification": {
+          "title": "Diversifiez et optimisez vos investissements",
+          "description": "La tokenisation fractionnée vous permet de diversifier votre portefeuille en investissant dans une variété d'œuvres d'art, offrant ainsi une couverture contre la volatilité des marchés traditionnels. Vous pouvez investir dans des artistes contemporains, des maîtres anciens, ou même des talents émergents, tout en répartissant vos risques."
+        },
+        "liquidity": {
+          "title": "Profitez d'une liquidité optimisée",
+          "description": "Grâce à notre marketplace dédiée, vous pouvez facilement acheter et revendre vos tokens, offrant une flexibilité et une liquidité que l'art traditionnel ne peut pas égaler. Vous pouvez échanger vos parts d'œuvres d'art quand vous le souhaitez, avec une transparence totale."
+        },
+        "transparency": {
+          "title": "Garanties de sécurité et de traçabilité",
+          "description": "Toutes les transactions sont enregistrées sur la blockchain, garantissant une sécurité maximale et une traçabilité complète. Chaque token représente une part vérifiée et authentifiée de l'œuvre, offrant une confiance totale dans votre investissement."
+        }
+      }
+    }
+  }
 }

@@ -502,5 +502,90 @@
     },
     "emailValidationError": "Your email is not valid",
     "emailValidationRequired": "Email required"
+  },
+  "lending": {
+    "hero": {
+      "title": "InRealArt Lending New Generation: Innovative Financing for the Art Market",
+      "description": "Transform your artworks into liquidity with InRealArt Lending, a flexible and secure solution to finance your development without traditional bank loans.",
+      "button": "Contact us"
+    },
+    "advantages": {
+      "title": "InRealArt Lending",
+      "subtitle": "Benefit from secure and transparent financing through NFT technology. Use your artworks as collateral and obtain funds while maintaining control and ensuring impeccable traceability on the blockchain.",
+      "description": "InRealArt Lending addresses the financial needs of galleries, collectors, and art dealers. We offer a tailored approach for each profession and category.",
+      "button": "Contact us"
+    },
+    "solutions": {
+      "title": "Tailored solutions",
+      "description": "InRealArt Lending addresses the financial needs of galleries, collectors, and art dealers. We help you generate liquidity and value from your assets, ensure collection management and evaluation, all while guaranteeing a tailored approach for complete peace of mind.",
+      "button": "Contact us"
+    },
+    "alternative": {
+      "title": "InRealArt Lending offers <span class=\"text-purpleColor\">a flexible alternative to bank loans</span> and <span class=\"text-purpleColor\">finances</span> your acquisitions, expansions, or artistic projects."
+    },
+    "forWho": {
+      "title": "Who is it for?",
+      "items": [
+        "Galleries and Art Market Professionals: Transform your inventory into assets to seize growth opportunities",
+        "Collectors and Art Enthusiasts: Develop your collection while optimizing your assets",
+        "Institutions and Foundations: Leverage your artistic assets to finance new projects"
+      ]
+    },
+    "whyChoose": {
+      "title": "Why choose InRealArt lending",
+      "items": [
+        "Financial Optimization and Flexibility: Access liquidity while keeping your artworks",
+        "Security and Transparency via Blockchain: Enjoy high traceability and security",
+        "Access to Decentralized Finance (DeFi): Benefit from new Web3 opportunities to optimize your artistic assets"
+      ]
+    }
+  },
+  "fractionate": {
+    "hero": {
+      "title": "Access fractionalized artworks through an exclusive marketplace.",
+      "description": "Access fractionalized artworks through an exclusive marketplace, offering unique and accessible investment opportunities. Ideal for collectors and investors looking to diversify their portfolio while benefiting from the growing value of art.",
+      "button": "Contact us"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "steps": {
+        "selection": {
+          "number": "01",
+          "title": "Selection of Certified Artworks",
+          "description": "In partnership with world-renowned artists and galleries, InRealArt offers a high-end collection of artworks. This brings together creations by major names in contemporary art, promising emerging talents, and works by essential masters."
+        },
+        "verification": {
+          "number": "02",
+          "title": "Verification Process",
+          "description": "Each artwork undergoes a rigorous verification and authentication process by our experts."
+        },
+        "tokenization": {
+          "number": "03",
+          "title": "Tokenization and Fractionalization",
+          "description": "Artworks are tokenized and fractionalized on the blockchain, allowing investors to acquire shares of high-value artworks through unique and tamper-proof digital certificates of ownership."
+        }
+      }
+    },
+    "benefits": {
+      "title": "Benefits",
+      "items": {
+        "accessibility": {
+          "title": "Access Prestigious Artworks",
+          "description": "Fractionalized tokenization allows you to invest in rare and prestigious artworks, even with a limited budget. By purchasing fractions of artworks, you become the owner of a share of art, without having to invest in the entire piece."
+        },
+        "diversification": {
+          "title": "Diversify and Optimize Your Investments",
+          "description": "Fractionalized tokenization allows you to diversify your portfolio by investing in a variety of artworks, offering protection against traditional market volatility. You can invest in contemporary artists, old masters, or even emerging talents, while spreading your risks."
+        },
+        "liquidity": {
+          "title": "Enjoy Optimized Liquidity",
+          "description": "Thanks to our dedicated marketplace, you can easily buy and sell your tokens, offering flexibility and liquidity that traditional art cannot match. You can exchange your shares of artworks whenever you wish, with complete transparency."
+        },
+        "transparency": {
+          "title": "Security and Traceability Guarantees",
+          "description": "All transactions are recorded on the blockchain, ensuring maximum security and complete traceability. Each token represents a verified and authenticated part of the artwork, offering complete confidence in your investment."
+        }
+      }
+    }
   }
 }

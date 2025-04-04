@@ -24,7 +24,7 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 ">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-12">
           {t('leasing.benefits.title')}

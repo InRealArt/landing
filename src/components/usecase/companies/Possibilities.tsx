@@ -4,12 +4,12 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
-import moneyImage from "../../../public/images/company-art-1.png";
-import processImage from "../../../public/images/company-art-2.png";
+import moneyImage from "../../../../public/images/company-art-1.png";
+import processImage from "../../../../public/images/company-art-2.png";
 
 export default function Possibilities() {
   const { t } = useLanguageStore();
-  
+
   const sections = [
     {
       id: 'customization',
@@ -59,18 +59,18 @@ export default function Possibilities() {
   ];
 
   return (
-    <section className="w-full bg-black py-16">
+    <section className="w-full  py-16">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <h1 className="text-3xl md:text-5xl bricolage-grotesque mb-10">
           {t('companies.possibilities.title')}
         </h1>
-        
+
         {/* Grid for sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {sections.map((section) => (
             <div key={section.id} className="bg-cardBackground rounded-lg p-6 border border-white/80">
               <div className="mb-6">
-                <Image 
+                <Image
                   src={section.image}
                   alt={section.title}
                   width={500}
@@ -88,7 +88,7 @@ export default function Possibilities() {
         <div className="bg-cardBackground rounded-lg p-8 border border-white/80 mb-16">
           {/* Image */}
           <div className="mb-8">
-            <Image 
+            <Image
               src={processImage}
               alt="Our Process"
               width={1200}
@@ -96,17 +96,17 @@ export default function Possibilities() {
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Steps */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {steps.map((step) => (
               <div key={step.id} className="p-8 rounded-lg border border-white/80 bricolage-grotesque">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-base md:text-xl font-medium">
                     {step.title}
                   </h3>
-                  <span className="text-base md:text-xl text-gray-300">
-                  {step.number}
+                  <span className="text-base md:text-xl font-medium">
+                    {step.number}
                   </span>
                 </div>
                 <p className="text-sm text-gray-300">
@@ -116,10 +116,10 @@ export default function Possibilities() {
             ))}
           </div>
         </div>
-        
+
         {/* Contact Button */}
         <div className="text-center">
-          <Button 
+          <Button
             text={t('companies.possibilities.contactButton')}
             additionalClassName="bg-purpleColor"
             icon={<ArrowRight />}
