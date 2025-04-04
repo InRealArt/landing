@@ -5,6 +5,7 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import FAQ from "@/components/common/FAQ/FAQ";
 import LanguageProvider from "@/components/providers/LanguageProvider";
+import Toaster from "@/components/common/Toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,6 +32,7 @@ export default function RootLayout({
           {children}
           <FAQ />
           <Footer />
+          <Toaster />
         </LanguageProvider>
       </body>
     </html>

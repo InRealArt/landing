@@ -68,16 +68,16 @@ model Faq {
 }
 
 model Artist {
-  id              Int      @id @default(autoincrement())
+  id              Int              @id @default(autoincrement())
   name            String
   surname         String
-  pseudo          String   @unique
+  pseudo          String           @unique
   intro           String?
-  description     String   @unique
+  description     String           @unique
   artworkStyle    String?
-  publicKey       String   @unique
-  imageUrl        String   @unique
-  isGallery       Boolean  @default(false)
+  publicKey       String           @unique
+  imageUrl        String           @unique
+  isGallery       Boolean          @default(false)
   backgroundImage String?
   LandingArtist   LandingArtist[]
   presaleArtworks PresaleArtwork[]
@@ -100,17 +100,24 @@ model LandingArtist {
   @@schema("landing")
 }
 
+model EmailNewsLetter {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+
+  @@schema("landing")
+}
 
 model PresaleArtwork {
-  id       Int    @id @default(autoincrement())
-  name     String
+  id          Int     @id @default(autoincrement())
+  name        String
   description String?
-  order     Int?
-  artistId  Int
-  price     Int
-  imageUrl    String   @unique
-  mockupUrls  Json     @default("[]")
-  artist   Artist @relation(fields: [artistId], references: [id])
+  order       Int?
+  artistId    Int
+  price       Int
+  imageUrl    String  @unique
+  mockupUrls  Json    @default("[]")
+  artist      Artist  @relation(fields: [artistId], references: [id])
 
   @@index([artistId])
   @@schema("landing")
