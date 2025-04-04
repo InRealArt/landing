@@ -10,19 +10,19 @@ export default function CaseStudies() {
   const caseStudies = [
     {
       title: "Fractionnement des œuvres d'art",
-      link: "/usecase/fractionnement"
+      link: "/usecase/fractionate"
     },
     {
       title: "Une marketplace Exclusive",
-      link: "/usecase/marketplace"
+      link: "/usecase/companies"
     },
     {
       title: "Fractionnement des œuvres d'art",
-      link: "/usecase/fractionnement-2"
+      link: "/usecase/leasing"
     },
     {
       title: "Une marketplace Exclusive",
-      link: "/usecase/marketplace-2"
+      link: "/usecase/lending"
     }
   ];
 

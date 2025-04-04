@@ -11,19 +11,19 @@ export default function Header() {
   const caseStudies = [
     {
       title: t('usecase.items.collector.title'),
-      link: "/usecase/fractionnement"
+      link: "/usecase/fractionate"
     },
     {
       title: t('usecase.items.artist.title'),
-      link: "/usecase/marketplace"
+      link: "/usecase/companies"
     },
     {
       title: t('usecase.items.investor.title'),
-      link: "/usecase/fractionnement-2"
+      link: "/usecase/leasing"
     },
     {
       title: t('usecase.items.gallery.title'),
-      link: "/usecase/marketplace-2"
+      link: "/usecase/lending"
     }
   ];
 

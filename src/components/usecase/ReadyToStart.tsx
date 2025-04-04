@@ -17,17 +17,17 @@ export default function ReadyToStart() {
     {
       title: t('usecase.items.gallery.title'),
       description: t('usecase.items.gallery.description'),
-      link: "/usecase/gallery"
+      link: "/usecase/fractionate"
     },
     {
       title: t('usecase.items.gallery.title'),
       description: t('usecase.items.gallery.description'),
-      link: "/usecase/gallery-2"
+      link: "/usecase/companies"
     },
     {
       title: t('usecase.items.gallery.title'),
       description: t('usecase.items.gallery.description'),
-      link: "/usecase/gallery-3"
+      link: "/usecase/leasing"
     }
   ];
 
