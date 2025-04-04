@@ -23,7 +23,7 @@ export default {
         footerSize: "var(--footer-height)"
       },
       spacing: {
-        headerSize: "calc(var(--header-height) + 4rem)",
+        headerSize: "calc(var(--header-height) + 2rem)",
         fullMinusHeader: "calc(100% - 200px)",
         90: '91.666667%',
         65: '65%',

@@ -42,7 +42,8 @@
     "presale": "Pré-vente",
     "readWhitepaper": "Lire notre whitepaper",
     "team": "L'équipe",
-    "viewFAQ": "Consulter la FAQ"
+    "viewFAQ": "Consulter la FAQ",
+    "back": "Retour aux articles"
   },
   "language": {
     "switchTo": "Passer en français",
@@ -595,6 +596,23 @@
           "description": "Toutes les transactions sont enregistrées sur la blockchain, garantissant une sécurité maximale et une traçabilité complète. Chaque token représente une part vérifiée et authentifiée de l'œuvre, offrant une confiance totale dans votre investissement."
         }
       }
+    }
+  },
+  "blog": {
+    "title": "Rattrapez-vous avec Nos Derniers Articles",
+    "subtitle": "Rattrapez-vous avec nos dernières actualités et restez informé des mises à jour récentes, des histoires instructives et des annonces passionnantes qui façonnent notre parcours !",
+    "recentPosts": "Article Récent",
+    "weeklyRead": "Plus Lus de la Semaine",
+    "readMore": "Lire Plus",
+    "tags": {
+      "design": "Design",
+      "product": "Produit",
+      "frameworks": "Frameworks",
+      "technology": "Technologie",
+      "investment": "Investissement",
+      "art": "Art",
+      "nft": "NFT",
+      "blockchain": "Blockchain"
     }
   }
 }

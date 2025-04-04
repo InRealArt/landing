@@ -42,7 +42,8 @@
     "presale": "Pre-sale",
     "readWhitepaper": "Read our whitepaper",
     "team": "The Team",
-    "viewFAQ": "View FAQ"
+    "viewFAQ": "View FAQ",
+    "back": "Back to articles"
   },
   "language": {
     "switchTo": "Switch to English",
@@ -596,6 +597,23 @@
           "description": "All transactions are recorded on the blockchain, ensuring maximum security and complete traceability. Each token represents a verified and authenticated part of the artwork, offering complete confidence in your investment."
         }
       }
+    }
+  },
+  "blog": {
+    "title": "Catch Up with Our Latest Articles",
+    "subtitle": "Catch up with our latest news and stay in the loop on recent updates, insightful stories, and exciting announcements shaping our journey forward!",
+    "recentPosts": "Recent Post",
+    "weeklyRead": "Weekly Most Read",
+    "readMore": "Read More",
+    "tags": {
+      "design": "Design",
+      "product": "Product",
+      "frameworks": "Frameworks",
+      "technology": "Technology",
+      "investment": "Investment",
+      "art": "Art",
+      "nft": "NFT",
+      "blockchain": "Blockchain"
     }
   }
 }
