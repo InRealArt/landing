@@ -37,13 +37,13 @@ export default function CustomerStories() {
       link: "/usecase/leasing"
     },
     {
-      title: "Services Financiers pour l'Art",
-      description: "Accédez à des solutions de financement flexibles basées sur vos œuvres d'art, sans avoir à les vendre.",
+      title: t('usecase.items.lending.title'),
+      description: t('usecase.items.lending.description'),
       benefits: [
-        "Prêts garantis par des œuvres d'art",
-        "Alternatives aux prêts bancaires traditionnels",
-        "Évaluation professionnelle des actifs artistiques",
-        "Solutions personnalisées pour les besoins spécifiques"
+        t('usecase.items.lending.features.0'),
+        t('usecase.items.lending.features.1'),
+        t('usecase.items.lending.features.2'),
+        t('usecase.items.lending.features.3')
       ],
       link: "/usecase/lending"
     },
@@ -58,10 +58,10 @@ export default function CustomerStories() {
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-32">
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
-        Nos Solutions
+        {t('usecase.intro.title')}
       </h2>
       <p className="text-base md:text-lg inter text-gray-300 mb-10">
-        Découvrez comment InRealArt transforme le marché de l'art à travers des solutions innovantes
+        {t('usecase.intro.subtitle')}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

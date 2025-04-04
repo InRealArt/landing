@@ -344,6 +344,16 @@
           "Potentiel de croissance du marché"
         ]
       },
+      "lending": {
+        "title": "Services Financiers pour l'Art",
+        "description": "Accédez à des solutions de financement flexibles basées sur vos œuvres d'art, sans avoir à les vendre.",
+        "features": [
+          "Prêts garantis par des œuvres d'art",
+          "Alternatives aux prêts bancaires traditionnels",
+          "Évaluation professionnelle des actifs artistiques",
+          "Solutions personnalisées pour les besoins spécifiques"
+        ]
+      },
       "gallery": {
         "title": "Pour les Galeries",
         "description": "Étendez votre portée, connectez-vous avec de nouveaux collectionneurs et utilisez la technologie blockchain pour améliorer la valeur et la traçabilité de vos œuvres.",

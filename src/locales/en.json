@@ -345,6 +345,16 @@
           "Market growth potential"
         ]
       },
+      "lending": {
+        "title": "Financial Services for Art",
+        "description": "Access flexible financing solutions based on your artworks without having to sell them.",
+        "features": [
+          "Loans secured by artworks",
+          "Alternatives to traditional bank loans",
+          "Professional evaluation of artistic assets",
+          "Customized solutions for specific needs"
+        ]
+      },
       "gallery": {
         "title": "For Galleries",
         "description": "Expand your reach, connect with new collectors, and leverage blockchain technology to enhance the value and traceability of your artworks.",
