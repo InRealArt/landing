@@ -108,16 +108,28 @@ model EmailNewsLetter {
   @@schema("landing")
 }
 
+model EmailPresale {
+  id        Int            @id @default(autoincrement())
+  email     String
+  createdAt DateTime       @default(now())
+  presaleId Int
+  presale   PresaleArtwork @relation(fields: [presaleId], references: [id])
+
+  @@index([presaleId])
+  @@schema("landing")
+}
+
 model PresaleArtwork {
-  id          Int     @id @default(autoincrement())
-  name        String
-  description String?
-  order       Int?
-  artistId    Int
-  price       Int
-  imageUrl    String  @unique
-  mockupUrls  Json    @default("[]")
-  artist      Artist  @relation(fields: [artistId], references: [id])
+  id            Int            @id @default(autoincrement())
+  name          String
+  description   String?
+  order         Int?
+  artistId      Int
+  price         Int
+  imageUrl      String         @unique
+  mockupUrls    Json           @default("[]")
+  artist        Artist         @relation(fields: [artistId], references: [id])
+  emailPresales EmailPresale[]
 
   @@index([artistId])
   @@schema("landing")
