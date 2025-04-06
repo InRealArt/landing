@@ -67,6 +67,28 @@ model Faq {
   @@schema("landing")
 }
 
+// Modèle pour l'en-tête de FAQ détaillée
+model DetailedFaqHeader {
+  id       Int               @id @default(autoincrement())
+  name     String
+  faqItems DetailedFaqItem[]
+
+  @@schema("landing")
+}
+
+// Modèle pour les éléments de FAQ détaillée
+model DetailedFaqItem {
+  id            Int               @id @default(autoincrement())
+  question      String
+  answer        String
+  detailedFaqId Int
+  header        DetailedFaqHeader @relation(fields: [detailedFaqId], references: [id])
+
+  @@index([detailedFaqId])
+  @@schema("landing")
+}
+
+
 model Artist {
   id              Int              @id @default(autoincrement())
   name            String

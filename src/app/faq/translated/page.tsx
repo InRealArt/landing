@@ -1,31 +1,22 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import { faqTabs } from "@/data/faqTranslated";
 import Header from "@/components/common/annexe/Header";
 import TabFilter from "@/components/common/annexe/TabFilter";
 import ContentGrid from "@/components/common/annexe/ContentGrid";
 import { useLanguageStore } from '@/store/languageStore';
 import { useDetailedFaqStore } from "@/store/useDetailedFaqStore";
 
-export default function Faq() {
+export default function TranslatedFaq() {
+  const [activeTab, setActiveTab] = useState(faqTabs[0]);
   const { t, language } = useLanguageStore();
-  const { faqItems, faqTabs, isLoading, hasError, fetchDetailedFaqs } = useDetailedFaqStore();
-  const [activeTab, setActiveTab] = useState("");
-  
-  console.log('faqItems', faqItems);
-  console.log('faqTabs', faqTabs);
+  const { faqItems, isLoading, hasError, fetchDetailedFaqs } = useDetailedFaqStore();
   
   useEffect(() => {
     // Récupérer les FAQ traduites dans la langue actuelle
     fetchDetailedFaqs(language);
   }, [fetchDetailedFaqs, language]);
-  
-  // Définir l'onglet actif une fois les données chargées
-  useEffect(() => {
-    if (faqTabs.length > 0 && !activeTab) {
-      setActiveTab(faqTabs[0]);
-    }
-  }, [faqTabs, activeTab]);
   
   const filteredItems = faqItems.filter(item => 
     item.categories?.includes(activeTab)
@@ -44,13 +35,11 @@ export default function Faq() {
         <div className="text-center py-10 text-red-500">{t('common.error')}</div>
       ) : (
         <>
-          {faqTabs.length > 0 && (
-            <TabFilter 
-              activeTab={activeTab} 
-              tabs={faqTabs} 
-              setActiveTab={setActiveTab} 
-            />
-          )}
+          <TabFilter 
+            activeTab={activeTab} 
+            tabs={faqTabs} 
+            setActiveTab={setActiveTab} 
+          />
           {filteredItems.length > 0 ? (
             <ContentGrid 
               items={filteredItems} 
