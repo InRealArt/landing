@@ -2,58 +2,12 @@
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from '@/store/languageStore';
 
-interface RoadmapItem {
+export interface RoadmapItem {
   title: string;
   description: string[];
 }
 
-const Roadmap = () => {
-  const { t } = useLanguageStore();
-
-  const items: RoadmapItem[] = [
-    {
-      title: t('roadmap.items.q1_2025.title'),
-      description: [
-        t('roadmap.items.q1_2025.description.0'),
-        t('roadmap.items.q1_2025.description.1'),
-        t('roadmap.items.q1_2025.description.2'),
-        t('roadmap.items.q1_2025.description.3')
-      ]
-    },
-    {
-      title: t('roadmap.items.q2_2025.title'),
-      description: [
-        t('roadmap.items.q2_2025.description.0'),
-        t('roadmap.items.q2_2025.description.1'),
-        t('roadmap.items.q2_2025.description.2')
-      ]
-    },
-    {
-      title: t('roadmap.items.q3_2025.title'),
-      description: [
-        t('roadmap.items.q3_2025.description.0'),
-        t('roadmap.items.q3_2025.description.1'),
-        t('roadmap.items.q3_2025.description.2')
-      ]
-    },
-    {
-      title: t('roadmap.items.q4_2025.title'),
-      description: [
-        t('roadmap.items.q4_2025.description.0'),
-        t('roadmap.items.q4_2025.description.1'),
-        t('roadmap.items.q4_2025.description.2')
-      ]
-    },
-    {
-      title: t('roadmap.items.q1_2026.title'),
-      description: [
-        t('roadmap.items.q1_2026.description.0'),
-        t('roadmap.items.q1_2026.description.1'),
-        t('roadmap.items.q1_2026.description.2')
-      ]
-    }
-  ]
-
+const Roadmap = ({items}: {items: RoadmapItem[]}) => {
   return (
     <section className="m-auto  max-w-90 xl:max-w-screen-lg w-full relative">
       {items.map((item, index) => {

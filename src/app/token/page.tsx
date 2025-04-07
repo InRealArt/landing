@@ -1,20 +1,15 @@
 'use client'
-import Intro from "@/components/roadmap/Intro";
-import Roadmap, { RoadmapItem } from "@/components/roadmap/Roadmap";
-import { useLanguageStore } from "@/store/languageStore";
+import TokenHero from '@/components/token/TokenHero';
+import TokenWhyChoose from '@/components/token/TokenWhyChoose';
+import TokenHowToBuy from '@/components/token/TokenHowToBuy';
+import TokenAllocation from '@/components/token/TokenAllocation';
+import Roadmap, { RoadmapItem } from '@/components/roadmap/Roadmap';
+import { useLanguageStore } from '@/store/languageStore';
 
-export default function RoadMap() {
+export default function TokenPage() {
   const { t } = useLanguageStore();
+
   const items: RoadmapItem[] = [
-    {
-      title: t('roadmap.items.q1_2025.title'),
-      description: [
-        t('roadmap.items.q1_2025.description.0'),
-        t('roadmap.items.q1_2025.description.1'),
-        t('roadmap.items.q1_2025.description.2'),
-        t('roadmap.items.q1_2025.description.3')
-      ]
-    },
     {
       title: t('roadmap.items.q2_2025.title'),
       description: [
@@ -39,19 +34,15 @@ export default function RoadMap() {
         t('roadmap.items.q4_2025.description.2')
       ]
     },
-    {
-      title: t('roadmap.items.q1_2026.title'),
-      description: [
-        t('roadmap.items.q1_2026.description.0'),
-        t('roadmap.items.q1_2026.description.1'),
-        t('roadmap.items.q1_2026.description.2')
-      ]
-    }
   ]
   return (
-    <>
-      <Intro />
-      <Roadmap items={items} />
-    </>
+    <main className="min-h-screen text-white">      
+      <TokenHero />
+      <TokenWhyChoose />
+      <TokenHowToBuy />
+      <TokenAllocation />
+      <Roadmap items={items}/>
+      {/* Additional sections will be added here */}
+    </main>
   );
-}
+} 

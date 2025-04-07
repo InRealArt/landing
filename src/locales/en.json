@@ -308,7 +308,121 @@
       }
     },
     "onDemand": "Presales on demand",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "token": {
+      "limitedAccess": "Limited Access",
+      "accessAllocation": "Access Your Reserved Allocation",
+      "name": "Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "secureAllocation": "Secure Your Allocation",
+      "kycVerified": "KYC Verified",
+      "auditedBy": "Audited by CertiK",
+      "secureTransaction": "Secure Transaction",
+      "countdown": {
+        "title": "Token Sale End In",
+        "days": "Days",
+        "hours": "Hours",
+        "mins": "Mins",
+        "secs": "Secs"
+      },
+      "saleProgress": {
+        "raised": "Raised - {{amount}} Tokens",
+        "target": "Target - {{amount}} Tokens",
+        "softCap": "Soft cap",
+        "crowdsale": "Crowdsale",
+        "hardCap": "Hard cap"
+      },
+      "title": "$IRA Exclusive Presale!",
+      "subtitle": "You've been selected to participate in this exclusive presale through our educational program. Early access with guaranteed allocation before public launch.",
+      "features": [
+        "Specially curated for new investors through educational outreach",
+        "Limited participation window before public launch",
+        "Guaranteed allocation at preferential pricing"
+      ],
+      "acquireTokens": "Acquire tokens",
+      "whyChoose": {
+        "title": "Why choose our token",
+        "benefits": {
+          "hardDrawn": {
+            "title": "Hard-drawn pieces",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+          },
+          "exceptional": {
+            "title": "Exceptional NFT",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+          },
+          "donations": {
+            "title": "Huge donations",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+          },
+          "royalties": {
+            "title": "Royalties",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+          }
+        }
+      },
+      "howToBuy": {
+        "title": "How you will buy the InRealArt Token?",
+        "subtitle": "Purchasing InRealArt tokens is a straightforward process designed to be accessible for both newcomers and seasoned crypto enthusiasts. Follow these steps to acquire your tokens.",
+        "step1": {
+          "title": "Prepare Your Wallet",
+          "description": "Ensure you have a ETH-compatible wallet set up and funded with Ether. Some popular wallets include Phantom and Solflare."
+        },
+        "step2": {
+          "title": "Transfer ETH",
+          "description": "Send a minimum of 0.5 ETH to our official project wallet at the following address. Please double-check the address before sending to avoid errors.",
+          "copyAddress": "Copy address"
+        },
+        "step3": {
+          "title": "Receiving InRealart Tokens",
+          "description": "After the presale is finalized, you will need to claim your InRealArt tokens through our official website. Please visit our site once the presale ends and follow the instructions provided to claim the tokens that correspond to the amount of ETH you transferred.",
+          "additionalInfo": "By following these steps, you can easily participate in our ecosystem and begin your journey with InRealArt. We're excited to welcome you aboard and look forward to seeing the impact your participation will have on our community!"
+        },
+        "secureToken": "Secure your token InRealArt",
+        "toast": {
+          "copied": "Address copied to clipboard!"
+        }
+      },
+      "allocation": {
+        "title": "Token allocation & funds distribution",
+        "subtitle": "Join InRealArt to discuss where the markets are heading. We accept token payment",
+        "tabs": {
+          "distribution": "Distribution",
+          "funding": "Funding allocation"
+        },
+        "distribution": {
+          "funding": "Funding",
+          "team/founders": "Team/Founders",
+          "treasury": "Treasury",
+          "rewards": "Rewards",
+          "liquidity": "Liquidity",
+          "airdrop": "Airdrop"
+        },
+        "funding": {
+          "description": "Tokens will be progressively unlocked to control inflation and stabilize the market.",
+          "privateSales": {
+            "title": "Private Sales",
+            "description": "Initial release of 20%, the rest is vested over 12 months."
+          },
+          "publicSales": {
+            "title": "Public Sales",
+            "description": "Full unlock during ICO."
+          },
+          "liquidityPools": {
+            "title": "Liquidity Pools",
+            "description": "Initially locked for a period of 12 to 24 months."
+          },
+          "teamAdvisors": {
+            "title": "Team & Advisors",
+            "description": "Vesting over 24 to 36 months with cliff to prevent dumps."
+          }
+        }
+      }
+    }
   },
   "usecase": {
     "intro": {
