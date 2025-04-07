@@ -21,7 +21,7 @@ export default function PresaleFeatures() {
 
   return (
     <div className="mt-8">
-      <ul className="space-y-1">
+      <ul className="space-y-1 inter">
         {features.map((feature, index) => (
           <li key={index} className="text-gray-300 text-sm">
             {index + 1}. {feature}

@@ -182,9 +182,10 @@
     }
   },
   "common": {
-    "loading": "Chargement en cours...",
-    "error": "Une erreur est survenue",
-    "unknownError": "Erreur inconnue"
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "unknownError": "Une erreur inconnue s'est produite",
+    "submitting": "Envoi en cours..."
   },
   "artistPage": {
     "whoIs": "Qui est ",
@@ -272,48 +273,48 @@
   },
   "presale": {
     "intro": {
-      "title": "L'art n'a jamais été aussi disponible",
-      "subtitle": "Acquérez des oeuvres rares physiques pouvant être liées avec des nft et leurs droits d'auteurs. Explorez le fractionnemment d'oeuvres et ouvrez votre portefeuille aux actifs du futur",
+      "title": "L'art n'a jamais été aussi accessible",
+      "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",
       "buttons": {
         "catalog": "Catalogue 2024",
-        "whitepaper": "Lire notre white paper"
+        "whitepaper": "Lire notre livre blanc"
       }
     },
     "buyProcess": {
       "title": "Processus d'achat",
-      "subtitle": "un processus pour vous sécuriez",
+      "subtitle": "un processus pour vous sécuriser",
       "step": "Étape",
       "steps": {
         "1": {
-          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "title": "Création d'un contrat intelligent<br/>pour la prévente",
           "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
         },
         "2": {
-          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "title": "Création d'un contrat intelligent<br/>pour la prévente",
           "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
         },
         "3": {
-          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "title": "Création d'un contrat intelligent<br/>pour la prévente",
           "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
         },
         "4": {
-          "title": "Création d'un contrat<br/>intelligent pour la prévente",
+          "title": "Création d'un contrat intelligent<br/>pour la prévente",
           "description": "Ce contrat déclenchera automatiquement le transfert du NFT (bon de commande) à l'acheteur une fois le paiement confirmé.<br/><br/>Il permettra également un remboursement automatique si l'œuvre n'est pas récupérée dans un délai spécifié."
         }
       },
       "buttons": {
-        "previous": "Précedent",
+        "previous": "Précédent",
         "next": "Suivant"
       }
     },
-    "onDemand": "Préventes à la demande",
+    "onDemand": "Préventes sur demande",
     "viewAll": "Voir tout",
     "token": {
       "limitedAccess": "Accès Limité",
       "accessAllocation": "Accédez à Votre Allocation Réservée",
       "name": "Nom",
       "email": "Email",
-      "phoneNumber": "Numéro de Téléphone",
+      "phoneNumber": "Numéro de téléphone",
       "namePlaceholder": "Entrez votre nom complet",
       "emailPlaceholder": "Entrez votre email",
       "phonePlaceholder": "Entrez votre numéro de téléphone",
@@ -321,22 +322,29 @@
       "kycVerified": "KYC Vérifié",
       "auditedBy": "Audité par CertiK",
       "secureTransaction": "Transaction Sécurisée",
+      "successMessage": "Inscription réussie pour l'allocation de tokens",
+      "errorMessage": "Une erreur s'est produite lors du traitement de votre demande",
       "countdown": {
-        "title": "Fin de la Vente de Tokens Dans",
+        "title": "Fin de la vente de jetons dans",
         "days": "Jours",
         "hours": "Heures",
-        "mins": "Min",
-        "secs": "Sec"
+        "mins": "Mins",
+        "secs": "Secs"
       },
       "saleProgress": {
         "raised": "Collecté - {{amount}} Tokens",
         "target": "Objectif - {{amount}} Tokens",
         "softCap": "Soft cap",
-        "crowdsale": "Vente collective",
+        "crowdsale": "Crowdsale",
         "hardCap": "Hard cap"
       },
-      "title": "Prévente Exclusive $IRA !",
-      "subtitle": "Vous avez été sélectionné pour participer à cette prévente exclusive via notre programme éducatif. Accès anticipé avec allocation garantie avant le lancement public.",
+      "title": "Prévente exclusive $IRA !",
+      "subtitle": "Vous avez été sélectionné pour participer à cette prévente exclusive grâce à notre programme éducatif. Accès anticipé avec allocation garantie avant le lancement public.",
+      "features": [
+        "Spécialement organisé pour les nouveaux investisseurs via notre programme éducatif",
+        "Fenêtre de participation limitée avant le lancement public",
+        "Allocation garantie à un prix préférentiel"
+      ],
       "acquireTokens": "Acquérir des tokens",
       "whyChoose": {
         "title": "Pourquoi choisir notre token",
@@ -346,40 +354,40 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
           },
           "exceptional": {
-            "title": "NFT exceptionnels",
+            "title": "NFT exceptionnel",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
           },
           "donations": {
-            "title": "Dons importants",
+            "title": "Importantes donations",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
           },
           "royalties": {
-            "title": "Royalties",
+            "title": "Redevances",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
           }
         }
       },
       "howToBuy": {
-        "title": "Comment acheter le Token InRealArt ?",
-        "subtitle": "L'achat de tokens InRealArt est un processus simple conçu pour être accessible tant aux nouveaux venus qu'aux passionnés de crypto expérimentés. Suivez ces étapes pour acquérir vos tokens.",
+        "title": "Comment allez-vous acheter le Token InRealArt ?",
+        "subtitle": "L'achat de tokens InRealArt est un processus simple conçu pour être accessible aux nouveaux venus et aux passionnés de crypto chevronnés. Suivez ces étapes pour acquérir vos tokens.",
         "step1": {
-          "title": "Préparez Votre Portefeuille",
-          "description": "Assurez-vous d'avoir un portefeuille compatible ETH configuré et financé avec Ether. Certains portefeuilles populaires incluent Phantom et Solflare."
+          "title": "Préparez votre portefeuille",
+          "description": "Assurez-vous que vous disposez d'un portefeuille compatible ETH configuré et approvisionné en Ether. Quelques portefeuilles populaires incluent Phantom et Solflare."
         },
         "step2": {
           "title": "Transférez ETH",
-          "description": "Envoyez un minimum de 0,5 ETH à notre portefeuille de projet officiel à l'adresse suivante. Veuillez vérifier l'adresse avant d'envoyer pour éviter les erreurs.",
+          "description": "Envoyez un minimum de 0,5 ETH à notre portefeuille officiel du projet à l'adresse suivante. Veuillez vérifier deux fois l'adresse avant d'envoyer pour éviter les erreurs.",
           "copyAddress": "Copier l'adresse"
         },
         "step3": {
-          "title": "Réception des Tokens InRealart",
-          "description": "Une fois la prévente finalisée, vous devrez réclamer vos tokens InRealArt via notre site officiel. Veuillez visiter notre site une fois la prévente terminée et suivre les instructions fournies pour réclamer les tokens correspondant au montant d'ETH que vous avez transféré.",
-          "additionalInfo": "En suivant ces étapes, vous pouvez facilement participer à notre écosystème et commencer votre parcours avec InRealArt. Nous sommes ravis de vous accueillir et nous nous réjouissons de voir l'impact que votre participation aura sur notre communauté !"
+          "title": "Réception des tokens InRealart",
+          "description": "Après la finalisation de la prévente, vous devrez réclamer vos tokens InRealArt via notre site officiel. Veuillez visiter notre site une fois la prévente terminée et suivre les instructions fournies pour réclamer les tokens qui correspondent au montant d'ETH que vous avez transféré.",
+          "additionalInfo": "En suivant ces étapes, vous pouvez facilement participer à notre écosystème et commencer votre voyage avec InRealArt. Nous sommes ravis de vous accueillir à bord et nous sommes impatients de voir l'impact que votre participation aura sur notre communauté !"
         },
+        "secureToken": "Sécurisez votre token InRealArt",
         "toast": {
           "copied": "Adresse copiée dans le presse-papiers !"
-        },
-        "secureToken": "Sécurisez votre token InRealArt"
+        }
       },
       "allocation": {
         "title": "Allocation des tokens & distribution des fonds",
@@ -416,11 +424,77 @@
           }
         }
       },
-      "features": [
-        "Spécialement organisé pour les nouveaux investisseurs via notre programme éducatif",
-        "Fenêtre de participation limitée avant le lancement public",
-        "Allocation garantie à des prix préférentiels"
-      ]
+      "invalidPhone": "Veuillez entrer un numéro de téléphone valide"
+    }
+  },
+  "token": {
+    "ico": {
+      "title": "Détails du token ICO",
+      "subtitle": "Rejoignez InRealArt pour discuter de l'orientation des marchés. Nous acceptons les paiements en tokens",
+      "timeline": {
+        "presale": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        },
+        "publicSale": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        },
+        "listing": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        },
+        "vesting": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        },
+        "team": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        },
+        "advisory": {
+          "label": "Début",
+          "date": "8 août 2025 (9:00 AM GMT)"
+        }
+      },
+      "description": "Participez à l'ICO des tokens InRealArt et rejoignez une plateforme révolutionnaire d'investissement artistique qui réunit art physique, actifs numériques et technologie blockchain.",
+      "button": "Rejoindre l'ICO",
+      "steps": {
+        "step1": {
+          "title": "Inscrivez-vous à l'ICO",
+          "description": "Complétez le processus d'inscription pour participer à notre vente de tokens. Une vérification KYC sera nécessaire pour assurer la conformité."
+        },
+        "step2": {
+          "title": "Choisissez Votre Investissement",
+          "description": "Sélectionnez le montant de tokens que vous souhaitez acheter en fonction de votre stratégie d'investissement et de votre budget."
+        },
+        "step3": {
+          "title": "Sécurisez Vos Tokens",
+          "description": "Après confirmation, vos tokens seront alloués à votre portefeuille, prêts à être utilisés sur notre plateforme."
+        }
+      }
+    },
+    "physicalArt": {
+      "title": "InRealArt : Révolutionner l'Art Physique en le combinant avec le Web3",
+      "description": "InRealArt est bien plus qu'une simple galerie d'art. C'est un écosystème Web3 novateur où le monde physique et numérique fusionnent pour redéfinir l'expérience artistique. Ici, chaque œuvre exposée dans nos galeries physiques est directement liée à la blockchain, offrant transparence, traçabilité et participation communautaire via une DAO.",
+      "tokenIntro": "Notre token natif ne se limite pas à un simple actif financier. Il vous permet de :",
+      "features": {
+        "dao": "Participer aux décisions via notre DAO, influençant les acquisitions, expositions et orientations stratégiques.",
+        "revenue": "Bénéficier des revenus générés par les ventes et événements organisés au sein des galeries.",
+        "privileges": "Accéder à des privilèges exclusifs tels que des avant-premières, des acquisitions fractionnées d'œuvres et des événements privés."
+      },
+      "infrastructure": "Adossé à une infrastructure sécurisée et scalable, InRealArt offre une expérience unique où chaque investisseur devient un acteur clé du marché de l'art tokenisé. Plongez dans un projet où l'art physique prend vie sur la blockchain, garantissant authenticité, engagement et retour sur investissement.",
+      "button": "Découvrir notre plateforme",
+      "meaning": {
+        "title": "Que signifie InRealArt",
+        "description": "Le nom InRealArt incarne notre mission de fusionner l'art physique et le numérique, créant un écosystème où chaque investisseur devient un acteur clé du marché de l'art tokenisé. Inspiré par la richesse de l'art réel, InRealArt offre une plateforme où l'authenticité, l'engagement et le retour sur investissement sont garantis."
+      },
+      "benefits": {
+        "benefit1": "Authentification et vérification des œuvres d'art physiques grâce à la technologie blockchain",
+        "benefit2": "Accès exclusif à des œuvres d'art physiques en édition limitée pour les détenteurs de tokens",
+        "benefit3": "Propriété fractionnée d'œuvres d'art de grande valeur grâce à la tokenisation",
+        "benefit4": "Transition fluide entre la propriété d'art physique et numérique"
+      }
     }
   },
   "usecase": {

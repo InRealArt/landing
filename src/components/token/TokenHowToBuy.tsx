@@ -30,7 +30,7 @@ export default function TokenHowToBuy() {
 
   return (
     <section className="py-20 container mx-auto px-4">
-      <h2 className="text-5xl font-bold mb-4 bricolage-grotesque">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 bricolage-grotesque">
         {t('presale.token.howToBuy.title')}
       </h2>
 

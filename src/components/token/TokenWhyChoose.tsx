@@ -58,7 +58,7 @@ export default function TokenWhyChoose() {
 
   return (
     <section className="py-20 container mx-auto px-4">
-      <h2 className="text-5xl font-bold mb-12 bricolage-grotesque">
+      <h2 className="text-4xl md:text-5xl font-bold mb-12 bricolage-grotesque">
         {t('presale.token.whyChoose.title')}
       </h2>
       

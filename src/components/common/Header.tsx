@@ -27,7 +27,7 @@ const Header = () => {
           <Link href="/">{t('nav.home')}</Link>
           <Link href="/whitepaper">White Paper</Link>
           <Link href="/usecase">{t('nav.usecase')}</Link>
-          <Link href="/airdrop">AirDrop/Testnet</Link>
+          <Link href="/token">AirDrop/Testnet</Link>
           <Link href="/blog">Blog</Link>
         </ul>
         <div className="flex items-center gap-4">

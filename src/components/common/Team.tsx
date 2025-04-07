@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Slider from "@/components/home/Slider";
 import teamImage from "../../../public/images/team.png";
-import Button from "../common/Button";
+import Button from "./Button";
 import { ArrowRight } from 'lucide-react';
 import { useTeamStore } from '@/store/useTeamStore';
 import { useEffect, useState } from 'react';
@@ -14,9 +14,10 @@ export default function Team() {
   const [key, setKey] = useState(0); // Ajouter une clé pour forcer le rendu
   
   useEffect(() => {
-    fetchTeamMembers();
-    console.log('fetchTeamMembers');
-    
+    if (members.length === 0) {
+      fetchTeamMembers();
+      console.log('fetchTeamMembers');
+    }
   }, [fetchTeamMembers]);
   
   // Données temporaires pour l'affichage en attendant le chargement depuis Firebase
@@ -84,4 +85,4 @@ export default function Team() {
       />
     </section>
   );
-}
+} 

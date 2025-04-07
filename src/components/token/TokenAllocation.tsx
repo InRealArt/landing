@@ -17,20 +17,10 @@ export default function TokenAllocation() {
     { name: 'Liquidity', value: 10, color: '#F97316' },
     { name: 'Airdrop', value: 5, color: '#6EE7B7' },
   ];
-  interface LabelProps {
-    cx: number;
-    cy: number;
-    midAngle: number;
-    innerRadius: number;
-    outerRadius: number;
-    percent: number;
-  }
-
-  console.log('activeCell', activeCell);
 
   return (
     <section className="py-20 container mx-auto px-4">
-      <h2 className="text-5xl font-bold mb-4 text-center bricolage-grotesque">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bricolage-grotesque">
         {t('presale.token.allocation.title')}
       </h2>
       <p className="text-center mb-8 bricolage-grotesque">

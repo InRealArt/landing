@@ -68,7 +68,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.whitepaper')}
           </Link>
           <Link 
-            href="/airdrop" 
+            href="/token" 
             className={`${pathname === '/airdrop' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >

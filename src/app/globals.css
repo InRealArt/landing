@@ -103,3 +103,25 @@ body {
   text-stroke: 1px rgba(255, 255, 255, 0.30);
   text-shadow: 0 0 13px #ffffff08;
 }
+
+/* Phone Input Styles */
+
+.phone-input-container .PhoneInputInput {
+  @apply w-full px-4 py-3 bg-[#1A1A1A] border border-[#2D2A3D] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purpleColor focus:border-transparent;
+}
+
+.phone-input-container .PhoneInputCountry {
+  @apply bg-[#1A1A1A] border-r border-[#2D2A3D] rounded-l-lg px-3;
+}
+
+.phone-input-container .PhoneInputCountrySelect {
+  @apply bg-[#1A1A1A] text-white;
+}
+
+.phone-input-container .PhoneInputCountryIcon {
+  @apply opacity-70;
+}
+
+.phone-input-container .PhoneInputCountrySelectArrow {
+  @apply border-t-white opacity-70;
+}
