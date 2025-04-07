@@ -1,7 +1,6 @@
 'use client'
 
 import TokenForm from '@/components/token/TokenForm';
-import TokenSaleInfo from '@/components/presale/TokenSaleInfo';
 import PresaleFeatures from '@/components/presale/PresaleFeatures';
 import { useLanguageStore } from '@/store/languageStore';
 import marketplaceImage from "../../../public/images/intro-background.png";
