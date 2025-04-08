@@ -8,6 +8,7 @@ import textpourcent from "../../../public/images/%.svg";
 
 // import text43 from "../../../public/images/43.png";
 
+
 import Button from "../common/Button";
 import { useLanguageStore } from '@/store/languageStore';
 
