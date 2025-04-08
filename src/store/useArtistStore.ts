@@ -31,7 +31,7 @@ interface ArtistState {
     fetchArtists: () => Promise<void>
     setCurrentArtistIndex: (index: number) => void
     getCurrentArtist: () => ArtistData | undefined
-    getCurrentArtistArtworks: () => { image: string, name: string, price: number, url: string }[] | []
+    getCurrentArtistArtworks: () => { image: string, name: string, price: number, url: string, id: string }[] | []
     // Méthode de l'ancien useArtistsStore
     getArtistByName: (name: string) => PrismaArtistData | undefined
     // Nouvelle méthode pour récupérer un artiste par son slug
@@ -130,7 +130,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         }
 
         // Normaliser les données pour correspondre au format attendu
-        return artworkImagesArray.map((artwork: any) => ({
+        return artworkImagesArray.map((artwork: any, index: number) => ({
+            id: artwork.id || `artwork-${currentArtist.id}-${index}`, // Generate an id if it doesn't exist
             image: artwork.image || '',
             name: artwork.name || 'Sans titre',
             price: artwork.price || 0,

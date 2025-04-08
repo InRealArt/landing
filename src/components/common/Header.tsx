@@ -25,9 +25,9 @@ const Header = () => {
         </Link>
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
           <Link href="/">{t('nav.home')}</Link>
-          <Link href="/whitepaper">White Paper</Link>
+          <Link href="/marketplace">Marketplace</Link>
           <Link href="/usecase">{t('nav.usecase')}</Link>
-          <Link href="/token">AirDrop/Testnet</Link>
+          <Link href="/roadmap">Roadmap</Link>
           <Link href="/blog">Blog</Link>
         </ul>
         <div className="flex items-center gap-4">

@@ -6,6 +6,7 @@ import { useLanguageStore } from '@/store/languageStore';
 interface ArtistArtworksProps {
   artistName: string;
   artworks: Array<{
+    id: string;
     name: string;
     price: number;
     image: {
@@ -16,7 +17,6 @@ interface ArtistArtworksProps {
 
 export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksProps) {
   const { t } = useLanguageStore();
-
   return (
     <div className="mt-20">
       <h2 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>

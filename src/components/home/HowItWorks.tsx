@@ -9,15 +9,18 @@ export default function HowItWorks() {
   const items = [
     { 
       name: t('home.howItWorks.items.bridge.title'), 
-      description: t('home.howItWorks.items.bridge.description') 
+      description: t('home.howItWorks.items.bridge.description'),
+      link: '/marketplace'
     },
     { 
       name: t('home.howItWorks.items.token.title'), 
-      description: t('home.howItWorks.items.token.description') 
+      description: t('home.howItWorks.items.token.description') ,
+      link: '/token'
     },
     { 
       name: t('home.howItWorks.items.art.title'), 
-      description: t('home.howItWorks.items.art.description') 
+      description: t('home.howItWorks.items.art.description') ,
+      link: '/usecase'
     },
   ]
 
@@ -30,7 +33,7 @@ export default function HowItWorks() {
           <div key={index} className="w-full lg:w-cardLarge p-4 lg:p-8 border rounded-lg bg-cardBackground flex flex-col">
             <h1 className="text-2xl lg:text-3xl unbounded">{item.name}</h1>
             <label className="my-4 block">{item.description}</label>
-            <Button text={t('buttons.readMore')} additionalClassName="mt-auto bg-purpleColor w-full" icon={<ArrowRight />} center />
+            <Button text={t('buttons.readMore')} additionalClassName="mt-auto bg-purpleColor w-full" icon={<ArrowRight />} center link={item.link} />
           </div>
         ))}
       </div>

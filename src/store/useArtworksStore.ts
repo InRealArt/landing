@@ -2,10 +2,9 @@ import { create } from 'zustand'
 import { collection, getDocs } from 'firebase/firestore'
 import { db, storage } from '@/utils/firebase'
 import { getDownloadURL, ref } from "firebase/storage";
-import { ArtWork } from '@/types/types';
-import { transformArtworksPhotos } from '@/utils/functions';
-
-
+import { ArtWork, Lang } from '@/types/types';
+import { transformArtworksPhotos, stringToSlug } from '@/utils/functions';
+import { useLanguageStore } from './languageStore';
 
 interface ArtworksState {
     artworks: ArtWork[]
@@ -13,8 +12,8 @@ interface ArtworksState {
     hasError: boolean
     errorMessage: string | null
     fetchArtworks: () => Promise<void>
+    getArtworkBySlug: (slug: string) => ArtWork | undefined
 }
-
 
 export const useArtworksStore = create<ArtworksState>((set, get) => ({
     artworks: [],
@@ -33,11 +32,12 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
             const data = artworksSnapshot.docs.map(
                 (doc) => doc.data()
               );
-            console.log("data : ", data)
-
+              
             const artworks_ = data[0]["artworks"]
               .sort((a: ArtWork, b: ArtWork) => a.order - b.order)
               .filter((artwork: ArtWork) => !artwork.desactivate) as ArtWork[];
+              console.log("data : ", data)
+
             const artworks_tmp = await transformArtworksPhotos(artworks_);
             // console.log("artworks_tmp : ", artworks_tmp)
         
@@ -52,4 +52,27 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
         }
     },
 
+    getArtworkBySlug: (slug: string) => {
+        const { artworks } = get();
+        
+        // Find the artwork with a name that matches the slug
+        return artworks.find(artwork => {
+            // Get the name in the current language or use the first available language
+            let artworkName = '';
+            
+            if (typeof artwork.name === 'string') {
+                artworkName = artwork.name;
+            } else if (artwork.name) {
+                // Try to get the name in the current language
+                const { language } = useLanguageStore.getState();
+                const lang = language as Lang;
+                artworkName = (artwork.name[lang] as string) || 
+                             (artwork.name.FR as string) || 
+                             (Object.values(artwork.name)[0] as string) || '';
+            }
+            
+            // Convert the name to a slug and compare
+            return stringToSlug(artworkName) === slug;
+        });
+    }
 })) 

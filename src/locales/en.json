@@ -803,5 +803,24 @@
       "nft": "NFT",
       "blockchain": "Blockchain"
     }
+  },
+  "artwork": {
+    "backToMarketplace": "Back to Marketplace",
+    "notFound": "Artwork not found",
+    "by": "By",
+    "year": "Year",
+    "medium": "Medium",
+    "dimensions": "Dimensions",
+    "description": "Description",
+    "tags": "Tags",
+    "price": "Price",
+    "purchase": "Purchase",
+    "sold": "Sold",
+    "relatedArtworks": "Related Artworks",
+    "enterEmail": "Enter your email to register for presale",
+    "emailPlaceholder": "your@email.com",
+    "register": "Register for Presale",
+    "emailSuccess": "Successfully registered for presale",
+    "emailError": "An error occurred while registering your email"
   }
 }

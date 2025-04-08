@@ -46,3 +46,17 @@ export async function transformArtworksPhotos(
     }))
     return Promise.all(promises);
 }
+
+/**
+ * Converts a string to a URL-friendly slug
+ * @param str The string to convert to a slug
+ * @returns The slugified string
+ */
+export const stringToSlug = (str: string): string => {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/-+/g, '-'); // Replace multiple - with single -
+};

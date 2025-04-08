@@ -106,6 +106,24 @@ export async function getArtists(): Promise<ArtistData[]> {
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {}
             }
 
+            let artworkImages = la.artworkImages
+            if (artworkImages) {
+                try {
+                    if (typeof artworkImages === 'string') {
+                        artworkImages = JSON.parse(artworkImages)
+                    }
+                    if (Array.isArray(artworkImages)) {
+                        artworkImages = artworkImages.map((artwork: any, index: number) => ({
+                            ...artwork,
+                            id: artwork.id || `artwork-${la.id}-${index}`
+                        }))
+                    }
+                } catch (error) {
+                    console.error('Error processing artworkImages:', error)
+                    artworkImages = []
+                }
+            }
+
             return {
                 id: la.id,
                 slug: la.slug,
@@ -118,7 +136,7 @@ export async function getArtists(): Promise<ArtistData[]> {
                 imageUrl: la.imageUrl,
                 description: la.artist.description,
                 backgroundImage: la.artist.backgroundImage,
-                artworkImages: la.artworkImages,
+                artworkImages,
                 translations
             }
         })

@@ -56,6 +56,7 @@ export default function ArtistPage() {
     
     // Now we can safely use map
     return artworkImagesArray.map((artwork: any) => ({
+      id: artwork.id,
       name: artwork.name || 'Untitled',
       price: artwork.price || 0,
       image: { src: artwork.image || artwork.url || '' }
@@ -69,7 +70,9 @@ export default function ArtistPage() {
   if (hasError || !artist) {
     return <div className="mt-headerSize text-center">{t('artistPage.notFound')}</div>
   }
-
+  
+  console.log(processedArtworks);
+  
   return (
     <>
       <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">

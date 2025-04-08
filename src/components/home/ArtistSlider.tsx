@@ -16,6 +16,7 @@ function ArtistSlider() {
 
   // Adapter les données pour les rendre compatibles avec le composant Slider
   const formattedArtistImages = artists.map(artist => ({
+    id: artist.id,
     name: artist.name,
     description: artist.description,
     slug: artist.slug,

@@ -18,6 +18,7 @@ function ArtworkSlider() {
 
   // Adapter les données pour les rendre compatibles avec le composant Slider
   const formattedArtworkImages = randomArtworks.map(artwork => ({
+    id: artwork.id,
     name: typeof artwork.name === 'string' 
       ? artwork.name 
       : (artwork.name && artwork.name.FR) || (artwork.name && Object.values(artwork.name)[0]) || 'Sans titre',

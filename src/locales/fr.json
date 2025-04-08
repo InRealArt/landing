@@ -67,7 +67,7 @@
           "description": "Éco-systeme permettant la selection et la création de galeries communautaires interconnectées à notre marketplace et notre dao"
         },
         "art": {
-          "title": "L'art",
+          "title": "Optimisation financière",
           "description": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exeption"
         }
       }
@@ -802,5 +802,19 @@
       "nft": "NFT",
       "blockchain": "Blockchain"
     }
+  },
+  "artwork": {
+    "backToMarketplace": "Retour à la Marketplace",
+    "notFound": "Œuvre non trouvée",
+    "by": "Par",
+    "year": "Année",
+    "medium": "Médium",
+    "dimensions": "Dimensions",
+    "description": "Description",
+    "tags": "Tags",
+    "price": "Prix",
+    "purchase": "Acheter",
+    "sold": "Vendu",
+    "relatedArtworks": "Œuvres similaires"
   }
 }
