@@ -14,7 +14,11 @@ const Intro = () => {
           <h3 className="mb-8 inter text-lg">{t('roadmap.intro.subtitle')}</h3>
           <div className="flex flex-col md:flex-row gap-4">
             <Button link="/presale" text={t('roadmap.intro.buttons.marketplace')} additionalClassName="bg-purpleColor mr-6" icon={<ArrowRight />} />
-            <Button text={t('roadmap.intro.buttons.whitepaper')} additionalClassName="mt-4 md:mt-0" />
+            <Button 
+              text={t('roadmap.intro.buttons.whitepaper')} 
+              additionalClassName="mt-4 md:mt-0 opacity-50 cursor-not-allowed" 
+              disabled={true}
+            />
           </div>
         </div>
     </section>

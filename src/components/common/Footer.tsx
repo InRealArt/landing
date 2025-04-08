@@ -17,24 +17,26 @@ type SubscribeResponse = {
   message: string
 }
 
-const footerLinks = [
-  { label: 'nav.home', href: '/' },
-  { label: 'nav.team', href: '/team' },
-  { label: 'nav.marketplace', href: '/marketplace' },
-  { label: 'nav.faq', href: '/faq' },
-  { label: 'nav.roadmap', href: '/roadmap' },
-  { label: 'nav.glossary', href: '/glossary' },
-  { label: 'nav.artists', href: '/artists' },
-  { label: 'nav.presale', href: '/presale' },
-  { label: 'nav.usecase', href: '/usecase' },
-  { label: 'nav.whitepaper', href: '/whitepaper' },
-  { label: 'nav.airdrop', href: '/airdrop' },
-  { label: 'nav.blog', href: '/blog' }
-]
+const navigation = {
+  pages: [
+    { label: 'nav.home', href: '/' },
+    { label: 'nav.marketplace', href: '/marketplace' },
+    { label: 'nav.roadmap', href: '/roadmap' },
+    { label: 'nav.faq', href: '/faq' },
+    { label: 'nav.team', href: '/team' },
+    { label: 'nav.glossary', href: '/glossary' },
+    { label: 'nav.artists', href: '/artists' },
+    { label: 'nav.presale', href: '/presale' },
+    { label: 'nav.usecase', href: '/usecase' },
+    { label: 'nav.whitepaper', href: '/whitepaper', disabled: true },
+    { label: 'nav.airdrop', href: '/airdrop' },
+    { label: 'nav.blog', href: '/blog' },
+  ],
+}
 
 // Split links into two groups
-const firstColumnLinks = footerLinks.slice(0, 6)
-const secondColumnLinks = footerLinks.slice(6)
+const firstColumnLinks = navigation.pages.slice(0, 6)
+const secondColumnLinks = navigation.pages.slice(6)
 
 const Footer = () => {
   const { t } = useLanguageStore()
@@ -137,7 +139,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                   >
                     {t(link.label)}
                   </Link>
@@ -154,7 +156,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                   >
                     {t(link.label)}
                   </Link>

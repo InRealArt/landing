@@ -27,8 +27,9 @@ const Intro = () => {
           <p className="text-lg md:text-2xl mb-4 text-center bricolage-grotesque font-bold">{t('home.intro.subtitle')}</p>
           <Button
             text={t('buttons.readWhitepaper')}
-            additionalClassName="border border-white text-white rounded-full py-3 px-8"
+            additionalClassName="border border-white text-white rounded-full py-3 px-8 opacity-50 cursor-not-allowed"
             center
+            disabled={true}
           />
         </div>
       </div>
