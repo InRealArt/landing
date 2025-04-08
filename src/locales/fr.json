@@ -12,7 +12,11 @@
     "usecase": "Cas d'Utilisation",
     "whitepaper": "Livre Blanc",
     "airdrop": "AirDrop/Testnet",
-    "blog": "Blog"
+    "blog": "Blog",
+    "leasing": "Location",
+    "companies": "Entreprises",
+    "lending": "Prêt",
+    "fractionate": "Fractionnement"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -23,10 +27,12 @@
     "description": "Statistiques sur le marché de l'art"
   },
   "footer": {
+    "social": "Suivez-nous",
     "rights": "Tous droits réservés",
     "privacy": "Politique de confidentialité",
-    "terms": "Conditions Générales",
-    "contact": "Nous Contacter",
+    "terms": "Conditions générales",
+    "legal": "Mentions légales",
+    "termsNft": "Conditions générales NFT",
     "pages": "Nos Pages",
     "company": "Entreprise",
     "partner": "Partenaire",
@@ -80,30 +86,28 @@
       "subtitle": "Explorez une <span class='text-purpleColor'>collection unique</span> de <span class='text-purpleColor'>toiles physiques</span> et de <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rares, de leurs copies numériques (NFT), accompagnées de leurs droits d'auteur.</span>",
       "items": {
         "rare": {
-          "title": "Very Rare",
-          "label": "Forte de +80 années d'expérience cumulée, notre équipe commerciale sélectionne avec soin moins de 100 œuvres de top artistes.",
+          "title": "Une Marketplace web2 et web 3 enfin accessible",
+          "label": "Vous avez la possibilité d'acheter vos oeuvres d'art en format physique, digital et fractionné",
           "description": "Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique. Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative",
           "buttons": {
-            "presales": "Pre-sales",
-            "whitepaper": "Lire notre whitepaper"
+            "artworks": "Oeuvres en ligne",
+            "getartworks": "Obtenir notre catalogue"
           }
         },
         "marketplace": {
-          "title": "Une Marketplace unique",
+          "title": "Blockchain, sécurité et droit d'auteur ",
           "label": "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d'auteur fractionnés.",
           "description": "Grâce à l'utilisation de la blockchain, nous garantissons la transparence et la sécurité des transactions, tout en permettant une traçabilité claire de chaque pièce. Cette combinaison novatrice offre aux collectionneurs un accès inédit à des œuvres diversifiées et exclusives, tout en offrant la possibilité d'acquérir des droits d'auteur et de participer à un marché artistique de pointe",
           "buttons": {
-            "presales": "Pre-sales",
-            "whitepaper": "Lire notre whitepaper"
+            "marketplace": "Notre Marketplace"
           }
         },
         "investment": {
           "title": "Opportunité d'investissement",
           "label": "L'art est plus qu'une simple passion, c'est aussi une opportunité d'investissement.",
-          "description": "Notre marketplace vous offre la possibilité de diversifier votre portefeuille en acquérant des œuvres d'art physiques et numériques, ainsi que des droits d'auteur. Grâce à la rareté des pièces proposées, chaque acquisition a le potentiel d'augmenter en valeur avec le temps. Que vous soyez un collectionneur débutant ou averti, vous avez ici la chance de faire partie d'un marché dynamique où chaque œuvre peut devenir une source de valorisation à long terme",
+          "description": "En combinant tradition et innovation, que ce osit par le leasing ou la blockchain, notre marketplace vous permet de diversifier votre portefeuille en investissant dans des œuvres d'art uniques, physiques et numériques, ainsi que dans des droits d'auteur. <br/>Grâce à la rareté des pièces proposées, chaque acquisition offre un potentiel d'appréciation avec le temps. Que vous soyez un collectionneur novice ou expérimenté, rejoignez un marché dynamique où chaque œuvre peut devenir une véritable source de valorisation à long terme.",
           "buttons": {
-            "presales": "Pre-sales",
-            "whitepaper": "Lire notre whitepaper"
+            "usecase": "Voir use case"
           }
         }
       }
@@ -503,9 +507,9 @@
       "subtitle": "Découvrez comment InRealArt transforme le marché de l'art à travers des cas d'utilisation innovants"
     },
     "items": {
-      "collector": {
-        "title": "Pour les Collectionneurs",
-        "description": "Accédez à une sélection d'œuvres d'art rares, physiques et numériques, avec une authenticité et une provenance garanties. Construisez votre collection en toute confiance et profitez d'avantages exclusifs.",
+      "fractionate": {
+        "title": "Ira projet d'Art fractionnées",
+        "description": "Accédez à des œuvres d'art fractionnées via une marketplace exclusive, offrant des opportunités d'investissement uniques et accessibles. Idéale pour les collectionneurs et investisseurs souhaitant diversifier leur portefeuille tout en profitant de la valeur croissante de l'art.",
         "features": [
           "Accès à des œuvres rares et exclusives",
           "Authenticité et provenance garanties",
@@ -513,9 +517,9 @@
           "Avantages exclusifs pour les collectionneurs"
         ]
       },
-      "artist": {
-        "title": "Pour les Artistes",
-        "description": "Présentez votre travail à un public mondial, maintenez le contrôle de vos créations et bénéficiez de nouvelles sources de revenus grâce à la tokenisation et la gestion des droits d'auteur.",
+      "companies": {
+        "title": "Ira Projet d'art d'entreprises",
+        "description": "L'art au service de votre communication et de votre marque ! Captez l'attention et renforcez vos messages grâce à l'art !InRealArt conçoit des expositions et projets artistiques adaptés à tous les budgets, valorisant votre marque employeur et votre stratégie RSE. Avec des œuvres personnalisées ou en rotation, l'art devient un levier puissant pour une communication innovante et engageante.",
         "features": [
           "Exposition mondiale de vos œuvres",
           "Contrôle de vos créations",
@@ -523,9 +527,9 @@
           "Gestion des droits d'auteur"
         ]
       },
-      "investor": {
-        "title": "Pour les Investisseurs",
-        "description": "Diversifiez votre portefeuille avec des investissements dans l'art, bénéficiez de la potentielle appréciation des œuvres rares et participez à un marché en croissance avec des transactions transparentes.",
+      "leasing": {
+        "title": "IRA Art Leasing Entreprises",
+        "description": "La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.",
         "features": [
           "Opportunités d'investissement dans l'art",
           "Diversification du portefeuille",
@@ -534,8 +538,8 @@
         ]
       },
       "lending": {
-        "title": "Services Financiers pour l'Art",
-        "description": "Accédez à des solutions de financement flexibles basées sur vos œuvres d'art, sans avoir à les vendre.",
+        "title": "InRealArt Lending Nouvelle Génération",
+        "description": "Transformez vos œuvres en liquidités avec InRealArt Lending, une solution flexible et sécurisée pour financer votre développement sans passer par un prêt bancaire.",
         "features": [
           "Prêts garantis par des œuvres d'art",
           "Alternatives aux prêts bancaires traditionnels",
@@ -815,6 +819,330 @@
     "price": "Prix",
     "purchase": "Acheter",
     "sold": "Vendu",
-    "relatedArtworks": "Œuvres similaires"
+    "relatedArtworks": "Œuvres similaires",
+    "enterEmail": "Entrez votre email pour vous inscrire à la prévente",
+    "emailPlaceholder": "votre@email.com",
+    "register": "S'inscrire à la prévente",
+    "emailSuccess": "Inscription à la prévente réussie",
+    "emailError": "Une erreur est survenue lors de l'inscription de votre email"
+  },
+  "terms": {
+    "title": "Conditions Générales de Vente",
+    "presentation": {
+      "title": "Présentation et Application des CGV",
+      "content": "Le site InRealArt a pour vocation de présenter les œuvres des créateurs (ci-après dénommés « Vendeurs ») à ses visiteurs (potentiels « Acheteurs »), en leur offrant la possibilité d'explorer et d'acheter directement auprès des Vendeurs. Ces conditions générales de vente ont pour objet de définir les modalités et conditions applicables à la commercialisation en ligne des œuvres sur le site, ainsi que de clarifier les droits et devoirs des parties engagées dans cette transaction. Les transactions effectuées via le Site sont réalisées directement entre l'Acheteur et le Vendeur. InRealArt n'agit pas en qualité de revendeur des œuvres proposées par les Vendeurs mais sert d'intermédiaire en fournissant une plateforme de mise en relation des Vendeurs et des Acheteurs. À ce titre, InRealArt n'est pas partie au contrat de vente conclu exclusivement entre l'Acheteur et le Vendeur, ce dernier étant seul responsable des engagements découlant de cette vente."
+    },
+    "consent": {
+      "title": "Consentement",
+      "content": "Le consentement plein et sans réserve aux présentes conditions générales de vente est un préalable à la conclusion du contrat de vente, tant pour le Vendeur que pour l'Acheteur. Ce consentement s'exprime par le fait de cocher une case dédiée sur le formulaire de commande de l'œuvre."
+    },
+    "order": {
+      "title": "Procédure de Commande",
+      "content": "Les œuvres sont proposées à la vente sur le Site par le Vendeur, sous réserve de disponibilité. Chaque œuvre est brièvement décrite, avec notamment des informations telles que le médium, les dimensions, le poids, et la nature de l'œuvre. Les Acheteurs intéressés par une œuvre doivent la sélectionner, l'ajouter à leur panier, et fournir ou confirmer les informations nécessaires à la commande. Avant de finaliser leur commande, les Acheteurs doivent vérifier le récapitulatif de leur commande, corriger les éventuelles erreurs, et prendre note des frais d'expédition. Le paiement est effectué par l'Acheteur une fois la commande validée. InRealArt confirme la disponibilité de l'œuvre dans un délai de 48 heures. En cas d'indisponibilité, l'Acheteur en est informé par e-mail, la commande est annulée, et le remboursement est effectué."
+    },
+    "customization": {
+      "title": "Demandes de Personnalisation",
+      "content": "Toute modification demandée par le client qui altère les caractéristiques originales de l'œuvre (dimensions, matériaux, apparence...) constitue une demande de personnalisation. Dans ce cas, le Vendeur fournira un devis à l'Acheteur, qui devra être approuvé avant la production de l'œuvre personnalisée. Le devis inclura une date de livraison estimée. Si le paiement est confirmé par InRealArt dans les 3 jours ouvrables suivant l'envoi du devis à l'Acheteur, la vente est considérée comme conclue selon les CGV acceptées par les deux parties."
+    },
+    "lots": {
+      "title": "Lots Proposés à la Vente",
+      "content": "Les Acheteurs ont la possibilité d'acquérir plusieurs lots, dont les éléments sont indissociables à l'occasion de cette première vente : Lot d'œuvre physique L'œuvre physique, bien meuble corporel. Le NFT de cette œuvre, bien meuble incorporel, qui comprend un lien vers le fichier numérique reproduisant l'œuvre physique. Les droits d'auteur qui y sont associés, propriétés intellectuelles, pour la durée prévue pour l'offre choisie par l'Acheteur. Lot d'œuvre numérique Le NFT de l'œuvre numérique, bien meuble incorporel, qui comprend un lien vers le fichier numérique original de l'œuvre. Les droits d'auteur qui y sont associés, propriétés intellectuelles, pour la durée prévue pour l'offre choisie par l'Acheteur."
+    },
+    "nft": {
+      "title": "Vente de NFT (Jetons Non Fongibles)",
+      "content": "InRealArt offre à ses Acheteurs l'opportunité unique d'acquérir des œuvres sous forme de NFT, assurant ainsi l'authenticité, la rareté et la propriété des œuvres numériques. Chaque NFT représente une œuvre numérique ou une version numérisée d'une œuvre physique et est enregistré sur une blockchain, offrant une traçabilité et une sécurité inégalées. La réception du NFT par les Acheteurs nécessite qu'ils disposent d'un portefeuille numérique, dont l'adresse (la clé publique) doit être communiquée à InRealArt."
+    },
+    "physicalNft": {
+      "title": "Vente d'une Œuvre Physique et de son NFT (Jetons Non Fongibles)",
+      "content": "Lorsqu'un Acheteur acquiert une œuvre accompagnée de son NFT, il reçoit non seulement l'œuvre physique, mais aussi une version numérisée sous forme de jeton non fongible, garantissant une double valeur : tangible et numérique."
+    },
+    "presale": {
+      "title": "Conditions Spécifiques pour la Prévente",
+      "content": "Lors de la prévente organisée du (telle date à telle date), toute commande validée génère un Smart Contract dont l'exécution opère le transfert du NFT à l'Acheteur dès réception du paiement, sur l'adresse qu'il a fournie. Durant la période de livraison de l'œuvre, le prix est conservé dans le Smart Contract. Dans le cas où l'œuvre n'aurait pas été livrée dans le délai prévu, le prix payé est retourné à l'acheteur, qui doit à son tour restituer le NFT. Au moment de la livraison, pour obtenir la libération de l'œuvre, l'acheteur présente le NFT correspondant. L'Acheteur bénéficiera d'avantages exclusifs à la prévente, tels que : Des remises exclusives, un accès anticipé aux nouvelles œuvres, des éditions limitées, des invitations à des événements exclusifs, des mentions spéciales, et des certificats d'authenticité exclusifs sont offerts aux premiers acheteurs."
+    },
+    "authenticity": {
+      "title": "Double Authentification et Propriété",
+      "content": "L'acquisition d'une œuvre et de son NFT confère à l'Acheteur une double garantie d'authenticité et de propriété. Le NFT, en tant que certificat numérique d'authenticité sur la blockchain, offre une preuve indiscutable de l'origine et de la propriété de l'œuvre, permettant à l'Acheteur de jouir d'une tranquillité d'esprit totale quant à la légitimité de son acquisition."
+    },
+    "advantages": {
+      "title": "Avantages d'Acquérir une Œuvre avec NFT",
+      "content": "Propriété Vérifiable : La blockchain assure une traçabilité transparente de la propriété et de l'historique des transactions, permettant aux Acheteurs et aux futurs acquéreurs de vérifier l'authenticité et la chaîne de propriété de l'œuvre. Protection Contre la Contrefaçon : La technologie NFT rend extrêmement difficile la contrefaçon des œuvres, chaque NFT étant unique et ne pouvant être dupliqué. Potentiel d'Appréciation : Les œuvres accompagnées de leur NFT peuvent gagner une valeur ajoutée significative sur le marché de l'art numérique, en plus de leur valeur en tant qu'objets d'art physiques. Droits d'Utilisation Étendus : Selon les conditions de vente, l'Acheteur peut obtenir des droits supplémentaires tels que l'affichage numérique de l'œuvre, la reproduction à des fins non commerciales, et plus encore, enrichissant ainsi l'expérience de propriété."
+    },
+    "salesTerms": {
+      "title": "Conditions de Vente et Transfert",
+      "content": "Transfert Sécurisé : Le transfert de propriété de l'œuvre physique et de son NFT associé s'effectue au moment de la conclusion du contrat. Conservation de l'Œuvre : L'Acheteur peut choisir de conserver l'œuvre physique tout en exploitant le potentiel du NFT dans l'espace numérique, offrant ainsi une flexibilité dans la manière de profiter de son investissement. Revente Facilitée : Les Acheteurs peuvent revendre l'œuvre physique et son NFT associé sur des marchés spécialisés, bénéficiant d'une plateforme simplifiée pour la revente d'art numérique et physique."
+    },
+    "commitment": {
+      "title": "Engagement d'InRealArt",
+      "content": "InRealArt s'engage à fournir un support complet à ses Acheteurs pendant le processus d'achat, de transfert et de revente des œuvres accompagnées de NFT, garantissant une expérience transparente et sécurisée. Nous garantissons l'authenticité de chaque œuvre et de son NFT, renforçant ainsi la confiance dans le marché de l'art numérique et physique. La vente d'une œuvre et de son NFT représente une opportunité unique pour les amateurs d'art de participer à une nouvelle ère de collection d'art, où la technologie blockchain enrichit la valeur et l'expérience de propriété des œuvres."
+    },
+    "copyright": {
+      "title": "Droit de Cession des Droits d'Auteur",
+      "content": "InRealArt propose diverses options pour l'acquisition de droits d'auteur étendus, incluant mais non limités à la reproduction, l'exposition et la commercialisation de l'œuvre. Les détails de ces droits et les conditions de leur acquisition seront clairement indiqués dans l'offre d'achat du NFT. Lorsque l'offre choisie par l'acheteur le prévoit, les droits d'auteur sur l'œuvre lui sont cédés pour la durée fixée dans l'offre. Dans le cas où l'offre choisie ne prévoit pas une telle cession, les droits d'auteur restent la propriété du créateur de l'œuvre. Cela signifie que l'Acheteur ne peut pas reproduire, exposer publiquement, vendre ou utiliser l'œuvre à des fins commerciales sans le consentement explicite du titulaire des droits d'auteur. À l'expiration de la durée prévue pour la cession des droits d'auteur, l'IRA en reprend la pleine propriété, à moins que l'Acheteur n'ait bénéficié d'une extension ou d'un renouvellement des droits d'auteur."
+    },
+    "gallery": {
+      "title": "Possibilité de Dépôt en Galerie",
+      "content": "Selon l'offre choisie par l'Acheteur, InRealArt peut proposer la possibilité de déposer l'œuvre dans une galerie physique. Cette option permet aux Acheteurs de mettre en valeur leur acquisition et de la partager avec un public plus large, tout en respectant les droits d'auteur associés à l'œuvre. Les conditions du dépôt, incluant la durée du dépôt, les modalités d'exposition, et éventuellement les frais associés, seront définies au cas par cas et convenues entre l'Acheteur, le Vendeur, et InRealArt."
+    },
+    "buyerCommitments": {
+      "title": "Engagements de l'Acheteur",
+      "content": "L'Acheteur s'engage à respecter les droits d'auteur et les conditions d'utilisation associées à chaque œuvre acquise sous forme de NFT. Toute utilisation non autorisée de l'œuvre peut entraîner des sanctions juridiques et la révocation du NFT."
+    },
+    "modifications": {
+      "title": "Modifications des Conditions",
+      "content": "InRealArt se réserve le droit de modifier les conditions relatives à la vente des NFT, aux droits de cession des droits d'auteur, et à la possibilité de dépôt en galerie. Toutes les modifications seront communiquées aux utilisateurs et s'appliqueront aux ventes futures."
+    },
+    "price": {
+      "title": "Prix et Modalités de Paiement",
+      "content": "Le prix de vente des œuvres est indiqué sur le Site dans la devise choisie par l'Acheteur et comprend toutes les taxes à l'exception des éventuels frais de livraison et d'emballage. Les options de livraison et les frais correspondants sont présentés lors du récapitulatif de la commande. Les frais de livraison et d'emballage varient en fonction de la nature de l'œuvre, de ses dimensions, de son poids, et du lieu de livraison. Le règlement du prix de l'œuvre par l'Acheteur au Vendeur s'effectue via les moyens de paiement proposés par InRealArt : carte de crédit, virement bancaire, et cryptomonnaie. La propriété de l'œuvre est transférée à l'Acheteur une fois le paiement entièrement effectué. En cas de non-paiement total, la vente est annulée, et l'œuvre est remise en vente sur InRealArt."
+    },
+    "delivery": {
+      "title": "Livraison",
+      "content": "La livraison des œuvres commandées est effectuée à l'adresse indiquée par l'Acheteur dans le récapitulatif de commande, suivant les horaires et les modalités du prestataire de livraison choisi. Il appartient à l'Acheteur de se renseigner sur les détails et les délais de livraison proposés par les prestataires. La responsabilité liée à la livraison de l'œuvre, incluant le respect des délais, la qualité de l'emballage, et la conformité de l'œuvre, incombe uniquement au Vendeur. InRealArt n'est pas responsable en cas de défaillance du Vendeur. Toutefois, en cas de problème, l'Acheteur peut déposer une réclamation contre le prestataire de livraison. L'Acheteur doit inspecter l'œuvre à la réception et signaler toute anomalie par écrit dans un délai de 48 heures à InRealArt."
+    },
+    "withdrawal": {
+      "title": "Droit de Rétractation",
+      "content": "Conformément à l'article L.121-21 du Code de la consommation, l'Acheteur dispose d'un délai de 14 jours après la réception de l'œuvre pour exercer son droit de rétractation sans frais ni justification, sauf dans le cas d'une personnalisation de l'œuvre. La rétractation s'effectue par e-mail à InRealArt, qui procédera au remboursement dans un délai de 14 jours suivant sa notification. Les œuvres retournées endommagées ou souillées ne seront pas remboursées, à la discrétion d'InRealArt."
+    },
+    "guarantees": {
+      "title": "Garanties Légales",
+      "content": "Le Vendeur s'engage à respecter les garanties légales de conformité et contre les vices cachés au bénéfice de l'Acheteur."
+    },
+    "forceMajeure": {
+      "title": "Force Majeure",
+      "content": "Les événements de force majeure, tels que reconnus par la jurisprudence française, peuvent suspendre ou annuler la vente. La partie concernée doit informer l'autre partie de la survenance et de la fin de l'événement de force majeure."
+    },
+    "intellectualProperty": {
+      "title": "Droits d'Auteur et Propriété Intellectuelle",
+      "content": "Le Vendeur assure être le créateur de l'œuvre vendue et qu'elle ne viole aucun droit de tiers. Il s'engage à protéger InRealArt et l'Acheteur contre toute réclamation de tiers. Le support matériel de l'œuvre est transféré à l'Acheteur, mais le Vendeur conserve les droits moraux ainsi que les droits de représentation et de reproduction. Cependant, InRealArt propose des options incluant des droits d'auteur plus ou moins étendus selon les souhaits de l'Acheteur."
+    },
+    "dataProtection": {
+      "title": "Protection des Données Personnelles",
+      "content": "InRealArt traite les données personnelles des Acheteurs et des Vendeurs dans le respect de la loi n° 78-17 du 6 janvier 1978. Les parties ont le droit d'accéder, de modifier, de rectifier et de supprimer leurs données personnelles. Les données sont conservées pour la durée nécessaire à l'exécution des obligations contractuelles et légales."
+    },
+    "applicableLaw": {
+      "title": "Loi Applicable",
+      "content": "Les présentes conditions générales de vente sont soumises au droit français."
+    },
+    "mediation": {
+      "title": "Médiation",
+      "content": "En cas de litige, l'Acheteur peut recourir à la médiation de la consommation pour une résolution amiable, conformément au Code de la consommation."
+    },
+    "jurisdiction": {
+      "title": "Juridiction Compétente",
+      "content": "Tout litige relatif à l'interprétation, la validité ou l'exécution des présentes sera porté devant les tribunaux compétents de Paris."
+    }
+  },
+  "termsNft": {
+    "title": "Conditions Générales d'Utilisation du Token Non Fongible (NFT)",
+    "subtitle": "CONDITIONS GÉNÉRALES D'UTILISATION DU TOKEN NON FONGIBLE (NFT) ET CONTRAT DE LICENCE DE L'ŒUVRE NUMÉRIQUE CORRESPONDANTE",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Les présentes Conditions Générales d'Utilisation du Token Non Fongible (NFT) et le contrat de licence de l'œuvre associée (ci-après, \"CGUToken\") sont enregistrés via IPFS et référencés dans les métadonnées du NFT, établissant ainsi le cadre juridique entre les \"PARTIES\" : D'une part, la \"SOCIÉTÉ\", \"LE CRÉATEUR\", et d'autre part, le \"PROPRIÉTAIRE\", qui a acquis dans le cadre du projet InRealArt le lot composé de manière inséparable lors de la première acquisition de l'œuvre physique et du NFT la représentant du projet InRealArt. Le Token Non Fongible (\"NFT\") est créé via un smart contract après l'achat et attribué au PROPRIÉTAIRE à l'adresse publique Polygon (ou Ethereum, sous réserve de frais de gas supplémentaires) indiquée pour cette transaction. Ces CGUToken régissent l'utilisation du NFT ainsi que la licence des droits sur l'œuvre numérique liée au NFT. Les CGUToken s'appliquent aux interactions entre les PARTIES et prévalent sur tout autre accord général ou spécifique."
+    },
+    "article1": {
+      "title": "Article 1. Objet de l'accord",
+      "description": {
+        "title": "1.1. Description",
+        "content": "L'œuvre représentée par le NFT, dont la SOCIÉTÉ détient tous les droits patrimoniaux d'auteur, objet de ces CGUToken, est accessible via le lien inclus dans le fichier JSON des métadonnées du NFT et est décrite dans ce fichier. Le lot initialement vendu sur la plateforme de la société comprend : L'œuvre physique, le NFT la représentant, et les droits d'auteur pour la durée prévue selon l'offre choisie."
+      },
+      "technicalIdentification": {
+        "title": "1.2. Identification Technique",
+        "content": "L'œuvre représentée par le NFT est sauvegardée sur un fichier numérique, stocké sur le service IPFS référencé dans les métadonnées du smart contract du NFT, sur la blockchain publique Ethereum. Le NFT est conforme à la norme ERC-721."
+      },
+      "purpose": {
+        "title": "1.3. Objet",
+        "content": "Lorsqu'une vente est conclue conformément aux Conditions Générales de Vente, LE CRÉATEUR transfère au PROPRIÉTAIRE la propriété du NFT représentant l'œuvre. Le PROPRIÉTAIRE peut librement disposer de ce NFT et afficher numériquement l'œuvre représentée sous les strictes conditions énoncées à l'Article 2."
+      },
+      "withdrawal": {
+        "title": "1.4. Droit de rétractation",
+        "content": "Conformément à la législation française sur les contrats conclus à distance, le droit de rétractation n'est pas applicable à l'achat de contenu numérique non fourni sur un support matériel dès que le téléchargement ou l'utilisation a commencé avec l'accord exprès préalable du consommateur et renonciation de son droit de rétractation."
+      }
+    },
+    "article2": {
+      "title": "Article 2. Étendue de la licence d'utilisation",
+      "content": {
+        "title": "2.1. Contenu",
+        "content": "La propriété du NFT accorde l'accès à une version numérique de l'œuvre, via le fichier numérique unique qui lui est associé."
+      },
+      "territorialScope": {
+        "title": "2.2. Étendue Territoriale",
+        "content": "Cet accès est accordé à l'échelle mondiale."
+      },
+      "duration": {
+        "title": "2.3. Durée",
+        "content": "Cet accès est accordé à perpétuité, ou, si non reconnu, pour la durée de vie des droits de propriété intellectuelle conformément à la législation en vigueur au moment de l'expiration de ces droits."
+      },
+      "access": {
+        "title": "2.4. Accès et utilisation autorisée au propriétaire du NFT",
+        "content": "Le propriétaire du NFT peut accéder à l'œuvre numérique et la communiquer en privé à des fins non commerciales. Exclusivement à des fins de revente, il peut l'exposer, sur tous supports matériels ou numériques ou médias numériques actuels ou futurs, y compris les réseaux sociaux, sites web personnels ou professionnels du PROPRIÉTAIRE, galeries en ligne, ou métaverses.\n\nEn cas de revente du NFT, le PROPRIÉTAIRE précédent s'engage à fournir la copie originale (haute définition) de l'œuvre telle que décrite dans les métadonnées JSON du NFT au nouveau PROPRIÉTAIRE et à effacer toute copie du fichier, en particulier le fichier original (haute définition). Service optionnel d'acquisition du fichier original (haute définition) de l'œuvre tel qu'indiqué dans les métadonnées JSON du NFT auprès d'une étude d'huissier, après vérification par l'envoi d'un jeton test par le titulaire du NFT depuis la clé publique propriétaire du NFT vers une adresse publique fournie à cet effet par l'étude. Ce service supplémentaire sera facturé selon les tarifs en vigueur au moment de la demande.\n\nCe fichier sera remis au premier PROPRIÉTAIRE lors de la vente sur le marketplace ou dans l'une de nos galeries physiques."
+      },
+      "credits": {
+        "title": "2.5. Crédits",
+        "content": "Le PROPRIÉTAIRE indiquera sur l'œuvre ou dans un espace dédié ainsi que dans les métadonnées liées au fichier, le nom du CRÉATEUR ainsi que le titre de l'œuvre pour toute reproduction ou présentation de l'œuvre mentionnée à l'Article 2.4."
+      }
+    },
+    "article3": {
+      "title": "Article 3. Prix du transfert",
+      "content": "En contrepartie du lot comprenant notamment le NFT représentant l'œuvre et les droits d'utilisation associés, le PROPRIÉTAIRE s'engage à payer le prix indiqué en euros ou autre devise selon les offres proposées par la société."
+    },
+    "article4": {
+      "title": "Article 4. Garanties",
+      "copyright": {
+        "title": "4.1. Garantie de propriété des droits d'auteur",
+        "content": "La SOCIÉTÉ certifie être le seul titulaire des droits patrimoniaux d'auteur, des droits voisins, et avoir toutes les autorisations nécessaires pour l'exploitation sans entrave des œuvres et garantit au PROPRIÉTAIRE la jouissance sans restriction de tous les droits objet de cet accord, à l'abri de toute perturbation, réclamation ou éviction de quelque nature que ce soit. La SOCIÉTÉ défendra le PROPRIÉTAIRE contre toute réclamation ou action en justice émanant d'un tiers revendiquant des droits d'auteur sur l'œuvre et/ou le NFT et indemnise le PROPRIÉTAIRE de toute conséquence financière résultant d'un tel recours, y compris les frais de justice, les frais de procédure, les frais d'expertise, les honoraires d'avocat, ainsi que tout préjudice subi, y compris les dommages et autres indemnités transactionnelles, toute condamnation judiciaire, les frais et la perte de bénéfices résultant d'un litige potentiel."
+      },
+      "exclusiveRights": {
+        "title": "4.2. Garantie des droits exclusifs",
+        "content": "LE CRÉATEUR garantit ne pas avoir cédé d'autre NFT conférant les mêmes droits et s'engage à n'en émettre aucun."
+      },
+      "thirdPartyRights": {
+        "title": "4.3. Garantie contre les atteintes aux droits des tiers",
+        "content": "LE CRÉATEUR déclare que l'œuvre ne contient aucun élément susceptible de porter atteinte aux intérêts d'un tiers, ou susceptible de donner lieu à une action en justice sur le fondement de la contrefaçon, de l'atteinte à la vie privée, du droit à l'image, ou susceptible d'être considérée comme diffamatoire ou injurieuse."
+      },
+      "precautions": {
+        "title": "4.4. Précautions contre les utilisations non autorisées",
+        "content": "LE CRÉATEUR affirme que toutes les mesures sont et/ou seront prises pour limiter au maximum les risques de piratage et/ou d'utilisation non autorisée des œuvres."
+      },
+      "deletion": {
+        "title": "4.5. Garanties contre la suppression des liens ou fichiers référencés dans les métadonnées et procédures de réémission",
+        "content": "Le PROPRIÉTAIRE conservera au moins une copie des fichiers mentionnés dans les métadonnées du NFT par ses propres moyens (disque dur personnel, cloud personnel, services de stockage...). LE CRÉATEUR accepte par avance l'émission d'un NFT de remplacement ayant les mêmes spécifications que le NFT devenu inactif par une entité spécialisée dans l'émission de NFTs et d'actifs cryptographiques sous la supervision d'un commissaire de justice ayant préalablement constaté l'inactivité du NFT. Cette opération exceptionnelle sera effectuée aux frais du PROPRIÉTAIRE. Des copies de ces fichiers seront également conservées par l'étude d'huissier LSL, 92 rue d'Angiviller BP 51 78120 Rambouillet, sans garantie de résultat. Un service supplémentaire sera facturé selon les tarifs en vigueur selon les besoins."
+      },
+      "indemnities": {
+        "title": "4.6. Garanties et indemnités",
+        "content": "Dans l'éventualité où le PROPRIÉTAIRE serait confronté à une réclamation d'un tiers ou à un recours résultant de la diffusion de l'œuvre en raison d'une violation par LE CRÉATEUR de ses obligations et garanties stipulées ici, LE CRÉATEUR s'engage à indemniser le PROPRIÉTAIRE de toutes les conséquences financières liées à une telle réclamation ou recours."
+      },
+      "authenticity": {
+        "title": "4.7. Authenticité et Provenance",
+        "content": "La SOCIÉTÉ garantit l'authenticité de l'œuvre et du NFT ainsi que la véracité de sa provenance. Elle s'engage à fournir au PROPRIÉTAIRE toutes les informations nécessaires pour prouver cette authenticité et provenance."
+      }
+    },
+    "article5": {
+      "title": "Article 5. Risques non couverts",
+      "economicRisks": {
+        "title": "5.1. Risques économiques",
+        "content": "Le PROPRIÉTAIRE reconnaît les risques économiques suivants : le NFT peut perdre tout ou partie de sa valeur suite aux variations du marché ; les actifs numériques, tokens et NFTs peuvent faire l'objet de fluctuations de prix importantes, à la hausse comme à la baisse. L'ampleur de ces fluctuations est imprévisible et ne peut être assurée ; le PROPRIÉTAIRE n'a aucune assurance de pouvoir coter le NFT sur une plateforme ou un marché secondaire et n'a donc aucune garantie de pouvoir revendre le NFT."
+      },
+      "technologicalRisks": {
+        "title": "5.2. Risques technologiques",
+        "content": "Le PROPRIÉTAIRE reconnaît les risques technologiques suivants : Le NFT est stocké dans un portefeuille électronique sécurisé par une clé privée unique, essentielle pour accéder au NFT. Ainsi, le vol, la perte ou le piratage de la clé privée entraîne la perte définitive du NFT. Le PROPRIÉTAIRE est également responsable de la sécurité de la clé privée de son portefeuille, nécessaire pour recevoir et transférer le NFT. La perte ou le vol de la clé privée équivaut à la perte du NFT attribué au portefeuille. Une réémission sera techniquement possible dans les mêmes conditions que celles décrites à l'Article 4.5 ou celles prévues par les juridictions compétentes si le PROPRIÉTAIRE peut se prévaloir d'une décision de justice définitive et exécutoire à cet effet. À cette fin, il est conseillé au PROPRIÉTAIRE de signaler son NFT perdu ou volé dans une base de données dédiée à la perte ou au vol de NFTs, si une telle base existe. En cas de transfert du NFT par le PROPRIÉTAIRE vers un portefeuille incompatible avec le smart contract du NFT, le PROPRIÉTAIRE ne pourra normalement plus accéder au NFT. Le PROPRIÉTAIRE assume l'entière responsabilité du choix du portefeuille utilisé. Une réémission sera techniquement possible dans les mêmes conditions que celles décrites à l'Article 4.5. En cas de création ultérieure par le PROPRIÉTAIRE d'un smart contract concernant le NFT transféré, le PROPRIÉTAIRE assume l'entière responsabilité du choix de la norme ou du smart contract spécifique utilisé et de tout bug potentiel et faille de sécurité. - La blockchain Ethereum choisie est susceptible d'être l'objet d'une attaque du système de consensus connue sous le nom d'attaque des 51%, qui pourrait corrompre les données enregistrées sur la blockchain."
+      },
+      "regulatoryRisks": {
+        "title": "5.3. Risques réglementaires",
+        "content": "Le PROPRIÉTAIRE reconnaît les risques réglementaires suivants : Les risques juridiques et fiscaux liés à la détermination de la loi applicable, notamment en cas de revente du NFT, doivent être considérés par le PROPRIÉTAIRE et LE CRÉATEUR ne peut garantir une qualification juridique ou fiscale en raison de la diversité des lois nationales applicables et de leur évolution potentiellement défavorable aux intérêts du PROPRIÉTAIRE ; Des changements réglementaires ou normatifs pourraient affecter le fonctionnement de la blockchain publique Polygon ou Ethereum utilisée pour le NFT, générant ainsi divers risques juridiques et fiscaux qui pourraient avoir des conséquences notamment sur les conditions ou même la possibilité de revendre le NFT ; Les risques liés aux obligations d'identification renforcée du PROPRIÉTAIRE pour conserver, utiliser et/ou revendre le NFT doivent être considérés et ne peuvent être assumés par LE CRÉATEUR."
+      },
+      "modification": {
+        "title": "5.4. Modification de l'œuvre",
+        "content": "Le PROPRIÉTAIRE s'engage à ne pas modifier, altérer ou transformer l'œuvre numérique d'une manière qui porte atteinte aux droits moraux de l'auteur, sans l'accord écrit préalable de LE CRÉATEUR."
+      }
+    },
+    "article6": {
+      "title": "Article 6. Défense des droits",
+      "content": "Le PROPRIÉTAIRE n'a pas le droit d'agir directement en cas de contrefaçon."
+    },
+    "article7": {
+      "title": "Article 7. Exécution",
+      "content": "Le NFT est créé via un smart contract après l'achat et attribué au PROPRIÉTAIRE à l'adresse publique Ethereum spécifiée pour cette transaction. L'attribution des droits d'utilisation mentionnés à l'Article 2 est effective dès réception du NFT sur le portefeuille du PROPRIÉTAIRE et se poursuit tant que le NFT reste dans un portefeuille dont le PROPRIÉTAIRE est le titulaire."
+    },
+    "article8": {
+      "title": "Article 8. Revente",
+      "conditions": {
+        "title": "8.1. Conditions de revente",
+        "content": "Le PROPRIÉTAIRE est autorisé à revendre, sans consentement préalable de LE CRÉATEUR, le NFT et l'accès associé à la représentation numérique de l'œuvre comme stipulé dans ces CGUToken. Le NFT et cet accès sont inséparables en cas de revente. LE CRÉATEUR autorise le PROPRIÉTAIRE à revendre le NFT indépendamment de l'œuvre acquise lors de l'achat du lot. Le transfert du NFT entre portefeuilles électroniques détenus par le PROPRIÉTAIRE n'est pas considéré comme une revente mais comme un simple transfert interne."
+      },
+      "resaleRight": {
+        "title": "8.2. Droit de suite légal ou contractuel",
+        "content": "Le PROPRIÉTAIRE s'assurera, en cas de revente du NFT à un tiers via un smart contract ou par transfert de propriété d'un portefeuille électronique décentralisé, centralisé, numérique ou physique, du respect du droit de suite de LE CRÉATEUR (article L. 122-8 du Code de la Propriété Intellectuelle). Si, au moment de la revente, le droit français reconnaît un droit de suite pour les NFTs du type objet de ces CGUToken, alors ce droit s'applique. Sinon, un droit de suite s'applique contractuellement, payable à l'organisme de gestion collective auquel LE CRÉATEUR est inscrit ou, à défaut, directement à LE CRÉATEUR, à un taux légal et selon les modalités applicables au droit de suite des œuvres physiques au moment de la revente."
+      }
+    },
+    "article9": {
+      "title": "Article 9. Loi applicable",
+      "content": "Ces CGUToken sont régis par le droit français."
+    },
+    "article10": {
+      "title": "Article 10. Litiges",
+      "content": "Les Parties s'efforceront de régler à l'amiable tout litige découlant de l'interprétation ou de l'exécution de ces CGUToken. À défaut, tout litige sera soumis à la juridiction des tribunaux relevant de la Cour d'Appel de Paris."
+    },
+    "article11": {
+      "title": "Article 11. Confidentialité et Protection des données",
+      "content": "La SOCIÉTÉ s'engage à protéger et à traiter les données personnelles du PROPRIÉTAIRE conformément aux lois en vigueur sur la protection des données. Les informations sur la collecte, le traitement et le partage des données personnelles sont disponibles dans la Politique de Confidentialité de la SOCIÉTÉ, accessible sur le site web de la SOCIÉTÉ.",
+      "gdpr": {
+        "title": "11.1. Conformité RGPD",
+        "content": "La collecte et le traitement des données personnelles du PROPRIÉTAIRE par la SOCIÉTÉ sont effectués en stricte conformité avec le Règlement Général sur la Protection des Données (RGPD). La SOCIÉTÉ s'engage à ne collecter que les données strictement nécessaires et à informer le PROPRIÉTAIRE de l'utilisation de ces données."
+      },
+      "rights": {
+        "title": "11.2. Droits des utilisateurs",
+        "content": "Le PROPRIÉTAIRE dispose à tout moment du droit d'accéder, de rectifier, d'effacer, de limiter, de s'opposer et de porter ses données personnelles, conformément aux réglementations en vigueur."
+      }
+    },
+    "article12": {
+      "title": "Article 12. Utilisation de la plateforme en ligne",
+      "registration": {
+        "title": "12.1. Inscription",
+        "content": "Le PROPRIÉTAIRE doit s'inscrire sur la plateforme en ligne de la SOCIÉTÉ pour acheter un NFT."
+      },
+      "conduct": {
+        "title": "12.2. Règles de conduite",
+        "content": "Le PROPRIÉTAIRE s'engage à utiliser la plateforme conformément aux lois en vigueur et aux règles de conduite établies par la SOCIÉTÉ."
+      },
+      "restrictions": {
+        "title": "12.3. Restrictions",
+        "content": "La SOCIÉTÉ se réserve le droit de suspendre ou de résilier l'accès du PROPRIÉTAIRE à la plateforme en cas de non-respect de ces CGUToken."
+      }
+    },
+    "article13": {
+      "title": "Article 13. Droits de l'artiste sur l'œuvre physique",
+      "content": "LE CRÉATEUR conserve certains droits moraux et patrimoniaux sur l'œuvre physique, conformément aux lois en vigueur. Le PROPRIÉTAIRE s'engage à respecter ces droits et à ne pas modifier, détruire ou utiliser l'œuvre physique d'une manière qui porte atteinte aux droits ou à la réputation de LE CRÉATEUR, sauf dans le cas de l'acquisition du lot œuvre physique plus NFT incluant un droit de cession des droits d'auteur.",
+      "moralRights": {
+        "title": "13.1. Respect des droits moraux",
+        "content": "La SOCIÉTÉ et le PROPRIÉTAIRE reconnaissent et respectent les droits moraux de l'auteur sur l'œuvre numérique et physique, notamment le droit à la paternité et le droit au respect de l'œuvre."
+      },
+      "modifications": {
+        "title": "13.2. Gestion des modifications",
+        "content": "Toute modification, adaptation ou transformation de l'œuvre numérique ou physique par le PROPRIÉTAIRE nécessite l'accord écrit préalable de LE CRÉATEUR, dans le respect des droits moraux de celui-ci."
+      }
+    },
+    "article14": {
+      "title": "Article 14. Modifications des CGUToken",
+      "content": "La SOCIÉTÉ se réserve le droit de modifier ces CGUToken à tout moment. Les modifications seront communiquées au PROPRIÉTAIRE par email ou via la plateforme en ligne, et prendront effet à la date indiquée dans la notification."
+    },
+    "article15": {
+      "title": "Article 15. Sécurité et Stockage",
+      "security": {
+        "title": "15.1. Mesures de sécurité",
+        "content": "La SOCIÉTÉ s'engage à mettre en œuvre et à maintenir des mesures de sécurité robustes pour protéger les œuvres numériques et physiques contre le piratage, la perte ou tout autre risque de dommage."
+      },
+      "storage": {
+        "title": "15.2. Recommandations de stockage",
+        "content": "La SOCIÉTÉ fournira au PROPRIÉTAIRE des recommandations pour le stockage sécurisé de l'œuvre numérique et physique, y compris des conseils sur les portefeuilles électroniques et les moyens de stockage physique."
+      }
+    },
+    "article16": {
+      "title": "Article 16. Force majeure",
+      "content": "Aucune des PARTIES ne sera tenue responsable de la non-exécution ou du retard dans l'exécution de ses obligations au titre de ces CGUToken si cela est dû à un cas de force majeure, tel que défini par la loi applicable."
+    },
+    "article17": {
+      "title": "Article 17. Résiliation",
+      "byCompany": {
+        "title": "17.1. Par la SOCIÉTÉ",
+        "content": "La SOCIÉTÉ peut résilier le contrat en cas de violation grave de ces CGUToken par le PROPRIÉTAIRE."
+      },
+      "byOwner": {
+        "title": "17.2. Par le PROPRIÉTAIRE",
+        "content": "Le PROPRIÉTAIRE peut résilier le contrat en cas de violation grave de ces CGUToken par la SOCIÉTÉ."
+      },
+      "consequences": {
+        "title": "17.3. Conséquences de la résiliation",
+        "content": "En cas de résiliation, les droits et obligations des PARTIES seront déterminés conformément aux lois en vigueur."
+      }
+    },
+    "article18": {
+      "title": "Article 18. Juridiction territorialement compétente",
+      "content": "En cas de litige non résolu à l'amiable, les PARTIES conviennent de soumettre le litige à la juridiction exclusive des tribunaux relevant de la Cour d'Appel de Paris.",
+      "international": {
+        "title": "18.1. Juridiction internationalement compétente",
+        "content": "En cas de litige impliquant des parties non françaises, les PARTIES conviennent que le litige sera soumis à la juridiction exclusive des tribunaux français, sauf dans les cas où la règle de compétence internationale est impérative."
+      }
+    }
   }
 }

@@ -10,20 +10,24 @@ export default function Header() {
 
   const caseStudies = [
     {
-      title: t('usecase.items.collector.title'),
-      link: "/usecase/fractionate"
+      title: t('usecase.items.fractionate.title'),
+      link: "/usecase/fractionate",
+      description: t('usecase.items.fractionate.description')
     },
     {
-      title: t('usecase.items.artist.title'),
-      link: "/usecase/companies"
+      title: t('usecase.items.companies.title'),
+      link: "/usecase/companies",
+      description: t('usecase.items.companies.description')
     },
     {
-      title: t('usecase.items.investor.title'),
-      link: "/usecase/leasing"
+      title: t('usecase.items.leasing.title'),
+      link: "/usecase/leasing",
+      description: t('usecase.items.leasing.description')
     },
     {
-      title: t('usecase.items.gallery.title'),
-      link: "/usecase/lending"
+      title: t('usecase.items.lending.title'),
+      link: "/usecase/lending",
+      description: t('usecase.items.lending.description')
     }
   ];
 
@@ -43,6 +47,7 @@ export default function Header() {
           {caseStudies.map((caseStudy, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{caseStudy.title}</h3>
+              <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">{caseStudy.description}</p>
               <Button 
                 text={t('buttons.readMore')} 
                 additionalClassName="bg-purpleColor w-full justify-center" 

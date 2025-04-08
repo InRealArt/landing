@@ -15,8 +15,14 @@ export default function Explore() {
       label: t('home.explore.items.rare.label'),
       description: t('home.explore.items.rare.description'),
       buttons: {
-        presales: t('home.explore.items.rare.buttons.presales'),
-        whitepaper: t('home.explore.items.rare.buttons.whitepaper')
+        first: {
+          text: t('home.explore.items.rare.buttons.artworks'),
+          link: '/presale'
+        }
+        // second: {
+        //   text: t('home.explore.items.rare.buttons.getartworks'),
+        //   link: '/'
+        // },
       }
     },
     { 
@@ -25,8 +31,10 @@ export default function Explore() {
       label: t('home.explore.items.marketplace.label'),
       description: t('home.explore.items.marketplace.description'),
       buttons: {
-        presales: t('home.explore.items.marketplace.buttons.presales'),
-        whitepaper: t('home.explore.items.marketplace.buttons.whitepaper')
+        first: {
+          text: t('home.explore.items.marketplace.buttons.marketplace'),
+          link: '/marketplace'
+        }
       }
     },
     { 
@@ -35,8 +43,10 @@ export default function Explore() {
       label: t('home.explore.items.investment.label'),
       description: t('home.explore.items.investment.description'),
       buttons: {
-        presales: t('home.explore.items.investment.buttons.presales'),
-        whitepaper: t('home.explore.items.investment.buttons.whitepaper')
+        first: {
+          text: t('home.explore.items.investment.buttons.usecase'),
+          link: '/usecase'
+        }
       }
     }
   ]
@@ -63,8 +73,7 @@ export default function Explore() {
               </div>
               <div className="basis-1/2">
                 <label className="my-4 block bricolage-grotesque">{item.description}</label>
-                <Button text={item.buttons.presales} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center />
-                <Button text={item.buttons.whitepaper} additionalClassName="mt-4 md:ml-4 md:mt-0" />
+                {item.buttons.first && <Button link={item.buttons.first.link} text={item.buttons.first.text} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center />}
               </div>
             </div>
           )

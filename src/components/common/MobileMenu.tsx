@@ -53,6 +53,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {t('nav.home')}
           </Link>
+          
+          <Link 
+            href="/marketplace" 
+            className={`${pathname === '/marketplace' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            onClick={onClose}
+          >
+            {t('nav.marketplace')}
+          </Link>
           <Link 
             href="/usecase" 
             className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
@@ -61,18 +69,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.usecase')}
           </Link>
           <Link 
-            href="/whitepaper" 
-            className={`${pathname === '/whitepaper' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            href="/roadmap" 
+            className={`${pathname === '/roadmap' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
-            {t('nav.whitepaper')}
-          </Link>
-          <Link 
-            href="/token" 
-            className={`${pathname === '/airdrop' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
-            onClick={onClose}
-          >
-            {t('nav.airdrop')}
+            {t('nav.roadmap')}
           </Link>
           <Link 
             href="/blog" 

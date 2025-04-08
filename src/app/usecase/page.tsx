@@ -8,8 +8,8 @@ export default function UseCase() {
   return (
     <>
       <Header />
-      <CustomerStories />
-      <ReadyToStart />
+      {/* <CustomerStories /> */}
+      {/* <ReadyToStart /> */}
     </>
   );
 } 
