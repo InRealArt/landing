@@ -245,17 +245,18 @@
       "q2_2025": {
         "title": "Q2 2025",
         "description": {
-          "0": "PreSales Launch: Begin the ICO to raise funds for platform development and expansion, offering tokens for early supporters.",
-          "1": "Develop Shopify Payment Integration: Work on integrating Shopify for seamless payments and transactions within the marketplace.",
-          "2": "Pre-Sale Phase for Artwork Ownership: Begin pre-sales for limited edition artwork pieces with the option for tokenized fractional ownership."
+          "0": "Development of Shopify Payment Integration: Work on integrating Shopify for seamless payments and transactions within the marketplace.",
+          "1": "Launch Art Marketplace on Mainnet: Realize the first traditional sales on the marketplace.",
+          "2": "Regulatory Compliance",
+          "3": "Solid Proof Audits"
         }
       },
       "q3_2025": {
-        "title": "Q3 2025",
+        "title": "Q3 2025 - Preparations for Creator Tools",
         "description": {
-          "0": "Develop Gallery Creation Tools: Allow users to create virtual galleries, featuring both tokenized and traditional artworks.",
-          "1": "Official Token Sale: Launch the official token sale, where users can purchase tokens through private and public rounds.",
-          "2": "Enhanced DAO Features: Implement additional DAO functionality for enhanced governance, community engagement, and voting on platform features."
+          "0": "Launch PreSales: Raise funds to accelerate development and distribute tokens to early supporters.",
+          "1": "Develop Gallery Creation Tools: Allow users to create virtual galleries, featuring both tokenized and traditional artworks.",
+          "2": "Official Token Sale: Launch the official token sale, where users can purchase tokens through private and public rounds."
         }
       },
       "q4_2025": {
@@ -269,9 +270,9 @@
       "q1_2026": {
         "title": "Q1 2026",
         "description": {
-          "0": "Final Development of Platform: Complete all platform development, ensuring smooth Shopify integration, advanced fractionalization options, and user-friendly navigation.",
-          "1": "Begin Community Gallery Curation: DAO members vote to curate featured galleries based on their artistic preferences",
-          "2": "Marketing and Partnerships: Secure strategic partnerships with art institutions, galleries, and other RWA projects to expand the platform's reach."
+          "0": "Begin Community Gallery Curation: DAO members vote to curate featured galleries based on their artistic preferences",
+          "1": "Marketing and Partnerships: Secure strategic partnerships with art institutions, galleries, and other RWA projects to expand the platform's reach.",
+          "2": "Launch IRA Physical Galleries"
         }
       }
     }

@@ -7,20 +7,12 @@ export default function RoadMap() {
   const { t } = useLanguageStore();
   const items: RoadmapItem[] = [
     {
-      title: t('roadmap.items.q1_2025.title'),
-      description: [
-        t('roadmap.items.q1_2025.description.0'),
-        t('roadmap.items.q1_2025.description.1'),
-        t('roadmap.items.q1_2025.description.2'),
-        t('roadmap.items.q1_2025.description.3')
-      ]
-    },
-    {
       title: t('roadmap.items.q2_2025.title'),
       description: [
         t('roadmap.items.q2_2025.description.0'),
         t('roadmap.items.q2_2025.description.1'),
-        t('roadmap.items.q2_2025.description.2')
+        t('roadmap.items.q2_2025.description.2'),
+        t('roadmap.items.q2_2025.description.3')
       ]
     },
     {

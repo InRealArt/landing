@@ -57,8 +57,8 @@
   },
   "home": {
     "intro": {
-      "title": "La Tokenisation de l'Art\naccessible pour tous",
-      "subtitle": "Oeuvres rares et exclusives"
+      "title": "Blue-chip Art has outpaced the S&P by",
+      "subtitle": "from 1995-2024.1"
     },
     "howItWorks": {
       "title": "Comment ça fonctionne ?",
@@ -237,40 +237,41 @@
         "description": {
           "0": "Lancement de la Marketplace d'Art sur Testnet : Ouvrir l'environnement de test pour que les utilisateurs explorent la plateforme, testent les fonctionnalités et fournissent des retours.",
           "1": "Introduction des Fonctionnalités de Fractionnement : Permettre la propriété tokenisée des actifs artistiques sur la plateforme, permettant aux utilisateurs de posséder fractionnellement des œuvres d'art.",
-          "2": "Conformité Réglementaire",
+          "2": "Conformité Réglementaireee",
           "3": "Audits Solid Proof"
         }
       },
       "q2_2025": {
         "title": "Q2 2025",
         "description": {
-          "0": "Lancement des Préventes : Commencer l'ICO pour lever des fonds pour le développement et l'expansion de la plateforme, offrant des tokens aux premiers supporters.",
-          "1": "Développement de l'Intégration des Paiements Shopify : Travailler sur l'intégration de Shopify pour des paiements et transactions fluides au sein de la marketplace.",
-          "2": "Phase de Prévente pour la Propriété d'Œuvres d'Art : Commencer les préventes pour des pièces d'art en édition limitée avec l'option de propriété fractionnée tokenisée."
+          "0": "Développement de l’intégration des paiements Shopify : Assurer des transactions fluides et sécurisées au sein de la marketplace.",
+          "1": "Lancement de la marketplace d'art sur le mainnet pour réaliser les première ventes traditionnelles.",
+          "2": "Conformité réglementaire",
+          "3": "Audits Solid Proof"
         }
       },
       "q3_2025": {
-        "title": "Q3 2025",
+        "title": "Q3 2025 - Préparations des outils créateurs",
         "description": {
-          "0": "Développement des Outils de Création de Galeries : Permettre aux utilisateurs de créer des galeries virtuelles, présentant à la fois des œuvres tokenisées et traditionnelles.",
-          "1": "Vente Officielle de Tokens : Lancer la vente officielle de tokens, où les utilisateurs peuvent acheter des tokens via des tours privés et publics.",
-          "2": "Fonctionnalités DAO Améliorées : Implémenter des fonctionnalités DAO supplémentaires pour une gouvernance améliorée, un engagement communautaire et des votes sur les fonctionnalités de la plateforme."
+          "0": "Lancement des préventes : Lever des fonds pour accélérer le développement et distribuer des tokens aux premiers supporters.",
+          "1": "Développement des outils de création de galeries : Permettre aux utilisateurs de créer des galeries virtuelles intégrant œuvres tokenisées et traditionnelles.",
+          "2": "Vente officielle de tokens : Vente publique et privée des tokens."
         }
       },
       "q4_2025": {
         "title": "Q4 2025",
         "description": {
-          "0": "Lancement de la Plateforme Complète : Transition du testnet vers le mainnet et lancement de la plateforme complète au public avec toutes les fonctionnalités de paiement et de fractionnement.",
-          "1": "Expansion de la Création de Galeries : Faciliter la création de galeries physiques ou numériques pour les artistes, intégrées à la marketplace.",
-          "2": "Lancement du Marché Secondaire : Permettre une marketplace pour l'achat et la vente d'œuvres d'art fractionnées."
+          "0": "Lancement de la plateforme complète : Mise en ligne de toutes les fonctionnalités, incluant paiements et fractionnement.",
+          "1": "Expansion de la création de galeries : Création facilitée de galeries physiques ou numériques, intégrées à la marketplace.",
+          "2": "Lancement du marché secondaire dédiée à l’achat, la revente et l’échange d’œuvres d’art, y compris fractionnées."
         }
       },
       "q1_2026": {
         "title": "Q1 2026",
         "description": {
-          "0": "Développement Final de la Plateforme : Terminer tout le développement de la plateforme, assurant une intégration fluide de Shopify, des options avancées de fractionnement et une navigation conviviale.",
-          "1": "Début de la Curation des Galeries Communautaires : Les membres de la DAO votent pour curater des galeries en vedette basées sur leurs préférences artistiques.",
-          "2": "Marketing et Partenariats : Sécuriser des partenariats stratégiques avec des institutions d'art, des galeries et d'autres projets RWA pour étendre la portée de la plateforme."
+          "0": "Début de la curation des galeries communautaires : Sélection de galeries en vedette via votes DAO.",
+          "1": "Marketing et partenariats : Développement de collaborations avec des institutions artistiques, galeries et projets RWA.",
+          "2": "Mise en place des galeries physiques IRA."
         }
       }
     }
