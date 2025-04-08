@@ -5,10 +5,7 @@
     }
   },
   "functions": {
-    "src/app/api/**/*": {
-      "maxDuration": 60
-    },
-    "src/**/*.ts": {
+    "api/*.js": {
       "maxDuration": 60
     }
   }
