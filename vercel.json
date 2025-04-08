@@ -3,5 +3,13 @@
     "deploymentEnabled": {
       "main": true
     }
+  },
+  "functions": {
+    "src/app/api/**/*": {
+      "maxDuration": 60
+    },
+    "src/**/*.ts": {
+      "maxDuration": 60
+    }
   }
 }
