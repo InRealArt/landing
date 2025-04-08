@@ -5,13 +5,10 @@
     }
   },
   "functions": {
-    "api/*.js": {
+    ".next/server/app/api/newsletter/*.js": {
       "maxDuration": 60
     },
-    "src/app/api/*.js": {
-      "maxDuration": 60
-    },
-    "src/actions/*.js": {
+    ".next/server/actions/*.js": {
       "maxDuration": 60
     }
   }
