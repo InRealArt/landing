@@ -130,14 +130,12 @@ model EmailNewsLetter {
   @@schema("landing")
 }
 
-model EmailPresale {
+model EmailPresaleArtwork {
   id        Int            @id @default(autoincrement())
   email     String
   createdAt DateTime       @default(now())
-  presaleId Int
-  presale   PresaleArtwork @relation(fields: [presaleId], references: [id])
+  slugArtwork String
 
-  @@index([presaleId])
   @@schema("landing")
 }
 
@@ -151,8 +149,7 @@ model PresaleArtwork {
   imageUrl      String         @unique
   mockupUrls    Json           @default("[]")
   artist        Artist         @relation(fields: [artistId], references: [id])
-  emailPresales EmailPresale[]
-
+  
   @@index([artistId])
   @@schema("landing")
 }
