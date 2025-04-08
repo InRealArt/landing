@@ -5,7 +5,13 @@
     }
   },
   "functions": {
-    "**/*": {
+    "api/*.js": {
+      "maxDuration": 60
+    },
+    "src/app/api/*.js": {
+      "maxDuration": 60
+    },
+    "src/actions/*.js": {
       "maxDuration": 60
     }
   }
