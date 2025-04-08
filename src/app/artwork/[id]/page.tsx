@@ -29,12 +29,12 @@ export default function ArtworkPage() {
         if (artworks.length === 0) {
           await fetchArtworks()
         }
-        
+
         // Get the artwork by slug
         const slug = params.id as string
         const foundArtwork = getArtworkBySlug(slug)
         console.log(foundArtwork);
-        
+
         if (foundArtwork) {
           console.log('artwork', artwork);
           setArtwork(foundArtwork)
@@ -50,7 +50,7 @@ export default function ArtworkPage() {
       loadArtwork()
     }
   }, [params.id, artworks.length, fetchArtworks, getArtworkBySlug, mounted])
-   
+
   // Show a loading state until the component is mounted
   if (!mounted) {
     return (
@@ -86,21 +86,21 @@ export default function ArtworkPage() {
   }
 
   // Get the artwork name in the current language
-  const artworkName = typeof artwork.name === 'string' 
-    ? artwork.name 
+  const artworkName = typeof artwork.name === 'string'
+    ? artwork.name
     : (artwork.name && artwork.name.FR) || (artwork.name && Object.values(artwork.name)[0]) || '';
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-
     try {
       const formData = new FormData(e.currentTarget)
-      const result = await submitPresaleEmail(formData)
+      const result = await submitPresaleEmail(formData, artworkName)
+      console.log(result);
 
       if (result.success) {
         toast.success(t('artwork.emailSuccess'))
-        e.currentTarget.reset()
+        e.target.reset()
       } else {
         toast.error(result.message)
       }
@@ -175,7 +175,7 @@ export default function ArtworkPage() {
                     placeholder={t('artwork.emailPlaceholder')}
                   />
                 </div>
-                <button 
+                <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full px-8 py-3 rounded-lg font-medium bg-purpleColor text-white hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
