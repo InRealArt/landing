@@ -99,8 +99,8 @@ export default function ArtworkPage() {
       console.log(result);
 
       if (result.success) {
-        toast.success(t('artwork.emailSuccess'))
-        e.target.reset()
+        toast.success(t('artwork.emailSuccess'));
+        (e.target as HTMLFormElement).reset()
       } else {
         toast.error(result.message)
       }

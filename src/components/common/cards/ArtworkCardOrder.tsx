@@ -7,7 +7,6 @@ import Link from "next/link";
 import { stringToSlug } from "@/utils/functions";
 
 interface ArtworkCardOrderProps {
-  id: string;
   image: {
     src: string;
   };
@@ -15,7 +14,7 @@ interface ArtworkCardOrderProps {
   price: number;
 }
 
-const ArtworkCardOrder = ({ id, image, name, price }: ArtworkCardOrderProps) => {
+const ArtworkCardOrder = ({ image, name }: ArtworkCardOrderProps) => {
   const { t } = useLanguageStore();
   // Convert the name to a slug for the URL
   const slug = stringToSlug(name);

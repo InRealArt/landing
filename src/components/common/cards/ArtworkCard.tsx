@@ -3,14 +3,13 @@ import Link from "next/link";
 import { stringToSlug } from "@/utils/functions";
 
 interface ArtworkCardProps {
-  id: string;
   image: {
     src: string;
   };
   name: string;
 }
 
-const ArtworkCard = ({ id, image, name }: ArtworkCardProps) => {
+const ArtworkCard = ({ image, name }: ArtworkCardProps) => {
   // Convert the name to a slug for the URL
   const slug = stringToSlug(name);
   

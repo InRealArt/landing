@@ -6,7 +6,6 @@ import { useState, useRef, useEffect } from 'react'
 import { toast } from 'sonner'
 import { loadRecaptchaScript, executeRecaptcha } from '@/lib/recaptcha'
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 
 // Regex pour valider l'email
