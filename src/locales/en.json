@@ -819,6 +819,7 @@
     "description": "Description",
     "tags": "Tags",
     "price": "Price",
+    "onDemand": "On demand",
     "purchase": "Purchase",
     "sold": "Sold",
     "relatedArtworks": "Related Artworks",

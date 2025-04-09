@@ -158,7 +158,7 @@ export default function ArtworkPage() {
             <div className="flex flex-col gap-6">
               <div>
                 <p className="text-gray-400">{t('artwork.price')}</p>
-                <p className="text-2xl font-bold text-white">€{artwork.price || 'N/A'}</p>
+                <p className="text-2xl font-bold text-white">€ {artwork.price || t('artwork.onDemand')}</p>
               </div>
               <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4">
                 <div>

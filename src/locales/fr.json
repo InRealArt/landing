@@ -818,6 +818,7 @@
     "description": "Description",
     "tags": "Tags",
     "price": "Prix",
+    "onDemand": "Sur demande",
     "purchase": "Acheter",
     "sold": "Vendu",
     "relatedArtworks": "Œuvres similaires",
