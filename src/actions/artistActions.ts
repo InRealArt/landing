@@ -68,10 +68,6 @@ export async function getArtists(): Promise<ArtistData[]> {
                     {
                         entityType: 'LandingArtist',
                         entityId: { in: landingArtistIds }
-                    },
-                    {
-                        entityType: 'Artist',
-                        entityId: { in: artistIds }
                     }
                 ]
             },
@@ -82,16 +78,14 @@ export async function getArtists(): Promise<ArtistData[]> {
 
         // Organisation des traductions par entité et par champ
         const translationsByEntity = organizeTranslations(allTranslations)
-
         // Transformer les données pour correspondre à l'interface ArtistData
         const artists: ArtistData[] = landingArtists.map(la => {
             const landingArtistKey = `LandingArtist-${la.id}`
-            const artistKey = `Artist-${la.artistId}`
-
+            
             // Organiser les traductions
             const translations = {
                 intro: translationsByEntity[landingArtistKey]?.intro || {},
-                description: translationsByEntity[artistKey]?.description || {},
+                description: translationsByEntity[landingArtistKey]?.description || {},
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {}
             }
 
