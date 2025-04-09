@@ -175,6 +175,11 @@ export default function ArtworkPage() {
                     placeholder={t('artwork.emailPlaceholder')}
                   />
                 </div>
+                <input 
+                  type="hidden" 
+                  name="artworkId" 
+                  value={artwork.id} 
+                />
                 <button
                   type="submit"
                   disabled={isSubmitting}

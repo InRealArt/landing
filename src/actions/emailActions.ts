@@ -11,8 +11,9 @@ export async function submitPresaleEmail(formData: FormData, artworkName: string
 
   try {
     const email = formData.get('email') as string
+    const artworkId = formData.get('artworkId') as string
     const validatedData = emailSchema.parse({ email })
-    
+
     // Check if email already exists
     const existingEmail = await prisma.emailPresaleArtwork.findFirst({
       where: {
@@ -31,7 +32,8 @@ export async function submitPresaleEmail(formData: FormData, artworkName: string
     await prisma.emailPresaleArtwork.create({
       data: {
         email: validatedData.email,
-        slugArtwork: artworkName
+        slugArtwork: artworkName,
+        presaleArtworkId: Number(artworkId)
       },
     })
 
@@ -46,8 +48,8 @@ export async function submitPresaleEmail(formData: FormData, artworkName: string
         success: false,
         message: error.errors[0].message,
       }
-    } 
-    
+    }
+
 
     return {
       success: false,

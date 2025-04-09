@@ -5,10 +5,10 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
-  schemas  = ["landing", "public"]
+  schemas   = ["landing", "public"]
 }
 
 // Définition des langues disponibles
@@ -131,25 +131,29 @@ model EmailNewsLetter {
 }
 
 model EmailPresaleArtwork {
-  id        Int            @id @default(autoincrement())
-  email     String
-  createdAt DateTime       @default(now())
-  slugArtwork String
+  id               Int            @id @default(autoincrement())
+  email            String
+  createdAt        DateTime       @default(now())
+  slugArtwork      String
+  presaleArtworkId Int
+  presaleArtwork   PresaleArtwork @relation(fields: [presaleArtworkId], references: [id])
 
+  @@index([presaleArtworkId])
   @@schema("landing")
 }
 
 model PresaleArtwork {
-  id            Int            @id @default(autoincrement())
-  name          String
-  description   String?
-  order         Int?
-  artistId      Int
-  price         Int
-  imageUrl      String         @unique
-  mockupUrls    Json           @default("[]")
-  artist        Artist         @relation(fields: [artistId], references: [id])
-  
+  id                   Int                   @id @default(autoincrement())
+  name                 String
+  description          String?
+  order                Int?
+  artistId             Int
+  price                Int
+  imageUrl             String                @unique
+  mockupUrls           Json                  @default("[]")
+  artist               Artist                @relation(fields: [artistId], references: [id])
+  emailPresaleArtworks EmailPresaleArtwork[]
+
   @@index([artistId])
   @@schema("landing")
 }
