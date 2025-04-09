@@ -32,9 +32,11 @@ export async function POST(request: Request) {
 
         const { email, recaptchaToken } = result.data
 
+        console.log('recaptchaToken', recaptchaToken)
         // Valider reCAPTCHA si un token est fourni
         if (recaptchaToken) {
             const isValidRecaptcha = await verifyRecaptchaToken(recaptchaToken)
+            console.log('isValidRecaptcha', isValidRecaptcha)
             if (!isValidRecaptcha) {
                 return NextResponse.json(
                     {

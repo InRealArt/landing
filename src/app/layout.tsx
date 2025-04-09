@@ -7,6 +7,7 @@ import FAQ from "@/components/common/FAQ/FAQ";
 import LanguageProvider from "@/components/providers/LanguageProvider";
 import Toaster from "@/components/common/Toaster";
 import { GoogleTagManager } from '@next/third-parties/google'
+import GoogleCaptchaWrapper from "@/components/captcha/googleCaptchaWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,6 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+      </head>
       <GoogleTagManager gtmId="GTM-M3W7273P" />
       <body
         className={`${inter.variable} antialiased`}
@@ -37,13 +40,15 @@ export default function RootLayout({
 
 
         <LanguageProvider>
-          <Header />
-          {children}
-          <FAQ />
-          <Footer />
-          <Toaster />
-        </LanguageProvider>
-      </body>
+          <GoogleCaptchaWrapper>
+            <Header />
+            {children}
+            <FAQ />
+            <Footer />
+            <Toaster />
+          </GoogleCaptchaWrapper>
+        </LanguageProvider> 
+      </body> 
     </html>
   );
 }

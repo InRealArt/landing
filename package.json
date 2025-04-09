@@ -18,6 +18,7 @@
     "prisma": "^6.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-google-recaptcha-v3": "^1.10.1",
     "react-phone-number-input": "^3.4.12",
     "recharts": "^2.15.2",
     "sass": "^1.83.0",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/grecaptcha": "^3.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

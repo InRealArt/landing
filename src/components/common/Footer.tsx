@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 import { useState, useRef, useEffect } from 'react'
 import { toast } from 'sonner'
-import { loadRecaptchaScript, executeRecaptcha } from '@/lib/recaptcha'
 import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 // Regex pour valider l'email
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -42,21 +42,7 @@ const Footer = () => {
   const { t } = useLanguageStore()
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
-
-  // Charger reCAPTCHA au montage du composant
-  useEffect(() => {
-    const loadRecaptcha = async () => {
-      try {
-        await loadRecaptchaScript()
-        setRecaptchaLoaded(true)
-      } catch (error) {
-        console.error('Erreur lors du chargement de reCAPTCHA:', error)
-      }
-    }
-
-    loadRecaptcha()
-  }, [])
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   // Fonction pour valider l'email
   const validateEmail = (email: string): boolean => {
@@ -80,17 +66,35 @@ const Footer = () => {
     setIsLoading(true)
 
     try {
-      // Exécuter reCAPTCHA si chargé
+      // Exécuter reCAPTCHA si disponible
       let recaptchaToken = undefined
 
-      if (recaptchaLoaded) {
+      if (executeRecaptcha) {
         try {
-          recaptchaToken = await executeRecaptcha()
+          console.log("Tentative d'exécution de reCAPTCHA...")
+          recaptchaToken = await executeRecaptcha('newsletter_subscribe')
+          console.log('✅ Token reCAPTCHA obtenu:', recaptchaToken.substring(0, 15) + '...')
         } catch (recaptchaError) {
-          console.error('Erreur reCAPTCHA:', recaptchaError)
-          // On continue même si reCAPTCHA échoue, la validation se fera côté serveur
+          console.error('❌ Erreur reCAPTCHA:', recaptchaError)
+          
+          // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
+          if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
+            try {
+              console.log("Tentative avec l'API globale grecaptcha...")
+              const recaptchaKey = "6LdRHkspAAAAAO92RhS4tWRPPQxq5aLcTP07wvIm";
+              recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'newsletter_subscribe' });
+              console.log('✅ Token reCAPTCHA obtenu via API globale:', recaptchaToken.substring(0, 15) + '...')
+            } catch (fallbackError) {
+              console.error('❌ Échec du plan B avec l\'API globale:', fallbackError)
+            }
+          }
         }
+      } else {
+        console.warn('❌ executeRecaptcha non disponible - reCAPTCHA ne fonctionne pas correctement')
       }
+
+      // Continuer même sans token reCAPTCHA pour tester le formulaire
+      console.log("Appel API avec token:", recaptchaToken ? "présent" : "absent")
 
       // Appel API pour enregistrer l'email
       const response = await fetch('/api/newsletter/subscribe', {
@@ -227,6 +231,19 @@ const Footer = () => {
               {t('footer.legal')}
             </Link>
           </div>
+        </div>
+        
+        {/* Notice reCAPTCHA conforme aux conditions Google */}
+        <div className="text-xs text-gray-500 text-center mt-4">
+          Ce site est protégé par reCAPTCHA et les &nbsp;
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+            règles de confidentialité
+          </a> &nbsp;
+          et les &nbsp;
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
+            conditions d&quote;utilisation
+          </a> &nbsp;
+          de Google s&quote;appliquent.
         </div>
       </div>
     </footer>

@@ -125,3 +125,10 @@ body {
 .phone-input-container .PhoneInputCountrySelectArrow {
   @apply border-t-white opacity-70;
 }
+
+/* Pour le débogage, rendons le badge visible temporairement */
+.grecaptcha-badge { 
+  visibility: visible !important; 
+  opacity: 1 !important;
+  z-index: 999 !important;
+}
