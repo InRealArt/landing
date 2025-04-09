@@ -11,7 +11,7 @@ interface ArtworkCardOrderProps {
     src: string;
   };
   name: string;
-  price: number;
+  price: number | null;
 }
 
 const ArtworkCardOrder = ({ image, name }: ArtworkCardOrderProps) => {

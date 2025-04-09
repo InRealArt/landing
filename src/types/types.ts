@@ -6,7 +6,7 @@ export type ArtWork = {
     image2: string
     url: string
     url2: string
-    price: number
+    price: number | null
     size: Record<Lang, string>
     name: Record<Lang, string>
     order: number

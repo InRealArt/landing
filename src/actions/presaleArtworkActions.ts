@@ -1,13 +1,14 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { organizeTranslations } from '@/utils/translations'
 
 export interface PresaleArtworkData {
     id: number
     name: string
     description: string | null
     order: number | null
-    price: number
+    price: number | null
     imageUrl: string
     mockupUrls: any
     artistId: number
@@ -64,20 +65,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
         })
 
         // Organisation des traductions par entité et par champ
-        const translationsByEntity = allTranslations.reduce((acc, t) => {
-            const entityKey = `${t.entityType}-${t.entityId}`
-
-            if (!acc[entityKey]) {
-                acc[entityKey] = {}
-            }
-
-            if (!acc[entityKey][t.field]) {
-                acc[entityKey][t.field] = {}
-            }
-
-            acc[entityKey][t.field][t.language.code] = t.value
-            return acc
-        }, {} as Record<string, Record<string, Record<string, string>>>)
+        const translationsByEntity = organizeTranslations(allTranslations)
 
         // Ajouter les traductions aux oeuvres
         const artworksWithTranslations = presaleArtworks.map(artwork => {
@@ -162,20 +150,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
         })
 
         // Organisation des traductions par entité et par champ
-        const translationsByEntity = allTranslations.reduce((acc, t) => {
-            const entityKey = `${t.entityType}-${t.entityId}`
-
-            if (!acc[entityKey]) {
-                acc[entityKey] = {}
-            }
-
-            if (!acc[entityKey][t.field]) {
-                acc[entityKey][t.field] = {}
-            }
-
-            acc[entityKey][t.field][t.language.code] = t.value
-            return acc
-        }, {} as Record<string, Record<string, Record<string, string>>>)
+        const translationsByEntity = organizeTranslations(allTranslations)
 
         // Ajouter les traductions aux oeuvres
         const artworksWithTranslations = presaleArtworks.map(artwork => {
@@ -212,4 +187,4 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
         console.error(`Erreur lors de la récupération des presale artworks pour l'artiste ${artistId}:`, error)
         throw new Error(`Impossible de récupérer les presale artworks pour l'artiste ${artistId}`)
     }
-} 
+}

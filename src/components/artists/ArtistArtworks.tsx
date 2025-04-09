@@ -8,7 +8,7 @@ interface ArtistArtworksProps {
   artworks: Array<{
     id: string;
     name: string;
-    price: number;
+    price: number | null;
     image: {
       src: string;
     };

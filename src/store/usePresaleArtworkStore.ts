@@ -4,7 +4,7 @@ import { getPresaleArtworks, PresaleArtworkData as PrismaPresaleArtworkData } fr
 export interface PresaleArtworkData {
     id: number
     name: string
-    price: number
+    price: number | null
     url: string
     artistName: string
 }

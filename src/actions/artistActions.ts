@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { organizeTranslations } from '@/utils/translations'
 
 export interface ArtistData {
     id: number
@@ -80,23 +81,7 @@ export async function getArtists(): Promise<ArtistData[]> {
         })
 
         // Organisation des traductions par entité et par champ
-        const translationsByEntity = allTranslations.reduce((acc, t) => {
-            const entityKey = `${t.entityType}-${t.entityId}`
-
-            if (!acc[entityKey]) {
-                acc[entityKey] = {}
-            }
-
-            // Skip translations without a field or use a default field name
-            if (t.field === null) return acc;
-
-            if (!acc[entityKey][t.field]) {
-                acc[entityKey][t.field] = {}
-            }
-
-            acc[entityKey][t.field][t.language.code] = t.value
-            return acc
-        }, {} as Record<string, Record<string, Record<string, string>>>)
+        const translationsByEntity = organizeTranslations(allTranslations)
 
         // Transformer les données pour correspondre à l'interface ArtistData
         const artists: ArtistData[] = landingArtists.map(la => {
