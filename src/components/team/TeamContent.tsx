@@ -45,27 +45,27 @@ export default function TeamContent() {
     
     // Ajouter les réseaux sociaux disponibles
     if (member?.linkedinUrl) {
-      socials.push({ link: member.linkedinUrl, icon: '/images/icons/linkedin.svg' })
+      socials.push({ link: member.linkedinUrl, icon: '/icons/linkedin.svg' })
     }
     
     if (member?.instagramUrl) {
-      socials.push({ link: member.instagramUrl, icon: '/images/icons/instagram.svg' })
+      socials.push({ link: member.instagramUrl, icon: '/icons/instagram.svg' })
     }
     
     if (member?.facebookUrl) {
-      socials.push({ link: member.facebookUrl, icon: '/images/icons/facebook.svg' })
+      socials.push({ link: member.facebookUrl, icon: '/icons/facebook.svg' })
     }
     
     if (member?.githubUrl) {
-      socials.push({ link: member.githubUrl, icon: '/images/icons/github.svg' })
+      socials.push({ link: member.githubUrl, icon: '/icons/github.svg' })
     }
     
     if (member?.twitterUrl) {
-      socials.push({ link: member.twitterUrl, icon: '/images/icons/twitter.svg' })
+      socials.push({ link: member.twitterUrl, icon: '/icons/twitter.svg' })
     }
     
     if (member?.websiteUrl) {
-      socials.push({ link: member.websiteUrl, icon: '/images/icons/globe.svg' })
+      socials.push({ link: member.websiteUrl, icon: '/icons/globe.svg' })
     }
     
     return {

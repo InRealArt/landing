@@ -16,11 +16,13 @@ const TeamCard = ({ image, name, role, socials, additionalClassName, isSlider }:
       <div className={`bg-cover m-auto bg-no-repeat bg-top  w-full rounded-lg ${isSlider ? 'h-48 md:h-80' : 'h-80'}`} style={{ backgroundImage: ` url('${image.src}')` }} />
       <p className="mt-4 inter text-2xl font-semibold">{name}</p>
       <p className="mt-2 inter">{role}</p>
-      {socials.map((social, index) => (
-        <Link key={index} href={social.link}>
-          <img src={social.icon} alt="social" />
-        </Link>
-      ))}
+      <div className="flex mt-4 gap-3">
+        {socials.map((social, index) => (
+          <Link key={index} href={social.link} target="_blank" rel="noopener noreferrer">
+            <img src={social.icon} alt="social" />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
