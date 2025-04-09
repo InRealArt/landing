@@ -87,6 +87,9 @@ export async function getArtists(): Promise<ArtistData[]> {
                 acc[entityKey] = {}
             }
 
+            // Skip translations without a field or use a default field name
+            if (t.field === null) return acc;
+
             if (!acc[entityKey][t.field]) {
                 acc[entityKey][t.field] = {}
             }
