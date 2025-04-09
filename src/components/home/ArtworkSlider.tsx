@@ -4,6 +4,22 @@ import { useEffect } from 'react'
 import Slider from './Slider'
 import { useArtworksStore } from '@/store/useArtworksStore'
 
+// Composant Skeleton pour l'état de chargement
+function ArtworkSkeleton() {
+  return (
+    <section className="mt-12">
+      <div className="flex gap-4 overflow-hidden justify-center">
+        {[...Array(5)].map((_, index) => (
+          <div key={index} className="p-2 border rounded-lg bg-cardBackground min-w-[280px] md:min-w-[320px] flex-shrink-0">
+            <div className="bg-gray-300 animate-pulse h-52 md:h-80 w-full rounded-lg mb-4"></div>
+            <div className="h-5 bg-gray-300 animate-pulse rounded-md w-3/4 mb-2"></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function ArtworkSlider() {
   const { artworks, isLoading, hasError, fetchArtworks } = useArtworksStore()
 
@@ -30,7 +46,7 @@ function ArtworkSlider() {
   console.log("formattedArtworkImages : ", formattedArtworkImages)
 
   if (isLoading) {
-    return <div className="flex justify-center items-center p-8">Chargement des œuvres...</div>
+    return <ArtworkSkeleton />
   }
 
   if (hasError) {
