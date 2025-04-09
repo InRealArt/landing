@@ -16,7 +16,7 @@ const ArtworkCard = ({ image, name }: ArtworkCardProps) => {
   return (
     <Link href={`/artwork/${slug}`} className="p-2 border rounded-lg bg-cardBackground block">
       <div className="bg-cover m-auto bg-no-repeat bg-top h-52 md:h-80 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
-      <p className="mt-4">{name}</p>
+      <p className="mt-4 h-6 overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
     </Link>
   );
 }
