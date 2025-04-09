@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { ArtWork, Lang } from '@/types/types'
 import { stringToSlug } from '@/utils/functions'
 import { useLanguageStore } from './languageStore'
-import { getPresaleArtworks, PresaleArtworkData } from '@/actions/presaleArtworkActions'
+import { getPresaleArtworks, getPresaleArtworksByArtistId, PresaleArtworkData } from '@/actions/presaleArtworkActions'
 
 interface ArtworksState {
     artworks: ArtWork[]
@@ -13,6 +13,7 @@ interface ArtworksState {
     fetchArtworks: () => Promise<void>
     getArtworkBySlug: (slug: string) => ArtWork | undefined
     getTranslatedField: (artworkId: number, field: string, defaultValue: string) => string
+    getArtworksByArtistId: (artistId: number) => Promise<ArtWork[]>
 }
 
 export const useArtworksStore = create<ArtworksState>((set, get) => ({
@@ -128,5 +129,66 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
         if (!fieldTranslations) return defaultValue
 
         return fieldTranslations[language.toLowerCase()] || defaultValue
+    },
+
+    getArtworksByArtistId: async (artistId: number) => {
+        try {
+            // Récupérer les œuvres pour l'ID d'artiste spécifié
+            const presaleArtworks = await getPresaleArtworksByArtistId(artistId)
+
+            // Transformer les données au format attendu par l'application
+            const { language } = useLanguageStore.getState()
+            const lang = language as Lang
+
+            // Création d'un objet avec les traductions pour chaque langue disponible
+            const createMultiLangObject = (value: string, translations?: Record<string, string>): Record<Lang, string> => {
+                const result: Record<Lang, string> = {
+                    FR: value,
+                    EN: value,
+                    CN: value
+                }
+
+                // Ajouter les traductions si disponibles
+                if (translations) {
+                    if (translations['fr']) result.FR = translations['fr']
+                    if (translations['en']) result.EN = translations['en']
+                    if (translations['cn']) result.CN = translations['cn']
+                }
+
+                return result
+            }
+
+            const formattedArtworks: ArtWork[] = presaleArtworks.map((artwork) => {
+                // Récupérer les mockups
+                let mockups: string[] = []
+                if (artwork.mockupUrls) {
+                    if (Array.isArray(artwork.mockupUrls)) {
+                        mockups = artwork.mockupUrls
+                    }
+                }
+
+                return {
+                    id: artwork.id.toString(),
+                    artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
+                    name: createMultiLangObject(artwork.name, artwork.translations?.name),
+                    description: createMultiLangObject(artwork.description || '', artwork.translations?.description),
+                    image: artwork.imageUrl,
+                    image2: artwork.imageUrl,
+                    url: artwork.imageUrl,
+                    url2: artwork.imageUrl,
+                    price: artwork.price,
+                    size: createMultiLangObject(''),
+                    order: artwork.order || 0,
+                    mockups: mockups,
+                    noBorder: false,
+                    desactivate: false
+                }
+            })
+
+            return formattedArtworks
+        } catch (error) {
+            console.error(`Erreur lors de la récupération des artworks pour l'artiste ${artistId}:`, error)
+            return []
+        }
     }
 })) 

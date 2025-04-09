@@ -3,15 +3,20 @@ import { useEffect, useState } from 'react'
 import ArtistProfile from '@/components/artists/ArtistProfile'
 import ArtistArtworks from '@/components/artists/ArtistArtworks'
 import ExpertSection from '@/components/artists/ExpertSection'
-import { useArtistStore } from '@/store/useArtistStore'
+import { useArtistStore, ArtistData } from '@/store/useArtistStore'
 import { useParams } from 'next/navigation'
 import { useLanguageStore } from '@/store/languageStore'
+import { useArtworksStore } from '@/store/useArtworksStore'
+import { ArtWork, Lang } from '@/types/types'
 
 export default function ArtistPage() {
   const params = useParams()
   const slug = params.slug as string
   const { fetchArtists, isLoading, hasError, artists, getArtistBySlug } = useArtistStore()
-  const [artist, setArtist] = useState<any>(null)
+  const { getArtworksByArtistId } = useArtworksStore()
+  const [artist, setArtist] = useState<ArtistData | undefined>(undefined)
+  const [artistArtworks, setArtistArtworks] = useState<ArtWork[]>([])
+  const [isLoadingArtworks, setIsLoadingArtworks] = useState(true)
   const { t, language } = useLanguageStore()
 
   useEffect(() => {
@@ -19,49 +24,50 @@ export default function ArtistPage() {
       await fetchArtists()
       const foundArtist = getArtistBySlug(slug)
       setArtist(foundArtist)
+      
+      if (foundArtist && foundArtist.artistId) {
+        setIsLoadingArtworks(true)
+        console.log('foundArtist', foundArtist);
+        const artworksByArtistId = await getArtworksByArtistId(Number(foundArtist.artistId))
+        console.log('artworks', artworksByArtistId);
+        setArtistArtworks(artworksByArtistId)
+        setIsLoadingArtworks(false)
+      }
     }
     
     loadArtist()
-  }, [fetchArtists, getArtistBySlug, slug])
+  }, [fetchArtists, getArtistBySlug, getArtworksByArtistId, slug])
 
-  // Watch for language changes to update the artist
+  // Watch for language changes to update the artist and artworks
   useEffect(() => {
     if (artists.length > 0) {
       const foundArtist = getArtistBySlug(slug)
       setArtist(foundArtist)
-    }
-  }, [language, artists, getArtistBySlug, slug])
-
-  // Ensure artworkImages is an array before using map
-  const processedArtworks = (() => {
-    if (!artist || !artist.artworkImages) return []
-    
-    // Handle the case where artworkImages is a JSON string
-    let artworkImagesArray = artist.artworkImages
-    
-    if (typeof artworkImagesArray === 'string') {
-      try {
-        artworkImagesArray = JSON.parse(artworkImagesArray)
-      } catch (e) {
-        console.error('Error parsing artworkImages:', e)
-        return []
+      
+      if (foundArtist && foundArtist.artistId) {
+        const loadArtworks = async () => {
+          setIsLoadingArtworks(true)
+          const artworksByArtistId = await getArtworksByArtistId(Number(foundArtist.artistId))
+          setArtistArtworks(artworksByArtistId)
+          setIsLoadingArtworks(false)
+        }
+        
+        loadArtworks()
       }
     }
-    
-    // Check if it's an array now
-    if (!Array.isArray(artworkImagesArray)) {
-      // If it's still not an array, try to convert it to an array
-      artworkImagesArray = artworkImagesArray ? [artworkImagesArray] : []
-    }
-    
-    // Now we can safely use map
-    return artworkImagesArray.map((artwork: any) => ({
+  }, [language, artists, getArtistBySlug, slug, getArtworksByArtistId])
+
+  // Transformer les artworks dans le format attendu par ArtistArtworks
+  const formatArtworksForDisplay = (artworks: ArtWork[]) => {
+    return artworks.map(artwork => ({
       id: artwork.id,
-      name: artwork.name || 'Untitled',
-      price: artwork.price || 0,
-      image: { src: artwork.image || artwork.url || '' }
+      name: typeof artwork.name === 'string' 
+        ? artwork.name 
+        : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || 'Sans titre',
+      price: artwork.price,
+      image: { src: artwork.image || '' }
     }))
-  })()
+  }
 
   if (isLoading) {
     return <div className="mt-headerSize text-center">{t('common.loading')}</div>
@@ -71,13 +77,17 @@ export default function ArtistPage() {
     return <div className="mt-headerSize text-center">{t('artistPage.notFound')}</div>
   }
   
-  console.log(processedArtworks);
+  if (isLoadingArtworks) {
+    return <div className="mt-headerSize text-center">{t('common.loading')}</div>
+  }
+  
+  const formattedArtworks = formatArtworksForDisplay(artistArtworks)
   
   return (
     <>
       <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
         <ArtistProfile artist={artist} />
-        <ArtistArtworks artistName={artist.name} artworks={processedArtworks} />
+        <ArtistArtworks artistName={artist.name} artworks={formattedArtworks} />
         <ExpertSection />
       </section>
     </>

@@ -11,6 +11,7 @@ export interface ArtistData {
     intro: string
     description: string
     slug: string
+    artistId?: number // ID de l'artiste dans la table Artist (clé étrangère)
     artworkImages: {
         image: string
         name: string
@@ -70,6 +71,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
 
                 return {
                     id: artist.id,
+                    artistId: artist.artistId,
                     name: `${artist.name} ${artist.surname}`,
                     photo: artist.imageUrl || '',
                     role: artworkStyle || 'Artiste',
@@ -162,6 +164,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         // Appliquer les traductions selon la langue actuelle
         return {
             ...artist,
+            artistId: rawArtist.artistId,
             intro: rawArtist.translations.intro?.[language] || rawArtist.intro || artist.intro,
             description: rawArtist.translations.description?.[language] || rawArtist.description || artist.description,
             role: rawArtist.translations.artworkStyle?.[language] || rawArtist.artworkStyle || artist.role

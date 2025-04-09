@@ -15,6 +15,7 @@ export interface ArtistData {
     imageUrl: string
     backgroundImage: string | null
     artworkImages: any | null // Stocké comme JSON dans la base de données
+    artistId: number // ID de l'artiste dans la table Artist
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -137,6 +138,7 @@ export async function getArtists(): Promise<ArtistData[]> {
                 description: la.artist.description,
                 backgroundImage: la.artist.backgroundImage,
                 artworkImages,
+                artistId: la.artistId,
                 translations
             }
         })
