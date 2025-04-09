@@ -40,6 +40,9 @@ export async function getTeamMembers(): Promise<TeamMemberData[]> {
                 githubUrl: true,
                 twitterUrl: true,
                 websiteUrl: true
+            },
+            orderBy: {
+                order: 'asc'
             }
         })
 
