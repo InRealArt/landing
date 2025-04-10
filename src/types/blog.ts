@@ -6,9 +6,16 @@ export interface BlogPost {
   description: string;
   tags: string[];
   imageUrl: string;
+  content?: {
+    introduction: string;
+    sections: {
+      title: string;
+      content: string;
+    }[];
+  };
 }
 
-export interface BlogPostDetail extends BlogPost {
+export interface BlogPostDetail extends Omit<BlogPost, 'content'> {
   content: string;
   author: string;
   authorRole: string;

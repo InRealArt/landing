@@ -5,9 +5,11 @@ import BG from "../../../public/images/presale/intro.png";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from '@/store/languageStore';
+// import PDFen from "../../../public/docs/IRA-2025-VE.pdf";
+// import PDFfr from "../../../public/docs/IRA-2025-VE.pdf";
 
 const Intro = () => {
-  const { t } = useLanguageStore();
+  const { t, language } = useLanguageStore();
 
   return (
     <section className="bg-cover m-auto bg-no-repeat bg-bottom h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${BG.src}')`}}>
@@ -16,7 +18,7 @@ const Intro = () => {
           <h1 className="text-4xl md:text-7xl bricolage-grotesque mb-8">{t('presale.intro.title')}</h1>
           <h3 className="mb-8 inter text-lg">{t('presale.intro.subtitle')}</h3>
           <div className="flex flex-col md:flex-row gap-4">
-            <Button link="/presale" text={t('presale.intro.buttons.catalog')} additionalClassName="bg-purpleColor mr-6" icon={<ArrowRight />} />
+            <Button link={language === 'en' ? '/files/IRA-catalog-2025-EN.pdf' : '/files/IRA-catalog-2025-FR.pdf'} text={t('presale.intro.buttons.catalog')} additionalClassName="bg-purpleColor mr-6" icon={<ArrowRight />} />
             <Button 
               text={t('presale.intro.buttons.whitepaper')} 
               additionalClassName="mt-4 md:mt-0 opacity-50 cursor-not-allowed" 

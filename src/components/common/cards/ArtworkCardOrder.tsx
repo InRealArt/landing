@@ -21,7 +21,7 @@ const ArtworkCardOrder = ({ image, name }: ArtworkCardOrderProps) => {
 
   return (
     <Link href={`/artwork/${slug}`} className="p-6 border rounded-lg bg-cardBackground w-full lg:w-cardLarge block">
-      <div className="bg-cover m-auto bg-no-repeat bg-top h-80 md:h-96 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
+      <div className="bg-contain bg-center m-auto bg-no-repeat h-80 md:h-96 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
       <div className="flex justify-between">
         <p className="mt-4">{name}</p>
       </div>

@@ -3,17 +3,17 @@
   "nav": {
     "home": "Accueil",
     "marketplace": "Marketplace",
-    "roadmap": "Feuille de route",
+    "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Équipe",
     "glossary": "Glossaire",
     "artists": "Artistes",
     "presale": "Pré-vente",
-    "usecase": "Cas d'Utilisation",
+    "usecase": "Use Case",
     "whitepaper": "Livre Blanc",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
-    "leasing": "Location",
+    "leasing": "Leasing",
     "companies": "Entreprises",
     "lending": "Prêt",
     "fractionate": "Fractionnement"
@@ -59,8 +59,8 @@
   },
   "home": {
     "intro": {
-      "title": "Blue-chip Art has outpaced the S&P 500 by",
-      "subtitle": "from 1995-2024"
+      "title": "L'art de prestige a surpassé le S&P 500 de",
+      "subtitle": "de 1995 à 2024"
     },
     "howItWorks": {
       "title": "Comment ça fonctionne ?",
@@ -284,7 +284,7 @@
       "title": "L'art n'a jamais été aussi accessible",
       "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",
       "buttons": {
-        "catalog": "Catalogue 2024",
+        "catalog": "Catalogue 2025",
         "whitepaper": "Lire notre livre blanc"
       }
     },
@@ -803,7 +803,123 @@
       "investment": "Investissement",
       "art": "Art",
       "nft": "NFT",
-      "blockchain": "Blockchain"
+      "blockchain": "Blockchain",
+      "business": "Business",
+      "artists": "Artistes",
+      "trends": "Tendances",
+      "authentication": "Authentification",
+      "tokenization": "Tokenisation",
+      "strategy": "Stratégie"
+    },
+    "articles": {
+      "companyArtInvestment": {
+        "title": "Une entreprise peut-elle investir dans l'art ?",
+        "description": "Longtemps considéré comme un domaine réservé aux collectionneurs privés ou aux institutions publiques, l'investissement dans l'art séduit aujourd'hui un nouveau type d'acteur : l'entreprise. À l'intersection du patrimoine, de l'image de marque et de la stratégie d'investissement, l'acquisition d'œuvres artistiques devient un levier puissant pour les entreprises modernes.",
+        "introduction": "Chez InRealArt, nous croyons que l'art a toute sa place dans une vision d'entreprise éclairée. Mais au-delà de l'opportunité, c'est la manière d'investir qui fait toute la différence.",
+        "sections": [
+          {
+            "title": "Investir dans l'art : une démarche stratégique",
+            "content": "L'art n'est pas un simple objet décoratif. Pour une entreprise, c'est un signal fort, une déclaration d'intention. Acquérir une œuvre, c'est affirmer une identité, une vision, une sensibilité. C'est inscrire sa marque dans une culture, un héritage, un dialogue avec la création contemporaine.\n\nC'est aussi, plus concrètement, diversifier son patrimoine. Certaines œuvres prennent de la valeur avec le temps, et le marché de l'art, bien que parfois opaque, peut offrir des perspectives d'appréciation significatives. La fiscalité française reconnaît d'ailleurs cet enjeu : l'article 238 bis AB du Code général des impôts permet de déduire le coût d'acquisition d'œuvres originales d'artistes vivants du résultat imposable.\n\nMais une entreprise n'a pas vocation à devenir experte du marché de l'art. Elle cherche de la clarté, de la rigueur, des garanties. C'est là qu'intervient notre proposition."
+          },
+          {
+            "title": "InRealArt : rendre l'investissement artistique accessible, fiable et ambitieux",
+            "content": "Notre mission est simple : permettre à chaque entreprise de devenir un collectionneur éclairé, sans complexité inutile. Pour cela, nous avons conçu un écosystème complet, pensé pour allier exigence artistique et sécurité technologique.\n\nChaque œuvre proposée par InRealArt est soigneusement sélectionnée auprès d'artistes de renom. Elle est livrée en format physique, accompagnée de son NFT de traçabilité. Grâce à la blockchain, chaque transaction est vérifiable, chaque œuvre est authentifiable. Plus besoin de naviguer à l'aveugle : tout est documenté, transparent, maîtrisé.\n\nCe modèle nous permet d'aller plus loin. Notre marketplace dédiée donne la possibilité de revendre ou de faire circuler les œuvres dans nos galeries physiques, selon un processus contrôlé. Pour nos clients, c'est l'assurance de rester au cœur d'un réseau sélectif, où la rareté, la qualité et la confiance sont les fondements de chaque échange."
+          },
+          {
+            "title": "Une nouvelle façon d'investir",
+            "content": "Ce que nous proposons n'est pas une simple galerie en ligne. C'est une manière nouvelle de vivre l'art en tant qu'entreprise : en acteur du marché, en bâtisseur de collection, en ambassadeur de sens.\n\nInvestir dans l'art, c'est refuser le banal, c'est préférer le singulier. C'est choisir de faire entrer dans ses murs des œuvres qui racontent quelque chose, qui parlent à ses collaborateurs, à ses clients, à son époque.\n\nC'est aussi une façon de se projeter. Une œuvre n'est jamais figée. Elle peut circuler, se transmettre, prendre de la valeur, évoluer dans son usage. C'est un actif vivant, au croisement du patrimoine culturel et de l'intelligence financière."
+          },
+          {
+            "title": "Conclusion",
+            "content": "Oui, une entreprise peut investir dans l'art. Mieux encore, elle le peut avec ambition, méthode et sérénité.\n\nAvec InRealArt, l'acquisition artistique devient une expérience guidée, éclairée, maîtrisée. L'art ne vient plus décorer un bureau. Il devient un pilier d'image, un actif stratégique, une aventure esthétique et humaine.\n\nNous ne vendons pas de l'art. Nous révélons, chez chaque client, un potentiel de collectionneur, de curateur, de visionnaire."
+          }
+        ]
+      },
+      "artInvestmentStrategy": {
+        "title": "Investir dans l'art : un placement stratégique à forte valeur ajoutée",
+        "description": "Dans un contexte économique incertain, investir dans l'art séduit de plus en plus d'épargnants à la recherche de placements tangibles et durables. Entre rentabilité potentielle, diversification patrimoniale et valeur émotionnelle, l'art contemporain s'impose comme un actif alternatif crédible.",
+        "introduction": "Pourquoi investir dans l'art en 2025 ?",
+        "sections": [
+          {
+            "title": "Les avantages de l'investissement artistique",
+            "content": "1. Un potentiel de rendement avéré\nSelon l'indice Artprice100, les œuvres d'art d'artistes majeurs ont surperformé le S&P 500 de plus de 250 % depuis les années 2000. Certaines pièces dépassent les 10 % de rendement annuel, notamment celles estimées à plus de 100 000 €. Un placement artistique peut ainsi s'intégrer à une stratégie de valorisation du patrimoine.\n\n2. Une valeur refuge en période de crise\nÀ l'image de l'or ou de l'immobilier, l'art est perçu comme un actif résilient, peu corrélé aux marchés financiers. Il protège contre l'inflation et conserve une valeur stable même en période de turbulences économiques.\n\n3. Un outil de diversification patrimoniale\nLes œuvres d'art offrent une complémentarité précieuse avec les placements financiers traditionnels. Certaines pièces, notamment les œuvres physiques accompagnées de NFT, peuvent également offrir une traçabilité accrue et une liquidité structurée via des marketplaces spécialisées.\n\n4. Une expérience esthétique et émotionnelle\nContrairement à un produit financier abstrait, une œuvre d'art est un objet de contemplation, de fierté et d'échange. Elle s'intègre dans un espace de vie ou professionnel, renforce une image de marque et crée du lien."
+          },
+          {
+            "title": "Les limites à prendre en compte",
+            "content": "1. Un marché peu liquide\nRevendre une œuvre d'art prend du temps. Les transactions restent ponctuelles, et la valeur ne se réalise qu'à la vente, à l'inverse d'actifs boursiers facilement mobilisables.\n\n2. Une rentabilité parfois aléatoire\nLes plus-values artistiques dépendent fortement du contexte, des modes, de la notoriété de l'artiste. Miser sur un jeune talent comporte un risque, surtout sans accompagnement.\n\n3. Des frais souvent sous-estimés\nEntre assurance, transport, restauration ou frais de galerie, les coûts liés à la détention d'une œuvre peuvent réduire significativement la rentabilité nette d'un placement.\n\n4. Un risque de contrefaçon\nLe manque de régulation du marché de l'art expose les acheteurs à des risques de fraude ou de faux. L'authentification rigoureuse est indispensable."
+          },
+          {
+            "title": "Les tendances du marché de l'art en 2025",
+            "content": "L'année 2025 marque une accélération de la digitalisation du marché de l'art. Les plateformes en ligne permettent désormais d'acheter, vendre ou certifier des œuvres via la blockchain. Les NFT s'imposent comme un standard de traçabilité et de propriété, rendant l'investissement artistique plus accessible et sécurisé.\n\nMais cette ouverture génère aussi une fragmentation du marché, où il devient difficile de distinguer les projets fiables des initiatives opportunistes. C'est dans cette nouvelle donne que s'inscrit la proposition unique d'InRealArt.\n\nInRealArt : investir dans l'art avec confiance et vision\nInRealArt est bien plus qu'une galerie. C'est une plateforme d'investissement artistique nouvelle génération, qui allie :\n* Excellence : chaque œuvre est rigoureusement sélectionnée pour sa valeur artistique et patrimoniale  \n* Sécurité : chaque acquisition est enregistrée sur la blockchain, avec un NFT de propriété  \n* Simplicité : une marketplace intégrée pour la revente ou l'échange des œuvres  \n* Expérience : un accompagnement de l'amateur à l'investisseur, dans une logique de collection éclairée  \n\nEn misant sur des œuvres physiques associées à des NFTs, et en limitant l'accès à la revente aux seuls acquéreurs, InRealArt propose un écosystème fermé, sécurisé et évolutif, qui fait de l'art un véritable levier de valorisation du patrimoine."
+          },
+          {
+            "title": "Conclusion : un investissement artistique exigeant, mais porteur",
+            "content": "Investir dans l'art n'est pas un acte impulsif. C'est une décision qui requiert rigueur, vision et accompagnement. Pour les investisseurs prudents comme pour les passionnés ambitieux, le marché de l'art 2025 offre de réelles opportunités, à condition de s'appuyer sur des acteurs fiables.\n\nChez InRealArt, nous ne vendons pas simplement de l'art. Nous accompagnons nos clients dans la construction d'une collection cohérente, traçable et valorisante, où chaque acquisition devient un geste culturel, stratégique et humain."
+          }
+        ]
+      },
+      "artTokenization": {
+        "title": "Comprendre la tokenisation de l'art : un guide pour débutants",
+        "description": "Dans un marché de l'art en pleine transformation, un terme revient avec insistance : tokenisation. Souvent associée à la blockchain, cette innovation redéfinit en profondeur la manière dont les œuvres d'art peuvent être possédées, échangées, et valorisées.",
+        "introduction": "Chez InRealArt, nous pensons que la tokenisation ne doit pas être réservée aux initiés. Elle mérite une explication claire, accessible, et connectée à une vision exigeante de l'art et du patrimoine. Voici ce qu'il faut savoir pour bien débuter.",
+        "sections": [
+          {
+            "title": "Qu'est-ce que la tokenisation ?",
+            "content": "La tokenisation consiste à transformer un actif — qu'il soit physique ou numérique — en jetons numériques appelés tokens, stockés sur une blockchain. Appliquée à l'art, elle permet de fractionner la propriété d'une œuvre en plusieurs parts numériques, chacune représentant une part de valeur de l'objet.\n\nAutrement dit, au lieu d'acheter une œuvre entière, un investisseur peut désormais en posséder une fraction, tout en bénéficiant d'une traçabilité totale et d'une nouvelle forme de liquidité."
+          },
+          {
+            "title": "Les principes clés de la tokenisation de l'art",
+            "content": "1. Fractionnement de la propriété\nUne œuvre d'art peut être divisée en dizaines, centaines voire milliers de parts numériques. Chaque investisseur détient un ou plusieurs tokens, représentant une part de la valeur globale de l'œuvre.\n\n2. Transparence et sécurité via la blockchain\nChaque transaction est enregistrée de manière immuable sur une blockchain. Cela garantit l'authenticité, la traçabilité et la sécurité des échanges — un enjeu majeur dans un marché parfois opaque.\n\n3. Accessibilité accrue\nLa tokenisation ouvre le marché de l'art à de nouveaux profils d'investisseurs. Il n'est plus nécessaire de disposer d'un capital important pour entrer dans le cercle restreint des collectionneurs.\n\n4. Liquidité nouvelle\nContrairement à l'achat d'une œuvre physique, souvent figée, les tokens peuvent être échangés rapidement sur des plateformes spécialisées, rendant le placement artistique plus dynamique."
+          },
+          {
+            "title": "Les avantages concrets pour les investisseurs",
+            "content": "Diversifier son portefeuille\nInclure des œuvres d'art tokenisées dans une stratégie patrimoniale permet de diversifier intelligemment ses actifs, en intégrant une dimension culturelle et émotionnelle à une logique d'investissement.\n\nFinancer la création artistique\nLa tokenisation offre également aux artistes une nouvelle voie de financement : en vendant des parts de leurs œuvres, ils peuvent financer leurs projets tout en fédérant une communauté de soutiens.\n\nInvestir en confiance\nLa technologie blockchain réduit les risques traditionnels du marché de l'art (fraude, contrefaçon, litiges), en apportant transparence et maîtrise à chaque étape du cycle de vie de l'œuvre."
+          },
+          {
+            "title": "Les limites à avoir en tête",
+            "content": "Comme toute innovation, la tokenisation soulève des questions.\n* Un cadre juridique en évolution : les régulations diffèrent selon les pays, et le statut des tokens peut varier.  \n* Un apprentissage technique nécessaire : bien que simplifiée par des plateformes comme InRealArt, la tokenisation reste un sujet technique, qui nécessite un minimum de compréhension.  \n\nL'approche InRealArt\nChez InRealArt, nous voyons dans la tokenisation un levier de valorisation, pas une tendance passagère. C'est pourquoi nous l'intégrons avec exigence à notre écosystème :\n* Chaque œuvre physique est accompagnée d'un NFT de traçabilité, enregistré sur la blockchain.  \n* Seuls nos acheteurs peuvent revendre les œuvres via notre marketplace ou nos galeries physiques.  \n* Notre sélection reste rigoureuse : la qualité prévaut toujours sur la quantité.  \n\nNotre ambition : permettre à chacun, amateur ou investisseur, de devenir un collectionneur éclairé, en alliant sécurité, accessibilité et excellence."
+          },
+          {
+            "title": "Conclusion : l'art entre dans une nouvelle ère",
+            "content": "La tokenisation transforme profondément notre rapport à l'art : plus accessible, plus liquide, plus sécurisé. Mais elle ne remplace pas l'essentiel. Ce qui compte reste l'œuvre, sa puissance, son histoire, sa place dans un patrimoine personnel ou collectif.\n\nChez InRealArt, nous ne faisons pas de compromis : nous utilisons le meilleur de la technologie pour révéler le meilleur de l'art. Pour que chaque acquisition, même fractionnée, devienne une expérience authentique, ambitieuse et durable."
+          }
+        ]
+      },
+      "beginnerArtInvestment": {
+        "title": "Débuter dans l'investissement en art : un guide structuré pour investisseurs curieux",
+        "description": "Dans un univers où la recherche de diversification et de sens prend de plus en plus d'importance, l'art s'impose comme une nouvelle classe d'actifs à explorer. Bien plus qu'un simple objet de collection, une œuvre peut devenir un levier de valorisation patrimoniale, un marqueur d'identité, voire une source de plaisir durable.",
+        "introduction": "Mais comment bien débuter dans l'investissement artistique, sans expertise préalable, sans s'exposer inutilement aux risques, et sans perdre de vue la valeur intrinsèque de l'art lui-même ? Voici une approche structurée, pensée pour celles et ceux qui souhaitent franchir ce cap avec discernement.",
+        "sections": [
+          {
+            "title": "1. Définir un budget et des objectifs clairs",
+            "content": "Quel capital allouer ?\nLoin des clichés, il est tout à fait possible de débuter avec un budget compris entre 1 000 € et 5 000 €, notamment en s'orientant vers des artistes émergents. Ce montant suffit pour initier une collection sans déséquilibrer ses finances.\n\nPourquoi investir ?\n* Diversification de portefeuille  \n* Valorisation à long terme  \n* Attachement personnel ou passion  \n\nClarifier vos objectifs guidera vos choix — entre œuvre de cœur, potentiel de revente ou stratégie de patrimoine."
+          },
+          {
+            "title": "2. Se former et aiguiser son regard",
+            "content": "L'investissement en art ne repose pas uniquement sur l'instinct. Il exige une culture visuelle et une compréhension des dynamiques du marché.\n* Lire, suivre des experts, visiter des expositions  \n* Étudier les tendances du marché (formes, supports, artistes montants)  \n* Comprendre les facteurs de valorisation (rare, signé, exposé, authentifié)  \n\nL'œil s'éduque, mais se construit aussi dans la durée."
+          },
+          {
+            "title": "3. Choisir une stratégie d'entrée sur le marché",
+            "content": "Acquisition directe\nAcheter auprès de galeries ou d'artistes permet de posséder une œuvre physique, avec tout ce que cela implique d'engagement esthétique et d'attachement personnel.\n\nInvestissement fractionné\nCertains modèles permettent d'investir dans une part d'œuvre via des plateformes spécialisées. Cette approche offre un accès à des pièces iconiques tout en limitant l'exposition financière.\n\nInRealArt propose une approche singulière : un catalogue de pièces physiques accompagnées de leur NFT de traçabilité, vendues uniquement à ses membres, dans un cadre maîtrisé. Une solution hybride qui conjugue accessibilité, transparence et qualité."
+          },
+          {
+            "title": "4. Trouver l'équilibre entre émotion et stratégie",
+            "content": "L'achat d'une œuvre doit toujours être porté par une forme de résonance personnelle. L'émotion est un moteur d'engagement, mais elle ne doit pas faire oublier les fondamentaux : authenticité, potentiel de valorisation, état de conservation, traçabilité.\n\nChez InRealArt, chaque acquisition est pensée comme une expérience à la fois esthétique et stratégique. Parce qu'un bon placement reste aussi un geste de goût."
+          },
+          {
+            "title": "5. Éviter les pièges classiques",
+            "content": "* Acheter sans certificat ou vérification : un faux peut coûter cher  \n* Se précipiter sur une tendance : tout ce qui brille n'est pas art  \n* Oublier les frais associés : stockage, assurance, fiscalité  \n\nLa patience est une vertu dans le monde de l'art : une œuvre met parfois des années à prendre toute sa valeur. L'accompagnement est donc clé."
+          },
+          {
+            "title": "6. Anticiper les implications fiscales",
+            "content": "L'investissement en art est soumis à des régimes spécifiques (taxe forfaitaire sur la cession ou régime général des plus-values). Comprendre ces mécanismes permet d'optimiser vos décisions, voire de profiter de certains abattements en cas de transmission ou de détention longue."
+          },
+          {
+            "title": "Conclusion : investir dans l'art, une démarche exigeante mais gratifiante",
+            "content": "Investir dans l'art, c'est faire le choix de conjuguer sens, culture et stratégie. C'est donner une forme tangible à son patrimoine, tout en s'ouvrant à un univers riche, stimulant, et en constante évolution.\n\nMais c'est aussi un parcours qui mérite d'être guidé — avec rigueur, confiance, et ambition. InRealArt s'adresse aux investisseurs en quête de cette clarté : des œuvres sélectionnées, des transactions sécurisées, et une expérience pensée pour ceux qui veulent passer du statut d'amateur à celui de collectionneur éclairé."
+          }
+        ]
+      }
     }
   },
   "artwork": {

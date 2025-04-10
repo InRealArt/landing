@@ -26,10 +26,10 @@ const Button = ({
 
   if (link)
     return (
-      <Link className={className} href={link} onClick={action}>
+      <a className={className} href={link} onClick={action} download={true} target='_blank' rel='noopener noreferrer'>
         <span className='unbounded font-semibold'>{text}</span>
         {icon}
-      </Link>
+      </a>
     );
 
   return (

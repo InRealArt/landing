@@ -4,38 +4,48 @@ import { useLanguageStore } from '@/store/languageStore';
 import BlogPostCard from '@/components/common/BlogPostCard';
 import { BlogPost } from '@/types/blog';
 
+// Create article with translations
+export const createArticle = (id: string, translationKey: string, imageUrl: string, tags: string[], t: any): BlogPost => {
+  return {
+    id,
+    date: '22 July 2024',
+    readTime: '8 min',
+    title: t(`blog.articles.${translationKey}.title`),
+    description: t(`blog.articles.${translationKey}.description`),
+    content: {
+      introduction: t(`blog.articles.${translationKey}.introduction`),
+      sections: [
+        {
+          title: t(`blog.articles.${translationKey}.sections.0.title`),
+          content: t(`blog.articles.${translationKey}.sections.0.content`)
+        },
+        {
+          title: t(`blog.articles.${translationKey}.sections.1.title`),
+          content: t(`blog.articles.${translationKey}.sections.1.content`)
+        },
+        {
+          title: t(`blog.articles.${translationKey}.sections.2.title`),
+          content: t(`blog.articles.${translationKey}.sections.2.content`)
+        },
+        {
+          title: t(`blog.articles.${translationKey}.sections.3.title`),
+          content: t(`blog.articles.${translationKey}.sections.3.content`)
+        }
+      ]
+    },
+    tags,
+    imageUrl
+  };
+};
+
 export default function WeeklyPosts() {
-  const { t } = useLanguageStore();
+  const { t, language } = useLanguageStore();
   
   // Weekly posts data
   const weeklyPosts: BlogPost[] = [
-    {
-      id: '2',
-      date: '22 July 2024',
-      readTime: '4 min',
-      title: 'Our SaaS Product Just Launched!',
-      description: 'Remote work has drastically improved my design skills by giving me the freedom to experiment, focus, and learn at my own pace.',
-      tags: ['Design', 'Product'],
-      imageUrl: '/images/blog-second.png'
-    },
-    {
-      id: '3',
-      date: '22 July 2024',
-      readTime: '4 min',
-      title: 'Our SaaS Product Just Launched!',
-      description: 'Remote work has drastically improved my design skills by giving me the freedom to experiment, focus, and learn at my own pace.',
-      tags: ['Design', 'Product'],
-      imageUrl: '/images/blog-second.png'
-    },
-    {
-      id: '4',
-      date: '22 July 2024',
-      readTime: '4 min',
-      title: 'Our SaaS Product Just Launched!',
-      description: 'Remote work has drastically improved my design skills by giving me the freedom to experiment, focus, and learn at my own pace.',
-      tags: ['Design', 'Product'],
-      imageUrl: '/images/blog-second.png'
-    }
+    createArticle('2', 'artInvestmentStrategy', '/images/blog/art-investment-strategy.png', ['Art', 'Investment', 'Strategy'], t),
+    createArticle('3', 'artTokenization', '/images/blog/art-tokenization.png', ['Art', 'Blockchain', 'Tokenization'], t),
+    createArticle('4', 'beginnerArtInvestment', '/images/blog/beginner-art-investment.png', ['Art', 'Investment', 'Strategy'], t)
   ];
 
   return (

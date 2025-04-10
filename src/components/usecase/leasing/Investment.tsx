@@ -10,6 +10,16 @@ export default function Investment() {
     <section className="py-16 ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="relative rounded-lg">
+            <Image
+              src="/images/leasing-image-investment.jpg"
+              alt={t('leasing.investment.title')}
+              width={600}
+              height={600}
+              className="w-full h-auto object-contain rounded-lg"
+              priority
+            />
+          </div>
           <div>
             <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-6">
               {t('leasing.investment.title')}
@@ -31,16 +41,6 @@ export default function Investment() {
                 <span>{t('leasing.investment.bullets.2')}</span>
               </li>
             </ul>
-          </div>
-          <div className="relative rounded-lg overflow-hidden">
-            <Image
-              src="/images/prestige.png"
-              alt={t('leasing.investment.title')}
-              width={600}
-              height={600}
-              className="w-full h-auto object-contain"
-              priority
-            />
           </div>
         </div>
       </div>

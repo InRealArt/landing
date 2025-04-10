@@ -45,12 +45,12 @@ export default function Header() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {caseStudies.map((caseStudy, index) => (
-            <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
+            <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{caseStudy.title}</h3>
               <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">{caseStudy.description}</p>
               <Button 
                 text={t('buttons.readMore')} 
-                additionalClassName="bg-purpleColor w-full justify-center" 
+                additionalClassName="bg-purpleColor w-full justify-center mt-auto" 
                 icon={<ArrowRight />} 
                 link={caseStudy.link}
               />

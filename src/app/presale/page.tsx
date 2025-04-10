@@ -54,7 +54,6 @@ export default function Presale() {
       <div className="relative max-w-90 xl:max-w-screen-xl m-auto">
         <div className="flex justify-between mb-6">
           <h1 className="text-2xl md:text-4xl font-bold mt-10">{t('presale.onDemand')}</h1>
-          <Button additionalClassName="mt-10" text={t('presale.viewAll')} />
         </div>
         <div className="flex flex-wrap gap-4">
           {artworkImages.map((item, index) => <ArtworkCard key={`${item.name}-${index}`} {...item} />)}

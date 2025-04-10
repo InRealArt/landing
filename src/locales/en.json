@@ -59,8 +59,8 @@
   },
   "home": {
     "intro": {
-      "title": "Art Tokenization\nAccessible to Everyone",
-      "subtitle": "Rare and exclusive artworks"
+      "title": "Blue-chip Art has outpaced the S&P 500 by",
+      "subtitle": "from 1995-2024"
     },
     "howItWorks": {
       "title": "How does it work?",
@@ -285,7 +285,7 @@
       "title": "Art has never been so accessible",
       "subtitle": "Acquire rare physical works that can be linked with NFTs and their copyrights. Explore artwork fractioning and open your portfolio to the assets of the future",
       "buttons": {
-        "catalog": "2024 Catalog",
+        "catalog": "2025 Catalog",
         "whitepaper": "Read our whitepaper"
       }
     },
@@ -805,7 +805,115 @@
       "investment": "Investment",
       "art": "Art",
       "nft": "NFT",
-      "blockchain": "Blockchain"
+      "blockchain": "Blockchain",
+      "business": "Business",
+      "artists": "Artists",
+      "trends": "Trends",
+      "authentication": "Authentication",
+      "tokenization": "Tokenization",
+      "strategy": "Strategy"
+    },
+    "articles": {
+      "companyArtInvestment": {
+        "title": "Can a Company Invest in Art?",
+        "description": "For a long time, art was seen as the domain of private collectors and public institutions. But that landscape is changing. Today, a new kind of player is entering the scene: the company. At the crossroads of asset management, brand identity, and cultural engagement, art is becoming a powerful and strategic investment for modern businesses.",
+        "introduction": "At InRealArt, we believe that art belongs not only in museums or private salons, but also at the heart of forward-thinking enterprises. More than an opportunity, it's a transformation in how companies can create and express value.",
+        "sections": [
+          {
+            "title": "Why Art Makes Strategic Sense for Businesses",
+            "content": "Art is never just decoration. For a company, acquiring an artwork is a bold gesture. It is a way to express identity, taste, and long-term vision. It builds an emotional connection with teams and clients, anchors the brand in cultural relevance, and communicates ambition.\n\nIt is also a means of diversifying corporate assets. The art market, while sometimes opaque, offers significant appreciation potential. And in countries like France, favorable tax incentives (such as article 238 bis AB of the French tax code) support corporate art acquisitions.\n\nStill, most companies aren't experts in the art market. What they need is clarity, security, and trust. That's where we come in."
+          },
+          {
+            "title": "InRealArt: Making Art Investment Simple, Secure, and Ambitious",
+            "content": "Our mission is clear: to empower companies to become confident art collectors—without the complexity or uncertainty. We offer a complete, curated ecosystem that blends artistic excellence with technological reliability.\n\nEach piece presented by InRealArt is handpicked from respected artists. It is delivered in physical form and paired with a certified NFT. Thanks to blockchain technology, each transaction is traceable, every artwork verifiable. No guesswork. No opacity. Only verified value.\n\nOur model goes beyond simple ownership. Through our dedicated marketplace and physical galleries, businesses can resell or exhibit their acquisitions within a controlled, high-standard environment. This is not speculation—it's structured, selective circulation. Every transaction is designed to protect the integrity and value of the work."
+          },
+          {
+            "title": "A New Way to Invest",
+            "content": "InRealArt is not just another digital gallery. It is a new way for companies to experience and engage with art: as investors, as curators, as cultural actors.\n\nInvesting in art means choosing distinction over convention. It's about placing meaningful objects in meaningful spaces. It's about letting artworks speak—to clients, to employees, to the moment we're living in.\n\nAnd it's about projection. Art is not a passive asset. It evolves. It circulates. It holds potential—not just aesthetic, but strategic. In the hands of a business, art becomes a living asset, merging cultural relevance with financial intelligence."
+          },
+          {
+            "title": "In Conclusion",
+            "content": "Yes, a company can invest in art. And with the right partner, it can do so with clarity, purpose, and ambition.\n\nAt InRealArt, art investment becomes a guided, transparent, and enriching experience. Art no longer simply hangs on a wall—it becomes a pillar of brand value, a strategic asset, and a human, emotional journey.\n\nWe don't just sell art. We empower our clients to become modern, confident, visionary collectors."
+          }
+        ]
+      },
+      "artInvestmentStrategy": {
+        "title": "Investing in Art: A Strategic and Valuable Asset in 2025",
+        "description": "In a time of economic uncertainty and market volatility, investing in art is gaining traction among individuals and companies looking for tangible, long-term value. Art offers a unique mix of financial potential, emotional return, and portfolio diversification.",
+        "introduction": "Why Consider Art as an Investment?",
+        "sections": [
+          {
+            "title": "The Benefits of Art Investment",
+            "content": "1. Strong Performance Potential\nBlue-chip artworks have shown remarkable returns over time. According to the Artprice100 Index, art has outperformed the S&P 500 by over 250% since 2000. For high-value pieces (over €100,000), annual returns can exceed 10%, making art a credible and strategic asset class.\n\n2. A Safe Haven in Unstable Markets\nLike gold or real estate, art is often seen as a store of value. It is less reactive to market shocks and serves as a buffer in periods of inflation or geopolitical instability.\n\n3. A Tool for Diversification\nArt offers uncorrelated returns compared to traditional investments. Including art in a portfolio spreads risk and brings added stability, especially for those looking to balance tangible and financial assets.\n\n4. Emotional and Cultural Value\nUnlike stocks or bonds, art is visible, personal, and emotionally enriching. It can enhance a space, convey meaning, and offer daily inspiration—while also acting as a long-term store of value."
+          },
+          {
+            "title": "The Risks of Art Investment",
+            "content": "1. Low Liquidity\nArtworks are not easily sold. Finding a buyer can take time, and the value is only realized at the moment of sale—unlike publicly traded assets.\n\n2. Uncertain Returns\nArt market performance can be highly variable. Success depends on factors like artistic trends, artist reputation, and market conditions—all of which can change rapidly.\n\n3. Hidden Costs\nMany collectors underestimate expenses like insurance, secure storage, restoration, and transaction fees. These can significantly impact net returns over time.\n\n4. Authentication Challenges\nWithout proper verification, there's always risk of forgeries or misattributions. The art market still lacks the standardized verification systems found in financial markets."
+          },
+          {
+            "title": "Art Market Trends in 2025",
+            "content": "The art market of 2025 is being transformed by technology and changing collector profiles. Blockchain-based NFTs now provide unprecedented transparency for provenance tracking and ownership rights. Digital platforms have democratized access, allowing more diverse participation in what was once an exclusive market.\n\nHowever, this evolution brings new challenges. Market fragmentation makes quality assessment more difficult, and the line between legitimate art investments and speculative ventures is increasingly blurred.\n\nInRealArt addresses these challenges with a comprehensive approach that combines:\n* Curatorial Excellence: Every artwork is selected for both artistic merit and long-term value potential\n* Technological Security: Blockchain authentication and NFT pairing for every physical piece\n* Market Access: A controlled marketplace that balances liquidity with value preservation\n* Expert Guidance: Professional support for collectors at every experience level\n\nBy maintaining a closed ecosystem with verified participants, InRealArt creates a more secure, transparent environment for art investment."
+          },
+          {
+            "title": "Conclusion: A Thoughtful Approach to Art Investment",
+            "content": "Art investment requires careful consideration, informed selection, and proper management. When approached strategically, it offers unique advantages that few other asset classes can match—cultural significance, visual pleasure, and financial potential.\n\nAt InRealArt, we believe in art's power as both a cultural and financial asset. Our approach goes beyond transactions to build lasting, valuable collections that reflect both artistic vision and investment wisdom.\n\nWe don't just help clients buy art. We help them build collections that stand the test of time—aesthetically, culturally, and financially."
+          }
+        ]
+      },
+      "artTokenization": {
+        "title": "Understanding Art Tokenization: A Beginner's Guide to the Future of Art Investment",
+        "description": "In the rapidly evolving art market, one concept is gaining momentum: tokenization. Closely linked to blockchain technology, this innovation is reshaping how artworks are owned, exchanged, and valued.",
+        "introduction": "At InRealArt, we believe that tokenization should not be reserved for insiders. It deserves a clear, thoughtful explanation—accessible to beginners, yet aligned with a high standard of excellence. Here's what you need to know to get started with art tokenization.",
+        "sections": [
+          {
+            "title": "What Is Tokenization?",
+            "content": "Tokenization is the process of converting a physical or digital asset into digital tokens that live on a blockchain. In the art world, this means transforming a single artwork into multiple fractional shares—each one represented by a digital token.\n\nIn simple terms: rather than purchasing an entire artwork, investors can own a portion of it. This opens up new possibilities for collectors, investors, and artists alike."
+          },
+          {
+            "title": "Core Principles of Art Tokenization",
+            "content": "1. Fractional Ownership\nOne artwork can be split into hundreds or thousands of tokens. Each token corresponds to a share of the work's overall value, enabling multiple people to own a stake in the same piece.\n\n2. Blockchain Technology\nAll transactions are securely recorded on a public or private blockchain. This ensures transparency, authenticity, and tamper-proof ownership records—critical advantages in a historically opaque market.\n\n3. Greater Accessibility\nTokenization democratizes the art world. Investors no longer need to commit large sums to participate. A growing number of people can now engage with high-value assets, previously reserved for a privileged few.\n\n4. Improved Liquidity\nUnlike traditional art investments, which are often locked up for years, tokens can be traded more easily on digital marketplaces. This adds flexibility and fluidity to a once rigid asset class."
+          },
+          {
+            "title": "Benefits for Investors",
+            "content": "Portfolio Diversification\nTokenized artworks provide a powerful way to diversify your investment portfolio with a tangible, cultural asset—without having to buy or store physical pieces.\n\nArtist Financing Opportunities\nArtists can finance their work by selling fractional ownership early on, engaging a community of supporters and bypassing traditional gatekeepers.\n\nTrust and Security\nBlockchain technology eliminates much of the risk tied to provenance and forgery. Each token is verifiable and traceable, offering a higher level of control and confidence."
+          },
+          {
+            "title": "Challenges to Keep in Mind",
+            "content": "As with any innovation, art tokenization comes with nuances.\n* Regulatory uncertainty: Legal frameworks vary between countries. Tokenized assets may fall under different classifications depending on local financial regulations.  \n* Technical literacy: While platforms like InRealArt streamline the process, some level of blockchain and NFT understanding remains essential for informed decision-making.  \n\nInRealArt's Approach to Tokenization\nAt InRealArt, we don't follow trends—we build frameworks that last. We integrate tokenization with rigor, integrity, and intention:\n* Each physical artwork comes with an authentication NFT, recorded on the blockchain\n* Only our verified buyers can resell works through our marketplace or physical galleries\n* Our curation standards remain stringent—quality always trumps quantity\n\nOur mission: to empower everyone—from casual enthusiasts to serious investors—to become enlightened collectors by combining security, accessibility, and excellence."
+          },
+          {
+            "title": "Conclusion: Art Enters a New Era",
+            "content": "Tokenization is profoundly transforming our relationship with art—making it more accessible, liquid, and secure. Yet it doesn't replace what truly matters. The artwork itself—its power, history, and place in our personal or collective heritage—remains central.\n\nAt InRealArt, we make no compromises: we use the best technology to showcase the best art. We ensure that every acquisition, even a fractional one, becomes an authentic, ambitious, and lasting experience."
+          }
+        ]
+      },
+      "beginnerArtInvestment": {
+        "title": "Getting Started with Art Investment: A Practical Guide for Curious Investors",
+        "description": "In an increasingly volatile financial landscape, investors are seeking value that goes beyond numbers. Art is no longer just a matter of personal taste or cultural capital — it's emerging as a credible asset class. With the right approach, it can bring both long-term returns and emotional reward.",
+        "introduction": "But how do you begin investing in art without prior expertise, and without falling into the usual traps of a complex and unregulated market? Here's a practical, structured guide for those who want to explore art as a smart and enriching investment — with confidence.",
+        "sections": [
+          {
+            "title": "1. Define Your Budget and Objectives",
+            "content": "Start with what makes sense for you. Contrary to popular belief, you don't need millions to invest in art. A starting budget between €1,000 and €5,000 is enough to begin, especially with emerging artists or fractional models. Know why you're investing: Diversification: Add a tangible, culturally relevant asset to your portfolio. Capital growth: Seek long-term appreciation. Personal value: Invest in something you connect with. Clear goals shape clear decisions — from the artists you explore to the works you choose."
+          },
+          {
+            "title": "2. Learn Before You Buy",
+            "content": "Develop your eye. Explore books, attend exhibitions, follow art experts, and engage with the community. Learning to read an artwork — and understand its market value — is part of the process. Understand the art market. Familiarize yourself with art movements, price trends, signature artists, and emerging talents. Know what makes a piece valuable: provenance, rarity, condition, and context."
+          },
+          {
+            "title": "3. Choose the Right Investment Strategy",
+            "content": "Buy physical artworks. Traditional collecting — through galleries or directly from artists — remains a meaningful and authentic approach, combining aesthetic enjoyment with financial potential. Try fractional investment. If your budget is limited, consider owning a fraction of a high-value piece via secure platforms. This allows broader access to established artworks without full acquisition costs. InRealArt offers a hybrid model: physical artworks, each certified and traceable via NFTs, are available exclusively to verified buyers. Our controlled marketplace allows for future resale, while ensuring the artwork's integrity is preserved."
+          },
+          {
+            "title": "4. Balance Emotion with Strategy",
+            "content": "Investing in art should never be purely transactional. A piece that resonates with you is more than an asset — it becomes part of your environment, your story. But emotion should be grounded in good judgment. Is the artist recognized? Is the provenance clear? Is there long-term value? At InRealArt, we believe in transforming passion into strategy — where every acquisition is both personal and purposeful."
+          },
+          {
+            "title": "5. Avoid Common Pitfalls",
+            "content": "Never buy without verifying authenticity or securing certificates. Avoid impulse buys based on hype or trend. Be realistic: art grows in value over time, not overnight. Don't underestimate ownership costs."
+          }
+        ]
+      }
     }
   },
   "artwork": {
