@@ -7,12 +7,11 @@ export default function TokenICO() {
   const { t } = useLanguageStore();
 
   const timelineItems = [
-    { key: 'presale', className: 'bg-indigo-600' },
+    { key: 'preseed', className: 'bg-indigo-600' },
+    { key: 'seed', className: 'bg-[#282828]' },
+    { key: 'kolRound', className: 'bg-[#282828]' },
     { key: 'publicSale', className: 'bg-[#282828]' },
-    { key: 'listing', className: 'bg-[#282828]' },
-    { key: 'vesting', className: 'bg-[#282828]' },
-    { key: 'team', className: 'bg-[#282828]' },
-    { key: 'advisory', className: 'bg-[#282828]' }
+    { key: 'launchpad', className: 'bg-[#282828]' }
   ];
 
   return (

@@ -359,20 +359,20 @@
         "title": "Why choose our token",
         "benefits": {
           "hardDrawn": {
-            "title": "Hard-drawn pieces",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+            "title": "Art Utility",
+            "description": "Use $IRA to buy/sell NFTs & physical art with reduced fees and exclusive pricing. A built-in rating system helps identify top artists and trusted sellers."
           },
           "exceptional": {
-            "title": "Exceptional NFT",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+            "title": "DAO Gouvernance",
+            "description": "Vote on key decisions like featured artists, platform upgrades, and fund allocation. Stakers with locked $IRA earn enhanced voting power and influence."
           },
           "donations": {
-            "title": "Huge donations",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+            "title": "Staking rewards",
+            "description": "Earn up to 12% APR. Stakers unlock exclusive services : earluy access to drops, premium support, and participation in artist curation and gallery selection."
           },
           "royalties": {
-            "title": "Royalties",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium nulla odio nascetur fusce."
+            "title": "Real World Gallery",
+            "description": "$IRA is used partner galleries, part of fiat payments is converted to support the token. Stakers gain perks like free custody, insurance discounts, and VIP invites."
           }
         }
       },
@@ -380,17 +380,17 @@
         "title": "How you will buy the InRealArt Token?",
         "subtitle": "Purchasing InRealArt tokens is a straightforward process designed to be accessible for both newcomers and seasoned crypto enthusiasts. Follow these steps to acquire your tokens.",
         "step1": {
-          "title": "Prepare Your Wallet",
+          "title": "Choose your payment method",
           "description": "Ensure you have a ETH-compatible wallet set up and funded with Ether. Some popular wallets include Phantom and Solflare."
         },
         "step2": {
-          "title": "Transfer ETH",
-          "description": "Send a minimum of 0.5 ETH to our official project wallet at the following address. Please double-check the address before sending to avoid errors.",
+          "title": "Complete your purchase",
+          "description": "For cryptocurrencies: transfer the desired amount to our official wallet address. For traditional currency: follow the secure payment process via our integrated gateway. Carefully check the details before confirming your transaction.",
           "copyAddress": "Copy address"
         },
         "step3": {
-          "title": "Receiving InRealart Tokens",
-          "description": "After the presale is finalized, you will need to claim your InRealArt tokens through our official website. Please visit our site once the presale ends and follow the instructions provided to claim the tokens that correspond to the amount of ETH you transferred.",
+          "title": "Receiving $IRA Tokens",
+          "description": "Once your payment has been validated, your tokens will be automatically sent to your crypto wallet (for crypto payments) or reserved in a wallet created for you (for traditional currency payments). You'll receive an email confirmation with all the details of your purchase.",
           "additionalInfo": "By following these steps, you can easily participate in our ecosystem and begin your journey with InRealArt. We're excited to welcome you aboard and look forward to seeing the impact your participation will have on our community!"
         },
         "secureToken": "Secure your token InRealArt",
@@ -441,29 +441,25 @@
       "title": "ICO token details",
       "subtitle": "Join InRealArt to discuss where the markets are heading. We accept token payment",
       "timeline": {
-        "presale": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
+        "preseed": {
+          "label": "Pre-Seed",
+          "date": "Coming soon"
+        },
+        "seed": {
+          "label": "Seed",
+          "date": "Coming soon"
+        },
+        "kolRound": {
+          "label": "KOL Round",
+          "date": "Coming soon"
         },
         "publicSale": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
+          "label": "Public Sale",
+          "date": "Coming soon"
         },
-        "listing": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
-        },
-        "vesting": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
-        },
-        "team": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
-        },
-        "advisory": {
-          "label": "Start",
-          "date": "Aug, 8 2025 (9:00 AM GMT)"
+        "launchpad": {
+          "label": "Launchpad",
+          "date": "Coming soon"
         }
       },
       "description": "Participate in the ICO of InRealArt tokens and become part of a revolutionary art investment platform that brings together physical art, digital assets, and blockchain technology.",

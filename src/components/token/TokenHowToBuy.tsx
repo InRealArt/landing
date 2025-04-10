@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import { ArrowUp, Check, Copy } from 'lucide-react';
+import { ArrowUp, Check, Copy, CreditCard, Bitcoin, ArrowRight } from 'lucide-react';
 import Button from '@/components/common/Button';
 import { toast } from 'sonner';
 
@@ -40,41 +40,52 @@ export default function TokenHowToBuy() {
 
       {/* First two cards in flex row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        {/* Step 1: Prepare Your Wallet */}
+        {/* Step 1: Choisissez votre méthode de paiement */}
         <div className="bg-cardBackground rounded-xl p-6">
-          <h3 className="text-2xl font-medium mb-4">
-            {t('presale.token.howToBuy.step1.title')}
-          </h3>
-          <p className="text-gray-300 mb-4">
+          <div className="flex items-center mb-4">
+            <span className="w-8 h-8 bg-purpleColor rounded-full flex items-center justify-center mr-3">1</span>
+            <h3 className="text-2xl font-medium">
+              {t('presale.token.howToBuy.step1.title')}
+            </h3>
+          </div>
+          <p className="text-gray-300 mb-6">
             {t('presale.token.howToBuy.step1.description')}
           </p>
+          <div className="flex space-x-4 mt-4">
+            <div className="flex items-center bg-[#1e1e2a] p-3 rounded-lg">
+              <Bitcoin className="text-yellow-500 mr-2" />
+              <span>Crypto</span>
+            </div>
+            <div className="flex items-center bg-[#1e1e2a] p-3 rounded-lg">
+              <CreditCard className="text-blue-500 mr-2" />
+              <span>Fiat</span>
+            </div>
+          </div>
         </div>
 
-        {/* Step 2: Transfer ETH */}
+        {/* Step 2: Complétez votre achat */}
         <div className="bg-cardBackground rounded-xl p-6">
-          <h3 className="text-2xl font-medium mb-4">
-            {t('presale.token.howToBuy.step2.title')}
-          </h3>
-          <p className="text-gray-300 mb-4">
-            {t('presale.token.howToBuy.step2.description')}<br />
-            {walletAddress}
-          </p>
-          <div className="mt-4">
-            <Button
-              text={t('presale.token.howToBuy.step2.copyAddress')}
-              action={copyToClipboard}
-              additionalClassName="bg-purpleColor w-full justify-between"
-              icon={<Copy />}
-            />
+          <div className="flex items-center mb-4">
+            <span className="w-8 h-8 bg-purpleColor rounded-full flex items-center justify-center mr-3">2</span>
+            <h3 className="text-2xl font-medium">
+              {t('presale.token.howToBuy.step2.title')}
+            </h3>
           </div>
+          <p className="text-gray-300 mb-4">
+            {t('presale.token.howToBuy.step2.description')}
+          </p>
+         
         </div>
       </div>
 
-      {/* Step 3: Receiving Tokens - Full width card at the bottom */}
+      {/* Step 3: Recevez vos tokens */}
       <div className="bg-cardBackground rounded-xl p-6">
-        <h3 className="text-2xl font-medium mb-4">
-          {t('presale.token.howToBuy.step3.title')}
-        </h3>
+        <div className="flex items-center mb-4">
+          <span className="w-8 h-8 bg-purpleColor rounded-full flex items-center justify-center mr-3">3</span>
+          <h3 className="text-2xl font-medium">
+            {t('presale.token.howToBuy.step3.title')}
+          </h3>
+        </div>
         <p className="text-gray-300 mb-4">
           {t('presale.token.howToBuy.step3.description')}
         </p>
@@ -82,7 +93,7 @@ export default function TokenHowToBuy() {
           {t('presale.token.howToBuy.step3.additionalInfo')}
         </p>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <Button
             text={t('presale.token.howToBuy.secureToken')}
             action={scrollToTop}
