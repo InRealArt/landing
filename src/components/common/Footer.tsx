@@ -7,9 +7,7 @@ import { toast } from 'sonner'
 import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-
-// Regex pour valider l'email
-const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+import { validateEmail } from '@/utils/functions'
 
 // Type pour la réponse de l'API
 type SubscribeResponse = {
@@ -44,11 +42,6 @@ const Footer = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { executeRecaptcha } = useGoogleReCaptcha()
 
-  // Fonction pour valider l'email
-  const validateEmail = (email: string): boolean => {
-    return EMAIL_REGEX.test(email)
-  }
-
   // Fonction pour soumettre l'email
   const handleSubscribe = async () => {
     // Vérifier si l'email est vide
@@ -81,7 +74,7 @@ const Footer = () => {
           if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
             try {
               console.log("Tentative avec l'API globale grecaptcha...")
-              const recaptchaKey = "6LdRHkspAAAAAO92RhS4tWRPPQxq5aLcTP07wvIm";
+              const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
               recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'newsletter_subscribe' });
               console.log('✅ Token reCAPTCHA obtenu via API globale:', recaptchaToken.substring(0, 15) + '...')
             } catch (fallbackError) {

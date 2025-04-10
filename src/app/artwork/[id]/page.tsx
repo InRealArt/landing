@@ -7,6 +7,8 @@ import { useLanguageStore } from '@/store/languageStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { submitPresaleEmail } from '@/actions/emailActions'
 import { toast } from 'sonner'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { validateEmail } from '@/utils/functions'
 
 export default function ArtworkPage() {
   const params = useParams()
@@ -16,6 +18,7 @@ export default function ArtworkPage() {
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   // Use mounted state to prevent hydration mismatch
   useEffect(() => {
@@ -92,9 +95,58 @@ export default function ArtworkPage() {
 
   const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
+    // Récupérer la valeur de l'email
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+
+    // Vérifier si l'email est vide
+    if (!email.trim()) {
+      toast.error(t('toaster.emailValidationRequired'))
+      return
+    }
+
+    // Valider l'email avec la regex
+    if (!validateEmail(email)) {
+      toast.error(t('toaster.emailValidationError'))
+      return
+    }
+    
     setIsSubmitting(true)
     try {
-      const formData = new FormData(e.currentTarget)
+      // Exécuter reCAPTCHA si disponible
+      let recaptchaToken = undefined
+
+      if (executeRecaptcha) {
+        try {
+          console.log("Tentative d'exécution de reCAPTCHA...")
+          recaptchaToken = await executeRecaptcha('artwork_presale')
+          console.log('✅ Token reCAPTCHA obtenu:', recaptchaToken.substring(0, 15) + '...')
+          
+          // Ajouter le token reCAPTCHA au formData
+          formData.append('recaptchaToken', recaptchaToken)
+        } catch (recaptchaError) {
+          console.error('❌ Erreur reCAPTCHA:', recaptchaError)
+          
+          // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
+          if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
+            try {
+              console.log("Tentative avec l'API globale grecaptcha...")
+              const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""; // Fallback en cas de variable non définie
+              recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'artwork_presale' });
+              console.log('✅ Token reCAPTCHA obtenu via API globale:', recaptchaToken.substring(0, 15) + '...')
+              
+              // Ajouter le token reCAPTCHA au formData
+              formData.append('recaptchaToken', recaptchaToken)
+            } catch (fallbackError) {
+              console.error('❌ Échec du plan B avec l\'API globale:', fallbackError)
+            }
+          }
+        }
+      } else {
+        console.warn('❌ executeRecaptcha non disponible - reCAPTCHA ne fonctionne pas correctement')
+      }
+      
       const result = await submitPresaleEmail(formData, artworkName)
       console.log(result);
 

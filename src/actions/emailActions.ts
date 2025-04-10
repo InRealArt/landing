@@ -2,6 +2,7 @@
 
 import { z } from 'zod'
 import { prisma } from '@/lib/prisma'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 const emailSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -12,7 +13,19 @@ export async function submitPresaleEmail(formData: FormData, artworkName: string
   try {
     const email = formData.get('email') as string
     const artworkId = formData.get('artworkId') as string
+    const recaptchaToken = formData.get('recaptchaToken') as string
     const validatedData = emailSchema.parse({ email })
+
+    // Vérifier le token reCAPTCHA s'il est fourni
+    if (recaptchaToken) {
+      const isValidRecaptcha = await verifyRecaptchaToken(recaptchaToken)
+      if (!isValidRecaptcha) {
+        return {
+          success: false,
+          message: 'Validation reCAPTCHA échouée',
+        }
+      }
+    }
 
     // Check if email already exists
     const existingEmail = await prisma.emailPresaleArtwork.findFirst({
