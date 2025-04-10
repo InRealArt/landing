@@ -9,7 +9,9 @@ type Props = {
   icon?: JSX.Element;
   disabled?: boolean;
   center?: boolean;
-  type?: "button" | "submit" | "reset"
+  type?: "button" | "submit" | "reset";
+  download?: boolean;
+  target?: string;
 };
 
 const Button = ({
@@ -20,16 +22,18 @@ const Button = ({
   icon,
   disabled,
   center,
-  type = "button"
+  type = "button",
+  download = false,
+  target = '_self'
 }: Props) => {
   const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl `;
 
   if (link)
     return (
-      <a className={className} href={link} onClick={action} download={true} target='_blank' rel='noopener noreferrer'>
+      <Link className={className} href={link} onClick={action} download={download} target={target}>
         <span className='unbounded font-semibold'>{text}</span>
         {icon}
-      </a>
+      </Link>
     );
 
   return (
