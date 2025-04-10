@@ -26,6 +26,7 @@ const Header = () => {
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
           <Link href="/">{t('nav.home')}</Link>
           <Link href="/marketplace">Marketplace</Link>
+          <Link href="/token">ICO IRA</Link>
           <Link href="/usecase">{t('nav.usecase')}</Link>
           <Link href="/roadmap">Roadmap</Link>
           <Link href="/blog">Blog</Link>
