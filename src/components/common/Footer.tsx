@@ -20,15 +20,16 @@ const navigation = {
     { label: 'nav.home', href: '/' },
     { label: 'nav.marketplace', href: '/marketplace' },
     { label: 'nav.roadmap', href: '/roadmap' },
-    { label: 'nav.faq', href: '/faq' },
     { label: 'nav.team', href: '/team' },
-    { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.artists', href: '/artists' },
     { label: 'nav.presale', href: '/presale' },
+
+    { label: 'nav.faq', href: '/faq' },
+    { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.usecase', href: '/usecase' },
     { label: 'nav.whitepaper', href: '/whitepaper', disabled: true },
-    { label: 'nav.airdrop', href: '/airdrop' },
-    { label: 'nav.blog', href: '/blog' },
+    { label: 'nav.airdrop', href: '/airdrop' , disabled: true },
+    // { label: 'nav.blog', href: '/blog' },
   ],
 }
 
