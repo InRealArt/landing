@@ -136,7 +136,8 @@
   },
   "marketplace": {
     "hero": {
-      "title": "Access an Exclusive Marketplace\nfor Art Collectors and\nPrestige Investors"
+      "title": "Access an Exclusive Marketplace\nfor Art Collectors and\nPrestige Investors",
+      "mainButton": "View the marketplace"
     },
     "benefits": {
       "title": "Benefits",
@@ -229,7 +230,7 @@
       "subtitle": "Art has opened up to new horizons with RWAs, and today we want to share these works with the whole world",
       "buttons": {
         "marketplace": "View the marketplace",
-        "whitepaper": "Read our whitepaper"
+        "whitepaper": "Read our whitepaper in 2 days"
       }
     },
     "items": {

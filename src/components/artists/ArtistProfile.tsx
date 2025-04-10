@@ -13,12 +13,22 @@ interface ArtistProfileProps {
 }
 
 export default function ArtistProfile({ artist }: ArtistProfileProps) {
-  const { t } = useLanguageStore();
+  const { t, language } = useLanguageStore();
+
+  // Logique spéciale pour Leadouze
+  const renderArtistName = () => {
+    if (artist.name.trim() == 'Leadouze') {
+      return language === 'fr' 
+        ? `Gallerie ${artist.name}`
+        : `${artist.name} Gallery`;
+    }
+    return artist.name;
+  };
 
   return (
     <div>
       <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>
-        {t('artistPage.whoIs')} {artist.name} ?
+        {t('artistPage.whoIs')} {renderArtistName()} ?
       </h1>
       <div className='w-full rounded-lg h-full flex flex-col lg:flex-row bg-cardBackground'>
         <div 

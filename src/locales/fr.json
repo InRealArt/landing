@@ -57,8 +57,8 @@
   },
   "home": {
     "intro": {
-      "title": "Blue-chip Art has outpaced the S&P by",
-      "subtitle": "from 1995-2024.1"
+      "title": "Blue-chip Art has outpaced the S&P 500 by",
+      "subtitle": "from 1995-2024"
     },
     "howItWorks": {
       "title": "Comment ça fonctionne ?",
@@ -136,7 +136,8 @@
   },
   "marketplace": {
     "hero": {
-      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d'Art et\nInvestisseurs de Prestige"
+      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d'Art et\nInvestisseurs de Prestige",
+      "mainButton": "Voir la marketplace"
     },
     "benefits": {
       "title": "Bénéfices",
@@ -228,7 +229,7 @@
       "subtitle": "L'art c'est ouvert à de nouvelle horizon avec les RWA et aujourd'hui nous souhaitons partager ces œuvres au monde entier",
       "buttons": {
         "marketplace": "Voir la marketplace",
-        "whitepaper": "Lire notre white paper"
+        "whitepaper": "Lire notre white paper dans 2 jours"
       }
     },
     "items": {
