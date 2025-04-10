@@ -380,7 +380,7 @@
         "subtitle": "L'achat de tokens InRealArt est un processus simple conçu pour être accessible à tous. Suivez ces étapes pour acquérir vos tokens avec de la crypto ou de la monnaie traditionnelle.",
         "step1": {
           "title": "Choisissez votre méthode de paiement",
-          "description": "Sélectionnez votre méthode préférée : cryptomonnaies (ETH, BTC, USDT) ou monnaie traditionnelle (carte bancaire, virement). Chaque option offre une expérience d'achat sécurisée et simplifiée pour tous types d'investisseurs."
+          "description": "Assurez-vous d'avoir un portefeuille compatible avec l'ETH et approvisionné en Ether. Parmi les portefeuilles populaires, citons Metamask, Rabby et Phantom."
         },
         "step2": {
           "title": "Complétez votre achat",
