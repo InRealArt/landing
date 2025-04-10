@@ -37,7 +37,9 @@
     "company": "Company",
     "partner": "Partner",
     "location": "Paris",
-    "email": "teaminrealart@gmail.com"
+    "email": "teaminrealart@gmail.com",
+    "resources": "Resources",
+    "contact": "Contact"
   },
   "buttons": {
     "readMore": "Read More",
@@ -105,7 +107,7 @@
         "investment": {
           "title": "Investment Opportunity",
           "label": "Art is more than just a passion, it's also an investment opportunity.",
-          "description": "By combining tradition and innovation, whether through leasing or blockchain, our marketplace allows you to diversify your portfolio by investing in unique, physical and digital artworks, as well as copyrights. <br/>Thanks to the rarity of the pieces offered, each acquisition offers potential appreciation over time. Whether you're a novice or experienced collector, join a dynamic market where each work can become a true source of long-term value appreciation.",
+          "description": "By combining tradition and innovation, whether through leasing or blockchain, our marketplace allows you to diversify your portfolio by investing in unique, physical and digital artworks, as well as copyrights. Thanks to the rarity of the pieces offered, each acquisition offers potential appreciation over time. Whether you're a novice or experienced collector, join a dynamic market where each work can become a true source of long-term value appreciation.",
           "buttons": {
             "usecase": "View use case"
           }
@@ -152,7 +154,7 @@
         },
         "resale": {
           "title": "Secure Resale Possibility",
-          "description": "Thanks to the ownership NFT, resale is simple, fast and secure, providing an authenticated link for buyers."
+          "description": "Property NFTs make resale simple, fast and secure, guaranteeing reliable authentication for buyers."
         },
         "copyright": {
           "title": "Copyright Purchase",
@@ -491,7 +493,7 @@
         "privileges": "Access exclusive privileges such as previews, fractionalized acquisitions of artworks, and private events."
       },
       "infrastructure": "Built on a secure and scalable infrastructure, InRealArt offers a unique experience where each investor becomes a key player in the tokenized art market. Dive into a project where physical art comes to life on the blockchain, guaranteeing authenticity, engagement, and return on investment.",
-      "button": "Discover our platform",
+      "button": "Secure your token",
       "meaning": {
         "title": "What InRealArt means",
         "description": "The name InRealArt embodies our mission of merging physical and digital art, creating an ecosystem where each investor becomes a key player in the tokenized art market. Inspired by the richness of real art, InRealArt offers a platform where authenticity, engagement, and return on investment are guaranteed."
@@ -511,7 +513,7 @@
     },
     "items": {
       "fractionate": {
-        "title": "InRealArt Fractionalized Art Project",
+        "title": "InRealArt Fractionalized Art",
         "description": "Access fractionalized artworks through an exclusive marketplace, offering unique and accessible investment opportunities. Ideal for collectors and investors looking to diversify their portfolio while benefiting from the growing value of art.",
         "features": [
           "Access to rare and exclusive artworks",
@@ -531,7 +533,7 @@
         ]
       },
       "leasing": {
-        "title": "InRealArt Art Leasing for Businesses",
+        "title": "InRealArt Leasing for Businesses",
         "description": "Leasing with purchase option (LOA), or Art Leasing, allows businesses to rent artwork or furniture for their professional spaces.",
         "features": [
           "Art investment opportunities",
@@ -541,7 +543,7 @@
         ]
       },
       "lending": {
-        "title": "InRealArt Lending New Generation",
+        "title": "InRealArt Lending",
         "description": "Transform your artworks into liquidity with InRealArt Lending, a flexible and secure solution to finance your development without traditional bank loans.",
         "features": [
           "Loans secured by artworks",
@@ -565,7 +567,7 @@
   "leasing": {
     "hero": {
       "title": "IRA Art Leasing for <br /> Businesses",
-      "button": "Simulator",
+      "button": "Simulator soon",
       "description": {
         "p1": "Leasing with a purchase option (LOA), or Art Leasing, allows businesses to rent artwork or furniture for their professional spaces.",
         "p2": "Unlike purchasing, it offers tax and financial benefits: rental payments are deductible from taxable income, thus reducing tax (corporate or personal income tax).",
@@ -643,7 +645,7 @@
   },
   "companies": {
     "hero": {
-      "title": "Art for Companies",
+      "title": "InRealArt Corporate Art Project",
       "button": "Contact us",
       "description": {
         "p1": "Art serving your communication and brand! Capture attention and strengthen your messages through art!",

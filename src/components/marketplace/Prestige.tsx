@@ -21,10 +21,10 @@ export default function Prestige() {
             {t('marketplace.prestige.description')}
           </p>
           <Button
-            text={t('buttons.viewFAQ')}
+            text={t('buttons.presale')}
             additionalClassName="bg-purpleColor"
             icon={<ArrowRight />}
-            link='/faq'
+            link='/presale'
           />
         </div>
         <div className="w-full md:w-1/2">

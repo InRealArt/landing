@@ -19,8 +19,8 @@ export default function Hero() {
             <div className="mt-auto">
               <Button 
                 text={t('leasing.hero.button')}
-                additionalClassName="bg-purpleColor"
-                link="/simulateur"
+                additionalClassName="bg-purpleColor opacity-50 cursor-not-allowed"
+                disabled={true}
               />
             </div>
           </div>

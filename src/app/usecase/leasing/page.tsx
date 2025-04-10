@@ -5,6 +5,7 @@ import Advantages from "@/components/usecase/leasing/Advantages";
 import Benefits from "@/components/usecase/leasing/Benefits";
 import SliderSection from "@/components/usecase/leasing/SliderSection";
 import Investment from "@/components/usecase/leasing/Investment";
+import Expert from "@/components/usecase/companies/Expert";
 
 export default function LeasingPage() {
   return (
@@ -13,7 +14,7 @@ export default function LeasingPage() {
       <Advantages />
       <Benefits />
       <SliderSection />
-      <Investment />
+      <Expert/>
     </main>
   );
 } 

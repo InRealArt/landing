@@ -37,7 +37,9 @@
     "company": "Entreprise",
     "partner": "Partenaire",
     "location": "Paris",
-    "email": "teaminrealart@gmail.com"
+    "email": "teaminrealart@gmail.com",
+    "resources": "Ressources",
+    "contact": "Contact"
   },
   "buttons": {
     "readMore": "En savoir plus",
@@ -152,7 +154,7 @@
         },
         "resale": {
           "title": "Possibilité de Revente Sécurisée",
-          "description": "Grâce au NFT de propriété, la revente est simple, rapide et sécurisée, faisant la liaison d'authentifiée pour les acheteurs."
+          "description": "Grâce aux NFTs de propriété, la revente devient simple, rapide et sécurisée, en garantissant une authentification fiable pour les acheteurs."
         },
         "copyright": {
           "title": "Achat de droits d'auteurs",
@@ -490,7 +492,7 @@
         "privileges": "Accéder à des privilèges exclusifs tels que des avant-premières, des acquisitions fractionnées d'œuvres et des événements privés."
       },
       "infrastructure": "Adossé à une infrastructure sécurisée et scalable, InRealArt offre une expérience unique où chaque investisseur devient un acteur clé du marché de l'art tokenisé. Plongez dans un projet où l'art physique prend vie sur la blockchain, garantissant authenticité, engagement et retour sur investissement.",
-      "button": "Découvrir notre plateforme",
+      "button": "Sécurisez votre token",
       "meaning": {
         "title": "Que signifie InRealArt",
         "description": "Le nom InRealArt incarne notre mission de fusionner l'art physique et le numérique, créant un écosystème où chaque investisseur devient un acteur clé du marché de l'art tokenisé. Inspiré par la richesse de l'art réel, InRealArt offre une plateforme où l'authenticité, l'engagement et le retour sur investissement sont garantis."
@@ -510,7 +512,7 @@
     },
     "items": {
       "fractionate": {
-        "title": "Ira projet d'Art fractionnées",
+        "title": "Oeuvres fractionnées InRealArt",
         "description": "Accédez à des œuvres d'art fractionnées via une marketplace exclusive, offrant des opportunités d'investissement uniques et accessibles. Idéale pour les collectionneurs et investisseurs souhaitant diversifier leur portefeuille tout en profitant de la valeur croissante de l'art.",
         "features": [
           "Accès à des œuvres rares et exclusives",
@@ -530,7 +532,7 @@
         ]
       },
       "leasing": {
-        "title": "IRA Art Leasing Entreprises",
+        "title": "IRA Leasing pour les Entreprises",
         "description": "La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.",
         "features": [
           "Opportunités d'investissement dans l'art",
@@ -540,7 +542,7 @@
         ]
       },
       "lending": {
-        "title": "InRealArt Lending Nouvelle Génération",
+        "title": "InRealArt Lending",
         "description": "Transformez vos œuvres en liquidités avec InRealArt Lending, une solution flexible et sécurisée pour financer votre développement sans passer par un prêt bancaire.",
         "features": [
           "Prêts garantis par des œuvres d'art",
@@ -642,7 +644,7 @@
   },
   "companies": {
     "hero": {
-      "title": "Ira Projet d'art <br /> d'entreprises",
+      "title": "Ira Projet d'art d'entreprises",
       "button": "Contactez-nous",
       "description": {
         "p1": "L'art au service de votre communication et de votre marque ! Captez l'attention et renforcez vos messages grâce à l'art !",

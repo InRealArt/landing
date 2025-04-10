@@ -34,12 +34,12 @@ export default function Benefits() {
           {benefitsItems.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col md:flex-row gap-6 items-start"
+              className="flex flex-col md:flex-row gap-6 items-start md:items-center"
             >
-              <div className="text-6xl bricolage-grotesque text-[#4F46E5] font-medium">
+              <div className="text-6xl bricolage-grotesque text-[#4F46E5] font-medium min-w-[60px] md:min-w-[80px] flex justify-center md:justify-start">
                 {item.id}
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-xl bricolage-grotesque font-medium mb-3">
                   {item.title}
                 </h3>

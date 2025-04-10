@@ -10,9 +10,9 @@ export default function Header() {
 
   const caseStudies = [
     {
-      title: t('usecase.items.fractionate.title'),
-      link: "/usecase/fractionate",
-      description: t('usecase.items.fractionate.description')
+      title: t('usecase.items.leasing.title'),
+      link: "/usecase/leasing",
+      description: t('usecase.items.leasing.description')
     },
     {
       title: t('usecase.items.companies.title'),
@@ -20,9 +20,9 @@ export default function Header() {
       description: t('usecase.items.companies.description')
     },
     {
-      title: t('usecase.items.leasing.title'),
-      link: "/usecase/leasing",
-      description: t('usecase.items.leasing.description')
+      title: t('usecase.items.fractionate.title'),
+      link: "/usecase/fractionate",
+      description: t('usecase.items.fractionate.description')
     },
     {
       title: t('usecase.items.lending.title'),

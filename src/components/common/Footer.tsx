@@ -147,7 +147,7 @@ const Footer = () => {
 
           {/* Pages - Second Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.pages')}</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-2">
               {secondColumnLinks.map((link) => (
                 <li key={link.href}>

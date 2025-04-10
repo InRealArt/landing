@@ -11,8 +11,8 @@ export default function TokenAllocation() {
   // Data for the distribution chart
   const distributionData = [
     { name: 'Funding', value: 37, color: '#4F46E5' },
-    { name: 'Team/Founders', value: 18, color: '#7C3AED' },
-    { name: 'Treasury', value: 15, color: '#A855F7' },
+    { name: 'Team/Founders', value: 15, color: '#7C3AED' },
+    { name: 'Treasury', value: 18, color: '#A855F7' },
     { name: 'Rewards', value: 15, color: '#EC4899' },
     { name: 'Liquidity', value: 10, color: '#F97316' },
     { name: 'Airdrop', value: 5, color: '#6EE7B7' },
