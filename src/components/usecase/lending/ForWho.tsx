@@ -55,7 +55,7 @@ export default function ForWho() {
           
           <div className="w-full md:w-1/2">
               <Image 
-                src="/images/lending-big.png" 
+                src="/images/lending/aberwrach.png" 
                 alt="Pour qui ?" 
                 className="w-full h-auto"
                 width={500}

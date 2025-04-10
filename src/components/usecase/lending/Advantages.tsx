@@ -31,7 +31,7 @@ export default function Advantages() {
 
           <div className="w-full md:w-1/2">
               <Image 
-                src="/images/lending-small.png" 
+                src="/images/lending/pigcoin.png" 
                 alt="Solutions sur mesures" 
                 className="object-contain"
                 width={500}

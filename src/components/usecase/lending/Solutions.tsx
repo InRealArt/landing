@@ -14,7 +14,7 @@ export default function Solutions() {
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="w-full md:w-1/2">
               <Image 
-                src="/images/lending-medium.png" 
+                src="/images/lending/leloluce.png" 
                 alt="Solutions sur mesures" 
                 className="w-full h-auto"
                 width={500}
