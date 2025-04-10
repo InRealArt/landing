@@ -43,8 +43,6 @@ function ArtworkSlider() {
     }
   }))
 
-  console.log("formattedArtworkImages : ", formattedArtworkImages)
-
   if (isLoading) {
     return <ArtworkSkeleton />
   }
