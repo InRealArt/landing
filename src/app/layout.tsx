@@ -7,6 +7,7 @@ import FAQ from "@/components/common/FAQ/FAQ";
 import LanguageProvider from "@/components/providers/LanguageProvider";
 import Toaster from "@/components/common/Toaster";
 import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from "@/components/captcha/googleCaptchaWrapper";
 
 const inter = Inter({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3W7273P"
             height="0" width="0" style={{display: "none", visibility: "hidden"}}>
