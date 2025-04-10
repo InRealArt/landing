@@ -132,8 +132,8 @@ export default function ArtworkPage() {
 
           <div className="mb-8">
             <p className="text-gray-400 mb-2">{t('artwork.by')} <span className="text-white">{artwork.artistName}</span></p>
-            <p className="text-gray-400 mb-2">{t('artwork.year')}: <span className="text-white">2023</span></p>
-            <p className="text-gray-400 mb-2">{t('artwork.medium')}: <span className="text-white">Digital</span></p>
+            {/* <p className="text-gray-400 mb-2">{t('artwork.year')}: <span className="text-white">2023</span></p>
+            <p className="text-gray-400 mb-2">{t('artwork.medium')}: <span className="text-white">Digital</span></p> */}
             <p className="text-gray-400 mb-2">{t('artwork.dimensions')}: <span className="text-white">{artwork.size?.FR || 'N/A'}</span></p>
           </div>
 
