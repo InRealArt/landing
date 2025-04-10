@@ -9,8 +9,8 @@ import { useLanguageStore } from '@/store/languageStore';
 import SkeletonSlider from './SkeletonSlider';
 
 export default function Team() {
-  const { t } = useLanguageStore();
-  const { members, isLoading, fetchTeamMembers } = useTeamStore();
+  const { t, language } = useLanguageStore();
+  const { members, isLoading, fetchTeamMembers, getTranslatedMembers } = useTeamStore();
   const [key, setKey] = useState(0);
   
   useEffect(() => {
@@ -18,6 +18,14 @@ export default function Team() {
       fetchTeamMembers();
     }
   }, [fetchTeamMembers, members.length]);
+  
+  // Mettre à jour les traductions lorsque la langue change
+  useEffect(() => {
+    if (members.length > 0) {
+      getTranslatedMembers();
+      setKey(prev => prev + 1);
+    }
+  }, [language, members.length, getTranslatedMembers]);
   
   // Adapter le format des membres du store pour qu'il corresponde à ce qu'attend le Slider
   const formattedMembers = members.map(member => ({
