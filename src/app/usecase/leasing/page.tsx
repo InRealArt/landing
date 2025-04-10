@@ -14,8 +14,8 @@ export default function LeasingPage() {
       <Advantages />
       <Benefits />
       <SliderSection />
-      <Expert />
       <Investment />
+      <Expert />
     </main>
   );
 } 

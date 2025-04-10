@@ -5,8 +5,6 @@ import BG from "../../../public/images/presale/intro.png";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from '@/store/languageStore';
-// import PDFen from "../../../public/docs/IRA-2025-VE.pdf";
-// import PDFfr from "../../../public/docs/IRA-2025-VE.pdf";
 
 const Intro = () => {
   const { t, language } = useLanguageStore();

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
-import moneyImage from "../../../../public/images/company-art-1.png";
 import processImage from "../../../../public/images/company-art-2.png";
 
 export default function Possibilities() {
@@ -13,25 +12,25 @@ export default function Possibilities() {
   const sections = [
     {
       id: 'customization',
-      image: moneyImage,
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist11.2.jpg?alt=media&token=19e3071b-b3ca-49a4-b9f3-62a3e20f43b7',
       title: t('companies.possibilities.sections.customization.title'),
       description: t('companies.possibilities.sections.customization.description')
     },
     {
       id: 'impact',
-      image: moneyImage,
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist3.2.jpg?alt=media&token=aafc16cf-d49e-4ec8-93f6-b07f878a79df',
       title: t('companies.possibilities.sections.impact.title'),
       description: t('companies.possibilities.sections.impact.description')
     },
     {
       id: 'art',
-      image: moneyImage,
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist9.1.jpg?alt=media&token=3ddda256-5f2a-4404-aa2b-a5f01d9c716e',
       title: t('companies.possibilities.sections.art.title'),
       description: t('companies.possibilities.sections.art.description')
     },
     {
       id: 'events',
-      image: moneyImage,
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist4.1.jpg?alt=media&token=24959ffd-d81a-4c8c-9095-2b56ae07b6fa',
       title: t('companies.possibilities.sections.events.title'),
       description: t('companies.possibilities.sections.events.description')
     }
@@ -89,11 +88,11 @@ export default function Possibilities() {
           {/* Image */}
           <div className="mb-8">
             <Image
-              src={processImage}
+              src={'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist4.3.jpg?alt=media&token=ef53865d-a675-4d70-88a8-a4b9660e494f'}
               alt="Our Process"
               width={1200}
               height={400}
-              className="w-full h-auto"
+              className="object-cover h-96 w-full"
             />
           </div>
 
