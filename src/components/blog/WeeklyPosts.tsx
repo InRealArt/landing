@@ -8,8 +8,8 @@ import { BlogPost } from '@/types/blog';
 export const createArticle = (id: string, translationKey: string, imageUrl: string, tags: string[], t: any): BlogPost => {
   return {
     id,
-    date: '22 July 2024',
-    readTime: '8 min',
+    date: '10 April 2025',
+    readTime: '4 min',
     title: t(`blog.articles.${translationKey}.title`),
     description: t(`blog.articles.${translationKey}.description`),
     content: {
