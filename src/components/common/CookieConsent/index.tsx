@@ -89,7 +89,7 @@ const CookieConsentBanner = () => {
           {t('cookieConsent.description') || 
             "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies."}
         </p>
-        <button 
+        {/* <button 
           className="text-sm text-purpleColor mt-2 underline w-fit"
           onClick={() => {
             // You can link to your privacy policy here
@@ -97,7 +97,7 @@ const CookieConsentBanner = () => {
           }}
         >
           {t('cookieConsent.learnMore') || "Learn More"}
-        </button>
+        </button> */}
       </div>
     </CookieConsent>
   );
