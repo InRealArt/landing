@@ -698,6 +698,13 @@
     "emailValidationError": "Your email is not valid",
     "emailValidationRequired": "Email required"
   },
+  "cookieConsent": {
+    "title": "Cookie Notice",
+    "description": "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies and our use of Google Analytics.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Privacy Policy"
+  },
   "lending": {
     "hero": {
       "title": "InRealArt Lending New Generation: Innovative Financing for the Art Market",

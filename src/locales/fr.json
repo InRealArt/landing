@@ -691,10 +691,17 @@
   "toaster": {
     "newsletter": {
       "success": "Votre inscription a été effectuée avec succès",
-      "error": "Une erreur est survenue lors de l'inscription"
+      "error": "Une erreur s'est produite lors de l'inscription"
     },
     "emailValidationError": "Votre email n'est pas valide",
     "emailValidationRequired": "Email requis"
+  },
+  "cookieConsent": {
+    "title": "Avis de Cookies",
+    "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation, diffuser des annonces ou du contenu personnalisés et analyser notre trafic. En cliquant sur \"Accepter\", vous consentez à notre utilisation des cookies et à notre utilisation de Google Analytics.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "learnMore": "Politique de Confidentialité"
   },
   "lending": {
     "hero": {

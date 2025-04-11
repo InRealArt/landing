@@ -11,8 +11,7 @@ export default function RoadMap() {
       description: [
         t('roadmap.items.q2_2025.description.0'),
         t('roadmap.items.q2_2025.description.1'),
-        t('roadmap.items.q2_2025.description.2'),
-        t('roadmap.items.q2_2025.description.3')
+        t('roadmap.items.q2_2025.description.2')
       ]
     },
     {

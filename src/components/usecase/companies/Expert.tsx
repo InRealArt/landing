@@ -10,7 +10,7 @@ export default function Expert() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="w-full  py-16">
+    <section id="contact-expert" className="w-full py-16">
       <div className="max-w-90 xl:max-w-screen-xl m-auto relative">
 
         <div className="flex flex-col md:flex-row gap-10 items-center text-center">

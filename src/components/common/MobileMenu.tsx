@@ -62,6 +62,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.marketplace')}
           </Link>
           <Link 
+            href="/token" 
+            className={`${pathname === '/token' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            onClick={onClose}
+          >
+            ICO IRA
+          </Link>
+          <Link 
             href="/usecase" 
             className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
