@@ -7,6 +7,7 @@ export interface PresaleArtworkData {
     price: number | null
     url: string
     artistName: string
+    order: number | null
 }
 
 interface PresaleArtworkState {
@@ -31,7 +32,7 @@ export const usePresaleArtworkStore = create<PresaleArtworkState>((set) => ({
         try {
             // Récupérer les presale artworks via le server action
             const presaleArtworksData = await getPresaleArtworks()
-
+            
             // Stocker les données brutes
             set({ rawArtworks: presaleArtworksData })
 
@@ -42,11 +43,12 @@ export const usePresaleArtworkStore = create<PresaleArtworkState>((set) => ({
                     name: artwork.name,
                     price: artwork.price,
                     url: artwork.imageUrl,
-                    artistName: `${artwork.artist.name} ${artwork.artist.surname}`
+                    artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
+                    order: artwork.order
                 }
             })
 
-            set({ artworks: formattedArtworks, isLoading: false })
+            set({ artworks: formattedArtworks.sort((a, b) => typeof a.order === 'number' && typeof b.order === 'number' ? a.order - b.order : 0), isLoading: false })
         } catch (error) {
             console.error('Erreur lors de la récupération des presale artworks:', error)
             set({

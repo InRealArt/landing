@@ -123,6 +123,7 @@ export default function Possibilities() {
             additionalClassName="bg-purpleColor"
             icon={<ArrowRight />}
             center
+            link="/contact"
           />
         </div>
       </div>

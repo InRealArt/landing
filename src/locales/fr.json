@@ -228,9 +228,9 @@
   "roadmap": {
     "intro": {
       "title": "Les étapes majeures",
-      "subtitle": "L'art s'est ouvert à de nouveaux horizons avec les RWA, et aujourd'hui nous voulons partager ces œuvres avec le monde entier",
+      "subtitle": "L'art s'est ouvert à de nouveaux horizons avec les RWAs, et aujourd'hui nous voulons partager ces œuvres avec le monde entier",
       "buttons": {
-        "marketplace": "Voir la marketplace",
+        "marketplace": "Voir le marketplace",
         "whitepaper": "Lire notre whitepaper"
       }
     },
@@ -1259,5 +1259,15 @@
         "content": "En cas de litige impliquant des parties non françaises, les PARTIES conviennent que le litige sera soumis à la juridiction exclusive des tribunaux français, sauf dans les cas où la règle de compétence internationale est impérative."
       }
     }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Nous serions ravis de vous entendre. Contactez-nous via l'un de ces canaux.",
+    "phone": "Téléphone",
+    "email": "Email",
+    "social": "Réseaux Sociaux",
+    "callNow": "Appeler Maintenant",
+    "sendEmail": "Envoyer un Email",
+    "followUs": "Suivez-Nous"
   }
 }

@@ -1,5 +1,11 @@
 // Google Tag Manager utility functions
 
+// Define the shape of a data layer item for better type safety
+interface DataLayerItem {
+  event?: string;
+  [key: string]: any;
+}
+
 /**
  * Push an event to the GTM dataLayer
  * @param name Event name
@@ -8,10 +14,11 @@
 export const pushEvent = (name: string, params: Record<string, any> = {}) => {
   if (typeof window !== 'undefined') {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+    const dataLayerItem: DataLayerItem = {
       event: name,
       ...params
-    });
+    };
+    window.dataLayer.push(dataLayerItem);
   }
 };
 
@@ -69,11 +76,4 @@ export const trackButtonClick = (buttonName: string, buttonText: string) => {
     button_name: buttonName,
     button_text: buttonText
   });
-};
-
-// Add window type declaration for dataLayer
-declare global {
-  interface Window {
-    dataLayer: Array<Record<string, any>>;
-  }
-} 
+}; 

@@ -2,8 +2,6 @@
 import { useEffect } from 'react'
 import Intro from "@/components/presale/Intro";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
-import Button from "@/components/common/Button";
-import BuyProcess from "@/components/presale/BuyProcess";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 
@@ -23,7 +21,8 @@ export default function Presale() {
   const artworkImages = artworks.map(artwork => ({
     image: { src: artwork.url },
     name: artwork.name,
-    price: artwork.price
+    price: artwork.price,
+    order: artwork.order
   }))
 
   if (isLoading) {
@@ -47,6 +46,9 @@ export default function Presale() {
       </>
     )
   }
+
+  console.log(artworkImages);
+  
 
   return (
     <>

@@ -20,12 +20,7 @@ export default function Hero() {
               <Button 
                 text={t('companies.hero.button')}
                 additionalClassName="bg-purpleColor"
-                action={() => {
-                  document.getElementById('contact-expert')?.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
-                }}
+                link="/contact"
               />
             </div>
           </div>

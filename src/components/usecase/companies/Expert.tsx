@@ -28,6 +28,7 @@ export default function Expert() {
               text={t('companies.expert.button')}
               additionalClassName="bg-purpleColor"
               icon={<ArrowRight />}
+              link="/contact"
             />
           </div>
           <div className="basis-2/5 w-full md:w-auto">

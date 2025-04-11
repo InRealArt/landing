@@ -1502,5 +1502,15 @@
         "content": "Users acknowledge that the Platform may be subject to different laws and regulations in different jurisdictions. Users are responsible for ensuring their compliance with applicable laws and regulations in their jurisdiction."
       }
     }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you. Reach out to us through any of these channels.",
+    "phone": "Phone",
+    "email": "Email",
+    "social": "Social Media",
+    "callNow": "Call Now",
+    "sendEmail": "Send Email",
+    "followUs": "Follow Us"
   }
 }

@@ -159,10 +159,31 @@ const Footer = () => {
 
           </div>
           <ul className="flex flex-col gap-2">
+            <Image 
+              src="/icons/Logo.png" 
+              alt="InRealArt Logo" 
+              width={101} 
+              height={32} 
+              className="mb-4" 
+            />
             <h2 className='font-semibold unbounded mb-2'>{t('footer.contact')}</h2>
             <li>{t('footer.location')}</li>
             <li>{t('footer.email')}</li>
-            <div className="relative w-72 md:w-80 mt-4">
+            <div className="flex space-x-4 my-4">
+              <Link href="https://www.linkedin.com/company/inrealart/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+              </Link>
+              <Link href="https://www.instagram.com/inrealartgallery/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+              </Link>
+              <Link href="https://www.facebook.com/inrealart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+              </Link>
+              <Link href="https://x.com/InRealArt/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+              </Link>
+            </div>
+            <div className="relative w-80 mt-4">
               <input
                 className="w-full bg-transparent border border-white bricolage-grotesque rounded-3xl font-semibold border-1 py-6 px-4 pr-16 outline-0"
                 type="text"
