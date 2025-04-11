@@ -93,7 +93,7 @@ const CookieConsentBanner = () => {
           className="text-sm text-purpleColor mt-2 underline w-fit"
           onClick={() => {
             // You can link to your privacy policy here
-            window.open('/privacy-policy', '_blank');
+            window.open('https://policies.google.com/privacy', '_blank');
           }}
         >
           {t('cookieConsent.learnMore') || "Learn More"}
