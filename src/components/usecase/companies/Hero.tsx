@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Button from "@/components/common/Button";
-import marketplaceImage from "../../../../public/images/marketplace.png";
+import marketplaceImage from "../../../../public/images/marketplace_dark.png";
 import { useLanguageStore } from '@/store/languageStore';
 
 export default function Hero() {
