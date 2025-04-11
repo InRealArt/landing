@@ -10,6 +10,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from "@/components/captcha/googleCaptchaWrapper";
 import CookieConsentBanner from "@/components/common/CookieConsent";
+import ogImage from './opengraph-image.png'
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,8 +18,40 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "InRealArt",
-  description: "InRealArt Description",
+  title: "In Real Art",
+  description: "Landing page In Real Art, RWA: Elevating Art, Empowering Change",
+  icons: {
+    icon: '/icons/favicon-32x32.png',
+    shortcut: '/icons/favicon-16x16.png',
+    apple: '/icons/apple-touch-icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL("https://inrealart.com/"),
+  openGraph: {
+    title: 'In Real Art',
+    description: 'RWA: Elevating Art, Empowering Change',
+    url: 'https://inrealart.com/',
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height
+      },
+    ]
+  },
 };
 
 export default function RootLayout({
