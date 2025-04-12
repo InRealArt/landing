@@ -67,7 +67,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        <GoogleAnalytics gaId="G-PTSNFNBWRJ" />
+        <GoogleAnalytics gaId="G-LRX6096NCS" />
         {/* <noscript>
           <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-M3W7273P"}`}
             height="0" width="0" style={{display: "none", visibility: "hidden"}}>
