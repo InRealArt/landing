@@ -47,7 +47,7 @@ export default function TokenAllocation() {
         </div>
       </div>
       
-      <div className="flex justify-center mb-10 bricolage-grotesque">
+      <div className="flex justify-center mb-10 bricolage-grotesque text-lg font-bold">
         {/* <div className="bg-cardBackground rounded-xl p-8 max-w-3xl mx-auto"> */}
           <p className="mb-6 text-gray-300">
             $IRA {t('presale.token.allocation.maxSupply')} : 100 000 000
