@@ -395,6 +395,7 @@
           "distribution": "Distribution",
           "funding": "Allocation des fonds"
         },
+        "maxSupply": "Offre maximale",
         "distribution": {
           "funding": "Financement",
           "team/founders": "Équipe/Fondateurs",

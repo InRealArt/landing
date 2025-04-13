@@ -397,6 +397,7 @@
           "distribution": "Distribution",
           "funding": "Funding allocation"
         },
+        "maxSupply": "Max supply",
         "distribution": {
           "funding": "Funding",
           "team/founders": "Team/Founders",

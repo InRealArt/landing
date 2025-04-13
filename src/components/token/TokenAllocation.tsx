@@ -46,7 +46,14 @@ export default function TokenAllocation() {
           </button>
         </div>
       </div>
-
+      
+      <div className="flex justify-center mb-10 bricolage-grotesque">
+        {/* <div className="bg-cardBackground rounded-xl p-8 max-w-3xl mx-auto"> */}
+          <p className="mb-6 text-gray-300">
+            $IRA {t('presale.token.allocation.maxSupply')} : 100 000 000
+          </p>
+        {/* </div> */}
+      </div>
       {/* Chart or Text Content based on active tab */}
       {activeTab === 'distribution' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
