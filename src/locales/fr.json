@@ -122,7 +122,7 @@
           "label": "Artistes sélectionnés dans notre catalogue global"
         },
         "works": {
-          "number": "< 100",
+          "number": "100+",
           "label": "Oeuvres soigneusement choisies pour embellir votre collection"
         },
         "transactions": {
@@ -131,7 +131,7 @@
         },
         "ranking": {
           "number": "90%",
-          "label": "De nos oeuvres peuvent être vendues avec les droits liés, physique et digital inclus"
+          "label": "De nos oeuvres peuvent être vendues avec les droits d'auteur, physique et digital inclus"
         }
       }
     }
