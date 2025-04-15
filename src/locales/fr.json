@@ -64,19 +64,19 @@
     },
     "howItWorks": {
       "title": "Comment ça fonctionne ?",
-      "subtitle": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exception",
+      "subtitle": "Marketplace connectée à des galeries physiques, à des collectionneurs et proposant un panel d'oeuvres et d'artistes d'exception",
       "items": {
         "bridge": {
           "title": "Pont réel digital",
-          "description": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exeption"
+          "description": "Marketplace connectée à des galeries physiques, à des collectionneurs et proposant un panel d'oeuvres et d'artistes d'exception"
         },
         "token": {
           "title": "Un token unique",
-          "description": "Éco-systeme permettant la selection et la création de galeries communautaires interconnectées à notre marketplace et notre dao"
+          "description": "Écosystème permettant la sélection et la création de galeries communautaires interconnectées à notre marketplace et notre DAO"
         },
         "art": {
           "title": "Optimisation financière",
-          "description": "Marketplace connectée à des galeries physiques, collectionneurs et proposant un pannel d'oeuvres et d'artistes d'exeption"
+          "description": "Marketplace connectée à des galeries physiques, à des collectionneurs et proposant un panel d'oeuvres et d'artistes d'exception"
         }
       }
     },
@@ -150,7 +150,7 @@
         },
         "exclusivity": {
           "title": "Exclusivité et Confiance",
-          "description": "La marketplace n'héberge que diverses œuvres vérifiées, chaque achat est une assurance de garantie authentiquement pour des œuvres de dernier cri."
+          "description": "La marketplace n'héberge que diverses œuvres vérifiées, chaque achat est une assurance de garantie authentique pour des œuvres de dernier cri."
         },
         "resale": {
           "title": "Possibilité de Revente Sécurisée",
@@ -158,7 +158,7 @@
         },
         "copyright": {
           "title": "Achat de droits d'auteurs",
-          "description": "Possibilité d'achat de une part d'œuvre d'exception pour davantage de contrôle, avec une liquidité intégrée lors d'une acquisition future."
+          "description": "Possibilité d'achat d'une part d'œuvre d'exception pour davantage de contrôle, avec une liquidité intégrée lors d'une acquisition future."
         }
       }
     },
@@ -350,7 +350,7 @@
         "title": "Pourquoi choisir notre token",
         "benefits": {
           "hardDrawn": {
-            "title": "Utilité d'art",
+            "title": "Utilité liée à l'art",
             "description": "Utilisez $IRA pour acheter/vendre NFTs & art physique avec des frais réduits et des prix exclusifs. Un système de notation intégré identifie les artistes de haut niveau et les vendeurs fiables."
           },
           "exceptional": {
@@ -400,7 +400,7 @@
           "funding": "Financement",
           "team/founders": "Équipe/Fondateurs",
           "treasury": "Trésorerie",
-          "rewards": "Récompenses",
+          "rewards": "Marketing",
           "liquidity": "Liquidité",
           "airdrop": "Airdrop"
         },
