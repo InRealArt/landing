@@ -90,7 +90,7 @@
         "rare": {
           "title": "Une Marketplace web2 et web 3 enfin accessible",
           "label": "Vous avez la possibilité d'acheter vos oeuvres d'art en format physique, digital et fractionné",
-          "description": "Ici, chaque œuvre, qu'elle soit physique ou numérique, est soigneusement sélectionnée pour son caractère unique. Pour les collectionneurs aguerris comme pour les novices, la possibilité d'acquérir des œuvres aussi rares est un privilège qui permet de se démarquer tout en enrichissant une collection de manière significative",
+          "description": "Ici, chaque œuvre — physique ou numérique — est rigoureusement choisie pour son unicité et sa valeur réelle. Pour les collectionneurs exigeants comme pour les nouveaux passionnés, c’est l’opportunité rare d’acquérir des pièces qui font la différence, et qui donnent à votre collection une profondeur et un prestige authentiques.",
           "buttons": {
             "artworks": "Oeuvres en ligne",
             "getartworks": "Obtenir notre catalogue"
@@ -99,7 +99,7 @@
         "marketplace": {
           "title": "Blockchain, sécurité et droit d'auteur ",
           "label": "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d'auteur fractionnés.",
-          "description": "Grâce à l'utilisation de la blockchain, nous garantissons la transparence et la sécurité des transactions, tout en permettant une traçabilité claire de chaque pièce. Cette combinaison novatrice offre aux collectionneurs un accès inédit à des œuvres diversifiées et exclusives, tout en offrant la possibilité d'acquérir des droits d'auteur et de participer à un marché artistique de pointe",
+          "description": "Grâce à la technologie blockchain, chaque œuvre est authentifiée, traçable et sécurisée de bout en bout. Cette approche repousse les limites du marché traditionnel : vous accédez à des pièces exclusives, avec la possibilité d’en détenir une part, de revendre intelligemment, et de participer à un écosystème artistique aussi transparent qu’avant-gardiste.",
           "buttons": {
             "marketplace": "Notre Marketplace"
           }

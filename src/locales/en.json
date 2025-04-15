@@ -90,7 +90,7 @@
         "rare": {
           "title": "A web2 and web3 Marketplace finally accessible",
           "label": "You have the possibility to buy your artworks in physical, digital and fractional format",
-          "description": "Here, each work, whether physical or digital, is carefully selected for its unique character. For seasoned collectors as well as novices, the possibility of acquiring such rare works is a privilege that allows one to stand out while significantly enriching a collection",
+          "description": "Here, each work - physical or digital - is rigorously selected for its uniqueness and true value. For discerning collectors and new enthusiasts alike, this is a rare opportunity to acquire pieces that make a difference, and give your collection genuine depth and prestige.",
           "buttons": {
             "artworks": "Online artworks",
             "getartworks": "Get our catalog"
@@ -99,7 +99,7 @@
         "marketplace": {
           "title": "Blockchain, security and copyright",
           "label": "Our marketplace stands out for its uniqueness and innovation, seamlessly integrating physical works, NFTs, and fractionalized copyrights.",
-          "description": "Through the use of blockchain, we guarantee transparency and security of transactions, while allowing clear traceability of each piece. This innovative combination offers collectors unprecedented access to diverse and exclusive works, while providing the possibility of acquiring copyrights and participating in a cutting-edge art market",
+          "description": "Thanks to blockchain technology, each work is authenticated, traceable and secure from end to end. This approach pushes back the boundaries of the traditional market: you gain access to exclusive pieces, with the possibility of owning a share, reselling intelligently, and participating in an artistic ecosystem as transparent as it is avant-garde.",
           "buttons": {
             "marketplace": "Our Marketplace"
           }
