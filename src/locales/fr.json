@@ -238,7 +238,7 @@
       "q2_2025": {
         "title": "Q2 2025",
         "description": {
-          "0": "Shopify Payment Integration : Finalisation de l'intégration de Shopify pour permettre des paiements et transactions fluides au sein de la marketplace.",
+          "0": "CDP SDK : Intégration du SDK de Coinbase pour permettre des paiements et transactions fluides au sein de la marketplace.",
           "1": "Conformité Réglementaire : Assurer la conformité juridique, notamment en termes de KYC/AML et de régulation des actifs tokenisés. Commencer à travailler avec des experts pour les aspects légaux.",
           "2": "Audit de Sécurité (Solid Proof) : Audit complet du smart contract et de la plateforme pour garantir la sécurité et la robustesse du code."
         }
