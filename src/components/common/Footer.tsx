@@ -65,19 +65,15 @@ const Footer = () => {
 
       if (executeRecaptcha) {
         try {
-          console.log("Tentative d'exécution de reCAPTCHA...")
           recaptchaToken = await executeRecaptcha('newsletter_subscribe')
-          console.log('✅ Token reCAPTCHA obtenu:', recaptchaToken.substring(0, 15) + '...')
         } catch (recaptchaError) {
           console.error('❌ Erreur reCAPTCHA:', recaptchaError)
           
           // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
           if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
             try {
-              console.log("Tentative avec l'API globale grecaptcha...")
               const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
               recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'newsletter_subscribe' });
-              console.log('✅ Token reCAPTCHA obtenu via API globale:', recaptchaToken.substring(0, 15) + '...')
             } catch (fallbackError) {
               console.error('❌ Échec du plan B avec l\'API globale:', fallbackError)
             }
@@ -86,9 +82,6 @@ const Footer = () => {
       } else {
         console.warn('❌ executeRecaptcha non disponible - reCAPTCHA ne fonctionne pas correctement')
       }
-
-      // Continuer même sans token reCAPTCHA pour tester le formulaire
-      console.log("Appel API avec token:", recaptchaToken ? "présent" : "absent")
 
       // Appel API pour enregistrer l'email
       const response = await fetch('/api/newsletter/subscribe', {

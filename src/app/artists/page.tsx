@@ -34,8 +34,6 @@ export default function Artists() {
   if (artists.length === 0) {
     return <div className="mt-headerSize text-center">{t('team.noMembers')}</div>;
   }
-
-  console.log(getCurrentArtistArtworks());
   
 
   return (

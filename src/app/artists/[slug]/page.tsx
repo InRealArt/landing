@@ -27,9 +27,7 @@ export default function ArtistPage() {
       
       if (foundArtist && foundArtist.artistId) {
         setIsLoadingArtworks(true)
-        console.log('foundArtist', foundArtist);
         const artworksByArtistId = await getArtworksByArtistId(Number(foundArtist.artistId))
-        console.log('artworks', artworksByArtistId);
         setArtistArtworks(artworksByArtistId)
         setIsLoadingArtworks(false)
       }

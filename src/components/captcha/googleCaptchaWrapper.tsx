@@ -12,17 +12,14 @@ export default function GoogleCaptchaWrapper({
 
   // Vérifier l'initialisation de reCAPTCHA
   useEffect(() => {
-    console.log("GoogleCaptchaWrapper: Initialisation avec la clé:", recaptchaKey);
     
     // Fonction pour charger manuellement le script si nécessaire
     const loadReCaptchaScript = () => {
       // Vérifier si le script est déjà présent
       if (document.querySelector('script[src*="recaptcha/api.js"]')) {
-        console.log("Script reCAPTCHA déjà présent dans le DOM");
         return;
       }
 
-      console.log("Chargement manuel du script reCAPTCHA");
       const script = document.createElement('script');
       script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`;
       script.async = true;
@@ -36,10 +33,8 @@ export default function GoogleCaptchaWrapper({
     setTimeout(() => {
       if (typeof window !== 'undefined') {
         if (window.grecaptcha) {
-          console.log("✅ reCAPTCHA initialisé avec succès");
           try {
             window.grecaptcha.ready(() => {
-              console.log("✅ reCAPTCHA est prêt à être utilisé");
               // Test de validation de la clé
               window.grecaptcha.execute(recaptchaKey, { action: 'test' })
                 .then(token => console.log("✅ Clé valide! Token test généré"))

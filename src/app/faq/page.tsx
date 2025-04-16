@@ -11,10 +11,7 @@ export default function Faq() {
   const { t, language } = useLanguageStore();
   const { faqItems, faqTabs, isLoading, hasError, fetchDetailedFaqs } = useDetailedFaqStore();
   const [activeTab, setActiveTab] = useState("");
-  
-  console.log('faqItems', faqItems);
-  console.log('faqTabs', faqTabs);
-  
+    
   useEffect(() => {
     // Récupérer les FAQ traduites dans la langue actuelle
     fetchDetailedFaqs(language);

@@ -66,10 +66,6 @@ const Slider = ({ context, items, isReverse, additionnalClassName, onItemClick }
     return <div className="h-40"></div>;
   }
 
-  // Log pour déboguer
-  console.log(`Slider ${context} items:`, items);
-  console.log(`Slider modules:`, [Autoplay, Pagination]);
-
   return (
     <section className={`${additionnalClassName} mt-12`}>
       <Swiper

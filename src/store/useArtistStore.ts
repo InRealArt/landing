@@ -55,7 +55,6 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         try {
             // Récupérer les artistes via le server action
             const artistsData = await getArtists()
-            console.log('artistsData', artistsData)
             // Stocker les données brutes
             set({ rawArtists: artistsData })
 

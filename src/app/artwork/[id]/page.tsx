@@ -36,10 +36,8 @@ export default function ArtworkPage() {
         // Get the artwork by slug
         const slug = params.id as string
         const foundArtwork = getArtworkBySlug(slug)
-        console.log(foundArtwork);
 
         if (foundArtwork) {
-          console.log('artwork', artwork);
           setArtwork(foundArtwork)
         }
       } catch (error) {
@@ -119,9 +117,7 @@ export default function ArtworkPage() {
 
       if (executeRecaptcha) {
         try {
-          console.log("Tentative d'exécution de reCAPTCHA...")
           recaptchaToken = await executeRecaptcha('artwork_presale')
-          console.log('✅ Token reCAPTCHA obtenu:', recaptchaToken.substring(0, 15) + '...')
           
           // Ajouter le token reCAPTCHA au formData
           formData.append('recaptchaToken', recaptchaToken)
@@ -131,10 +127,8 @@ export default function ArtworkPage() {
           // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
           if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
             try {
-              console.log("Tentative avec l'API globale grecaptcha...")
               const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""; // Fallback en cas de variable non définie
               recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'artwork_presale' });
-              console.log('✅ Token reCAPTCHA obtenu via API globale:', recaptchaToken.substring(0, 15) + '...')
               
               // Ajouter le token reCAPTCHA au formData
               formData.append('recaptchaToken', recaptchaToken)
@@ -148,7 +142,6 @@ export default function ArtworkPage() {
       }
       
       const result = await submitPresaleEmail(formData, artworkName)
-      console.log(result);
 
       if (result.success) {
         toast.success(t('artwork.emailSuccess'));

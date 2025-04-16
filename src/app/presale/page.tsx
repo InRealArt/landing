@@ -46,8 +46,6 @@ export default function Presale() {
       </>
     )
   }
-
-  console.log(artworkImages);
   
 
   return (
