@@ -46,7 +46,7 @@ export default function Team() {
     <section className="mt-36 max-w-screen-2xl m-auto">
       <div className="max-w-90 xl:max-w-screen-xl md:flex justify-between w-full m-auto items-center">
         <h1 className="bricolage-grotesque text-4xl md:text-5xl">{t('home.team.title')}</h1>
-        <Button text={t('buttons.team')} link="/team" additionalClassName="bg-purpleColor mr-6 mt-6 md:mt-0" icon={<ArrowRight />} />
+        <Button text={t('buttons.team')} link="/team" additionalClassName="bg-purpleColor mt-6 md:mt-0" icon={<ArrowRight />} />
       </div>
       
       <Suspense fallback={<SkeletonSlider context="team" additionnalClassName="relative bg-gradient" />}>
