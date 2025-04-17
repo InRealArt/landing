@@ -9,6 +9,7 @@ import { submitPresaleEmail } from '@/actions/emailActions'
 import { toast } from 'sonner'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
+import DOMPurify from "dompurify";
 
 export default function ArtworkPage() {
   const params = useParams()
@@ -184,7 +185,7 @@ export default function ArtworkPage() {
 
           <div className="mb-8">
             <h2 className="text-xl font-semibold text-white mb-4">{t('artwork.description')}</h2>
-            <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: artwork.description?.FR || 'No description available' }} />
+            <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(artwork.description?.FR) || 'No description available' }} />
           </div>
 
           <div className="mb-8">

@@ -5,6 +5,7 @@ import buyImage from "../../../public/images/presale/buy-1.png";
 import { useState } from "react";
 import Button from "../common/Button";
 import { useLanguageStore } from '@/store/languageStore';
+import DOMPurify from "dompurify";
 
 interface BuyImage {
   image: typeof buyImage;
@@ -64,9 +65,9 @@ const BuyProcess = () => {
         <div className="m-auto w-full h-auto relative ">
           <img src={item.image.src} alt="buy" className="w-full h-auto" />
           <h1 className="unbounded absolute text-[8px] leading-[0.9] lg:text-xl top-0 left-0">{t('presale.buyProcess.step')} {item.step}</h1>
-          <h3 className="unbounded absolute bottom-0 left-0 text-xs md:text-2xl lg:text-3xl xl:text-5xl max-w-65" dangerouslySetInnerHTML={{ __html: item.name }} />
+          <h3 className="unbounded absolute bottom-0 left-0 text-xs md:text-2xl lg:text-3xl xl:text-5xl max-w-65" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.name)  }} />
           <div className="unbounded absolute bottom-2 right-2 w-30 bg-white p-4 rounded-lg hidden lg:block">
-            <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: item.description }} />
+            <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.description)  }} />
             <div className="flex justify-between mt-6">
               <Button action={() => handleSlide()} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.previous')} />
               <Button action={() => handleSlide(true)} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.next')} />
@@ -74,7 +75,7 @@ const BuyProcess = () => {
           </div>
         </div>
         <div className="unbounded w-full bg-white p-4 rounded-lg lg:hidden mt-10">
-          <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: item.description }} />
+          <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.description) }} />
           <div className="flex justify-between mt-6">
             <Button action={() => handleSlide()} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.previous')} />
             <Button action={() => handleSlide(true)} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.next')} />

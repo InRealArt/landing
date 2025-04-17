@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useLanguageStore } from '@/store/languageStore';
 import { BlogPostDetail } from '@/types/blog';
 import Button from '../common/Button';
+import DOMPurify from "dompurify";
 
 interface PostDetailProps {
   post: BlogPostDetail;
@@ -65,7 +66,7 @@ export default function PostDetail({ post }: PostDetailProps) {
       {/* Post content */}
       <div
         className="prose prose-invert max-w-none inter prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4 prose-p:mb-6 prose-p:leading-relaxed prose-p:text-lg"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
       />
     </div>
   );
