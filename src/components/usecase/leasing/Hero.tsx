@@ -4,10 +4,21 @@ import Image from "next/image";
 import Button from "@/components/common/Button";
 import marketplaceImage from "../../../../public/images/marketplace_dark.png";
 import { useLanguageStore } from '@/store/languageStore';
-import DOMPurify from "dompurify";
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const { t } = useLanguageStore();
+  const [sanitizedTitle, setSanitizedTitle] = useState('');
+  
+  useEffect(() => {
+    // Importer DOMPurify uniquement côté client
+    const importDOMPurify = async () => {
+      const DOMPurify = (await import('dompurify')).default;
+      setSanitizedTitle(DOMPurify.sanitize(t('leasing.hero.title')));
+    };
+    
+    importDOMPurify();
+  }, [t]);
 
   return (
     <section className="relative bg-cover m-auto bg-no-repeat bg-bottom min-h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${marketplaceImage.src}')` }}>
@@ -16,7 +27,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">
-            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t('leasing.hero.title')) }} />
+            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
             <div className="mt-auto">
               <Button
                 text={t('leasing.hero.button')}

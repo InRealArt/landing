@@ -9,7 +9,6 @@ import { submitPresaleEmail } from '@/actions/emailActions'
 import { toast } from 'sonner'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
-import DOMPurify from "dompurify";
 
 export default function ArtworkPage() {
   const params = useParams()
@@ -20,6 +19,7 @@ export default function ArtworkPage() {
   const [mounted, setMounted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { executeRecaptcha } = useGoogleReCaptcha()
+  const [sanitizedDescription, setSanitizedDescription] = useState('');
 
   // Use mounted state to prevent hydration mismatch
   useEffect(() => {
@@ -40,6 +40,15 @@ export default function ArtworkPage() {
 
         if (foundArtwork) {
           setArtwork(foundArtwork)
+          
+          // Sanitize description when artwork is loaded
+          if (foundArtwork.description?.FR) {
+            const importDOMPurify = async () => {
+              const DOMPurify = (await import('dompurify')).default;
+              setSanitizedDescription(DOMPurify.sanitize(foundArtwork.description?.FR));
+            };
+            importDOMPurify();
+          }
         }
       } catch (error) {
         console.error('Error loading artwork:', error)
@@ -185,7 +194,7 @@ export default function ArtworkPage() {
 
           <div className="mb-8">
             <h2 className="text-xl font-semibold text-white mb-4">{t('artwork.description')}</h2>
-            <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(artwork.description?.FR) || 'No description available' }} />
+            <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
           </div>
 
           <div className="mb-8">

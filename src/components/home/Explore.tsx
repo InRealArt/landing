@@ -4,10 +4,21 @@ import Image from "next/image";
 import Button from "../common/Button";
 import { ArrowRight } from 'lucide-react';
 import { useLanguageStore } from '@/store/languageStore';
-import DOMPurify from "dompurify";
+import { useState, useEffect } from 'react';
 
 export default function Explore() {
   const { t } = useLanguageStore();
+  const [sanitizedSubtitle, setSanitizedSubtitle] = useState('');
+
+  useEffect(() => {
+    // Importer DOMPurify uniquement côté client
+    const importDOMPurify = async () => {
+      const DOMPurify = (await import('dompurify')).default;
+      setSanitizedSubtitle(DOMPurify.sanitize(t('home.explore.subtitle')));
+    };
+    
+    importDOMPurify();
+  }, [t]);
 
   const items = [
     { 
@@ -59,7 +70,7 @@ export default function Explore() {
           <Image src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width="33" height="33" />
           {t('home.explore.title')}
         </h1>
-        <label className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t('home.explore.subtitle')) }} />
+        <label className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug" dangerouslySetInnerHTML={{ __html: sanitizedSubtitle }} />
       </div>
       <Image className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/explore.png`} alt='IRA-IMAGE' width="1440" height="450" />
 

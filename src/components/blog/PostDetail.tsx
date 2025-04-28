@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useLanguageStore } from '@/store/languageStore';
 import { BlogPostDetail } from '@/types/blog';
 import Button from '../common/Button';
-import DOMPurify from "dompurify";
+import { useState, useEffect } from 'react';
 
 interface PostDetailProps {
   post: BlogPostDetail;
@@ -14,6 +14,17 @@ interface PostDetailProps {
 
 export default function PostDetail({ post }: PostDetailProps) {
   const { t } = useLanguageStore();
+  const [sanitizedContent, setSanitizedContent] = useState('');
+
+  useEffect(() => {
+    // Importer DOMPurify uniquement côté client
+    const importDOMPurify = async () => {
+      const DOMPurify = (await import('dompurify')).default;
+      setSanitizedContent(DOMPurify.sanitize(post.content));
+    };
+    
+    importDOMPurify();
+  }, [post.content]);
 
   return (
     <div className="max-w-screen-lg mx-auto p-8">
@@ -66,7 +77,7 @@ export default function PostDetail({ post }: PostDetailProps) {
       {/* Post content */}
       <div
         className="prose prose-invert max-w-none inter prose-headings:font-bold prose-headings:mt-8 prose-headings:mb-4 prose-p:mb-6 prose-p:leading-relaxed prose-p:text-lg"
-        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       />
     </div>
   );
