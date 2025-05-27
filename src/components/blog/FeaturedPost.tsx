@@ -1,14 +1,23 @@
 'use client'
 
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import { useSeoPostStore } from '@/store/useSeoPostStore'
+import { getCategoriesWithTranslations } from '@/actions/seoPostActions'
+
+interface TranslatedCategory {
+  id: number
+  name: string
+  color: string | null
+  url: string | null
+}
 
 export default function FeaturedPost() {
   const { language, t } = useLanguageStore()
   const { featuredPost, isLoadingFeatured, featuredError, fetchFeaturedPost, currentLanguage } = useSeoPostStore()
+  const [translatedCategories, setTranslatedCategories] = useState<TranslatedCategory[]>([])
 
   // Effet pour charger le post initial ou lors du changement de langue
   useEffect(() => {
@@ -18,6 +27,28 @@ export default function FeaturedPost() {
       fetchFeaturedPost(language)
     }
   }, [language, fetchFeaturedPost])
+
+  // Effet pour charger les traductions des catégories
+  useEffect(() => {
+    const fetchCategoryTranslations = async () => {
+      if (language) {
+        try {
+          const categories = await getCategoriesWithTranslations(language)
+          setTranslatedCategories(categories)
+        } catch (error) {
+          console.error('Erreur lors du chargement des traductions de catégories:', error)
+        }
+      }
+    }
+
+    fetchCategoryTranslations()
+  }, [language])
+
+  // Fonction pour obtenir le nom traduit de la catégorie
+  const getTranslatedCategoryName = useCallback((categoryId: number, defaultName: string) => {
+    const translatedCategory = translatedCategories.find(cat => cat.id === categoryId)
+    return translatedCategory?.name || defaultName
+  }, [translatedCategories])
 
   // Fonction pour formater la date
   const formatDate = useCallback((date: Date) => {
@@ -110,8 +141,23 @@ export default function FeaturedPost() {
 
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="p-8 flex flex-col justify-center rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-300"
+            className="relative p-8 flex flex-col justify-center rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-300"
           >
+            {/* Catégorie en haut à droite */}
+            {featuredPost.category && (
+              <div className="absolute top-4 right-4">
+                <span 
+                  className="px-3 py-1 rounded-full text-xs font-medium"
+                  style={{ 
+                    backgroundColor: featuredPost.category.color || '#f3f4f6',
+                    color: featuredPost.category.color ? '#ffffff' : '#374151'
+                  }}
+                >
+                  {getTranslatedCategoryName(featuredPost.category.id, featuredPost.category.name)}
+                </span>
+              </div>
+            )}
+
             <div className="flex items-center gap-2 text-sm mb-3 text-gray-600">
               <span>{formatDate(featuredPost.createdAt)}</span>
               <span>•</span>
@@ -145,21 +191,10 @@ export default function FeaturedPost() {
               ))}
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center">
               <span className="text-sm text-gray-600">
                 {t('blog.by')} {featuredPost.author}
               </span>
-              {featuredPost.category && (
-                <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ 
-                    backgroundColor: featuredPost.category.color || '#f3f4f6',
-                    color: featuredPost.category.color ? '#ffffff' : '#374151'
-                  }}
-                >
-                  {featuredPost.category.name}
-                </span>
-              )}
             </div>
           </Link>
         </div>

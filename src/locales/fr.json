@@ -795,6 +795,13 @@
     "featuredPost": "Article en vedette",
     "weeklyMostReadPosts": "Plus Lus de la Semaine",
     "othersPosts": "Autres Articles",
+    "categories": {
+      "title": "Explorez nos catégories de blog"
+    },
+    "carousel": {
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
     "readMore": "Lire Plus",
     "noFeaturedPost": "Aucun article en vedette disponible",
     "noPosts": "Aucun article disponible",

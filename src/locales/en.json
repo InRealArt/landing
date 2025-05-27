@@ -797,6 +797,13 @@
     "featuredPost": "Featured Post",
     "weeklyMostReadPosts": "Weekly Most Read",
     "othersPosts": "Others Posts",
+    "categories": {
+      "title": "Explore our blog categories"
+    },
+    "carousel": {
+      "previous": "Previous",
+      "next": "Next"
+    },
     "readMore": "Read More",
     "noFeaturedPost": "No featured post available",
     "noPosts": "No posts available",

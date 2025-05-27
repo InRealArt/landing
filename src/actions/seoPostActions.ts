@@ -265,4 +265,269 @@ export async function findTranslatedPost(currentPost: SeoPost, targetLanguageCod
         console.error('Erreur lors de la recherche du post traduit:', error)
         return null
     }
+}
+
+export async function getAllCategories(): Promise<{ id: number, name: string, color: string | null }[]> {
+    try {
+        const categories = await prisma.seoCategory.findMany({
+            select: {
+                id: true,
+                name: true,
+                color: true
+            },
+            orderBy: {
+                name: 'asc'
+            }
+        })
+
+        return categories
+    } catch (error) {
+        console.error('Erreur lors de la récupération des catégories:', error)
+        return []
+    }
+}
+
+export async function getCategoriesWithTranslations(languageCode: string = 'fr'): Promise<{ id: number, name: string, color: string | null, url: string | null }[]> {
+    try {
+        // 1. Récupérer l'ID de la langue
+        const language = await prisma.language.findUnique({
+            where: {
+                code: languageCode
+            }
+        })
+
+        if (!language) {
+            console.error(`Langue avec code ${languageCode} non trouvée`)
+            return []
+        }
+
+        // 2. Récupérer toutes les catégories
+        const categories = await prisma.seoCategory.findMany({
+            select: {
+                id: true,
+                name: true,
+                color: true,
+                url: true
+            },
+            orderBy: {
+                name: 'asc'
+            }
+        })
+
+        // 3. Récupérer les traductions des catégories pour cette langue
+        const categoryTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'SeoCategory',
+                languageId: language.id,
+                field: 'name'
+            }
+        })
+
+        // 4. Organiser les traductions par ID de catégorie
+        const translationsMap = new Map()
+        categoryTranslations.forEach(t => {
+            translationsMap.set(t.entityId, t.value)
+        })
+
+        // 5. Construire le tableau des catégories avec les noms traduits
+        const categoriesWithTranslations = categories.map(category => ({
+            id: category.id,
+            name: translationsMap.get(category.id) || category.name, // Utiliser la traduction si disponible, sinon le nom par défaut
+            color: category.color,
+            url: category.url
+        }))
+
+        return categoriesWithTranslations
+    } catch (error) {
+        console.error('Erreur lors de la récupération des catégories avec traductions:', error)
+        return []
+    }
+}
+
+export async function getCategoryBySlug(slug: string): Promise<{ id: number, name: string, color: string | null, url: string | null } | null> {
+    try {
+        const category = await prisma.seoCategory.findFirst({
+            where: {
+                url: slug
+            },
+            select: {
+                id: true,
+                name: true,
+                color: true,
+                url: true
+            }
+        })
+
+        return category
+    } catch (error) {
+        console.error('Erreur lors de la récupération de la catégorie par slug:', error)
+        return null
+    }
+}
+
+export async function getPostsByCategorySlug(
+    categorySlug: string,
+    languageId: number,
+    limit: number = 10,
+    offset: number = 0
+): Promise<{ posts: SeoPost[], total: number, category: { id: number, name: string, color: string | null, url: string | null } | null }> {
+    try {
+        // Récupérer la catégorie par son slug
+        const category = await getCategoryBySlug(categorySlug)
+
+        if (!category) {
+            return {
+                posts: [],
+                total: 0,
+                category: null
+            }
+        }
+
+        // Récupérer la traduction de la catégorie pour cette langue
+        const categoryTranslation = await prisma.translation.findFirst({
+            where: {
+                entityType: 'SeoCategory',
+                entityId: category.id,
+                languageId: languageId,
+                field: 'name'
+            }
+        })
+
+        // Utiliser la traduction si disponible, sinon le nom par défaut
+        const translatedCategoryName = categoryTranslation?.value || category.name
+
+        const whereClause = {
+            status: 'PUBLISHED' as const,
+            languageId: languageId,
+            categoryId: category.id
+        }
+
+        const [posts, total] = await Promise.all([
+            prisma.seoPost.findMany({
+                where: whereClause,
+                include: {
+                    category: {
+                        select: {
+                            id: true,
+                            name: true,
+                            color: true,
+                            url: true
+                        }
+                    }
+                },
+                orderBy: {
+                    updatedAt: 'desc'
+                },
+                take: limit,
+                skip: offset
+            }),
+            prisma.seoPost.count({
+                where: whereClause
+            })
+        ])
+
+        return {
+            posts: posts as SeoPost[],
+            total,
+            category: {
+                id: category.id,
+                name: translatedCategoryName,
+                color: category.color,
+                url: category.url
+            }
+        }
+    } catch (error) {
+        console.error('Erreur lors de la récupération des posts par slug de catégorie:', error)
+        return {
+            posts: [],
+            total: 0,
+            category: null
+        }
+    }
+}
+
+export async function getPostsByCategory(
+    categoryId: number,
+    languageId: number,
+    limit: number = 10,
+    offset: number = 0
+): Promise<{ posts: SeoPost[], total: number, category: { id: number, name: string, color: string | null } | null }> {
+    try {
+        // Récupérer les informations de la catégorie
+        const category = await prisma.seoCategory.findUnique({
+            where: { id: categoryId },
+            select: {
+                id: true,
+                name: true,
+                color: true
+            }
+        })
+
+        if (!category) {
+            return {
+                posts: [],
+                total: 0,
+                category: null
+            }
+        }
+
+        // Récupérer la traduction de la catégorie pour cette langue
+        const categoryTranslation = await prisma.translation.findFirst({
+            where: {
+                entityType: 'SeoCategory',
+                entityId: categoryId,
+                languageId: languageId,
+                field: 'name'
+            }
+        })
+
+        // Utiliser la traduction si disponible, sinon le nom par défaut
+        const translatedCategoryName = categoryTranslation?.value || category.name
+
+        const whereClause = {
+            status: 'PUBLISHED' as const,
+            languageId: languageId,
+            categoryId: categoryId
+        }
+
+        const [posts, total] = await Promise.all([
+            prisma.seoPost.findMany({
+                where: whereClause,
+                include: {
+                    category: {
+                        select: {
+                            id: true,
+                            name: true,
+                            color: true
+                        }
+                    }
+                },
+                orderBy: {
+                    updatedAt: 'desc'
+                },
+                take: limit,
+                skip: offset
+            }),
+            prisma.seoPost.count({
+                where: whereClause
+            })
+        ])
+
+        return {
+            posts: posts as SeoPost[],
+            total,
+            category: {
+                id: category.id,
+                name: translatedCategoryName,
+                color: category.color
+            }
+        }
+    } catch (error) {
+        console.error('Erreur lors de la récupération des posts par catégorie:', error)
+        return {
+            posts: [],
+            total: 0,
+            category: null
+        }
+    }
 } 

@@ -1,17 +1,16 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore'
-import SeoPostsList from './SeoPostsList'
+import SeoPostsCarousel from './SeoPostsCarousel'
 
 export default function OthersPosts() {
   const { t } = useLanguageStore()
 
   return (
-    <SeoPostsList
+    <SeoPostsCarousel
       title={`${t('blog.othersPosts')} 🔥`}
       excludeFeatured={true}
-      limit={1}
-      showLoadMore={true}
+      postsPerPage={1}
       className="pb-20"
     />
   )
