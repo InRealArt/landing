@@ -132,3 +132,18 @@ body {
   opacity: 1 !important;
   z-index: 999 !important;
 }
+
+/* Classe CSS pour les tags dans les articles de blog */
+.tag-badge {
+  padding: 0.25rem 1rem !important; /* px-4 py-1 */
+  border: 1px solid #374151 !important; /* border border-gray-700 */
+  border-radius: 9999px !important; /* rounded-full */
+  font-size: 0.875rem !important; /* text-sm */
+  line-height: 1.25rem !important;
+  display: inline-block !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+  margin: 0.25rem 0.25rem 0.25rem 0 !important;
+  font-family: inherit !important;
+}

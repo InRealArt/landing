@@ -1,65 +1,106 @@
-'use client'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import PostDetail from '@/components/blog/PostDetail'
+import { getPostBySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
 
-import { useParams } from 'next/navigation';
-import PostDetail from '@/components/blog/PostDetail';
-import { useLanguageStore } from '@/store/languageStore';
-import { BlogPost, BlogPostDetail } from '@/types/blog';
-import { createArticle } from '@/components/blog/WeeklyPosts';
+interface Props {
+  params: { id: string }
+}
 
-// Function to convert structured blog content to HTML
-const formatPostContent = (post: BlogPost): string => {
-  if (!post.content) return '';
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.id
   
-  let html = `<h1 class="text-3xl md:text-4xl font-bold mb-8">${post.content.introduction}</h1>`;
-  
-  post.content.sections.forEach(section => {
-    html += `<h2 class="text-2xl font-bold mt-10 mb-4">${section.title}</h2>`;
-    html += `<p class="mb-6">${section.content}</p>`;
-  });
-  
-  return html;
-};
+  try {
+    // Récupérer l'ID de la langue (par défaut français)
+    const languageId = await getLanguageIdByCode('fr')
+    const post = await getPostBySlug(slug, languageId)
+    
+    if (!post) {
+      return {
+        title: 'Article non trouvé | In Real Art',
+        description: 'Cet article n\'existe pas ou a été supprimé.'
+      }
+    }
 
-// Function to convert BlogPost to BlogPostDetail
-const convertToPostDetail = (post: BlogPost): BlogPostDetail => {
-  return {
-    ...post,
-    content: formatPostContent(post),
-    author: 'InRealArt Team',
-    authorRole: 'Art Investment Specialists'
-  };
-};
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+    const articleUrl = `${baseUrl}/blog/${slug}`
 
-export default function BlogPostPage() {
-  const { id } = useParams();
-  const { t } = useLanguageStore();
-  const postId = Array.isArray(id) ? id[0] : id;
-  
-  // Create our blog posts from translations
-  const blogPosts: Record<string, BlogPostDetail> = {
-    '1': convertToPostDetail(createArticle('1', 'companyArtInvestment', '/images/blog/company-art-investment.png', ['Art', 'Investment', 'Business'], t)),
-    '2': convertToPostDetail(createArticle('2', 'artInvestmentStrategy', '/images/blog/art-investment-strategy.png', ['Art', 'Investment', 'Strategy'], t)),
-    '3': convertToPostDetail(createArticle('3', 'artTokenization', '/images/blog/art-tokenization.png', ['Art', 'Blockchain', 'Tokenization'], t)),
-    '4': convertToPostDetail(createArticle('4', 'beginnerArtInvestment', '/images/blog/beginner-art-investment.png', ['Art', 'Investment', 'Strategy'], t))
-  };
-  
-  // Get the post by ID
-  const post = blogPosts[postId as string];
-  
-  // Handle case where post is not found
-  if (!post) {
+    return {
+      title: `${post.title} | In Real Art`,
+      description: post.metaDescription,
+      keywords: post.metaKeywords,
+      authors: [{ name: post.author, url: post.authorLink || undefined }],
+      
+      // Open Graph
+      openGraph: {
+        title: post.title,
+        description: post.metaDescription,
+        url: articleUrl,
+        type: 'article',
+        publishedTime: post.createdAt.toISOString(),
+        modifiedTime: post.updatedAt.toISOString(),
+        authors: [post.author],
+        section: post.category.name,
+        tags: post.listTags,
+        images: post.mainImageUrl ? [{
+          url: post.mainImageUrl,
+          alt: post.mainImageAlt || post.title,
+          width: 1200,
+          height: 630
+        }] : []
+      },
+
+      // Twitter
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.metaDescription,
+        images: post.mainImageUrl ? [post.mainImageUrl] : []
+      },
+
+      // URL canonique
+      alternates: {
+        canonical: articleUrl
+      },
+
+      // Autres métadonnées
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Erreur lors de la génération des métadonnées:', error)
+    return {
+      title: 'Erreur | In Real Art',
+      description: 'Une erreur est survenue lors du chargement de l\'article.'
+    }
+  }
+}
+
+export default function BlogPostPage({ params }: Props) {
+  const slug = params.id
+
+  if (!slug) {
     return (
       <main className="min-h-screen text-white pt-headerSize">
         <div className="max-w-screen-lg mx-auto p-8">
           <h1 className="text-3xl font-bold mb-8">Post not found</h1>
         </div>
       </main>
-    );
+    )
   }
 
   return (
     <main className="min-h-screen pt-headerSize text-white">
-      <PostDetail post={post} />
+      <PostDetail slug={slug} />
     </main>
-  );
+  )
 } 

@@ -76,7 +76,7 @@
         },
         "art": {
           "title": "Optimisation financière",
-          "description": "Combinaison de solution de financement traditionnel et Web3 (leasing, lending), achat de droits d’auteur et actifs réels tokenisés (RWA)"
+          "description": "Combinaison de solution de financement traditionnel et Web3 (leasing, lending), achat de droits d'auteur et actifs réels tokenisés (RWA)"
         }
       }
     },
@@ -90,7 +90,7 @@
         "rare": {
           "title": "Une Marketplace web2 et web 3 enfin accessible",
           "label": "Vous avez la possibilité d'acheter vos oeuvres d'art en format physique, digital et fractionné",
-          "description": "Ici, chaque œuvre — physique ou numérique — est rigoureusement choisie pour son unicité et sa valeur réelle. Pour les collectionneurs exigeants comme pour les nouveaux passionnés, c’est l’opportunité rare d’acquérir des pièces qui font la différence, et qui donnent à votre collection une profondeur et un prestige authentiques.",
+          "description": "Ici, chaque œuvre — physique ou numérique — est rigoureusement choisie pour son unicité et sa valeur réelle. Pour les collectionneurs exigeants comme pour les nouveaux passionnés, c'est l'opportunité rare d'acquérir des pièces qui font la différence, et qui donnent à votre collection une profondeur et un prestige authentiques.",
           "buttons": {
             "artworks": "Oeuvres en ligne",
             "getartworks": "Obtenir notre catalogue"
@@ -99,7 +99,7 @@
         "marketplace": {
           "title": "Blockchain, sécurité et droit d'auteur ",
           "label": "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d'auteur fractionnés.",
-          "description": "Grâce à la technologie blockchain, chaque œuvre est authentifiée, traçable et sécurisée de bout en bout. Cette approche repousse les limites du marché traditionnel : vous accédez à des pièces exclusives, avec la possibilité d’en détenir une part, de revendre intelligemment, et de participer à un écosystème artistique aussi transparent qu’avant-gardiste.",
+          "description": "Grâce à la technologie blockchain, chaque œuvre est authentifiée, traçable et sécurisée de bout en bout. Cette approche repousse les limites du marché traditionnel : vous accédez à des pièces exclusives, avec la possibilité d'en détenir une part, de revendre intelligemment, et de participer à un écosystème artistique aussi transparent qu'avant-gardiste.",
           "buttons": {
             "marketplace": "Notre Marketplace"
           }
@@ -792,9 +792,27 @@
   "blog": {
     "title": "Rattrapez-vous avec Nos Derniers Articles",
     "subtitle": "Rattrapez-vous avec nos dernières actualités et restez informé des mises à jour récentes, des histoires instructives et des annonces passionnantes qui façonnent notre parcours !",
-    "recentPosts": "Article Récent",
-    "weeklyRead": "Plus Lus de la Semaine",
+    "featuredPost": "Article en vedette",
+    "weeklyMostReadPosts": "Plus Lus de la Semaine",
+    "othersPosts": "Autres Articles",
     "readMore": "Lire Plus",
+    "noFeaturedPost": "Aucun article en vedette disponible",
+    "noPosts": "Aucun article disponible",
+    "noImage": "Aucune image disponible",
+    "by": "Par",
+    "views": "vues",
+    "loadMore": "Charger plus d'articles",
+    "backToBlog": "Retour au blog",
+    "postNotFound": "Article non trouvé",
+    "postNotFoundInLanguage": "Article non trouvé dans cette langue",
+    "postAvailableInOtherLanguage": "Cet article est disponible dans une autre langue.",
+    "viewInCorrectLanguage": "Voir dans la langue appropriée",
+    "searchingTranslation": "Recherche d'une traduction...",
+    "relatedPosts": "Articles similaires",
+    "readTime": {
+      "unknown": "Temps de lecture inconnu",
+      "minutes": "min de lecture"
+    },
     "tags": {
       "design": "Design",
       "product": "Produit",

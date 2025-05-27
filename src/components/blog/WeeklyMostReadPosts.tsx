@@ -38,11 +38,11 @@ export const createArticle = (id: string, translationKey: string, imageUrl: stri
   };
 };
 
-export default function WeeklyPosts() {
+export default function WeeklyMostReadPosts() {
   const { t, language } = useLanguageStore();
   
   // Weekly posts data
-  const weeklyPosts: BlogPost[] = [
+  const weeklyMostReadPosts: BlogPost[] = [
     createArticle('2', 'artInvestmentStrategy', '/images/blog/art-investment-strategy.png', ['Art', 'Investment', 'Strategy'], t),
     createArticle('3', 'artTokenization', '/images/blog/art-tokenization.png', ['Art', 'Blockchain', 'Tokenization'], t),
     createArticle('4', 'beginnerArtInvestment', '/images/blog/beginner-art-investment.png', ['Art', 'Investment', 'Strategy'], t)
@@ -52,11 +52,11 @@ export default function WeeklyPosts() {
     <section className="mx-auto px-4 max-w-screen-xl pb-20">
       <div>
         <h2 className="text-xl font-medium italic mb-8 flex items-center">
-          {t('blog.weeklyRead')} <span className="ml-2">🔥</span>
+          {t('blog.weeklyMostReadPosts')} <span className="ml-2">🔥</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {weeklyPosts.map((post) => (
+          {weeklyMostReadPosts.map((post) => (
             <BlogPostCard key={post.id} post={post} />
           ))}
         </div>

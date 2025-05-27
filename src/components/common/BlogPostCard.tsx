@@ -12,6 +12,15 @@ interface BlogPostCardProps {
 export default function BlogPostCard({ post }: BlogPostCardProps) {
   const { t } = useLanguageStore();
 
+  // Fonction pour obtenir le nom du tag avec fallback
+  const getTagName = (tag: string) => {
+    const translationKey = `blog.tags.${tag.toLowerCase()}`
+    const translatedTag = t(translationKey)
+    
+    // Si la traduction retourne la clé (pas de traduction trouvée), utiliser le tag original
+    return translatedTag === translationKey ? tag : translatedTag
+  }
+
   return (
     <Link href={`/blog/${post.id}`} className="bg-cardBackground rounded-lg overflow-hidden border border-white-800">
       <div className="relative h-[240px]">
@@ -26,7 +35,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map((tag, index) => (
             <span key={index} className="px-3 py-1 bg-transparent rounded-full text-xs text-[#828282] border border-[#828282]">
-              {t(`blog.tags.${tag.toLowerCase()}`)}
+              {getTagName(tag)}
             </span>
           ))}
         </div>
