@@ -184,6 +184,7 @@ export async function getRelatedPosts(
             mainImageUrl: post.mainImageUrl,
             mainImageAlt: post.mainImageAlt,
             metaDescription: post.metaDescription,
+            metaKeywords: post.metaKeywords,
             content: post.content,
             slug: post.slug,
             excerpt: post.excerpt,

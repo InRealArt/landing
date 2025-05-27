@@ -9,6 +9,7 @@ export interface SeoPost {
     mainImageUrl: string | null
     mainImageAlt: string | null
     metaDescription: string
+    metaKeywords: string[]
     content: string
     slug: string
     excerpt: string | null

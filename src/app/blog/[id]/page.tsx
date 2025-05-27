@@ -3,17 +3,25 @@ import { notFound } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
 import { getPostBySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
 
+type ParamsType = Promise<{ id: string }>
+
 interface Props {
-  params: { id: string }
+  params: ParamsType
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.id
+  const { id: slug } = await params
   
   try {
     // Récupérer l'ID de la langue (par défaut français)
     const languageId = await getLanguageIdByCode('fr')
-    const post = await getPostBySlug(slug, languageId)
+    if (!languageId) {
+      return {
+        title: 'Erreur | In Real Art',
+        description: 'Une erreur est survenue lors de la récupération de la langue.'
+      }
+    }
+    const post = await getPostBySlug(slug, languageId.toString())
     
     if (!post) {
       return {
@@ -28,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: `${post.title} | In Real Art`,
       description: post.metaDescription,
-      keywords: post.metaKeywords,
+      keywords: Array.isArray(post.metaKeywords) ? post.metaKeywords.join(', ') : post.metaKeywords,
       authors: [{ name: post.author, url: post.authorLink || undefined }],
       
       // Open Graph
@@ -85,8 +93,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const slug = params.id
+export default async function BlogPostPage({ params }: Props) {
+  const { id: slug } = await params
 
   if (!slug) {
     return (
