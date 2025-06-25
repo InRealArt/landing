@@ -1663,5 +1663,194 @@
     "callNow": "Call Now",
     "sendEmail": "Send Email",
     "followUs": "Follow Us"
+  },
+  "loaSimulator": {
+    "title": "Simulate your lease with purchase option",
+    "form": {
+      "company": "Company",
+      "email": "Email address",
+      "phoneNumber": "Phone number",
+      "taxRate": "Personalized tax rate",
+      "artworkValue": "Artwork value in €",
+      "leaseDuration": "Lease duration in months",
+      "firstRentIncrease": "First rent increase",
+      "amountType": "Amount Type",
+      "calculate": "Calculate",
+      "calculating": "Calculating...",
+      "downloadPDF": "Download PDF",
+      "generating": "Generating...",
+      "sendPDF": "Get PDF",
+      "sendingPDF": "Sending...",
+      "errors": {
+        "companyRequired": "Company name is required",
+        "emailInvalid": "Invalid email address",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "taxRateMin": "Minimum rate 0%",
+        "taxRateMax": "Maximum rate 50%",
+        "artworkValueMin": "Minimum value €100",
+        "leaseDurationMin": "Minimum duration 12 months",
+        "leaseDurationMax": "Maximum duration 72 months"
+      },
+      "firstRentOptions": {
+        "no": "No",
+        "yes": "Yes (x3)"
+      },
+      "amountTypeOptions": {
+        "ht": "Excl. Tax",
+        "ttc": "Incl. Tax"
+      }
+    },
+    "results": {
+      "tabs": {
+        "summary": "Lease Summary",
+        "lease": "Leasing Results",
+        "comparison": "Comparison",
+        "tax": "Tax Benefits"
+      },
+      "summary": {
+        "title": "Lease Summary",
+        "email": "Email:",
+        "company": "Company:",
+        "taxRate": "Personalized tax rate:",
+        "artworkValue": "Artwork Value (€):",
+        "leaseDuration": "Lease Duration:",
+        "firstRentIncrease": "First Rent Increase:",
+        "amountType": "Amount Type:",
+        "totalLeaseAmount": "Total Lease Amount (Incl. Tax):",
+        "firstMonthRent": "First Monthly Payment:",
+        "monthlyRent": "Following Monthly Payments:",
+        "taxSavings": "Tax Savings:",
+        "netCost": "Net Cost:",
+        "yes": "Yes",
+        "no": "No",
+        "months": "months",
+        "downloadPDF": "Download PDF"
+      },
+      "lease": {
+        "title": "Leasing Results",
+        "monthlyPayments": "Monthly payments",
+        "firstMonth": "First month",
+        "followingMonths": "Following months",
+        "financialDetails": "Financial details",
+        "totalLeaseAmount": "Total lease amount",
+        "purchaseOption": "Final purchase option",
+        "totalCostWithPurchase": "Total cost if purchased",
+        "taxSavings": "Tax savings",
+        "netCostAfterTax": "Net cost after tax",
+        "endOfLeaseOptions": "End of lease options",
+        "returnArtwork": "Return the artworks",
+        "returnDescription": "End of contract with no additional fees",
+        "purchaseArtwork": "Purchase the artworks",
+        "purchaseDescription": "Definitive acquisition for"
+      },
+      "comparison": {
+        "title": "Detailed comparison",
+        "leaseAdvantage": "Leasing more advantageous",
+        "purchaseAdvantage": "Direct purchase more advantageous",
+        "savingsWithLeasing": "Savings of {amount} with leasing",
+        "savingsWithPurchase": "Savings of {amount} with direct purchase",
+        "savingsPercentage": "savings",
+        "detailedComparison": "Detailed comparison",
+        "criteria": "Criteria",
+        "leasingWithPurchase": "Leasing with purchase",
+        "directPurchase": "Direct purchase",
+        "costBeforeTax": "Cost before tax",
+        "taxSavings": "Tax savings",
+        "finalNetCost": "Final net cost",
+        "difference": "Difference",
+        "leasingAdvantages": "Leasing Advantages",
+        "purchaseAdvantages": "Purchase Advantages",
+        "leasingBenefits": {
+          "taxDeductibility": "Immediate tax deductibility of rents",
+          "noCapitalImmobilization": "No capital immobilization",
+          "flexibility": "Flexibility at end of contract",
+          "artworkRenewal": "Possible artwork renewal"
+        },
+        "purchaseBenefits": {
+          "immediateOwnership": "Immediate ownership of artworks",
+          "capitalGains": "Possible capital gains on resale",
+          "depreciation": "Possible accounting depreciation",
+          "noConstraints": "No contractual constraints"
+        }
+      },
+      "tax": {
+        "title": "Tax Benefits",
+        "totalTaxSavings": "Total tax savings",
+        "taxAdvantagesDetail": "Tax benefits detail",
+        "monthlyDeduction": "Monthly deduction",
+        "totalDeductibleRents": "Total deductible rents",
+        "totalTaxSavingsLabel": "Total tax savings",
+        "goodToKnow": "💡 Good to know",
+        "benefits": {
+          "fullDeductibility": "Artwork leasing rents are 100% deductible",
+          "immediateAdvantage": "Tax benefit is immediate (from first rent)",
+          "noComplexDepreciation": "Unlike purchase, no complex depreciation to manage",
+          "positiveImpact": "Direct positive impact on your cash flow"
+        }
+      }
+    },
+    "pdf": {
+      "title": "Simulation Report - Artwork Leasing",
+      "generatedOn": "Generated on {date}",
+      "clientInfo": "Client Information",
+      "company": "Company:",
+      "email": "Email:",
+      "taxRate": "Personalized tax rate:",
+      "leaseParameters": "Lease Parameters",
+      "artworkValue": "Artwork value:",
+      "leaseDuration": "Lease duration:",
+      "firstRentIncrease": "First rent increase:",
+      "amountType": "Amount type:",
+      "leaseResults": "Leasing Results",
+      "firstMonthRent": "First rent:",
+      "monthlyRent": "Monthly rents:",
+      "totalLeaseAmount": "Total lease amount:",
+      "purchaseOption": "Purchase option:",
+      "totalCostWithPurchase": "Total cost if purchased:",
+      "taxAdvantages": "Tax Benefits",
+      "totalTaxSavings": "Total tax savings:",
+      "monthlyTaxDeduction": "Monthly deduction:",
+      "netCostAfterTax": "Net cost after tax:",
+      "comparison": "Leasing vs Direct Purchase Comparison",
+      "criteria": "Criteria",
+      "leasingWithPurchase": "Leasing with purchase",
+      "directPurchase": "Direct purchase",
+      "costBeforeTax": "Cost before tax",
+      "taxSavingsLabel": "Tax savings",
+      "finalNetCost": "Final net cost",
+      "savingsWithLeasing": "Savings with leasing:",
+      "leasingSurcharge": "Leasing surcharge:",
+      "keyPoints": "Key Points",
+      "leasingAdvantages": "Leasing Advantages:",
+      "directPurchaseAdvantages": "Direct Purchase Advantages:",
+      "leasingBenefits": {
+        "taxDeductibility": "• Immediate tax deductibility of rents",
+        "noCapitalImmobilization": "• No capital immobilization",
+        "flexibility": "• Flexibility at end of contract",
+        "artworkRenewal": "• Possible artwork renewal"
+      },
+      "purchaseBenefits": {
+        "immediateOwnership": "• Immediate ownership of artworks",
+        "capitalGains": "• Possible capital gains on resale",
+        "depreciation": "• Possible accounting depreciation",
+        "noConstraints": "• No contractual constraints"
+      },
+      "footer": "This report was generated by the InRealArt simulator - www.inrealart.com",
+      "yes": "Yes",
+      "no": "No",
+      "months": "months"
+    },
+    "toast": {
+      "calculationSuccess": "Calculation completed successfully!",
+      "calculationError": "Error during calculation",
+      "validationError": "Please correct the errors in the form",
+      "pdfGenerationSuccess": "PDF generated successfully!",
+      "pdfGenerationError": "Error during PDF generation",
+      "pdfCalculationRequired": "Please perform a calculation before generating the PDF",
+      "formDataRequired": "Form data is missing",
+      "pdfSentSuccess": "PDF sent to your email address, please check your inbox.",
+      "pdfSentError": "Error sending PDF"
+    }
   }
 }

@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
+        'unbounded': ['Unbounded', 'sans-serif'],
+      },
       colors: {
         purpleColor: "var(--purple)",
         backgroundColor: "var(--background)",

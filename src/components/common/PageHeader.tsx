@@ -16,11 +16,11 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     <div className={`py-12 ${className}`}>
       <Container>
         <div className="max-w-4xl">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg text-gray-600 mt-2">
+            <p className="text-lg text-gray-400 mt-2">
               {subtitle}
             </p>
           )}

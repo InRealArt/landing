@@ -10,6 +10,7 @@ type Props = {
   disabled?: boolean;
   center?: boolean;
   type?: "button" | "submit" | "reset";
+  iconBefore?: boolean;
   download?: boolean;
   target?: string;
 };
@@ -24,6 +25,7 @@ const Button = ({
   center,
   type = "button",
   download = false,
+  iconBefore = false,
   target = '_self'
 }: Props) => {
   const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl `;
@@ -31,8 +33,9 @@ const Button = ({
   if (link)
     return (
       <Link className={className} href={link} onClick={action} download={download} target={target}>
+        {iconBefore && icon}
         <span className='unbounded font-semibold'>{text}</span>
-        {icon}
+        {!iconBefore && icon}
       </Link>
     );
 
@@ -43,8 +46,9 @@ const Button = ({
       type={type}
       onClick={action}
     >
+      {iconBefore && icon}
       <span className='unbounded font-semibold'>{text}</span>
-      {icon}
+      {!iconBefore && icon}
     </button>
   );
 };
