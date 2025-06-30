@@ -118,10 +118,10 @@ export default function FeaturedPost() {
       <div className="mb-16">
         <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black min-h-[440px] items-stretch">
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative h-[440px] cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300"
+            className="relative h-full cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300"
           >
             {featuredPost.mainImageUrl ? (
               <Image
@@ -129,7 +129,7 @@ export default function FeaturedPost() {
                 src={featuredPost.mainImageUrl}
                 alt={featuredPost.mainImageAlt || featuredPost.title}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'contain', background: '#1d1c1c' }}
                 priority
               />
             ) : (
@@ -141,7 +141,7 @@ export default function FeaturedPost() {
 
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative p-8 flex flex-col justify-center rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-300"
+            className="relative p-8 flex flex-col justify-center rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-300 h-full"
           >
             {/* Catégorie en haut à droite */}
             {featuredPost.category && (
