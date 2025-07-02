@@ -13,6 +13,8 @@ export type ArtWork = {
     mockups: string[]
     noBorder: boolean
     desactivate: boolean
+    width?: number | null
+    height?: number | null
 }
 
 export type Lang = 'CN' | 'EN' | 'FR'

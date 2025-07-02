@@ -12,6 +12,8 @@ export interface PresaleArtworkData {
     imageUrl: string
     mockupUrls: any
     artistId: number
+    width: number | null
+    height: number | null
     artist: {
         name: string
         surname: string
@@ -34,6 +36,8 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 imageUrl: true,
                 mockupUrls: true,
                 artistId: true,
+                width: true,
+                height: true,
                 artist: {
                     select: {
                         name: true,
@@ -119,6 +123,8 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 imageUrl: true,
                 mockupUrls: true,
                 artistId: true,
+                width: true,
+                height: true,
                 artist: {
                     select: {
                         name: true,

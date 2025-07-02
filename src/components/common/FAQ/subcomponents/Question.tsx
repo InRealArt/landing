@@ -16,10 +16,10 @@ const Question = ({ question, answer }: QuestionProps) => {
   return (
     <div className="w-full py-6 pr-6 border-b flex flex-col cursor-pointer" onClick={toggleIsOpen}>
       <div className='flex justify-between items-center'>
-        <h1 className="text-xl lg:text-3xl unbounded">{question}</h1>
+        <h1 className="text-lg lg:text-xl unbounded">{question}</h1>
         <Plus className='shrink-0' />
       </div>
-      <label className={`my-4 ${isOpen ? 'visible' : 'hidden'}`}>{answer}</label>
+      <label className={`my-4 text-sm ${isOpen ? 'visible' : 'hidden'}`}>{answer}</label>
     </div>
   );
 }

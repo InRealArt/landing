@@ -78,7 +78,9 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                     order: artwork.order || 0,
                     mockups: mockups,
                     noBorder: false,
-                    desactivate: false
+                    desactivate: false,
+                    width: artwork.width,
+                    height: artwork.height
                 }
             })
 
@@ -181,7 +183,9 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                     order: artwork.order || 0,
                     mockups: mockups,
                     noBorder: false,
-                    desactivate: false
+                    desactivate: false,
+                    width: artwork.width,
+                    height: artwork.height
                 }
             })
 

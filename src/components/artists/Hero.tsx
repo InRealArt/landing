@@ -26,11 +26,14 @@ export default function Hero({ artists, onSlideChange }: HeroProps) {
   }));
 
   return (
+    <>
       <BioSlider 
         items={formattedArtists} 
         title={t('artistPage.whoIs')} 
         hasArtistName 
         onSlideChange={onSlideChange} 
       />
+    </>
+    
   );
 } 

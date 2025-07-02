@@ -6,9 +6,11 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Équipe",
+    "ico": "ICO IRA",
     "glossary": "Glossaire",
     "artists": "Artistes",
     "presale": "Pré-vente",
+    "artworks": "Oeuvres",
     "usecase": "Use Case",
     "whitepaper": "Livre Blanc bientôt",
     "airdrop": "AirDrop/Testnet",
@@ -85,7 +87,7 @@
     },
     "explore": {
       "title": "Avec InRealArt",
-      "subtitle": "Explorez une <span class='text-purpleColor'>collection unique</span> de <span class='text-purpleColor'>toiles physiques</span> et de <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rares, de leurs copies numériques (NFT), accompagnées de leurs droits d'auteur.</span>",
+      "subtitle": "Explorez une <span class='text-purpleColor'>collection unique</span> de <span class='text-purpleColor'>toiles physiques</span> et de <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rares, de leurs copies numériques (NFT), accompagnées de leurs répliques numériques authentifiées sur une technologie de nouvelle génération liée à la blockchain.</span>",
       "items": {
         "rare": {
           "title": "Une Marketplace web2 et web 3 enfin accessible",
@@ -127,7 +129,7 @@
         },
         "transactions": {
           "number": "500+",
-          "label": "Transactions réalisées sur notre marketplace"
+          "label": "Transactions réalisées sur le testnet notre marketplace"
         },
         "ranking": {
           "number": "90%",
@@ -193,6 +195,9 @@
     "error": "Erreur",
     "unknownError": "Une erreur inconnue s'est produite",
     "submitting": "Envoi en cours..."
+  },
+  "artists": {
+    "title": "Nos artistes"
   },
   "artistPage": {
     "whoIs": "Qui est ",

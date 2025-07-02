@@ -189,24 +189,17 @@ export default function ArtworkPage() {
             <p className="text-gray-400 mb-2">{t('artwork.by')} <span className="text-white">{artwork.artistName}</span></p>
             {/* <p className="text-gray-400 mb-2">{t('artwork.year')}: <span className="text-white">2023</span></p>
             <p className="text-gray-400 mb-2">{t('artwork.medium')}: <span className="text-white">Digital</span></p> */}
-            <p className="text-gray-400 mb-2">{t('artwork.dimensions')}: <span className="text-white">{artwork.size?.FR || 'N/A'}</span></p>
+            <p className="text-gray-400 mb-2">{t('artwork.dimensions')}: <span className="text-white">
+              {artwork.width && artwork.height 
+                ? `${artwork.width} x ${artwork.height} cm` 
+                : 'N/A'
+              }
+            </span></p>
           </div>
 
           <div className="mb-8">
             <h2 className="text-xl font-semibold text-white mb-4">{t('artwork.description')}</h2>
             <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
-          </div>
-
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-white mb-4">{t('artwork.tags')}</h2>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-[#1A1A1A] text-white rounded-full text-sm">
-                Digital Art
-              </span>
-              <span className="px-3 py-1 bg-[#1A1A1A] text-white rounded-full text-sm">
-                NFT
-              </span>
-            </div>
           </div>
 
           <div className="border-t border-[#2D2A3D] pt-8">

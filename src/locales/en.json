@@ -6,9 +6,11 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Team",
+    "ico": "ICO IRA",
     "glossary": "Glossary",
     "artists": "Artists",
     "presale": "Pre-sale",
+    "artworks": "Artworks",
     "usecase": "Use Case",
     "whitepaper": "White Paper soon",
     "airdrop": "AirDrop/Testnet",
@@ -85,7 +87,7 @@
     },
     "explore": {
       "title": "With InRealArt",
-      "subtitle": "Explore a <span class='text-purpleColor'>unique collection</span> of <span class='text-purpleColor'>physical canvases</span> and <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rare, their digital copies (NFT), accompanied by their copyrights.</span>",
+      "subtitle": "Explore a <span class='text-purpleColor'>unique collection</span> of <span class='text-purpleColor'>physical canvases</span> and <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rare, their digital copies (NFT), accompanied by their replicas authenticated on next-generation technology linked to blockchain.</span>",
       "items": {
         "rare": {
           "title": "A web2 and web3 Marketplace finally accessible",
@@ -127,7 +129,7 @@
         },
         "transactions": {
           "number": "500+",
-          "label": "Transactions completed on our marketplace"
+          "label": "Transactions completed on our testnet marketplace"
         },
         "ranking": {
           "number": "90%",
@@ -193,6 +195,9 @@
     "error": "Error",
     "unknownError": "An unknown error occurred",
     "submitting": "Submitting..."
+  },
+  "artists": {
+    "title": "Our artists"
   },
   "artistPage": {
     "whoIs": "Who is ",
