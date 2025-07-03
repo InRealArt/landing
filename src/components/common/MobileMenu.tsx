@@ -63,10 +63,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
           <Link 
             href="/token" 
-            className={`${pathname === '/token' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
-            ICO IRA
+            {t('nav.artworks')}
+          </Link>
+          <Link 
+            href="/token" 
+            className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            onClick={onClose}
+          >
+            {t('nav.artists')}
           </Link>
           <Link 
             href="/usecase" 
@@ -74,13 +81,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
           >
             {t('nav.usecase')}
-          </Link>
-          <Link 
-            href="/roadmap" 
-            className={`${pathname === '/roadmap' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
-            onClick={onClose}
-          >
-            {t('nav.roadmap')}
           </Link>
           <Link 
             href="/blog" 

@@ -28,6 +28,7 @@ const navigation = {
     { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.usecase', href: '/usecase' },
     { label: 'nav.ico', href: '/token', disabled: true },
+    { label: 'nav.roadmap', href: '/roadmap'},
     { label: 'nav.whitepaper', href: '/whitepaper', disabled: true },
     { label: 'nav.airdrop', href: '/airdrop' , disabled: true },
     // { label: 'nav.blog', href: '/blog' },

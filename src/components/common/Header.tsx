@@ -29,7 +29,6 @@ const Header = () => {
           <Link href="/presale">{t('nav.artworks')}</Link>
           <Link href="/artists">{t('nav.artists')}</Link>
           <Link href="/usecase">{t('nav.usecase')}</Link>
-          <Link href="/roadmap">Roadmap</Link>
           <Link href="/blog">Blog</Link>
         </ul>
         <div className="flex items-center gap-4">
