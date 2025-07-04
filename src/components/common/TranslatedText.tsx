@@ -1,8 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import DOMPurify from 'dompurify'
 
 interface TranslatedTextProps {
   translationKey?: string
@@ -19,7 +18,35 @@ export default function TranslatedText({
   className = '',
   allowHtml = false 
 }: TranslatedTextProps) {
-  const { t, tHtml } = useLanguageStore()
+  const { t } = useLanguageStore()
+  const [sanitizedContent, setSanitizedContent] = useState('')
+
+  useEffect(() => {
+    if (allowHtml && typeof window !== 'undefined') {
+      // Importer DOMPurify uniquement côté client
+      const importDOMPurify = async () => {
+        const DOMPurify = (await import('dompurify')).default
+        
+        let contentToSanitize = ''
+        
+        if (content) {
+          contentToSanitize = content
+        } else if (translationKey) {
+          contentToSanitize = t(translationKey)
+        }
+        
+        if (contentToSanitize) {
+          const sanitized = DOMPurify.sanitize(contentToSanitize, {
+            ALLOWED_TAGS: ['br'],
+            ALLOWED_ATTR: []
+          })
+          setSanitizedContent(sanitized)
+        }
+      }
+      
+      importDOMPurify()
+    }
+  }, [allowHtml, content, translationKey, t])
 
   // Validation : soit translationKey, soit content doit être fourni
   if (!translationKey && !content) {
@@ -27,21 +54,28 @@ export default function TranslatedText({
     return <Component className={className}>Missing content</Component>
   }
 
-  // Si on a du contenu direct
+  // Si HTML est autorisé et que nous avons du contenu sanitisé
+  if (allowHtml && sanitizedContent) {
+    return (
+      <Component 
+        className={className}
+        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+      />
+    )
+  }
+
+  // Si HTML est autorisé mais pas encore sanitisé (côté serveur ou en cours de chargement)
+  if (allowHtml) {
+    const fallbackContent = content || (translationKey ? t(translationKey) : '')
+    return (
+      <Component className={className}>
+        {fallbackContent}
+      </Component>
+    )
+  }
+
+  // Si on a du contenu direct sans HTML
   if (content) {
-    if (allowHtml) {
-      // Sanitiser le contenu HTML avec DOMPurify
-      const sanitizedContent = DOMPurify.sanitize(content, {
-        ALLOWED_TAGS: ['br'],
-        ALLOWED_ATTR: []
-      })
-      return (
-        <Component 
-          className={className}
-          dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-        />
-      )
-    }
     return (
       <Component className={className}>
         {content}
@@ -49,17 +83,8 @@ export default function TranslatedText({
     )
   }
 
-  // Si on a une clé de traduction
+  // Si on a une clé de traduction sans HTML
   if (translationKey) {
-    if (allowHtml) {
-      const htmlContent = tHtml(translationKey)
-      return (
-        <Component 
-          className={className}
-          dangerouslySetInnerHTML={{ __html: htmlContent }}
-        />
-      )
-    }
     return (
       <Component className={className}>
         {t(translationKey)}

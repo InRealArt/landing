@@ -2,7 +2,6 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import frTranslations from '@/locales/fr.json'
 import enTranslations from '@/locales/en.json'
-import DOMPurify from 'dompurify'
 
 type Language = 'fr' | 'en'
 
@@ -12,6 +11,25 @@ interface LanguageState {
     translations: Record<Language, Record<string, any>>
     t: (key: string) => string
     tHtml: (key: string) => string
+}
+
+// Fonction pour sanitiser le HTML de manière sûre
+async function sanitizeHtml(content: string): Promise<string> {
+    if (typeof window === 'undefined') {
+        // Côté serveur : retourner le contenu sans sanitisation (ou avec une sanitisation basique)
+        return content.replace(/<(?!br\s*\/?>)[^>]+>/g, '') // Garde seulement les balises <br>
+    }
+
+    try {
+        const DOMPurify = (await import('dompurify')).default
+        return DOMPurify.sanitize(content, {
+            ALLOWED_TAGS: ['br'],
+            ALLOWED_ATTR: []
+        })
+    } catch (error) {
+        console.error('Error loading DOMPurify:', error)
+        return content.replace(/<(?!br\s*\/?>)[^>]+>/g, '') // Fallback
+    }
 }
 
 // On définit la langue par défaut côté serveur pour éviter les problèmes d'hydration
@@ -53,12 +71,9 @@ export const useLanguageStore = create<LanguageState>()(
                 }
 
                 if (typeof current === 'string') {
-                    // Configuration DOMPurify pour n'autoriser que les balises <br>
-                    const cleanHtml = DOMPurify.sanitize(current, {
-                        ALLOWED_TAGS: ['br'],
-                        ALLOWED_ATTR: []
-                    })
-                    return cleanHtml
+                    // Pour tHtml, on retourne le contenu brut pour éviter les problèmes SSR
+                    // La sanitisation sera faite côté client dans TranslatedText
+                    return current
                 }
 
                 return key
