@@ -29,7 +29,7 @@ interface ArtistState {
     isLoading: boolean
     hasError: boolean
     errorMessage: string | null
-    fetchArtists: () => Promise<void>
+    fetchArtists: (isGallery?: boolean) => Promise<void>
     setCurrentArtistIndex: (index: number) => void
     getCurrentArtist: () => ArtistData | undefined
     getCurrentArtistArtworks: () => { image: string, name: string, price: number, url: string, id: string }[] | []
@@ -49,12 +49,12 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
     hasError: false,
     errorMessage: null,
 
-    fetchArtists: async () => {
+    fetchArtists: async (isGallery?: boolean) => {
         set({ isLoading: true, hasError: false, errorMessage: null })
 
         try {
             // Récupérer les artistes via le server action
-            const artistsData = await getArtists()
+            const artistsData = await getArtists(isGallery)
             // Stocker les données brutes
             set({ rawArtists: artistsData })
 

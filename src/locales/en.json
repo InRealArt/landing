@@ -18,7 +18,8 @@
     "leasing": "Leasing",
     "companies": "Companies",
     "lending": "Lending",
-    "fractionate": "Fractionate"
+    "fractionate": "Fractionate",
+    "joinInRealArt": "Join InRealArt"
   },
   "intro": {
     "title": "The Tokenization of Art accessible to all",
@@ -197,19 +198,71 @@
     "submitting": "Submitting..."
   },
   "joinInRealArt": {
-    "howToJoin": {
-      "title": "How to join us?",
-      "button": "Get started now",
-      "steps": {
-        "1": {
-          "title": "Fill out the questionnaire above"
+    "header": {
+      "title": "Join InRealArt",
+      "description": "A dedicated space for artists and galleries",
+      "artists": {
+        "title": "You are an artist",
+        "description": "A dedicated space for a personalized support"
+      },
+      "galleries": {
+        "title": "You are a gallery",
+        "description": "A dedicated space for total control of your collections"
+      }
+    },
+    "galleries": {
+      "title": "Our Galleries",
+      "hero": {
+        "title": "Valuize your works <br>Join InRealArt",
+        "subtitle": "A unique platform for galleries: paintings, NFTs and fractionalized art, all in one place.",
+        "button": "Get started now"
+      },
+      "opportunities": {
+        "title": "A New Channel for Your Sales and Your Visibility",
+        "button": "Become a Partner Gallery",
+        "support": {
+          "title": "Diversify yourself",
+          "description": "Each partner gallery has a dedicated space to present and manage its works. You have full control over your collections, with a simple and intuitive interface to follow sales. This allows you to centralize the management of your works and benefit from a professional digital environment to optimize your sales."
         },
-        "2": {
-          "title": "Our expert team will contact you as soon as possible"
+        "technology": {
+          "title": "Fractional sale for more flexibility",
+          "description": "With InRealArt, you can fractionalize the ownership of your paintings, allowing multiple investors to acquire parts of an artwork. This option allows for immediate revenue generation while maintaining the value of the artwork. For example, a gallery can fractionalize a highly sought-after work and sell it in parts, attracting investors while keeping the artwork in its collection. This frees up cash and simplifies inventory management without giving up the complete ownership of the piece."
         },
-        "3": {
-          "title": "Benefit from our support, tools and marketplace features to maximize your sales"
+        "rights": {
+          "title": "Reduced storage costs and optimized management",
+          "description": "By using InRealArt, you can sell your works without keeping them in stock, reducing associated storage costs. An artwork that could remain unused or stored can be activated and begin generating revenue immediately on our platform. This allows you to better manage your collections while reaching a global audience of investors ready to finance new acquisitions or exhibitions."
         }
+      },
+      "testimonials": {
+        "title": "They Transformed Their Gallery With IRA",
+        "gallery1": {
+          "text": "At InRealArt, we believe that the future of art lies in audacious alliances between creation and innovation. <br/>Our partnership with IRA is based on a shared vision: supporting artists in a human, strategic and long-term way. Together, we redefine the codes of artistic diffusion, placing technology at the service of emerging talents. It's a collaboration based on respect for the work, the tools and the shared ambition to make art shine differently."
+        },
+        "gallery2": {
+          "text": "The partnership with Inrealart allows me to expand my reach, access a more diverse client portfolio, and enhance my work through new technologies.<br/>It's a real lever to evolve my practice and reach a wider audience."
+        }
+      },
+      "howToJoin": {
+        "title": "How to join us?",
+        "button": "Get started now",
+        "steps": {
+          "1": {
+            "title": "Contact us",
+            "description": ""
+          },
+          "2": {
+            "title": "Our expert team will contact you once the file is studied",
+            "description": ""
+          },
+          "3": {
+            "title": "Secure partnership contract",
+            "description": ""
+          }
+        }
+      },
+      "contact": {
+        "title": "Join InRealArt",
+        "message": "Contact us by email at "
       }
     },
     "artists": {
@@ -244,6 +297,21 @@
         },
         "artist3": {
           "text": "Thanks to InRealArt, I reveal a spontaneous and instructive art free from any intention. This platform revolutionizes artistic creation by combining innovation and technology and freedom, opening the way to a new artistic era."
+        }
+      },
+      "howToJoin": {
+        "title": "How to join us?",
+        "button": "Get started now",
+        "steps": {
+          "1": {
+            "title": "Fill out the questionnaire above"
+          },
+          "2": {
+            "title": "Our expert team will contact you as soon as possible"
+          },
+          "3": {
+            "title": "Benefit from our support, tools and marketplace features to maximize your sales"
+          }
         }
       }
     }

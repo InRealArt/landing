@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import frTranslations from '@/locales/fr.json'
 import enTranslations from '@/locales/en.json'
+import DOMPurify from 'dompurify'
 
 type Language = 'fr' | 'en'
 
@@ -10,6 +11,7 @@ interface LanguageState {
     setLanguage: (language: Language) => void
     translations: Record<Language, Record<string, any>>
     t: (key: string) => string
+    tHtml: (key: string) => string
 }
 
 // On définit la langue par défaut côté serveur pour éviter les problèmes d'hydration
@@ -37,6 +39,29 @@ export const useLanguageStore = create<LanguageState>()(
                 }
 
                 return typeof current === 'string' ? current : key
+            },
+            tHtml: (key) => {
+                const { language, translations } = get()
+                const keys = key.split('.')
+                let current: any = translations[language]
+
+                for (const k of keys) {
+                    if (!current || typeof current !== 'object' || !(k in current)) {
+                        return key
+                    }
+                    current = current[k]
+                }
+
+                if (typeof current === 'string') {
+                    // Configuration DOMPurify pour n'autoriser que les balises <br>
+                    const cleanHtml = DOMPurify.sanitize(current, {
+                        ALLOWED_TAGS: ['br'],
+                        ALLOWED_ATTR: []
+                    })
+                    return cleanHtml
+                }
+
+                return key
             }
         }),
         {

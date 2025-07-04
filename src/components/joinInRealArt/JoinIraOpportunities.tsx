@@ -1,0 +1,58 @@
+'use client'
+
+import { useLanguageStore } from '@/store/languageStore';
+import { ArrowRight } from 'lucide-react';
+import Button from "@/components/common/Button";
+
+interface OpportunityItem {
+  key: string;
+  titleKey: string;
+  descriptionKey: string;
+}
+
+interface JoinIraOpportunitiesProps {
+  titleKey: string;
+  buttonTextKey: string;
+  opportunities: OpportunityItem[];
+  buttonUrl?: string;
+}
+
+export default function JoinIraOpportunities({ 
+  titleKey, 
+  buttonTextKey, 
+  opportunities, 
+  buttonUrl 
+}: JoinIraOpportunitiesProps) {
+  const { t } = useLanguageStore();
+
+
+  return (
+    <section className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-20">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-white mb-6 lg:mb-0 lg:max-w-2xl">
+          {t(titleKey)}
+        </h1>
+        <Button 
+          text={t(buttonTextKey)} 
+          additionalClassName="bg-purpleColor w-fit" 
+          icon={<ArrowRight />} 
+          link={buttonUrl}
+          target={buttonUrl?.startsWith('#') ? '_self' : '_blank'}
+        />
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        {opportunities.map((opportunity, index) => (
+          <div key={opportunity.key} className="p-6 lg:p-8 border border-white rounded-xl bg-cardBackground h-full">
+            <h3 className="text-xl lg:text-2xl bricolage-grotesque font-semibold text-white mb-4">
+              {t(opportunity.titleKey)}
+            </h3>
+            <p className="text-gray-300 text-sm lg:text-base leading-relaxed">
+              {t(opportunity.descriptionKey)}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+} 

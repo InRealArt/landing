@@ -18,7 +18,8 @@
     "leasing": "Leasing",
     "companies": "Entreprises",
     "lending": "Prêt",
-    "fractionate": "Fractionnement"
+    "fractionate": "Fractionnement",
+    "joinInRealArt": "Rejoignez InRealArt"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -61,7 +62,7 @@
   },
   "home": {
     "intro": {
-      "title": "De l’atelier à l’héritage : catalyseur d’art, de culture et de sens.",
+      "title": "De l'atelier à l'héritage : catalyseur d'art, de culture et de sens.",
       "subtitle": ""
     },
     "howItWorks": {
@@ -109,7 +110,7 @@
         "investment": {
           "title": "Opportunité d'investissement",
           "label": "L'art est plus qu'une simple passion, c'est aussi une opportunité d'investissement.",
-          "description": "En combinant tradition et innovation, que ce osit par le leasing ou la blockchain, notre marketplace vous permet de diversifier votre portefeuille en investissant dans des œuvres d'art uniques, physiques et numériques, ainsi que dans des droits d'auteur. Grâce à la rareté des pièces proposées, chaque acquisition offre un potentiel d'appréciation avec le temps. Que vous soyez un collectionneur novice ou expérimenté, rejoignez un marché dynamique où chaque œuvre peut devenir une véritable source de valorisation à long terme.",
+          "description": "En combinant tradition et innovation, que ce soit par le leasing ou la blockchain, notre marketplace vous permet de diversifier votre portefeuille en investissant dans des œuvres d'art uniques, physiques et numériques, ainsi que dans des droits d'auteur. Grâce à la rareté des pièces proposées, chaque acquisition offre un potentiel d'appréciation avec le temps. Que vous soyez un collectionneur novice ou expérimenté, rejoignez un marché dynamique où chaque œuvre peut devenir une véritable source de valorisation à long terme.",
           "buttons": {
             "usecase": "Voir use case"
           }
@@ -197,19 +198,71 @@
     "submitting": "Envoi en cours..."
   },
   "joinInRealArt": {
-    "howToJoin": {
-      "title": "Comment nous rejoindre?",
-      "button": "Commencez maintenant",
-      "steps": {
-        "1": {
-          "title": "Remplissez le questionnaire ci dessus"
+    "header": {
+      "title": "Rejoignez InRealArt",
+      "description": "Un espace dédié pour les artistes et les galeries",
+      "artists": {
+        "title": "Vous êtes un artiste",
+        "description": "Un espace dédié pour un accompagnement sur mesure"
+      },
+      "galleries": {
+        "title": "Vous êtes une galerie",
+        "description": "Un espace dédié pour un contrôle total de vos collections"
+      }
+    },
+    "galleries": {
+      "title": "Nos Galeries",
+      "hero": {
+        "title": "Valorisez vos oeuvres Rejoignez InRealArt",
+        "subtitle": "Une plateforme innovante pour les galeries : toiles, NFTs et art fractionné, tout en un seul lieu.",
+        "button": "Commencer dès maintenant"
+      },
+      "opportunities": {
+        "title": "Un Nouveau Canal pour Vos Ventes et Votre Visibilité ",
+        "button": "Devenez Galerie Partenaire",
+        "support": {
+          "title": "Diversifiez vous",
+          "description": "Chaque galerie partenaire dispose d'un espace dédié pour présenter et gérer ses œuvres. Vous avez un contrôle total sur vos collections, avec une interface simple et intuitive pour suivre les vente. Cela vous permet de centraliser la gestion de vos œuvres et de bénéficier d'un environnement numérique professionnel pour optimiser vos ventes."
         },
-        "2": {
-          "title": "Notre équipe d'expert vous contactera dans les plus berfs délais"
+        "technology": {
+          "title": "Vente en fractionné pour plus de flexibilité",
+          "description": "Avec InRealArt, vous pouvez fractionner la propriété de vos toiles, permettant ainsi à plusieurs investisseurs d'acquérir des parts d'une œuvre. Cette option permet de générer des revenus immédiats tout en maintenant la valeur de l'œuvre. Par exemple, une galerie peut fractionner une œuvre prisée et la vendre sous forme de parts, attirant ainsi des investisseurs tout en laissant l'œuvre dans sa collection. Cela libère de la trésorerie et facilite la gestion des stocks sans renoncer à la propriété complète de la pièce."
         },
-        "3": {
-          "title": "Bénéficiez de notre accompagnement, des outils et des fonctionnalités de la marketplace pour maximiser vos ventes"
+        "rights": {
+          "title": "Réduction des coûts de stockage et gestion optimisée",
+          "description": "En utilisant InRealArt, vous pouvez mettre en vente vos œuvres sans les laisser en stock, réduisant ainsi les coûts associés au stockage physique. Une œuvre qui pourrait rester inutilisée ou entreposée peut être activée et commencer à générer des revenus instantanément sur notre plateforme. Cela vous permet de mieux gérer vos collections tout en atteignant un public mondial d'investisseurs prêts à financer de nouvelles acquisitions ou expositions."
         }
+      },
+      "testimonials": {
+        "title": "Ils Ont Transformé Leur Galerie Avec IRA",
+        "gallery1": {
+          "text": "Chez InRealArt, nous croyons que l'avenir de l'art passe par des alliances audacieuses entre création et innovation. <br/>Notre partenariat avec IRA repose sur une vision commune : accompagner les artistes de manière humaine, stratégique et tournée vers le long terme. Ensemble, nous redéfinissons les codes de la diffusion artistique, en plaçant la technologie au service des talents émergents. C'est une collaboration fondée sur le respect de l'œuvre, l'intelligence des outils et l'ambition partagée de faire rayonner l'art autrement."
+        },
+        "gallery2": {
+          "text": "Le partenariat avec Inrealart me permet d'élargir ma portée, d'accéder à un portefeuille client plus diversifié, et de valoriser mon travail grâce aux nouvelles technologies.<br/>C'est un vrai levier pour faire évoluer ma pratique et toucher un public plus large."
+        }
+      },
+      "howToJoin": {
+        "title": "Comment nous rejoindre?",
+        "button": "Commencez maintenant",
+        "steps": {
+          "1": {
+            "title": "Contactez-nous",
+            "description": ""
+          },
+          "2": {
+            "title": "Notre équipe d'expert vous contactera uen fois le dossier étudié",
+            "description": ""
+          },
+          "3": {
+            "title": "Mise en place de contrat sécurisant le partenariat",
+            "description": ""
+          }
+        }
+      },
+      "contact": {
+        "title": "Rejoignez InRealArt",
+        "message": "Contactez nous par email à "
       }
     },
     "artists": {
@@ -245,8 +298,26 @@
         "artist3": {
           "text": "Grâce à InRealArt, je révèle un art spontané et instructif libéré de toute intention. Cette plateforme révolutionne la création artistique en alliant innovation et technologie et liberté, ouvrant la voie à une nouvelle ère artistique."
         }
+      },
+      "howToJoin": {
+          "title": "Comment nous rejoindre?",
+          "button": "Commencez maintenant",
+          "steps": {
+            "1": {
+              "title": "Remplissez le questionnaire ci-dessus",
+              "description": ""
+            },
+            "2": {
+              "title": "Notre équipe d'expert vous contactera dans les plus brefs délais",
+              "description": ""
+            },
+            "3": {
+              "title": "Bénéficiez de notre accompagnement, des outils et des fonctionnalités de la marketplace pour maximiser vos ventes",
+              "description": ""
+            }
+          }
+        }
       }
-    }
   },
   "artists": {
     "title": "Nos artistes"

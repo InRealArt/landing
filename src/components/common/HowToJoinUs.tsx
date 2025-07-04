@@ -1,51 +1,80 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
 import Button from './Button'
+import ContactModal from './ContactModal'
 import { useLanguageStore } from '@/store/languageStore'
 
-export default function HowToJoinUs() {
-  const { t } = useLanguageStore()
+interface Step {
+  number: string;
+  title: string;
+  description?: string;
+}
 
-  const urlForm = 'https://docs.google.com/forms/d/1RxKNtLG2XZ7BB2CpzGI4yJZCjSJ3cSXwOHQKgwVC4gA/viewform?edit_requested=true#responses'
-  const steps = [
-    {
-      number: '01',
-      title: t('joinInRealArt.howToJoin.steps.1.title'),
-      description: ''
-    },
-    {
-      number: '02',
-      title: t('joinInRealArt.howToJoin.steps.2.title'),
-      description: ''
-    },
-    {
-      number: '03',
-      title: t('joinInRealArt.howToJoin.steps.3.title'),
-      description: ''
+interface HowToJoinUsProps {
+  title?: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  steps?: Step[];
+  // Props pour la modale
+  useModal?: boolean;
+  modalTitleKey?: string;
+  modalMessageKey?: string;
+}
+
+export default function HowToJoinUs({ 
+  title,
+  buttonText,
+  buttonUrl,
+  steps: customSteps,
+  useModal = false,
+  modalTitleKey,
+  modalMessageKey
+}: HowToJoinUsProps = {}) {
+  const { t } = useLanguageStore()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const displayTitle = title ? t(title) : t('joinInRealArt.howToJoin.title')
+  const displayButtonText = buttonText ? t(buttonText) : t('joinInRealArt.howToJoin.button')
+  const displayButtonUrl = buttonUrl || ''
+  const displaySteps = customSteps || []
+
+  const handleButtonClick = () => {
+    if (useModal) {
+      setIsModalOpen(true)
     }
-  ]
+  } 
 
   return (
-    <section className="py-16 bg-backgroundColor">
+    <section id="howToJoinUs" className="py-16 bg-backgroundColor">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium bricolage-grotesque text-white mb-6 md:mb-0">
-            {t('joinInRealArt.howToJoin.title')}
+            {displayTitle}
           </h2>
-          <Button
-            text={t('joinInRealArt.howToJoin.button')}
-            icon={<ArrowRight className="w-5 h-5" />}
-            additionalClassName="bg-purpleColor text-white hover:bg-purpleColor/90 transition-colors"
-            link={urlForm}
-            target="_blank"
-          />
+          {useModal ? (
+            <Button
+              text={displayButtonText}
+              additionalClassName="bg-purpleColor w-fit"
+              icon={<ArrowRight />}
+              action={handleButtonClick}
+            />
+          ) : (
+            <Button
+              text={displayButtonText}
+              additionalClassName="bg-purpleColor w-fit"
+              icon={<ArrowRight />}
+              link={displayButtonUrl}
+              target={displayButtonUrl?.startsWith('#') ? '_self' : '_blank'}
+            />
+          )}
         </div>
 
         {/* Steps */}
         <div className="space-y-8">
-          {steps.map((step, index) => {
+          {displaySteps.map((step, index) => {
             const isOdd = index % 2 === 0; // index 0, 2, 4... sont impairs dans l'affichage (01, 03, 05...)
             
             return (
@@ -54,11 +83,11 @@ export default function HowToJoinUs() {
                 <div className="bg-cardBackground rounded-xl p-6 md:p-8 border border-white relative z-10 flex items-center justify-center min-h-[120px]">
                   <div className="max-w-4xl text-center">
                     <h3 className="text-xl md:text-2xl font-medium bricolage-grotesque text-white mb-4">
-                      {step.title}
+                      {t(step.title)}
                     </h3>
                     {step.description && (
                       <p className="text-gray-300 inter leading-relaxed">
-                        {step.description}
+                        {t(step.description)}
                       </p>
                     )}
                   </div>
@@ -75,6 +104,16 @@ export default function HowToJoinUs() {
           })}
         </div>
       </div>
+
+      {/* Modale de contact */}
+      {useModal && (
+        <ContactModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)}
+          title={modalTitleKey ? t(modalTitleKey) : t('contact.modal.title')}
+          message={modalMessageKey ? t(modalMessageKey) : t('contact.modal.message')}
+        />
+      )}
     </section>
   )
 } 

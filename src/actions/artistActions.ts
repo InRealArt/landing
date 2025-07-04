@@ -24,13 +24,23 @@ export interface ArtistData {
     }
 }
 
-export async function getArtists(): Promise<ArtistData[]> {
+export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
     try {
+        // Construire la condition de filtrage
+        const whereCondition: any = {
+            artistsPage: true
+        }
+
+        // Ajouter le filtre isGallery si fourni
+        if (isGallery !== undefined) {
+            whereCondition.artist = {
+                isGallery
+            }
+        }
+
         // Récupérer les artistes de la landing page
         const landingArtists = await prisma.landingArtist.findMany({
-            where: {
-                artistsPage: true
-            },
+            where: whereCondition,
             select: {
                 id: true,
                 slug: true,
@@ -134,24 +144,10 @@ export async function getArtists(): Promise<ArtistData[]> {
 
 export async function getTestimonialArtists(): Promise<ArtistData[]> {
     try {
-        // Récupérer les artistes avec leurs données de base
+        // Récupérer les artistes avec leurs données de base (isGallery: false)
         const artists = await prisma.artist.findMany({
             where: {
-                OR: [
-                    {
-                        AND: [
-                            { name: { contains: 'Marc', mode: 'insensitive' } },
-                            { surname: { contains: 'Peltzer', mode: 'insensitive' } }
-                        ]
-                    },
-                    {
-                        AND: [
-                            { name: { contains: 'Nadine', mode: 'insensitive' } },
-                            { surname: { contains: 'LePrince', mode: 'insensitive' } }
-                        ]
-                    },
-                    { name: { contains: 'Ekaterina', mode: 'insensitive' } }
-                ]
+                isGallery: false
             },
             select: {
                 id: true,
@@ -188,6 +184,52 @@ export async function getTestimonialArtists(): Promise<ArtistData[]> {
         return testimonialArtists
     } catch (error) {
         console.error('Erreur lors de la récupération des artistes testimonials:', error)
+        return []
+    }
+}
+
+export async function getTestimonialGalleries(): Promise<ArtistData[]> {
+    try {
+        // Récupérer les galeries avec leurs données de base (isGallery: true)
+        const galleries = await prisma.artist.findMany({
+            where: {
+                isGallery: true
+            },
+            select: {
+                id: true,
+                name: true,
+                surname: true,
+                imageUrl: true,
+                LandingArtist: {
+                    select: {
+                        id: true,
+                        slug: true,
+                        imageUrl: true
+                    }
+                }
+            }
+        })
+
+        // Transformer les données pour correspondre au besoin des testimonials
+        const testimonialGalleries: ArtistData[] = galleries.map(gallery => ({
+            id: gallery.LandingArtist[0]?.id || gallery.id,
+            slug: gallery.LandingArtist[0]?.slug || '',
+            name: gallery.name,
+            surname: gallery.surname,
+            pseudo: '',
+            intro: null,
+            description: null,
+            artworkStyle: null,
+            artistsPage: null,
+            imageUrl: gallery.LandingArtist[0]?.imageUrl || gallery.imageUrl,
+            backgroundImage: null,
+            artworkImages: null,
+            artistId: gallery.id
+        }))
+
+        return testimonialGalleries
+    } catch (error) {
+        console.error('Erreur lors de la récupération des galeries testimonials:', error)
         return []
     }
 } 

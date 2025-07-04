@@ -6,6 +6,10 @@ import Slider from './Slider'
 import { useArtistStore } from '@/store/useArtistStore'
 import { useRouter } from 'next/navigation'
 
+interface ArtistSliderProps {
+  isGallery?: boolean
+}
+
 // Composant Skeleton pour l'état de chargement
 function ArtistSkeleton() {
   return (
@@ -22,13 +26,13 @@ function ArtistSkeleton() {
   )
 }
 
-function ArtistSlider() {
+function ArtistSlider({ isGallery }: ArtistSliderProps) {
   const { artists, isLoading, hasError, fetchArtists } = useArtistStore()
   const router = useRouter()
 
   useEffect(() => {
-    fetchArtists()
-  }, [fetchArtists])
+    fetchArtists(isGallery)
+  }, [fetchArtists, isGallery])
 
   // Adapter les données pour les rendre compatibles avec le composant Slider
   const formattedArtistImages = artists.map(artist => ({
