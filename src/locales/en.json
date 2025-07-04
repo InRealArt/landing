@@ -196,6 +196,58 @@
     "unknownError": "An unknown error occurred",
     "submitting": "Submitting..."
   },
+  "joinInRealArt": {
+    "howToJoin": {
+      "title": "How to join us?",
+      "button": "Get started now",
+      "steps": {
+        "1": {
+          "title": "Fill out the questionnaire above"
+        },
+        "2": {
+          "title": "Our expert team will contact you as soon as possible"
+        },
+        "3": {
+          "title": "Benefit from our support, tools and marketplace features to maximize your sales"
+        }
+      }
+    },
+    "artists": {
+      "hero": {
+        "title": "Transform your passion into opportunity",
+        "subtitle": "Showcase your collections, reach a global audience and maximize your sales with innovative tools.",
+        "button": "Get started now"
+      },
+      "opportunities": {
+        "title": "A World of Opportunities For You and Your Art",
+        "button": "Become a Partner Artist",
+        "support": {
+          "title": "Personalized support",
+          "description": "IRA supports you at every stage of your artistic journey — from putting your works online to managing a sales portfolio. Benefit from personalized advice to maximize your visibility, enhance your work and expand your network in the art world."
+        },
+        "technology": {
+          "title": "Technology at the service of your success",
+          "description": "Access an innovative platform that revolutionizes the sale of artwork. Our marketplace integrating art and the use of Web3 technologies will allow you to reach a larger and more modern audience, secure and transparent, while reaching an international audience."
+        },
+        "rights": {
+          "title": "Sell, enhance and protect your copyrights",
+          "description": "Take full advantage of your work: our expertise allows you to secure and exploit your copyrights while generating new revenue."
+        }
+      },
+      "testimonials": {
+        "title": "They Transformed Their Art With IRA",
+        "artist1": {
+          "text": "Through InRealArt, my nocturnal paintings come to life, blending chiaroscuro and mystical lights to transport the viewer into imaginary worlds."
+        },
+        "artist2": {
+          "text": "InRealArt allows me to take the art of trompe-l'œil to its highest level, immortalizing my vision through these creations. It's a unique opportunity to combine classical mastery and contemporary technology for a remarkable artistic experience."
+        },
+        "artist3": {
+          "text": "Thanks to InRealArt, I reveal a spontaneous and instructive art free from any intention. This platform revolutionizes artistic creation by combining innovation and technology and freedom, opening the way to a new artistic era."
+        }
+      }
+    }
+  },
   "artists": {
     "title": "Our artists"
   },

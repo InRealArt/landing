@@ -81,7 +81,7 @@ export async function getArtists(): Promise<ArtistData[]> {
         // Transformer les données pour correspondre à l'interface ArtistData
         const artists: ArtistData[] = landingArtists.map(la => {
             const landingArtistKey = `LandingArtist-${la.id}`
-            
+
             // Organiser les traductions
             const translations = {
                 intro: translationsByEntity[landingArtistKey]?.intro || {},
@@ -129,5 +129,65 @@ export async function getArtists(): Promise<ArtistData[]> {
     } catch (error) {
         console.error('Erreur lors de la récupération des artistes:', error)
         throw new Error('Impossible de récupérer les artistes')
+    }
+}
+
+export async function getTestimonialArtists(): Promise<ArtistData[]> {
+    try {
+        // Récupérer les artistes avec leurs données de base
+        const artists = await prisma.artist.findMany({
+            where: {
+                OR: [
+                    {
+                        AND: [
+                            { name: { contains: 'Marc', mode: 'insensitive' } },
+                            { surname: { contains: 'Peltzer', mode: 'insensitive' } }
+                        ]
+                    },
+                    {
+                        AND: [
+                            { name: { contains: 'Nadine', mode: 'insensitive' } },
+                            { surname: { contains: 'LePrince', mode: 'insensitive' } }
+                        ]
+                    },
+                    { name: { contains: 'Ekaterina', mode: 'insensitive' } }
+                ]
+            },
+            select: {
+                id: true,
+                name: true,
+                surname: true,
+                imageUrl: true,
+                LandingArtist: {
+                    select: {
+                        id: true,
+                        slug: true,
+                        imageUrl: true
+                    }
+                }
+            }
+        })
+
+        // Transformer les données pour correspondre au besoin des testimonials
+        const testimonialArtists: ArtistData[] = artists.map(artist => ({
+            id: artist.LandingArtist[0]?.id || artist.id,
+            slug: artist.LandingArtist[0]?.slug || '',
+            name: artist.name,
+            surname: artist.surname,
+            pseudo: '',
+            intro: null,
+            description: null,
+            artworkStyle: null,
+            artistsPage: null,
+            imageUrl: artist.LandingArtist[0]?.imageUrl || artist.imageUrl,
+            backgroundImage: null,
+            artworkImages: null,
+            artistId: artist.id
+        }))
+
+        return testimonialArtists
+    } catch (error) {
+        console.error('Erreur lors de la récupération des artistes testimonials:', error)
+        return []
     }
 } 
