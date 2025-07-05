@@ -76,6 +76,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.artists')}
           </Link>
           <Link 
+            href="/joinInRealArt" 
+            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            onClick={onClose}
+          >
+            {t('nav.joinInRealArt')}
+          </Link>
+          <Link 
             href="/usecase" 
             className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
