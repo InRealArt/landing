@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 
     // Send admin notification email with company info and calculation results
     await sendEmailViaBrevo(
-      'nino.lmx.pro@gmail.com',
+      'teaminrealart@gmail.com',
       `Nouvelle simulation de leasing - ${formData.company}`,
       createAdminEmailTemplate(formData, leaseResults, comparison)
     )

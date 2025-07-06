@@ -113,7 +113,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
       <div className="relative">
 
         {/* Content */}
-        <div className="blur-sm">
+        {/* <div className="blur-sm"> */}
           {activeTab === 'summary' && formData && (
             <SummaryTab
               leaseResults={leaseResults}
@@ -133,7 +133,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
           {activeTab === 'tax' && (
             <TaxAdvantagesTab leaseResults={leaseResults} />
           )}
-        </div>
+        {/* </div> */}
       </div>
 
       {/* Send PDF Button */}
