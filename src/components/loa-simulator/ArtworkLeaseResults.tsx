@@ -24,7 +24,6 @@ interface ArtworkLeaseResultsProps {
     artworkValue: number
     leaseDuration: number
     firstRentIncrease: boolean
-    amountType: 'HT' | 'TTC'
   }
 }
 
@@ -139,7 +138,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
       {/* Send PDF Button */}
       <div className="flex justify-center gap-4 pt-6">
         {/* Preview PDF Button (for debugging) */}
-        <button
+        {/* <button
           onClick={handlePreviewPDF}
           disabled={!formData}
           className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${!formData
@@ -152,7 +151,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
           Preview PDF
-        </button>
+        </button> */}
 
         <Button
           action={handleSendPDF}

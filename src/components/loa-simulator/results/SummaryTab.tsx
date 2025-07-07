@@ -13,7 +13,6 @@ interface SummaryTabProps {
     artworkValue: number
     leaseDuration: number
     firstRentIncrease: boolean
-    amountType: 'HT' | 'TTC'
   }
 }
 
@@ -60,12 +59,7 @@ export default function SummaryTab({ leaseResults, comparison, formData }: Summa
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex justify-between py-2 border-b border-white/20">
-            <span className="font-medium text-white/70 font-unbounded">{t('loaSimulator.results.summary.amountType')}</span>
-            <span className="text-white font-unbounded">{formData.amountType}</span>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">          
           <div className="flex justify-between py-2 border-b border-white/20">
             <span className="font-medium text-white/70 font-unbounded">{t('loaSimulator.results.summary.totalLeaseAmount')}</span>
             <span className="text-white font-unbounded">{formatCurrency(leaseResults.totalLeaseAmount)}</span>

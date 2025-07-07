@@ -193,7 +193,6 @@ interface LeaseResultsPDFProps {
     artworkValue: number
     leaseDuration: number
     firstRentIncrease: boolean
-    amountType: 'HT' | 'TTC'
   }
   translations: PDFTranslations
 }
@@ -238,7 +237,7 @@ export const LeaseResultsPDF: React.FC<LeaseResultsPDFProps> = ({
           <Text style={styles.sectionTitle}>{t.leaseParameters}</Text>
           <View style={styles.row}>
             <Text style={styles.label}>{t.artworkValue}</Text>
-            <Text style={styles.value}>{formatCurrencyForPDF(formData.artworkValue)} ({formData.amountType})</Text>
+            <Text style={styles.value}>{formatCurrencyForPDF(formData.artworkValue)} (HT)</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t.leaseDuration}</Text>
@@ -271,14 +270,6 @@ export const LeaseResultsPDF: React.FC<LeaseResultsPDFProps> = ({
           <View style={styles.row}>
             <Text style={styles.label}>{t.totalLeaseAmount}</Text>
             <Text style={styles.value}>{formatCurrencyForPDF(leaseResults.totalLeaseAmount)}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>{t.purchaseOption}</Text>
-            <Text style={styles.value}>{formatCurrencyForPDF(leaseResults.purchaseOption)}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>{t.totalCostWithPurchase}</Text>
-            <Text style={styles.value}>{formatCurrencyForPDF(leaseResults.totalCostWithPurchase)}</Text>
           </View>
         </View>
 
@@ -319,7 +310,7 @@ export const LeaseResultsPDF: React.FC<LeaseResultsPDFProps> = ({
             
             <View style={styles.tableRow}>
               <Text style={styles.tableCell}>{t.costBeforeTax}</Text>
-              <Text style={styles.tableCell}>{formatCurrencyForPDF(leaseResults.totalCostWithPurchase)}</Text>
+              <Text style={styles.tableCell}>{formatCurrencyForPDF(leaseResults.totalLeaseAmount)}</Text>
               <Text style={styles.tableCell}>{formatCurrencyForPDF(comparison.purchasePrice)}</Text>
             </View>
             

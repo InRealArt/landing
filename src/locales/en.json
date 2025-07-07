@@ -1679,7 +1679,7 @@
       "calculating": "Calculating...",
       "downloadPDF": "Download PDF",
       "generating": "Generating...",
-      "sendPDF": "Get PDF",
+      "sendPDF": "Receive PDF by mail",
       "sendingPDF": "Sending...",
       "errors": {
         "companyRequired": "Company name is required",
@@ -1717,7 +1717,7 @@
         "leaseDuration": "Lease Duration:",
         "firstRentIncrease": "First Rent Increase:",
         "amountType": "Amount Type:",
-        "totalLeaseAmount": "Total Lease Amount (Incl. Tax):",
+        "totalLeaseAmount": "Total Lease Amount:",
         "firstMonthRent": "First Monthly Payment:",
         "monthlyRent": "Following Monthly Payments:",
         "taxSavings": "Tax Savings:",
@@ -1734,8 +1734,7 @@
         "followingMonths": "Following months",
         "financialDetails": "Financial details",
         "totalLeaseAmount": "Total lease amount",
-        "purchaseOption": "Final purchase option",
-        "totalCostWithPurchase": "Total cost if purchased",
+        
         "taxSavings": "Tax savings",
         "netCostAfterTax": "Net cost after tax",
         "endOfLeaseOptions": "End of lease options",
@@ -1806,8 +1805,7 @@
       "firstMonthRent": "First rent:",
       "monthlyRent": "Monthly rents:",
       "totalLeaseAmount": "Total lease amount:",
-      "purchaseOption": "Purchase option:",
-      "totalCostWithPurchase": "Total cost if purchased:",
+      
       "taxAdvantages": "Tax Benefits",
       "totalTaxSavings": "Total tax savings:",
       "monthlyTaxDeduction": "Monthly deduction:",

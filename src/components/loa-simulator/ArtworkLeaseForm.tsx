@@ -35,8 +35,7 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
     taxRate: z.number().min(0, t('loaSimulator.form.errors.taxRateMin')).max(50, t('loaSimulator.form.errors.taxRateMax')),
     artworkValue: z.number().min(100, t('loaSimulator.form.errors.artworkValueMin')),
     leaseDuration: z.number().min(12, t('loaSimulator.form.errors.leaseDurationMin')).max(72, t('loaSimulator.form.errors.leaseDurationMax')),
-    firstRentIncrease: z.boolean(),
-    amountType: z.enum(['HT', 'TTC'])
+    firstRentIncrease: z.boolean()
   })
 
   const [formData, setFormData] = useState({
@@ -46,8 +45,7 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
     taxRate: '',
     artworkValue: '',
     leaseDuration: '',
-    firstRentIncrease: '',
-    amountType: '',
+    firstRentIncrease: ''
   })
 
   const [isCalculating, setIsCalculating] = useState(false)
@@ -63,11 +61,6 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
   const firstRentOptions = [
     { value: 'false', label: t('loaSimulator.form.firstRentOptions.no') },
     { value: 'true', label: t('loaSimulator.form.firstRentOptions.yes') }
-  ]
-
-  const amountTypeOptions = [
-    { value: 'HT', label: t('loaSimulator.form.amountTypeOptions.ht') },
-    { value: 'TTC', label: t('loaSimulator.form.amountTypeOptions.ttc') }
   ]
 
   const handleInputChange = (field: string, value: string | number | boolean) => {
@@ -111,7 +104,6 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         artworkValue: parseFloat(formData.artworkValue) || 0,
         leaseDuration: parseInt(formData.leaseDuration) || 0,
         firstRentIncrease: formData.firstRentIncrease === 'true',
-        amountType: formData.amountType as 'HT' | 'TTC'
       }
 
       // Validate with Zod
@@ -324,24 +316,7 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
           )}
         </div>
 
-        {/* Type de Montant */}
-        <div>
-          <div className="relative">
-            <select
-              value={formData.amountType}
-              onChange={(e) => handleInputChange('amountType', e.target.value)}
-              className="w-full px-4 py-4 rounded-lg border-2 border-gray-700 bg-gray-800 focus:border-purple-500 focus:outline-none text-white appearance-none font-unbounded"
-            >
-              <option value="" disabled className="text-gray-400">{t('loaSimulator.form.amountType')}</option>
-              {amountTypeOptions.map(option => (
-                <option key={option.value} value={option.value} className="bg-gray-800 text-white">
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-          </div>
-        </div>
+
 
         {/* Explication des champs marqués d'un astérisque */}
         <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">
@@ -352,6 +327,9 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
             </div>
             <div>
               <span className="text-purple-400 font-medium">• Majoration du premier loyer :</span> Option pour payer un premier loyer majoré (x3) qui réduit les mensualités suivantes et optimise la fiscalité.
+            </div>
+            <div>
+              <span className="text-purple-400 font-medium">• Valeur des œuvres :</span> La valeur des œuvres est en HT (Hors Taxes). Cette valeur est utilisée pour le calcul de la fiscalité et de la comparaison avec l&apos;achat direct.
             </div>
           </div>
         </div>

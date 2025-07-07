@@ -66,7 +66,7 @@ export default function ComparisonTab({ leaseResults, comparison }: ComparisonTa
               <tbody>
                 <tr className="border-b border-white/20">
                   <td className="py-3 text-white font-unbounded">{t('loaSimulator.results.comparison.costBeforeTax')}</td>
-                  <td className="py-3 text-right text-white font-unbounded">{formatCurrency(leaseResults.totalCostWithPurchase)}</td>
+                  <td className="py-3 text-right text-white font-unbounded">{formatCurrency(leaseResults.totalLeaseAmount)}</td>
                   <td className="py-3 text-right text-white font-unbounded">{formatCurrency(comparison.purchasePrice)}</td>
                 </tr>
                 

@@ -11,15 +11,12 @@ const previewPDFSchema = z.object({
     taxRate: z.number(),
     artworkValue: z.number(),
     leaseDuration: z.number(),
-    firstRentIncrease: z.boolean(),
-    amountType: z.enum(['HT', 'TTC'])
+    firstRentIncrease: z.boolean()
   }),
   leaseResults: z.object({
     monthlyRent: z.number(),
     firstMonthRent: z.number(),
     totalLeaseAmount: z.number(),
-    purchaseOption: z.number(),
-    totalCostWithPurchase: z.number(),
     taxSavings: z.number(),
     netCostAfterTax: z.number(),
     monthlyTaxDeduction: z.number()

@@ -7,18 +7,15 @@ export interface ArtworkLeaseInputs {
   email: string; // Adresse mail
   phoneNumber: string; // Numéro de téléphone
   taxRate: number; // Taux d'imposition personnalisé en %
-  artworkValue: number; // Valeur des œuvres en €
+  artworkValue: number; // Valeur de l'œuvre en € (HT)
   leaseDuration: number; // Durée du bail en mois
   firstRentIncrease: boolean; // Majoration du premier loyer (oui/non)
-  amountType: 'HT' | 'TTC'; // Type de montant (HT ou TTC)
 }
 
 export interface ArtworkLeaseResults {
   monthlyRent: number; // Loyer mensuel
   firstMonthRent: number; // Premier loyer majoré
   totalLeaseAmount: number; // Montant total du bail
-  purchaseOption: number; // Option d'achat finale
-  totalCostWithPurchase: number; // Coût total si rachat
   taxSavings: number; // Économies fiscales
   netCostAfterTax: number; // Coût net après économies fiscales
   monthlyTaxDeduction: number; // Déduction fiscale mensuelle
@@ -50,39 +47,33 @@ export function calculateArtworkLease(inputs: ArtworkLeaseInputs): ArtworkLeaseR
     artworkValue,
     leaseDuration,
     firstRentIncrease,
-    amountType,
     taxRate
   } = inputs;
 
-  // Calcul du montant TTC
-  let montantTTC = amountType === 'TTC' ? artworkValue * 1.2 : artworkValue;
+  // Calcul du montant de base (HT) + 20% frais partenaire
+  let montantTotal = artworkValue * 1.2; // +20% frais partenaire
 
   // Appliquer le coefficient de pondération basé sur la durée
   const coefficient = getPonderationDuree(leaseDuration);
-  montantTTC = montantTTC * coefficient;
+  montantTotal = montantTotal * coefficient;
 
   // Calcul du premier loyer majoré ou non
-  const premierLoyer = firstRentIncrease ? (montantTTC / leaseDuration) * 3 : montantTTC / leaseDuration;
+  const premierLoyer = firstRentIncrease ? (montantTotal / leaseDuration) * 3 : montantTotal / leaseDuration;
 
   // Calcul des mensualités restantes
-  const mensualites = (montantTTC - premierLoyer) / (leaseDuration - 1);
+  const mensualites = (montantTotal - premierLoyer) / (leaseDuration - 1);
 
   // Calcul de l'économie d'impôts et du coût réel
-  const economieImpots = montantTTC * (taxRate / 100);
-  const coutReel = montantTTC - economieImpots;
+  const economieImpots = montantTotal * (taxRate / 100);
+  const coutReel = montantTotal - economieImpots;
 
   // Déduction fiscale mensuelle moyenne
   const monthlyTaxDeduction = economieImpots / leaseDuration;
 
-  // Option d'achat symbolique (1% du montant original)
-  const purchaseOption = artworkValue * 0.01;
-
   return {
     monthlyRent: Math.round(mensualites * 100) / 100,
     firstMonthRent: Math.round(premierLoyer * 100) / 100,
-    totalLeaseAmount: Math.round(montantTTC * 100) / 100,
-    purchaseOption: Math.round(purchaseOption * 100) / 100,
-    totalCostWithPurchase: Math.round((montantTTC + purchaseOption) * 100) / 100,
+    totalLeaseAmount: Math.round(montantTotal * 100) / 100,
     taxSavings: Math.round(economieImpots * 100) / 100,
     netCostAfterTax: Math.round(coutReel * 100) / 100,
     monthlyTaxDeduction: Math.round(monthlyTaxDeduction * 100) / 100
@@ -96,12 +87,10 @@ export function compareWithDirectPurchase(
   inputs: ArtworkLeaseInputs,
   leaseResults: ArtworkLeaseResults
 ): ArtworkLeaseComparison {
-  const { artworkValue, amountType, taxRate } = inputs;
+  const { artworkValue, taxRate } = inputs;
 
-  // Prix d'achat TTC
-  const purchasePrice = amountType === 'HT' 
-    ? artworkValue * 1.2
-    : artworkValue;
+  // Prix d'achat direct (HT uniquement)
+  const purchasePrice = artworkValue;
 
   // Avec l'achat direct, pas de déduction fiscale immédiate
   // (sauf si amortissement possible, mais plus complexe)

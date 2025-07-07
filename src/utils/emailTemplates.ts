@@ -219,7 +219,7 @@ export const createAdminEmailTemplate = (formData: FormData, leaseResults?: Leas
                     <li><strong>Valeur des œuvres :</strong> ${formData.artworkValue.toLocaleString('fr-FR')} €</li>
                     <li><strong>Durée souhaitée :</strong> ${formData.leaseDuration} mois</li>
                     <li><strong>Taux d'imposition personnalisé :</strong> ${formData.taxRate}%</li>
-                    <li><strong>Type de montant :</strong> ${formData.amountType}</li>
+                    <li><strong>Valeur des œuvres :</strong> ${formData.artworkValue}€ (HT)</li>
                     <li><strong>Majoration premier loyer :</strong> ${formData.firstRentIncrease ? 'Oui' : 'Non'}</li>
                 </ul>
             </div>
@@ -231,7 +231,6 @@ export const createAdminEmailTemplate = (formData: FormData, leaseResults?: Leas
                     <li><strong>Loyer mensuel :</strong> ${leaseResults.monthlyRent.toLocaleString('fr-FR')} €</li>
                     <li><strong>Premier loyer :</strong> ${leaseResults.firstMonthRent.toLocaleString('fr-FR')} €</li>
                     <li><strong>Montant total du bail :</strong> ${leaseResults.totalLeaseAmount.toLocaleString('fr-FR')} €</li>
-                    <li><strong>Option d'achat :</strong> ${leaseResults.purchaseOption.toLocaleString('fr-FR')} €</li>
                     <li><strong>💰 Économies fiscales :</strong> <span style="color: #059669; font-weight: bold;">${leaseResults.taxSavings.toLocaleString('fr-FR')} €</span></li>
                     <li><strong>💡 Coût net après fiscalité :</strong> ${leaseResults.netCostAfterTax.toLocaleString('fr-FR')} €</li>
                     <li><strong>🎯 Économies vs achat direct :</strong> <span style="color: #059669; font-weight: bold;">${Math.abs(comparison.savings).toLocaleString('fr-FR')} €</span></li>

@@ -15,15 +15,12 @@ export interface FormData {
   artworkValue: number
   leaseDuration: number
   firstRentIncrease: boolean
-  amountType: 'HT' | 'TTC'
 }
 
 export interface LeaseResults {
   monthlyRent: number
   firstMonthRent: number
   totalLeaseAmount: number
-  purchaseOption: number
-  totalCostWithPurchase: number
   taxSavings: number
   netCostAfterTax: number
   monthlyTaxDeduction: number
@@ -201,20 +198,18 @@ export async function generateLeasingPDF(
     yPosition += 50 // Reduced spacing
     
     // Lease Parameters Section
-    sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Paramètre du bail')
-    addKeyValue(margin + 5, sectionY, 'Valeur des œuvres :', formatCurrency(formData.artworkValue))
+    sectionY = createSectionBox(margin, yPosition, contentWidth, 30, 'Paramètre du bail')
+    addKeyValue(margin + 5, sectionY, 'Valeur des œuvres :', `${formatCurrency(formData.artworkValue)} (HT)`)
     addKeyValue(margin + 5, sectionY + 4, 'Durée du bail :', `${formData.leaseDuration} mois`)
     addKeyValue(margin + 5, sectionY + 8, 'Majoration premier loyer :', formData.firstRentIncrease ? 'Oui' : 'Non')
-    addKeyValue(margin + 5, sectionY + 12, 'Type de montant :', formData.amountType)
     
-    yPosition += 45 // Reduced spacing
+    yPosition += 40 // Reduced spacing
     
     // Lease Results Section
-    sectionY = createSectionBox(margin, yPosition, contentWidth, 40, 'Résultats du leasing')
+    sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Résultats du leasing')
     addKeyValue(margin + 5, sectionY, 'Premier loyer :', formatCurrency(leaseResults.firstMonthRent))
     addKeyValue(margin + 5, sectionY + 4, 'Loyers mensuels :', formatCurrency(leaseResults.monthlyRent))
     addKeyValue(margin + 5, sectionY + 8, 'Montant total du bail :', formatCurrency(leaseResults.totalLeaseAmount))
-    addKeyValue(margin + 5, sectionY + 12, 'Option d\'achat :', formatCurrency(leaseResults.purchaseOption))
     
     yPosition += 50 // Reduced spacing
     

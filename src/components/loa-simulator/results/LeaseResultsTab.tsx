@@ -40,16 +40,6 @@ export default function LeaseResultsTab({ leaseResults }: LeaseResultsTabProps) 
               <span className="text-white/70 font-unbounded">{t('loaSimulator.results.lease.totalLeaseAmount')}</span>
               <span className="text-white font-semibold font-unbounded">{formatCurrency(leaseResults.totalLeaseAmount)}</span>
             </div>
-            
-            <div className="flex justify-between py-2 border-b border-white/20">
-              <span className="text-white/70 font-unbounded">{t('loaSimulator.results.lease.purchaseOption')}</span>
-              <span className="text-white font-semibold font-unbounded">{formatCurrency(leaseResults.purchaseOption)}</span>
-            </div>
-            
-            <div className="flex justify-between py-2 border-b border-white/20">
-              <span className="text-white/70 font-unbounded">{t('loaSimulator.results.lease.totalCostWithPurchase')}</span>
-              <span className="text-white font-semibold font-unbounded">{formatCurrency(leaseResults.totalCostWithPurchase)}</span>
-            </div>
           </div>
         </div>
 

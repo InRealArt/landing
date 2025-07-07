@@ -1439,7 +1439,7 @@
       "calculating": "Calcul en cours...",
       "downloadPDF": "Télécharger PDF",
       "generating": "Génération...",
-      "sendPDF": "Recevoir le PDF",
+      "sendPDF": "Recevoir le PDF par mail",
       "sendingPDF": "Envoi en cours...",
       "errors": {
         "companyRequired": "Le nom de l'entreprise est requis",
@@ -1477,7 +1477,7 @@
         "leaseDuration": "Durée du Bail:",
         "firstRentIncrease": "Majoration du Premier Loyer:",
         "amountType": "Type de Montant:",
-        "totalLeaseAmount": "Montant du Bail (TTC):",
+        "totalLeaseAmount": "Montant du Bail:",
         "firstMonthRent": "Première Mensualité:",
         "monthlyRent": "Mensualités Suivantes:",
         "taxSavings": "Économie d'Impôt:",
@@ -1494,8 +1494,7 @@
         "followingMonths": "Mois suivants",
         "financialDetails": "Détail financier",
         "totalLeaseAmount": "Montant total du bail",
-        "purchaseOption": "Option d'achat finale",
-        "totalCostWithPurchase": "Coût total si rachat",
+        
         "taxSavings": "Économies fiscales",
         "netCostAfterTax": "Coût net après fiscalité",
         "endOfLeaseOptions": "Options en fin de bail",
@@ -1566,8 +1565,7 @@
       "firstMonthRent": "Premier loyer:",
       "monthlyRent": "Loyers mensuels:",
       "totalLeaseAmount": "Montant total du bail:",
-      "purchaseOption": "Option d'achat:",
-      "totalCostWithPurchase": "Coût total si rachat:",
+      
       "taxAdvantages": "Avantages Fiscaux",
       "totalTaxSavings": "Économies fiscales totales:",
       "monthlyTaxDeduction": "Déduction mensuelle:",
