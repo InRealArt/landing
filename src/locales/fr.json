@@ -6,13 +6,13 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Équipe",
-    "ico": "ICO IRA",
+    "ico": "Token IRA",
     "glossary": "Glossaire",
     "artists": "Artistes",
     "presale": "Pré-vente",
-    "artworks": "Oeuvres",
+    "artworks": "Œuvres",
     "usecase": "Use Case",
-    "whitepaper": "Livre Blanc bientôt",
+    "whitepaper": "Manifeste bientôt",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
     "leasing": "Leasing",
@@ -23,7 +23,7 @@
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
-    "description": "Oeuvres rares et exclusives"
+    "description": "Œuvres rares et exclusives"
   },
   "statistics": {
     "title": "Le catalogue InRealArt c'est : ",
@@ -51,7 +51,7 @@
     "submit": "Soumettre",
     "connect": "Connecter",
     "presale": "Pré-vente",
-    "readWhitepaper": "Lire notre whitepaper bientôt",
+    "readWhitepaper": "Lire notre manifeste bientôt",
     "team": "L'équipe",
     "viewFAQ": "Consulter la FAQ",
     "back": "Retour aux articles"
@@ -70,16 +70,16 @@
       "subtitle": "",
       "items": {
         "bridge": {
-          "title": "Pont réel digital",
-          "description": "Marketplace connectée à des galeries physiques, à des collectionneurs et proposant un panel d'oeuvres et d'artistes d'exception"
+          "title": "L'art, pratique vivante",
+          "description": "InReal Art valorise la création contemporaine au croisement du geste, du savoir-faire et de la narration critique."
         },
         "token": {
-          "title": "Un token unique",
-          "description": "Écosystème permettant la sélection et la création de galeries communautaires interconnectées à notre marketplace et notre DAO"
+          "title": "Culture en mouvement",
+          "description": "Système vivant de représentations et de pratiques, la culture façonne la reconnaissance des artistes et des œuvres. Notre plateforme connecte les univers esthétiques aux enjeux de société par le biais de contenus curatoriaux et éditoriaux."
         },
         "art": {
-          "title": "Optimisation financière",
-          "description": "Combinaison de solution de financement traditionnel et Web3 (leasing, lending), achat de droits d'auteur et actifs réels tokenisés (RWA)"
+          "title": "Patrimoine à transmettre",
+          "description": "Plus qu’un actif, chaque œuvre porte un héritage symbolique. InReal Art active les leviers de curation, de leasing et de tokenisation pour renforcer la valeur et la transmission des patrimoines artistiques."
         }
       }
     },
@@ -88,14 +88,14 @@
     },
     "explore": {
       "title": "Avec InRealArt",
-      "subtitle": "Explorez une <span class='text-purpleColor'>collection unique</span> de <span class='text-purpleColor'>toiles physiques</span> et de <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rares, de leurs copies numériques (NFT), accompagnées de leurs répliques numériques authentifiées sur une technologie de nouvelle génération liée à la blockchain.</span>",
+      "subtitle": "Découvrez une sélection d’<span class='text-purpleColor'>œuvres physiques rares </span> pouvant être accompagnées de leurs <span class='text-purpleColor'>répliques numériques authentifiées</span>. Un écosystème pensé pour préserver la <span class='text-purpleColor'>valeur</span>, l'<span class='text-purpleColor'>origine</span> et l'<span class='text-purpleColor'>intégrité des créations</span>, dans un format adapté aux usages contemporains de collection et de transmission.",
       "items": {
         "rare": {
           "title": "Une Marketplace web2 et web 3 enfin accessible",
-          "label": "Vous avez la possibilité d'acheter vos oeuvres d'art en format physique, digital et fractionné",
+          "label": "Vous avez la possibilité d'acheter vos œuvres d'art en format physique, digital et fractionné",
           "description": "Ici, chaque œuvre — physique ou numérique — est rigoureusement choisie pour son unicité et sa valeur réelle. Pour les collectionneurs exigeants comme pour les nouveaux passionnés, c'est l'opportunité rare d'acquérir des pièces qui font la différence, et qui donnent à votre collection une profondeur et un prestige authentiques.",
           "buttons": {
-            "artworks": "Oeuvres en ligne",
+            "artworks": "Œuvres en ligne",
             "getartworks": "Obtenir notre catalogue"
           }
         },
@@ -125,16 +125,16 @@
           "label": "Artistes sélectionnés dans notre catalogue global"
         },
         "works": {
-          "number": "100+",
-          "label": "Oeuvres soigneusement choisies pour embellir votre collection"
+          "number": "200+",
+          "label": "Œuvres soigneusement choisies pour embellir votre collection"
         },
         "transactions": {
           "number": "500+",
           "label": "Transactions réalisées sur le testnet notre marketplace"
         },
         "ranking": {
-          "number": "90%",
-          "label": "De nos oeuvres peuvent être vendues avec les droits d'auteur, physique et digital inclus"
+          "number": "99%",
+          "label": "De nos artistes satisfaits de leurs accompagnements"
         }
       }
     }
@@ -211,9 +211,9 @@
       }
     },
     "galleries": {
-      "title": "Nos Galeries",
+      "title": "Nos Galeries partenaires",
       "hero": {
-        "title": "Valorisez vos oeuvres Rejoignez InRealArt",
+        "title": "Valorisez vos œuvres Rejoignez InRealArt",
         "subtitle": "Une plateforme innovante pour les galeries : toiles, NFTs et art fractionné, tout en un seul lieu.",
         "button": "Commencer dès maintenant"
       },
@@ -236,10 +236,10 @@
       "testimonials": {
         "title": "Ils Ont Transformé Leur Galerie Avec IRA",
         "gallery1": {
-          "text": "Chez InRealArt, nous croyons que l'avenir de l'art passe par des alliances audacieuses entre création et innovation. <br/>Notre partenariat avec IRA repose sur une vision commune : accompagner les artistes de manière humaine, stratégique et tournée vers le long terme. Ensemble, nous redéfinissons les codes de la diffusion artistique, en plaçant la technologie au service des talents émergents. C'est une collaboration fondée sur le respect de l'œuvre, l'intelligence des outils et l'ambition partagée de faire rayonner l'art autrement."
+          "text": "&quot;Le partenariat avec InReal Art m’offre une réelle opportunité : celle d’élargir ma portée, d’ouvrir ma galerie à un public plus diversifié et de valoriser mes artistes grâce aux technologies d’aujourd’hui. C’est un levier de croissance concret et un pas vers un marché de l’art plus accessible, plus vivant.&quot;"
         },
         "gallery2": {
-          "text": "Le partenariat avec Inrealart me permet d'élargir ma portée, d'accéder à un portefeuille client plus diversifié, et de valoriser mon travail grâce aux nouvelles technologies.<br/>C'est un vrai levier pour faire évoluer ma pratique et toucher un public plus large."
+          "text": "&quot;Ce partenariat me permet de faire évoluer ma galerie avec cohérence : je garde mon exigence artistique tout en élargissant mes outils, mes publics et mes opportunités. C’est une manière d’inscrire Arthema dans le présent, tout en préparant l’avenir.&quot;"
         }
       },
       "howToJoin": {
@@ -251,11 +251,11 @@
             "description": ""
           },
           "2": {
-            "title": "Notre équipe d'expert vous contactera uen fois le dossier étudié",
+            "title": "Notre équipe d'expert vous contactera une fois le dossier étudié",
             "description": ""
           },
           "3": {
-            "title": "Mise en place de contrat sécurisant le partenariat",
+            "title": "Mise en place du partenariat",
             "description": ""
           }
         }
@@ -300,24 +300,24 @@
         }
       },
       "howToJoin": {
-          "title": "Comment nous rejoindre?",
-          "button": "Commencez maintenant",
-          "steps": {
-            "1": {
-              "title": "Remplissez le questionnaire ci-dessus",
-              "description": ""
-            },
-            "2": {
-              "title": "Notre équipe d'expert vous contactera dans les plus brefs délais",
-              "description": ""
-            },
-            "3": {
-              "title": "Bénéficiez de notre accompagnement, des outils et des fonctionnalités de la marketplace pour maximiser vos ventes",
-              "description": ""
-            }
+        "title": "Comment nous rejoindre?",
+        "button": "Commencez maintenant",
+        "steps": {
+          "1": {
+            "title": "Remplissez le questionnaire ci-dessus",
+            "description": ""
+          },
+          "2": {
+            "title": "Notre équipe d'expert vous contactera dans les plus brefs délais",
+            "description": ""
+          },
+          "3": {
+            "title": "Bénéficiez de notre accompagnement, des outils et des fonctionnalités de la marketplace pour maximiser vos ventes",
+            "description": ""
           }
         }
       }
+    }
   },
   "artists": {
     "title": "Nos artistes"
@@ -359,7 +359,7 @@
       "subtitle": "L'art s'est ouvert à de nouveaux horizons avec les RWAs, et aujourd'hui nous voulons partager ces œuvres avec le monde entier",
       "buttons": {
         "marketplace": "Voir le marketplace",
-        "whitepaper": "Lire notre whitepaper"
+        "whitepaper": "Lire notre manifeste"
       }
     },
     "items": {
@@ -405,7 +405,7 @@
       "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",
       "buttons": {
         "catalog": "Catalogue 2025",
-        "whitepaper": "Lire notre livre blanc bientôt"
+        "whitepaper": "Lire notre manifeste bientôt"
       }
     },
     "buyProcess": {
@@ -435,7 +435,7 @@
         "next": "Suivant"
       }
     },
-    "onDemand": "Préventes sur demande",
+    "onDemand": "Œuvres sur demande",
     "viewAll": "Voir tout",
     "token": {
       "limitedAccess": "Accès Limité",
@@ -628,7 +628,7 @@
     },
     "items": {
       "fractionate": {
-        "title": "Oeuvres fractionnées InRealArt",
+        "title": "Œuvres fractionnées InRealArt",
         "description": "Accédez à des œuvres d'art fractionnées via une marketplace exclusive, offrant des opportunités d'investissement uniques et accessibles. Idéale pour les collectionneurs et investisseurs souhaitant diversifier leur portefeuille tout en profitant de la valeur croissante de l'art.",
         "features": [
           "Accès à des œuvres rares et exclusives",
@@ -918,8 +918,8 @@
     }
   },
   "blog": {
-    "title": "Rattrapez-vous avec Nos Derniers Articles",
-    "subtitle": "Rattrapez-vous avec nos dernières actualités et restez informé des mises à jour récentes, des histoires instructives et des annonces passionnantes qui façonnent notre parcours !",
+    "title": "Regards sur l’actualité",
+    "subtitle": "Explorez nos derniers articles : actualités du monde de l’art, réflexions culturelles, récits de transmission et projets en devenir. Restez au plus près des démarches, des œuvres et des idées qui nourrissent notre vision du patrimoine vivant.",
     "featuredPost": "Article en vedette",
     "weeklyMostReadPosts": "Plus Lus de la Semaine",
     "othersPosts": "Autres Articles",
@@ -1200,6 +1200,43 @@
     "jurisdiction": {
       "title": "Juridiction Compétente",
       "content": "Tout litige relatif à l'interprétation, la validité ou l'exécution des présentes sera porté devant les tribunaux compétents de Paris."
+    }
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "subtitle": "MENTIONS LÉGALES DU SITE",
+    "website": "https://inrealart.com (ci-après dénommé \"Site\")",
+    "publisher": {
+      "title": "Éditeur",
+      "content": "Le Site est conçu et administré par InRealArt, une société de fait qui sera une société par actions simplifiée. Le directeur de la publication est Roy Timothée, qui est le président de la société."
+    },
+    "design": {
+      "title": "Conception et Hébergement",
+      "content": "La création du Site a été menée par InRealArt SAS et est hébergée par OVH, enregistrée sous le numéro OVH, EMEA SARL, 5 rue Plaetis L-2338 Luxembourg., https://ovh.com)."
+    },
+    "intellectualProperty": {
+      "title": "Droits d'Auteur et Propriété Intellectuelle",
+      "content": "Le Site est protégé par les droits d'auteur et est exclusivement propriété d'InRealArt. La structure, la conception, les textes, et le design du Site constituent des œuvres originales appartenant entièrement à InRealArt SAS. Toute copie, imitation, reproduction, totale ou partielle, sans l'autorisation d'InRealArt SAS ou de ses titulaires de droits est interdite. Cela s'applique également à la traduction, à l'adaptation, ou à l'arrangement par tout moyen."
+    },
+    "links": {
+      "title": "Liens vers d'autres sites Internet",
+      "content": "InRealArt SAS n'assume aucune responsabilité pour les liens hypertexte de ce Site vers d'autres sites Internet. Les utilisateurs du Site ne sont pas autorisés à établir un lien hypertexte vers ce Site sans l'accord préalable et explicite d'InRealArt SAS."
+    },
+    "disclaimer": {
+      "title": "Avertissement",
+      "content": "Les utilisateurs du Site doivent prendre toutes les mesures nécessaires pour protéger leurs données et logiciels contre les virus qui peuvent circuler sur Internet. Ils doivent s'assurer de ne pas endommager le Site ou de l'utiliser de manière inappropriée en introduisant volontairement des virus, des chevaux de Troie, des vers, ou d'autres programmes malveillants."
+    },
+    "changes": {
+      "title": "Modifications du Site",
+      "content": "InRealArt SAS réserve le droit de faire des modifications ou des corrections au contenu du Site et à ces mentions légales, à tout moment, sans préavis."
+    },
+    "mediation": {
+      "title": "Médiation",
+      "content": "Conformément aux articles L.612-1 et suivants du Code de la consommation, en cas de désaccord ou de litige, les clients non professionnels d'InRealArt SAS peuvent librement solliciter le médiateur de la consommation de l'Association européenne des médiateurs (AME CONSO) dans un délai d'un an après la plainte écrite adressée. La demande au médiateur peut être faite :",
+      "options": [
+        "en remplissant le formulaire disponible sur le site de l'AME CONSO : https://www.mediationconso-ame.com/ ;",
+        "ou par courrier à AME CONSO, 11 Place Dauphine – 75001 PARIS."
+      ]
     }
   },
   "termsNft": {
