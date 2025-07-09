@@ -172,7 +172,7 @@ const Footer = () => {
                 <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://www.facebook.com/inrealart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+                <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} className="hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://x.com/InRealArt/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
                 <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />

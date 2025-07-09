@@ -95,7 +95,7 @@ export default function HowToJoinUs({
 
                 {/* Large Number Foreground */}
                 <div className={`absolute -bottom-16 z-20 ${isOdd ? '-left-6 md:-left-8' : '-right-6 md:-right-8'}`}>
-                  <span className="text-[#313131] text-left font-['BricolageGrotesque-Regular',_sans-serif] text-[90px] font-normal relative w-[76px]">
+                  <span className="text-purpleColor text-left font-['BricolageGrotesque-Regular',_sans-serif] text-[90px] font-normal relative w-[76px]">
                     {step.number}
                   </span>
                 </div>

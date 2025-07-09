@@ -38,10 +38,10 @@ export default function LegalPage() {
           {/* Intellectual Property Section */}
           <section>
             <h2 className="text-2xl font-semibold mb-4">
-              {t('legal.intellectualProperty.title')}
+              {t('terms.intellectualProperty.title')}
             </h2>
             <p className="text-gray-300 mb-4">
-              {t('legal.intellectualProperty.content')}
+              {t('terms.intellectualProperty.content')}
             </p>
           </section>
 

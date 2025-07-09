@@ -6,13 +6,13 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Team",
-    "ico": "ICO IRA",
+    "ico": "Token IRA",
     "glossary": "Glossary",
     "artists": "Artists",
     "presale": "Pre-sale",
     "artworks": "Artworks",
     "usecase": "Use Case",
-    "whitepaper": "White Paper soon",
+    "whitepaper": "Manifesto soon",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
     "leasing": "Leasing",
@@ -51,7 +51,7 @@
     "submit": "Submit",
     "connect": "Connect",
     "presale": "Pre-sale",
-    "readWhitepaper": "Read our whitepaper soon",
+    "readWhitepaper": "Read our manifesto soon",
     "team": "The Team",
     "viewFAQ": "View FAQ",
     "back": "Back to articles"
@@ -70,16 +70,16 @@
       "subtitle": "",
       "items": {
         "bridge": {
-          "title": "Real Digital Bridge",
-          "description": "Marketplace connected to physical galleries, collectors and offering a panel of exceptional works and artists"
+          "title": "Art, living practice",
+          "description": "InReal Art valorises contemporary creation at the crossroads of gesture, know-how and critical narration."
         },
         "token": {
-          "title": "A Unique Token",
-          "description": "Ecosystem enabling the selection and creation of interconnected community galleries with our marketplace and our DAO"
+          "title": "Culture in motion",
+          "description": "A living system of representations and practices, culture shapes the recognition of artists and works. Our platform connects aesthetic universes to social issues through curatorial and editorial content."
         },
         "art": {
-          "title": "Financial optimization",
-          "description": "Combination of traditional and Web3 financing solutions (leasing, lending), purchase of copyrights and tokenized real assets (RWA)"
+          "title": "Heritage to transmit",
+          "description": "More than an asset, each work carries a symbolic heritage. InReal Art activates curation, leasing and tokenization levers to strengthen the value and transmission of artistic heritage."
         }
       }
     },
@@ -88,7 +88,7 @@
     },
     "explore": {
       "title": "With InRealArt",
-      "subtitle": "Explore a <span class='text-purpleColor'>unique collection</span> of <span class='text-purpleColor'>physical canvases</span> and <span class='text-purpleColor'>sculptures</span> <span class='opacity-50 hover:opacity-100'>rare, their digital copies (NFT), accompanied by their replicas authenticated on next-generation technology linked to blockchain.</span>",
+      "subtitle": "Discover a selection of <span class='text-purpleColor'>rare physical works</span> that can be accompanied by their <span class='text-purpleColor'>authenticated digital replicas</span>. An ecosystem designed to preserve the <span class='text-purpleColor'>value</span>, <span class='text-purpleColor'>origin</span> and <span class='text-purpleColor'>integrity</span> of creations, in a format suited to contemporary collecting and transmission.",
       "items": {
         "rare": {
           "title": "A web2 and web3 Marketplace finally accessible",
@@ -125,7 +125,7 @@
           "label": "Artists selected in our global catalog"
         },
         "works": {
-          "number": "100+",
+          "number": "200+",
           "label": "Carefully chosen works to enhance your collection"
         },
         "transactions": {
@@ -133,8 +133,8 @@
           "label": "Transactions completed on our testnet marketplace"
         },
         "ranking": {
-          "number": "90%",
-          "label": "of our artworks can be sold with the associated author rights, physical and digital included"
+          "number": "99%",
+          "label": "of our artists satisfied with their support"
         }
       }
     }
@@ -211,7 +211,7 @@
       }
     },
     "galleries": {
-      "title": "Our Galleries",
+      "title": "Our Partner Galleries",
       "hero": {
         "title": "Valuize your works <br>Join InRealArt",
         "subtitle": "A unique platform for galleries: paintings, NFTs and fractionalized art, all in one place.",
@@ -236,10 +236,10 @@
       "testimonials": {
         "title": "They Transformed Their Gallery With IRA",
         "gallery1": {
-          "text": "At InRealArt, we believe that the future of art lies in audacious alliances between creation and innovation. <br/>Our partnership with IRA is based on a shared vision: supporting artists in a human, strategic and long-term way. Together, we redefine the codes of artistic diffusion, placing technology at the service of emerging talents. It's a collaboration based on respect for the work, the tools and the shared ambition to make art shine differently."
+          "text": "&quot;The partnership with InReal Art offers me a real opportunity: to expand my reach, open my gallery to a more diverse public, and value my artists thanks to today's technologies. It's a growth lever and a step towards a more accessible, more vibrant art market.&quot;"
         },
         "gallery2": {
-          "text": "The partnership with Inrealart allows me to expand my reach, access a more diverse client portfolio, and enhance my work through new technologies.<br/>It's a real lever to evolve my practice and reach a wider audience."
+          "text": "&quot;This partnership enables me to develop my gallery in a coherent way: I maintain my high artistic standards while expanding my tools, my audiences and my opportunities. It's a way of bringing Arthema into the present, while preparing for the future.&quot;"
         }
       },
       "howToJoin": {
@@ -357,7 +357,7 @@
       "subtitle": "Art has opened up to new horizons with RWAs, and today we want to share these works with the whole world",
       "buttons": {
         "marketplace": "View the marketplace",
-        "whitepaper": "Read our whitepaper"
+        "whitepaper": "Read our manifesto"
       }
     },
     "items": {
@@ -403,7 +403,7 @@
       "subtitle": "Acquire rare physical works that can be linked with NFTs and their copyrights. Explore artwork fractioning and open your portfolio to the assets of the future",
       "buttons": {
         "catalog": "2025 Catalog",
-        "whitepaper": "Read our whitepaper soon"
+        "whitepaper": "Read our manifesto soon"
       }
     },
     "buyProcess": {
@@ -917,8 +917,8 @@
     }
   },
   "blog": {
-    "title": "Catch Up with Our Latest Articles",
-    "subtitle": "Catch up with our latest news and stay in the loop on recent updates, insightful stories, and exciting announcements shaping our journey forward!",
+    "title": "A look at the news",
+    "subtitle": "Explore our latest articles: art world news, cultural reflections, stories of transmission and upcoming projects. Keep up to date with the approaches, works and ideas that fuel our vision of living heritage.",
     "featuredPost": "Featured Post",
     "weeklyMostReadPosts": "Weekly Most Read",
     "othersPosts": "Others Posts",
