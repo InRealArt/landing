@@ -200,14 +200,14 @@
   "joinInRealArt": {
     "header": {
       "title": "Rejoignez InRealArt",
-      "description": "Un espace dédié pour les artistes et les galeries",
+      "description": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. Ce projet est avant tout le vôtre, conçu avec soin et réflexion pendant plus de deux ans en collaboration avec des artistes de renommée et des galeries prestigieuses, afin de vous offrir un outil unique qui vous aide à révéler pleinement votre potentiel.Pourquoi nous rejoindre ? Nous sommes une équipe indépendante, passionnée par l'art sous toutes ses formes. C'est cette curiosité insatiable et notre intelligence relationnelle qui ont façonné ce projet ambitieux, pensé pour répondre à vos attentes. L'esprit collectif, la bienveillance et l'innovation sont les forces qui animent InRealArt.",
       "artists": {
         "title": "Vous êtes un artiste",
-        "description": "Un espace dédié pour un accompagnement sur mesure"
+        "description": "Quel que soit votre besoin, InRealArt vous offre les ressources humaines et matérielles pour accompagner la narration de votre histoire. Conservez votre liberté créative et votre authenticité, nous prenons en charge tout le reste et bien davantage."
       },
       "galleries": {
         "title": "Vous êtes une galerie",
-        "description": "Un espace dédié pour un contrôle total de vos collections"
+        "description": "InRealArt vous soutient dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom. Que vous souhaitiez valoriser votre espace ou dénicher l’œuvre idéale pour un client, nous sommes à vos côtés pour concrétiser vos aspirations."
       }
     },
     "galleries": {
