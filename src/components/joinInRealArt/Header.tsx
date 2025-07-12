@@ -4,6 +4,7 @@ import BG from "../../../public/images/intro-background.png";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
+import TranslatedText from "@/components/common/TranslatedText";
 
 export default function Header() {
   const { t } = useLanguageStore();
@@ -12,12 +13,12 @@ export default function Header() {
     {
       title: t('joinInRealArt.header.artists.title'),
       link: "/joinInRealArt/artists",
-      description: t('joinInRealArt.header.artists.description')
+      description: 'joinInRealArt.header.artists.description'
     },
     {
       title: t('joinInRealArt.header.galleries.title'),
       link: "/joinInRealArt/galleries",
-      description: t('joinInRealArt.header.galleries.description')
+      description: 'joinInRealArt.header.galleries.description'
     }
   ];
 
@@ -29,7 +30,10 @@ export default function Header() {
             {t('joinInRealArt.header.title')}
           </h1>
           <p className="text-lg md:text-xl inter text-gray-300">
-            {t('joinInRealArt.header.description')}
+            <TranslatedText 
+              translationKey="joinInRealArt.header.description"
+              allowHtml={true}
+            />
           </p>
         </div>
         
@@ -37,7 +41,12 @@ export default function Header() {
           {selectPersonType.map((personType, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{personType.title}</h3>
-              <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">{personType.description}</p>
+              <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">
+                <TranslatedText 
+                  translationKey={personType.description}
+                  allowHtml={true}
+                />
+              </p>
               <Button 
                 text={t('buttons.readMore')} 
                 additionalClassName="bg-purpleColor w-full justify-center mt-auto" 

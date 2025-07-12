@@ -18,7 +18,7 @@ export default function TranslatedText({
   className = '',
   allowHtml = false 
 }: TranslatedTextProps) {
-  const { t } = useLanguageStore()
+  const { t, language } = useLanguageStore()
   const [sanitizedContent, setSanitizedContent] = useState('')
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function TranslatedText({
       
       importDOMPurify()
     }
-  }, [allowHtml, content, translationKey, t])
+  }, [allowHtml, content, translationKey, t, language])
 
   // Validation : soit translationKey, soit content doit être fourni
   if (!translationKey && !content) {
