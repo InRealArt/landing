@@ -79,7 +79,7 @@
         },
         "art": {
           "title": "Patrimoine à transmettre",
-          "description": "Plus qu’un actif, chaque œuvre porte un héritage symbolique. InReal Art active les leviers de curation, de leasing et de tokenisation pour renforcer la valeur et la transmission des patrimoines artistiques."
+          "description": "Plus qu'un actif, chaque œuvre porte un héritage symbolique. InReal Art active les leviers de curation, de leasing et de tokenisation pour renforcer la valeur et la transmission des patrimoines artistiques."
         }
       }
     },
@@ -88,7 +88,7 @@
     },
     "explore": {
       "title": "Avec InRealArt",
-      "subtitle": "Découvrez une sélection d’<span class='text-purpleColor'>œuvres physiques rares </span> pouvant être accompagnées de leurs <span class='text-purpleColor'>répliques numériques authentifiées</span>. Un écosystème pensé pour préserver la <span class='text-purpleColor'>valeur</span>, l'<span class='text-purpleColor'>origine</span> et l'<span class='text-purpleColor'>intégrité des créations</span>, dans un format adapté aux usages contemporains de collection et de transmission.",
+      "subtitle": "Découvrez une sélection d'<span class='text-purpleColor'>œuvres physiques rares </span> pouvant être accompagnées de leurs <span class='text-purpleColor'>répliques numériques authentifiées</span>. Un écosystème pensé pour préserver la <span class='text-purpleColor'>valeur</span>, l'<span class='text-purpleColor'>origine</span> et l'<span class='text-purpleColor'>intégrité des créations</span>, dans un format adapté aux usages contemporains de collection et de transmission.",
       "items": {
         "rare": {
           "title": "Une Marketplace web2 et web 3 enfin accessible",
@@ -200,14 +200,14 @@
   "joinInRealArt": {
     "header": {
       "title": "Rejoignez InRealArt",
-      "description": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. Ce projet est avant tout le vôtre, conçu avec soin et réflexion pendant plus de deux ans en collaboration avec des artistes de renommée et des galeries prestigieuses, afin de vous offrir un outil unique qui vous aide à révéler pleinement votre potentiel.Pourquoi nous rejoindre ? Nous sommes une équipe indépendante, passionnée par l'art sous toutes ses formes. C'est cette curiosité insatiable et notre intelligence relationnelle qui ont façonné ce projet ambitieux, pensé pour répondre à vos attentes. L'esprit collectif, la bienveillance et l'innovation sont les forces qui animent InRealArt.",
+      "description": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. <br>InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. <br><br>Ce projet est avant tout le vôtre, conçu avec soin et réflexion pendant plus de deux ans en collaboration avec des artistes de renommée et des galeries prestigieuses, afin de vous offrir un outil unique qui vous aide à révéler pleinement votre potentiel.<br><br>Pourquoi nous rejoindre ? <br>Nous sommes une équipe indépendante, passionnée par l'art sous toutes ses formes. <br>C'est cette curiosité insatiable et notre intelligence relationnelle qui ont façonné ce projet ambitieux, <br>pensé pour répondre à vos attentes. <br><br>L'esprit collectif, la bienveillance et l'innovation sont les forces qui animent InRealArt.",
       "artists": {
         "title": "Vous êtes un artiste",
-        "description": "Quel que soit votre besoin, InRealArt vous offre les ressources humaines et matérielles pour accompagner la narration de votre histoire. Conservez votre liberté créative et votre authenticité, nous prenons en charge tout le reste et bien davantage."
+        "description": "Quel que soit votre besoin, InRealArt vous offre les ressources humaines et matérielles pour accompagner la narration de votre histoire.<br><br>Conservez votre liberté créative et votre authenticité, nous prenons en charge tout le reste et bien davantage."
       },
       "galleries": {
         "title": "Vous êtes une galerie",
-        "description": "InRealArt vous soutient dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom. Que vous souhaitiez valoriser votre espace ou dénicher l’œuvre idéale pour un client, nous sommes à vos côtés pour concrétiser vos aspirations."
+        "description": "InRealArt vous soutient dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom.<br><br>Que vous souhaitiez valoriser votre espace ou dénicher l'œuvre idéale pour un client, nous sommes à vos côtés pour concrétiser vos aspirations."
       }
     },
     "galleries": {
@@ -236,10 +236,10 @@
       "testimonials": {
         "title": "Ils Ont Transformé Leur Galerie Avec IRA",
         "gallery1": {
-          "text": "&quot;Le partenariat avec InReal Art m’offre une réelle opportunité : celle d’élargir ma portée, d’ouvrir ma galerie à un public plus diversifié et de valoriser mes artistes grâce aux technologies d’aujourd’hui. C’est un levier de croissance concret et un pas vers un marché de l’art plus accessible, plus vivant.&quot;"
+          "text": "&quot;Le partenariat avec InReal Art m'offre une réelle opportunité : celle d'élargir ma portée, d'ouvrir ma galerie à un public plus diversifié et de valoriser mes artistes grâce aux technologies d'aujourd'hui. C'est un levier de croissance concret et un pas vers un marché de l'art plus accessible, plus vivant.&quot;"
         },
         "gallery2": {
-          "text": "&quot;Ce partenariat me permet de faire évoluer ma galerie avec cohérence : je garde mon exigence artistique tout en élargissant mes outils, mes publics et mes opportunités. C’est une manière d’inscrire Arthema dans le présent, tout en préparant l’avenir.&quot;"
+          "text": "&quot;Ce partenariat me permet de faire évoluer ma galerie avec cohérence : je garde mon exigence artistique tout en élargissant mes outils, mes publics et mes opportunités. C'est une manière d'inscrire Arthema dans le présent, tout en préparant l'avenir.&quot;"
         }
       },
       "howToJoin": {
@@ -918,8 +918,8 @@
     }
   },
   "blog": {
-    "title": "Regards sur l’actualité",
-    "subtitle": "Explorez nos derniers articles : actualités du monde de l’art, réflexions culturelles, récits de transmission et projets en devenir. Restez au plus près des démarches, des œuvres et des idées qui nourrissent notre vision du patrimoine vivant.",
+    "title": "Regards sur l'actualité",
+    "subtitle": "Explorez nos derniers articles : actualités du monde de l'art, réflexions culturelles, récits de transmission et projets en devenir. Restez au plus près des démarches, des œuvres et des idées qui nourrissent notre vision du patrimoine vivant.",
     "featuredPost": "Article en vedette",
     "weeklyMostReadPosts": "Plus Lus de la Semaine",
     "othersPosts": "Autres Articles",
