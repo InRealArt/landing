@@ -1475,5 +1475,192 @@
       "successMessage": "Merci ! Vous êtes maintenant abonné(e) à notre newsletter",
       "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard"
     }
+  },
+  "loaSimulator": {
+    "title": "Simulez votre leasing avec option d'achat",
+    "form": {
+      "company": "Entreprise",
+      "email": "Adresse email",
+      "phoneNumber": "Numéro de téléphone",
+      "taxRate": "Taux d'imposition personnalisé",
+      "artworkValue": "Valeur des œuvres en €",
+      "leaseDuration": "Durée du bail en mois",
+      "firstRentIncrease": "Majoration du premier loyer",
+      "amountType": "Type de montant",
+      "calculate": "Calculer",
+      "calculating": "Calcul en cours...",
+      "downloadPDF": "Télécharger PDF",
+      "generating": "Génération...",
+      "sendPDF": "Recevoir le PDF par mail",
+      "sendingPDF": "Envoi en cours...",
+      "errors": {
+        "companyRequired": "Le nom de l'entreprise est requis",
+        "emailInvalid": "Adresse email invalide",
+        "phoneRequired": "Le numéro de téléphone est requis",
+        "phoneInvalid": "Veuillez entrer un numéro de téléphone valide",
+        "taxRateMin": "Taux minimum 0%",
+        "taxRateMax": "Taux maximum 50%",
+        "artworkValueMin": "Valeur minimum 100€",
+        "leaseDurationMin": "Durée minimum 12 mois",
+        "leaseDurationMax": "Durée maximum 72 mois"
+      },
+      "firstRentOptions": {
+        "no": "Non",
+        "yes": "Oui (x3)"
+      },
+      "amountTypeOptions": {
+        "ht": "HT",
+        "ttc": "TTC"
+      }
+    },
+    "results": {
+      "tabs": {
+        "summary": "Résumé du Bail",
+        "lease": "Résultats Leasing",
+        "comparison": "Comparaison",
+        "tax": "Avantages Fiscaux"
+      },
+      "summary": {
+        "title": "Résumé du Bail",
+        "email": "Mail:",
+        "company": "Entreprise:",
+        "taxRate": "Taux d'imposition personnalisé:",
+        "artworkValue": "Valeur des oeuvres (€):",
+        "leaseDuration": "Durée du Bail:",
+        "firstRentIncrease": "Majoration du Premier Loyer:",
+        "amountType": "Type de Montant:",
+        "totalLeaseAmount": "Montant du Bail:",
+        "firstMonthRent": "Première Mensualité:",
+        "monthlyRent": "Mensualités Suivantes:",
+        "taxSavings": "Économie d'Impôt:",
+        "netCost": "Coût Réel:",
+        "yes": "Oui",
+        "no": "Non",
+        "months": "mois",
+        "downloadPDF": "Télécharger en PDF"
+      },
+      "lease": {
+        "title": "Résultats du Leasing",
+        "monthlyPayments": "Paiements mensuels",
+        "firstMonth": "Premier mois",
+        "followingMonths": "Mois suivants",
+        "financialDetails": "Détail financier",
+        "totalLeaseAmount": "Montant total du bail",
+        
+        "taxSavings": "Économies fiscales",
+        "netCostAfterTax": "Coût net après fiscalité",
+        "endOfLeaseOptions": "Options en fin de bail",
+        "returnArtwork": "Retourner les œuvres",
+        "returnDescription": "Fin du contrat sans frais supplémentaires",
+        "purchaseArtwork": "Racheter les œuvres",
+        "purchaseDescription": "Acquisition définitive pour"
+      },
+      "comparison": {
+        "title": "Comparaison détaillée",
+        "leaseAdvantage": "Leasing plus avantageux",
+        "purchaseAdvantage": "Achat direct plus avantageux",
+        "savingsWithLeasing": "Économies de {amount} avec le leasing",
+        "savingsWithPurchase": "Économies de {amount} avec l'achat direct",
+        "savingsPercentage": "d'économies",
+        "detailedComparison": "Comparaison détaillée",
+        "criteria": "Critère",
+        "leasingWithPurchase": "Leasing avec rachat",
+        "directPurchase": "Achat direct",
+        "costBeforeTax": "Coût avant fiscalité",
+        "taxSavings": "Économies fiscales",
+        "finalNetCost": "Coût net final",
+        "difference": "Différence",
+        "leasingAdvantages": "Avantages du Leasing",
+        "purchaseAdvantages": "Avantages de l'Achat",
+        "leasingBenefits": {
+          "taxDeductibility": "Déductibilité fiscale immédiate des loyers",
+          "noCapitalImmobilization": "Pas d'immobilisation de capital",
+          "flexibility": "Flexibilité en fin de contrat",
+          "artworkRenewal": "Renouvellement possible des œuvres"
+        },
+        "purchaseBenefits": {
+          "immediateOwnership": "Propriété immédiate des œuvres",
+          "capitalGains": "Possible plus-value à la revente",
+          "depreciation": "Amortissement comptable possible",
+          "noConstraints": "Pas de contraintes contractuelles"
+        }
+      },
+      "tax": {
+        "title": "Avantages Fiscaux",
+        "totalTaxSavings": "Économies fiscales totales",
+        "taxAdvantagesDetail": "Détail des avantages fiscaux",
+        "monthlyDeduction": "Déduction mensuelle",
+        "totalDeductibleRents": "Total des loyers déductibles",
+        "totalTaxSavingsLabel": "Économies fiscales totales",
+        "goodToKnow": "💡 Bon à savoir",
+        "benefits": {
+          "fullDeductibility": "Les loyers de leasing d'œuvres d'art sont déductibles à 100%",
+          "immediateAdvantage": "L'avantage fiscal est immédiat (dès le premier loyer)",
+          "noComplexDepreciation": "Contrairement à l'achat, pas d'amortissement complexe à gérer",
+          "positiveImpact": "Impact positif direct sur votre trésorerie"
+        }
+      }
+    },
+    "pdf": {
+      "title": "Rapport de Simulation - Leasing d'Œuvres d'Art",
+      "generatedOn": "Généré le {date}",
+      "clientInfo": "Informations Client",
+      "company": "Entreprise:",
+      "email": "Email:",
+      "taxRate": "Taux d'imposition personnalisé:",
+      "leaseParameters": "Paramètres du Bail",
+      "artworkValue": "Valeur des œuvres:",
+      "leaseDuration": "Durée du bail:",
+      "firstRentIncrease": "Majoration premier loyer:",
+      "amountType": "Type de montant:",
+      "leaseResults": "Résultats du Leasing",
+      "firstMonthRent": "Premier loyer:",
+      "monthlyRent": "Loyers mensuels:",
+      "totalLeaseAmount": "Montant total du bail:",
+      
+      "taxAdvantages": "Avantages Fiscaux",
+      "totalTaxSavings": "Économies fiscales totales:",
+      "monthlyTaxDeduction": "Déduction mensuelle:",
+      "netCostAfterTax": "Coût net après fiscalité:",
+      "comparison": "Comparaison Leasing vs Achat Direct",
+      "criteria": "Critère",
+      "leasingWithPurchase": "Leasing avec rachat",
+      "directPurchase": "Achat direct",
+      "costBeforeTax": "Coût avant fiscalité",
+      "taxSavingsLabel": "Économies fiscales",
+      "finalNetCost": "Coût net final",
+      "savingsWithLeasing": "Économies avec le leasing:",
+      "leasingSurcharge": "Surcoût du leasing:",
+      "keyPoints": "Points Clés",
+      "leasingAdvantages": "Avantages du Leasing:",
+      "directPurchaseAdvantages": "Avantages de l'Achat Direct:",
+      "leasingBenefits": {
+        "taxDeductibility": "• Déductibilité fiscale immédiate des loyers",
+        "noCapitalImmobilization": "• Pas d'immobilisation de capital",
+        "flexibility": "• Flexibilité en fin de contrat",
+        "artworkRenewal": "• Renouvellement possible des œuvres"
+      },
+      "purchaseBenefits": {
+        "immediateOwnership": "• Propriété immédiate des œuvres",
+        "capitalGains": "• Possible plus-value à la revente",
+        "depreciation": "• Amortissement comptable possible",
+        "noConstraints": "• Pas de contraintes contractuelles"
+      },
+      "footer": "Ce rapport a été généré par le simulateur InRealArt - www.inrealart.com",
+      "yes": "Oui",
+      "no": "Non",
+      "months": "mois"
+    },
+    "toast": {
+      "calculationSuccess": "Calcul effectué avec succès!",
+      "calculationError": "Erreur lors du calcul",
+      "validationError": "Veuillez corriger les erreurs dans le formulaire",
+      "pdfGenerationSuccess": "PDF généré avec succès!",
+      "pdfGenerationError": "Erreur lors de la génération du PDF",
+      "pdfCalculationRequired": "Veuillez d'abord effectuer un calcul avant de générer le PDF",
+      "formDataRequired": "Données du formulaire manquantes",
+      "pdfSentSuccess": "PDF envoyé à votre adresse email, veuillez vérifier votre boîte de réception.",
+      "pdfSentError": "Erreur lors de l'envoi du PDF"
+    }
   }
 }
