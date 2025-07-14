@@ -1714,6 +1714,12 @@
       "amountTypeOptions": {
         "ht": "Excl. Tax",
         "ttc": "Incl. Tax"
+      },
+      "infoBloc": {
+        "title": "💡 Information about fields marked with *",
+        "taxRateExplanation": "Your corporate tax rate (usually between 15% and 33%). This rate is used to calculate your tax savings with leasing.",
+        "firstRentExplanation": "Option to pay an increased first rent (x3) which reduces subsequent monthly payments and optimizes taxation.",
+        "artworkValueExplanation": "The artwork value is excluding tax. This value is used for tax calculation and comparison with direct purchase."
       }
     },
     "results": {

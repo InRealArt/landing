@@ -1511,6 +1511,12 @@
       "amountTypeOptions": {
         "ht": "HT",
         "ttc": "TTC"
+      },
+      "infoBloc": {
+        "title": "💡 Informations sur les champs marqués *",
+        "taxRateExplanation": "Votre taux d'imposition sur les sociétés (généralement entre 15% et 33%). Ce taux permet de calculer vos économies fiscales avec le leasing.",
+        "firstRentExplanation": "Option pour payer un premier loyer majoré (x3) qui réduit les mensualités suivantes et optimise la fiscalité.",
+        "artworkValueExplanation": "La valeur des œuvres est en HT (Hors Taxes). Cette valeur est utilisée pour le calcul de la fiscalité et de la comparaison avec l'achat direct."
       }
     },
     "results": {

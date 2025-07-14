@@ -320,16 +320,16 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
 
         {/* Explication des champs marqués d'un astérisque */}
         <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">
-          <h3 className="text-white font-semibold text-sm font-bricolage mb-2">💡 Informations sur les champs marqués *</h3>
+          <h3 className="text-white font-semibold text-sm font-bricolage mb-2">{t('loaSimulator.form.infoBloc.title')}</h3>
           <div className="space-y-2 text-gray-300 text-sm">
             <div>
-              <span className="text-purple-400 font-medium">• Taux d&apos;imposition personnalisé :</span> Votre taux d&apos;imposition sur les sociétés (généralement entre 15% et 33%). Ce taux permet de calculer vos économies fiscales avec le leasing.
+              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
             </div>
             <div>
-              <span className="text-purple-400 font-medium">• Majoration du premier loyer :</span> Option pour payer un premier loyer majoré (x3) qui réduit les mensualités suivantes et optimise la fiscalité.
+              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.firstRentIncrease')} :</span> {t('loaSimulator.form.infoBloc.firstRentExplanation')}
             </div>
             <div>
-              <span className="text-purple-400 font-medium">• Valeur des œuvres :</span> La valeur des œuvres est en HT (Hors Taxes). Cette valeur est utilisée pour le calcul de la fiscalité et de la comparaison avec l&apos;achat direct.
+              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.artworkValue')} :</span> {t('loaSimulator.form.infoBloc.artworkValueExplanation')}
             </div>
           </div>
         </div>
