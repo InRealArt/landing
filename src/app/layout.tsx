@@ -10,6 +10,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from "@/components/captcha/googleCaptchaWrapper";
 import CookieConsentBanner from "@/components/common/CookieConsent";
+import NewsletterManager from "@/components/common/NewsletterManager";
 import ogImage from './opengraph-image.png'
 
 const inter = Inter({
@@ -82,6 +83,7 @@ export default function RootLayout({
             <Footer />
             <Toaster />
             <CookieConsentBanner />
+            <NewsletterManager delayInSeconds={5} />
           </GoogleCaptchaWrapper>
         </LanguageProvider> 
       </body> 
