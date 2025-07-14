@@ -71,7 +71,7 @@ async function loadBricolageGrotesqueFont(doc: any): Promise<string> {
       // Client-side: Use fetch with full URL
 
       // Load Regular font
-      const regularResponse = await fetch('/fonts/BricolageGrotesque_48pt-Regular.ttf')
+      const regularResponse = await fetch('/fonts/BricolageGrotesque-Regular.ttf')
       if (!regularResponse.ok) {
         throw new Error(`Failed to load regular font: ${regularResponse.status}`)
       }
@@ -79,7 +79,7 @@ async function loadBricolageGrotesqueFont(doc: any): Promise<string> {
       const regularBase64 = Buffer.from(regularArrayBuffer).toString('base64')
 
       // Load Bold font
-      const boldResponse = await fetch('/fonts/BricolageGrotesque_48pt-Bold.ttf')
+      const boldResponse = await fetch('/fonts/BricolageGrotesque-SemiBold.ttf')
       if (!boldResponse.ok) {
         throw new Error(`Failed to load bold font: ${boldResponse.status}`)
       }
