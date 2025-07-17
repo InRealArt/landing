@@ -1,6 +1,4 @@
 'use client'
-import { bigTitleClassName } from "@/utils/classes";
-import BG from "../../../public/images/presale/intro.png";
 import buyImage from "../../../public/images/presale/buy-1.png";
 import { useState, useEffect } from "react";
 import Button from "../common/Button";

@@ -5,6 +5,18 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    'text-simulator',
+    'text-white',
+    'font-unbounded',
+    'w-[65%]',
+    'break-all',
+    'text-4xl',
+    'md:text-5xl',
+    'font-bricolage',
+    'font-bold'
   ],
   theme: {
     extend: {
@@ -44,5 +56,17 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }: any) {
+      const newUtilities = {
+        '.text-simulator': {
+          'color': 'white',
+          'font-family': 'Unbounded, sans-serif',
+          'width': '65%',
+          'word-break': 'break-all'
+        }
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 } satisfies Config;

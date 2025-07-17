@@ -1,6 +1,5 @@
 'use client'
 
-import { bigTitleClassName } from "@/utils/classes";
 import BG from "../../../public/images/presale/intro.png";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
