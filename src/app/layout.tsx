@@ -64,16 +64,16 @@ export default function RootLayout({
     <html lang="fr">
       <head>
       </head>
-      {/* <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-M3W7273P"} /> */}
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
       <body
         className={`${inter.variable} antialiased`}
       >
         <GoogleAnalytics gaId="G-LRX6096NCS" />
-        {/* <noscript>
-          <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-M3W7273P"}`}
+        <noscript>
+          <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`}
             height="0" width="0" style={{display: "none", visibility: "hidden"}}>
           </iframe>
-        </noscript> */}
+        </noscript>
 
         <LanguageProvider>
           <GoogleCaptchaWrapper>
