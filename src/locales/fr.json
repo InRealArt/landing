@@ -1658,15 +1658,109 @@
       "months": "mois"
     },
     "toast": {
-      "calculationSuccess": "Calcul effectué avec succès!",
-      "calculationError": "Erreur lors du calcul",
-      "validationError": "Veuillez corriger les erreurs dans le formulaire",
-      "pdfGenerationSuccess": "PDF généré avec succès!",
-      "pdfGenerationError": "Erreur lors de la génération du PDF",
-      "pdfCalculationRequired": "Veuillez d'abord effectuer un calcul avant de générer le PDF",
-      "formDataRequired": "Données du formulaire manquantes",
-      "pdfSentSuccess": "PDF envoyé à votre adresse email, veuillez vérifier votre boîte de réception.",
-      "pdfSentError": "Erreur lors de l'envoi du PDF"
+      "calculationSuccess": "✅ Calcul du coût réussi !",
+      "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",
+      "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"
+    }
+  },
+  "artSalonSimulator": {
+    "title": "🎟️ Simulateur de visite à un salon d'art",
+    "description": "Estimez en quelques clics le coût total de votre déplacement professionnel.",
+    "form": {
+      "personalInfo": "Informations personnelles",
+      "salonDetails": "Détails du salon",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "salon": "Salon",
+      "formula": "Formule",
+      "days": "Durée (en jours)",
+      "persons": "Nombre de personnes",
+      "accommodationComfort": "Confort du logement",
+      "professionalSupport": "Accompagnement professionnel",
+      "calculateButton": "🔍 Estimer le coût",
+      "nextStep": "Étape suivante",
+      "previousStep": "Étape précédente"
+    },
+    "formulas": {
+      "standard": "Standard",
+      "premium": "Premium",
+      "VIP": "VIP"
+    },
+    "accommodationTypes": {
+      "basic": "Basic",
+      "comfort": "Confort (+40€/nuit/personne)",
+      "luxury": "5 étoiles (+100€/nuit/personne)"
+    },
+    "results": {
+      "title": "📄 Votre estimation personnalisée",
+      "tabs": {
+        "summary": "Résumé",
+        "breakdown": "Détail"
+      },
+      "sections": {
+        "personalInfo": "Informations personnelles",
+        "salonDetails": "Détails du salon",
+        "totalCost": "Coût total estimé"
+      },
+      "labels": {
+        "name": "Nom:",
+        "email": "Email:",
+        "phone": "Téléphone:",
+        "exhibition": "Salon:",
+        "formula": "Formule:",
+        "duration": "Durée:",
+        "persons": "Personnes:",
+        "comfort": "Confort:",
+        "proSupport": "Accompagnement pro:",
+        "yes": "Oui",
+        "no": "Non",
+        "days": "jours",
+        "forPersons": "pour {count} personne",
+        "forPersons_plural": "pour {count} personnes"
+      },
+      "breakdown": {
+        "title": "Détail des coûts",
+        "transport": "Transport ({count} personnes)",
+        "accommodation": "Hébergement ({nights} nuits × {persons} personnes)",
+        "pass": "Pass salon ({persons} personnes)",
+        "comfortSupplement": "Supplément confort",
+        "total": "Total TTC"
+      }
+    },
+    "pdf": {
+      "title": "Devis - Visite salon d'art",
+      "personalInfo": "Informations personnelles",
+      "exhibitionDetails": "Détails du salon",
+      "costBreakdown": "Détail des coûts",
+      "name": "Nom:",
+      "email": "Email:",
+      "phone": "Téléphone:",
+      "exhibition": "Salon:",
+      "formula": "Formule:",
+      "duration": "Durée:",
+      "persons": "Personnes:",
+      "comfort": "Confort:",
+      "proSupport": "Accompagnement pro:",
+      "transport": "Transport:",
+      "accommodation": "Hébergement:",
+      "pass": "Pass:",
+      "comfortSupplement": "Supplément confort:",
+      "total": "TOTAL:",
+      "downloadButton": "📧 Recevoir le PDF par mail",
+      "yes": "Oui",
+      "no": "Non",
+      "days": "jours"
+    },
+    "toast": {
+      "calculationSuccess": "✅ Calcul du coût réussi !",
+      "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",
+      "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"
     }
   }
 }
