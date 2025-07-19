@@ -1,17 +1,28 @@
-'use client'
-
+import { Metadata } from 'next'
 import Hero from "@/components/marketplace/Hero";
 import HowItWorks from "@/components/marketplace/HowItWorks";
 import Benefits from "@/components/marketplace/Benefits";
 import Prestige from "@/components/marketplace/Prestige";
+import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
+
+export const metadata: Metadata = generateStaticMetadata({
+  title: defaultMetadata.marketplace.title,
+  description: defaultMetadata.marketplace.description,
+  keywords: defaultMetadata.marketplace.keywords,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/marketplace`,
+  alternateLanguages: {
+    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/marketplace`,
+    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/marketplace`
+  }
+})
 
 export default function Marketplace() {
   return (
-    <>
+    <main className="min-h-screen text-white">
       <Hero />
       <HowItWorks />
       <Benefits />
       <Prestige />
-    </>
+    </main>
   );
 } 

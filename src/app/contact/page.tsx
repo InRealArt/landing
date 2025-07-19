@@ -1,5 +1,22 @@
+import { Metadata } from 'next'
 import Contact from "@/components/contact/Contact";
+import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
+
+export const metadata: Metadata = generateStaticMetadata({
+  title: defaultMetadata.contact.title,
+  description: defaultMetadata.contact.description,
+  keywords: defaultMetadata.contact.keywords,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/contact`,
+  alternateLanguages: {
+    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/contact`,
+    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/contact`
+  }
+})
 
 export default function ContactPage() {
-  return <Contact />;
+  return (
+    <main className="min-h-screen text-white">
+      <Contact />
+    </main>
+  );
 } 
