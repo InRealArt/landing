@@ -20,11 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${categoryName} - Blog`,
       description: `Découvrez tous les articles de la catégorie ${categoryName} sur InRealArt. Actualités, guides et analyses sur l'art tokenisé.`,
       keywords: [categoryName, 'blog', 'articles', 'art tokenisé', 'actualités'],
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/blog/category/${slug}`,
-      alternateLanguages: {
-        'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/blog/category/${slug}`,
-        'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/blog/category/${slug}`
-      }
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/blog/category/${slug}`
     })
   } catch (error) {
     console.error('Error generating category metadata:', error)

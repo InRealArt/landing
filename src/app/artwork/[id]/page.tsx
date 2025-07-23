@@ -21,11 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${artworkName} - Œuvre d'Art`,
       description: `Découvrez ${artworkName}, une œuvre d'art unique disponible sur InRealArt. Investissez dans l'art tokenisé de qualité.`,
       keywords: [artworkName, 'œuvre d\'art', 'art tokenisé', 'investissement art', 'NFT'],
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artwork/${slug}`,
-      alternateLanguages: {
-        'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/artwork/${slug}`,
-        'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/artwork/${slug}`
-      }
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artwork/${slug}`
     }, 'product')
   } catch (error) {
     console.error('Error generating artwork metadata:', error)

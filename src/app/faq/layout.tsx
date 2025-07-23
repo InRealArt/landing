@@ -5,11 +5,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.faq.title,
   description: defaultMetadata.faq.description,
   keywords: defaultMetadata.faq.keywords,
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/faq`,
-  alternateLanguages: {
-    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/faq`,
-    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/faq`
-  }
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/faq`
 })
 
 export default function FaqLayout({

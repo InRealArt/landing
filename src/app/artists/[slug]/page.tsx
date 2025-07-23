@@ -21,11 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${artistName} - Artiste`,
       description: `Découvrez l'univers artistique de ${artistName}. Explorez ses œuvres uniques et son style distinctif sur InRealArt.`,
       keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie'],
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`,
-      alternateLanguages: {
-        'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/artists/${slug}`,
-        'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/artists/${slug}`
-      }
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
     }, 'profile')
   } catch (error) {
     console.error('Error generating artist metadata:', error)

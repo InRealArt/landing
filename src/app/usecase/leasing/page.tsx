@@ -10,11 +10,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Leasing d\'Art - Location avec Option d\'Achat',
   description: 'Découvrez le leasing d\'art avec InRealArt. Location avec option d\'achat d\'œuvres d\'art, avantages fiscaux et investissement progressif.',
   keywords: ['leasing art', 'location avec option d\'achat', 'LOA art', 'investissement art', 'avantages fiscaux', 'art corporate'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/leasing`,
-  alternateLanguages: {
-    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/usecase/leasing`,
-    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/usecase/leasing`
-  }
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/leasing`
 })
 
 export default function LeasingPage() {

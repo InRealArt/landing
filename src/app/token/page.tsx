@@ -13,11 +13,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.token.title,
   description: defaultMetadata.token.description,
   keywords: defaultMetadata.token.keywords,
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/token`,
-  alternateLanguages: {
-    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/token`,
-    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/token`
-  }
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/token`
 })
 
 export default function TokenPage() {

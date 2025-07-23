@@ -9,11 +9,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.marketplace.title,
   description: defaultMetadata.marketplace.description,
   keywords: defaultMetadata.marketplace.keywords,
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/marketplace`,
-  alternateLanguages: {
-    'fr': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/fr/marketplace`,
-    'en': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/en/marketplace`
-  }
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/marketplace`
 })
 
 export default function Marketplace() {

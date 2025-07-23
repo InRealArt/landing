@@ -12,11 +12,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
   description: defaultMetadata.home.description,
   keywords: defaultMetadata.home.keywords,
-  canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com',
-  alternateLanguages: {
-    'fr': (process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com') + '/fr',
-    'en': (process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com') + '/en'
-  }
+  canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
 })
 
 export default function Home() {
