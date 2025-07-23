@@ -374,44 +374,44 @@ export function generateBreadcrumbJsonLd(
  */
 export const defaultMetadata = {
   home: {
-    title: 'InRealArt - La Tokenisation de l\'Art accessible pour tous',
-    description: 'Investissez dans l\'art tokenisé avec InRealArt. Découvrez des œuvres d\'art rares et exclusives, participez à la révolution de l\'art numérique et de la blockchain.',
-    keywords: ['art tokenisé', 'investissement art', 'blockchain art', 'NFT', 'art numérique', 'RWA', 'tokenisation']
+    title: 'InRealArt — Catalyseur de l\'Art, de la Culture et du Patrimoine',
+    description: 'La plateforme curatoriale qui rend l\'art, la culture et le patrimoine accessible, humain et éthique. Pour artistes, collectionneurs et mécènes.',
+    keywords: ['patrimoine culturel', 'artistes francophones', 'plateforme curatoriale', 'éthique']
   },
   
   artists: {
-    title: 'Artistes - Découvrez nos Créateurs',
-    description: 'Explorez la diversité créative de nos artistes partenaires. Découvrez leurs œuvres uniques et leur univers artistique sur InRealArt.',
-    keywords: ['artistes', 'créateurs', 'œuvres d\'art', 'art contemporain', 'galerie']
+    title: 'Artistes InRealArt — Créateurs sélectionnés, histoires singulières',
+    description: 'Rencontrez les artistes représentés par InRealArt : peintres, sculpteurs, graveurs. Découvrez leurs univers à travers notre accompagnement éditorial.',
+    keywords: ['artistes contemporains', 'peinture', 'sculpture', 'art francophone', 'portrait d\'artiste']
   },
   
   marketplace: {
-    title: 'Marketplace - Achetez et Vendez de l\'Art Tokenisé',
-    description: 'Notre marketplace révolutionnaire pour l\'achat et la vente d\'art tokenisé. Investissez dans l\'art de demain dès aujourd\'hui.',
-    keywords: ['marketplace art', 'achat art', 'vente art', 'plateforme art', 'investissement']
+    title: 'Marketplace InRealArt — Achetez, louez, soutenez l\'Art Vivant',
+    description: 'Découvrez notre marketplace sélective : vente, leasing et collection d\'œuvres d\'art contextualisées. Un nouveau modèle de circulation artistique.',
+    keywords: ['marketplace art', 'leasing artistique', 'collection art', 'art contemporain en ligne']
   },
   
   token: {
-    title: 'Token IRA - Le Token de l\'Art Tokenisé',
-    description: 'Découvrez le token IRA, votre passerelle vers l\'écosystème InRealArt. Participez à la gouvernance et bénéficiez des avantages exclusifs.',
-    keywords: ['token IRA', 'crypto art', 'gouvernance', 'blockchain', 'tokenomics']
+    title: 'Token IRA — Investir dans l\'Art avec sens et sécurité',
+    description: 'Le token IRA vous donne accès à une gouvernance éthique de l\'art. Un levier d\'investissement symbolique, culturel et responsable.',
+    keywords: ['token art', 'crypto éthique', 'gouvernance artistique', 'blockchain culturelle']
   },
   
   blog: {
-    title: 'Blog - Actualités et Guides sur l\'Art Tokenisé',
-    description: 'Restez informé des dernières tendances de l\'art tokenisé, découvrez nos guides et analyses sur l\'investissement artistique.',
-    keywords: ['blog art', 'actualités art', 'guides investissement', 'tendances art', 'éducation blockchain']
+    title: 'Le Blog InRealArt — Art, Culture & Patrimoine en Mouvement',
+    description: 'Tendances, interviews, analyses curatoriales et techniques. Le blog qui explore l\'art vivant et ses enjeux contemporains.',
+    keywords: ['blog art', 'tendances artistiques', 'interviews d\'artistes', 'curation', 'marché de l\'art']
   },
   
   faq: {
-    title: 'FAQ - Questions Fréquentes',
-    description: 'Trouvez les réponses à vos questions sur InRealArt, l\'art tokenisé, les investissements et notre plateforme.',
-    keywords: ['FAQ', 'questions fréquentes', 'aide', 'support', 'guide utilisateur']
+    title: 'Questions fréquentes — Tout comprendre sur InRealArt',
+    description: 'Retrouvez les réponses aux questions les plus fréquentes sur notre fonctionnement, nos services et notre éthique.',
+    keywords: ['faq art', 'fonctionnement InRealArt', 'questions artistes', 'plateforme curatoriale']
   },
   
   contact: {
-    title: 'Contact - Nous Contacter',
-    description: 'Contactez l\'équipe InRealArt pour toute question, partenariat ou demande d\'information. Nous sommes là pour vous accompagner.',
-    keywords: ['contact', 'support', 'équipe', 'partenariat', 'information']
+    title: 'Contactez InRealArt — Conseils, partenariats, accompagnement',
+    description: 'Une question, un projet artistique ou un partenariat ? L\'équipe InRealArt est à votre écoute. Réponse rapide et personnalisée.',
+    keywords: ['contact art', 'équipe InRealArt', 'accompagnement artistes', 'partenariat art']
   }
 } 

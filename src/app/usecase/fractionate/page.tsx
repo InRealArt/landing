@@ -5,9 +5,9 @@ import HowItWorks from "@/components/usecase/fractionate/HowItWorks";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Fractionnement d\'Art - Investissement Accessible',
-  description: 'Investissez dans l\'art grâce au fractionnement d\'œuvres avec InRealArt. Rendez l\'art accessible à tous les investisseurs.',
-  keywords: ['fractionnement art', 'investissement partagé', 'art accessible', 'copropriété art', 'tokenisation art', 'investissement collectif'],
+  title: 'Fractionnement d\'oeuvres — Investissez à plusieurs dans l\'Art',
+  description: 'Accédez à l\'investissement artistique en co-propriété. Une nouvelle façon de collectionner, accessible et partagée.',
+  keywords: ['fractionnement art', 'investissement collectif', 'co-propriété artistique', 'partage de valeur'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/fractionate`
 })
 

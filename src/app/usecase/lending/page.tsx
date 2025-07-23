@@ -7,9 +7,9 @@ import ForWho from "@/components/usecase/lending/ForWho";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Prêt Garanti par l\'Art - Solutions de Financement',
-  description: 'Obtenez un prêt garanti par vos œuvres d\'art avec InRealArt. Solutions de financement innovantes et sécurisées pour les collectionneurs.',
-  keywords: ['prêt garanti art', 'financement art', 'collatéral art', 'liquidité art', 'prêt sur œuvre', 'art banking'],
+  title: 'Financement par l\'Art — Prêt garanti, valeur symbolique',
+  description: 'Bénéficiez de solutions de financement en adossant vos œuvres comme garantie. Expertise curatoriale et sécurité.',
+  keywords: ['prêt art', 'garantie artistique', 'financement culturel', 'actifs symboliques'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/lending`
 })
 

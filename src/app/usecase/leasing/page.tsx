@@ -7,9 +7,9 @@ import SliderSection from "@/components/usecase/leasing/SliderSection";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Leasing d\'Art - Location avec Option d\'Achat',
-  description: 'Découvrez le leasing d\'art avec InRealArt. Location avec option d\'achat d\'œuvres d\'art, avantages fiscaux et investissement progressif.',
-  keywords: ['leasing art', 'location avec option d\'achat', 'LOA art', 'investissement art', 'avantages fiscaux', 'art corporate'],
+  title: 'Leasing artistique — Louez des oeuvres avec sens et impact',
+  description: 'Une solution souple pour entreprises et collectionneurs : exposez des œuvres sélectionnées, valorisez votre image.',
+  keywords: ['leasing art', 'location œuvres', 'art contemporain bureau', 'impact culturel'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/leasing`
 })
 

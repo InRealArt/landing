@@ -3,9 +3,9 @@ import TeamContent from "@/components/team/TeamContent";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Équipe - Rencontrez Notre Équipe',
-  description: 'Découvrez l\'équipe passionnée derrière InRealArt. Experts en art, blockchain, finance et technologie unis pour révolutionner le marché de l\'art.',
-  keywords: ['équipe InRealArt', 'team', 'experts art', 'blockchain experts', 'fondateurs', 'leadership'],
+  title: 'L\'équipe InRealArt — Une vision, des acteurs et des artistes',
+  description: 'Découvrez les profils derrière InRealArt : passioné(e)s d\'art, amoureux du patrimoine du patrimoine et experts en marketing culturel',
+  keywords: ['équipe InRealArt', 'experts art', 'fondateurs plateforme', 'marketing culturel'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/team`
 })
 

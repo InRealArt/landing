@@ -2,9 +2,9 @@ import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Pré-vente - Œuvres d\'Art Exclusives',
-  description: 'Découvrez les œuvres d\'art exclusives en pré-vente sur InRealArt. Investissez dans l\'art tokenisé avant le lancement officiel.',
-  keywords: ['pré-vente art', 'œuvres exclusives', 'presale', 'investissement art', 'early access', 'art tokenisé'],
+  title: 'Prévente exclusive — oeuvres rares en accès anticipé',
+  description: 'Accédez en avant-première à des œuvres rares sélectionnées par notre comité curatoriel. Réservez dès maintenant votre place dans l\'art de demain.',
+  keywords: ['prévente art', 'œuvres rares', 'avant-première artistique', 'sélection curatoriale'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/presale`
 })
 

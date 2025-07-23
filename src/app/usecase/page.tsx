@@ -5,9 +5,9 @@ import ReadyToStart from "@/components/usecase/ReadyToStart";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Cas d\'Usage - Solutions InRealArt',
-  description: 'Découvrez les différents cas d\'usage d\'InRealArt : leasing d\'art, prêt garanti, fractionnement d\'œuvres et solutions pour entreprises.',
-  keywords: ['cas d\'usage', 'leasing art', 'prêt garanti', 'fractionnement', 'solutions entreprises', 'art tokenisé'],
+  title: 'Cas d\'usage — Comment InRealArt accompagne chaque acteur',
+  description: 'Leasing, mécénat, investissement ou diffusion : découvrez toutes les façons d\'interagir avec notre écosystème artistique.',
+  keywords: ['cas d\'usage art', 'leasing artistique', 'mécénat', 'diffusion œuvres'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase`
 })
 

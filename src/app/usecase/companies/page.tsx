@@ -5,9 +5,9 @@ import Possibilities from "@/components/usecase/companies/Possibilities";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Solutions pour Entreprises - Art Corporate',
-  description: 'Solutions InRealArt pour les entreprises : collection d\'art corporate, mécénat, investissement et décoration professionnelle.',
-  keywords: ['art corporate', 'entreprise art', 'mécénat entreprise', 'collection corporate', 'investissement art entreprise', 'décoration bureau'],
+  title: 'Art & entreprise — Intégrer l\'Art au cœur de votre stratégie',
+  description: 'Proposez à vos collaborateurs et visiteurs une expérience artistique forte. Leasing, curation, visibilité et engagement culturel.',
+  keywords: ['art entreprise', 'curation corporate', 'mécénat culturel', 'leasing œuvres'],
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/companies`
 })
 
