@@ -1,13 +1,18 @@
-'use client'
+import { Metadata } from 'next'
+import TeamContent from "@/components/team/TeamContent";
+import { generateStaticMetadata } from '@/utils/metadata'
 
-import TeamContent from "@/components/team/TeamContent"
+export const metadata: Metadata = generateStaticMetadata({
+  title: 'L\'équipe InRealArt — Une vision, des acteurs et des artistes',
+  description: 'Découvrez les profils derrière InRealArt : passioné(e)s d\'art, amoureux du patrimoine du patrimoine et experts en marketing culturel',
+  keywords: ['équipe InRealArt', 'experts art', 'fondateurs plateforme', 'marketing culturel'],
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/team`
+})
 
-export default function Team() {
+export default function TeamPage() {
   return (
-    <>
-      <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
-        <TeamContent />
-      </div>
-    </>
-  )
+    <main className="min-h-screen text-white">
+      <TeamContent />
+    </main>
+  );
 }

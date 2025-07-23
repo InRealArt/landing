@@ -7,8 +7,8 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { toast } from 'sonner'
 import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
 import { useNewsletter } from '@/contexts/NewsletterContext'
-import { useActionState } from 'react'
 import Image from 'next/image'
+import Button from './Button'
 
 const initialState: NewsletterActionResult = {
   success: false,
@@ -23,7 +23,7 @@ export default function NewsletterModal() {
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const [isMounted, setIsMounted] = useState(false)
-  
+
   // Éviter les problèmes d'hydratation
   useEffect(() => {
     setIsMounted(true)
@@ -40,13 +40,13 @@ export default function NewsletterModal() {
       try {
         // Générer le token reCAPTCHA
         const recaptchaToken = await executeRecaptcha('newsletter_subscribe')
-        
+
         // Ajouter le token au FormData
         formData.append('recaptchaToken', recaptchaToken)
-        
+
         // Appeler la server action
         const result = await subscribeToNewsletter(formData)
-        
+
         if (result.success) {
           toast.success(result.message)
           setEmail('')
@@ -88,8 +88,7 @@ export default function NewsletterModal() {
   }
 
   // Gestion du lien "pas intéressé"
-  const handleNotInterested = (e: React.MouseEvent) => {
-    e.preventDefault()
+  const handleNotInterested = () => {
     markAsNotInterested()
   }
 
@@ -104,12 +103,12 @@ export default function NewsletterModal() {
   }
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 "
       onClick={handleBackdropClick}
     >
-      <div 
-        className="relative w-full max-w-4xl transform rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-2xl transition-all duration-300 ease-out overflow-hidden"
+      <div
+        className="relative w-full max-w-4xl transform rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-2xl transition-all duration-300 ease-out overflow-hidden max-h-[95vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Bouton de fermeture */}
@@ -122,12 +121,12 @@ export default function NewsletterModal() {
         </button>
 
         {/* Contenu en deux colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] h-full">
           {/* Colonne gauche - Images */}
           <div className="relative bg-gradient-to-br from-purpleColor/20 to-purpleColor/10 p-6 flex items-center justify-center">
-            <div className="relative w-[280px] h-[320px]">
+            <div className="relative w-[280px] h-[160px] md:h-[320px] md:w-[280px]">
               {/* Image de fond (décalée) */}
-              <div className="absolute top-0 right-0 w-[180px] h-[220px] rounded-lg overflow-hidden shadow-xl z-10">
+              <div className="absolute top-0 right-[25%] md:right-0 w-[80px] h-[120px] md:w-[180px] md:h-[220px] rounded-lg overflow-hidden shadow-xl z-10">
                 <Image
                   src="/images/newsletter/image_nl_2.jpg"
                   alt="Newsletter illustration 2"
@@ -136,9 +135,9 @@ export default function NewsletterModal() {
                   sizes="180px"
                 />
               </div>
-              
+
               {/* Image de premier plan */}
-              <div className="absolute bottom-0 left-0 w-[200px] h-[240px] rounded-lg overflow-hidden shadow-2xl z-20">
+              <div className="absolute bottom-0 left-[20%] md:left-0 w-[100px] h-[140px] md:w-[200px] md:h-[240px] rounded-lg overflow-hidden shadow-2xl z-20">
                 <Image
                   src="/images/newsletter/image_nl_1.jpg"
                   alt="Newsletter illustration 1"
@@ -157,12 +156,12 @@ export default function NewsletterModal() {
               <h2 className="text-2xl font-bold mb-2">
                 {t('newsletter.modal.title')}
               </h2>
-              
+
               {/* Sous-titre */}
               <p className="text-gray-300 mb-2">
                 {t('newsletter.modal.subtitle')}
               </p>
-              
+
               {/* Description */}
               <p className="text-sm text-gray-400 mb-6">
                 {t('newsletter.modal.description')}
@@ -175,7 +174,7 @@ export default function NewsletterModal() {
               >
                 {/* Champ caché pour la langue */}
                 <input type="hidden" name="language" value={useLanguageStore.getState().language} />
-                
+
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                   <input
@@ -189,25 +188,24 @@ export default function NewsletterModal() {
                     required
                   />
                 </div>
-                
+
                 {/* Bouton de soumission */}
-                <button
+                <Button
                   type="submit"
                   disabled={isPending}
-                  className="w-full py-4 bg-purpleColor text-white rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}
-                </button>
+                  additionalClassName="w-full py-4 bg-purpleColor text-white rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  text={isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}
+                  center
+                />
               </form>
 
               {/* Lien "pas intéressé" */}
               <div className="mt-4 text-center">
-                <button
-                  onClick={handleNotInterested}
-                  className="text-xs text-gray-400 hover:text-gray-300 transition-colors underline"
-                >
-                  {t('newsletter.modal.notInterested')}
-                </button>
+                <Button
+                  action={handleNotInterested}
+                  additionalClassName="text-xs text-gray-400 hover:text-gray-300 transition-colors underline bg-transparent border-none"
+                  text={t('newsletter.modal.notInterested')}
+                />
               </div>
             </div>
           </div>
