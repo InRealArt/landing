@@ -130,6 +130,10 @@ export default function PostDetail({ slug }: PostDetailProps) {
         all: revert;
         box-sizing: border-box;
       }
+
+      #blog-content-container a {
+        color: #6052ff !important;
+      }
       
       #blog-content-container {
         font-family: 'Arial', sans-serif;
@@ -314,7 +318,8 @@ export default function PostDetail({ slug }: PostDetailProps) {
 
   // Utiliser le HTML généré ou le contenu de base
   const htmlContent = currentPost.generatedArticleHtml || currentPost.content
-
+  console.log(htmlContent);
+  
   return (
     <>
       {/* Injection du JSON-LD depuis la base de données */}
