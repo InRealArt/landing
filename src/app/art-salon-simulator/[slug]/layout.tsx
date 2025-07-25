@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return generateStaticMetadata({
-    title: `Simulateur de visite à ${salon.name} — Calculez vos coûts`,
-    description: `Calculez le coût de votre visite à ${salon.name}. Transport, hébergement, pass, accompagnement professionnel. Simulation gratuite et personnalisée.`,
+    title: `InRealArt - Simulateur de frais de visite à ${salon.name} — Calculez vos coûts`,
+    description: `estimez vos frais visiteurs au salon ${salon.name}. Transport, hébergement, pass, accompagnement professionnel. Simulation gratuite et personnalisée.`,
     keywords: [`simulateur ${salon.name}`, 'coût visite salon art', 'calculateur voyage art', 'transport salon art', 'hébergement salon art'],
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/art-salon-simulator/${slug}`
   })
