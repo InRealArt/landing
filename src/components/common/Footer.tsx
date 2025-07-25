@@ -177,6 +177,14 @@ const Footer = () => {
                   {t('footer.loaSimulator')}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/heritage-art-simulator"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {t('footer.heritageArtSimulator')}
+                </Link>
+              </li>
             </ul>
           </div>
 

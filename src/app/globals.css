@@ -110,15 +110,15 @@ body {
 
 /* Phone Input Styles */
 
-.phone-input-container-loa .PhoneInputInput {
+.phone-input-container-simulator .PhoneInputInput {
   @apply w-full border-r border-2 border-gray-700 rounded-lg px-4 py-3 bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded;
 }
 
-.phone-input-container-loa .PhoneInputCountry {
+.phone-input-container-simulator .PhoneInputCountry {
   @apply bg-gray-800 border-r border-2 border-gray-700 rounded-lg px-3;
 }
 
-.phone-input-container-loa .PhoneInputCountrySelect {
+.phone-input-container-simulator .PhoneInputCountrySelect {
   @apply bg-gray-800 text-white;
 }
 
@@ -162,4 +162,26 @@ body {
   text-decoration: none !important;
   margin: 0.25rem 0.25rem 0.25rem 0 !important;
   font-family: inherit !important;
+}
+
+/* Styles pour PhoneInput dans les simulateurs */
+.phone-input-container .PhoneInputInput {
+  @apply w-full px-4 py-4 rounded-lg border-2 border-gray-700 bg-gray-800 text-white placeholder-gray-400 font-unbounded;
+  @apply focus:border-purple-500 focus:outline-none;
+}
+
+.phone-input-container.border-red-500 .PhoneInputInput {
+  border-color: #ef4444 !important;
+}
+
+.phone-input-container .PhoneInputCountrySelect {
+  @apply bg-gray-800 border-gray-700 text-white rounded-l-lg px-2;
+}
+
+.phone-input-container .PhoneInputCountrySelect:focus {
+  @apply border-purple-500 outline-none;
+}
+
+.phone-input-container .PhoneInputCountrySelectArrow {
+  @apply border-t-white opacity-70;
 }
