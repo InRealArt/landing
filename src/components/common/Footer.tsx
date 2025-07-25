@@ -29,9 +29,9 @@ const navigation = {
     { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.usecase', href: '/usecase' },
     { label: 'nav.ico', href: '/token', disabled: true },
-    { label: 'nav.roadmap', href: '/roadmap'},
+    { label: 'nav.roadmap', href: '/roadmap' },
     { label: 'nav.whitepaper', href: '/whitepaper', disabled: true },
-    { label: 'nav.airdrop', href: '/airdrop' , disabled: true },
+    { label: 'nav.airdrop', href: '/airdrop', disabled: true },
     // { label: 'nav.blog', href: '/blog' },
   ],
 }
@@ -71,7 +71,7 @@ const Footer = () => {
           recaptchaToken = await executeRecaptcha('newsletter_subscribe')
         } catch (recaptchaError) {
           console.error('❌ Erreur reCAPTCHA:', recaptchaError)
-          
+
           // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
           if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
             try {
@@ -181,12 +181,12 @@ const Footer = () => {
           </div>
 
           <ul className="flex flex-col gap-2">
-            <Image 
-              src="/icons/Logo.png" 
-              alt="InRealArt Logo" 
-              width={101} 
-              height={32} 
-              className="mb-4" 
+            <Image
+              src="/icons/Logo.png"
+              alt="InRealArt Logo"
+              width={101}
+              height={32}
+              className="mb-4"
             />
             <h2 className='font-semibold unbounded mb-2'>{t('footer.contact')}</h2>
             <li>{t('footer.location')}</li>
@@ -205,45 +205,49 @@ const Footer = () => {
                 <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
             </div>
-            <div className="relative w-80 mt-4">
-              <input
-                className="w-full bg-transparent border border-white bricolage-grotesque rounded-3xl font-semibold border-1 py-6 px-4 pr-16 outline-0"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t('buttons.subscribe')}
-              />
-              <button
-                className={`absolute right-2 top-1/2 -translate-y-1/2 bg-[#6052FF] text-white rounded-full w-12 h-12 flex items-center justify-center border border-white ${isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#4F3EED] transition-colors'}`}
-                aria-label={t('buttons.subscribe')}
-                onClick={handleSubscribe}
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                ) : (
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.0001 17.0001L19.0001 12.0001M19.0001 12.0001L13.0001 7.00012M19.0001 12.0001H5.00012"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
+
           </ul>
+
+        </div>
+        {/* Newsletter */}
+        <div className="relative w-full md:w-80 mt-4">
+          <input
+            name="email"
+            type="text"
+            className="w-full bg-transparent border border-white bricolage-grotesque rounded-3xl font-semibold border-1 py-6 px-4 pr-16 outline-0"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t('buttons.subscribe')}
+          />
+          <button
+            className={`absolute right-2 top-1/2 -translate-y-1/2 bg-[#6052FF] text-white rounded-full w-12 h-12 flex items-center justify-center border border-white ${isLoading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#4F3EED] transition-colors'}`}
+            aria-label={t('buttons.subscribe')}
+            onClick={handleSubscribe}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.0001 17.0001L19.0001 12.0001M19.0001 12.0001L13.0001 7.00012M19.0001 12.0001H5.00012"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
+          </button>
         </div>
 
         {/* Bottom Bar */}
@@ -263,7 +267,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        
+
         {/* Notice reCAPTCHA conforme aux conditions Google */}
         <div className="text-xs text-gray-500 text-center mt-4">
           Ce site est protégé par reCAPTCHA et les &nbsp;
