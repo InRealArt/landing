@@ -44,7 +44,8 @@
     "resources": "Resources",
     "contact": "Contact",
     "simulators": "Simulators",
-    "loaSimulator": "LOA Simulator"
+    "loaSimulator": "LOA Simulator",
+    "heritageArtSimulator": "Heritage & Art Simulator"
   },
   "buttons": {
     "readMore": "Read More",
@@ -1969,6 +1970,74 @@
       "pdfSentSuccess": "📧 PDF sent successfully by email!",
       "pdfSentError": "❌ Error sending PDF by email",
       "formDataRequired": "📝 Form data is required to send PDF"
+    }
+  },
+  "heritageArtSimulator": {
+    "title": "🎨 Art Integration in Heritage Simulator",
+    "description": "Discover the optimal art allocation in your heritage according to your profile and objectives.",
+    "form": {
+      "title": "Art Integration in Heritage Simulator",
+      "repartitionTitle": "Current heritage distribution (%)",
+      "immobilier": "Real Estate",
+      "liquidites": "Cash & Liquidity",
+      "financier": "Financial Products",
+      "crypto": "Crypto / Digital Assets",
+      "tangibles": "Tangible Assets",
+      "total": "Total",
+      "profil": "Investor Profile",
+      "profilPlaceholder": "-- Choose your profile --",
+      "profils": {
+        "prudent": "Conservative",
+        "equilibre": "Balanced",
+        "dynamique": "Dynamic"
+      },
+      "objectif": "Heritage Objective",
+      "objectifPlaceholder": "-- Choose your objective --",
+      "objectifs": {
+        "diversification": "Diversification",
+        "transmission": "Transmission",
+        "fiscalite": "Tax Optimization",
+        "passion": "Passion"
+      },
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+33 1 23 45 67 89",
+      "nextStep": "Next Step",
+      "previousStep": "Previous Step",
+      "calculateButton": "Calculate my recommendation",
+      "errors": {
+        "totalNot100": "Distribution does not total 100%",
+        "profilRequired": "Please select your investor profile",
+        "objectifRequired": "Please select your heritage objective",
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Email is not valid",
+        "phoneRequired": "Phone is required"
+      }
+    },
+    "results": {
+      "title": "Your personalized simulation",
+      "subtitle": "Discover our art allocation recommendation",
+      "recommendation": "Our recommendation",
+      "adjustedDistribution": "Adjusted distribution with art",
+      "currentDistribution": "Current heritage",
+      "recommendedDistribution": "Recommended distribution",
+      "artRecommended": "Recommended art",
+      "profileSummary": "Profile summary",
+      "sendPDF": "Receive PDF",
+      "contactExpert": "Contact expert",
+      "sending": "Sending...",
+      "pdfSentSuccessfully": "📧 PDF sent successfully by email!",
+      "pdfSentError": "❌ Error sending PDF by email",
+      "contactSentSuccessfully": "✅ Contact request sent successfully!",
+      "contactSentError": "❌ Error sending contact request"
     }
   }
 }

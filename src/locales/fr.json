@@ -44,7 +44,8 @@
     "resources": "Ressources",
     "contact": "Contact",
     "simulators": "Simulateurs",
-    "loaSimulator": "Simulateur LOA"
+    "loaSimulator": "Simulateur LOA",
+    "heritageArtSimulator": "Simulateur Patrimoine & Art"
   },
   "buttons": {
     "readMore": "En savoir plus",
@@ -1763,6 +1764,74 @@
       "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
       "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
       "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"
+    }
+  },
+  "heritageArtSimulator": {
+    "title": "🎨 Simulateur d'intégration de l'art dans un patrimoine",
+    "description": "Découvrez l'allocation optimale d'art dans votre patrimoine selon votre profil et vos objectifs.",
+    "form": {
+      "title": "Simulateur d'intégration de l'art dans un patrimoine",
+      "repartitionTitle": "Répartition actuelle du patrimoine (%)",
+      "immobilier": "Immobilier",
+      "liquidites": "Liquidités",
+      "financier": "Produits financiers",
+      "crypto": "Crypto / Actifs numériques",
+      "tangibles": "Biens tangibles",
+      "total": "Total",
+      "profil": "Profil investisseur",
+      "profilPlaceholder": "-- Choisir votre profil --",
+      "profils": {
+        "prudent": "Prudent",
+        "equilibre": "Équilibré",
+        "dynamique": "Dynamique"
+      },
+      "objectif": "Objectif patrimonial",
+      "objectifPlaceholder": "-- Choisir votre objectif --",
+      "objectifs": {
+        "diversification": "Diversification",
+        "transmission": "Transmission",
+        "fiscalite": "Fiscalité",
+        "passion": "Passion"
+      },
+      "personalInfo": "Informations personnelles",
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "01 23 45 67 89",
+      "nextStep": "Étape suivante",
+      "previousStep": "Étape précédente",
+      "calculateButton": "Calculer ma recommandation",
+      "errors": {
+        "totalNot100": "La répartition ne totalise pas 100%",
+        "profilRequired": "Veuillez sélectionner votre profil investisseur",
+        "objectifRequired": "Veuillez sélectionner votre objectif patrimonial",
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom est requis",
+        "emailRequired": "L'email est requis",
+        "emailInvalid": "L'email n'est pas valide",
+        "phoneRequired": "Le téléphone est requis"
+      }
+    },
+    "results": {
+      "title": "Votre simulation personnalisée",
+      "subtitle": "Découvrez notre recommandation d'allocation artistique",
+      "recommendation": "Notre recommandation",
+      "adjustedDistribution": "Répartition ajustée avec art",
+      "currentDistribution": "Patrimoine actuel",
+      "recommendedDistribution": "Répartition recommandée",
+      "artRecommended": "Art recommandé",
+      "profileSummary": "Résumé de votre profil",
+      "sendPDF": "Recevoir le PDF",
+      "contactExpert": "Contacter un expert",
+      "sending": "Envoi en cours...",
+      "pdfSentSuccessfully": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "contactSentSuccessfully": "✅ Demande de contact envoyée avec succès !",
+      "contactSentError": "❌ Erreur lors de l'envoi de la demande de contact"
     }
   }
 }
