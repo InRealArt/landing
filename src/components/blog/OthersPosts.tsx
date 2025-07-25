@@ -10,7 +10,7 @@ export default function OthersPosts() {
     <SeoPostsCarousel
       title={`${t('blog.othersPosts')} 🔥`}
       excludeFeatured={true}
-      postsPerPage={1}
+      postsPerPage={10}
       className="pb-20"
     />
   )
