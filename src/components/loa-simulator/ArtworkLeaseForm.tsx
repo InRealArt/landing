@@ -5,8 +5,7 @@ import { z } from 'zod'
 import { toast } from 'sonner'
 import { Calculator } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
+import { isValidPhoneNumber } from 'react-phone-number-input'
 import {
   calculateArtworkLease,
   compareWithDirectPurchase,
@@ -15,7 +14,7 @@ import {
   ArtworkLeaseResults,
   ArtworkLeaseComparison,
 } from '@/utils/artworkLeaseCalculations'
-import { generateLeaseResultsPDF } from '@/utils/pdfGenerator'
+
 import Button from '../common/Button'
 import SimulatorInput from '../common/simulator/SimulatorInput'
 import SimulatorSelect from '../common/simulator/SimulatorSelect'
@@ -70,8 +69,8 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
     }
   }
 
-  const handlePhoneChange = (value: string | undefined) => {
-    setFormData(prev => ({ ...prev, phoneNumber: value || '' }))
+  const handlePhoneChange = (value: string | number) => {
+    setFormData(prev => ({ ...prev, phoneNumber: value as string }))
 
     // Clear phone error
     if (errors.phoneNumber) {
@@ -204,20 +203,16 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         </div>
 
         {/* Phone Number */}
-        <div>
-          <PhoneInput
-            international
-            countryCallingCodeEditable={false}
-            defaultCountry="FR"
-            value={formData.phoneNumber}
-            onChange={handlePhoneChange}
-            placeholder={t('loaSimulator.form.phoneNumber')}
-            className={`phone-input-container-loa w-full ${errors.phoneNumber ? 'border-red-500' : ''}`}
-          />
-          {errors.phoneNumber && (
-            <p className="text-red-400 text-sm mt-1">{errors.phoneNumber}</p>
-          )}
-        </div>
+        <SimulatorInput
+          label={t('loaSimulator.form.phoneNumber')}
+          id="phoneNumber"
+          name="phoneNumber"
+          type="tel"
+          value={formData.phoneNumber}
+          onChange={handlePhoneChange}
+          placeholder={t('loaSimulator.form.phoneNumber')}
+          error={errors.phoneNumber}
+        />
 
         {/* Taux d'imposition personnalisé */}
         <SimulatorInput

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Calculator } from 'lucide-react';
 import { toast } from 'sonner';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import { isValidPhoneNumber } from 'react-phone-number-input';
 import SimulatorInput from '@/components/common/simulator/SimulatorInput';
 import SimulatorSelect from '@/components/common/simulator/SimulatorSelect';
 import SimulatorRadioGroup from '@/components/common/simulator/SimulatorRadioGroup';
 import SimulatorCheckbox from '@/components/common/simulator/SimulatorCheckbox';
 import Button from '@/components/common/Button';
-import { 
-  ArtSalonInputs, 
+import {
+  ArtSalonInputs,
   ArtSalonResults,
   calculateSalonCost,
   getAvailableFormulas,
@@ -68,8 +67,8 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
     }
   };
 
-  const handlePhoneChange = (value: string | undefined) => {
-    setFormData(prev => ({ ...prev, phone: value || '' }));
+  const handlePhoneChange = (value: string | number) => {
+    setFormData(prev => ({ ...prev, phone: value as string }));
     // Clear phone error
     if (errors.phone) {
       setErrors(prev => ({ ...prev, phone: '' }));
@@ -78,7 +77,7 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       // Validate phone number first
       if (!formData.phone || !isValidPhoneNumber(formData.phone)) {
@@ -95,10 +94,10 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
         persons: formData.persons || 1,
         accommodationComfort: formData.accommodationComfort || 'basic',
       };
-      
+
       const results = calculateSalonCost(finalFormData);
       onCalculate(results, { firstName: finalFormData.firstName, lastName: finalFormData.lastName, email: finalFormData.email, phone: finalFormData.phone });
-      
+
       // Send company info to admin immediately after calculation
       try {
         await fetch('/api/art-salon-simulator/send-company-info', {
@@ -116,7 +115,7 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
         console.error('⚠️ Failed to send art salon info to admin:', error)
         // Don't block the user flow if this fails
       }
-      
+
       toast.success(t('artSalonSimulator.toast.calculationSuccess'));
     } catch (error) {
       console.error('Erreur lors du calcul:', error);
@@ -135,33 +134,33 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
 
   const availableFormulas = formData.salonId ? getAvailableFormulas(formData.salonId) : ['standard', 'premium', 'VIP'];
   const formulaOptions = [
-    { 
-      value: 'standard', 
-      label: t('artSalonSimulator.formulas.standard'), 
-      disabled: !availableFormulas.includes('standard') 
+    {
+      value: 'standard',
+      label: t('artSalonSimulator.formulas.standard'),
+      disabled: !availableFormulas.includes('standard')
     },
-    { 
-      value: 'premium', 
-      label: t('artSalonSimulator.formulas.premium'), 
-      disabled: !availableFormulas.includes('premium') 
+    {
+      value: 'premium',
+      label: t('artSalonSimulator.formulas.premium'),
+      disabled: !availableFormulas.includes('premium')
     },
-    { 
-      value: 'VIP', 
-      label: t('artSalonSimulator.formulas.VIP'), 
-      disabled: !availableFormulas.includes('VIP') 
+    {
+      value: 'VIP',
+      label: t('artSalonSimulator.formulas.VIP'),
+      disabled: !availableFormulas.includes('VIP')
     },
   ];
 
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
       <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
-        Simulateur de visite à {salonName}
+        {t('footer.artSalonSimulator')} {salonName}
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information */}
         <div className="space-y-6">
-          
+
           {/* First Name and Last Name - Side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SimulatorInput
@@ -188,33 +187,27 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
           </div>
 
           {/* Email and Phone - Side by side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <SimulatorInput
-              label=""
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange('email')}
-              placeholder={t('artSalonSimulator.form.email')}
-              required
-            />
+          <SimulatorInput
+            label=""
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleInputChange('email')}
+            placeholder={t('artSalonSimulator.form.email')}
+            required
+          />
 
-            <div>
-              <PhoneInput
-                international
-                countryCallingCodeEditable={false}
-                defaultCountry="FR"
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                placeholder={t('artSalonSimulator.form.phone')}
-                className={`phone-input-container-loa w-full ${errors.phone ? 'border-red-500' : ''}`}
-              />
-              {errors.phone && (
-                <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
-              )}
-            </div>
-          </div>
+          <SimulatorInput
+            label={t('artSalonSimulator.form.phone')}
+            id="phone"
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={handlePhoneChange}
+            placeholder={t('artSalonSimulator.form.phone')}
+            error={errors.phone}
+          />
         </div>
 
         {/* Salon Details */}

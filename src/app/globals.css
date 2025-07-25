@@ -110,15 +110,15 @@ body {
 
 /* Phone Input Styles */
 
-.phone-input-container-simulator .PhoneInputInput {
+.phone-input-container.phone-input-container-simulator .PhoneInputInput {
   @apply w-full border-r border-2 border-gray-700 rounded-lg px-4 py-3 bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded;
 }
 
-.phone-input-container-simulator .PhoneInputCountry {
+.phone-input-container.phone-input-container-simulator .PhoneInputCountry {
   @apply bg-gray-800 border-r border-2 border-gray-700 rounded-lg px-3;
 }
 
-.phone-input-container-simulator .PhoneInputCountrySelect {
+.phone-input-container.phone-input-container-simulator .PhoneInputCountrySelect {
   @apply bg-gray-800 text-white;
 }
 
