@@ -46,7 +46,7 @@
     "simulators": "Tools & Simulations",
     "loaSimulator": "LOA Simulator",
     "heritageArtSimulator": "Heritage & Art Simulator",
-    "artSalonSimulator": "Art Salon Price Simulator"
+    "artSalonSimulator": "Fee Simulator"
   },
   "buttons": {
     "readMore": "Read More",
