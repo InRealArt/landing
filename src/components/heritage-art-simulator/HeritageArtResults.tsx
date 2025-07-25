@@ -65,35 +65,7 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
     }
   }
 
-  const handleContactExpert = async () => {
-    if (!formData) return;
 
-    try {
-      const response = await fetch('/api/heritage-art-simulator/send-company-info', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          results,
-          formData,
-        }),
-      });
-
-      const data = await response.json();
-      
-      if (data.success) {
-        console.log('Demande de contact envoyée avec succès');
-        toast.success(t('heritageArtSimulator.results.contactSentSuccessfully'));
-      } else {
-        console.error('Erreur lors de l\'envoi de la demande');
-        toast.error(t('heritageArtSimulator.results.contactSentError'));
-      }
-    } catch (error) {
-      console.error('Erreur:', error);
-      toast.error(t('heritageArtSimulator.results.contactSentError'));
-    }
-  }
 
   // Configuration du graphique
   const chartData = {
@@ -248,18 +220,18 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
 
       {/* Boutons d'action */}
       {formData && (
-            <Button
-              action={handleSendPDF}
-              disabled={isLoading}
-              additionalClassName={`w-full text-white font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
-                isLoading 
-                  ? 'bg-white/10 cursor-not-allowed opacity-50' 
-                  : 'bg-purple-600 hover:bg-purple-700'
-              }`}
-              text={isLoading ? t('heritageArtSimulator.results.sending') : t('heritageArtSimulator.results.sendPDF')}
-              icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : <span>📧</span>}
-              center
-            />
+        <Button
+          action={handleSendPDF}
+          disabled={isLoading}
+          additionalClassName={`w-full text-white font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
+            isLoading 
+              ? 'bg-white/10 cursor-not-allowed opacity-50' 
+              : 'bg-purple-600 hover:bg-purple-700'
+          }`}
+          text={isLoading ? t('heritageArtSimulator.results.sending') : t('heritageArtSimulator.results.sendPDF')}
+          icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : <span>📧</span>}
+          center
+        />
       )}
     </div>
   )

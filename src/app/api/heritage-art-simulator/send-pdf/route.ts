@@ -3,15 +3,7 @@ import jsPDF from 'jspdf'
 import { sendEmailViaBrevo } from '@/utils/emailTemplates'
 import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
 
-// Helper function to format price
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(price)
-}
+
 
 // Create email template for heritage art results
 function createHeritageArtUserEmailTemplate(formData: any, results: HeritageArtResults): string {
@@ -148,7 +140,7 @@ async function loadBricolageGrotesqueFont(doc: any): Promise<string> {
 }
 
 // Generate PDF for heritage art results
-async function generateHeritageArtPDF(results: HeritageArtResults, formData: any): Promise<Buffer> {
+async function generateHeritageArtPDF(results: HeritageArtResults, _formData: any): Promise<Buffer> {
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',

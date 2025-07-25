@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { generateLeasingPDF, type FormData, type LeaseResults, type Comparison } from '@/utils/pdfGenerator'
+import { generateLeasingPDF } from '@/utils/pdfGenerator'
 import { 
   createUserEmailTemplate, 
   createFallbackUserEmailTemplate, 
-  createFallbackAdminEmailTemplate, 
   sendEmailViaBrevo 
 } from '@/utils/emailTemplates'
 

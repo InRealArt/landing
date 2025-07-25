@@ -51,7 +51,7 @@ export default function HeritageArtSimulatorPage() {
             🎨 Optimisez votre patrimoine
           </p>
           <p className="text-sm">
-            Découvrez comment intégrer l'art dans votre stratégie patrimoniale selon votre profil et vos objectifs
+            Découvrez comment intégrer l&apos;art dans votre stratégie patrimoniale selon votre profil et vos objectifs
           </p>
         </div>
       </div>

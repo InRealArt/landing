@@ -12,10 +12,8 @@ import {
   ArtSalonInputs, 
   ArtSalonResults,
   calculateSalonCost,
-  salons,
   getAvailableFormulas,
-  accommodationComfortCosts,
-  Formule
+  accommodationComfortCosts
 } from '@/utils/artSalonCalculations';
 import { useLanguageStore } from '@/store/languageStore';
 
