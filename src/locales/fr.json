@@ -36,16 +36,17 @@
     "terms": "Conditions générales",
     "legal": "Mentions légales",
     "termsNft": "Conditions générales NFT",
-    "pages": "Nos Pages",
+    "pages": "L'essentiel IRA",
     "company": "Entreprise",
     "partner": "Partenaire",
     "location": "Paris",
     "email": "teaminrealart@gmail.com",
-    "resources": "Ressources",
+    "resources": "Savoirs & Pratiques de l'Art",
     "contact": "Contact",
-    "simulators": "Simulateurs",
+    "simulators": "Outils & Simulations",
     "loaSimulator": "Simulateur LOA",
-    "heritageArtSimulator": "Simulateur Patrimoine & Art"
+    "heritageArtSimulator": "Simulateur Patrimoine & Art",
+    "artSalonSimulator": "Simulateur de prix au salon"
   },
   "buttons": {
     "readMore": "En savoir plus",

@@ -165,7 +165,7 @@ const Footer = () => {
                     href={`/art-salon-simulator/${slug}`}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    {salon.name}
+                    {t('footer.artSalonSimulator')} {salon.name}
                   </Link>
                 </li>
               ))}

@@ -344,21 +344,19 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
               />
             </div>
 
-            <div className="flex gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Button
                 type="button"
                 action={handlePreviousStep}
-                additionalClassName="flex-1 bg-gray-600 text-white font-bold py-4 px-8 rounded-full hover:bg-gray-700 transition-all duration-300 flex items-center justify-center gap-2"
-                icon={<span className="text-xl">←</span>}
-                iconBefore={true}
+                additionalClassName="bg-gray-600 text-white font-bold py-4 px-8 hover:bg-gray-700  gap-2"
                 text={t('heritageArtSimulator.form.previousStep')}
               />
 
               <Button
                 type="submit"
                 disabled={isLoading}
-                additionalClassName="flex-1 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-4 px-8 rounded-full hover:from-purple-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : <span className="text-xl">🎯</span>}
+                additionalClassName="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-4 px-8 disabled:opacity-50 disabled:cursor-not-allowed"
+                icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : <div />}
                 text={isLoading ? '' : t('heritageArtSimulator.form.calculateButton')}
               />
             </div>
