@@ -63,16 +63,14 @@ export default function Breadcrumb({ items, className = '', showIcons = false }:
                 <span>{item.label}</span>
               </Link>
             ) : (
-              <span 
-                className={`${item.current ? 'text-white' : 'text-gray-400'} ${
-                  item.current ? 'truncate max-w-xs' : ''
-                } flex items-center space-x-1`}
+              <div 
+                className={`${item.current ? 'text-white' : 'text-gray-400'} flex items-center space-x-1`}
                 title={item.current ? item.label : undefined}
                 aria-current={item.current ? 'page' : undefined}
               >
                 {showIcons && item.icon && <span>{item.icon}</span>}
-                <span>{item.label}</span>
-              </span>
+                <span className="truncate max-w-[15rem] md:max-w-[35rem]">{item.label}</span>
+              </div>
             )}
           </li>
         ))}

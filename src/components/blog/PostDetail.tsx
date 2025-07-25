@@ -8,7 +8,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import { useSeoPostStore } from '@/store/useSeoPostStore'
 import { SeoPost } from '@/store/useSeoPostStore'
 import { getPostBySlug } from '@/actions/seoPostActions'
-
+import './style.css'
 interface PostDetailProps {
   slug: string
 }
@@ -120,118 +120,6 @@ export default function PostDetail({ slug }: PostDetailProps) {
     }
   }, [currentPost, language, incrementPostViews, fetchRelatedPosts])
 
-  // Effet pour modifier les styles globaux pour le contenu du blog
-  useEffect(() => {
-    const styleElement = document.createElement('style')
-    styleElement.id = 'blog-post-custom-styles' // ID pour debugging
-    styleElement.innerHTML = `
-      /* Réinitialisation des styles pour le contenu du blog */
-      #blog-content-container * {
-        all: revert;
-        box-sizing: border-box;
-      }
-
-      #blog-content-container a {
-        color: #6052ff !important;
-      }
-      
-      #blog-content-container {
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-        color: rgb(255, 255, 255); /* Changé de #333 à blanc */
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      
-      /* Style pour le titre principal H1 */
-      #blog-content-container article header h1 {
-        font-size: 2.25rem !important; /* text-4xl */
-        font-weight: 700 !important; /* font-bold */
-        margin-bottom: 1.5rem !important; /* mb-6 */
-        font-family: "Bricolage Grotesque", serif !important;
-        color: rgb(255, 255, 255) !important;
-        line-height: 1.1 !important;
-      }
-      
-      /* Style pour tous les H2 */
-      #blog-content-container article h2 {
-        font-size: 1.5rem !important; /* text-2xl */
-        font-weight: 700 !important; /* font-bold */
-        margin-top: 2.5rem !important; /* mt-10 */
-        margin-bottom: 1rem !important; /* mb-4 */
-        font-family: "Bricolage Grotesque", serif !important;
-        color: rgb(255, 255, 255) !important;
-        line-height: 1.2 !important;
-      }
-      
-      #blog-content-container h3 {
-        font-size: 1.4em;
-        margin-top: 1.2em;
-        margin-bottom: 0.5em;
-      }
-      
-      #blog-content-container p {
-        margin-bottom: 1em;
-      }
-      
-      #blog-content-container figure {
-        margin: 2em 0;
-      }
-      
-      #blog-content-container img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-      
-      #blog-content-container figcaption {
-        text-align: center;
-        font-style: italic;
-        margin-top: 0.5em;
-        color: #666;
-      }
-      
-      #blog-content-container .article-meta {
-        font-size: 0.9em;
-        color: #666;
-        margin-bottom: 2em;
-      }
-      
-      #blog-content-container .article-intro {
-        font-size: 1.1em;
-        line-height: 1.8;
-        margin-bottom: 2em;
-      }
-      
-      /* Adaptation au mode sombre */
-      @media (prefers-color-scheme: dark) {
-        #blog-content-container {
-          color: #e5e7eb;
-          background-color: transparent;
-        }
-        
-        #blog-content-container figcaption,
-        #blog-content-container .article-meta {
-          color: #9ca3af;
-        }
-      }
-      
-      /* Media queries pour la responsivité du titre principal */
-      @media (max-width: 768px) {
-        #blog-content-container article header h1 {
-          font-size: 1.875rem !important; /* text-3xl sur mobile */
-        }
-      }
-    `
-    document.head.appendChild(styleElement)
-
-    return () => {
-      document.head.removeChild(styleElement)
-    }
-  }, [])
-
   // Fonction pour formater la date
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat(language === 'fr' ? 'fr-FR' : 'en-US', {
@@ -318,7 +206,6 @@ export default function PostDetail({ slug }: PostDetailProps) {
 
   // Utiliser le HTML généré ou le contenu de base
   const htmlContent = currentPost.generatedArticleHtml || currentPost.content
-  console.log(htmlContent);
   
   return (
     <>
@@ -361,7 +248,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
       />
 
       <div className="pt-8 pb-16 min-h-screen">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-3xl mx-auto px-4">
           {/* Breadcrumb navigation */}
           <BlogBreadcrumb postTitle={currentPost.title} className="mb-8" />
 

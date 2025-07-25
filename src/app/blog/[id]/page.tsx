@@ -13,15 +13,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id: slug } = await params
   
   try {
-    // Récupérer l'ID de la langue (par défaut français)
-    const languageId = await getLanguageIdByCode('fr')
-    if (!languageId) {
-      return {
-        title: 'Erreur | In Real Art',
-        description: 'Une erreur est survenue lors de la récupération de la langue.'
-      }
-    }
-    const post = await getPostBySlug(slug, languageId.toString())
+    // Récupérer l'ID de la langue (par défaut français)    
+    const post =  await getPostBySlug(slug, 'fr')
+    console.log(post);
     
     if (!post) {
       return {
