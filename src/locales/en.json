@@ -42,7 +42,9 @@
     "location": "Paris",
     "email": "teaminrealart@gmail.com",
     "resources": "Resources",
-    "contact": "Contact"
+    "contact": "Contact",
+    "simulators": "Simulators",
+    "loaSimulator": "LOA Simulator"
   },
   "buttons": {
     "readMore": "Read More",
@@ -1873,7 +1875,7 @@
   },
   "artSalonSimulator": {
     "title": "🎟️ Art Exhibition Visit Simulator",
-    "description": "Estimate in just a few clicks the total cost of your professional trip.",
+            "description": "Simulate in just a few clicks the total cost of your professional trip.",
     "form": {
       "personalInfo": "Personal Information",
       "salonDetails": "Salon Details",
@@ -1887,7 +1889,7 @@
       "persons": "Number of persons",
       "accommodationComfort": "Accommodation comfort",
       "professionalSupport": "Professional accompaniment",
-      "calculateButton": "🔍 Estimate cost",
+              "calculateButton": "🔍 Simulate cost",
       "nextStep": "Next step",
       "previousStep": "Previous step"
     },
@@ -1902,7 +1904,7 @@
       "luxury": "5 stars (+100€/night/person)"
     },
     "results": {
-      "title": "📄 Your personalized estimate",
+              "title": "📄 Your personalized simulation",
       "tabs": {
         "summary": "Summary",
         "breakdown": "Details"
@@ -1910,7 +1912,7 @@
       "sections": {
         "personalInfo": "Personal Information",
         "salonDetails": "Salon Details",
-        "totalCost": "Total estimated cost"
+        "totalCost": "Total simulated cost"
       },
       "labels": {
         "name": "Name:",
@@ -1938,7 +1940,7 @@
       }
     },
     "pdf": {
-      "title": "Quote - Art Exhibition Visit",
+              "title": "Simulator - Art Exhibition Visit",
       "personalInfo": "Personal Information",
       "exhibitionDetails": "Salon Details",
       "costBreakdown": "Cost Breakdown",

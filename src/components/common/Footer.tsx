@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
+import { salons } from '@/utils/artSalonCalculations'
 
 // Type pour la réponse de l'API
 type SubscribeResponse = {
@@ -116,7 +117,7 @@ const Footer = () => {
   return (
     <footer className="text-white py-12 mt-36 bg-linear-to-b from-[#1F1F1F] to-[##1f1f1f29]">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Pages - First Column */}
           <div>
@@ -153,6 +154,32 @@ const Footer = () => {
             <div />
 
           </div>
+
+          {/* Simulators Section */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.simulators')}</h3>
+            <ul className="space-y-2">
+              {Object.entries(salons).map(([slug, salon]) => (
+                <li key={slug}>
+                  <Link
+                    href={`/art-salon-simulator/${slug}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {salon.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/loa-simulator"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {t('footer.loaSimulator')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           <ul className="flex flex-col gap-2">
             <Image 
               src="/icons/Logo.png" 

@@ -8,6 +8,7 @@ export interface Tarif {
 
 export interface SalonConfig {
   name: string;
+  image: string;
   location: 'france' | 'europe' | 'hors_europe';
   standard: Tarif;
   premium: Tarif;
@@ -18,6 +19,7 @@ export const salons: Record<string, SalonConfig> = {
   'artbasel-paris': {
     name: 'Art Basel Paris',
     location: 'france',
+    image: '/images/art-basel.jpeg',
     standard: {
       transportPerPerson: 100,
       hotelPerNight: 120,
@@ -37,6 +39,7 @@ export const salons: Record<string, SalonConfig> = {
   'artgeneve': {
     name: 'Artgenève',
     location: 'europe',
+    image: '/images/artgeneve.jpg',
     standard: {
       transportPerPerson: 150,
       hotelPerNight: 130,

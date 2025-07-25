@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'coût visite salon',
     'transport art',
     'hébergement salon',
-    'estimation voyage art'
+    'simulation voyage art'
   ],
   openGraph: {
     title: 'Simulateur de Visite de Salon d\'Art | InRealArt',

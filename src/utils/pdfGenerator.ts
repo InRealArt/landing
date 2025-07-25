@@ -340,7 +340,7 @@ export async function generateArtSalonPDF(
     doc.setFont(fontFamily, 'normal')
     doc.setFontSize(32)
     doc.setTextColor(96, 82, 255)
-    doc.text('Devis - Visite salon d\'art', pageWidth / 2, 20, { align: 'center' })
+    doc.text('Simulateur - Visite salon d\'art', pageWidth / 2, 20, { align: 'center' })
 
     yPosition = 45
 
@@ -423,7 +423,7 @@ export async function generateArtSalonPDF(
     doc.setFont(fontFamily, 'normal')
     doc.setFontSize(10)
     doc.setTextColor(102, 102, 102)
-    doc.text('Ce devis a été généré par le simulateur InRealArt - www.inrealart.com', pageWidth / 2, yPosition, { align: 'center' })
+    doc.text('Cette simulation a été générée par le simulateur InRealArt - www.inrealart.com', pageWidth / 2, yPosition, { align: 'center' })
     doc.text(`Créé le ${new Date().toLocaleDateString('fr-FR')}`, pageWidth / 2, yPosition + 4, { align: 'center' })
 
     // Convert to buffer

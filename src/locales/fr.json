@@ -42,7 +42,9 @@
     "location": "Paris",
     "email": "teaminrealart@gmail.com",
     "resources": "Ressources",
-    "contact": "Contact"
+    "contact": "Contact",
+    "simulators": "Simulateurs",
+    "loaSimulator": "Simulateur LOA"
   },
   "buttons": {
     "readMore": "En savoir plus",
@@ -1696,7 +1698,7 @@
       "luxury": "5 étoiles (+100€/nuit/personne)"
     },
     "results": {
-      "title": "📄 Votre estimation personnalisée",
+              "title": "📄 Votre simulation personnalisée",
       "tabs": {
         "summary": "Résumé",
         "breakdown": "Détail"
@@ -1732,7 +1734,7 @@
       }
     },
     "pdf": {
-      "title": "Devis - Visite salon d'art",
+      "title": "Simulateur - Visite salon d'art",
       "personalInfo": "Informations personnelles",
       "exhibitionDetails": "Détails du salon",
       "costBreakdown": "Détail des coûts",

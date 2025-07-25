@@ -21,16 +21,18 @@ import { useLanguageStore } from '@/store/languageStore';
 
 interface ArtSalonFormProps {
   onCalculate: (results: ArtSalonResults, formData: { firstName: string, lastName: string, email: string, phone: string }) => void;
+  salonId: string;
+  salonName: string;
 }
 
-export default function ArtSalonForm({ onCalculate }: ArtSalonFormProps) {
+export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSalonFormProps) {
   const { t } = useLanguageStore();
   const [formData, setFormData] = useState<ArtSalonInputs>({
     firstName: '',
     lastName: '',
     email: '',
     phone: '', // Correct field name from type
-    salonId: '', // Empty to show placeholder
+    salonId: salonId, // Set from props
     formula: 'standard', // Keep default for logic
     days: 0, // Empty to show placeholder
     persons: 0, // Empty to show placeholder
@@ -90,7 +92,7 @@ export default function ArtSalonForm({ onCalculate }: ArtSalonFormProps) {
       // Set defaults if not provided
       const finalFormData: ArtSalonInputs = {
         ...formData,
-        salonId: formData.salonId || 'artbasel-paris',
+        salonId: salonId, // Always use the salon from props
         days: formData.days || 1,
         persons: formData.persons || 1,
         accommodationComfort: formData.accommodationComfort || 'basic',
@@ -125,14 +127,6 @@ export default function ArtSalonForm({ onCalculate }: ArtSalonFormProps) {
   };
 
   // Create options for selects and radio groups
-  const salonOptions = [
-    { value: '', label: '', disabled: true }, // Empty option for placeholder
-    ...Object.entries(salons).map(([id, salon]) => ({
-      value: id,
-      label: salon.name,
-    }))
-  ];
-
   const accommodationOptions = [
     { value: '', label: '', disabled: true }, // Empty option for placeholder
     ...Object.entries(accommodationComfortCosts).map(([key, cost]) => ({
@@ -163,7 +157,7 @@ export default function ArtSalonForm({ onCalculate }: ArtSalonFormProps) {
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
       <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
-        {t('artSalonSimulator.title')}
+        Simulateur de visite à {salonName}
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -227,17 +221,6 @@ export default function ArtSalonForm({ onCalculate }: ArtSalonFormProps) {
 
         {/* Salon Details */}
         <div className="space-y-6">
-
-          <SimulatorSelect
-            label=""
-            id="salon"
-            name="salon"
-            value={formData.salonId}
-            onChange={handleInputChange('salonId')}
-            options={salonOptions}
-            placeholder={t('artSalonSimulator.form.salon')}
-            required
-          />
 
           <SimulatorRadioGroup
             label={t('artSalonSimulator.form.formula')}

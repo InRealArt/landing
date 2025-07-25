@@ -43,14 +43,14 @@ function createArtSalonUserEmailTemplate(formData: any, results: any): string {
   
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #7c3aed; margin-bottom: 20px;">🎟️ Votre estimation personnalisée - Salon d'art</h2>
+      <h2 style="color: #7c3aed; margin-bottom: 20px;">🎟️ Votre simulation personnalisée - Salon d'art</h2>
       
       <p>Bonjour ${personalInfo.firstName} ${personalInfo.lastName},</p>
       
-      <p>Merci d'avoir utilisé notre simulateur de coûts pour les salons d'art. Vous trouverez en pièce jointe votre devis détaillé au format PDF.</p>
+              <p>Merci d'avoir utilisé notre simulateur de coûts pour les salons d'art. Vous trouverez en pièce jointe votre simulation détaillée au format PDF.</p>
       
       <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-        <h3 style="color: #333; margin-top: 0;">📍 Résumé de votre estimation</h3>
+                  <h3 style="color: #333; margin-top: 0;">📍 Résumé de votre simulation</h3>
         <p><strong>Salon :</strong> ${salonDetails.name}</p>
         <p><strong>Formule :</strong> ${salonDetails.formula}</p>
         <p><strong>Durée :</strong> ${salonDetails.days} jour(s)</p>
@@ -65,11 +65,11 @@ function createArtSalonUserEmailTemplate(formData: any, results: any): string {
       
       <div style="background-color: #e0e7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
         <p style="margin: 0; font-size: 14px; color: #4c1d95;">
-          📎 <strong>Votre devis détaillé est disponible en pièce jointe</strong> - Il contient tous les détails de votre estimation avec la répartition complète des coûts.
+                     📎 <strong>Votre simulation détaillée est disponible en pièce jointe</strong> - Elle contient tous les détails de votre simulation avec la répartition complète des coûts.
         </p>
       </div>
       
-      <p>Cette estimation est calculée sur la base des informations que vous avez fournies. Pour une demande personnalisée ou des questions spécifiques, n'hésitez pas à nous contacter.</p>
+      <p>Cette simulation est calculée sur la base des informations que vous avez fournies. Pour une demande personnalisée ou des questions spécifiques, n'hésitez pas à nous contacter.</p>
       
       <div style="background-color: #7c3aed; color: white; padding: 15px; border-radius: 8px; margin-top: 20px;">
         <p style="margin: 0; font-weight: bold;">🎨 InRealArt</p>
@@ -88,11 +88,11 @@ function createArtSalonFallbackEmailTemplate(formData: any, results: any): strin
   
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #7c3aed; margin-bottom: 20px;">🎟️ Votre estimation personnalisée - Salon d'art</h2>
+      <h2 style="color: #7c3aed; margin-bottom: 20px;">🎟️ Votre simulation personnalisée - Salon d'art</h2>
       
       <p>Bonjour ${personalInfo.firstName} ${personalInfo.lastName},</p>
       
-      <p>Merci d'avoir utilisé notre simulateur de coûts pour les salons d'art. Voici le détail de votre estimation :</p>
+      <p>Merci d'avoir utilisé notre simulateur de coûts pour les salons d'art. Voici le détail de votre simulation :</p>
       
       <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h3 style="color: #333; margin-top: 0;">📍 Détails du salon</h3>
@@ -120,11 +120,11 @@ function createArtSalonFallbackEmailTemplate(formData: any, results: any): strin
       
       <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
         <p style="margin: 0; font-size: 14px; color: #92400e;">
-          📧 <strong>Devis PDF en cours d'envoi</strong> - Vous recevrez votre devis détaillé au format PDF dans un email séparé sous peu.
+          📧 <strong>Simulation PDF en cours d'envoi</strong> - Vous recevrez votre simulation détaillée au format PDF dans un email séparé sous peu.
         </p>
       </div>
       
-      <p>Cette estimation est calculée sur la base des informations que vous avez fournies. Pour une demande personnalisée ou des questions spécifiques, n'hésitez pas à nous contacter.</p>
+      <p>Cette simulation est calculée sur la base des informations que vous avez fournies. Pour une demande personnalisée ou des questions spécifiques, n'hésitez pas à nous contacter.</p>
       
       <div style="background-color: #7c3aed; color: white; padding: 15px; border-radius: 8px; margin-top: 20px;">
         <p style="margin: 0; font-weight: bold;">🎨 InRealArt</p>
@@ -172,14 +172,14 @@ export async function POST(request: Request) {
       
       // Create PDF attachment
       const pdfAttachment = {
-        name: `Devis-Salon-Art-${formData.firstName}-${formData.lastName}-${new Date().toISOString().split('T')[0]}.pdf`,
+        name: `Simulation-Salon-Art-${formData.firstName}-${formData.lastName}-${new Date().toISOString().split('T')[0]}.pdf`,
         content: pdfBuffer.toString('base64')
       }
 
       // Send email to user with PDF attachment
       await sendEmailViaBrevo(
         formData.email,
-        'Votre devis salon d\'art - InRealArt',
+        'Votre simulation salon d\'art - InRealArt',
         createArtSalonUserEmailTemplate(formData, results),
         [pdfAttachment]
       )
@@ -198,13 +198,13 @@ export async function POST(request: Request) {
       // Send email without PDF
       await sendEmailViaBrevo(
         formData.email,
-        'Votre estimation salon d\'art - InRealArt',
+        'Votre simulation salon d\'art - InRealArt',
         fallbackTemplate
       )
 
       return NextResponse.json({
         success: true,
-        message: 'Estimation sent successfully. PDF will be sent separately.'
+        message: 'Simulation sent successfully. PDF will be sent separately.'
       })
     }
 
