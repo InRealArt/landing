@@ -33,6 +33,39 @@ export interface Comparison {
   savingsPercentage: number
 }
 
+// Types for Art Salon PDF generation
+export interface ArtSalonFormData {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+}
+
+export interface ArtSalonResults {
+  personalInfo: {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+  }
+  salonDetails: {
+    name: string
+    formula: string
+    days: number
+    persons: number
+    accommodationComfort: string
+    professionalSupport: boolean
+  }
+  breakdown: {
+    transport: number
+    accommodation: number
+    pass: number
+    comfortSupplement: number
+    total: number
+  }
+  totalPersons: number
+}
+
 async function loadBricolageGrotesqueFont(doc: any): Promise<string> {
   try {
     console.log('🔍 Loading Bricolage Grotesque fonts (Regular and Bold)...')
@@ -271,5 +304,134 @@ export async function generateLeaseResultsPDF(data: {
   } catch (error) {
     console.error('Error generating PDF:', error)
     throw error
+  }
+} 
+
+// Generate Art Salon PDF using jsPDF
+export async function generateArtSalonPDF(
+  formData: ArtSalonFormData,
+  results: ArtSalonResults
+): Promise<Buffer> {
+  try {
+    // Use jsPDF which is more reliable in serverless environments
+    const jsPDF = (await import('jspdf')).default
+
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    })
+
+    console.log('✅ Generating Art Salon PDF')
+    const fontFamily = await loadBricolageGrotesqueFont(doc)
+
+    // Set up the document
+    let yPosition = 30
+    const pageWidth = doc.internal.pageSize.width
+    const pageHeight = doc.internal.pageSize.height
+    const margin = 20
+    const contentWidth = pageWidth - (margin * 2)
+
+    // Light purple background (#f8f8ff)
+    doc.setFillColor(248, 248, 255)
+    doc.rect(0, 0, pageWidth, pageHeight, 'F')
+
+    // Main title - purple color (#6052ff)
+    doc.setFont(fontFamily, 'normal')
+    doc.setFontSize(32)
+    doc.setTextColor(96, 82, 255)
+    doc.text('Simulateur - Visite salon d\'art', pageWidth / 2, 20, { align: 'center' })
+
+    yPosition = 45
+
+    // Helper function to create section box (same as leasing)
+    const createSectionBox = (x: number, y: number, width: number, height: number, title: string) => {
+      // Box background
+      doc.setFillColor(255, 255, 255)
+      doc.setDrawColor(226, 232, 240)
+      doc.setLineWidth(0.5)
+      doc.roundedRect(x, y, width, height, 3, 3, 'FD')
+
+      // Section title
+      doc.setFont(fontFamily, 'bold')
+      doc.setFontSize(14)
+      doc.setTextColor(51, 51, 51)
+      doc.text(title, x + 5, y + 8)
+
+      return y + 15 // Return starting position for content
+    }
+
+    // Helper function to add key-value pair (same as leasing)
+    const addKeyValue = (x: number, y: number, key: string, value: string) => {
+      doc.setFont(fontFamily, 'normal')
+      doc.setFontSize(10)
+      doc.setTextColor(102, 102, 102)
+      doc.text(key, x, y)
+
+      doc.setFont(fontFamily, 'normal')
+      doc.setTextColor(51, 51, 51)
+      doc.setFontSize(10)
+      doc.text(value, margin + contentWidth - 15, y, { align: 'right' })
+    }
+
+    // Personal Information Section
+    let sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Informations personnelles')
+    addKeyValue(margin + 5, sectionY, 'Nom :', `${results.personalInfo.firstName} ${results.personalInfo.lastName}`)
+    addKeyValue(margin + 5, sectionY + 4, 'Email :', results.personalInfo.email)
+    addKeyValue(margin + 5, sectionY + 8, 'Téléphone :', results.personalInfo.phone)
+
+    yPosition += 45
+
+    // Salon Details Section
+    sectionY = createSectionBox(margin, yPosition, contentWidth, 45, 'Détails du salon')
+    addKeyValue(margin + 5, sectionY, 'Salon :', results.salonDetails.name)
+    addKeyValue(margin + 5, sectionY + 4, 'Formule :', results.salonDetails.formula)
+    addKeyValue(margin + 5, sectionY + 8, 'Durée :', `${results.salonDetails.days} jour(s)`)
+    addKeyValue(margin + 5, sectionY + 12, 'Personnes :', `${results.totalPersons}${results.salonDetails.professionalSupport ? ' (+1 pro)' : ''}`)
+    addKeyValue(margin + 5, sectionY + 16, 'Confort :', results.salonDetails.accommodationComfort)
+    addKeyValue(margin + 5, sectionY + 20, 'Accompagnement pro :', results.salonDetails.professionalSupport ? 'Oui' : 'Non')
+
+    yPosition += 55
+
+    // Cost Breakdown Section
+    const breakdownHeight = results.breakdown.comfortSupplement > 0 ? 45 : 40
+    sectionY = createSectionBox(margin, yPosition, contentWidth, breakdownHeight, 'Détail des coûts')
+    addKeyValue(margin + 5, sectionY, 'Transport :', formatCurrency(results.breakdown.transport))
+    addKeyValue(margin + 5, sectionY + 4, 'Hébergement :', formatCurrency(results.breakdown.accommodation))
+    addKeyValue(margin + 5, sectionY + 8, 'Pass salon :', formatCurrency(results.breakdown.pass))
+    
+    let nextY = sectionY + 12
+    if (results.breakdown.comfortSupplement > 0) {
+      addKeyValue(margin + 5, nextY, 'Supplément confort :', formatCurrency(results.breakdown.comfortSupplement))
+      nextY += 4
+    }
+
+    // Total with emphasis
+    doc.setDrawColor(124, 58, 237) // Purple line
+    doc.setLineWidth(1)
+    doc.line(margin + 5, nextY + 2, margin + contentWidth - 5, nextY + 2)
+    
+    doc.setFont(fontFamily, 'bold')
+    doc.setFontSize(12)
+    doc.setTextColor(124, 58, 237) // Purple text for total
+    doc.text('TOTAL :', margin + 5, nextY + 8)
+    doc.text(formatCurrency(results.breakdown.total), margin + contentWidth - 15, nextY + 8, { align: 'right' })
+
+    yPosition += breakdownHeight + 15
+
+    // Footer
+    doc.setFont(fontFamily, 'normal')
+    doc.setFontSize(10)
+    doc.setTextColor(102, 102, 102)
+    doc.text('Cette simulation a été générée par le simulateur InRealArt - www.inrealart.com', pageWidth / 2, yPosition, { align: 'center' })
+    doc.text(`Créé le ${new Date().toLocaleDateString('fr-FR')}`, pageWidth / 2, yPosition + 4, { align: 'center' })
+
+    // Convert to buffer
+    const pdfArrayBuffer = doc.output('arraybuffer')
+    return Buffer.from(pdfArrayBuffer)
+
+  } catch (error) {
+    console.error('Error generating Art Salon PDF:', error)
+    throw new Error('Art Salon PDF generation failed')
   }
 } 

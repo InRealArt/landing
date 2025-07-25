@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { z } from 'zod'
 import { toast } from 'sonner'
-import { Calculator, Download, ChevronDown } from 'lucide-react'
+import { Calculator } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
@@ -14,12 +14,11 @@ import {
   ArtworkLeaseInputs,
   ArtworkLeaseResults,
   ArtworkLeaseComparison,
-  FIRST_RENT_INCREASE_OPTIONS,
-  AMOUNT_TYPE_OPTIONS,
-  LEASE_DURATION_OPTIONS
 } from '@/utils/artworkLeaseCalculations'
 import { generateLeaseResultsPDF } from '@/utils/pdfGenerator'
 import Button from '../common/Button'
+import SimulatorInput from '../common/simulator/SimulatorInput'
+import SimulatorSelect from '../common/simulator/SimulatorSelect'
 
 interface ArtworkLeaseFormProps {
   onCalculate: (leaseResults: ArtworkLeaseResults, comparison: ArtworkLeaseComparison, formData: ArtworkLeaseInputs) => void
@@ -49,7 +48,6 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
   })
 
   const [isCalculating, setIsCalculating] = useState(false)
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [lastCalculation, setLastCalculation] = useState<{
     leaseResults: ArtworkLeaseResults
@@ -173,24 +171,6 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
     }
   }
 
-  const generatePDF = async () => {
-    if (!lastCalculation) {
-      toast.error(t('loaSimulator.toast.pdfCalculationRequired'))
-      return
-    }
-
-    setIsGeneratingPDF(true)
-    try {
-      await generateLeaseResultsPDF(lastCalculation)
-      toast.success(t('loaSimulator.toast.pdfGenerationSuccess'))
-    } catch (error) {
-      toast.error(t('loaSimulator.toast.pdfGenerationError'))
-      console.error('PDF generation error:', error)
-    } finally {
-      setIsGeneratingPDF(false)
-    }
-  }
-
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
       <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
@@ -200,31 +180,27 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Première ligne: Entreprise et Adresse mail */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <input
-              type="text"
-              value={formData.company}
-              onChange={(e) => handleInputChange('company', e.target.value)}
-              className={`w-full px-4 py-4 rounded-lg border-2 ${errors.company ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded`}
-              placeholder={t('loaSimulator.form.company')}
-            />
-            {errors.company && (
-              <p className="text-red-400 text-sm mt-1">{errors.company}</p>
-            )}
-          </div>
+          <SimulatorInput
+            label=""
+            id="company"
+            name="company"
+            type="text"
+            value={formData.company}
+            onChange={(value) => handleInputChange('company', value)}
+            placeholder={t('loaSimulator.form.company')}
+            error={errors.company}
+          />
 
-          <div>
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
-              className={`w-full px-4 py-4 rounded-lg border-2 ${errors.email ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded`}
-              placeholder={t('loaSimulator.form.email')}
-            />
-            {errors.email && (
-              <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-            )}
-          </div>
+          <SimulatorInput
+            label=""
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={(value) => handleInputChange('email', value)}
+            placeholder={t('loaSimulator.form.email')}
+            error={errors.email}
+          />
         </div>
 
         {/* Phone Number */}
@@ -244,79 +220,61 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         </div>
 
         {/* Taux d'imposition personnalisé */}
-        <div>
-          <input
-            type="number"
-            value={formData.taxRate}
-            onChange={(e) => handleInputChange('taxRate', e.target.value)}
-            className={`w-full px-4 py-4 rounded-lg border-2 ${errors.taxRate ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded`}
-            placeholder={`${t('loaSimulator.form.taxRate')} *`}
-            min="0"
-            max="50"
-            step="0.1"
-          />
-          {errors.taxRate && (
-            <p className="text-red-400 text-sm mt-1">{errors.taxRate}</p>
-          )}
-        </div>
+        <SimulatorInput
+          label=""
+          id="taxRate"
+          name="taxRate"
+          type="number"
+          value={formData.taxRate}
+          onChange={(value) => handleInputChange('taxRate', value)}
+          placeholder={`${t('loaSimulator.form.taxRate')} *`}
+          min={0}
+          max={50}
+          step="0.1"
+          error={errors.taxRate}
+        />
+
         {/* Deuxième ligne: Durée du bail et Valeur des œuvres */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <input
-              type="number"
-              value={formData.leaseDuration}
-              onChange={(e) => handleInputChange('leaseDuration', e.target.value)}
-              className={`w-full px-4 py-4 rounded-lg border-2 ${errors.leaseDuration ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded`}
-              placeholder={t('loaSimulator.form.leaseDuration')}
-              min="12"
-              max="72"
-              step="1"
-            />
-            {errors.leaseDuration && (
-              <p className="text-red-400 text-sm mt-1">{errors.leaseDuration}</p>
-            )}
-          </div>
+          <SimulatorInput
+            label=""
+            id="leaseDuration"
+            name="leaseDuration"
+            type="number"
+            value={formData.leaseDuration}
+            onChange={(value) => handleInputChange('leaseDuration', value)}
+            placeholder={t('loaSimulator.form.leaseDuration')}
+            min={12}
+            max={72}
+            step="1"
+            error={errors.leaseDuration}
+          />
 
-          <div>
-            <input
-              type="number"
-              value={formData.artworkValue}
-              onChange={(e) => handleInputChange('artworkValue', e.target.value)}
-              className={`w-full px-4 py-4 rounded-lg border-2 ${errors.artworkValue ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded`}
-              placeholder={t('loaSimulator.form.artworkValue')}
-              min="100"
-              step="100"
-            />
-            {errors.artworkValue && (
-              <p className="text-red-400 text-sm mt-1">{errors.artworkValue}</p>
-            )}
-          </div>
+          <SimulatorInput
+            label=""
+            id="artworkValue"
+            name="artworkValue"
+            type="number"
+            value={formData.artworkValue}
+            onChange={(value) => handleInputChange('artworkValue', value)}
+            placeholder={t('loaSimulator.form.artworkValue')}
+            min={100}
+            step="100"
+            error={errors.artworkValue}
+          />
         </div>
-
 
         {/* Majoration du premier loyer */}
-        <div>
-          <div className="relative">
-            <select
-              value={formData.firstRentIncrease}
-              onChange={(e) => handleInputChange('firstRentIncrease', e.target.value)}
-              className={`w-full px-4 py-4 rounded-lg border-2 ${errors.firstRentIncrease ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white appearance-none font-unbounded`}
-            >
-              <option value="" disabled className="text-gray-400">{t('loaSimulator.form.firstRentIncrease')} *</option>
-              {firstRentOptions.map(option => (
-                <option key={option.value} value={option.value} className="bg-gray-800 text-white">
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-          </div>
-          {errors.firstRentIncrease && (
-            <p className="text-red-400 text-sm mt-1">{errors.firstRentIncrease}</p>
-          )}
-        </div>
-
-
+        <SimulatorSelect
+          label=""
+          id="firstRentIncrease"
+          name="firstRentIncrease"
+          value={formData.firstRentIncrease}
+          onChange={(value) => handleInputChange('firstRentIncrease', value)}
+          options={firstRentOptions}
+          placeholder={`${t('loaSimulator.form.firstRentIncrease')} *`}
+          error={errors.firstRentIncrease}
+        />
 
         {/* Explication des champs marqués d'un astérisque */}
         <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">

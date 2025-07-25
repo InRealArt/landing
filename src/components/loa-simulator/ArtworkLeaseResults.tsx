@@ -5,7 +5,7 @@ import { type ArtworkLeaseResults, type ArtworkLeaseComparison } from '@/utils/a
 import { useLanguageStore } from '@/store/languageStore'
 import { toast } from 'sonner'
 import { Send } from 'lucide-react'
-import TabNavigation from './results/TabNavigation'
+import LoaTabNavigation from './results/TabNavigation'
 import SummaryTab from './results/SummaryTab'
 import LeaseResultsTab from './results/LeaseResultsTab'
 import ComparisonTab from './results/ComparisonTab'
@@ -106,7 +106,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
 
   return (
     <div className="space-y-6">
-      <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <LoaTabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Blurred content container */}
       <div className="relative">

@@ -36,13 +36,17 @@
     "terms": "Conditions générales",
     "legal": "Mentions légales",
     "termsNft": "Conditions générales NFT",
-    "pages": "Nos Pages",
+    "pages": "L'essentiel IRA",
     "company": "Entreprise",
     "partner": "Partenaire",
     "location": "Paris",
     "email": "teaminrealart@gmail.com",
-    "resources": "Ressources",
-    "contact": "Contact"
+    "resources": "Savoirs & Pratiques de l'Art",
+    "contact": "Contact",
+    "simulators": "Outils & Simulations",
+    "loaSimulator": "Simulateur LOA",
+    "heritageArtSimulator": "Simulateur Patrimoine & Art",
+    "artSalonSimulator": "Simulateur de prix au salon"
   },
   "buttons": {
     "readMore": "En savoir plus",
@@ -1658,15 +1662,177 @@
       "months": "mois"
     },
     "toast": {
-      "calculationSuccess": "Calcul effectué avec succès!",
-      "calculationError": "Erreur lors du calcul",
-      "validationError": "Veuillez corriger les erreurs dans le formulaire",
-      "pdfGenerationSuccess": "PDF généré avec succès!",
-      "pdfGenerationError": "Erreur lors de la génération du PDF",
-      "pdfCalculationRequired": "Veuillez d'abord effectuer un calcul avant de générer le PDF",
-      "formDataRequired": "Données du formulaire manquantes",
-      "pdfSentSuccess": "PDF envoyé à votre adresse email, veuillez vérifier votre boîte de réception.",
-      "pdfSentError": "Erreur lors de l'envoi du PDF"
+      "calculationSuccess": "✅ Calcul du coût réussi !",
+      "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",
+      "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"
+    }
+  },
+  "artSalonSimulator": {
+    "title": "🎟️ Simulateur de visite à un salon d'art",
+    "description": "Estimez en quelques clics le coût total de votre déplacement professionnel.",
+    "form": {
+      "personalInfo": "Informations personnelles",
+      "salonDetails": "Détails du salon",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "salon": "Salon",
+      "formula": "Formule",
+      "days": "Durée (en jours)",
+      "persons": "Nombre de personnes",
+      "accommodationComfort": "Confort du logement",
+      "professionalSupport": "Accompagnement professionnel",
+      "calculateButton": "🔍 Estimer le coût",
+      "nextStep": "Étape suivante",
+      "previousStep": "Étape précédente"
+    },
+    "formulas": {
+      "standard": "Standard",
+      "premium": "Premium",
+      "VIP": "VIP"
+    },
+    "accommodationTypes": {
+      "basic": "Basic",
+      "comfort": "Confort (+40€/nuit/personne)",
+      "luxury": "5 étoiles (+100€/nuit/personne)"
+    },
+    "results": {
+              "title": "📄 Votre simulation personnalisée",
+      "tabs": {
+        "summary": "Résumé",
+        "breakdown": "Détail"
+      },
+      "sections": {
+        "personalInfo": "Informations personnelles",
+        "salonDetails": "Détails du salon",
+        "totalCost": "Coût total estimé"
+      },
+      "labels": {
+        "name": "Nom:",
+        "email": "Email:",
+        "phone": "Téléphone:",
+        "exhibition": "Salon:",
+        "formula": "Formule:",
+        "duration": "Durée:",
+        "persons": "Personnes:",
+        "comfort": "Confort:",
+        "proSupport": "Accompagnement pro:",
+        "yes": "Oui",
+        "no": "Non",
+        "days": "jours",
+        "forPersons": "pour {count} personne",
+        "forPersons_plural": "pour {count} personnes"
+      },
+      "breakdown": {
+        "title": "Détail des coûts",
+        "transport": "Transport ({count} personnes)",
+        "accommodation": "Hébergement ({nights} nuits × {persons} personnes)",
+        "pass": "Pass salon ({persons} personnes)",
+        "comfortSupplement": "Supplément confort",
+        "total": "Total TTC"
+      }
+    },
+    "pdf": {
+      "title": "Simulateur - Visite salon d'art",
+      "personalInfo": "Informations personnelles",
+      "exhibitionDetails": "Détails du salon",
+      "costBreakdown": "Détail des coûts",
+      "name": "Nom:",
+      "email": "Email:",
+      "phone": "Téléphone:",
+      "exhibition": "Salon:",
+      "formula": "Formule:",
+      "duration": "Durée:",
+      "persons": "Personnes:",
+      "comfort": "Confort:",
+      "proSupport": "Accompagnement pro:",
+      "transport": "Transport:",
+      "accommodation": "Hébergement:",
+      "pass": "Pass:",
+      "comfortSupplement": "Supplément confort:",
+      "total": "TOTAL:",
+      "downloadButton": "📧 Recevoir le PDF par mail",
+      "yes": "Oui",
+      "no": "Non",
+      "days": "jours"
+    },
+    "toast": {
+      "calculationSuccess": "✅ Calcul du coût réussi !",
+      "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",
+      "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"
+    }
+  },
+  "heritageArtSimulator": {
+    "title": "🎨 Simulateur d'intégration de l'art dans un patrimoine",
+    "description": "Découvrez l'allocation optimale d'art dans votre patrimoine selon votre profil et vos objectifs.",
+    "form": {
+      "title": "Simulateur d'intégration de l'art dans un patrimoine",
+      "repartitionTitle": "Répartition actuelle du patrimoine (%)",
+      "immobilier": "Immobilier",
+      "liquidites": "Liquidités",
+      "financier": "Produits financiers",
+      "crypto": "Crypto / Actifs numériques",
+      "tangibles": "Biens tangibles",
+      "total": "Total",
+      "profil": "Profil investisseur",
+      "profilPlaceholder": "-- Choisir votre profil --",
+      "profils": {
+        "prudent": "Prudent",
+        "equilibre": "Équilibré",
+        "dynamique": "Dynamique"
+      },
+      "objectif": "Objectif patrimonial",
+      "objectifPlaceholder": "-- Choisir votre objectif --",
+      "objectifs": {
+        "diversification": "Diversification",
+        "transmission": "Transmission",
+        "fiscalite": "Fiscalité",
+        "passion": "Passion"
+      },
+      "personalInfo": "Informations personnelles",
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "01 23 45 67 89",
+      "nextStep": "Étape suivante",
+      "previousStep": "Étape précédente",
+      "calculateButton": "Calculer ma recommandation",
+      "errors": {
+        "totalNot100": "La répartition ne totalise pas 100%",
+        "profilRequired": "Veuillez sélectionner votre profil investisseur",
+        "objectifRequired": "Veuillez sélectionner votre objectif patrimonial",
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom est requis",
+        "emailRequired": "L'email est requis",
+        "emailInvalid": "L'email n'est pas valide",
+        "phoneRequired": "Le téléphone est requis"
+      }
+    },
+    "results": {
+      "title": "Votre simulation personnalisée",
+      "subtitle": "Découvrez notre recommandation d'allocation artistique",
+      "recommendation": "Notre recommandation",
+      "adjustedDistribution": "Répartition ajustée avec art",
+      "currentDistribution": "Patrimoine actuel",
+      "recommendedDistribution": "Répartition recommandée",
+      "artRecommended": "Art recommandé",
+      "profileSummary": "Résumé de votre profil",
+      "sendPDF": "Recevoir le PDF",
+      "contactExpert": "Contacter un expert",
+      "sending": "Envoi en cours...",
+      "pdfSentSuccessfully": "📧 PDF envoyé avec succès par email !",
+      "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
+      "contactSentSuccessfully": "✅ Demande de contact envoyée avec succès !",
+      "contactSentError": "❌ Erreur lors de l'envoi de la demande de contact"
     }
   }
 }
