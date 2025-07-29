@@ -91,7 +91,7 @@ export const useSeoPostStore = create<SeoPostState>((set, get) => ({
     publishedError: null,
     totalPublishedPosts: 0,
     currentPage: 0,
-    postsPerPage: 6,
+    postsPerPage: 10,
     hasMorePosts: true,
 
     // Single post state

@@ -51,7 +51,7 @@ export async function getPublishedPosts(
                 }
             })
         }
-
+        
         const [posts, total] = await Promise.all([
             prisma.seoPost.findMany({
                 where: whereClause,
@@ -65,16 +65,15 @@ export async function getPublishedPosts(
                     }
                 },
                 orderBy: {
-                    updatedAt: 'desc'
+                    createdAt: 'desc'
                 },
-                take: limit,
+                // take: limit,
                 skip: offset
             }),
             prisma.seoPost.count({
                 where: whereClause
             })
         ])
-
         return {
             posts: posts as SeoPost[],
             total
