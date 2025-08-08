@@ -48,6 +48,21 @@
     "heritageArtSimulator": "Heritage & Art Simulator",
     "artSalonSimulator": "Salon Fee Simulator"
   },
+  "manifest": {
+    "title": "InRealArt Manifesto",
+    "p1": "InRealArt is a curatorial platform that puts technology at the service of artists, collectors and institutions. Our ambition is to democratize access to art and heritage, secure its transmission and reveal its cultural, social and economic value.",
+    "p2": "We believe in an ethical ecosystem where transparency, traceability and collaboration open new uses: artwork financing, collection valorization and responsible circulation of cultural assets. Innovation (tokenization, smart contracts, data) only makes sense if it strengthens trust and supports creation.",
+    "p3": "We believe art must remain a living space for experimentation, education and transmission. Our role is to connect artists with their supporting communities, provide institutions with reliable tools to valorize their collections, and open measurable pathways of cultural impact and patronage for companies.",
+    "p4": "Concretely, we design tools that facilitate discovery, assessment and circulation of works: documentary registries, authentication protocols, dashboards to track cultural and economic value, and innovative financing formats — including tokenization — to support creation and conservation.",
+    "p5": "This manifesto is an invitation: to join a movement that makes art a better shared, better protected and better valued common good.",
+    "p6": "Together, let’s give creation the means for its influence and audiences the keys to a living heritage — so that innovation is never an end in itself, but the condition for a more open, fair and sustainable culture.",
+    "bullets": {
+      "access": "Make art and heritage more accessible and understandable.",
+      "support": "Support artists and professionals with concrete and responsible tools.",
+      "bridges": "Build bridges between culture, companies and patronage to create lasting impact.",
+      "traceability": "Ensure traceability, authenticity and documentation of works to reinforce trust among all stakeholders."
+    }
+  },
   "buttons": {
     "readMore": "Read More",
     "learnMore": "Learn More",
@@ -91,32 +106,32 @@
       "title": "Discover the team members"
     },
     "explore": {
-      "title": "With InRealArt",
-      "subtitle": "Discover a selection of <span class='text-purpleColor'>rare physical works</span> that can be accompanied by their <span class='text-purpleColor'>authenticated digital replicas</span>. An ecosystem designed to preserve the <span class='text-purpleColor'>value</span>, <span class='text-purpleColor'>origin</span> and <span class='text-purpleColor'>integrity</span> of creations, in a format suited to contemporary collecting and transmission.",
+      "title": "InRealArt for artists",
+      "subtitle": "InRealArt is much more than a platform: it is a rigorous curatorial space, conceived as a career partner for artists.<br/><br/>Each artist we support is selected for the uniqueness of their approach, the integrity of their work, and its resonance with our time. We build an ecosystem that goes beyond simple sales: each creation benefits from editorial storytelling, targeted dissemination, and strategic support.<br/><br/>We provide artists with a clear professional framework, qualified connections with collectors and institutions, and tools tailored to contemporary practices to enhance and transmit their work.",
       "items": {
         "rare": {
-          "title": "A web2 and web3 Marketplace finally accessible",
-          "label": "You have the possibility to buy your artworks in physical, digital and fractional format",
-          "description": "Here, each work - physical or digital - is rigorously selected for its uniqueness and true value. For discerning collectors and new enthusiasts alike, this is a rare opportunity to acquire pieces that make a difference, and give your collection genuine depth and prestige.",
+          "title": "InRealArt for artists",
+          "label": "",
+          "description": "InRealArt enables artists to join a demanding network that respects their vision and fosters cultural and heritage recognition. It is a space that values the uniqueness of each artistic approach, closely connected to the issues of our time.",
           "buttons": {
-            "artworks": "Online artworks",
-            "getartworks": "Get our catalog"
+            "artworks": "Join us",
+            "getartworks": ""
           }
         },
         "marketplace": {
-          "title": "Blockchain, security and copyright",
-          "label": "Our marketplace stands out for its uniqueness and innovation, seamlessly integrating physical works, NFTs, and fractionalized copyrights.",
-          "description": "Thanks to blockchain technology, each work is authenticated, traceable and secure from end to end. This approach pushes back the boundaries of the traditional market: you gain access to exclusive pieces, with the possibility of owning a share, reselling intelligently, and participating in an artistic ecosystem as transparent as it is avant-garde.",
+          "title": "For collectors and art lovers",
+          "label": "",
+          "description": "More than a sales platform, InRealArt is a rigorous curatorial space, conceived as a bridge between creation, collection and transmission. Each physical work is selected for its integrity, singular strength and contemporary resonance. Some are accompanied by an authenticated digital replica, ensuring their traceability and longevity.",
           "buttons": {
-            "marketplace": "Our Marketplace"
+            "marketplace": "We support you"
           }
         },
         "investment": {
-          "title": "Investment Opportunity",
-          "label": "Art is more than just a passion, it's also an investment opportunity.",
-          "description": "By combining tradition and innovation, whether through leasing or blockchain, our marketplace allows you to diversify your portfolio by investing in unique, physical and digital artworks, as well as copyrights. Thanks to the rarity of the pieces offered, each acquisition offers potential appreciation over time. Whether you're a novice or experienced collector, join a dynamic market where each work can become a true source of long-term value appreciation.",
+          "title": "An enriched and committed experience",
+          "label": "",
+          "description": "We are building an ecosystem that goes beyond simple transactions. Each acquisition is enriched with context, story and cultural legitimation. InRealArt thus offers collectors and institutions rigorous access to selected works, in a format adapted to current practices and faithful to the respect of artistic heritage.",
           "buttons": {
-            "usecase": "View use case"
+            "usecase": "Read our manifesto"
           }
         }
       }
@@ -1877,7 +1892,7 @@
   },
   "artSalonSimulator": {
     "title": "🎟️ Art Exhibition Visit Simulator",
-            "description": "Simulate in just a few clicks the total cost of your professional trip.",
+    "description": "Simulate in just a few clicks the total cost of your professional trip.",
     "form": {
       "personalInfo": "Personal Information",
       "salonDetails": "Salon Details",
@@ -1891,7 +1906,7 @@
       "persons": "Number of persons",
       "accommodationComfort": "Accommodation comfort",
       "professionalSupport": "Professional accompaniment",
-              "calculateButton": "🔍 Simulate cost",
+      "calculateButton": "🔍 Simulate cost",
       "nextStep": "Next step",
       "previousStep": "Previous step"
     },
@@ -1906,7 +1921,7 @@
       "luxury": "5 stars (+100€/night/person)"
     },
     "results": {
-              "title": "📄 Your personalized simulation",
+      "title": "📄 Your personalized simulation",
       "tabs": {
         "summary": "Summary",
         "breakdown": "Details"
@@ -1942,7 +1957,7 @@
       }
     },
     "pdf": {
-              "title": "Simulator - Art Exhibition Visit",
+      "title": "Simulator - Art Exhibition Visit",
       "personalInfo": "Personal Information",
       "exhibitionDetails": "Salon Details",
       "costBreakdown": "Cost Breakdown",

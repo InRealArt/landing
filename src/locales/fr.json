@@ -48,6 +48,21 @@
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon"
   },
+  "manifest": {
+    "title": "Manifeste InRealArt",
+    "p1": "InRealArt est une plateforme curatoriale qui met la technologie au service des artistes, des collectionneurs et des institutions. Notre ambition est de démocratiser l’accès à l’art et au patrimoine, d’en sécuriser la transmission et d’en révéler la valeur culturelle, sociale et économique.",
+    "p2": "Nous croyons à un écosystème éthique où la transparence, la traçabilité et la collaboration ouvrent de nouveaux usages : financement d’œuvres, valorisation de collections, et circulation responsable des biens culturels. L’innovation (tokenisation, contrats intelligents, données) n’a de sens que si elle renforce la confiance et soutient la création.",
+    "p3": "Nous pensons que l’art doit rester un espace vivant d’expérimentation, d’éducation et de transmission. Notre rôle est de relier les artistes aux communautés qui les soutiennent, d’offrir aux institutions des solutions fiables pour valoriser leurs collections, et d’ouvrir aux entreprises des trajectoires de mécénat et d’impact culturel mesurables.",
+    "p4": "Concrètement, nous concevons des outils qui facilitent la découverte, l’évaluation et la circulation des œuvres : référentiels documentaires, protocoles d’authentification, tableaux de bord pour suivre la valeur culturelle et économique, et formats de financement innovants — dont la tokenisation — pour soutenir la création et la conservation.",
+    "p5": "Ce manifeste est une invitation : rejoindre un mouvement qui fait de l’art un bien commun mieux partagé, mieux protégé et mieux valorisé.",
+    "p6": "Ensemble, donnons à la création les moyens de son rayonnement et aux publics les clés d’un patrimoine vivant — pour que l’innovation ne soit jamais une fin en soi, mais la condition d’une culture plus ouverte, plus juste et plus durable.",
+    "bullets": {
+      "access": "Rendre l’art et le patrimoine plus accessibles et compréhensibles.",
+      "support": "Soutenir les artistes et professionnels avec des outils concrets et responsables.",
+      "bridges": "Construire des ponts entre culture, entreprises et mécénat pour créer de l’impact durable.",
+      "traceability": "Assurer la traçabilité, l’authenticité et la documentation des œuvres afin de renforcer la confiance de tous les acteurs."
+    }
+  },
   "buttons": {
     "readMore": "En savoir plus",
     "learnMore": "Découvrir",
@@ -91,32 +106,32 @@
       "title": "Découvrez les membres de l'équipe"
     },
     "explore": {
-      "title": "Avec InRealArt",
-      "subtitle": "Découvrez une sélection d'<span class='text-purpleColor'>œuvres physiques rares </span> pouvant être accompagnées de leurs <span class='text-purpleColor'>répliques numériques authentifiées</span>. Un écosystème pensé pour préserver la <span class='text-purpleColor'>valeur</span>, l'<span class='text-purpleColor'>origine</span> et l'<span class='text-purpleColor'>intégrité des créations</span>, dans un format adapté aux usages contemporains de collection et de transmission.",
+      "title": "InRealArt pour les artistes",
+      "subtitle": "InRealArt est bien plus qu’une plateforme : c’est un espace curatorial exigeant, conçu comme un partenaire de carrière pour les artistes.<br/><br/>Chaque artiste que nous accompagnons est sélectionné pour la singularité de sa démarche, l’intégrité de son œuvre et sa résonance avec notre époque. Nous construisons un écosystème qui dépasse la simple mise en vente : chaque création bénéficie d’une mise en récit éditoriale, d’une diffusion ciblée et d’un accompagnement stratégique.<br/><br/>Nous offrons aux artistes un cadre professionnel clair, des connexions qualifiées avec collectionneurs et institutions, et des outils adaptés aux usages contemporains pour valoriser et transmettre leur travail.",
       "items": {
         "rare": {
-          "title": "Une Marketplace web2 et web 3 enfin accessible",
-          "label": "Vous avez la possibilité d'acheter vos œuvres d'art en format physique, digital et fractionné",
-          "description": "Ici, chaque œuvre — physique ou numérique — est rigoureusement choisie pour son unicité et sa valeur réelle. Pour les collectionneurs exigeants comme pour les nouveaux passionnés, c'est l'opportunité rare d'acquérir des pièces qui font la différence, et qui donnent à votre collection une profondeur et un prestige authentiques.",
+          "title": "InRealArt pour les artistes",
+          "label": "",
+          "description": "InRealArt permet aux artistes de s’inscrire dans un réseau exigeant, respectueux de leur vision et porteur de reconnaissance culturelle et patrimoniale. C’est un espace qui valorise la singularité de chaque démarche artistique, en lien étroit avec les enjeux de notre époque.",
           "buttons": {
-            "artworks": "Œuvres en ligne",
-            "getartworks": "Obtenir notre catalogue"
+            "artworks": "Nous rejoindre",
+            "getartworks": ""
           }
         },
         "marketplace": {
-          "title": "Blockchain, sécurité et droit d'auteur ",
-          "label": "Notre marketplace se distingue par sa singularité et son innovation, en intégrant harmonieusement des œuvres physiques, des NFTs, et des droits d'auteur fractionnés.",
-          "description": "Grâce à la technologie blockchain, chaque œuvre est authentifiée, traçable et sécurisée de bout en bout. Cette approche repousse les limites du marché traditionnel : vous accédez à des pièces exclusives, avec la possibilité d'en détenir une part, de revendre intelligemment, et de participer à un écosystème artistique aussi transparent qu'avant-gardiste.",
+          "title": "Pour les collectionneurs et amateurs d’art",
+          "label": "",
+          "description": "Bien plus qu’une plateforme de vente, InRealArt est un espace curatorial exigeant, conçu comme un trait d’union entre création, collection et transmission. Chaque œuvre physique est sélectionnée pour son intégrité, sa force singulière et sa résonance contemporaine. Certaines sont accompagnées de leur réplique numérique authentifiée, garantissant leur traçabilité et leur pérennité.",
           "buttons": {
-            "marketplace": "Notre Marketplace"
+            "marketplace": "Nous vous accompagnons"
           }
         },
         "investment": {
-          "title": "Opportunité d'investissement",
-          "label": "L'art est plus qu'une simple passion, c'est aussi une opportunité d'investissement.",
-          "description": "En combinant tradition et innovation, que ce soit par le leasing ou la blockchain, notre marketplace vous permet de diversifier votre portefeuille en investissant dans des œuvres d'art uniques, physiques et numériques, ainsi que dans des droits d'auteur. Grâce à la rareté des pièces proposées, chaque acquisition offre un potentiel d'appréciation avec le temps. Que vous soyez un collectionneur novice ou expérimenté, rejoignez un marché dynamique où chaque œuvre peut devenir une véritable source de valorisation à long terme.",
+          "title": "Une expérience enrichie et engagée",
+          "label": "",
+          "description": "Nous construisons un écosystème qui dépasse la simple transaction. Chaque acquisition est enrichie d’un contexte, d’une histoire et d’une légitimation culturelle. InRealArt offre ainsi aux collectionneurs et aux institutions un accès rigoureux à des œuvres choisies, dans un format adapté aux usages actuels et fidèle au respect du patrimoine artistique.",
           "buttons": {
-            "usecase": "Voir use case"
+            "usecase": "Lire notre manifeste"
           }
         }
       }
@@ -1556,7 +1571,6 @@
         "followingMonths": "Mois suivants",
         "financialDetails": "Détail financier",
         "totalLeaseAmount": "Montant total du bail",
-        
         "taxSavings": "Économies fiscales",
         "netCostAfterTax": "Coût net après fiscalité",
         "endOfLeaseOptions": "Options en fin de bail",
@@ -1627,7 +1641,6 @@
       "firstMonthRent": "Premier loyer:",
       "monthlyRent": "Loyers mensuels:",
       "totalLeaseAmount": "Montant total du bail:",
-      
       "taxAdvantages": "Avantages Fiscaux",
       "totalTaxSavings": "Économies fiscales totales:",
       "monthlyTaxDeduction": "Déduction mensuelle:",
@@ -1700,7 +1713,7 @@
       "luxury": "5 étoiles (+100€/nuit/personne)"
     },
     "results": {
-              "title": "📄 Votre simulation personnalisée",
+      "title": "📄 Votre simulation personnalisée",
       "tabs": {
         "summary": "Résumé",
         "breakdown": "Détail"

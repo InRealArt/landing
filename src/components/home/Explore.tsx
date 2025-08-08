@@ -29,12 +29,8 @@ export default function Explore() {
       buttons: {
         first: {
           text: t('home.explore.items.rare.buttons.artworks'),
-          link: '/presale'
+          link: '/joinInRealArt/artists'
         }
-        // second: {
-        //   text: t('home.explore.items.rare.buttons.getartworks'),
-        //   link: '/'
-        // },
       }
     },
     { 
@@ -45,7 +41,7 @@ export default function Explore() {
       buttons: {
         first: {
           text: t('home.explore.items.marketplace.buttons.marketplace'),
-          link: '/marketplace'
+          link: '/joinInRealArt/galleries'
         }
       }
     },
@@ -57,7 +53,7 @@ export default function Explore() {
       buttons: {
         first: {
           text: t('home.explore.items.investment.buttons.usecase'),
-          link: '/usecase'
+          link: '/manifest'
         }
       }
     }
@@ -80,7 +76,7 @@ export default function Explore() {
           return (
             <div key={item.key} className={`w-full flex flex-col md:flex-row gap-6 md:gap-20 mt-28 items-center ${reverseClassName}`}>
               <div className="basis-1/2">
-                <h1 className="text-2xl lg:text-5xl bricolage-grotesque">{item.name}</h1>
+                <h1 className="text-2xl lg:text-5xl bricolage-grotesque font-bold">{item.name}</h1>
                 <label className="my-4 block bricolage-grotesque">{item.label}</label>
               </div>
               <div className="basis-1/2">

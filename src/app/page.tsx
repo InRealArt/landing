@@ -26,16 +26,17 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateWebSiteJsonLd() }}
       />
-      
+
       <Intro />
+      <Statistics />
+      <HowItWorks />
+      <Explore />
       <div className="relative bg-gradient max-w-screen-2xl m-auto">
         <ArtistSlider />
         <ArtworkSlider />
       </div>
-      <Statistics />
       <Team />
-      <HowItWorks />
-      <Explore />
+
     </>
   );
 }
