@@ -2,10 +2,9 @@
 
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { toast } from 'sonner'
 import Link from 'next/link'
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
 import { salons } from '@/utils/artSalonCalculations'
@@ -120,73 +119,6 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Pages - First Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.pages')}</h3>
-            <ul className="space-y-2">
-              {firstColumnLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
-                  >
-                    {t(link.label)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Pages - Second Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.resources')}</h3>
-            <ul className="space-y-2">
-              {secondColumnLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
-                  >
-                    {t(link.label)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div />
-
-          </div>
-
-          {/* Simulators Section */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.simulators')}</h3>
-            <ul className="space-y-2">
-              {Object.entries(salons).map(([slug, salon]) => (
-                <li key={slug}>
-                  <Link
-                    href={`/art-salon-simulator/${slug}`}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {t('footer.artSalonSimulator')} {salon.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/loa-simulator"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {t('footer.loaSimulator')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/heritage-art-simulator"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  {t('footer.heritageArtSimulator')}
-                </Link>
-              </li>
-            </ul>
-          </div>
 
           <ul className="flex flex-col gap-2">
             <Image
@@ -213,12 +145,7 @@ const Footer = () => {
                 <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
             </div>
-
-          </ul>
-
-        </div>
-        {/* Newsletter */}
-        <div className="relative w-full md:w-80 mt-4">
+<div className="relative w-full md:w-80 mt-4">
           <input
             name="email"
             type="text"
@@ -257,6 +184,114 @@ const Footer = () => {
             )}
           </button>
         </div>
+          </ul>
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.pages')}</h3>
+            <ul className="space-y-2">
+              {firstColumnLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                  >
+                    {t(link.label)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Pages - Second Column */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.resources')}</h3>
+            <ul className="space-y-2">
+              {secondColumnLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                  >
+                    {t(link.label)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div />
+
+          </div>
+
+          {/* Simulators Section - First Block */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.simulators')}</h3>
+            <ul className="space-y-2">
+              {Object.entries(salons).slice(0, 6).map(([slug, salon]) => (
+                <li key={slug}>
+                  <Link
+                    href={`/art-salon-simulator/${slug}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {t('footer.artSalonSimulator')} {salon.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Simulators Section - Second Block */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.simulators')}</h3>
+            <ul className="space-y-2">
+              {Object.entries(salons).slice(6, 12).map(([slug, salon]) => (
+                <li key={slug}>
+                  <Link
+                    href={`/art-salon-simulator/${slug}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {t('footer.artSalonSimulator')} {salon.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Simulators Section - Third Block */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.simulators')}</h3>
+            <ul className="space-y-2">
+              {Object.entries(salons).slice(12).map(([slug, salon]) => (
+                <li key={slug}>
+                  <Link
+                    href={`/art-salon-simulator/${slug}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {t('footer.artSalonSimulator')} {salon.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/loa-simulator"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {t('footer.loaSimulator')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/heritage-art-simulator"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {t('footer.heritageArtSimulator')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+
+
+        </div>
+        {/* Newsletter */}
+        
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">

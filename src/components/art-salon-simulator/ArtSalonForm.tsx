@@ -95,6 +95,13 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
         accommodationComfort: formData.accommodationComfort || 'basic',
       };
 
+      // Validate that the selected formula is available for this salon
+      const availableFormulas = getAvailableFormulas(finalFormData.salonId);
+      if (!availableFormulas.includes(finalFormData.formula)) {
+        toast.error(t('artSalonSimulator.toast.formulaNotAvailable'));
+        return;
+      }
+
       const results = calculateSalonCost(finalFormData);
       onCalculate(results, { firstName: finalFormData.firstName, lastName: finalFormData.lastName, email: finalFormData.email, phone: finalFormData.phone });
 

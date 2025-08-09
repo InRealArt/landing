@@ -1775,6 +1775,7 @@
     "toast": {
       "calculationSuccess": "✅ Calcul du coût réussi !",
       "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",
+      "formulaNotAvailable": "❌ Cette formule n'est pas disponible pour ce salon",
       "pdfSentSuccess": "📧 PDF envoyé avec succès par email !",
       "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
       "formDataRequired": "📝 Les données du formulaire sont requises pour envoyer le PDF"

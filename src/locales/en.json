@@ -1983,6 +1983,7 @@
     "toast": {
       "calculationSuccess": "✅ Cost calculation successful!",
       "calculationError": "❌ An error occurred during calculation. Please try again.",
+      "formulaNotAvailable": "❌ This formula is not available for this exhibition",
       "pdfSentSuccess": "📧 PDF sent successfully by email!",
       "pdfSentError": "❌ Error sending PDF by email",
       "formDataRequired": "📝 Form data is required to send PDF"

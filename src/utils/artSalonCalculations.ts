@@ -11,8 +11,8 @@ export interface SalonConfig {
   image: string;
   location: 'france' | 'europe' | 'hors_europe';
   standard: Tarif;
-  premium: Tarif;
-  VIP: Tarif;
+  premium?: Tarif;
+  VIP?: Tarif;
 }
 
 export const salons: Record<string, SalonConfig> = {
@@ -56,7 +56,163 @@ export const salons: Record<string, SalonConfig> = {
       pass: 0,
     },
   },
+    'salonAutomne': {
+    name: "Salon d'automne",
+    location: 'europe',
+    image: '/images/salonautomne.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 70, 
+    },
+  },
+    'artParis': {
+    name: 'Art Paris',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 35, 
+    },
+    premium: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 85,
+    },
+    VIP: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 900,
+    },
+  },
+    'expo4art': {
+    name: 'Expo4Art',
+    location: 'europe',
+    image: '/images/expo4art.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 0, 
+    },
+  },
+    'fabParis': {
+    name: 'FAB Paris',
+    location: 'europe',
+    image: '/images/fabParis.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 30, 
+    },
+    premium: {
+      transportPerPerson: 120,
+      hotelPerNight: 130,
+      pass: 55,
+    },
+  },
+    'siacMarseille': {
+    name: 'SIAC Marseille',
+    location: 'europe',
+    image: '/images/siacMarseille.jpg',
+    standard: {
+      transportPerPerson: 100,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'art-o-rama': {
+    name: 'Art-o-rama',
+    location: 'europe',
+    image: '/images/art-o-rama.jpg',
+    standard: {
+      transportPerPerson: 100,
+      hotelPerNight: 120,
+      pass: 12, 
+    },
+  },
+    'art3fMarseille': {
+    name: 'art3f Marseille',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 100,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'art3fMonaco': {
+    name: 'art3f Monaco',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'art3fParis': {
+    name: 'art3f Paris',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'art3fBarcelone': {
+    name: 'art3f Barcelone',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 150,
+      hotelPerNight: 130,
+      pass: 10, 
+    },
+  },
+    'art3fLausanne': {
+    name: 'art3f Lausanne',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 150,
+      hotelPerNight: 130,
+      pass: 10, 
+    },
+  },
+    'art3fBordeaux': {
+    name: 'art3f Bordeaux',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'art3fLyon': {
+    name: 'art3f Lyon',
+    location: 'europe',
+    image: '/images/art3f.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
+    'artShopping': {
+    name: 'art Shopping',
+    location: 'europe',
+    image: '/images/artShopping.jpg',
+    standard: {
+      transportPerPerson: 120,
+      hotelPerNight: 120,
+      pass: 10, 
+    },
+  },
 };
+
 
 // Additional costs based on accommodation comfort
 export const accommodationComfortCosts: Record<string, number> = {
@@ -113,6 +269,10 @@ export function calculateSalonCost(params: ArtSalonInputs): ArtSalonResults {
   }
 
   const rates = salon[params.formula];
+  if (!rates) {
+    throw new Error(`Formula ${params.formula} not available for salon ${params.salonId}`);
+  }
+
   const totalPersons = params.professionalSupport ? params.persons + 1 : params.persons;
   const nights = Math.max(0, params.days - 1);
   
@@ -152,10 +312,22 @@ export function calculateSalonCost(params: ArtSalonInputs): ArtSalonResults {
 
 // Utility function to check if formulas should be disabled for a salon
 export function getAvailableFormulas(salonId: string): Formule[] {
-  if (salonId === 'artgeneve') {
-    return ['standard'];
+  const salon = salons[salonId];
+  if (!salon) {
+    return ['standard']; // Fallback to standard only if salon not found
   }
-  return ['standard', 'premium', 'VIP'];
+
+  const availableFormulas: Formule[] = ['standard']; // Standard is always available
+  
+  if (salon.premium) {
+    availableFormulas.push('premium');
+  }
+  
+  if (salon.VIP) {
+    availableFormulas.push('VIP');
+  }
+  
+  return availableFormulas;
 }
 
 // Format price for display
