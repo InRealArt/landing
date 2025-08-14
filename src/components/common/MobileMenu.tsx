@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
-import { ArrowRight, X } from 'lucide-react'
+import { ArrowRight, Phone, X } from 'lucide-react'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
 
@@ -15,7 +15,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { t } = useLanguageStore()
   const pathname = usePathname()
-  
+
   // Close menu when navigating to a new page
   useEffect(() => {
     if (isOpen) {
@@ -44,67 +44,69 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <X size={24} />
           </button>
         </div>
-        
+
         <nav className="flex flex-col gap-6 bricolage-grotesque font-semibold text-xl">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className={`${pathname === '/' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.home')}
           </Link>
-          
-          <Link 
-            href="/marketplace" 
+
+          <Link
+            href="/marketplace"
             className={`${pathname === '/marketplace' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.marketplace')}
           </Link>
-          <Link 
-            href="/token" 
+          <Link
+            href="/token"
             className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.artworks')}
           </Link>
-          <Link 
-            href="/token" 
+          <Link
+            href="/token"
             className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.artists')}
           </Link>
-          <Link 
-            href="/joinInRealArt" 
+          <Link
+            href="/joinInRealArt"
             className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.joinInRealArt')}
           </Link>
-          <Link 
-            href="/usecase" 
+          <Link
+            href="/usecase"
             className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.usecase')}
           </Link>
-          <Link 
-            href="/blog" 
+          <Link
+            href="/blog"
             className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.blog')}
           </Link>
         </nav>
-        
+
         <div className="mt-16 ">
-          <Button 
-            text={t('buttons.presale')} 
-            additionalClassName="bg-purpleColor w-full" 
-            icon={<ArrowRight />} 
-            center 
-            link="/presale" 
+          <Button
+            text={t('buttons.presale')}
+            additionalClassName="bg-purpleColor w-full"
+            icon={<Phone />}
+            center
+            target='_blank'
+            iconBefore
+            link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
           />
         </div>
       </div>

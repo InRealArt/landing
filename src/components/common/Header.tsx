@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Button from './Button';
-import { ArrowRight, Menu } from 'lucide-react';
+import { Phone, ArrowRight, Menu } from 'lucide-react';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguageStore } from '@/store/languageStore';
@@ -34,7 +34,7 @@ const Header = () => {
         </ul>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <Button text={t('buttons.presale')} additionalClassName="bg-purpleColor hidden lg:flex" icon={<ArrowRight />} center link="/presale" />
+          <Button text={t('buttons.presale')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" />
           <button 
             className="text-white p-2 lg:hidden" 
             onClick={toggleMobileMenu}

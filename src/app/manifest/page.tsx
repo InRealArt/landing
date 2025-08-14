@@ -22,7 +22,7 @@ export const metadata: Metadata = generateStaticMetadata({
 export default function ManifestPage() {
   return (
     <main className="text-white">
-      <Container className="pt-16 md:pt-24">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 relative">
           {/* Left: text */}
           <section>
@@ -86,10 +86,10 @@ export default function ManifestPage() {
           </section>
 
           {/* Right: image */}
-          <aside className="relative w-full overflow-hidden rounded-xl shadow-2xl md:h-[560px] md:sticky md:top-headerSize">
-              <Image
-                src="/images/art-salon-background.png"
-                alt="InRealArt exhibition space"
+          <aside className="relative w-full overflow-hidden rounded-xl shadow-2xl h-[560px] md:sticky md:top-headerSize">
+            <Image
+              src="/images/art-salon-background.png"
+              alt="InRealArt exhibition space"
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 50vw"

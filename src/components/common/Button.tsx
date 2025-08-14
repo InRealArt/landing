@@ -28,13 +28,13 @@ const Button = ({
   iconBefore = false,
   target = '_self'
 }: Props) => {
-  const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl `;
+  const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`;
 
   if (link)
     return (
       <Link className={className} href={link} onClick={action} download={download} target={target}>
         {iconBefore && icon}
-        <span className='unbounded font-semibold'>{text}</span>
+        <span className='unbounded font-semibold text-sm'>{text}</span>
         {!iconBefore && icon}
       </Link>
     );
@@ -47,7 +47,7 @@ const Button = ({
       onClick={action}
     >
       {iconBefore && icon}
-      <span className='unbounded font-semibold'>{text}</span>
+      <span className='unbounded font-semibold text-sm'>{text}</span>
       {!iconBefore && icon}
     </button>
   );

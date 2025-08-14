@@ -9,7 +9,7 @@
     "ico": "Token IRA",
     "glossary": "Glossaire",
     "artists": "Artistes",
-    "presale": "Pré-vente",
+    "presale": "Oeuvres",
     "artworks": "Œuvres",
     "usecase": "Use Case",
     "whitepaper": "Manifeste bientôt",
@@ -19,7 +19,7 @@
     "companies": "Entreprises",
     "lending": "Prêt",
     "fractionate": "Fractionnement",
-    "joinInRealArt": "Rejoignez InRealArt"
+    "joinInRealArt": "Rejoindre InRealArt"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -69,8 +69,8 @@
     "subscribe": "S'abonner à notre newsletter",
     "submit": "Soumettre",
     "connect": "Connecter",
-    "presale": "Pré-vente",
-    "readWhitepaper": "Lire notre manifeste bientôt",
+    "presale": "Nous contacter",
+    "readWhitepaper": "Lire notre manifeste",
     "team": "L'équipe",
     "viewFAQ": "Consulter la FAQ",
     "back": "Retour aux articles"
