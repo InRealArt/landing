@@ -17,6 +17,9 @@ export interface ArtistData {
     backgroundImage: string | null
     artworkImages: any | null // Stocké comme JSON dans la base de données
     artistId: number // ID de l'artiste dans la table Artist
+    countryCode?: string | null
+    countryName?: string | null
+    mediumTags?: string[]
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -57,7 +60,15 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                         description: true,
                         pseudo: true,
                         backgroundImage: true,
-                        isGallery: true
+                        isGallery: true,
+                        countryCode: true,
+                        mediumTags: true,
+                        Country: {
+                            select: {
+                                code: true,
+                                name: true
+                            }
+                        }
                     }
                 }
             }
@@ -131,6 +142,9 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 backgroundImage: la.artist.backgroundImage,
                 artworkImages,
                 artistId: la.artistId,
+                countryCode: la.artist.countryCode ?? null,
+                countryName: la.artist.Country?.name ?? null,
+                mediumTags: la.artist.mediumTags ?? [],
                 translations
             }
         })

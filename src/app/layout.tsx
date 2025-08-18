@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
-import FAQ from "@/components/common/FAQ/FAQ";
-import LanguageProvider from "@/components/providers/LanguageProvider";
-import Toaster from "@/components/common/Toaster";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Header from '@/components/common/Header'
+import Footer from '@/components/common/Footer'
+import FAQ from '@/components/common/FAQ/FAQ'
+import LanguageProvider from '@/components/providers/LanguageProvider'
+import Toaster from '@/components/common/Toaster'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import GoogleCaptchaWrapper from "@/components/captcha/googleCaptchaWrapper";
-import CookieConsentBanner from "@/components/common/CookieConsent";
-import NewsletterManager from "@/components/common/NewsletterManager";
+import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
+import CookieConsentBanner from '@/components/common/CookieConsent'
+import NewsletterManager from '@/components/common/NewsletterManager'
 import ogImage from './opengraph-image.png'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { Suspense } from 'react'
 
 const inter = Inter({
   variable: "--font-inter",
@@ -55,10 +57,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function RootLayout ({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="fr">
@@ -75,17 +77,21 @@ export default function RootLayout({
           </iframe>
         </noscript>
 
-        <LanguageProvider>
-          <GoogleCaptchaWrapper>
-            <Header />
-            {children}
-            <FAQ />
-            <Footer />
-            <Toaster />
-            <CookieConsentBanner />
-            <NewsletterManager delayInSeconds={5} />
-          </GoogleCaptchaWrapper>
-        </LanguageProvider> 
+        <Suspense>
+          <NuqsAdapter>
+            <LanguageProvider>
+              <GoogleCaptchaWrapper>
+                <Header />
+                {children}
+                <FAQ />
+                <Footer />
+                <Toaster />
+                <CookieConsentBanner />
+                <NewsletterManager delayInSeconds={5} />
+              </GoogleCaptchaWrapper>
+            </LanguageProvider>
+          </NuqsAdapter>
+        </Suspense>
       </body> 
     </html>
   );

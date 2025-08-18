@@ -12,6 +12,9 @@ export interface ArtistData {
     description: string
     slug: string
     artistId?: number // ID de l'artiste dans la table Artist (clé étrangère)
+    countryCode?: string | null
+    countryName?: string | null
+    mediumTags?: string[]
     artworkImages: {
         image: string
         name: string
@@ -77,6 +80,9 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     intro,
                     description,
                     slug: artist.slug,
+                    countryCode: artist.countryCode ?? null,
+                    countryName: artist.countryName ?? null,
+                    mediumTags: artist.mediumTags ?? [],
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });

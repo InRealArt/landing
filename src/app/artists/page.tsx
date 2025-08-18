@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState, lazy } from 'react'
 import { generateCollectionJsonLd } from '@/utils/metadata'
 import Hero from '@/components/artists/Hero'
 import ArtworksGallery from '@/components/artists/ArtworksGallery'
+import ArtistsGrid from '@/components/artists/ArtistsGrid'
 import { useArtistStore } from '@/store/useArtistStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { useLanguageStore } from '@/store/languageStore'
@@ -42,7 +43,7 @@ export default function ArtistsPage() {
   const [currentArtistIndex, setCurrentArtistIndex] = useState(0);
 
   useEffect(() => {
-    fetchArtists();
+    fetchArtists(false); // Afficher uniquement les artistes (pas les galeries)
     fetchArtworks();
   }, [fetchArtists, fetchArtworks]);
 
@@ -99,6 +100,11 @@ export default function ArtistsPage() {
       {/* Slider des catégories d'artistes (Suspense fallback) */}
       <Suspense fallback={<CategoriesSliderSkeleton />}>
         <ArtistCategoriesSliderLazy />
+      </Suspense>
+
+      {/* Grille d'artistes avec filtre nationalité & pagination via Nuqs */}
+      <Suspense fallback={<div className="max-w-90 xl:max-w-screen-xl m-auto text-white/70">Chargement…</div>}>
+        <ArtistsGrid />
       </Suspense>
 
       {/* <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">

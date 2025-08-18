@@ -75,6 +75,20 @@
     "viewFAQ": "View FAQ",
     "back": "Back to articles"
   },
+  "artists": {
+    "title": "Our artists",
+    "categories": {
+      "title": "Artist categories",
+      "explore": "Explore"
+    },
+    "nationality": "Nationality",
+    "searchPlaceholder": "Enter an artist's name",
+    "artistsFound": "Artists found",
+    "all": "All",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
+  },
   "language": {
     "switchTo": "Switch to English",
     "current": "EN"
@@ -333,13 +347,6 @@
           }
         }
       }
-    }
-  },
-  "artists": {
-    "title": "Our artists",
-    "categories": {
-      "title": "Artist categories",
-      "explore": "Explore"
     }
   },
   "artistPage": {

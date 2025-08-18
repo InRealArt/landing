@@ -75,6 +75,20 @@
     "viewFAQ": "Consulter la FAQ",
     "back": "Retour aux articles"
   },
+  "artists": {
+    "title": "Nos artistes",
+    "categories": {
+      "title": "Catégories d'artistes",
+      "explore": "Explorer"
+    },
+    "nationality": "Nationalité",
+    "searchPlaceholder": "Rentrer le nom d'un artiste",
+    "artistsFound": "Artistes trouvés",
+    "all": "Toutes",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page"
+  },
   "language": {
     "switchTo": "Passer en français",
     "current": "FR"
@@ -336,13 +350,6 @@
           }
         }
       }
-    }
-  },
-  "artists": {
-    "title": "Nos artistes",
-    "categories": {
-      "title": "Catégories d'artistes",
-      "explore": "Explorer"
     }
   },
   "artistPage": {
