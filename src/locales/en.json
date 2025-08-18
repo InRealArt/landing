@@ -87,7 +87,13 @@
     "all": "All",
     "previous": "Previous",
     "next": "Next",
-    "page": "Page"
+    "page": "Page",
+    "notFound": {
+      "title": "Artist category not found",
+      "description": "The artist category you are looking for does not exist or has been deleted.",
+      "viewAllArtists": "View all artists",
+      "backToHome": "Back to home"
+    }
   },
   "language": {
     "switchTo": "Switch to English",

@@ -87,7 +87,13 @@
     "all": "Toutes",
     "previous": "Précédent",
     "next": "Suivant",
-    "page": "Page"
+    "page": "Page",
+    "notFound": {
+      "title": "Catégorie d'artistes non trouvée",
+      "description": "La catégorie d'artistes que vous recherchez n'existe pas ou a été supprimée.",
+      "viewAllArtists": "Voir tous les artistes",
+      "backToHome": "Retour à l'accueil"
+    }
   },
   "language": {
     "switchTo": "Passer en français",
