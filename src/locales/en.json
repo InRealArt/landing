@@ -336,7 +336,11 @@
     }
   },
   "artists": {
-    "title": "Our artists"
+    "title": "Our artists",
+    "categories": {
+      "title": "Artist categories",
+      "explore": "Explore"
+    }
   },
   "artistPage": {
     "whoIs": "Who is ",

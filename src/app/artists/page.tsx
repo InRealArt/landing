@@ -1,13 +1,39 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState, lazy } from 'react'
 import { generateCollectionJsonLd } from '@/utils/metadata'
-import Hero from "@/components/artists/Hero";
-import ArtworksGallery from "@/components/artists/ArtworksGallery";
-import { useArtistStore } from '@/store/useArtistStore';
-import { useArtworksStore } from '@/store/useArtworksStore';
-import { useLanguageStore } from '@/store/languageStore';
-import { Lang } from '@/types/types';
+import Hero from '@/components/artists/Hero'
+import ArtworksGallery from '@/components/artists/ArtworksGallery'
+import { useArtistStore } from '@/store/useArtistStore'
+import { useArtworksStore } from '@/store/useArtworksStore'
+import { useLanguageStore } from '@/store/languageStore'
+import { Lang } from '@/types/types'
+
+// Lazy loading avec React.lazy pour déclencher Suspense
+const ArtistCategoriesSliderLazy = lazy(
+  () => import('@/components/artists/ArtistCategoriesSlider')
+)
+
+function CategoriesSliderSkeleton () {
+  return (
+    <section className="w-full mb-16 mt-24">
+      <div className="max-w-90 xl:max-w-screen-xl m-auto">
+        <div className="flex items-center justify-between mb-8">
+          <div className="h-8 w-64 rounded bg-white/10 animate-pulse" />
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-full bg-white/10 animate-pulse" />
+            <div className="w-12 h-12 rounded-full bg-white/10 animate-pulse" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[0,1,2].map(i => (
+            <div key={i} className="h-64 rounded-2xl bg-white/10 animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function ArtistsPage() {
   const { artists, fetchArtists, isLoading: artistsLoading } = useArtistStore();
@@ -69,7 +95,13 @@ export default function ArtistsPage() {
         }}
       />
       
-      <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
+
+      {/* Slider des catégories d'artistes (Suspense fallback) */}
+      <Suspense fallback={<CategoriesSliderSkeleton />}>
+        <ArtistCategoriesSliderLazy />
+      </Suspense>
+
+      {/* <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
         <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-white">
           {t('artists.title')}
         </h2>
@@ -85,7 +117,7 @@ export default function ArtistsPage() {
             artistName={currentArtist?.name || ''}
           />
         )}
-      </section>
+      </section> */}
     </>
   );
 }

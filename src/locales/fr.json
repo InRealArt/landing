@@ -339,7 +339,11 @@
     }
   },
   "artists": {
-    "title": "Nos artistes"
+    "title": "Nos artistes",
+    "categories": {
+      "title": "Catégories d'artistes",
+      "explore": "Explorer"
+    }
   },
   "artistPage": {
     "whoIs": "Qui est ",
