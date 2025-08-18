@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
@@ -15,6 +16,7 @@ export default function ArtistCategoriesSlider() {
   const [categories, setCategories] = useState<ArtistCategory[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const { t, language } = useLanguageStore()
+  const router = useRouter()
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -38,6 +40,12 @@ export default function ArtistCategoriesSlider() {
       description: c.translations?.description?.[language] || c.description
     }))
   }, [categories, language])
+
+  const handleCategoryClick = (category: ArtistCategory) => {
+    // Pour l'instant, utiliser le nom comme slug (en attendant la migration)
+    const slug = category.slug || encodeURIComponent(category.name.toLowerCase())
+    router.push(`/artists/category/${slug}`)
+  }
 
   if (isLoading) {
     return (
@@ -101,7 +109,10 @@ export default function ArtistCategoriesSlider() {
         >
           {displayCategories.map((category) => (
             <SwiperSlide key={category.id}>
-              <div className="relative group cursor-pointer">
+              <div 
+                className="relative group cursor-pointer"
+                onClick={() => handleCategoryClick(category)}
+              >
                 {/* Background Image */}
                 <div 
                   className="w-full h-64 rounded-md overflow-hidden bg-cover bg-center bg-no-repeat"
@@ -112,14 +123,20 @@ export default function ArtistCategoriesSlider() {
                   }}
                 >
                   {/* Overlay léger pour lisibilité globale */}
-                  <div className="absolute inset-0 bg-black/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-black/20" />
 
                   {/* Dégradé bas pour fondre avec le fond noir du site */}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-28 lg:h-32 bg-gradient-to-b from-transparent to-black" />
 
                   {/* Bouton en pilule comme le screenshot */}
                   <div className="absolute bottom-4 left-4">
-                    <button className="inline-flex items-center justify-between gap-3 rounded-full border border-white/80 bg-white/10 px-4 py-2 text-white font-semibold backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+                    <button 
+                      className="inline-flex items-center justify-between gap-3 rounded-full border border-white/80 bg-white/10 px-4 py-2 text-white font-semibold backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleCategoryClick(category)
+                      }}
+                    >
                       <span className="text-sm md:text-base">{category.name}</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
