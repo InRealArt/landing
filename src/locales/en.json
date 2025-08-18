@@ -77,6 +77,10 @@
   },
   "artists": {
     "title": "Our artists",
+    "hero": {
+      "title": "Artists",
+      "subtitle": "Browse our artist basket to find the perfect work that reflects your style and shines in your space."
+    },
     "categories": {
       "title": "Artist categories",
       "explore": "Explore"

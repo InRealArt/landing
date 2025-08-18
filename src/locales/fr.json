@@ -77,6 +77,10 @@
   },
   "artists": {
     "title": "Nos artistes",
+    "hero": {
+      "title": "Artistes",
+      "subtitle": "Parcourez notre panier d'artistes pour trouver l'œuvre parfaite qui reflète votre style et rayonne dans votre espace."
+    },
     "categories": {
       "title": "Catégories d'artistes",
       "explore": "Explorer"

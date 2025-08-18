@@ -5,6 +5,7 @@ import { generateCollectionJsonLd } from '@/utils/metadata'
 import Hero from '@/components/artists/Hero'
 import ArtworksGallery from '@/components/artists/ArtworksGallery'
 import ArtistsGrid from '@/components/artists/ArtistsGrid'
+import ArtistsHero from '@/components/artists/ArtistsHero'
 import { useArtistStore } from '@/store/useArtistStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { useLanguageStore } from '@/store/languageStore'
@@ -96,6 +97,8 @@ export default function ArtistsPage() {
         }}
       />
       
+      {/* Hero Section avec image hero_artists.webp */}
+      <ArtistsHero />
 
       {/* Slider des catégories d'artistes (Suspense fallback) */}
       <Suspense fallback={<CategoriesSliderSkeleton />}>
