@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
@@ -14,7 +14,7 @@ import 'swiper/css/navigation'
 export default function ArtistCategoriesSlider() {
   const [categories, setCategories] = useState<ArtistCategory[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const { t } = useLanguageStore()
+  const { t, language } = useLanguageStore()
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -30,6 +30,14 @@ export default function ArtistCategoriesSlider() {
 
     fetchCategories()
   }, [])
+
+  const displayCategories = useMemo(() => {
+    return categories.map(c => ({
+      ...c,
+      name: c.translations?.name?.[language] || c.name,
+      description: c.translations?.description?.[language] || c.description
+    }))
+  }, [categories, language])
 
   if (isLoading) {
     return (
@@ -91,7 +99,7 @@ export default function ArtistCategoriesSlider() {
           }}
           className="w-full"
         >
-          {categories.map((category) => (
+          {displayCategories.map((category) => (
             <SwiperSlide key={category.id}>
               <div className="relative group cursor-pointer">
                 {/* Background Image */}
