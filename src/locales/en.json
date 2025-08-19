@@ -12,7 +12,7 @@
     "presale": "Artworks",
     "artworks": "Artworks",
     "usecase": "Use Case",
-    "whitepaper": "Manifesto soon",
+    "whitepaper": "Manifesto",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
     "leasing": "Leasing",
@@ -43,7 +43,8 @@
     "email": "teaminrealart@gmail.com",
     "resources": "Art Knowledge & Practices",
     "contact": "Contact",
-    "simulators": "Tools & Simulations",
+    "simulators": "Trade shows",
+    "leasing": "Corporate leasing",
     "loaSimulator": "LOA Simulator",
     "heritageArtSimulator": "Heritage & Art Simulator",
     "artSalonSimulator": "Salon Fee Simulator"
@@ -443,7 +444,7 @@
       "subtitle": "Acquire rare physical works that can be linked with NFTs and their copyrights. Explore artwork fractioning and open your portfolio to the assets of the future",
       "buttons": {
         "catalog": "2025 Catalog",
-        "whitepaper": "Read our manifesto soon"
+        "whitepaper": "Read our manifesto"
       }
     },
     "buyProcess": {

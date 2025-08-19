@@ -12,7 +12,7 @@
     "presale": "Oeuvres",
     "artworks": "Œuvres",
     "usecase": "Use Case",
-    "whitepaper": "Manifeste bientôt",
+    "whitepaper": "Manifeste",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
     "leasing": "Leasing",
@@ -43,7 +43,8 @@
     "email": "teaminrealart@gmail.com",
     "resources": "Savoirs & Pratiques de l'Art",
     "contact": "Contact",
-    "simulators": "Outils & Simulations",
+    "simulators": "Salon professionnels",
+    "leasing": "Leasing d’entreprise",
     "loaSimulator": "Simulateur LOA",
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon"
@@ -445,7 +446,7 @@
       "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",
       "buttons": {
         "catalog": "Catalogue 2025",
-        "whitepaper": "Lire notre manifeste bientôt"
+        "whitepaper": "Lire notre manifeste"
       }
     },
     "buyProcess": {

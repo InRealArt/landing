@@ -17,7 +17,7 @@ const Intro = () => {
             <Button 
               text={t('roadmap.intro.buttons.whitepaper')} 
               additionalClassName="mt-4 md:mt-0 opacity-50 cursor-not-allowed" 
-              disabled={true}
+              link="/manifest"
             />
           </div>
         </div>

@@ -29,7 +29,7 @@ const navigation = {
     { label: 'nav.usecase', href: '/usecase' },
     { label: 'nav.ico', href: '/token', disabled: true },
     { label: 'nav.roadmap', href: '/roadmap' },
-    { label: 'nav.whitepaper', href: '/whitepaper', disabled: true },
+    { label: 'nav.whitepaper', href: '/whitepaper' },
     { label: 'nav.airdrop', href: '/airdrop', disabled: true },
     // { label: 'nav.blog', href: '/blog' },
   ],
@@ -268,6 +268,12 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.leasing')}</h3>
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/loa-simulator"
