@@ -19,8 +19,8 @@ export default function ArtistsHero() {
           quality={90}
         />
         
-        {/* Dégradé du bas vers le background noir */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
       </div>
 
       {/* Contenu du hero */}

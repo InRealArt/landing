@@ -101,9 +101,9 @@ export default function ArtistsPage() {
       <ArtistsHero />
 
       {/* Slider des catégories d'artistes (Suspense fallback) */}
-      <Suspense fallback={<CategoriesSliderSkeleton />}>
+      {/* <Suspense fallback={<CategoriesSliderSkeleton />}>
         <ArtistCategoriesSliderLazy />
-      </Suspense>
+      </Suspense> */}
 
       {/* Grille d'artistes avec filtre nationalité & pagination via Nuqs */}
       <Suspense fallback={<div className="max-w-90 xl:max-w-screen-xl m-auto text-white/70">Chargement…</div>}>
