@@ -83,7 +83,7 @@ export default function RootLayout ({
               <GoogleCaptchaWrapper>
                 <Header />
                 {children}
-                <FAQ />
+                {/* <FAQ /> */}
                 <Footer />
                 <Toaster />
                 <CookieConsentBanner />

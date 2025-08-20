@@ -82,6 +82,10 @@
       "title": "Artistes",
       "subtitle": "Parcourez notre panier d'artistes pour trouver l'œuvre parfaite qui reflète votre style et rayonne dans votre espace."
     },
+    "faq": {
+      "title": "Questions fréquentes sur nos artistes",
+      "description": "Trouvez ici les réponses aux questions les plus courantes concernant nos artistes partenaires, leur sélection et notre processus de curation."
+    },
     "categories": {
       "title": "Catégories d'artistes",
       "explore": "Explorer"
@@ -238,13 +242,21 @@
           "description": "Les œuvres sont tokenisées sur la blockchain, créant un certificat de propriété numérique unique et inviolable."
         }
       }
+    },
+    "faq": {
+      "title": "Questions fréquentes sur la marketplace",
+      "description": "Trouvez ici les réponses aux questions les plus courantes concernant notre marketplace d'art et son fonctionnement."
     }
   },
   "common": {
     "loading": "Chargement...",
     "error": "Erreur",
     "unknownError": "Une erreur inconnue s'est produite",
-    "submitting": "Envoi en cours..."
+    "submitting": "Envoi en cours...",
+    "faq": {
+      "title": "Questions fréquentes",
+      "description": "Trouvez ici les réponses aux questions les plus courantes."
+    }
   },
   "joinInRealArt": {
     "header": {

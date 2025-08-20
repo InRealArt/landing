@@ -139,4 +139,158 @@ export async function getTranslatedDetailedFaq(languageCode: string = 'fr'): Pro
         console.error('Erreur lors de la récupération des FAQ détaillées:', error)
         throw new Error('Impossible de récupérer les FAQ détaillées avec traductions')
     }
+}
+
+// Interface pour les données brutes des FAQ par page
+export interface DetailedFaqPageData {
+    id: number
+    name: string
+    faqItems: {
+        id: number
+        question: string
+        answer: string
+        detailedFaqPageId: number
+        order: number
+        translations?: {
+            question?: Record<string, string>
+            answer?: Record<string, string>
+        }
+    }[]
+}
+
+// Nouvelle fonction pour récupérer les FAQ détaillées par page spécifique avec toutes les traductions
+export async function getDetailedFaqPageData(pageName: string): Promise<DetailedFaqPageData | null> {
+    try {
+        // 1. Récupérer la page FAQ spécifique
+        const detailedFaqPage = await prisma.detailedFaqPage.findFirst({
+            where: {
+                name: pageName as any // Cast temporaire pour éviter les erreurs de type
+            },
+            include: {
+                faqItems: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
+            }
+        })
+
+        if (!detailedFaqPage) {
+            return null
+        }
+
+        // 2. Récupérer toutes les traductions pour tous les items
+        const itemIds = detailedFaqPage.faqItems.map(item => item.id)
+        const allTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'DetailedFaqPageItem',
+                entityId: {
+                    in: itemIds
+                }
+            },
+            include: {
+                language: true
+            }
+        })
+
+        // 3. Organiser les traductions par item et par langue de manière plus simple
+        const translationsByItem: Record<number, Record<string, Record<string, string>>> = {}
+
+        allTranslations.forEach(t => {
+            if (t.entityId === null || t.field === null) return
+
+            if (!translationsByItem[t.entityId]) {
+                translationsByItem[t.entityId] = {}
+            }
+            if (!translationsByItem[t.entityId][t.field]) {
+                translationsByItem[t.entityId][t.field] = {}
+            }
+            translationsByItem[t.entityId][t.field][t.language.code] = t.value
+        })
+
+        // 4. Construire le résultat avec les traductions organisées
+        const result: DetailedFaqPageData = {
+            id: detailedFaqPage.id,
+            name: detailedFaqPage.name as string,
+            faqItems: detailedFaqPage.faqItems.map(item => ({
+                ...item,
+                translations: translationsByItem[item.id] || {}
+            }))
+        }
+
+        return result
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données FAQ par page:', error)
+        throw new Error('Impossible de récupérer les données FAQ par page')
+    }
+}
+
+// Nouvelle fonction pour récupérer les FAQ détaillées par page spécifique
+export async function getTranslatedDetailedFaqByPage(pageName: string, languageCode: string = 'fr'): Promise<TranslatedFaqItem[]> {
+    try {
+        // 1. Récupérer l'ID de la langue
+        const language = await prisma.language.findUnique({
+            where: {
+                code: languageCode
+            }
+        })
+
+        if (!language) {
+            throw new Error(`Langue avec code ${languageCode} non trouvée`)
+        }
+
+        // 2. Récupérer la page FAQ spécifique
+        const detailedFaqPage = await prisma.detailedFaqPage.findFirst({
+            where: {
+                name: pageName as any // Cast temporaire pour éviter les erreurs de type
+            },
+            include: {
+                faqItems: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
+            }
+        })
+
+        if (!detailedFaqPage) {
+            return []
+        }
+
+        // 3. Récupérer les traductions des items
+        const itemIds = detailedFaqPage.faqItems.map(item => item.id)
+        const itemTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'DetailedFaqPageItem',
+                entityId: {
+                    in: itemIds
+                },
+                languageId: language.id
+            }
+        })
+
+        // 4. Organiser les traductions par entité et champ
+        const itemTranslationsMap = new Map()
+        itemTranslations.forEach(t => {
+            itemTranslationsMap.set(`${t.entityId}_${t.field}`, t.value)
+        })
+
+        // 5. Construire le tableau faqItems avec les traductions
+        const translatedFaqItems: TranslatedFaqItem[] = detailedFaqPage.faqItems.map(item => {
+            // Récupérer la question et la réponse traduites ou utiliser les valeurs par défaut
+            const question = itemTranslationsMap.get(`${item.id}_question`) || item.question
+            const answer = itemTranslationsMap.get(`${item.id}_answer`) || item.answer
+
+            return {
+                title: question,
+                content: answer,
+                categories: [detailedFaqPage.name as string]
+            }
+        })
+
+        return translatedFaqItems
+    } catch (error) {
+        console.error('Erreur lors de la récupération des FAQ détaillées par page:', error)
+        throw new Error('Impossible de récupérer les FAQ détaillées par page avec traductions')
+    }
 } 

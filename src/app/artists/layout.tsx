@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
+import ArtistsFAQ from '@/components/artists/ArtistsFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.artists.title,
@@ -13,5 +14,10 @@ export default function ArtistsLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      {children}
+      <ArtistsFAQ />
+    </>
+  )
 } 
