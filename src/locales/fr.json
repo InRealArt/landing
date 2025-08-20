@@ -713,7 +713,11 @@
           "Contrôle de vos créations",
           "Nouvelles opportunités de revenus",
           "Gestion des droits d'auteur"
-        ]
+        ],
+        "faq": {
+          "title": "Questions fréquentes sur le projet d'art d'entreprise",
+          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de projet d'art d'entreprise."
+        }
       },
       "leasing": {
         "title": "IRA Leasing pour les Entreprises",

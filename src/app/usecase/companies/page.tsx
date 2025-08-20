@@ -3,6 +3,7 @@ import Hero from "@/components/usecase/companies/Hero";
 import Expert from "@/components/usecase/companies/Expert";
 import Possibilities from "@/components/usecase/companies/Possibilities";
 import { generateStaticMetadata } from '@/utils/metadata'
+import CompaniesFAQ from '@/components/usecase/companies/CompaniesFAQ';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Art & entreprise — Intégrer l\'Art au cœur de votre stratégie',
@@ -17,6 +18,7 @@ export default function CompaniesPage() {
       <Hero />
       <Expert />
       <Possibilities />
+      <CompaniesFAQ/>
     </main>
   );
 } 
