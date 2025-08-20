@@ -4,6 +4,7 @@ import Advantages from "@/components/usecase/leasing/Advantages";
 import Benefits from "@/components/usecase/leasing/Benefits";
 import Investment from "@/components/usecase/leasing/Investment";
 import SliderSection from "@/components/usecase/leasing/SliderSection";
+import LeasingFAQ from "@/components/usecase/leasing/LeasingFAQ";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -21,6 +22,7 @@ export default function LeasingPage() {
       <Benefits />
       <Investment />
       <SliderSection />
+      <LeasingFAQ />
     </main>
   );
 } 

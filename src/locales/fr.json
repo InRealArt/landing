@@ -719,7 +719,11 @@
           "Diversification du portefeuille",
           "Transactions transparentes",
           "Potentiel de croissance du marché"
-        ]
+        ],
+        "faq": {
+          "title": "Questions fréquentes sur le leasing artistique",
+          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de leasing d'œuvres d'art pour entreprises et collectionneurs."
+        }
       },
       "lending": {
         "title": "InRealArt Lending",
