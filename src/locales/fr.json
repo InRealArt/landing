@@ -379,7 +379,9 @@
     "born": "Né en",
     "bornIn": "Né en",
     "follow": "Suivre l'artiste",
-    "notFound": "Artiste non trouvé"
+    "notFound": "Artiste non trouvé",
+    "artwork_singular": "œuvre",
+    "artwork_plural": "œuvres"
   },
   "team": {
     "loading": "Chargement en cours...",

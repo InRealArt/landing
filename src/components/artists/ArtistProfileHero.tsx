@@ -28,7 +28,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
   }, [])
 
   return (
-    <div className="relative h-96 lg:h-[700px] w-full overflow-hidden">
+    <div className="relative h-[560px] lg:h-[700px] w-full overflow-hidden">
       {/* Image de fond */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -39,10 +39,10 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
       </div>
 
       {/* Contenu principal */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-full flex items-end pb-8 lg:pb-12">
         <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full px-4">
           {/* Carte de l'artiste */}
-          <div className="relative max-w-sm h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative max-w-sm h-80 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
             {/* Image de l'artiste en arrière-plan de la carte */}
             <div 
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"

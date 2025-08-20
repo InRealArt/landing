@@ -376,7 +376,9 @@
     "born": "Born",
     "bornIn": "Born in",
     "follow": "Follow the artist",
-    "notFound": "Artist not found"
+    "notFound": "Artist not found",
+    "artwork_singular": "artwork",
+    "artwork_plural": "artworks"
   },
   "team": {
     "loading": "Loading...",
