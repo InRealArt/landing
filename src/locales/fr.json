@@ -699,7 +699,11 @@
           "Authenticité et provenance garanties",
           "Propriété sécurisée via la blockchain",
           "Avantages exclusifs pour les collectionneurs"
-        ]
+        ],
+        "faq": {
+          "title": "Questions fréquentes sur le fractionnement d'œuvres d'art",
+          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de fractionnement d'œuvres d'art."
+        }
       },
       "companies": {
         "title": "Ira Projet d'art d'entreprises",

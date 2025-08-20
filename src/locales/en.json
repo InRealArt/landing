@@ -701,7 +701,11 @@
           "Guaranteed authenticity and provenance",
           "Secure ownership through blockchain",
           "Exclusive benefits for collectors"
-        ]
+        ],
+        "faq": {
+          "title": "Frequently Asked Questions about our fractional art solutions",
+          "description": "Find answers to the most common questions about our fractional art solutions for collectors and investors."
+        }
       },
       "companies": {
         "title": "InRealArt Corporate Art Project",
