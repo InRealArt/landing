@@ -23,12 +23,24 @@ export interface ArtistData {
     birthYear?: number | null
     quoteHeader?: string | null
     quoteText?: string | null
+    biographyHeader1?: string | null
+    biographyText1?: string | null
+    biographyHeader2?: string | null
+    biographyText2?: string | null
+    biographyHeader3?: string | null
+    biographyText3?: string | null
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
         artworkStyle?: Record<string, string>
         quoteHeader?: Record<string, string>
         quoteText?: Record<string, string>
+        biographyHeader1?: Record<string, string>
+        biographyText1?: Record<string, string>
+        biographyHeader2?: Record<string, string>
+        biographyText2?: Record<string, string>
+        biographyHeader3?: Record<string, string>
+        biographyText3?: Record<string, string>
     }
 }
 
@@ -71,6 +83,12 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                         birthYear: true,
                         quoteHeader: true,
                         quoteText: true,
+                        biographyHeader1: true,
+                        biographyText1: true,
+                        biographyHeader2: true,
+                        biographyText2: true,
+                        biographyHeader3: true,
+                        biographyText3: true,
                         Country: {
                             select: {
                                 code: true,
@@ -158,6 +176,12 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 birthYear: la.artist.birthYear ?? null,
                 quoteHeader: la.artist.quoteHeader ?? null,
                 quoteText: la.artist.quoteText ?? null,
+                biographyHeader1: la.artist.biographyHeader1 ?? null,
+                biographyText1: la.artist.biographyText1 ?? null,
+                biographyHeader2: la.artist.biographyHeader2 ?? null,
+                biographyText2: la.artist.biographyText2 ?? null,
+                biographyHeader3: la.artist.biographyHeader3 ?? null,
+                biographyText3: la.artist.biographyText3 ?? null,
                 translations
             }
         })

@@ -18,6 +18,12 @@ export interface ArtistData {
     birthYear?: number | null
     quoteHeader?: string | null
     quoteText?: string | null
+    biographyHeader1?: string | null
+    biographyText1?: string | null
+    biographyHeader2?: string | null
+    biographyText2?: string | null
+    biographyHeader3?: string | null
+    biographyText3?: string | null
     artworkImages: {
         image: string
         name: string
@@ -179,7 +185,13 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
             intro: rawArtist.translations.intro?.[language] || rawArtist.intro || artist.intro,
             description: rawArtist.translations.description?.[language] || rawArtist.description || artist.description,
             role: rawArtist.translations.artworkStyle?.[language] || rawArtist.artworkStyle || artist.role,
-            birthYear: rawArtist.birthYear ?? null
+            birthYear: rawArtist.birthYear ?? null,
+            biographyHeader1: rawArtist.biographyHeader1 ?? null,
+            biographyText1: rawArtist.biographyText1 ?? null,
+            biographyHeader2: rawArtist.biographyHeader2 ?? null,
+            biographyText2: rawArtist.biographyText2 ?? null,
+            biographyHeader3: rawArtist.biographyHeader3 ?? null,
+            biographyText3: rawArtist.biographyText3 ?? null
         }
     },
 

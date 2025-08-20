@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import ArtistProfileHero from '@/components/artists/ArtistProfileHero'
 import ArtistArtworks from '@/components/artists/ArtistArtworks'
 import ArtistInfoSection from '@/components/artists/ArtistInfoSection'
+import ArtistBiography from '@/components/artists/ArtistBiography'
 import ExpertSection from '@/components/artists/ExpertSection'
 import { useArtistStore, ArtistData } from '@/store/useArtistStore'
 import { useLanguageStore } from '@/store/languageStore'
@@ -119,6 +120,9 @@ export default function ArtistPageClient({ slug }: Props) {
       
       {/* Section d'informations de l'artiste */}
       <ArtistInfoSection artist={artist} />
+      
+      {/* Section biographie de l'artiste */}
+      <ArtistBiography artist={artist} />
       
       {/* <section className="relative max-w-90 xl:max-w-screen-xl m-auto">
         <ExpertSection />
