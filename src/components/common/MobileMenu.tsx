@@ -62,14 +62,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.marketplace')}
           </Link>
           <Link
-            href="/token"
+            href="/presale"
             className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
             {t('nav.artworks')}
           </Link>
           <Link
-            href="/token"
+            href="/artists"
             className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
             onClick={onClose}
           >
