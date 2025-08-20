@@ -28,16 +28,10 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
     setRandomImage(`/images/artistBiography/artist_biography_${imageNumber}.webp`)
   }, [])
 
-  // Récupérer les champs traduits
-  const biographyHeader1 = getTranslatedField(artist.id, 'biographyHeader1', artist.biographyHeader1 || '') || artist.biographyHeader1
-  const biographyText1 = getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1
-  const biographyHeader2 = getTranslatedField(artist.id, 'biographyHeader2', artist.biographyHeader2 || '') || artist.biographyHeader2
-  const biographyText2 = getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2
-  const biographyHeader3 = getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3
-  const biographyText3 = getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3
-
   // Ne pas afficher le composant s'il n'y a pas de contenu de biographie
-  const hasContent = biographyHeader1 || biographyText1 || biographyHeader2 || biographyText2 || biographyHeader3 || biographyText3
+  const hasContent = artist.biographyHeader1 || artist.biographyText1 || 
+                    artist.biographyHeader2 || artist.biographyText2 || 
+                    artist.biographyHeader3 || artist.biographyText3
   
   if (!hasContent) {
     return null
@@ -64,32 +58,32 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
           {/* Colonne centrale - Biographie sections 1 et 2 */}
           <div className="space-y-8">
             {/* Section biographie 1 */}
-            {(biographyHeader1 || biographyText1) && (
+            {(artist.biographyHeader1 || artist.biographyText1) && (
               <div className="space-y-4">
-                {biographyHeader1 && (
+                {(getTranslatedField(artist.id, 'biographyHeader1', artist.biographyHeader1 || '') || artist.biographyHeader1) && (
                   <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
-                    {biographyHeader1}
+                    {getTranslatedField(artist.id, 'biographyHeader1', artist.biographyHeader1 || '') || artist.biographyHeader1}
                   </h3>
                 )}
-                {biographyText1 && (
+                {(getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1) && (
                   <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {biographyText1}
+                    {getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1}
                   </p>
                 )}
               </div>
             )}
             
             {/* Section biographie 2 */}
-            {(biographyHeader2 || biographyText2) && (
+            {(artist.biographyHeader2 || artist.biographyText2) && (
               <div className="space-y-4">
-                {biographyHeader2 && (
+                {(getTranslatedField(artist.id, 'biographyHeader2', artist.biographyHeader2 || '') || artist.biographyHeader2) && (
                   <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
-                    {biographyHeader2}
+                    {getTranslatedField(artist.id, 'biographyHeader2', artist.biographyHeader2 || '') || artist.biographyHeader2}
                   </h3>
                 )}
-                {biographyText2 && (
+                {(getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2) && (
                   <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {biographyText2}
+                    {getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2}
                   </p>
                 )}
               </div>
@@ -99,16 +93,16 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
           {/* Colonne droite - Biographie section 3 */}
           <div className="space-y-4 flex flex-col justify-end">
             <div className="mb-16"></div>
-            {(biographyHeader3 || biographyText3) && (
+            {(artist.biographyHeader3 || artist.biographyText3) && (
               <div className="space-y-4">
-                {biographyHeader3 && (
+                {(getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3) && (
                   <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
-                    {biographyHeader3}
+                    {getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3}
                   </h3>
                 )}
-                {biographyText3 && (
+                {(getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3) && (
                   <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {biographyText3}
+                    {getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3}
                   </p>
                 )}
               </div>

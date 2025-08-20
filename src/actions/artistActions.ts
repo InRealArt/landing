@@ -135,7 +135,13 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 description: translationsByEntity[landingArtistKey]?.description || {},
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
                 quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
-                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {}
+                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {},
+                biographyHeader1: translationsByEntity[landingArtistKey]?.biographyHeader1 || {},
+                biographyText1: translationsByEntity[landingArtistKey]?.biographyText1 || {},
+                biographyHeader2: translationsByEntity[landingArtistKey]?.biographyHeader2 || {},
+                biographyText2: translationsByEntity[landingArtistKey]?.biographyText2 || {},
+                biographyHeader3: translationsByEntity[landingArtistKey]?.biographyHeader3 || {},
+                biographyText3: translationsByEntity[landingArtistKey]?.biographyText3 || {}
             }
 
             let artworkImages = la.artworkImages
@@ -387,7 +393,13 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 description: translationsByEntity[landingArtistKey]?.description || {},
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
                 quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
-                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {}
+                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {},
+                biographyHeader1: translationsByEntity[landingArtistKey]?.biographyHeader1 || {},
+                biographyText1: translationsByEntity[landingArtistKey]?.biographyText1 || {},
+                biographyHeader2: translationsByEntity[landingArtistKey]?.biographyHeader2 || {},
+                biographyText2: translationsByEntity[landingArtistKey]?.biographyText2 || {},
+                biographyHeader3: translationsByEntity[landingArtistKey]?.biographyHeader3 || {},
+                biographyText3: translationsByEntity[landingArtistKey]?.biographyText3 || {}
             }
 
             let artworkImages = la.artworkImages
