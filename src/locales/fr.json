@@ -741,6 +741,10 @@
           "Traçabilité améliorée"
         ]
       }
+    },
+    "faq": {
+      "title": "Questions fréquentes sur nos cas d'usage",
+      "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions d'art fractionné, de leasing, de mécénat et de diffusion d'œuvres."
     }
   },
   "leasing": {
