@@ -20,10 +20,15 @@ export interface ArtistData {
     countryCode?: string | null
     countryName?: string | null
     mediumTags?: string[]
+    birthYear?: number | null
+    quoteHeader?: string | null
+    quoteText?: string | null
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
         artworkStyle?: Record<string, string>
+        quoteHeader?: Record<string, string>
+        quoteText?: Record<string, string>
     }
 }
 
@@ -63,6 +68,9 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                         isGallery: true,
                         countryCode: true,
                         mediumTags: true,
+                        birthYear: true,
+                        quoteHeader: true,
+                        quoteText: true,
                         Country: {
                             select: {
                                 code: true,
@@ -107,7 +115,9 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
             const translations = {
                 intro: translationsByEntity[landingArtistKey]?.intro || {},
                 description: translationsByEntity[landingArtistKey]?.description || {},
-                artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {}
+                artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
+                quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
+                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {}
             }
 
             let artworkImages = la.artworkImages
@@ -145,6 +155,9 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 countryCode: la.artist.countryCode ?? null,
                 countryName: la.artist.Country?.name ?? null,
                 mediumTags: la.artist.mediumTags ?? [],
+                birthYear: la.artist.birthYear ?? null,
+                quoteHeader: la.artist.quoteHeader ?? null,
+                quoteText: la.artist.quoteText ?? null,
                 translations
             }
         })
@@ -309,6 +322,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                         isGallery: true,
                         countryCode: true,
                         mediumTags: true,
+                        birthYear: true,
                         Country: {
                             select: {
                                 code: true,
@@ -347,7 +361,9 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
             const translations = {
                 intro: translationsByEntity[landingArtistKey]?.intro || {},
                 description: translationsByEntity[landingArtistKey]?.description || {},
-                artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {}
+                artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
+                quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
+                quoteText: translationsByEntity[landingArtistKey]?.quoteText || {}
             }
 
             let artworkImages = la.artworkImages
@@ -385,6 +401,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 countryCode: la.artist.countryCode ?? null,
                 countryName: la.artist.Country?.name ?? null,
                 mediumTags: la.artist.mediumTags ?? [],
+                birthYear: la.artist.birthYear ?? null,
                 translations
             }
         })

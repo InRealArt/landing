@@ -15,6 +15,9 @@ export interface ArtistData {
     countryCode?: string | null
     countryName?: string | null
     mediumTags?: string[]
+    birthYear?: number | null
+    quoteHeader?: string | null
+    quoteText?: string | null
     artworkImages: {
         image: string
         name: string
@@ -83,6 +86,9 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     countryCode: artist.countryCode ?? null,
                     countryName: artist.countryName ?? null,
                     mediumTags: artist.mediumTags ?? [],
+                    birthYear: artist.birthYear ?? null,
+                    quoteHeader: artist.quoteHeader ?? null,
+                    quoteText: artist.quoteText ?? null,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -172,7 +178,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
             artistId: rawArtist.artistId,
             intro: rawArtist.translations.intro?.[language] || rawArtist.intro || artist.intro,
             description: rawArtist.translations.description?.[language] || rawArtist.description || artist.description,
-            role: rawArtist.translations.artworkStyle?.[language] || rawArtist.artworkStyle || artist.role
+            role: rawArtist.translations.artworkStyle?.[language] || rawArtist.artworkStyle || artist.role,
+            birthYear: rawArtist.birthYear ?? null
         }
     },
 
@@ -187,6 +194,6 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         const fieldTranslations = artist.translations[field as keyof typeof artist.translations]
         if (!fieldTranslations) return defaultValue
 
-        return fieldTranslations[language] || defaultValue
+        return fieldTranslations[language.toLowerCase()] || defaultValue
     }
 })) 
