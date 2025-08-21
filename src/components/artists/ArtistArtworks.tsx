@@ -53,7 +53,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
       {/* Grid des artworks - Flex wrap pour préserver les tailles des cards */}
       <div className="flex flex-wrap gap-4">
         {currentArtworks.map((item, index) => (
-          <ArtworkCard key={`${item.name}-${index}`} {...item} />
+          <ArtworkCard key={`${item.name}-${index}`} {...item} artistName={artistName} />
         ))}
       </div>
 
