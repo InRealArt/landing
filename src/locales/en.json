@@ -473,6 +473,11 @@
         "whitepaper": "Read our manifesto"
       }
     },
+    "artworks": {
+      "button": {
+        "seeDetail": "See detail"
+      }
+    },
     "buyProcess": {
       "title": "Purchase Process",
       "subtitle": "a process to secure you",

@@ -22,7 +22,8 @@ export default function Presale() {
     image: { src: artwork.url },
     name: artwork.name,
     price: artwork.price,
-    order: artwork.order
+    order: artwork.order,
+    artistName: artwork.artistName
   }))
 
   if (isLoading) {

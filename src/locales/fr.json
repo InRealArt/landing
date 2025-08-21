@@ -472,6 +472,11 @@
         "whitepaper": "Lire notre manifeste"
       }
     },
+    "artworks": {
+      "button": {
+        "seeDetail": "Voir détail"
+      }
+    },
     "buyProcess": {
       "title": "Processus d'achat",
       "subtitle": "un processus pour vous sécuriser",
