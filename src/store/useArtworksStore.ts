@@ -172,6 +172,7 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
 
                 return {
                     id: artwork.id.toString(),
+                    artistId: artwork.artistId,
                     artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
                     name: createMultiLangObject(artwork.name, artwork.translations?.name),
                     description: createMultiLangObject(artwork.description || '', artwork.translations?.description),

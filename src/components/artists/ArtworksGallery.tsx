@@ -23,7 +23,8 @@ export default function ArtworksGallery({ artworks, artistName }: ArtworksGaller
     id: artwork.id,
     name: artwork.name,
     price: artwork.price,
-    image: { src: artwork.url }
+    image: { src: artwork.url },
+    artistName
   }));
 
   return (
