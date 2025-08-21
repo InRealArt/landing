@@ -2125,5 +2125,11 @@
       "contactSentSuccessfully": "✅ Contact request sent successfully!",
       "contactSentError": "❌ Error sending contact request"
     }
+  },
+  "pagination": {
+    "showing": "Showing {{start}} to {{end}} of {{total}} artworks",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page"
   }
 }
