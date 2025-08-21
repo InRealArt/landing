@@ -70,6 +70,15 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 artistsPage: true,
                 imageUrl: true,
                 artistId: true,
+                mediumTags: true,
+                quoteHeader: true,
+                quoteText: true,
+                biographyHeader1: true,
+                biographyText1: true,
+                biographyHeader2: true,
+                biographyText2: true,
+                biographyHeader3: true,
+                biographyText3: true,
                 artist: {
                     select: {
                         name: true,
@@ -79,16 +88,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                         backgroundImage: true,
                         isGallery: true,
                         countryCode: true,
-                        mediumTags: true,
                         birthYear: true,
-                        quoteHeader: true,
-                        quoteText: true,
-                        biographyHeader1: true,
-                        biographyText1: true,
-                        biographyHeader2: true,
-                        biographyText2: true,
-                        biographyHeader3: true,
-                        biographyText3: true,
                         Country: {
                             select: {
                                 code: true,
@@ -178,16 +178,16 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 artistId: la.artistId,
                 countryCode: la.artist.countryCode ?? null,
                 countryName: la.artist.Country?.name ?? null,
-                mediumTags: la.artist.mediumTags ?? [],
+                mediumTags: la.mediumTags ?? [],
                 birthYear: la.artist.birthYear ?? null,
-                quoteHeader: la.artist.quoteHeader ?? null,
-                quoteText: la.artist.quoteText ?? null,
-                biographyHeader1: la.artist.biographyHeader1 ?? null,
-                biographyText1: la.artist.biographyText1 ?? null,
-                biographyHeader2: la.artist.biographyHeader2 ?? null,
-                biographyText2: la.artist.biographyText2 ?? null,
-                biographyHeader3: la.artist.biographyHeader3 ?? null,
-                biographyText3: la.artist.biographyText3 ?? null,
+                quoteHeader: la.quoteHeader ?? null,
+                quoteText: la.quoteText ?? null,
+                biographyHeader1: la.biographyHeader1 ?? null,
+                biographyText1: la.biographyText1 ?? null,
+                biographyHeader2: la.biographyHeader2 ?? null,
+                biographyText2: la.biographyText2 ?? null,
+                biographyHeader3: la.biographyHeader3 ?? null,
+                biographyText3: la.biographyText3 ?? null,
                 translations
             }
         })
@@ -291,6 +291,140 @@ export async function getTestimonialGalleries(): Promise<ArtistData[]> {
     }
 }
 
+export async function getArtistById(artistId: number): Promise<ArtistData | null> {
+    try {
+        // Récupérer l'artiste et son LandingArtist associé
+        const landingArtist = await prisma.landingArtist.findFirst({
+            where: {
+                artistId: artistId,
+                artistsPage: true
+            },
+            select: {
+                id: true,
+                slug: true,
+                intro: true,
+                artworkImages: true,
+                artworkStyle: true,
+                artistsPage: true,
+                imageUrl: true,
+                artistId: true,
+                mediumTags: true,
+                quoteHeader: true,
+                quoteText: true,
+                biographyHeader1: true,
+                biographyText1: true,
+                biographyHeader2: true,
+                biographyText2: true,
+                biographyHeader3: true,
+                biographyText3: true,
+                artist: {
+                    select: {
+                        name: true,
+                        surname: true,
+                        description: true,
+                        pseudo: true,
+                        backgroundImage: true,
+                        isGallery: true,
+                        countryCode: true,
+                        birthYear: true,
+                        Country: {
+                            select: {
+                                code: true,
+                                name: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+
+        if (!landingArtist) {
+            return null
+        }
+
+        // Récupérer les traductions pour cet artiste
+        const allTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'LandingArtist',
+                entityId: landingArtist.id
+            },
+            include: {
+                language: true
+            }
+        })
+
+        // Organisation des traductions par entité et par champ
+        const translationsByEntity = organizeTranslations(allTranslations)
+        const landingArtistKey = `LandingArtist-${landingArtist.id}`
+
+        // Organiser les traductions
+        const translations = {
+            intro: translationsByEntity[landingArtistKey]?.intro || {},
+            description: translationsByEntity[landingArtistKey]?.description || {},
+            artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
+            quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
+            quoteText: translationsByEntity[landingArtistKey]?.quoteText || {},
+            biographyHeader1: translationsByEntity[landingArtistKey]?.biographyHeader1 || {},
+            biographyText1: translationsByEntity[landingArtistKey]?.biographyText1 || {},
+            biographyHeader2: translationsByEntity[landingArtistKey]?.biographyHeader2 || {},
+            biographyText2: translationsByEntity[landingArtistKey]?.biographyText2 || {},
+            biographyHeader3: translationsByEntity[landingArtistKey]?.biographyHeader3 || {},
+            biographyText3: translationsByEntity[landingArtistKey]?.biographyText3 || {}
+        }
+
+        // Traitement des artworkImages
+        let artworkImages = landingArtist.artworkImages
+        if (artworkImages) {
+            try {
+                if (typeof artworkImages === 'string') {
+                    artworkImages = JSON.parse(artworkImages)
+                }
+                if (Array.isArray(artworkImages)) {
+                    artworkImages = artworkImages.map((artwork: any, index: number) => ({
+                        ...artwork,
+                        id: artwork.id || `artwork-${landingArtist.id}-${index}`
+                    }))
+                }
+            } catch (error) {
+                console.error('Error processing artworkImages:', error)
+                artworkImages = []
+            }
+        }
+
+        return {
+            id: landingArtist.id,
+            slug: landingArtist.slug,
+            name: landingArtist.artist.name,
+            surname: landingArtist.artist.surname,
+            pseudo: landingArtist.artist.pseudo,
+            intro: landingArtist.intro,
+            artworkStyle: landingArtist.artworkStyle,
+            artistsPage: landingArtist.artistsPage,
+            imageUrl: landingArtist.imageUrl,
+            description: landingArtist.artist.description,
+            backgroundImage: landingArtist.artist.backgroundImage,
+            artworkImages,
+            artistId: landingArtist.artistId,
+            countryCode: landingArtist.artist.countryCode ?? null,
+            countryName: landingArtist.artist.Country?.name ?? null,
+            mediumTags: landingArtist.mediumTags ?? [],
+            birthYear: landingArtist.artist.birthYear ?? null,
+            quoteHeader: landingArtist.quoteHeader ?? null,
+            quoteText: landingArtist.quoteText ?? null,
+            biographyHeader1: landingArtist.biographyHeader1 ?? null,
+            biographyText1: landingArtist.biographyText1 ?? null,
+            biographyHeader2: landingArtist.biographyHeader2 ?? null,
+            biographyText2: landingArtist.biographyText2 ?? null,
+            biographyHeader3: landingArtist.biographyHeader3 ?? null,
+            biographyText3: landingArtist.biographyText3 ?? null,
+            translations
+        }
+    } catch (error) {
+        console.error(`Erreur lors de la récupération de l'artiste avec l'ID ${artistId}:`, error)
+        return null
+    }
+}
+
 export async function getArtistsByCategory(categorySlug: string): Promise<ArtistData[]> {
     try {
         // Décoder l'URL et récupérer la catégorie par son nom (en attendant la migration pour le slug)
@@ -317,20 +451,20 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 categoryId: category.id
             },
             select: {
-                artistId: true
+                landingArtistId: true
             }
         })
 
-        const artistIds = artistCategoryRelations.map(relation => relation.artistId)
+        const landingArtistIds = artistCategoryRelations.map(relation => relation.landingArtistId)
 
-        if (artistIds.length === 0) {
+        if (landingArtistIds.length === 0) {
             return []
         }
 
         // Récupérer les LandingArtists correspondants
         const landingArtists = await prisma.landingArtist.findMany({
             where: {
-                artistId: { in: artistIds },
+                id: { in: landingArtistIds },
                 artistsPage: true
             },
             select: {
@@ -342,6 +476,15 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 artistsPage: true,
                 imageUrl: true,
                 artistId: true,
+                mediumTags: true,
+                quoteHeader: true,
+                quoteText: true,
+                biographyHeader1: true,
+                biographyText1: true,
+                biographyHeader2: true,
+                biographyText2: true,
+                biographyHeader3: true,
+                biographyText3: true,
                 artist: {
                     select: {
                         name: true,
@@ -351,7 +494,6 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                         backgroundImage: true,
                         isGallery: true,
                         countryCode: true,
-                        mediumTags: true,
                         birthYear: true,
                         Country: {
                             select: {
@@ -369,7 +511,6 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
         }
 
         // Récupérer les traductions
-        const landingArtistIds = landingArtists.map(la => la.id)
         const allTranslations = await prisma.translation.findMany({
             where: {
                 entityType: 'LandingArtist',
@@ -436,7 +577,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 artistId: la.artistId,
                 countryCode: la.artist.countryCode ?? null,
                 countryName: la.artist.Country?.name ?? null,
-                mediumTags: la.artist.mediumTags ?? [],
+                mediumTags: la.mediumTags ?? [],
                 birthYear: la.artist.birthYear ?? null,
                 translations
             }

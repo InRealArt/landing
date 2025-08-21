@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import ArtworkPageClient from './ArtworkPageClient'
+import { ArtistInfoSection } from '@/components/artists'
 
 type ParamsType = Promise<{ id: string }>
 
@@ -34,6 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArtworkPage({ params }: Props) {
   const { id } = await params
-
-  return <ArtworkPageClient artworkId={id} />
+  
+  return (
+    <>
+      <ArtworkPageClient artworkId={id} />
+    </>
+  )
 } 

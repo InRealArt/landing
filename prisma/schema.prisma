@@ -151,31 +151,61 @@ model ArtistCategory {
   description      String?
   order            Int?
   artistCategories ArtistCategoryArtist[]
-  artists          Artist[]
+  
 
   @@schema("public")
 }
 
 model Artist {
-  id                 Int                    @id @default(autoincrement())
+  id                 Int              @id @default(autoincrement())
   name               String
   surname            String
-  pseudo             String                 @unique
-  description        String                 @unique
-  artworkStyle       String?
-  publicKey          String                 @unique
-  imageUrl           String                 @unique
-  isGallery          Boolean                @default(false)
+  pseudo             String           @unique
+  description        String           @unique
+  publicKey          String           @unique
+  imageUrl           String           @unique
+  isGallery          Boolean          @default(false)
   backgroundImage    String?
-  slug               String?                @unique
+  slug               String?          @unique
+  birthYear          Int?
   featuredArtwork    String?
   countryCode        String?
+  websiteUrl         String?
+  facebookUrl        String?
+  instagramUrl       String?
+  twitterUrl         String?
+  linkedinUrl        String?
   LandingArtist      LandingArtist[]
   PresaleArtworks    PresaleArtwork[]
-  Country            Country?               @relation(fields: [countryCode], references: [code])
-  //Champs pour le descriptif détaillé de l'artiste sur la landing page & marketplace
-  mediumTags         String[]               @default([])
-  birthYear          Int?
+  Country            Country?         @relation(fields: [countryCode], references: [code])
+
+  @@schema("public")
+}
+
+model ArtistCategoryArtist {
+  id         Int             @id @default(autoincrement())
+  landingArtistId   Int
+  categoryId Int
+  landingArtist     LandingArtist          @relation(fields: [landingArtistId], references: [id])
+  category   ArtistCategory  @relation(fields: [categoryId], references: [id])
+
+  @@unique([landingArtistId, categoryId])
+  @@map("ArtistCategoryArtist")
+  @@schema("public")
+}
+
+model LandingArtist {
+  id            Int      @id @default(autoincrement())
+  slug          String   @unique
+  intro         String?
+  description   String?
+  artworkImages Json     @default("[]")
+  artworkStyle  String?
+  artistsPage   Boolean? @default(false)
+  imageUrl      String   @unique
+  artistId      Int
+  //Champs pour le descriptif détaillé de l'artiste sur la landing
+  mediumTags         String[]         @default([])
   quoteFromInRealArt String?
   quoteHeader        String?
   quoteText          String?
@@ -186,32 +216,6 @@ model Artist {
   biographyHeader3   String?
   biographyText3     String?
   artistCategories   ArtistCategoryArtist[]
-  categories         ArtistCategory[]
-
-  @@schema("public")
-}
-
-model ArtistCategoryArtist {
-  id         Int            @id @default(autoincrement())
-  artistId   Int
-  categoryId Int
-  artist     Artist         @relation(fields: [artistId], references: [id])
-  category   ArtistCategory @relation(fields: [categoryId], references: [id])
-
-  @@unique([artistId, categoryId])
-  @@map("ArtistCategoryArtist")
-  @@schema("public")
-}
-
-model LandingArtist {
-  id            Int      @id @default(autoincrement())
-  slug          String   @unique
-  intro         String?
-  artworkImages Json     @default("[]")
-  artworkStyle  String?
-  artistsPage   Boolean? @default(false)
-  imageUrl      String   @unique
-  artistId      Int
   artist        Artist   @relation(fields: [artistId], references: [id])
 
   @@index([artistId])

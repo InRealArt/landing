@@ -1,5 +1,6 @@
 export type ArtWork = {
     id: string
+    artistId: number
     artistName: string
     description: Record<Lang, string>
     image: string

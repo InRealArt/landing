@@ -5,12 +5,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
+import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
 import { submitPresaleEmail } from '@/actions/emailActions'
 import { toast } from 'sonner'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { Lang } from '@/types/types'
+import { ArtistInfoSection } from '@/components/artists'
+import { ArtistData } from '@/store/useArtistStore'
 
 interface Props {
   artworkId: string
@@ -20,6 +23,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
   const { t, language } = useLanguageStore()
   const { artworks, fetchArtworks, getArtworkBySlug } = useArtworksStore()
   const [artwork, setArtwork] = useState<any>(null)
+  const [artist, setArtist] = useState<ArtistData | null>(null)
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -41,9 +45,43 @@ export default function ArtworkPageClient({ artworkId }: Props) {
 
         // Get the artwork by slug
         const foundArtwork = getArtworkBySlug(artworkId)
-
+        console.log("foundArtwork", foundArtwork)
         if (foundArtwork) {
           setArtwork(foundArtwork)
+          
+          // Récupérer les données complètes de l'artiste par son ID
+          if (foundArtwork.artistId) {
+            console.log("Loading artist with ID:", foundArtwork.artistId)
+            const foundArtist = await getArtistById(foundArtwork.artistId)
+            console.log("foundArtist", foundArtist)
+            if (foundArtist) {
+              // Transformer les données pour correspondre à l'interface ArtistData du store
+              const transformedArtist: ArtistData = {
+                id: foundArtist.id,
+                artistId: foundArtist.artistId,
+                name: `${foundArtist.name} ${foundArtist.surname}`,
+                photo: foundArtist.imageUrl,
+                role: foundArtist.artworkStyle || 'Artiste',
+                intro: foundArtist.intro || '',
+                description: foundArtist.description || '',
+                slug: foundArtist.slug,
+                countryCode: foundArtist.countryCode,
+                countryName: foundArtist.countryName,
+                mediumTags: foundArtist.mediumTags || [],
+                birthYear: foundArtist.birthYear,
+                quoteHeader: foundArtist.quoteHeader,
+                quoteText: foundArtist.quoteText,
+                biographyHeader1: foundArtist.biographyHeader1,
+                biographyText1: foundArtist.biographyText1,
+                biographyHeader2: foundArtist.biographyHeader2,
+                biographyText2: foundArtist.biographyText2,
+                biographyHeader3: foundArtist.biographyHeader3,
+                biographyText3: foundArtist.biographyText3,
+                artworkImages: foundArtist.artworkImages ? JSON.parse(JSON.stringify(foundArtist.artworkImages)) : []
+              }
+              setArtist(transformedArtist)
+            }
+          }
           
           // Sanitize description when artwork is loaded
           if (foundArtwork.description?.FR) {
@@ -172,6 +210,9 @@ export default function ArtworkPageClient({ artworkId }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Section d'informations sur l'artiste */}
+      {artist && <ArtistInfoSection artist={artist} />}
     </>
   )
 } 

@@ -1,19 +1,10 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore'
-import { useArtistStore } from '@/store/useArtistStore'
+import { useArtistStore, ArtistData } from '@/store/useArtistStore'
 
 interface ArtistInfoSectionProps {
-  artist: {
-    id: number
-    name: string
-    birthYear?: number | null
-    countryName?: string | null
-    mediumTags?: string[]
-    quoteHeader?: string | null
-    quoteText?: string | null
-    photo: string
-  }
+  artist: ArtistData
 }
 
 export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
