@@ -21,7 +21,7 @@ const ArtworkCardOrder = ({ image, name, artistName, price }: ArtworkCardOrderPr
   const slug = stringToSlug(name);
 
   return (
-    <div className="p-6 border border-gray-300 rounded-lg bg-cardBackground w-full relative">
+    <div className="p-6 border border-gray-300 rounded-lg bg-cardBackground relative">
       <Link href={`/artwork/${slug}`} className="block">
         <div className="bg-contain bg-center m-auto bg-no-repeat h-80 md:h-96 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
         <div className="mt-4">
