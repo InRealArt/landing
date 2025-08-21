@@ -473,6 +473,12 @@
         "whitepaper": "Read our manifesto"
       }
     },
+    "filters": {
+      "allArtists": "All artists",
+      "searchPlaceholder": "Search for an artwork or artist",
+      "artworkFound": "artwork found",
+      "artworksFound": "artworks found"
+    },
     "artworks": {
       "button": {
         "seeDetail": "See detail"

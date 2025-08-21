@@ -472,6 +472,12 @@
         "whitepaper": "Lire notre manifeste"
       }
     },
+    "filters": {
+      "allArtists": "Tous les artistes",
+      "searchPlaceholder": "Rechercher une œuvre ou un artiste",
+      "artworkFound": "œuvre trouvée",
+      "artworksFound": "œuvres trouvées"
+    },
     "artworks": {
       "button": {
         "seeDetail": "Voir détail"

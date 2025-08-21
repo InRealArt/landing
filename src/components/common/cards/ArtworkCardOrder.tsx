@@ -33,7 +33,7 @@ const ArtworkCardOrder = ({ image, name, artistName, price }: ArtworkCardOrderPr
         </div>
       </Link>
       
-      <Link href={`/artwork/${slug}`} className="absolute bottom-6 right-6 px-4 py-2 bg-gray-700 hover:bg-gray-600 border border-gray-500 rounded-lg text-white text-sm transition-colors duration-200">
+      <Link href={`/artwork/${slug}`} className="absolute bottom-6 right-6 px-4 py-2 bg-gray-700 hover:bg-gray-600 border border-gray-500 rounded-lg text-white text-sm transition-colors duration-200 bricolage-grotesque">
         {t('presale.artworks.button.seeDetail')}
       </Link>
     </div>
