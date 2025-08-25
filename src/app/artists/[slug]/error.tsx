@@ -21,13 +21,13 @@ export default function Error({ error, reset }: Props) {
           Une erreur est survenue
         </h2>
         <p className="text-gray-600 mb-6">
-          Impossible de charger la page de l'artiste. Veuillez réessayer.
+          Impossible to load the artist page. Please try again.
         </p>
         <button
           onClick={reset}
           className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
         >
-          Réessayer
+          Try again
         </button>
       </div>
     </div>
