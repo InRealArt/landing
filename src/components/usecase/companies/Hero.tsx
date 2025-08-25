@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Button from "@/components/common/Button";
-import marketplaceImage from "../../../../public/images/marketplace_dark.png";
+import marketplaceImage from "../../../../public/images/usecase/usecase_companies.webp";
 import { useLanguageStore } from '@/store/languageStore';
 import { useState, useEffect } from 'react';
 
@@ -38,7 +38,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Text */}
-          <div className="text-lg inter text-gray-200">
+          <div className="text-lg inter text-gray-200 font-bold">
             <p className="mb-4">
               {t('companies.hero.description.p1')}
             </p>

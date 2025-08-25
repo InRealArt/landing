@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Button from "@/components/common/Button";
-import marketplaceImage from "../../../../public/images/marketplace_dark.png";
+import marketplaceImage from "../../../../public/images/usecase/usecase_leasing.webp";
 import { useLanguageStore } from '@/store/languageStore';
 import { useState, useEffect } from 'react';
 

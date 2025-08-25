@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
 import { ArrowRight } from "lucide-react";
-import marketplaceImage from "../../../../public/images/marketplace2_dark.png";
+import marketplaceImage from "../../../../public/images/usecase/usecase_lending.webp";
 
 export default function Hero() {
   const { t } = useLanguageStore();

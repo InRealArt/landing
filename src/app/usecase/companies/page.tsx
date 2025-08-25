@@ -16,7 +16,7 @@ export default function CompaniesPage() {
   return (
     <main className="min-h-screen text-white">
       <Hero />
-      <Expert />
+      {/* <Expert /> */}
       <Possibilities />
       <CompaniesFAQ/>
     </main>
