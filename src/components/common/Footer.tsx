@@ -15,6 +15,13 @@ type SubscribeResponse = {
   message: string
 }
 
+// Type pour les liens de navigation
+type NavigationLink = {
+  label: string
+  href: string
+  disabled?: boolean
+}
+
 const navigation = {
   pages: [
     { label: 'nav.home', href: '/' },
@@ -36,8 +43,8 @@ const navigation = {
 }
 
 // Split links into two groups
-const firstColumnLinks = navigation.pages.slice(0, 6)
-const secondColumnLinks = navigation.pages.slice(6)
+const firstColumnLinks: NavigationLink[] = navigation.pages.slice(0, 6)
+const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6)
 
 const Footer = () => {
   const { t } = useLanguageStore()
