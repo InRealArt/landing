@@ -1756,7 +1756,10 @@
     "social": "Social Media",
     "callNow": "Call Now",
     "sendEmail": "Send Email",
-    "followUs": "Follow Us"
+    "followUs": "Follow Us",
+    "calendly": "Appointment",
+    "scheduleMeeting": "Schedule Meeting",
+    "calendlyDescription": "Schedule a meeting with our team"
   },
   "newsletter": {
     "modal": {

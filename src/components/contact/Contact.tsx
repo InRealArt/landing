@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../common/Button';
@@ -33,18 +33,19 @@ export default function Contact() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-4xl">
-            {/* Phone */}
+            {/* Calendly */}
             <div className="bg-cardBackground p-8 rounded-lg border border-white/20 flex flex-col items-center">
               <div className="bg-purpleColor rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <Phone size={24} className="text-white" />
+                <Calendar size={24} className="text-white" />
               </div>
-              <h3 className="text-xl font-medium mb-3">{t('contact.phone')}</h3>
-              <p className="text-gray-300 mb-6">{contactInfo.phone}</p>
+              <h3 className="text-xl font-medium mb-3">{t('contact.calendly')}</h3>
+              <p className="text-gray-300 mb-6">{t('contact.calendlyDescription')}</p>
               <Button
-                text={t('contact.callNow')}
+                text={t('contact.scheduleMeeting')}
                 additionalClassName="bg-purpleColor w-full"
-                link={`tel:${contactInfo.phone.replace(/\s+|\(|\)/g, '')}`}
+                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
                 center
+                target="_blank"
               />
             </div>
             

@@ -1550,7 +1550,10 @@
     "social": "Réseaux Sociaux",
     "callNow": "Appeler Maintenant",
     "sendEmail": "Envoyer un Email",
-    "followUs": "Suivez-Nous"
+    "followUs": "Suivez-Nous",
+    "calendly": "Rendez-vous",
+    "scheduleMeeting": "Prendre RDV",
+    "calendlyDescription": "Planifiez un rendez-vous avec notre équipe"
   },
   "newsletter": {
     "modal": {
