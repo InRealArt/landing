@@ -6,7 +6,7 @@ import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 
-const PAGE_SIZE = 6 // 3 colonnes x 2 lignes
+const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
 export default function Presale() {
   const { t } = useLanguageStore();
@@ -180,8 +180,8 @@ export default function Presale() {
           </div>
         </div>
         
-        {/* Grille des artworks - 3 colonnes sur desktop, responsive sur mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grille des artworks - 4 colonnes sur desktop, responsive sur mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {artworkImages.map((item, index) => (
             <ArtworkCard key={`${item.name}-${startIndex + index}`} {...item} />
           ))}
