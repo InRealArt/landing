@@ -112,14 +112,15 @@ export default function ArtistPageClient({ slug }: Props) {
       />
       
       <ArtistProfileHero artist={artist} />
+      {/* Section d'informations de l'artiste */}
+      <ArtistInfoSection artist={artist} />
       <section className="relative max-w-90 xl:max-w-screen-xl m-auto">
         {formattedArtworks.length > 0 && (
           <ArtistArtworks artistName={artist.name} artworks={formattedArtworks} />
         )}
       </section>
       
-      {/* Section d'informations de l'artiste */}
-      <ArtistInfoSection artist={artist} />
+      
       
       {/* Section biographie de l'artiste */}
       <ArtistBiography artist={artist} />
