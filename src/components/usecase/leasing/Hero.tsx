@@ -5,6 +5,7 @@ import Button from "@/components/common/Button";
 import marketplaceImage from "../../../../public/images/usecase/usecase_leasing.webp";
 import { useLanguageStore } from '@/store/languageStore';
 import { useState, useEffect } from 'react';
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const { t } = useLanguageStore();
@@ -29,11 +30,12 @@ export default function Hero() {
           <div className="flex flex-col">
             <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
             <div className="mt-auto">
-              <Button
-                text={t('leasing.hero.button')}
-                additionalClassName="bg-purpleColor opacity-50 cursor-not-allowed"
-                disabled={true}
-              />
+                  <Button
+                    text={t('leasing.hero.button')}
+                    additionalClassName="bg-purpleColor"
+                    icon={<ArrowRight />}
+                    link="/contact"
+                  />
             </div>
           </div>
 
