@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { generateDynamicMetadata, generatePersonJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
-import ArtistPageClient from './ArtistPageClient'
+import ArtistPageSuspense from './ArtistPageSuspense'
 
 type ParamsType = Promise<{ slug: string }>
 
@@ -35,5 +35,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params
 
-  return <ArtistPageClient slug={slug} />
+  return <ArtistPageSuspense slug={slug} />
 } 

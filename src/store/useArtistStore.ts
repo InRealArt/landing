@@ -41,6 +41,8 @@ interface ArtistState {
     isLoading: boolean
     hasError: boolean
     errorMessage: string | null
+    // Cache pour éviter les re-fetchs inutiles
+    lastFetchTime: number | null
     fetchArtists: (isGallery?: boolean) => Promise<void>
     setCurrentArtistIndex: (index: number) => void
     getCurrentArtist: () => ArtistData | undefined
@@ -51,6 +53,10 @@ interface ArtistState {
     getArtistBySlug: (slug: string) => ArtistData | undefined
     // Récupérer le texte traduit pour un champ donné
     getTranslatedField: (artistId: number, field: string, defaultValue: string) => string
+    // Sélecteurs optimisés pour éviter les re-renders
+    getArtistsSelector: () => ArtistData[]
+    getLoadingSelector: () => boolean
+    getErrorSelector: () => { hasError: boolean; errorMessage: string | null }
 }
 
 export const useArtistStore = create<ArtistState>((set, get) => ({
@@ -60,8 +66,20 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
     isLoading: false,
     hasError: false,
     errorMessage: null,
+    lastFetchTime: null,
 
     fetchArtists: async (isGallery?: boolean) => {
+        const state = get()
+        const now = Date.now()
+        const cacheTimeout = 5 * 60 * 1000 // 5 minutes de cache
+
+        // Vérifier si on a déjà des données récentes
+        if (state.artists.length > 0 &&
+            state.lastFetchTime &&
+            (now - state.lastFetchTime) < cacheTimeout) {
+            return
+        }
+
         set({ isLoading: true, hasError: false, errorMessage: null })
 
         try {
@@ -99,7 +117,11 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                 };
             });
 
-            set({ artists: formattedArtists, isLoading: false })
+            set({
+                artists: formattedArtists,
+                isLoading: false,
+                lastFetchTime: now
+            })
         } catch (error) {
             console.error('Erreur lors de la récupération des artistes:', error)
             set({
@@ -207,5 +229,13 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
         if (!fieldTranslations) return defaultValue
 
         return fieldTranslations[language.toLowerCase()] || defaultValue
-    }
+    },
+
+    // Sélecteurs optimisés pour éviter les re-renders
+    getArtistsSelector: () => get().artists,
+    getLoadingSelector: () => get().isLoading,
+    getErrorSelector: () => ({
+        hasError: get().hasError,
+        errorMessage: get().errorMessage
+    })
 })) 

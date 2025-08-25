@@ -10,10 +10,18 @@ interface ArtworksState {
     isLoading: boolean
     hasError: boolean
     errorMessage: string | null
+    // Cache pour éviter les re-fetchs inutiles
+    lastFetchTime: number | null
+    // Cache pour les artworks par artiste
+    artworksByArtistCache: Map<number, { artworks: ArtWork[], timestamp: number }>
     fetchArtworks: () => Promise<void>
     getArtworkBySlug: (slug: string) => ArtWork | undefined
     getTranslatedField: (artworkId: number, field: string, defaultValue: string) => string
     getArtworksByArtistId: (artistId: number) => Promise<ArtWork[]>
+    // Sélecteurs optimisés
+    getArtworksSelector: () => ArtWork[]
+    getLoadingSelector: () => boolean
+    getErrorSelector: () => { hasError: boolean; errorMessage: string | null }
 }
 
 export const useArtworksStore = create<ArtworksState>((set, get) => ({
@@ -22,8 +30,21 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
     isLoading: false,
     hasError: false,
     errorMessage: null,
+    lastFetchTime: null,
+    artworksByArtistCache: new Map(),
 
     fetchArtworks: async () => {
+        const state = get()
+        const now = Date.now()
+        const cacheTimeout = 5 * 60 * 1000 // 5 minutes de cache
+
+        // Vérifier si on a déjà des données récentes
+        if (state.artworks.length > 0 &&
+            state.lastFetchTime &&
+            (now - state.lastFetchTime) < cacheTimeout) {
+            return
+        }
+
         set({ isLoading: true, hasError: false, errorMessage: null })
 
         try {
@@ -85,7 +106,7 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                 }
             })
 
-            set({ artworks: formattedArtworks, isLoading: false })
+            set({ artworks: formattedArtworks, isLoading: false, lastFetchTime: now })
         } catch (error) {
             console.error('Erreur lors de la récupération des artworks:', error)
             set({
@@ -135,6 +156,16 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
     },
 
     getArtworksByArtistId: async (artistId: number) => {
+        const state = get()
+        const now = Date.now()
+        const cacheTimeout = 5 * 60 * 1000 // 5 minutes de cache
+
+        // Vérifier le cache
+        const cached = state.artworksByArtistCache.get(artistId)
+        if (cached && (now - cached.timestamp) < cacheTimeout) {
+            return cached.artworks
+        }
+
         try {
             // Récupérer les œuvres pour l'ID d'artiste spécifié
             const presaleArtworks = await getPresaleArtworksByArtistId(artistId)
@@ -191,10 +222,23 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                 }
             })
 
+            // Mettre en cache
+            const newCache = new Map(state.artworksByArtistCache)
+            newCache.set(artistId, { artworks: formattedArtworks, timestamp: now })
+            set({ artworksByArtistCache: newCache })
+
             return formattedArtworks
         } catch (error) {
             console.error(`Erreur lors de la récupération des artworks pour l'artiste ${artistId}:`, error)
             return []
         }
-    }
+    },
+
+    // Sélecteurs optimisés pour éviter les re-renders
+    getArtworksSelector: () => get().artworks,
+    getLoadingSelector: () => get().isLoading,
+    getErrorSelector: () => ({
+        hasError: get().hasError,
+        errorMessage: get().errorMessage
+    })
 })) 
