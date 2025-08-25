@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import marketplaceImage from "../../../public/images/marketplace_background.png";
+import marketplaceImage from "../../../public/images/marketplace/marketplace.webp";
 import { useLanguageStore } from '@/store/languageStore';
 import Button from "../common/Button";
 
