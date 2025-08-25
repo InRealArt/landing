@@ -754,7 +754,11 @@
           "Alternatives to traditional bank loans",
           "Professional evaluation of artistic assets",
           "Customized solutions for specific needs"
-        ]
+        ],
+        "faq": {
+          "title": "Frequently Asked Questions about our lending solutions",
+          "description": "Find answers to the most common questions about our lending solutions for galleries, collectors, and art dealers."
+        }
       },
       "gallery": {
         "title": "For Galleries",

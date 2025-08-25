@@ -739,10 +739,10 @@
           "Transactions transparentes",
           "Potentiel de croissance du marché"
         ],
-        "faq": {
-          "title": "Questions fréquentes sur le leasing artistique",
-          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de leasing d'œuvres d'art pour entreprises et collectionneurs."
-        }
+          "faq": {
+            "title": "Questions fréquentes sur le leasing artistique",
+            "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de leasing d'œuvres d'art pour entreprises et collectionneurs."
+          }
       },
       "lending": {
         "title": "InRealArt Lending",
@@ -752,7 +752,11 @@
           "Alternatives aux prêts bancaires traditionnels",
           "Évaluation professionnelle des actifs artistiques",
           "Solutions personnalisées pour les besoins spécifiques"
-        ]
+        ],
+        "faq": {
+          "title": "Questions fréquentes sur le prêt garanti par l'art",
+          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de prêt garanti par l'art."
+        }
       },
       "gallery": {
         "title": "Pour les Galeries",
