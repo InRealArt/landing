@@ -56,7 +56,7 @@
     "p3": "We believe art must remain a living space for experimentation, education and transmission. Our role is to connect artists with their supporting communities, provide institutions with reliable tools to valorize their collections, and open measurable pathways of cultural impact and patronage for companies.",
     "p4": "Concretely, we design tools that facilitate discovery, assessment and circulation of works: documentary registries, authentication protocols, dashboards to track cultural and economic value, and innovative financing formats — including tokenization — to support creation and conservation.",
     "p5": "This manifesto is an invitation: to join a movement that makes art a better shared, better protected and better valued common good.",
-    "p6": "Together, let’s give creation the means for its influence and audiences the keys to a living heritage — so that innovation is never an end in itself, but the condition for a more open, fair and sustainable culture.",
+    "p6": "Together, let's give creation the means for its influence and audiences the keys to a living heritage — so that innovation is never an end in itself, but the condition for a more open, fair and sustainable culture.",
     "bullets": {
       "access": "Make art and heritage more accessible and understandable.",
       "support": "Support artists and professionals with concrete and responsible tools.",
@@ -86,9 +86,14 @@
       "title": "About",
       "subtitle": "Discover the story and mission of InRealArt, a platform revolutionizing art and heritage."
     },
-    "content": {
+    "section1": {
       "title": "Inrealart develops art and makes it accessible",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "section2": {
+      "title": "We don't just sell art, we sell values",
+      "description1": "InRealArt transforms the high-end art market by offering transparency, authenticity and exclusivity. Buy, sell or invest in artworks with guaranteed provenance and security.",
+      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   },
   "artists": {

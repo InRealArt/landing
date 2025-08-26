@@ -44,24 +44,24 @@
     "resources": "Savoirs & Pratiques de l'Art",
     "contact": "Contact",
     "simulators": "Salon professionnels",
-    "leasing": "Leasing d’entreprise",
+    "leasing": "Leasing d'entreprise",
     "loaSimulator": "Simulateur LOA",
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon"
   },
   "manifest": {
     "title": "Manifeste InRealArt",
-    "p1": "InRealArt est une plateforme curatoriale qui met la technologie au service des artistes, des collectionneurs et des institutions. Notre ambition est de démocratiser l’accès à l’art et au patrimoine, d’en sécuriser la transmission et d’en révéler la valeur culturelle, sociale et économique.",
-    "p2": "Nous croyons à un écosystème éthique où la transparence, la traçabilité et la collaboration ouvrent de nouveaux usages : financement d’œuvres, valorisation de collections, et circulation responsable des biens culturels. L’innovation (tokenisation, contrats intelligents, données) n’a de sens que si elle renforce la confiance et soutient la création.",
-    "p3": "Nous pensons que l’art doit rester un espace vivant d’expérimentation, d’éducation et de transmission. Notre rôle est de relier les artistes aux communautés qui les soutiennent, d’offrir aux institutions des solutions fiables pour valoriser leurs collections, et d’ouvrir aux entreprises des trajectoires de mécénat et d’impact culturel mesurables.",
-    "p4": "Concrètement, nous concevons des outils qui facilitent la découverte, l’évaluation et la circulation des œuvres : référentiels documentaires, protocoles d’authentification, tableaux de bord pour suivre la valeur culturelle et économique, et formats de financement innovants — dont la tokenisation — pour soutenir la création et la conservation.",
-    "p5": "Ce manifeste est une invitation : rejoindre un mouvement qui fait de l’art un bien commun mieux partagé, mieux protégé et mieux valorisé.",
-    "p6": "Ensemble, donnons à la création les moyens de son rayonnement et aux publics les clés d’un patrimoine vivant — pour que l’innovation ne soit jamais une fin en soi, mais la condition d’une culture plus ouverte, plus juste et plus durable.",
+    "p1": "InRealArt est une plateforme curatoriale qui met la technologie au service des artistes, des collectionneurs et des institutions. Notre ambition est de démocratiser l'accès à l'art et au patrimoine, d'en sécuriser la transmission et d'en révéler la valeur culturelle, sociale et économique.",
+    "p2": "Nous croyons à un écosystème éthique où la transparence, la traçabilité et la collaboration ouvrent de nouveaux usages : financement d'œuvres, valorisation de collections, et circulation responsable des biens culturels. L'innovation (tokenisation, contrats intelligents, données) n'a de sens que si elle renforce la confiance et soutient la création.",
+    "p3": "Nous pensons que l'art doit rester un espace vivant d'expérimentation, d'éducation et de transmission. Notre rôle est de relier les artistes aux communautés qui les soutiennent, d'offrir aux institutions des solutions fiables pour valoriser leurs collections, et d'ouvrir aux entreprises des trajectoires de mécénat et d'impact culturel mesurables.",
+    "p4": "Concrètement, nous concevons des outils qui facilitent la découverte, l'évaluation et la circulation des œuvres : référentiels documentaires, protocoles d'authentification, tableaux de bord pour suivre la valeur culturelle et économique, et formats de financement innovants — dont la tokenisation — pour soutenir la création et la conservation.",
+    "p5": "Ce manifeste est une invitation : rejoindre un mouvement qui fait de l'art un bien commun mieux partagé, mieux protégé et mieux valorisé.",
+    "p6": "Ensemble, donnons à la création les moyens de son rayonnement et aux publics les clés d'un patrimoine vivant — pour que l'innovation ne soit jamais une fin en soi, mais la condition d'une culture plus ouverte, plus juste et plus durable.",
     "bullets": {
-      "access": "Rendre l’art et le patrimoine plus accessibles et compréhensibles.",
+      "access": "Rendre l'art et le patrimoine plus accessibles et compréhensibles.",
       "support": "Soutenir les artistes et professionnels avec des outils concrets et responsables.",
-      "bridges": "Construire des ponts entre culture, entreprises et mécénat pour créer de l’impact durable.",
-      "traceability": "Assurer la traçabilité, l’authenticité et la documentation des œuvres afin de renforcer la confiance de tous les acteurs."
+      "bridges": "Construire des ponts entre culture, entreprises et mécénat pour créer de l'impact durable.",
+      "traceability": "Assurer la traçabilité, l'authenticité et la documentation des œuvres afin de renforcer la confiance de tous les acteurs."
     }
   },
   "buttons": {
@@ -86,9 +86,14 @@
       "title": "À propos",
       "subtitle": "Découvrez l'histoire et la mission d'InRealArt, une plateforme qui révolutionne l'art et le patrimoine."
     },
-    "content": {
+    "section1": {
       "title": "Inrealart développe l'art et la rend accessible",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "section2": {
+      "title": "On ne vend pas que de l'art, nous vendons des valeurs",
+      "description1": "InRealArt transforme le marché de l'art haut de gamme en offrant transparence, authenticité et exclusivité. Achetez, vendez ou investissez dans des œuvres d'art avec la garantie de la provenance et de la sécurité.",
+      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   },
   "artists": {
@@ -156,21 +161,21 @@
     },
     "explore": {
       "title": "InRealArt pour les artistes",
-      "subtitle": "InRealArt est bien plus qu’une plateforme : c’est un espace curatorial exigeant, conçu comme un partenaire de carrière pour les artistes.<br/><br/>Chaque artiste que nous accompagnons est sélectionné pour la singularité de sa démarche, l’intégrité de son œuvre et sa résonance avec notre époque. Nous construisons un écosystème qui dépasse la simple mise en vente : chaque création bénéficie d’une mise en récit éditoriale, d’une diffusion ciblée et d’un accompagnement stratégique.<br/><br/>Nous offrons aux artistes un cadre professionnel clair, des connexions qualifiées avec collectionneurs et institutions, et des outils adaptés aux usages contemporains pour valoriser et transmettre leur travail.",
+      "subtitle": "InRealArt est bien plus qu'une plateforme : c'est un espace curatorial exigeant, conçu comme un partenaire de carrière pour les artistes.<br/><br/>Chaque artiste que nous accompagnons est sélectionné pour la singularité de sa démarche, l'intégrité de son œuvre et sa résonance avec notre époque. Nous construisons un écosystème qui dépasse la simple mise en vente : chaque création bénéficie d'une mise en récit éditoriale, d'une diffusion ciblée et d'un accompagnement stratégique.<br/><br/>Nous offrons aux artistes un cadre professionnel clair, des connexions qualifiées avec collectionneurs et institutions, et des outils adaptés aux usages contemporains pour valoriser et transmettre leur travail.",
       "items": {
         "rare": {
           "title": "InRealArt pour les artistes",
           "label": "",
-          "description": "InRealArt permet aux artistes de s’inscrire dans un réseau exigeant, respectueux de leur vision et porteur de reconnaissance culturelle et patrimoniale. C’est un espace qui valorise la singularité de chaque démarche artistique, en lien étroit avec les enjeux de notre époque.",
+          "description": "InRealArt permet aux artistes de s'inscrire dans un réseau exigeant, respectueux de leur vision et porteur de reconnaissance culturelle et patrimoniale. C'est un espace qui valorise la singularité de chaque démarche artistique, en lien étroit avec les enjeux de notre époque.",
           "buttons": {
             "artworks": "Nous rejoindre",
             "getartworks": ""
           }
         },
         "marketplace": {
-          "title": "Pour les collectionneurs et amateurs d’art",
+          "title": "Pour les collectionneurs et amateurs d'art",
           "label": "",
-          "description": "Bien plus qu’une plateforme de vente, InRealArt est un espace curatorial exigeant, conçu comme un trait d’union entre création, collection et transmission. Chaque œuvre physique est sélectionnée pour son intégrité, sa force singulière et sa résonance contemporaine. Certaines sont accompagnées de leur réplique numérique authentifiée, garantissant leur traçabilité et leur pérennité.",
+          "description": "Bien plus qu'une plateforme de vente, InRealArt est un espace curatorial exigeant, conçu comme un trait d'union entre création, collection et transmission. Chaque œuvre physique est sélectionnée pour son intégrité, sa force singulière et sa résonance contemporaine. Certaines sont accompagnées de leur réplique numérique authentifiée, garantissant leur traçabilité et leur pérennité.",
           "buttons": {
             "marketplace": "Nous vous accompagnons"
           }
@@ -178,7 +183,7 @@
         "investment": {
           "title": "Une expérience enrichie et engagée",
           "label": "",
-          "description": "Nous construisons un écosystème qui dépasse la simple transaction. Chaque acquisition est enrichie d’un contexte, d’une histoire et d’une légitimation culturelle. InRealArt offre ainsi aux collectionneurs et aux institutions un accès rigoureux à des œuvres choisies, dans un format adapté aux usages actuels et fidèle au respect du patrimoine artistique.",
+          "description": "Nous construisons un écosystème qui dépasse la simple transaction. Chaque acquisition est enrichie d'un contexte, d'une histoire et d'une légitimation culturelle. InRealArt offre ainsi aux collectionneurs et aux institutions un accès rigoureux à des œuvres choisies, dans un format adapté aux usages actuels et fidèle au respect du patrimoine artistique.",
           "buttons": {
             "usecase": "Lire notre manifeste"
           }

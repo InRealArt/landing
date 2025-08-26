@@ -27,7 +27,7 @@ export default function AboutSection1() {
             {/* Texte Lorem ipsum */}
             <div className="text-white/90 leading-relaxed">
               <p className="text-lg">
-                {t('about.content.description')}
+                {t('about.section1.description')}
               </p>
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function AboutSection1() {
               <div className="absolute inset-0 flex items-start justify-end p-8">
                 <div className="text-right">
                   <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-sm">
-                    {t('about.content.title')}
+                    {t('about.section1.title')}
                   </h2>
                 </div>
               </div>
