@@ -2153,6 +2153,10 @@
       "pdfSentError": "❌ Error sending PDF by email",
       "contactSentSuccessfully": "✅ Contact request sent successfully!",
       "contactSentError": "❌ Error sending contact request"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions about the heritage art simulator",
+      "description": "Find here the answers to the most common questions about the heritage art simulator."
     }
   },
   "pagination": {

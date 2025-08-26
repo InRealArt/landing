@@ -8,6 +8,7 @@ import SimulatorLayout from '@/components/common/simulator/SimulatorLayout'
 import FormSection from '@/components/common/simulator/FormSection'
 import ResultSection from '@/components/common/simulator/ResultSection'
 import { type HeritageArtResults as HeritageArtResultsType } from '@/utils/heritageArtCalculations'
+import HeritageArtSimulatorFAQ from '@/components/heritage-art-simulator/HeritageArtSimulatorFAQ'
 
 export default function HeritageArtSimulatorPage() {
   const [results, setResults] = useState<{
@@ -59,6 +60,7 @@ export default function HeritageArtSimulatorPage() {
   )
 
   return (
+    <> 
     <SimulatorLayout>
       <FormSection>
         <HeritageArtForm onCalculate={handleCalculation} />
@@ -76,5 +78,7 @@ export default function HeritageArtSimulatorPage() {
         )}
       </ResultSection>
     </SimulatorLayout>
+    <HeritageArtSimulatorFAQ />
+    </>
   )
 } 

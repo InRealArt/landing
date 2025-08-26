@@ -1946,6 +1946,10 @@
       "pdfSentError": "❌ Erreur lors de l'envoi du PDF par email",
       "contactSentSuccessfully": "✅ Demande de contact envoyée avec succès !",
       "contactSentError": "❌ Erreur lors de l'envoi de la demande de contact"
+    },
+    "faq": {  
+      "title": "Questions fréquentes sur le simulateur d'intégration de l'art dans un patrimoine",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur le simulateur d'intégration de l'art dans un patrimoine."
     }
   },
   "pagination": {
