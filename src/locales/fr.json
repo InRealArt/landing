@@ -655,6 +655,10 @@
     }
   },
   "token": {
+    "faq": {
+      "title": "Questions fréquentes sur le token",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur le token."
+    },
     "ico": {
       "title": "Détails du token ICO",
       "subtitle": "Investissez maintenant et contribuez à la création de la prochaine génération de galeries, avec la possibilité de réaliser des bénéfices importants après le TGE.",

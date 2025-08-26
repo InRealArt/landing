@@ -653,6 +653,10 @@
     }
   },
   "token": {
+    "faq": {
+      "title": "Frequently Asked Questions about the token",
+      "description": "Find here the answers to the most common questions about the token."
+    },
     "ico": {
       "title": "ICO token details",
       "subtitle": "Invest now and help to create the next generation of galleries, with the potential for significant profits after the TGE",

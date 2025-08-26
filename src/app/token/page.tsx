@@ -8,6 +8,7 @@ import TokenPhysicalArt from '@/components/token/TokenPhysicalArt';
 import Roadmap from '@/components/roadmap/Roadmap';
 import Team from '@/components/common/Team';
 import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
+import TokenFAQ from '@/components/token/TokenFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.token.title,
@@ -27,6 +28,7 @@ export default function TokenPage() {
       <TokenICO />
       <TokenPhysicalArt />
       <Team />
+      <TokenFAQ />
     </main>
   );
 } 
