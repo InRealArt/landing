@@ -325,6 +325,10 @@
           }
         }
       },
+      "faq": {
+        "title": "Questions fréquentes sur nos galeries",
+        "description": "Trouvez ici les réponses aux questions les plus courantes sur nos galeries et leur participation au projet."
+      },
       "contact": {
         "title": "Rejoignez InRealArt",
         "message": "Contactez nous par email à "
@@ -335,6 +339,10 @@
         "title": "Transformez votre passion en opportunité",
         "subtitle": "Exposer vos collections, atteindre un public mondial et maximiser vos ventes grâce à des outils innovants.",
         "button": "Commencer dès maintenant"
+      },
+      "faq": {
+        "title": "Questions fréquentes sur nos artistes",
+        "description": "Trouvez ici les réponses aux questions les plus courantes sur nos artistes, leur sélection et notre processus de curation."
       },
       "opportunities": {
         "title": "Un Monde d'Opportunités Pour Vous et Votre Art",
