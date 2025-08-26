@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import TeamContent from "@/components/team/TeamContent";
 import { generateStaticMetadata } from '@/utils/metadata'
+import TeamFAQ from '@/components/team/TeamFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'L\'équipe InRealArt — Une vision, des acteurs et des artistes',
@@ -13,6 +14,7 @@ export default function TeamPage() {
   return (
     <main className="min-h-screen text-white">
       <TeamContent />
+      <TeamFAQ />
     </main>
   );
 }

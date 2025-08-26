@@ -413,7 +413,11 @@
     "unknownError": "Erreur inconnue",
     "noMembers": "Aucun membre d'équipe trouvé.",
     "discoverTeam": "Découvrez notre équipe",
-    "meetTeam": "Rencontrez toute l'équipe"
+    "meetTeam": "Rencontrez toute l'équipe",
+    "faq": {
+        "title": "Questions fréquentes sur l'équipe",
+        "description": "Trouvez ici les réponses aux questions les plus courantes sur l'équipe."
+      }
   },
   "faq": {
     "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ",
@@ -437,6 +441,10 @@
         "marketplace": "Voir le marketplace",
         "whitepaper": "Lire notre manifeste"
       }
+    },
+    "faq": {
+      "title": "Questions fréquentes sur le roadmap",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur le roadmap."
     },
     "items": {
       "q2_2025": {

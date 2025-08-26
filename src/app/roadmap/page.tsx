@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Intro from "@/components/roadmap/Intro";
 import Roadmap from "@/components/roadmap/Roadmap";
 import { generateStaticMetadata } from '@/utils/metadata'
+import RoadmapFAQ from '@/components/roadmap/RoadmapFAQ';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Roadmap InRealArt — Vision, étapes et déploiement',
@@ -15,6 +16,7 @@ export default function RoadmapPage() {
     <main className="min-h-screen text-white">
       <Intro />
       <Roadmap items={[]} />
+      <RoadmapFAQ />
     </main>
   );
 }

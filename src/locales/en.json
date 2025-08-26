@@ -410,7 +410,11 @@
     "unknownError": "Unknown error",
     "noMembers": "No team members found.",
     "discoverTeam": "Discover our team",
-    "meetTeam": "Meet the entire team"
+    "meetTeam": "Meet the entire team",
+    "faq": {
+      "title": "Frequently Asked Questions about the team",
+      "description": "Find here the answers to the most common questions about the team."
+    }
   },
   "faq": {
     "description": "We often have legitimate questions, so we've anticipated them! If you have another question, check out the FAQ page",
@@ -434,6 +438,10 @@
         "marketplace": "View the marketplace",
         "whitepaper": "Read our manifesto"
       }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions about the roadmap",
+      "description": "Find here the answers to the most common questions about the roadmap."
     },
     "items": {
       "q2_2025": {
