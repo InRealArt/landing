@@ -476,6 +476,10 @@
     }
   },
   "presale": {
+    "faq": {
+      "title": "Questions fréquentes sur la pré-vente",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur la pré-vente."
+    },
     "intro": {
       "title": "L'art n'a jamais été aussi accessible",
       "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",

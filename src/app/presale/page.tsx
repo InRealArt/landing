@@ -5,6 +5,7 @@ import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
+import PresaleFAQ from '@/components/presale/PresaleFAQ';
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -213,7 +214,7 @@ export default function Presale() {
         {/* <BuyProcess /> */}
       </div>
 
-
+      <PresaleFAQ />
     </>
   );
 }
