@@ -4,6 +4,7 @@ import HowItWorks from "@/components/marketplace/HowItWorks";
 import Benefits from "@/components/marketplace/Benefits";
 import Prestige from "@/components/marketplace/Prestige";
 import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
+import MarketplaceFAQ from '@/components/marketplace/MarketplaceFAQ';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.marketplace.title,
@@ -19,6 +20,7 @@ export default function Marketplace() {
       <HowItWorks />
       <Benefits />
       <Prestige />
+      <MarketplaceFAQ />
     </main>
   );
 } 
