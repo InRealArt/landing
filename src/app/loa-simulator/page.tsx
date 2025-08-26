@@ -13,6 +13,7 @@ import {
   type ArtworkLeaseComparison as ComparisonType,
   type ArtworkLeaseInputs
 } from '@/utils/artworkLeaseCalculations'
+import LoaSimulatorFAQ from '@/components/loa-simulator/LoaSimulatorFAQ'
 
 export default function LoaSimulatorPage() {
   const { t } = useLanguageStore()
@@ -51,23 +52,26 @@ export default function LoaSimulatorPage() {
   )
 
   return (
-    <SimulatorLayout>
-      <FormSection>
-        <ArtworkLeaseForm onCalculate={handleCalculation} />
-      </FormSection>
+    <>  
+      <SimulatorLayout>
+        <FormSection>
+          <ArtworkLeaseForm onCalculate={handleCalculation} />
+        </FormSection>
 
-      <ResultSection 
-        hasResults={!!(results.leaseResults && results.comparison)}
-        defaultContent={defaultContent}
-      >
-        {results.leaseResults && results.comparison && (
-          <ArtworkLeaseResults 
-            leaseResults={results.leaseResults}
-            comparison={results.comparison}
-            formData={results.formData || undefined}
-          />
-        )}
-      </ResultSection>
-    </SimulatorLayout>
+        <ResultSection 
+          hasResults={!!(results.leaseResults && results.comparison)}
+          defaultContent={defaultContent}
+        >
+          {results.leaseResults && results.comparison && (
+            <ArtworkLeaseResults 
+              leaseResults={results.leaseResults}
+              comparison={results.comparison}
+              formData={results.formData || undefined}
+            />
+          )}
+        </ResultSection>
+      </SimulatorLayout>
+    <LoaSimulatorFAQ />
+    </>
   )
 } 

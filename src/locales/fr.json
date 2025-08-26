@@ -1769,6 +1769,10 @@
       "no": "Non",
       "months": "mois"
     },
+    "faq": {
+      "title": "Questions fréquentes sur le simulateur de leasing",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur le simulateur de leasing."
+    },
     "toast": {
       "calculationSuccess": "✅ Calcul du coût réussi !",
       "calculationError": "❌ Une erreur est survenue lors du calcul. Veuillez réessayer.",

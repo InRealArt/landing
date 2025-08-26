@@ -1972,6 +1972,10 @@
       "months": "months",
       "downloadButton": "📧 Receive PDF by mail"
     },
+    "faq": {
+      "title": "Frequently Asked Questions about the leasing simulator",
+      "description": "Find here the answers to the most common questions about the leasing simulator."
+    },
     "toast": {
       "calculationSuccess": "Calculation completed successfully!",
       "calculationError": "Error during calculation",
