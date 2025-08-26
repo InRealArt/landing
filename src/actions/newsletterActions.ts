@@ -158,7 +158,7 @@ async function addContactToBrevo(email: string, language: string = 'fr'): Promis
 
         // Déterminer l'ID de liste selon la langue
         const getListIdByLanguage = (lang: string): number => {
-            return lang.toLowerCase() === 'en' ? 15 : 14 // 15 pour EN, 14 pour FR
+            return lang.toLowerCase() === 'en' ? 17 : 14 // 17 pour EN, 14 pour FR
         }
 
         const brevoListId = getListIdByLanguage(language)

@@ -3,6 +3,7 @@ import Hero from "@/components/marketplace/Hero";
 import HowItWorks from "@/components/marketplace/HowItWorks";
 import Benefits from "@/components/marketplace/Benefits";
 import Prestige from "@/components/marketplace/Prestige";
+import NewsletterInline from "@/components/common/NewsletterInline";
 import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
 import MarketplaceFAQ from '@/components/marketplace/MarketplaceFAQ';
 
@@ -20,6 +21,7 @@ export default function Marketplace() {
       <HowItWorks />
       <Benefits />
       <Prestige />
+      <NewsletterInline />
       <MarketplaceFAQ />
     </main>
   );

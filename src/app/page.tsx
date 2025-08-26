@@ -6,6 +6,7 @@ import HowItWorks from "@/components/home/HowItWorks";
 import Explore from "@/components/home/Explore";
 import ArtistSlider from "@/components/home/ArtistSlider";
 import ArtworkSlider from "@/components/home/ArtworkSlider";
+import NewsletterInline from "@/components/common/NewsletterInline";
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, defaultMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -36,6 +37,7 @@ export default function Home() {
         <ArtworkSlider />
       </div>
       <Team />
+      <NewsletterInline />
 
     </>
   );
