@@ -271,6 +271,10 @@
         "description": "InRealArt vous soutient dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom.<br><br>Que vous souhaitiez valoriser votre espace ou dénicher l'œuvre idéale pour un client, nous sommes à vos côtés pour concrétiser vos aspirations."
       }
     },
+    "faq": {
+        "title": "Questions fréquentes",
+        "description": "Trouvez ici les réponses aux questions les plus courantes."
+      },
     "galleries": {
       "title": "Nos Galeries partenaires",
       "hero": {
