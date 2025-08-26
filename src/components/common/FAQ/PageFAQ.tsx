@@ -4,6 +4,8 @@ import { useDetailedFaqStore } from '@/store/useDetailedFaqStore'
 import { useLanguageStore } from '@/store/languageStore'
 import Question from './subcomponents/Question'
 import { titleClassName } from '@/utils/classes'
+import Button from '@/components/common/Button'
+import { ArrowRight } from 'lucide-react'
 
 interface PageFAQProps {
   pageName: string
@@ -76,6 +78,12 @@ const PageFAQ = ({
       <div className='w-full md:w-1/3'>
         <h2 className={titleClassName}>{t(titleKey)}</h2>
         <p className='mt-8'>{t(descriptionKey)}</p>
+        <Button
+          text={t('buttons.viewGlobalFAQ')}
+          link="/faq"
+          additionalClassName="bg-purpleColor mt-6"
+          icon={<ArrowRight />}
+        />
       </div>
       <div className='h-full w-full md:w-2/3'>
         {sortedFaqItems.map((item, index) => (
