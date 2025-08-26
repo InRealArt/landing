@@ -76,6 +76,9 @@
     "viewFAQ": "View FAQ",
     "back": "Back to articles"
   },
+  "faqPerPage": {
+    "haveQuestions": "Do you have questions?"
+  },
   "artists": {
     "title": "Our artists",
     "hero": {
@@ -271,10 +274,10 @@
         "description": "InRealArt supports you in realizing your most daring creative projects, in collaboration with renowned artists.<br><br>Whether you want to enhance your space or find the ideal work for a client, we are by your side to make your aspirations a reality."
       }
     },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "description": "Find here the answers to the most common questions."
-      },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Find here the answers to the most common questions."
+    },
     "galleries": {
       "title": "Our Partner Galleries",
       "hero": {

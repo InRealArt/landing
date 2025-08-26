@@ -76,6 +76,9 @@
     "viewFAQ": "Consulter la FAQ",
     "back": "Retour aux articles"
   },
+  "faqPerPage": {
+    "haveQuestions": "Vous avez des questions ?"
+  },
   "artists": {
     "title": "Nos artistes",
     "hero": {
@@ -272,9 +275,9 @@
       }
     },
     "faq": {
-        "title": "Questions fréquentes",
-        "description": "Trouvez ici les réponses aux questions les plus courantes."
-      },
+      "title": "Questions fréquentes",
+      "description": "Trouvez ici les réponses aux questions les plus courantes."
+    },
     "galleries": {
       "title": "Nos Galeries partenaires",
       "hero": {
@@ -415,9 +418,9 @@
     "discoverTeam": "Découvrez notre équipe",
     "meetTeam": "Rencontrez toute l'équipe",
     "faq": {
-        "title": "Questions fréquentes sur l'équipe",
-        "description": "Trouvez ici les réponses aux questions les plus courantes sur l'équipe."
-      }
+      "title": "Questions fréquentes sur l'équipe",
+      "description": "Trouvez ici les réponses aux questions les plus courantes sur l'équipe."
+    }
   },
   "faq": {
     "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ",
@@ -767,10 +770,10 @@
           "Transactions transparentes",
           "Potentiel de croissance du marché"
         ],
-          "faq": {
-            "title": "Questions fréquentes sur le leasing artistique",
-            "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de leasing d'œuvres d'art pour entreprises et collectionneurs."
-          }
+        "faq": {
+          "title": "Questions fréquentes sur le leasing artistique",
+          "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions de leasing d'œuvres d'art pour entreprises et collectionneurs."
+        }
       },
       "lending": {
         "title": "InRealArt Lending",
@@ -1959,7 +1962,7 @@
       "contactSentSuccessfully": "✅ Demande de contact envoyée avec succès !",
       "contactSentError": "❌ Erreur lors de l'envoi de la demande de contact"
     },
-    "faq": {  
+    "faq": {
       "title": "Questions fréquentes sur le simulateur d'intégration de l'art dans un patrimoine",
       "description": "Trouvez ici les réponses aux questions les plus courantes sur le simulateur d'intégration de l'art dans un patrimoine."
     }

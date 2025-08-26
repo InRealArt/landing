@@ -1,16 +1,25 @@
 'use client';
-import { Plus } from 'lucide-react';
+import { Plus, Phone } from 'lucide-react';
 import React, { useState } from 'react';
+import { useLanguageStore } from '@/store/languageStore';
+import Button from '@/components/common/Button';
 
 interface QuestionProps {
   question: string;
   answer: string;
 }
+
 const Question = ({ question, answer }: QuestionProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguageStore();
 
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);
+  }
+
+  const handleCalendlyClick = () => {
+    // Rediriger vers Calendly
+    window.open('https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes', '_blank');
   }
 
   return (
@@ -20,6 +29,18 @@ const Question = ({ question, answer }: QuestionProps) => {
         <Plus className='shrink-0' />
       </div>
       <label className={`my-4 text-sm ${isOpen ? 'visible' : 'hidden'}`}>{answer}</label>
+      
+      {/* Section Calendly */}
+      <div className={`mt-4 ${isOpen ? 'visible' : 'hidden'}`}>
+        <p className="text-sm unbounded mb-3">{t('faqPerPage.haveQuestions')}</p>
+        <Button
+          text={t('buttons.presale')}
+          action={handleCalendlyClick}
+          additionalClassName="bg-purpleColor w-fit"
+          icon={<Phone />}
+          iconBefore
+        />
+      </div>
     </div>
   );
 }
