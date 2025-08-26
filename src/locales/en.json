@@ -94,6 +94,22 @@
       "title": "We don't just sell art, we sell values",
       "description1": "InRealArt transforms the high-end art market by offering transparency, authenticity and exclusivity. Buy, sell or invest in artworks with guaranteed provenance and security.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "section3": {
+      "title": "The starting point",
+      "text1": "Since our beginnings, we have overcome each step with passion and determination. Our history is marked by key phases that have built the solid foundations of our company.",
+      "text2": "It all started with a simple but ambitious idea: Making art accessible to everyone. Over time, we have been able to transform this vision into concrete projects, overcoming challenges and evolving our expertise.",
+      "text3": "Thanks to a committed team and constant listening to our users, we have developed innovative solutions that meet the real needs of the art market.",
+      "text4": "Today, we continue to move forward with a clear and ambitious roadmap. Each upcoming step reflects our willingness to innovate, improve the user experience and remain faithful to our values.",
+      "button": "See the roadmap"
+    },
+    "team": {
+      "title": "A professional team dedicated to our projects",
+      "paragraph1": "Our strength lies in those who build this project day after day. Complementary profiles, driven by the same ambition: to innovate, create value and move things forward together.",
+      "paragraph2": "Whether it's strategy, design, development or customer relations, each team member plays an essential role in our evolution.",
+      "subtitlePart1": "Our professional team will be",
+      "subtitlePart2": "always operational",
+      "buttonText": "Meet the team"
     }
   },
   "artists": {

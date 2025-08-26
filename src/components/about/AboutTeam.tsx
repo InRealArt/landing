@@ -1,0 +1,91 @@
+'use client'
+
+import Image from 'next/image'
+import { useLanguageStore } from '@/store/languageStore'
+import Button from '@/components/common/Button'
+import { ArrowRight } from 'lucide-react'
+
+export default function AboutTeam() {
+  const { t } = useLanguageStore()
+
+  return (
+    <section className="relative w-full py-12 md:py-16 bg-[rgb(19,19,19)]">
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto relative">
+        {/* Fond gris rectangulaire qui s'étend sur les côtés avec des marges */}
+        <div className="absolute left-0 right-0 top-0 h-1/2 bg-gray-800 transform -translate-y-4"></div>
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-8">
+          
+          {/* Colonne gauche - Contenu textuel avec image - élargie */}
+          <div className="space-y-6 flex flex-col w-full">
+            {/* Titre principal - aligné avec le haut de l'image 2 */}
+            <div className="text-white">
+              <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                {t('about.team.title')}
+              </h2>
+            </div>
+            
+            {/* Image de l'équipe */}
+            <div className="relative w-4/5 mx-auto aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/about/about_team_photo1.webp"
+                alt="Équipe professionnelle au travail"
+                fill
+                className="object-cover"
+                quality={90}
+              />
+            </div>
+            
+            {/* Premier paragraphe */}
+            <div className="text-white/90 leading-relaxed">
+              <p className="text-lg">
+                {t('about.team.paragraph1')}
+              </p>
+            </div>
+            
+            {/* Deuxième paragraphe */}
+            <div className="text-white/80 leading-relaxed">
+              <p className="text-lg">
+                {t('about.team.paragraph2')}
+              </p>
+            </div>
+            
+            {/* Sous-titre avec partie en violet */}
+            <div className="text-white/90 leading-relaxed">
+              <p className="text-lg">
+                {t('about.team.subtitlePart1')}{' '}
+                <span className="text-purpleColor font-semibold">
+                  {t('about.team.subtitlePart2')}
+                </span>
+              </p>
+            </div>
+            
+            {/* Bouton - aligné avec le bas de l'image 2 */}
+            <div className="pt-2">
+              <Button 
+                text={t('about.team.buttonText')}
+                additionalClassName="bg-purpleColor"
+                icon={<ArrowRight />}
+                link="/team"
+              />
+            </div>
+          </div>
+          
+          {/* Colonne droite - Image de la personne au travail - avec marges */}
+          <div className="relative w-4/5 mx-auto flex items-end">
+            <div className="relative w-full aspect-[2/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/about/about_team_photo2.webp"
+                alt="Personne travaillant sur un ordinateur portable"
+                fill
+                className="object-cover"
+                quality={90}
+              />
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  )
+}

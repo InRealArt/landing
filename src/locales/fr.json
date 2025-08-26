@@ -94,6 +94,22 @@
       "title": "On ne vend pas que de l'art, nous vendons des valeurs",
       "description1": "InRealArt transforme le marché de l'art haut de gamme en offrant transparence, authenticité et exclusivité. Achetez, vendez ou investissez dans des œuvres d'art avec la garantie de la provenance et de la sécurité.",
       "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "section3": {
+      "title": "Le point de départ",
+      "text1": "Depuis nos débuts, nous avons franchi chaque étape avec passion et détermination. Notre histoire est marquée par des phases clés qui ont construit les fondations solides de notre entreprise.",
+      "text2": "Tout a commencé avec une idée simple, mais ambitieuse : Rendre l'art accessible à tous. Au fil du temps, nous avons su transformer cette vision en projets concrets, en surmontant des défis et en faisant évoluer notre expertise.",
+      "text3": "Grâce à une équipe engagée et à une écoute constante de nos utilisateurs, nous avons développé des solutions innovantes qui répondent aux besoins réels du marché de l'art.",
+      "text4": "Aujourd'hui, nous continuons d'avancer avec une roadmap claire et ambitieuse. Chaque étape à venir reflète notre volonté d'innover, d'améliorer l'expérience utilisateur et de rester fidèles à nos valeurs.",
+      "button": "Voir la road map"
+    },
+    "team": {
+      "title": "Une équipe professionnel dédié à notre projets",
+      "paragraph1": "Notre force réside dans celles et ceux qui construisent ce projet jour après jour. Des profils complémentaires, animés par la même ambition: innover, créer de la valeur et faire avancer les choses ensemble.",
+      "paragraph2": "Qu'il s'agisse de stratégie, de design, de développement ou de relation client, chaque membre de l'équipe joue un rôle essentiel dans notre évolution.",
+      "subtitlePart1": "Notre équipe de professionnel sera",
+      "subtitlePart2": "toujours opérationnel",
+      "buttonText": "Rencontrer l'équipe"
     }
   },
   "artists": {
