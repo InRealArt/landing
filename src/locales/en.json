@@ -80,6 +80,17 @@
   "faqPerPage": {
     "haveQuestions": "Do you have questions?"
   },
+  "about": {
+    "title": "About",
+    "hero": {
+      "title": "About",
+      "subtitle": "Discover the story and mission of InRealArt, a platform revolutionizing art and heritage."
+    },
+    "content": {
+      "title": "Inrealart develops art and makes it accessible",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  },
   "artists": {
     "title": "Our artists",
     "hero": {

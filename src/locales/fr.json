@@ -80,6 +80,17 @@
   "faqPerPage": {
     "haveQuestions": "Vous avez des questions ?"
   },
+  "about": {
+    "title": "À propos",
+    "hero": {
+      "title": "À propos",
+      "subtitle": "Découvrez l'histoire et la mission d'InRealArt, une plateforme qui révolutionne l'art et le patrimoine."
+    },
+    "content": {
+      "title": "Inrealart développe l'art et la rend accessible",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  },
   "artists": {
     "title": "Nos artistes",
     "hero": {
