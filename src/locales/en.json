@@ -112,6 +112,43 @@
       "buttonText": "Meet the team"
     }
   },
+  "academy": {
+    "title": "Academy",
+    "hero": {
+      "title": "Academy",
+      "subtitle": "Discover our educational resources and training on art, tokenization and heritage.",
+      "button1": "Study Use Cases",
+      "button2": "View Blog"
+    },
+    "section1": {
+      "mainTitle": "The possibilities in art acquisition",
+      "block1": {
+        "title": "Enhance your interior",
+        "description": "Integrate unique artworks into your home to create a refined atmosphere, tell a story, and assert your personality through your decoration."
+      },
+      "block2": {
+        "title": "Enhance your professional space",
+        "description": "Offer your clients and collaborators a strong aesthetic experience by integrating artworks into your offices, reception areas, or boutiques. A true image asset."
+      },
+      "block3": {
+        "title": "Create unforgettable moments",
+        "description": "Use art as a central element for your events to evoke emotion, make an impression, and offer a unique visual setting for your manifestations."
+      },
+      "block4": {
+        "title": "Art in service of well-being",
+        "description": "In care or relaxation spaces, artworks help to soothe, inspire, and improve the living environment for users."
+      }
+    },
+    "section2": {
+      "title": "Deepen your knowledge"
+    },
+    "section3": {
+      "smallTitle": "Unrivaled Authenticity and Traceability",
+      "mainTitle": "InRealArt: A Trusted Market for Prestige Art",
+      "description": "InRealArt transforms the high-end art market by offering a marketplace where transparency, authenticity, and exclusivity are at the heart of every transaction. Buy, sell, or invest in artworks with a guarantee of provenance and uncompromising security.",
+      "button": "Consult FAQ"
+    }
+  },
   "artists": {
     "title": "Our artists",
     "hero": {

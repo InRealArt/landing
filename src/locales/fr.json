@@ -112,6 +112,43 @@
       "buttonText": "Rencontrer l'équipe"
     }
   },
+  "academy": {
+    "title": "Académie",
+    "hero": {
+      "title": "Académie",
+      "subtitle": "Découvrez nos ressources éducatives et nos formations sur l'art, la tokenisation et le patrimoine.",
+      "button1": "Étudier les Use cases",
+      "button2": "Voir le blog"
+    },
+    "section1": {
+      "mainTitle": "Les possibilités dans l'acquisition d'œuvres d'art",
+      "block1": {
+        "title": "Sublimez votre intérieur",
+        "description": "Intégrez des œuvres d'art uniques chez vous pour créer une ambiance raffinée, raconter une histoire et affirmer votre personnalité à travers votre décoration."
+      },
+      "block2": {
+        "title": "Valorisez votre espace professionnel",
+        "description": "Offrez à vos clients et collaborateurs une expérience esthétique forte en intégrant des œuvres dans vos bureaux, halls d'accueil ou boutiques. Un véritable atout d'image."
+      },
+      "block3": {
+        "title": "Créez des moments inoubliables",
+        "description": "Utilisez l'art comme élément central de vos événements pour susciter l'émotion, marquer les esprits et offrir un cadre visuel singulier à vos manifestations."
+      },
+      "block4": {
+        "title": "L'art au service du mieux-être",
+        "description": "Dans les espaces de soin ou de détente, les œuvres d'art participent à apaiser, inspirer et améliorer le cadre de vie des usagers."
+      }
+    },
+    "section2": {
+      "title": "Approfondissez vos connaissances"
+    },
+    "section3": {
+      "smallTitle": "Authenticité et Traçabilité Inégalées",
+      "mainTitle": "InRealArt : Un Marché de Confiance pour l'Art de Prestige",
+      "description": "InRealArt transforme le marché de l'art haut de gamme en offrant une marketplace où la transparence, l'authenticité et l'exclusivité sont au cœur de chaque transaction. Achetez, vendez, ou investissez dans des œuvres d'art avec une garantie de provenance et une sécurité sans compromis.",
+      "button": "Consulter la FAQ"
+    }
+  },
   "artists": {
     "title": "Nos artistes",
     "hero": {
