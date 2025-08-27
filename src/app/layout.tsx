@@ -11,6 +11,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
+import GlobalNavigationTest from '@/components/common/GlobalNavigationTest'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
@@ -81,13 +82,15 @@ export default function RootLayout ({
           <NuqsAdapter>
             <LanguageProvider>
               <GoogleCaptchaWrapper>
-                <Header />
-                {children}
-                {/* <FAQ /> */}
-                <Footer />
-                <Toaster />
-                <CookieConsentBanner />
-                <NewsletterManager delayInSeconds={5} />
+                  <Header />
+                  {children}
+                  {/* <FAQ /> */}
+                  <Footer />
+                  <Toaster />
+                  <CookieConsentBanner />
+                  <NewsletterManager delayInSeconds={5} />
+                  {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
+                  {/* <GlobalNavigationTest /> */}
               </GoogleCaptchaWrapper>
             </LanguageProvider>
           </NuqsAdapter>
