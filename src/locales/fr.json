@@ -84,29 +84,42 @@
     "title": "À propos",
     "hero": {
       "title": "À propos",
-      "subtitle": "Découvrez l'histoire et la mission d'InRealArt, une plateforme qui révolutionne l'art et le patrimoine."
+      "subtitle": "InRealArt est une plateforme curatoriale qui met la technologie au service de l’art et du patrimoine. Notre ambition est de démocratiser l’accès à la création, d’en sécuriser la transmission et d’en révéler toute la valeur culturelle, sociale et économique"
     },
-    "section1": {
+    "ourCommitments": {
       "title": "Inrealart développe l'art et la rend accessible",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "description": "",
+      "commitments": {
+        "title": "Nos engagements",
+        "commitment1": "Rendre l'art et le patrimoine plus accessibles et compréhensibles.",
+        "commitment2": "Soutenir les artistes et les institutions avec des outils concrets et responsables.",
+        "commitment3": "Construire des ponts entre culture, entreprises et mécénat pour créer un impact durable.",
+        "commitment4": "Garantir la traçabilité et l'authenticité des œuvres pour renforcer la confiance."
+      }
     },
-    "section2": {
-      "title": "On ne vend pas que de l'art, nous vendons des valeurs",
-      "description1": "InRealArt transforme le marché de l'art haut de gamme en offrant transparence, authenticité et exclusivité. Achetez, vendez ou investissez dans des œuvres d'art avec la garantie de la provenance et de la sécurité.",
-      "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "ourInvitation": {
+      "title": "Une invitation",
+      "description1": "Rejoignez un mouvement qui fait de l’art un bien commun mieux partagé, mieux protégé et mieux valorisé. Chez InRealArt, l’innovation est un levier pour une culture plus ouverte, plus juste et plus durable.",
+      "description2": ""
     },
-    "section3": {
+    "ourHistory": {
       "title": "Le point de départ",
-      "text1": "Depuis nos débuts, nous avons franchi chaque étape avec passion et détermination. Notre histoire est marquée par des phases clés qui ont construit les fondations solides de notre entreprise.",
-      "text2": "Tout a commencé avec une idée simple, mais ambitieuse : Rendre l'art accessible à tous. Au fil du temps, nous avons su transformer cette vision en projets concrets, en surmontant des défis et en faisant évoluer notre expertise.",
-      "text3": "Grâce à une équipe engagée et à une écoute constante de nos utilisateurs, nous avons développé des solutions innovantes qui répondent aux besoins réels du marché de l'art.",
-      "text4": "Aujourd'hui, nous continuons d'avancer avec une roadmap claire et ambitieuse. Chaque étape à venir reflète notre volonté d'innover, d'améliorer l'expérience utilisateur et de rester fidèles à nos valeurs.",
+      "title1": "2023 – Fondation",
+      "text1": "Naissance d’InRealArt autour d’une conviction : l’innovation numérique peut renforcer la confiance dans le monde de l’art.",
+      "title2": "2024 – Premiers partenariats",
+      "text2": "Lancement de collaborations avec artistes, galeries et institutions.",
+      "title3": "2025 – Test de la plateforme & expansion",
+      "text3": "Mise en ligne d’InRealArt, offrant aux artistes et collectionneurs des outils de suivi et de valorisation des œuvres.",
       "button": "Voir la road map"
     },
     "team": {
-      "title": "Une équipe professionnel dédié à notre projets",
-      "paragraph1": "Notre force réside dans celles et ceux qui construisent ce projet jour après jour. Des profils complémentaires, animés par la même ambition: innover, créer de la valeur et faire avancer les choses ensemble.",
-      "paragraph2": "Qu'il s'agisse de stratégie, de design, de développement ou de relation client, chaque membre de l'équipe joue un rôle essentiel dans notre évolution.",
+      "title": "Notre équipe",
+      "paragraph1": "Timothée Roy — Fondateur & CEO",
+      "paragraph1Description": "Entrepreneur passionné par la rencontre entre art et technologie, il a fondé InRealArt pour créer des ponts entre artistes, institutions et collectionneurs.",
+      "paragraph2": "Maxime Girard — Directeur Marketing & co-fondateur",
+      "paragraph2Description": "Curateur engagé, il conçoit les lignes curatoriales et veille à valoriser des artistes de toutes générations.",
+      "paragraph3": "Gilles Bruno — CTO & co fondateur",
+      "paragraph3Description": "Spécialiste en blockchain et data, il développe les outils qui garantissent la traçabilité, l’authenticité et la valorisation des œuvres.",
       "subtitlePart1": "Notre équipe de professionnel sera",
       "subtitlePart2": "toujours opérationnel",
       "buttonText": "Rencontrer l'équipe"

@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 
-export default function AboutSection1() {
+export default function AboutOurCommitments() {
   const { t } = useLanguageStore()
 
   return (
@@ -24,10 +24,35 @@ export default function AboutSection1() {
               />
             </div>
             
+            {/* Nos engagements */}
+            <div className="space-y-6">
+            <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                {t('about.ourCommitments.commitments.title')}
+              </h2>
+              
+              <div className="space-y-4">
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourCommitments.commitments.commitment1')}
+                </p>
+                
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourCommitments.commitments.commitment2')}
+                </p>
+                
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourCommitments.commitments.commitment3')}
+                </p>
+                
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourCommitments.commitments.commitment4')}
+                </p>
+              </div>
+            </div>
+            
             {/* Texte Lorem ipsum */}
             <div className="text-white/90 leading-relaxed">
               <p className="text-lg">
-                {t('about.section1.description')}
+                {t('about.ourCommitments.description')}
               </p>
             </div>
           </div>
@@ -48,7 +73,7 @@ export default function AboutSection1() {
               <div className="absolute inset-0 flex items-start justify-end p-8">
                 <div className="text-right">
                   <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-sm">
-                    {t('about.section1.title')}
+                    {t('about.ourCommitments.title')}
                   </h2>
                 </div>
               </div>

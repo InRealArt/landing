@@ -1,11 +1,10 @@
 'use client'
 
-import { Suspense } from 'react'
 import AboutHero from '@/components/about/AboutHero'
-import AboutSection1 from '@/components/about/AboutSection1'
-import AboutSection2 from '@/components/about/AboutSection2'
-import AboutSection3 from '@/components/about/AboutSection3'
+import AboutOurCommitments from '@/components/about/AboutOurCommitments'
+import AboutOurHistory from '@/components/about/AboutOurHistory'
 import AboutTeam from '@/components/about/AboutTeam'
+import AboutOurInvitation from '@/components/about/AboutOurInvitation'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
 export default function AboutPage() {
@@ -14,18 +13,20 @@ export default function AboutPage() {
       {/* Hero Section avec image hero_about.webp */}
       <AboutHero />
       
-      {/* Section 1 : contenu avec mise en page en deux colonnes */}
-      <AboutSection1 />
-      
-      {/* Section 2 : image de femme à gauche, contenu à droite */}
-      <AboutSection2 />
       
       {/* Section 3 : grille des 4 textes avec icônes */}
-      <AboutSection3 />
+      <AboutOurHistory />
       
       {/* Section 4 : équipe professionnelle */}
       <AboutTeam />
       
+      {/* Section 1 : contenu avec mise en page en deux colonnes */}
+      <AboutOurCommitments />
+
+      {/* Section 2 : image de femme à gauche, contenu à droite */}
+      <AboutOurInvitation />
+      
+
       {/* Section 5 : newsletter */}
       <NewsletterInline />
       {/* Le footer est automatiquement inclus via le layout principal */}

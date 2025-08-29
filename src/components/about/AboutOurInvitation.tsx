@@ -2,8 +2,9 @@
 
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
+import Button from '@/components/common/Button'
 
-export default function AboutSection2() {
+export default function AboutOurInvitation() {
   const { t } = useLanguageStore()
 
   return (
@@ -32,22 +33,32 @@ export default function AboutSection2() {
             {/* Titre principal */}
             <div className="text-white">
               <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                {t('about.section2.title')}
+                {t('about.ourInvitation.title')}
               </h2>
             </div>
             
             {/* Premier paragraphe */}
             <div className="text-white/90 leading-relaxed">
               <p className="text-lg">
-                {t('about.section2.description1')}
+                {t('about.ourInvitation.description1')}
               </p>
             </div>
             
             {/* Deuxième paragraphe - sans fond distinctif */}
             <div className="text-white/80 leading-relaxed">
               <p className="text-base">
-                {t('about.section2.description2')}
+                {t('about.ourInvitation.description2')}
               </p>
+            </div>
+            
+            {/* Bouton manifest */}
+            <div className="pt-4">
+              <Button
+                text={t('buttons.readWhitepaper')}
+                additionalClassName="border border-white text-white rounded-full py-3 px-8"
+                center
+                link="/manifest"
+              />
             </div>
           </div>
           

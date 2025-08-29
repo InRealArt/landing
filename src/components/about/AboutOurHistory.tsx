@@ -5,7 +5,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
 import { ArrowRight } from 'lucide-react'
 
-export default function AboutSection3() {
+export default function AboutOurHistory() {
   const { t } = useLanguageStore()
 
   return (
@@ -40,41 +40,55 @@ export default function AboutSection3() {
         <div className="space-y-8">
           {/* Titre principal */}
           <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-            {t('about.section3.title')}
+            {t('about.ourHistory.title')}
           </h2>
 
-          {/* Grille des textes en deux colonnes */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Colonne gauche */}
-            <div className="space-y-6">
-              <p className="text-white/90 text-lg leading-relaxed">
-                {t('about.section3.text1')}
-              </p>
-              <p className="text-white/90 text-lg leading-relaxed">
-                {t('about.section3.text2')}
-              </p>
-            </div>
+          {/* Grille des textes avec disposition flexible */}
+          <div className="flex flex-col gap-12 lg:gap-16">
+            {/* Partie haute - deux colonnes */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                            {/* Colonne gauche */}
+              <div className="space-y-6">
+                <h3 className="bricolage-grotesque text-xl font-semibold text-white">
+                  {t('about.ourHistory.title1')}
+                </h3>
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourHistory.text1')}
+                </p>
+              </div>
 
-            {/* Colonne droite */}
-            <div className="space-y-6">
-              <p className="text-white/90 text-lg leading-relaxed">
-                {t('about.section3.text3')}
-              </p>
-              <p className="text-white/90 text-lg leading-relaxed">
-                {t('about.section3.text4')}
-              </p>
-            </div>
+              {/* Colonne droite */}
+              <div className="space-y-6">
+                <h3 className="bricolage-grotesque text-xl font-semibold text-white">
+                  {t('about.ourHistory.title2')}
+                </h3>
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourHistory.text2')}
+                </p>
+              
+                </div>
+              </div>
+
+              {/* Partie basse - une colonne qui prend la largeur des deux */}
+              <div className="w-full space-y-6">
+                <h3 className="bricolage-grotesque text-xl font-semibold text-white">
+                  {t('about.ourHistory.title3')}
+                </h3>
+                <p className="text-white/90 text-lg leading-relaxed">
+                  {t('about.ourHistory.text3')}
+                </p>
+              </div>
           </div>
 
           {/* Bouton centré */}
-          <div className="text-center pt-8">
+          {/* <div className="text-center pt-8">
             <Button 
               text={t('about.section3.button')}
               additionalClassName="bg-purpleColor"
               center
               icon={<ArrowRight />}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

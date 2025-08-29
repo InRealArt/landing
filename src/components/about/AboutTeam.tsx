@@ -38,27 +38,43 @@ export default function AboutTeam() {
             
             {/* Premier paragraphe */}
             <div className="text-white/90 leading-relaxed">
-              <p className="text-lg">
+              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
                 {t('about.team.paragraph1')}
+              </h3>
+              <p className="text-sm">
+              {t('about.team.paragraph1Description')}
               </p>
             </div>
             
             {/* Deuxième paragraphe */}
             <div className="text-white/80 leading-relaxed">
-              <p className="text-lg">
+              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
                 {t('about.team.paragraph2')}
+              </h3>
+              <p className="text-sm">
+              {t('about.team.paragraph2Description')}
               </p>
             </div>
             
+            {/* Troisième paragraphe */}
+            <div className="text-white/80 leading-relaxed">
+              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
+                {t('about.team.paragraph3')}
+              </h3>
+              <p className="text-sm">
+              {t('about.team.paragraph3Description')}
+              </p>
+            </div>
+
             {/* Sous-titre avec partie en violet */}
-            <div className="text-white/90 leading-relaxed">
+            {/* <div className="text-white/90 leading-relaxed">
               <p className="text-lg">
                 {t('about.team.subtitlePart1')}{' '}
                 <span className="text-purpleColor font-semibold">
                   {t('about.team.subtitlePart2')}
                 </span>
               </p>
-            </div>
+            </div> */}
             
             {/* Bouton - aligné avec le bas de l'image 2 */}
             <div className="pt-2">
