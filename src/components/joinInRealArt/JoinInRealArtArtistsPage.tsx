@@ -52,6 +52,8 @@ export default function JoinInRealArtArtistsPage() {
         buttonUrl={urlForm}
       />
       
+      <ArtistTestimonialsWrapper />
+      
       <ArtistsSection />
       
       <JoinIraOpportunities 
@@ -61,7 +63,7 @@ export default function JoinInRealArtArtistsPage() {
         buttonUrl={urlForm}
       />
       
-      <ArtistTestimonialsWrapper />
+
 
       <HowToJoinUs 
         title="joinInRealArt.artists.howToJoin.title"
