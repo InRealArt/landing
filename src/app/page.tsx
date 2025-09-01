@@ -32,7 +32,7 @@ export default function Home() {
       <Statistics />
       <HowItWorks />
       <Explore />
-      <div className="relative bg-gradient max-w-screen-2xl m-auto">
+      <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider />
         <ArtworkSlider />
       </div>

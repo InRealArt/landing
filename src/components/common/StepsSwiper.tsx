@@ -36,12 +36,41 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-20">
       <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-10">{title}</h2>
       
-      {/* Boutons de navigation */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="relative">
+        <Swiper
+          modules={[Navigation]}
+          ref={swiperRef}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) =>
+            setActiveSlide(
+              swiper.isEnd ? steps.length - 1 : swiper.activeIndex
+            )
+          }
+          slidesPerView={1}
+          centeredSlidesBounds
+          centeredSlides
+          className="w-full"
+        >
+          {steps.map((step, index) => (
+            <SwiperSlide key={index}>
+              <div className="w-full rounded-lg p-10 md:p-16 bg-gradient-to-r from-[#1E1E1E] via-[#2E287A] to-[#1E1E1E] h-full">
+                <div className="max-w-3xl mx-auto text-center flex flex-col gap-10 h-full">
+                  <h3 className="text-6xl md:text-8xl bricolage-grotesque text-white">{step.number}</h3>
+                  <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-white">{step.title}</h4>
+                  <p className="text-sm md:text-base inter text-white leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Flèche précédente - positionnée à gauche au centre vertical */}
         <button
           onClick={goToPrev}
           disabled={activeSlide === 0}
-          className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
+          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
             activeSlide === 0
               ? 'border-gray-400 text-gray-400 cursor-not-allowed'
               : 'border-white text-white hover:bg-white hover:text-black'
@@ -62,14 +91,11 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
           </svg>
         </button>
 
-        <span className="text-white text-sm">
-          {activeSlide + 1} / {steps.length}
-        </span>
-
+        {/* Flèche suivante - positionnée à droite au centre vertical */}
         <button
           onClick={goToNext}
           disabled={activeSlide === steps.length - 1}
-          className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
+          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
             activeSlide === steps.length - 1
               ? 'border-gray-400 text-gray-400 cursor-not-allowed'
               : 'border-white text-white hover:bg-white hover:text-black'
@@ -89,36 +115,14 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
             <polyline points="9,18 15,12 9,6"></polyline>
           </svg>
         </button>
-      </div>
 
-      <Swiper
-        modules={[Navigation]}
-        ref={swiperRef}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        onSlideChange={(swiper) =>
-          setActiveSlide(
-            swiper.isEnd ? steps.length - 1 : swiper.activeIndex
-          )
-        }
-        slidesPerView={1}
-        centeredSlidesBounds
-        centeredSlides
-        className="w-full"
-      >
-        {steps.map((step, index) => (
-          <SwiperSlide key={index}>
-            <div className="w-full rounded-lg p-10 md:p-16 bg-gradient-to-r from-[#1E1E1E] via-[#2E287A] to-[#1E1E1E] h-full">
-              <div className="max-w-3xl mx-auto text-center flex flex-col gap-10 h-full">
-                <h3 className="text-6xl md:text-8xl bricolage-grotesque text-white">{step.number}</h3>
-                <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-white">{step.title}</h4>
-                <p className="text-sm md:text-base inter text-white leading-relaxed">{step.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        {/* Indicateur de position */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+          <span className="text-white text-sm bg-black/50 px-3 py-1 rounded-full">
+            {activeSlide + 1} / {steps.length}
+          </span>
+        </div>
+      </div>
     </section>
   );
 } 

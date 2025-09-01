@@ -87,7 +87,6 @@ export default function Explore() {
           )
         })}
       </div>
-      <Image className="max-w-full md:max-w-screen-image m-auto w-full mt-16 md:mt-32" src={`/images/explore-1.png`} alt='IRA-IMAGE' width="1440" height="450" />
     </section>
   );
 }

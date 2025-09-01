@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import marketplaceImage from "../../../public/images/marketplace/marketplace.webp";
+import marketplaceImage from "../../../public/images/marketplace/hero_marketplace.webp";
 import { useLanguageStore } from '@/store/languageStore';
 import Button from "../common/Button";
 
@@ -9,8 +9,9 @@ export default function Hero() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="relative bg-cover bg-no-repeat bg-cover bg-bottom h-screen w-full flex items-center justify-center" style={{ backgroundImage: `url('${marketplaceImage.src}')` }}>
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+    <section className="relative bg-cover bg-no-repeat bg-bottom h-[60vh] w-full flex items-center justify-center" style={{ backgroundImage: `url('${marketplaceImage.src}')` }}>
+      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent"></div>
       <div className="max-w-90 xl:max-w-screen-xl m-auto z-10">
         <h1 className="text-4xl leading-[1.3] md:leading-[1] md:text-6xl bricolage-grotesque text-left font-medium mb-4">
           {t('marketplace.hero.title')}

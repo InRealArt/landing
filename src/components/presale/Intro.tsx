@@ -1,32 +1,33 @@
 'use client'
 
-import BG from "../../../public/images/presale/intro.png";
-import Button from "../common/Button";
-import { ArrowRight } from "lucide-react";
+import BG from "../../../public/images/presale/hero_presale.webp";
 import { useLanguageStore } from '@/store/languageStore';
 
 const Intro = () => {
-  const { t, language } = useLanguageStore();
-
-  // URLs pour les catalogues hébergés en ligne
-  const catalogUrls = {
-    en: 'https://drive.google.com/file/d/1P_3Q_nTExvorTrAQhoLTv_kGs8FDCWNu/view?usp=sharing',
-    fr: 'https://drive.google.com/file/d/1Z56Fvbi2HD5raHO8fDh3Fx6UhMzL6ot-/view?usp=sharing'
-  };
+  const { t } = useLanguageStore();
 
   return (
-    <section className="bg-cover m-auto bg-no-repeat bg-bottom h-96 md:h-[550px] w-full flex items-center justify-center" style={{ backgroundImage: ` url('${BG.src}')`}}>
-      <div className="max-w-90 xl:max-w-screen-xl m-auto gap-12 flex flex-col md:flex-row md:justify-between">
-      <div className="md:w-6/12 bricolage-grotesque font-semibold">
-          <h1 className="text-4xl md:text-7xl bricolage-grotesque mb-8">{t('presale.intro.title')}</h1>
-          <h3 className="mb-8 inter text-lg">{t('presale.intro.subtitle')}</h3>
-          <div className="flex flex-col md:flex-row gap-4">
-            <Button link={language === 'en' ? catalogUrls.en : catalogUrls.fr} text={t('presale.intro.buttons.catalog')} additionalClassName="bg-purpleColor mr-6" icon={<ArrowRight />} target='_blank' />
-            <Button 
-              text={t('presale.intro.buttons.whitepaper')} 
-              additionalClassName="mt-4 md:mt-0 opacity-50 cursor-not-allowed" 
-              link="/manifest"
-            />
+    <section className="relative w-full h-96 md:h-[550px] overflow-hidden">
+      {/* Image de fond */}
+      <div className="absolute inset-0">
+        <img
+          src={BG.src}
+          alt="Background presale"
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
+      </div>
+
+      {/* Contenu du hero */}
+      <div className="relative z-10 flex items-center h-full">
+        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full">
+          <div className="flex flex-col md:flex-row md:justify-between gap-12">
+            <div className="md:w-6/12 bricolage-grotesque font-semibold">
+              <h1 className="text-4xl md:text-7xl bricolage-grotesque mb-8 text-white">{t('presale.intro.title')}</h1>
+              <h3 className="mb-8 inter text-lg text-white/90">{t('presale.intro.subtitle')}</h3>
+            </div>
           </div>
         </div>
       </div>

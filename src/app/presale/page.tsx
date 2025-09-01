@@ -6,17 +6,25 @@ import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import PresaleFAQ from '@/components/presale/PresaleFAQ';
+import Button from "@/components/common/Button";
+import { ArrowRight } from "lucide-react";
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
 export default function Presale() {
-  const { t } = useLanguageStore();
+  const { t, language } = useLanguageStore();
   const { 
     artworks,
     fetchPresaleArtworks, 
     isLoading, 
     hasError 
   } = usePresaleArtworkStore()
+
+  // URLs pour les catalogues hébergés en ligne
+  const catalogUrls = {
+    en: 'https://drive.google.com/file/d/1P_3Q_nTExvorTrAQhoLTv_kGs8FDCWNu/view?usp=sharing',
+    fr: 'https://drive.google.com/file/d/1Z56Fvbi2HD5raHO8fDh3Fx6UhMzL6ot-/view?usp=sharing'
+  };
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),
@@ -210,6 +218,17 @@ export default function Presale() {
             </button>
           </div>
         )}
+
+        {/* Bouton du catalogue après la pagination */}
+        <div className="flex justify-center mt-12">
+          <Button 
+            link={language === 'en' ? catalogUrls.en : catalogUrls.fr} 
+            text={t('presale.intro.buttons.catalog')} 
+            additionalClassName="bg-purpleColor" 
+            icon={<ArrowRight />} 
+            target='_blank' 
+          />
+        </div>
         
         {/* <BuyProcess /> */}
       </div>
