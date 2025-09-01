@@ -53,6 +53,8 @@ export default function JoinInRealArtGalleriesPage() {
         buttonUrl="#howToJoinUs"
       />
       
+      <GalleryTestimonialsWrapper />
+      
       <GalleriesSection />
       
       <JoinIraOpportunities 
@@ -62,8 +64,6 @@ export default function JoinInRealArtGalleriesPage() {
         buttonUrl="#howToJoinUs"
       />
       
-      <GalleryTestimonialsWrapper />
-
       <HowToJoinUs 
         title="joinInRealArt.galleries.howToJoin.title"
         buttonText="joinInRealArt.galleries.howToJoin.button"

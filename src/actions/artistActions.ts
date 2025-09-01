@@ -52,11 +52,14 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
         }
 
         // Ajouter le filtre isGallery si fourni
+        // isGallery: true = galeries, isGallery: false = artistes individuels
         if (isGallery !== undefined) {
             whereCondition.artist = {
-                isGallery
+                isGallery: isGallery
             }
         }
+
+        // console.log('Filtrage getArtists - isGallery:', isGallery, 'whereCondition:', JSON.stringify(whereCondition))
 
         // Récupérer les artistes de la landing page
         const landingArtists = await prisma.landingArtist.findMany({
@@ -100,6 +103,8 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
             }
         })
 
+        console.log(`Récupération de ${landingArtists.length} artistes avec isGallery=${isGallery}`)
+
         if (landingArtists.length === 0) {
             return []
         }
@@ -125,6 +130,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
 
         // Organisation des traductions par entité et par champ
         const translationsByEntity = organizeTranslations(allTranslations)
+
         // Transformer les données pour correspondre à l'interface ArtistData
         const artists: ArtistData[] = landingArtists.map(la => {
             const landingArtistKey = `LandingArtist-${la.id}`

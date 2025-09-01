@@ -70,15 +70,10 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
 
     fetchArtists: async (isGallery?: boolean) => {
         const state = get()
-        const now = Date.now()
-        const cacheTimeout = 5 * 60 * 1000 // 5 minutes de cache
 
-        // Vérifier si on a déjà des données récentes
-        if (state.artists.length > 0 &&
-            state.lastFetchTime &&
-            (now - state.lastFetchTime) < cacheTimeout) {
-            return
-        }
+        // Forcer la récupération des données depuis la base de données
+        // en supprimant la logique de cache qui cause des problèmes
+        // avec le filtrage isGallery
 
         set({ isLoading: true, hasError: false, errorMessage: null })
 
@@ -120,8 +115,10 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
             set({
                 artists: formattedArtists,
                 isLoading: false,
-                lastFetchTime: now
+                lastFetchTime: Date.now()
             })
+
+            console.log(`Store mis à jour avec ${formattedArtists.length} artistes (isGallery: ${isGallery})`)
         } catch (error) {
             console.error('Erreur lors de la récupération des artistes:', error)
             set({
