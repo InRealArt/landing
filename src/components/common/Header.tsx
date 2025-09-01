@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 import Button from './Button';
 import { Phone, ArrowRight, Menu } from 'lucide-react';
 import Link from 'next/link';
@@ -21,7 +21,14 @@ const Header = () => {
     <header className="w-full h-headerSize bg-backgroundColor fixed top-0 z-50">
       <div className='flex gap-20 m-auto items-center justify-between max-w-90 xl:max-w-screen-xl h-full'>
         <Link href="/">
-          <Image src={`/icons/Logo.png`} alt='IRA-LOGO' width="101" height="32" />
+          <OptimizedImage 
+            src="/icons/Logo.png" 
+            alt='IRA-LOGO' 
+            width={101} 
+            height={32}
+            priority={true}
+            quality={95}
+          />
         </Link>
         <ul className="gap-8 items-center hidden lg:flex bricolage-grotesque font-semibold">
           <Link href="/">{t('nav.home')}</Link>
