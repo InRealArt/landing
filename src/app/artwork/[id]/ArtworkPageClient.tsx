@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import OptimizedContentImage from '@/components/common/OptimizedContentImage'
 import { useLanguageStore } from '@/store/languageStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
@@ -176,12 +176,15 @@ export default function ArtworkPageClient({ artworkId }: Props) {
       <div className="container mx-auto px-4 py-8 pt-headerSize">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Artwork image */}
-          <div className="relative aspect-square rounded-lg overflow-hidden bg-[#1A1A1A]">
-            <Image
+          <div className="relative rounded-lg overflow-hidden bg-[#1A1A1A]">
+            <OptimizedContentImage
               src={artwork.url}
               alt={artworkName}
-              fill
-              className="object-cover"
+              width={800}
+              height={800}
+              className="w-full h-auto"
+              priority={true}
+              isDecorative={false}
             />
           </div>
 
