@@ -2,6 +2,8 @@
 
 import { useLanguageStore } from '@/store/languageStore';
 import Image from 'next/image';
+import Button from '@/components/common/Button';
+import { Phone } from 'lucide-react';
 
 export default function ForWho() {
   const { t } = useLanguageStore();
@@ -51,6 +53,15 @@ export default function ForWho() {
                 </li>
               ))}
             </ul>
+            <Button 
+              text={t('contact.scheduleMeeting')} 
+              iconBefore 
+              additionalClassName="bg-purpleColor mt-8" 
+              icon={<Phone />} 
+              center 
+              target='_blank' 
+              link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" 
+            />
           </div>
           
           <div className="w-full md:w-1/2">

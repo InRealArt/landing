@@ -36,7 +36,7 @@ const navigation = {
     { label: 'nav.usecase', href: '/usecase' },
     // { label: 'nav.ico', href: '/token', disabled: true },
     { label: 'nav.roadmap', href: '/roadmap' },
-    { label: 'nav.whitepaper', href: '/whitepaper' },
+    { label: 'nav.whitepaper', href: '/manifest' },
     // { label: 'nav.airdrop', href: '/airdrop', disabled: true },
     // { label: 'nav.blog', href: '/blog' },
   ],
