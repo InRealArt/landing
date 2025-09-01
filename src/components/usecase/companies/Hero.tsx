@@ -21,13 +21,28 @@ export default function Hero() {
   }, [t]);
 
   return (
-    <section className="relative bg-cover m-auto bg-no-repeat bg-bottom h-screen w-full flex items-center justify-center" style={{ backgroundImage: ` url('${marketplaceImage.src}')` }}>
+    <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+      {/* Image de fond */}
+      <div className="absolute inset-0">
+        <Image
+          src={marketplaceImage}
+          alt={t('companies.hero.title')}
+          fill
+          className="object-cover object-center scale-110"
+          priority
+          quality={90}
+        />
+        
+        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
+      </div>
+
       {/* Content Overlay */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 h-full flex items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">
-            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
+            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
             <div className="mt-auto">
               <Button
                 text={t('companies.hero.button')}
@@ -38,7 +53,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Text */}
-          <div className="text-lg inter text-gray-200 font-bold">
+          <div className="text-lg inter text-white/90 font-bold">
             <p className="mb-4">
               {t('companies.hero.description.p1')}
             </p>

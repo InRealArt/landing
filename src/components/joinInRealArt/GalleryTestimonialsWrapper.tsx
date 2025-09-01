@@ -42,7 +42,7 @@ export default function GalleryTestimonialsWrapper() {
       text: t('joinInRealArt.galleries.testimonials.gallery2.text'),
       classementIcac: "",
       urlImageArtiste: artists.find(artist => artist.surname.toLowerCase().includes('arthema'))?.imageUrl || '/images/team-member.png',
-      nomArtiste: "Arthema",
+      nomArtiste: "ArtThema",
       prenomArtiste: ""
     }
   ]
