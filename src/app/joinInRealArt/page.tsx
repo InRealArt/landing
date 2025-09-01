@@ -1,12 +1,13 @@
 'use client'
 
-import Header from "@/components/joinInRealArt/Header";
+import { JoinInRealArtHero, DescriptionsBlock } from "@/components/joinInRealArt";
 import JoinInRealArtFAQ from "@/components/joinInRealArt/JoinInRealArtFAQ";
 
 export default function UseCase() {
   return (
     <>
-      <Header />
+      <JoinInRealArtHero />
+      <DescriptionsBlock />
       {/* <CustomerStories /> */}
       {/* <ReadyToStart /> */}
       <JoinInRealArtFAQ />

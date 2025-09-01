@@ -39,3 +39,4 @@ const OptimizedSVG = ({
 }
 
 export default OptimizedSVG
+

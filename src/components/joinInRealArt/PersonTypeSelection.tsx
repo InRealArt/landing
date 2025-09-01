@@ -1,13 +1,12 @@
 'use client'
 
-import BG from "../../../public/images/intro-background.png";
-import { ArrowRight } from "lucide-react";
-import Button from "@/components/common/Button";
-import { useLanguageStore } from '@/store/languageStore';
-import TranslatedText from "@/components/common/TranslatedText";
+import { ArrowRight } from "lucide-react"
+import Button from "@/components/common/Button"
+import { useLanguageStore } from '@/store/languageStore'
+import TranslatedText from "@/components/common/TranslatedText"
 
-export default function Header() {
-  const { t } = useLanguageStore();
+export default function PersonTypeSelection() {
+  const { t } = useLanguageStore()
 
   const selectPersonType = [
     {
@@ -20,23 +19,11 @@ export default function Header() {
       link: "/joinInRealArt/galleries",
       description: 'joinInRealArt.header.galleries.description'
     }
-  ];
+  ]
 
   return (
-    <section className="bg-cover bg-no-repeat bg-bottom py-20 w-full pt-headerSize" style={{ backgroundImage: `url('${BG.src}')`}}>
-      <div className="max-w-90 xl:max-w-screen-xl m-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4">
-            {t('joinInRealArt.header.title')}
-          </h1>
-          <p className="text-lg md:text-xl inter text-gray-300">
-            <TranslatedText 
-              translationKey="joinInRealArt.header.description"
-              allowHtml={true}
-            />
-          </p>
-        </div>
-        
+    <section className="w-full py-16 bg-[rgb(19,19,19)]">
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {selectPersonType.map((personType, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
@@ -58,5 +45,6 @@ export default function Header() {
         </div>
       </div>
     </section>
-  );
-} 
+  )
+}
+
