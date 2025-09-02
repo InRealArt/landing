@@ -1,39 +1,34 @@
 'use client'
 
-import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
+import OptimizedBackgroundImage from "@/components/common/OptimizedBackgroundImage"
 
 export default function ArtistsHero() {
   const { t } = useLanguageStore()
 
   return (
-    <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
-      {/* Image de fond */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero_artists.webp"
-          alt={t('artists.title')}
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        
-        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
-      </div>
+    <section className="relative w-screen h-96 md:h-[550px] overflow-hidden ml-[calc(-50vw+50%)]">
+      <OptimizedBackgroundImage
+        src="/images/artists/hero_artists.webp"
+        alt={t('artists.title')}
+        width={1920}
+        height={1080}
+        className="absolute inset-0 w-full h-full"
+        overlay={false}
+      />
+      
+      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
 
       {/* Contenu du hero */}
-      <div className="relative z-10 flex items-end h-full">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
-          <div className="max-w-4xl">
-            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6">
-              {t('artists.hero.title')}
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl leading-relaxed">
-              {t('artists.hero.subtitle')}
-            </p>
-          </div>
+      <div className="absolute inset-0 z-20 flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
+          <h1 className="bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
+            {t('artists.hero.title')}
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed">
+            {t('artists.hero.subtitle')}
+          </p>
         </div>
       </div>
     </section>

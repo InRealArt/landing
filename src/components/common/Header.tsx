@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="w-full h-headerSize bg-backgroundColor fixed top-0 z-50">
-      <div className='flex gap-20 m-auto items-center justify-between max-w-90 xl:max-w-screen-xl h-full'>
+      <div className='flex gap-20 mx-auto items-center justify-between max-w-7xl w-full px-4 sm:px-6 lg:px-8 h-full'>
         <Link href="/">
           <OptimizedImage 
             src="/icons/Logo.png" 

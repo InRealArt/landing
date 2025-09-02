@@ -19,7 +19,7 @@ const ArtistCategoriesSliderLazy = lazy(
 function CategoriesSliderSkeleton () {
   return (
     <section className="w-full mb-16 mt-24">
-      <div className="max-w-90 xl:max-w-screen-xl m-auto">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div className="h-8 w-64 rounded bg-white/10 animate-pulse" />
           <div className="flex items-center space-x-4">
@@ -106,7 +106,7 @@ export default function ArtistsPage() {
       </Suspense> */}
 
       {/* Grille d'artistes avec filtre nationalité & pagination via Nuqs */}
-      <Suspense fallback={<div className="max-w-90 xl:max-w-screen-xl m-auto text-white/70">Chargement…</div>}>
+      <Suspense fallback={<div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-white/70">Chargement…</div>}>
         <ArtistsGrid />
       </Suspense>
 

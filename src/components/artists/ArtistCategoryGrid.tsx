@@ -15,7 +15,7 @@ interface ArtistCategoryGridProps {
 export function ArtistCategoryGridSkeleton() {
   const skeletons = Array.from({ length: PAGE_SIZE })
   return (
-    <section className="max-w-90 xl:max-w-screen-xl m-auto mt-10">
+    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
       <div className="flex items-center justify-between mb-6">
         <div className="h-5 w-32 rounded bg-white/10 animate-pulse" />
       </div>
@@ -51,7 +51,7 @@ export default function ArtistCategoryGrid({ artists }: ArtistCategoryGridProps)
   const current = artists.slice(start, start + PAGE_SIZE)
 
   return (
-    <section className="max-w-90 xl:max-w-screen-xl m-auto mt-10">
+    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
       <div className="flex items-center justify-end mb-6">
         <div className="text-white/60 text-sm">
           {artists.length} {t('artists.artistsFound') || 'artistes trouvés'}

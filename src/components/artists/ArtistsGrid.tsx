@@ -11,7 +11,7 @@ const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 export function ArtistsGridSkeleton () {
   const skeletons = Array.from({ length: PAGE_SIZE })
   return (
-    <section className="max-w-90 xl:max-w-screen-xl m-auto mt-10">
+    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
       <div className="flex items-center justify-between mb-6">
         <div className="h-9 w-40 rounded-full bg-white/10 animate-pulse" />
         <div className="h-5 w-32 rounded bg-white/10 animate-pulse" />
@@ -108,7 +108,7 @@ export default function ArtistsGrid () {
   if (isLoading) return <ArtistsGridSkeleton />
 
   return (
-    <section className="max-w-90 xl:max-w-screen-xl m-auto mt-10">
+    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
           <div ref={dropdownRef} className="relative inline-block">

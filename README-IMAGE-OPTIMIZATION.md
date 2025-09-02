@@ -236,6 +236,22 @@ import OptimizedSVG from "@/components/common/OptimizedSVG";
 >
   <p>Offre spéciale !</p>
 </OptimizedBackgroundImage>
+
+// Sections avec dégradé personnalisé (exemple réel)
+<OptimizedBackgroundImage
+  src="/images/joinInRealArt/hero_joinInRealArt.webp"
+  alt="Rejoignez In Real Art"
+  width={1920}
+  height={1080}
+  className="w-full min-h-[80vh]"
+  overlay={true}
+  overlayColor="linear-gradient(to top, rgb(19,19,19), rgba(19,19,19,0.8), transparent)"
+  overlayOpacity={1}
+>
+  <div className="flex items-end lg:items-center h-full">
+    <h1 className="text-white text-6xl font-bold">Rejoignez-nous</h1>
+  </div>
+</OptimizedBackgroundImage>
 ```
 
 ### **📰 Utilisez `OptimizedContentImage` pour :**
@@ -284,7 +300,9 @@ import OptimizedSVG from "@/components/common/OptimizedSVG";
 
 ## 🔄 Migration des Composants Existants
 
-### Avant (non optimisé)
+### **🖼️ Migration d'Images Standard**
+
+#### Avant (non optimisé)
 
 ```tsx
 import Image from "next/image";
@@ -292,7 +310,7 @@ import Image from "next/image";
 <Image src="/images/logo.png" alt="Logo" width={100} height={50} />;
 ```
 
-### Après (optimisé)
+#### Après (optimisé)
 
 ```tsx
 import OptimizedImage from "@/components/common/OptimizedImage";
@@ -304,6 +322,82 @@ import OptimizedImage from "@/components/common/OptimizedImage";
   height={50}
   priority={true}
   quality={95}
+/>;
+```
+
+### **🏠 Migration d'Images de Fond avec Overlay**
+
+#### Avant (non optimisé)
+
+```tsx
+import Image from "next/image";
+
+<section className="relative w-full min-h-[80vh] overflow-hidden">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/hero-bg.jpg"
+      alt="Arrière-plan héroïque"
+      fill
+      className="object-cover"
+      priority
+      quality={90}
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+  </div>
+  <div className="relative z-10 flex items-center h-full">
+    <h1 className="text-white">Titre</h1>
+  </div>
+</section>;
+```
+
+#### Après (optimisé)
+
+```tsx
+import OptimizedBackgroundImage from "@/components/common/OptimizedBackgroundImage";
+
+<OptimizedBackgroundImage
+  src="/images/hero-bg.jpg"
+  alt="Arrière-plan héroïque"
+  width={1920}
+  height={1080}
+  className="w-full min-h-[80vh]"
+  overlay={true}
+  overlayColor="linear-gradient(to top, rgba(0,0,0,0.8), transparent)"
+  overlayOpacity={1}
+>
+  <div className="flex items-center h-full">
+    <h1 className="text-white">Titre</h1>
+  </div>
+</OptimizedBackgroundImage>;
+```
+
+### **📰 Migration d'Images de Contenu**
+
+#### Avant (non optimisé)
+
+```tsx
+import Image from "next/image";
+
+<Image
+  src="/images/article.jpg"
+  alt="Image d'article"
+  width={800}
+  height={600}
+/>;
+```
+
+#### Après (optimisé)
+
+```tsx
+import OptimizedContentImage from "@/components/common/OptimizedContentImage";
+
+<OptimizedContentImage
+  src="/images/article.jpg"
+  alt="Image d'article"
+  width={800}
+  height={600}
+  isDecorative={false}
+  quality={90}
 />;
 ```
 
