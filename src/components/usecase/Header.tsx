@@ -1,7 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import BG from "../../../public/images/usecase/hero_usecase.webp";
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
@@ -34,23 +33,24 @@ export default function Header() {
 
   return (
     <section className="relative w-full py-20 pt-headerSize overflow-hidden">
-      {/* Image de fond */}
       <div className="absolute inset-0">
-        <Image
-          src={BG}
-          alt={t('usecase.intro.title')}
-          fill
-          className="object-cover object-bottom"
-          priority
-          quality={90}
-        />
-        
-        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
+        <div className="w-full h-full [&_img]:!object-bottom">
+          <OptimizedBackgroundImage
+            src="/images/usecase/hero_usecase.webp"
+            alt={t('usecase.intro.title')}
+            width={1920}
+            height={1080}
+            className="w-full h-full"
+            overlay={false}
+          />
+        </div>
       </div>
+      
+      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
 
       {/* Contenu du header */}
-      <div className="relative z-10 max-w-90 xl:max-w-screen-xl m-auto">
+      <div className="relative z-20 max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white">
             {t('usecase.intro.title')}
