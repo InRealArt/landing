@@ -23,7 +23,7 @@ export default function JoinInRealArtHero() {
   ]
 
   return (
-    <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
+    <section className="relative w-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden">
       {/* Image de fond */}
       <div className="absolute inset-0">
         <Image
@@ -40,15 +40,15 @@ export default function JoinInRealArtHero() {
       </div>
 
       {/* Contenu du hero */}
-      <div className="relative z-10 flex items-end h-full">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <div className="relative z-10 flex items-end lg:items-center h-full">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-24 xl:pt-28 pb-8 sm:pb-12 md:pb-16 lg:pb-16 xl:pb-20">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
             {/* Contenu principal à gauche */}
-            <div className="lg:w-3/5">
-              <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6">
+            <div className="lg:w-3/5 mt-4 sm:mt-6 lg:mt-8">
+              <h1 className="bricolage-grotesque text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
                 {t('joinInRealArt.header.title')}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl leading-relaxed mb-8">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl leading-relaxed mb-6 sm:mb-8">
                 <TranslatedText 
                   translationKey="joinInRealArt.header.description"
                   allowHtml={true}
@@ -58,13 +58,13 @@ export default function JoinInRealArtHero() {
             
             {/* PersonTypeSelection à droite */}
             <div className="lg:w-2/5">
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 mt-4 sm:mt-6 lg:mt-0">
                 {selectPersonType.map((personType, index) => (
-                  <div key={index} className="bg-[rgb(30,30,30)]/90 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <h3 className="text-lg bricolage-grotesque font-semibold text-white mb-3">
+                  <div key={index} className="bg-[rgb(30,30,30)]/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/20">
+                    <h3 className="text-base sm:text-lg bricolage-grotesque font-semibold text-white mb-2 sm:mb-3">
                       {personType.title}
                     </h3>
-                    <p className="text-sm text-white/80 mb-4 bricolage-grotesque">
+                    <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4 bricolage-grotesque leading-relaxed">
                       <TranslatedText 
                         translationKey={personType.description}
                         allowHtml={true}
@@ -72,8 +72,8 @@ export default function JoinInRealArtHero() {
                     </p>
                     <Button 
                       text={t('buttons.readMore')} 
-                      additionalClassName="bg-purpleColor w-full justify-center" 
-                      icon={<ArrowRight />} 
+                      additionalClassName="bg-purpleColor w-full justify-center text-xs sm:text-sm" 
+                      icon={<ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />} 
                       link={personType.link}
                     />
                   </div>
