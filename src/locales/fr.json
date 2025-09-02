@@ -498,11 +498,19 @@
     "artwork_plural": "œuvres"
   },
   "team": {
+    "title": "Notre équipe",
+    "hero": {
+      "title": "Notre équipe",
+      "subtitle": "Notre équipe réunit des talents complémentaires pour bâtir une aventure humaine qui rapproche les artistes et les investisseurs."
+    },
     "loading": "Chargement en cours...",
     "error": "Une erreur est survenue: ",
     "unknownError": "Erreur inconnue",
     "noMembers": "Aucun membre d'équipe trouvé.",
     "discoverTeam": "Découvrez notre équipe",
+    "viewMore": "Plus",
+    "viewLess": "Moins",
+    "viewFullProfile": "Profil complet",
     "meetTeam": "Rencontrez toute l'équipe",
     "faq": {
       "title": "Questions fréquentes sur l'équipe",

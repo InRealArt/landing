@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import BioSlider from '@/components/common/slider/BioSlider'
 import TeamCard from '@/components/common/cards/TeamCard'
+import TeamModal from '@/components/team/TeamModal'
 import { useTeamStore } from '@/store/useTeamStore'
 import { useLanguageStore } from '@/store/languageStore'
 
@@ -14,6 +15,8 @@ interface SocialLink {
 export default function TeamContent() {
   const { members, isLoading, hasError, errorMessage, fetchTeamMembers, getTranslatedMembers } = useTeamStore()
   const { t, language } = useLanguageStore()
+  const [selectedMember, setSelectedMember] = useState<any>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     fetchTeamMembers()
@@ -23,6 +26,18 @@ export default function TeamContent() {
   useEffect(() => {
       getTranslatedMembers()
   }, [language])
+
+  // Fonction pour ouvrir le modal avec un membre
+  const handleViewFullProfile = (member: any) => {
+    setSelectedMember(member)
+    setIsModalOpen(true)
+  }
+
+  // Fonction pour fermer le modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedMember(null)
+  }
 
   if (isLoading) {
     return <div className="text-center py-10">{t('common.loading')}</div>
@@ -80,15 +95,30 @@ export default function TeamContent() {
 
   return (
     <>
-      <BioSlider items={teamItems} title={t('team.discoverTeam')} />
       <div className="mt-20">
-        <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('team.meetTeam')}</h1>
-        <div className="flex flex-wrap gap-4">
-          {teamItems.map((item) =>
-            <TeamCard key={item.name} {...item} additionalClassName="w-full lg:w-cardLarge" />
-          )}
+        <div className="max-w-90 xl:max-w-screen-xl mx-auto">
+          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('team.meetTeam')}</h1>
+          <div className="flex flex-wrap gap-4">
+            {teamItems.map((item) =>
+              <TeamCard 
+                key={item.name} 
+                {...item} 
+                additionalClassName="w-full lg:w-cardLarge" 
+                onViewMore={() => handleViewFullProfile(item)}
+              />
+            )}
+          </div>
         </div>
       </div>
+
+      {/* Modal pour afficher le profil complet */}
+      {selectedMember && (
+        <TeamModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          member={selectedMember}
+        />
+      )}
     </>
   )
 } 

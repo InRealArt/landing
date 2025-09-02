@@ -495,11 +495,19 @@
     "artwork_plural": "artworks"
   },
   "team": {
+    "title": "Our Team",
+    "hero": {
+      "title": "Our Team",
+      "subtitle": "Our team brings together complementary talents to build a human adventure that brings artists and investors closer together."
+    },
     "loading": "Loading...",
     "error": "An error occurred: ",
     "unknownError": "Unknown error",
     "noMembers": "No team members found.",
     "discoverTeam": "Discover our team",
+    "viewMore": "More",
+    "viewLess": "Less",
+    "viewFullProfile": "Full Profile",
     "meetTeam": "Meet the entire team",
     "faq": {
       "title": "Frequently Asked Questions about the team",

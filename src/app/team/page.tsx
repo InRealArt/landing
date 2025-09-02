@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import TeamHero from "@/components/team/TeamHero";
 import TeamContent from "@/components/team/TeamContent";
 import { generateStaticMetadata } from '@/utils/metadata'
 import TeamFAQ from '@/components/team/TeamFAQ'
@@ -13,6 +14,7 @@ export const metadata: Metadata = generateStaticMetadata({
 export default function TeamPage() {
   return (
     <main className="min-h-screen text-white">
+      <TeamHero />
       <TeamContent />
       <TeamFAQ />
     </main>
