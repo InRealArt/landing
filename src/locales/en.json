@@ -19,7 +19,8 @@
     "companies": "Companies",
     "lending": "Lending",
     "fractionate": "Fractionate",
-    "joinInRealArt": "Join InRealArt"
+    "joinInRealArt": "Join InRealArt",
+    "aboutInRealArt": "The InRealArt company"
   },
   "intro": {
     "title": "The Tokenization of Art accessible to all",
@@ -42,6 +43,7 @@
     "location": "Paris",
     "email": "teaminrealart@gmail.com",
     "resources": "Art Knowledge & Practices",
+    "aboutInRealArt": "About InRealArt",
     "contact": "Contact",
     "simulators": "Trade shows",
     "leasing": "Corporate leasing",

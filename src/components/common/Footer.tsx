@@ -26,8 +26,7 @@ const navigation = {
   pages: [
     { label: 'nav.home', href: '/' },
     { label: 'nav.marketplace', href: '/marketplace' },
-    { label: 'nav.roadmap', href: '/roadmap' },
-    { label: 'nav.team', href: '/team' },
+    // { label: 'nav.roadmap', href: '/roadmap' },
     { label: 'nav.artists', href: '/artists' },
     { label: 'nav.presale', href: '/presale' },
 
@@ -35,16 +34,21 @@ const navigation = {
     { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.usecase', href: '/usecase' },
     // { label: 'nav.ico', href: '/token', disabled: true },
-    { label: 'nav.roadmap', href: '/roadmap' },
-    { label: 'nav.whitepaper', href: '/manifest' },
+    // { label: 'nav.roadmap', href: '/roadmap' },
+    
     // { label: 'nav.airdrop', href: '/airdrop', disabled: true },
     // { label: 'nav.blog', href: '/blog' },
+    { label: 'nav.aboutInRealArt', href: '/about' },
+    { label: 'nav.whitepaper', href: '/manifest' },
+    { label: 'nav.team', href: '/team' },
   ],
 }
 
 // Split links into two groups
-const firstColumnLinks: NavigationLink[] = navigation.pages.slice(0, 6)
-const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6)
+const firstColumnLinks: NavigationLink[] = navigation.pages.slice(0, 4)
+const secondColumnLinks: NavigationLink[] = navigation.pages.slice(4,7)
+const thirdColumnLinks: NavigationLink[] = navigation.pages.slice(7)
+
 
 const Footer = () => {
   const { t } = useLanguageStore()
@@ -152,7 +156,7 @@ const Footer = () => {
                 <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
             </div>
-<div className="relative w-full md:w-80 mt-4">
+        <div className="relative w-full md:w-80 mt-4">
           <input
             name="email"
             type="text"
@@ -225,6 +229,23 @@ const Footer = () => {
             </ul>
             <div />
 
+          </div>
+
+          {/* Pages - Third Column */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.aboutInRealArt')}</h3>
+            <ul className="space-y-2">
+              {thirdColumnLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-gray-400 hover:text-white transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                  >
+                    {t(link.label)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Simulators Section - First Block */}
