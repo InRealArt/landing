@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
 import { ArrowRight } from 'lucide-react'
@@ -14,26 +14,24 @@ export default function AboutOurHistory() {
         {/* Section des images d'art - deux images côte à côte */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Image gauche - Paysage montagneux aquarelle */}
-          <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
-            <Image
-              src="/images/about/about_section3_photo1.webp"
-              alt="Paysage montagneux aquarelle"
-              fill
-              className="object-cover"
-              quality={90}
-            />
-          </div>
+          <OptimizedBackgroundImage
+            src="/images/about/about_section3_photo1.webp"
+            alt="Paysage montagneux aquarelle"
+            fill={true}
+            className="w-full aspect-square rounded-2xl"
+            quality={90}
+            priority={false}
+          />
           
           {/* Image droite - Scène tropicale avec Cupidon */}
-          <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
-            <Image
-              src="/images/about/about_section3_photo2.webp"
-              alt="Scène tropicale avec Cupidon"
-              fill
-              className="object-cover"
-              quality={90}
-            />
-          </div>
+          <OptimizedBackgroundImage
+            src="/images/about/about_section3_photo2.webp"
+            alt="Scène tropicale avec Cupidon"
+            fill={true}
+            className="w-full aspect-square rounded-2xl"
+            quality={90}
+            priority={false}
+          />
         </div>
 
         {/* Section du contenu textuel */}

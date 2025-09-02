@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 
 export default function AcademySection1() {
@@ -20,16 +20,16 @@ export default function AcademySection1() {
           {/* Colonne gauche - moins large */}
           <div className="lg:w-2/5">
             <div className="bg-[rgb(30,30,30)] rounded-2xl p-6 h-full">
-              <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-6">
-                <Image
-                  src="/images/academy/academy_section1_image1.webp"
-                  alt="Sublimez votre intérieur"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
+              <OptimizedBackgroundImage
+                src="/images/academy/academy_section1_image1.webp"
+                alt="Sublimez votre intérieur"
+                fill={true}
+                className="w-full aspect-[3/4] rounded-xl mb-6"
+                quality={90}
+                priority={false}
+              >
                 <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
-              </div>
+              </OptimizedBackgroundImage>
               <h3 className="bricolage-grotesque text-2xl md:text-3xl font-bold text-white mb-4">
                 {t('academy.section1.block1.title')}
               </h3>
@@ -54,16 +54,16 @@ export default function AcademySection1() {
                   </p>
                 </div>
                 <div className="w-1/2">
-                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
-                    <Image
-                      src="/images/academy/academy_section1_image2.webp"
-                      alt="Valorisez votre espace professionnel"
-                      fill
-                      className="object-cover"
-                      quality={90}
-                    />
+                  <OptimizedBackgroundImage
+                    src="/images/academy/academy_section1_image2.webp"
+                    alt="Valorisez votre espace professionnel"
+                    fill={true}
+                    className="w-full aspect-[4/3] rounded-xl"
+                    quality={90}
+                    priority={false}
+                  >
                     <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
-                  </div>
+                  </OptimizedBackgroundImage>
                 </div>
               </div>
             </div>
@@ -78,28 +78,28 @@ export default function AcademySection1() {
                   <p className="text-white/90 text-sm leading-relaxed mb-4">
                     {t('academy.section1.block3.description')}
                   </p>
-                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
-                    <Image
-                      src="/images/academy/academy_section1_image3.webp"
-                      alt="Créez des moments inoubliables"
-                      fill
-                      className="object-cover"
-                      quality={90}
-                    />
+                  <OptimizedBackgroundImage
+                    src="/images/academy/academy_section1_image3.webp"
+                    alt="Créez des moments inoubliables"
+                    fill={true}
+                    className="w-full aspect-[4/3] rounded-xl"
+                    quality={90}
+                    priority={false}
+                  >
                     <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
-                  </div>
+                  </OptimizedBackgroundImage>
                 </div>
                 <div className="w-1/2">
-                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4">
-                    <Image
-                      src="/images/academy/academy_section1_image4.webp"
-                      alt="L'art au service du mieux-être"
-                      fill
-                      className="object-cover"
-                      quality={90}
-                    />
+                  <OptimizedBackgroundImage
+                    src="/images/academy/academy_section1_image4.webp"
+                    alt="L'art au service du mieux-être"
+                    fill={true}
+                    className="w-full aspect-[4/3] rounded-xl mb-4"
+                    quality={90}
+                    priority={false}
+                  >
                     <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
-                  </div>
+                  </OptimizedBackgroundImage>
                   <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-white mb-3">
                     {t('academy.section1.block4.title')}
                   </h3>

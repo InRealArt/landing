@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
 import { ArrowRight } from 'lucide-react'
@@ -26,15 +26,14 @@ export default function AboutTeam() {
             </div>
             
             {/* Image de l'équipe */}
-            <div className="relative w-4/5 mx-auto aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/about_team_photo1.webp"
-                alt="Équipe professionnelle au travail"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
+            <OptimizedBackgroundImage
+              src="/images/about/about_team_photo1.webp"
+              alt="Équipe professionnelle au travail"
+              fill={true}
+              className="w-4/5 mx-auto aspect-[4/3] rounded-2xl"
+              quality={90}
+              priority={false}
+            />
             
             {/* Premier paragraphe */}
             <div className="text-white/90 leading-relaxed">
@@ -89,15 +88,14 @@ export default function AboutTeam() {
           
           {/* Colonne droite - Image de la personne au travail - avec marges */}
           <div className="relative w-4/5 mx-auto flex items-end">
-            <div className="relative w-full aspect-[2/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/about_team_photo2.webp"
-                alt="Personne travaillant sur un ordinateur portable"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
+            <OptimizedBackgroundImage
+              src="/images/about/about_team_photo2.webp"
+              alt="Personne travaillant sur un ordinateur portable"
+              fill={true}
+              className="w-full aspect-[2/3] rounded-2xl"
+              quality={90}
+              priority={false}
+            />
           </div>
           
         </div>

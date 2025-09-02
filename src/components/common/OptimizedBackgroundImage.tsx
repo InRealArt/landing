@@ -6,13 +6,16 @@ import { useImageOptimization } from '@/hooks/useImageOptimization'
 interface OptimizedBackgroundImageProps {
   src: string
   alt: string
-  width: number
-  height: number
+  width?: number
+  height?: number
+  fill?: boolean
   className?: string
   children?: React.ReactNode
   overlay?: boolean
   overlayColor?: string
   overlayOpacity?: number
+  priority?: boolean
+  quality?: number
 }
 
 const OptimizedBackgroundImage = ({
@@ -20,18 +23,28 @@ const OptimizedBackgroundImage = ({
   alt,
   width,
   height,
+  fill = false,
   className = '',
   children,
   overlay = false,
   overlayColor = 'rgba(0, 0, 0, 0.3)',
   overlayOpacity = 0.3,
+  priority = false,
+  quality: customQuality,
 }: OptimizedBackgroundImageProps) => {
-  const { shouldOptimize, quality, unoptimized } = useImageOptimization({
+  // Valeurs par défaut pour le hook d'optimisation
+  const defaultWidth = width || 1920
+  const defaultHeight = height || 1080
+  
+  const { shouldOptimize, quality: optimizedQuality, unoptimized } = useImageOptimization({
     src,
-    width,
-    height,
+    width: defaultWidth,
+    height: defaultHeight,
     isBackground: true,
   })
+
+  // Utiliser la qualité personnalisée si fournie, sinon celle optimisée
+  const finalQuality = customQuality || optimizedQuality
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
@@ -39,11 +52,13 @@ const OptimizedBackgroundImage = ({
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
+        {...(fill ? 
+          { fill: true } : 
+          { width: defaultWidth, height: defaultHeight }
+        )}
         className="absolute inset-0 w-full h-full object-cover"
-        priority={false}
-        quality={quality}
+        priority={priority}
+        quality={finalQuality}
         unoptimized={unoptimized}
         sizes="100vw"
         style={{
@@ -56,7 +71,7 @@ const OptimizedBackgroundImage = ({
         <div
           className="absolute inset-0"
           style={{
-            backgroundColor: overlayColor,
+            background: overlayColor,
             opacity: overlayOpacity,
           }}
         />

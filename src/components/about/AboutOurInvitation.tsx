@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
 
@@ -17,15 +17,14 @@ export default function AboutOurInvitation() {
           
           {/* Colonne gauche - Image de la femme avec marges */}
           <div className="relative">
-            <div className="relative w-4/5 mx-auto aspect-[3/4] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/about_section2_photo1.webp"
-                alt="Femme avec tenue artistique"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
+            <OptimizedBackgroundImage
+              src="/images/about/about_section2_photo1.webp"
+              alt="Femme avec tenue artistique"
+              fill={true}
+              className="w-4/5 mx-auto aspect-[3/4] rounded-2xl"
+              quality={90}
+              priority={false}
+            />
           </div>
           
           {/* Colonne droite - Contenu textuel avec marges */}

@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 
 export default function AboutOurCommitments() {
@@ -14,15 +14,14 @@ export default function AboutOurCommitments() {
           {/* Colonne gauche */}
           <div className="space-y-8">
             {/* Image de la femme - Format paysage */}
-            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/about_section1_photo1.webp"
-                alt="Artiste InRealArt"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
+            <OptimizedBackgroundImage
+              src="/images/about/about_section1_photo1.webp"
+              alt="Artiste InRealArt"
+              fill={true}
+              className="w-full aspect-[16/9] rounded-2xl"
+              quality={90}
+              priority={false}
+            />
             
             {/* Nos engagements */}
             <div className="space-y-6">
@@ -60,24 +59,23 @@ export default function AboutOurCommitments() {
           {/* Colonne droite */}
           <div className="relative">
             {/* Image de la peinture classique - Format portrait */}
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/about_section1_photo2.webp"
-                alt="Peinture classique"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-              
+            <OptimizedBackgroundImage
+              src="/images/about/about_section1_photo2.webp"
+              alt="Peinture classique"
+              fill={true}
+              className="w-full aspect-[3/4] rounded-2xl"
+              quality={90}
+              priority={false}
+            >
               {/* Texte superposé */}
-              <div className="absolute inset-0 flex items-start justify-end p-8">
+              <div className="flex items-start justify-end p-8 h-full">
                 <div className="text-right">
                   <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-sm">
                     {t('about.ourCommitments.title')}
                   </h2>
                 </div>
               </div>
-            </div>
+            </OptimizedBackgroundImage>
           </div>
           
         </div>

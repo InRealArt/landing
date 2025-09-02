@@ -1,36 +1,35 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 
 export default function AboutHero() {
   const { t } = useLanguageStore()
 
   return (
-    <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
-      {/* Image de fond */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero_about.webp"
-          alt={t('about.title')}
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        
-        {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent" />
-      </div>
-
+    <section className="relative w-full h-[50vh] md:h-[55vh] lg:h-[60vh] overflow-hidden">
+      <OptimizedBackgroundImage
+        src="/images/hero_about.webp"
+        alt={t('about.title')}
+        width={1920}
+        height={1080}
+        className="absolute inset-0 w-full h-full"
+        priority={true}
+        quality={90}
+        overlay={false}
+      />
+      
+      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
+      
       {/* Contenu du hero */}
-      <div className="relative z-10 flex items-end h-full">
+      <div className="absolute inset-0 z-20 flex items-end">
         <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
           <div className="max-w-4xl">
-            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6">
+            <h1 className="bricolage-grotesque text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
               {t('about.hero.title')}
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl leading-relaxed">
               {t('about.hero.subtitle')}
             </p>
           </div>

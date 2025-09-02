@@ -1,6 +1,6 @@
 'use client'
 
-import Image from "next/image";
+import OptimizedImage from "@/components/common/OptimizedImage";
 import Button from "../common/Button";
 import { ArrowRight } from 'lucide-react';
 import { useLanguageStore } from '@/store/languageStore';
@@ -63,12 +63,12 @@ export default function Explore() {
     <section className="w-full mt-36">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <h1 className="text-lg lg:text-xl bricolage-grotesque flex gap-4 ">
-          <Image src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width="33" height="33" />
+          <OptimizedImage src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width={33} height={33} priority={true} />
           {t('home.explore.title')}
         </h1>
         <label className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug" dangerouslySetInnerHTML={{ __html: sanitizedSubtitle }} />
       </div>
-      <Image className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/explore.png`} alt='IRA-IMAGE' width="1440" height="450" />
+      <OptimizedImage className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/explore.png`} alt='IRA-IMAGE' width={1440} height={450} priority={false} />
 
       <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col gap-4 ">
         {items.map((item, index) => {

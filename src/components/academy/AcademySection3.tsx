@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 
 export default function AcademySection3() {
@@ -40,15 +40,14 @@ export default function AcademySection3() {
             
             {/* Colonne droite - Image */}
             <div className="lg:w-2/5">
-              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/academy/academy_section3_image1.webp"
-                  alt="Art classique InRealArt"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
-              </div>
+              <OptimizedBackgroundImage
+                src="/images/academy/academy_section3_image1.webp"
+                alt="Art classique InRealArt"
+                fill={true}
+                className="w-full aspect-[3/4] rounded-2xl"
+                quality={90}
+                priority={false}
+              />
             </div>
             
           </div>
