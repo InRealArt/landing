@@ -96,6 +96,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {t('nav.blog')}
           </Link>
+          <Link
+            href="/about"
+            className={`${pathname === '/about' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            onClick={onClose}
+          >
+            {t('nav.aboutInRealArt')}
+          </Link>
         </nav>
 
         <div className="mt-16 ">

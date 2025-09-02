@@ -38,6 +38,7 @@ const Header = () => {
           <Link href="/joinInRealArt">{t('nav.joinInRealArt')}</Link>
           <Link href="/usecase">{t('nav.usecase')}</Link>
           <Link href="/blog">Blog</Link>
+          <Link href="/about">{t('nav.aboutInRealArt')}</Link>
         </ul>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
