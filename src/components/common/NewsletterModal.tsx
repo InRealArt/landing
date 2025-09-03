@@ -7,7 +7,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { toast } from 'sonner'
 import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
 import { useNewsletter } from '@/contexts/NewsletterContext'
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 import Button from './Button'
 
 const initialState: NewsletterActionResult = {
@@ -127,23 +127,23 @@ export default function NewsletterModal() {
             <div className="relative w-[280px] h-[160px] md:h-[320px] md:w-[280px]">
               {/* Image de fond (décalée) */}
               <div className="absolute top-0 right-[25%] md:right-0 w-[80px] h-[120px] md:w-[180px] md:h-[220px] rounded-lg overflow-hidden shadow-xl z-10">
-                <Image
+                <OptimizedImage
                   src="/images/newsletter/image_nl_2.jpg"
                   alt="Newsletter illustration 2"
-                  fill
-                  className="object-cover"
-                  sizes="180px"
+                  width={180}
+                  height={220}
+                  className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
                 />
               </div>
 
               {/* Image de premier plan */}
               <div className="absolute bottom-0 left-[20%] md:left-0 w-[100px] h-[140px] md:w-[200px] md:h-[240px] rounded-lg overflow-hidden shadow-2xl z-20">
-                <Image
+                <OptimizedImage
                   src="/images/newsletter/image_nl_1.jpg"
                   alt="Newsletter illustration 1"
-                  fill
-                  className="object-cover"
-                  sizes="200px"
+                  width={200}
+                  height={240}
+                  className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
                 />
               </div>
             </div>

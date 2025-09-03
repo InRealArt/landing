@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { ArrowRight, ArrowUp } from 'lucide-react';
 
@@ -51,10 +51,10 @@ export default function TokenPhysicalArt() {
 
         <div className="flex flex-col md:flex-row gap-6">
           <div className="relative w-full rounded-lg basis-3/5">
-            <Image
+            <OptimizedImage
               src="/images/physiqueart.png"
               alt="Physical Art"
-              className="object-cover w-full h-auto"
+              className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
               width={1000}
               height={1000}
             />

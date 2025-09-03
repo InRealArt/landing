@@ -1,6 +1,6 @@
 'use client'
 
-import Image from "next/image";
+import OptimizedImage from "@/components/common/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
@@ -44,12 +44,12 @@ export default function Expert() {
             />
           </div>
           <div className="basis-2/5 w-full md:w-auto">
-              <Image
-                src={expertImage}
+              <OptimizedImage
+                src={expertImage.src}
                 alt={t('companies.expert.name')}
                 width={320}
                 height={320}
-                className="w-full h-full object-contain"
+                className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
               />
           </div>
         </div>

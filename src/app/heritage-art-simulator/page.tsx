@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import OptimizedImage from '@/components/common/OptimizedImage'
 import HeritageArtForm from '@/components/heritage-art-simulator/HeritageArtForm'
 import HeritageArtResults from '@/components/heritage-art-simulator/HeritageArtResults'
 import SimulatorLayout from '@/components/common/simulator/SimulatorLayout'
@@ -33,19 +33,24 @@ export default function HeritageArtSimulatorPage() {
     <div className="flex-1 flex items-center justify-center p-8">
       <div className="text-center space-y-6">
         <div className="relative w-80 h-80 mx-auto">
-          <Image
-            src="/images/joinUs-1.png"
-            alt="Art integration dans le patrimoine"
-            fill
-            className="rounded-lg shadow-lg opacity-80 object-cover"
-          />
-          <Image
-            src="/images/joinUs-2.png"
-            alt="Diversification artistique"
-            width={150}
-            height={150}
-            className="absolute -bottom-4 -right-4 rounded-lg shadow-lg opacity-90 object-cover"
-          />
+          <div className="w-full h-full overflow-hidden rounded-lg shadow-lg">
+            <OptimizedImage
+              src="/images/joinUs-1.png"
+              alt="Art integration dans le patrimoine"
+              width={320}
+              height={320}
+              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:opacity-80"
+            />
+          </div>
+          <div className="absolute -bottom-4 -right-4 w-[150px] h-[150px] overflow-hidden rounded-lg shadow-lg">
+            <OptimizedImage
+              src="/images/joinUs-2.png"
+              alt="Diversification artistique"
+              width={150}
+              height={150}
+              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:opacity-90"
+            />
+          </div>
         </div>
         <div className="text-gray-300 max-w-md mx-auto">
           <p className="text-lg font-medium mb-2">

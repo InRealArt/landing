@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import TranslatedText from '@/components/common/TranslatedText';
 
 interface TestimonialItem {
@@ -23,7 +23,7 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
         allowHtml={true}
       />
       <div className="flex items-center gap-3 mt-auto">
-        <Image 
+        <OptimizedImage 
           src={testimonial.urlImageArtiste} 
           alt={`${testimonial.prenomArtiste} ${testimonial.nomArtiste}`} 
           width={48} 

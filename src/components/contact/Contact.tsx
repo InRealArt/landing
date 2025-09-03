@@ -2,7 +2,7 @@
 
 import { useLanguageStore } from '@/store/languageStore';
 import { Mail, Calendar } from 'lucide-react';
-import Image from 'next/image';
+import OptimizedSVG from '@/components/common/OptimizedSVG';
 import Link from 'next/link';
 import Button from '../common/Button';
 
@@ -67,7 +67,7 @@ export default function Contact() {
             {/* Social */}
             <div className="bg-cardBackground p-8 rounded-lg border border-white/20 flex flex-col items-center">
               <div className="bg-purpleColor rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <Image src="/icons/linkedin.svg" alt="Social" width={24} height={24} className="text-white" />
+                <OptimizedSVG src="/icons/linkedin.svg" alt="Social" width={24} height={24} className="text-white" />
               </div>
               <h3 className="text-xl font-medium mb-3">{t('contact.social')}</h3>
               <div className="flex gap-4 mb-6">
@@ -80,11 +80,11 @@ export default function Contact() {
                     aria-label={platform.name}
                     className="hover:opacity-80 transition-opacity"
                   >
-                    <Image 
+                    <OptimizedSVG 
                       src={platform.icon} 
                       alt={platform.name} 
-                      width={24} 
-                      height={24} 
+                      width={platform.name === 'Facebook' ? 16 : 24} 
+                      height={platform.name === 'Facebook' ? 16 : 24} 
                       className="text-white" 
                     />
                   </Link>

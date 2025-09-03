@@ -2,7 +2,7 @@
 
 import { useState, use } from 'react'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
+import OptimizedImage from '@/components/common/OptimizedImage'
 import ArtSalonForm from '@/components/art-salon-simulator/ArtSalonForm'
 import ArtSalonResults from '@/components/art-salon-simulator/ArtSalonResults'
 import SimulatorLayout from '@/components/common/simulator/SimulatorLayout'
@@ -46,12 +46,12 @@ export default function ArtSalonSimulatorPage({ params }: ArtSalonSimulatorPageP
   // Default content for Art Salon simulator
   const defaultContent = (
     <div className="flex-1 flex items-center justify-center p-8">
-      <Image
+      <OptimizedImage
         src={salon.image}
         alt={`${salon.name} background`}
         width={500}
         height={400}
-        className="rounded-lg shadow-lg opacity-80"
+        className="[&_img]:rounded-lg [&_img]:shadow-lg [&_img]:opacity-80"
       />
     </div>
   )

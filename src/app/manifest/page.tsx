@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import OptimizedImage from '@/components/common/OptimizedImage'
 import { Container } from '@/components/common/Container'
 import { generateStaticMetadata } from '@/utils/metadata'
 import TranslatedText from '@/components/common/TranslatedText'
@@ -87,12 +87,12 @@ export default function ManifestPage() {
 
           {/* Right: image */}
           <aside className="relative w-full overflow-hidden rounded-xl shadow-2xl h-[560px] md:sticky md:top-headerSize">
-            <Image
+            <OptimizedImage
               src="/images/art-salon-background.png"
               alt="InRealArt exhibition space"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              width={800}
+              height={560}
+              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-center"
               priority
             />
           </aside>

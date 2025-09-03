@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useCallback, useState } from 'react'
-import Image from 'next/image'
+import OptimizedImage from '@/components/common/OptimizedImage'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import { useSeoPostStore } from '@/store/useSeoPostStore'
@@ -118,18 +118,18 @@ export default function FeaturedPost() {
       <div className="mb-16">
         <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black min-h-[440px] items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black items-stretch">
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative h-full cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300"
+            className="relative h-[440px] cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
           >
             {featuredPost.mainImageUrl ? (
-              <Image
-                className="rounded-lg"
+              <OptimizedImage
+                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-contain [&_img]:rounded-lg"
                 src={featuredPost.mainImageUrl}
                 alt={featuredPost.mainImageAlt || featuredPost.title}
-                fill
-                style={{ objectFit: 'contain', background: '#1d1c1c' }}
+                width={600}
+                height={440}
                 priority
               />
             ) : (

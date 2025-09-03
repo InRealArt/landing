@@ -1,6 +1,6 @@
 'use client'
 
-import Image from "next/image";
+import OptimizedImage from "@/components/common/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
@@ -68,13 +68,13 @@ export default function Possibilities() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {sections.map((section) => (
             <div key={section.id} className="bg-cardBackground rounded-lg p-6 border border-white/80">
-              <div className="mb-6">
-                <Image
+              <div className="mb-6 overflow-hidden rounded-lg h-48">
+                <OptimizedImage
                   src={section.image}
                   alt={section.title}
                   width={500}
                   height={300}
-                  className="w-full h-48 object-cover rounded-lg"
+                  className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
                 />
               </div>
               <h3 className="text-xl bricolage-grotesque font-medium mb-4">{section.title}</h3>
@@ -86,13 +86,13 @@ export default function Possibilities() {
         {/* Process Steps */}
         <div className="bg-cardBackground rounded-lg p-8 border border-white/80 mb-16">
           {/* Image */}
-          <div className="mb-8">
-            <Image
+          <div className="mb-8 overflow-hidden rounded-lg h-96">
+            <OptimizedImage
               src={'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist4.3.jpg?alt=media&token=ef53865d-a675-4d70-88a8-a4b9660e494f'}
               alt="Our Process"
               width={1200}
               height={400}
-              className="object-cover h-96 w-full"
+              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
             />
           </div>
 

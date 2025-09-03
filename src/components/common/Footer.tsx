@@ -1,6 +1,7 @@
 'use client'
 
-import Image from 'next/image'
+import OptimizedImage from '@/components/common/OptimizedImage'
+import OptimizedSVG from '@/components/common/OptimizedSVG'
 import { useLanguageStore } from '@/store/languageStore'
 import { useState } from 'react'
 import { toast } from 'sonner'
@@ -132,7 +133,7 @@ const Footer = () => {
           {/* Pages - First Column */}
 
           <ul className="flex flex-col gap-2">
-            <Image
+            <OptimizedImage
               src="/icons/Logo.png"
               alt="InRealArt Logo"
               width={101}
@@ -144,16 +145,16 @@ const Footer = () => {
             <li>{t('footer.email')}</li>
             <div className="flex space-x-4 my-4">
               <Link href="https://www.linkedin.com/company/inrealart/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+                <OptimizedSVG src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://www.instagram.com/inrealartgallery/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+                <OptimizedSVG src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://www.facebook.com/inrealart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <Image src="/icons/facebook.svg" alt="Facebook" width={16} height={16} className="hover:opacity-80 transition-opacity" />
+                <OptimizedSVG src="/icons/facebook.svg" alt="Facebook" width={16} height={16} className="hover:opacity-80 transition-opacity" />
               </Link>
               <Link href="https://x.com/InRealArt/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
-                <Image src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
+                <OptimizedSVG src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className="hover:opacity-80 transition-opacity" />
               </Link>
             </div>
         <div className="relative w-full md:w-80 mt-4">

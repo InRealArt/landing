@@ -3,7 +3,7 @@
 import Button from '@/components/common/Button';
 import { useLanguageStore } from '@/store/languageStore';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 export default function Advantages() {
   const { t } = useLanguageStore();
@@ -30,10 +30,10 @@ export default function Advantages() {
           </div>
 
           <div className="w-full md:w-1/2">
-              <Image 
+              <OptimizedImage 
                 src="/images/lending/pigcoin.png" 
                 alt="Solutions sur mesures" 
-                className="object-contain"
+                className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
                 width={500}
                 height={260}
               />

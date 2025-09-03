@@ -1,6 +1,6 @@
 'use client'
 
-import Image from "next/image";
+import OptimizedImage from "@/components/common/OptimizedImage";
 import { useLanguageStore } from '@/store/languageStore';
 
 export default function Investment() {
@@ -11,12 +11,12 @@ export default function Investment() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="relative rounded-lg">
-            <Image
+            <OptimizedImage
               src="/images/leasing-image-investment.jpg"
               alt={t('leasing.investment.title')}
               width={600}
               height={600}
-              className="w-full h-auto object-contain rounded-lg"
+              className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain [&_img]:rounded-lg"
               priority
             />
           </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 
 export default function TokenICO() {
   const { t } = useLanguageStore();
@@ -39,10 +39,10 @@ export default function TokenICO() {
         </div>
 
         <div className="relative basis-3/5">
-          <Image
+          <OptimizedImage
             src="/images/ICO.png"
             alt="ICO"
-            className="w-full h-auto"
+            className="w-full [&_img]:w-full [&_img]:h-auto"
             width={1000}
             height={1000}
           />

@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore';
-import Image from 'next/image';
+import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { Phone } from 'lucide-react';
 
@@ -65,10 +65,10 @@ export default function ForWho() {
           </div>
           
           <div className="w-full md:w-1/2">
-              <Image 
+              <OptimizedImage 
                 src="/images/lending/aberwrach.png" 
                 alt="Pour qui ?" 
-                className="w-full h-auto"
+                className="w-full [&_img]:w-full [&_img]:h-auto"
                 width={500}
                 height={530}
               />

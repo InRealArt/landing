@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Hero from "@/components/usecase/companies/Hero";
-import Expert from "@/components/usecase/companies/Expert";
 import Possibilities from "@/components/usecase/companies/Possibilities";
 import { generateStaticMetadata } from '@/utils/metadata'
 import CompaniesFAQ from '@/components/usecase/companies/CompaniesFAQ';
