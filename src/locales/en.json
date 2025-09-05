@@ -206,6 +206,12 @@
       "title": "From workshop to legacy : a catalyst for art, culture and meaning.",
       "subtitle": ""
     },
+    "faq": {
+      "title": "Frequently Asked Questions about InRealArt",
+      "description": "Are you an artist, collector, entrepreneur or institution? Our FAQ answers all your questions and helps you better understand our project and what our marketplace can bring you.",
+      "button": "View FAQ"
+    },
+
     "howItWorks": {
       "title": "How does it work?",
       "subtitle": "",
@@ -231,7 +237,7 @@
       "title": "InRealArt for artists",
       "subtitle": "InRealArt is much more than a platform: it is a rigorous curatorial space, conceived as a career partner for artists.<br/><br/>Each artist we support is selected for the uniqueness of their approach, the integrity of their work, and its resonance with our time. We build an ecosystem that goes beyond simple sales: each creation benefits from editorial storytelling, targeted dissemination, and strategic support.<br/><br/>We provide artists with a clear professional framework, qualified connections with collectors and institutions, and tools tailored to contemporary practices to enhance and transmit their work.",
       "items": {
-        "rare": {
+        "block1": {
           "title": "InRealArt for artists",
           "label": "",
           "description": "InRealArt enables artists to join a demanding network that respects their vision and fosters cultural and heritage recognition. It is a space that values the uniqueness of each artistic approach, closely connected to the issues of our time.",
@@ -240,18 +246,18 @@
             "getartworks": ""
           }
         },
-        "marketplace": {
-          "title": "For collectors and art lovers",
+        "block2": {
+          "title": "For private collectors and CEOs",
           "label": "",
-          "description": "More than a sales platform, InRealArt is a rigorous curatorial space, conceived as a bridge between creation, collection and transmission. Each physical work is selected for its integrity, singular strength and contemporary resonance. Some are accompanied by an authenticated digital replica, ensuring their traceability and longevity.",
+          "description": "InRealArt is not a simple sales platform, it is a rigorous curatorial space, conceived as a bridge between creation, collection and transmission.<br><br>InRealArt addresses those who build a heritage. More than a sales platform, we offer a curatorial framework where each work is chosen for its singular strength and its ability to integrate into a lasting collection vision. <br><br>InRealArt accompanies entrepreneurs and private collectors in the construction of coherent collections, both artistic and meaningful, with potential for transmission",
           "buttons": {
             "marketplace": "We support you"
           }
         },
-        "investment": {
-          "title": "An enriched and committed experience",
+        "block3": {
+          "title": "For institutions",
           "label": "",
-          "description": "We are building an ecosystem that goes beyond simple transactions. Each acquisition is enriched with context, story and cultural legitimation. InRealArt thus offers collectors and institutions rigorous access to selected works, in a format adapted to current practices and faithful to the respect of artistic heritage.",
+          "description": "InRealArt is a platform for dialogue between contemporary creation and public mission.<br><br>Our selection is based on a strong curatorial requirement: each work is chosen for its artistic relevance and its ability to feed collective reflection. <br><br>InRealArt accompanies museums, foundations and art centers in the expansion of their collections and the valorization of contemporary practices, in line with current cultural and social issues.",
           "buttons": {
             "usecase": "Read our manifesto"
           }

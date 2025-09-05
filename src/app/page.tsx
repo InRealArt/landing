@@ -6,6 +6,7 @@ import HowItWorks from "@/components/home/HowItWorks";
 import Explore from "@/components/home/Explore";
 import ArtistSlider from "@/components/home/ArtistSlider";
 import ArtworkSlider from "@/components/home/ArtworkSlider";
+import HomeFaq from "@/components/home/HomeFaq";
 import NewsletterInline from "@/components/common/NewsletterInline";
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, defaultMetadata } from '@/utils/metadata'
 
@@ -37,6 +38,7 @@ export default function Home() {
         <ArtworkSlider />
       </div>
       <Team />
+      <HomeFaq />
       <NewsletterInline />
     </>
   );

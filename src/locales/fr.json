@@ -206,6 +206,11 @@
       "title": "De l'atelier à l'héritage : catalyseur d'art, de culture et de sens.",
       "subtitle": ""
     },
+    "faq": {
+      "title": "Questions fréquemment posées sur InRealArt",
+      "description": "Vous êtes artiste, collectionneur, entrepreneur ou institution ? Notre FAQ répond à toutes vos questions et vous aide à mieux comprendre notre projet et ce que notre marketplace peut vous apporter.",
+      "button": "Consulter la FAQ"
+    },
     "howItWorks": {
       "title": "Comment ça fonctionne ?",
       "subtitle": "",
@@ -231,7 +236,7 @@
       "title": "InRealArt pour les artistes",
       "subtitle": "InRealArt est bien plus qu'une plateforme : c'est un espace curatorial exigeant, conçu comme un partenaire de carrière pour les artistes.<br/><br/>Chaque artiste que nous accompagnons est sélectionné pour la singularité de sa démarche, l'intégrité de son œuvre et sa résonance avec notre époque. Nous construisons un écosystème qui dépasse la simple mise en vente : chaque création bénéficie d'une mise en récit éditoriale, d'une diffusion ciblée et d'un accompagnement stratégique.<br/><br/>Nous offrons aux artistes un cadre professionnel clair, des connexions qualifiées avec collectionneurs et institutions, et des outils adaptés aux usages contemporains pour valoriser et transmettre leur travail.",
       "items": {
-        "rare": {
+        "block1": {
           "title": "InRealArt pour les artistes",
           "label": "",
           "description": "InRealArt permet aux artistes de s'inscrire dans un réseau exigeant, respectueux de leur vision et porteur de reconnaissance culturelle et patrimoniale. C'est un espace qui valorise la singularité de chaque démarche artistique, en lien étroit avec les enjeux de notre époque.",
@@ -240,18 +245,18 @@
             "getartworks": ""
           }
         },
-        "marketplace": {
-          "title": "Pour les collectionneurs et amateurs d'art",
+        "block2": {
+          "title": "Pour les collectionneurs privés et les chefs d’entreprise",
           "label": "",
-          "description": "Bien plus qu'une plateforme de vente, InRealArt est un espace curatorial exigeant, conçu comme un trait d'union entre création, collection et transmission. Chaque œuvre physique est sélectionnée pour son intégrité, sa force singulière et sa résonance contemporaine. Certaines sont accompagnées de leur réplique numérique authentifiée, garantissant leur traçabilité et leur pérennité.",
+          "description": "InRealArt n’est pas une simple plateforme de vente : c’est un espace curatorial d’excellence, pensé comme un pont entre la création artistique, la constitution d’une collection et la transmission patrimoniale. <br><br>InRealArt s’adresse à celles et ceux qui construisent un patrimoine.Plus qu’un lieu de vente, nous offrons un cadre curatorial où chaque œuvre est choisie pour sa force singulière et sa capacité à s’intégrer dans une vision durable de la collection. <br><br>InRealArt accompagne les entrepreneurs et collectionneurs privés dans la constitution d’ensembles cohérents, porteurs à la fois de valeur artistique, de sens et de potentiel de transmission",
           "buttons": {
             "marketplace": "Nous vous accompagnons"
           }
         },
-        "investment": {
-          "title": "Une expérience enrichie et engagée",
+        "block3": {
+          "title": "Pour les institutions",
           "label": "",
-          "description": "Nous construisons un écosystème qui dépasse la simple transaction. Chaque acquisition est enrichie d'un contexte, d'une histoire et d'une légitimation culturelle. InRealArt offre ainsi aux collectionneurs et aux institutions un accès rigoureux à des œuvres choisies, dans un format adapté aux usages actuels et fidèle au respect du patrimoine artistique.",
+          "description": "InRealArt est une plateforme de dialogue entre la création contemporaine et la mission publique.<br><br>Notre sélection repose sur une exigence curatoriale forte : chaque œuvre est retenue pour sa pertinence artistique et sa capacité à nourrir la réflexion collective. <br><br>InRealArt accompagne les musées, fondations et centres d’art dans l’élargissement de leurs collections et la valorisation de pratiques contemporaines, en phase avec les débats culturels et sociétaux actuels.",
           "buttons": {
             "usecase": "Lire notre manifeste"
           }
