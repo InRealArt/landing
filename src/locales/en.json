@@ -2285,5 +2285,20 @@
     "previous": "Previous",
     "next": "Next",
     "page": "Page"
+  },
+  "leadGenerator": {
+    "defaultTitle1": "Catherine Sénéchal",
+    "defaultDescription1": "Thanks to the com kit, I finally managed to put my work in the spotlight! The supports are clear, professional and super easy to use. My visibility exploded, I didn't think it could be so simple!",
+    "defaultTitle2": "Monique Laville",
+    "defaultDescription2": "The accompaniment is top! The team is always there to answer my questions, guide me and even accompany me at events. We really feel supported, not just delivered to ourselves!",
+    "defaultTitle3": "Martin Ronan",
+    "defaultDescription3": "The marketplace is great! Super easy to navigate, intuitive and secure. I put my creations in just a few clicks, and I've already started selling. It's a real time and energy saver!",
+    "defaultTitle4": "Jean-Paul Boyer",
+    "defaultDescription4": "I tried other platforms, but everything is expensive and never adapted to my situation. Inrealart really understood artists: a fair counterparty and a flexible solution that fits my needs!",
+    "defaultCta1": "Get started now",
+    "defaultCta2": "Get started now",
+    "defaultCta3": "Get started now",
+    "defaultCta4": "Get started now",
+    "trustIndicator": "Recommended"
   }
 }

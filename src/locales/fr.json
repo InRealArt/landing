@@ -2077,5 +2077,20 @@
     "previous": "Précédent",
     "next": "Suivant",
     "page": "Page"
+  },
+  "leadGenerator": {
+    "defaultTitle1": "Catherine Sénéchal",
+    "defaultDescription1": "&quot;Grâce au kit com, j’ai enfin pu mettre mon travail en avant ! Les supports sont clairs, professionnels et super faciles à utiliser. Ma visibilité a explosé, je ne pensais pas que ça pourrait être aussi simple !&quot;",
+    "defaultTitle2": "Monique Laville",
+    "defaultDescription2": "&quot;L’accompagnement est top ! L’équipe est toujours là pour répondre à mes questions, me guider et même m’acompagner lors des événements. On se sent vraiment soutenu, pas juste livré à soi-même&quot;",
+    "defaultTitle3": "Martin Ronan",
+    "defaultDescription3": "&quot;La marketplace est géniale ! Hyper simple à naviguer, intuitive et sécurisée. J’y ai mis mes créations en quelques clics, et j’ai déjà commencé à vendre. C’est un vrai gain de temps et d’énergie.&quot;",
+    "defaultTitle4": "Jean-Paul Boyer",
+    "defaultDescription4": "&quot;J’avais testé d’autres plateformes, mais tout coûte cher et n’est jamais adapté à ma situation. Inrealart a vraiment compris les artistes : une contrepartie juste et une solution flexible qui colle à mes besoins&quot;",
+    "defaultCta1": "Commencer maintenant",
+    "defaultCta2": "Commencer maintenant",
+    "defaultCta3": "Commencer maintenant",
+    "defaultCta4": "Commencer maintenant",
+    "trustIndicator": "Recommandé"
   }
 }
