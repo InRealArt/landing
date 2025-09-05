@@ -26,6 +26,10 @@
     "title": "La Tokenisation de l'Art accessible pour tous",
     "description": "Œuvres rares et exclusives"
   },
+  "glossary": {
+    "title": "Glossaire",
+    "description": " Retrouvez ici tous les termes essentiels liés à l’art, à la finance et aux aspects techniques, y compris ceux utilisés dans l’univers du digital, pour mieux comprendre notre écosystème."
+  },
   "statistics": {
     "title": "Le catalogue InRealArt c'est : ",
     "description": "Statistiques sur le marché de l'art"
@@ -116,12 +120,12 @@
     },
     "team": {
       "title": "Notre équipe",
-      "paragraph1": "Timothée Roy — Fondateur & CEO",
-      "paragraph1Description": "Entrepreneur passionné par la rencontre entre art et technologie, il a fondé InRealArt pour créer des ponts entre artistes, institutions et collectionneurs.",
-      "paragraph2": "Maxime Girard — Directeur Marketing & co-fondateur",
-      "paragraph2Description": "Curateur engagé, il conçoit les lignes curatoriales et veille à valoriser des artistes de toutes générations.",
-      "paragraph3": "Gilles Bruno — CTO & co fondateur",
-      "paragraph3Description": "Spécialiste en blockchain et data, il développe les outils qui garantissent la traçabilité, l’authenticité et la valorisation des œuvres.",
+      "paragraph1": "Timothée Roy — Fondateur",
+      "paragraph1Description": "Entrepreneur engagé dans la valorisation de la création artistique, Timothée a fondé InRealArt pour accompagner les artistes de manière humaine et personnalisée, et créer des ponts entre artistes, collectionneurs et institutions afin de favoriser la diffusion et la reconnaissance de leur œuvre.",
+      "paragraph2": "Maxime Girard — Directeur Marketing & Co-fondateur",
+      "paragraph2Description": "Expert en marketing, Maxime conçoit et pilote les stratégies de promotion qui maximisent la visibilité des artistes et la portée de la plateforme. Il développe des campagnes ciblées et innovantes pour toucher collectionneurs, institutions et amateurs d’art du monde entier.",
+      "paragraph3": "Gilles Bruno — Responsable Technique de la Marketplace & Co-fondateur",
+      "paragraph3Description": "Expert en développement full stack, spécialisé en blockchain et data, Gilles conçoit et supervise les outils techniques qui garantissent la traçabilité, l’authenticité et la valorisation des œuvres. <br>Il assure une expérience sécurisée, fluide et performante pour tous les utilisateurs de la marketplace.",
       "subtitlePart1": "Notre équipe de professionnel sera",
       "subtitlePart2": "toujours opérationnel",
       "buttonText": "Rencontrer l'équipe"

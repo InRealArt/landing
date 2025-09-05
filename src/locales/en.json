@@ -26,6 +26,10 @@
     "title": "The Tokenization of Art accessible to all",
     "description": "Rare and exclusive artworks"
   },
+  "glossary": {
+    "title": "Glossary",
+    "description": "Find here all the essential terms related to art, finance and technical aspects, including those used in the digital universe, to better understand our ecosystem."
+  },
   "statistics": {
     "title": "The InRealArt catalog is:",
     "description": "Statistics on the art market"
@@ -116,12 +120,12 @@
     },
     "team": {
       "title": "Our team",
-      "paragraph1": "Timothée Roy — Founder & CEO",
-      "paragraph1Description": "Passionate about the meeting between art and technology, he founded InRealArt to create bridges between artists, institutions and collectors.",
+      "paragraph1": "Timothée Roy — Founder",
+      "paragraph1Description": "Engaged in the valorization of artistic creation, Timothée founded InRealArt to accompany artists in a human and personalized way, and to create bridges between artists, collectors and institutions to promote the diffusion and recognition of their work.",
       "paragraph2": "Maxime Girard — Director Marketing & co-founder",
-      "paragraph2Description": "Curator committed, he designs the curatorial lines and ensures the valorization of artists of all generations.",
-      "paragraph3": "Gilles Bruno — CTO & co-founder",
-      "paragraph3Description": "Specialist in blockchain and data, he develops the tools that ensure traceability, authenticity and the value of works.",
+      "paragraph2Description": "Expert in marketing, Maxime designs and oversees promotion strategies that maximize the visibility of artists and the scope of the platform. He develops targeted and innovative campaigns to reach collectors, institutions and art enthusiasts worldwide.",
+      "paragraph3": "Gilles Bruno — Technical Responsible of the Marketplace & co-founder",
+      "paragraph3Description": "Expert in full stack development, specializing in blockchain and data, Gilles designs and oversees tools that ensure traceability, authenticity and the value of works. <br>He ensures a secure, fluid and performant experience for all users of the marketplace.",
       "subtitlePart1": "Our professional team will be",
       "subtitlePart2": "always operational",
       "buttonText": "Meet the team"

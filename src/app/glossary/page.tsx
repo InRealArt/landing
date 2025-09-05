@@ -32,8 +32,8 @@ export default function Glossary() {
       
       <div className="min-h-screen">
         <Header 
-          title="Glossaire"
-          description="Retrouvez ici tous les termes techniques utilisés dans l'univers de la blockchain, des NFTs et de l'art digital pour mieux comprendre notre écosystème"
+          titleKey="glossary.title"
+          descriptionKey="glossary.description"
         />
         <TabFilter 
           activeTab={activeTab} 
