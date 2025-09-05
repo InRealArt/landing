@@ -97,6 +97,26 @@ export default function ManifestPage() {
             />
           </aside>
         </div>
+
+        {/* Signature manuscrite élégante */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <div className="flex justify-center">
+            <div className="relative">
+              <OptimizedImage
+                src="/images/manifest/signature_ira.webp"
+                alt="Signature manuscrite Team InRealArt"
+                width={500}
+                height={140}
+                className="w-full max-w-md md:max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
+              />
+            </div>
+          </div>
+          <TranslatedText
+            as="p"
+            translationKey="manifest.signature"
+            className="text-center mt-6 text-sm text-gray-400 italic font-light tracking-wide"
+          />
+        </div>
       </Container>
     </main>
   )
