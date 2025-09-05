@@ -8,6 +8,7 @@ import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import BlockFaq from '@/components/common/BlockFaq';
 import Button from "@/components/common/Button";
 import { ArrowRight } from "lucide-react";
+import FAQ from '@/components/common/FAQ/FAQ';
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -233,7 +234,8 @@ export default function Presale() {
         {/* <BuyProcess /> */}
       </div>
 
-      <BlockFaq title={t('presale.faq.title')} description={t('presale.faq.description')} />
+      {/* <BlockFaq title={t('presale.faq.title')} description={t('presale.faq.description')} /> */}
+      <FAQ titre={t('presale.faq.title')} description={t('presale.faq.description')} />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import FAQ from "@/components/common/FAQ/FAQ";
 import JoinIraHero from "./JoinIraHero";
 import JoinIraOpportunities from "./JoinIraOpportunities";
 import ArtistTestimonialsWrapper from "./ArtistTestimonialsWrapper";

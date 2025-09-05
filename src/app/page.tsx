@@ -9,6 +9,7 @@ import ArtworkSlider from "@/components/home/ArtworkSlider";
 import HomeFaq from "@/components/common/BlockFaq";
 import NewsletterInline from "@/components/common/NewsletterInline";
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, defaultMetadata } from '@/utils/metadata'
+import FAQWrapper from '@/components/common/FAQ/FAQWrapper';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
@@ -38,8 +39,13 @@ export default function Home() {
         <ArtworkSlider />
       </div>
       <Team />
-      <HomeFaq />
+      {/* <HomeFaq /> */}
+      <FAQWrapper 
+        titleKey="home.faq.title" 
+        descriptionKey="home.faq.description" 
+      />
       <NewsletterInline />
+
     </>
   );
 }
