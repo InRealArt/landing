@@ -50,7 +50,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
               <TranslatedText 
                 translationKey={subtitle}
                 as="p"
-                className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl leading-relaxed mb-8"
+                className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl leading-relaxed mb-8"
                 allowHtml={true}
               />
               <Button 

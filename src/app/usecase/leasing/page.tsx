@@ -6,6 +6,7 @@ import Investment from "@/components/usecase/leasing/Investment";
 import SliderSection from "@/components/usecase/leasing/SliderSection";
 import LeasingFAQ from "@/components/usecase/leasing/LeasingFAQ";
 import { generateStaticMetadata } from '@/utils/metadata'
+import LeasingInfosServer from '@/components/common/LeasingInfosServer';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Leasing artistique — Louez des oeuvres avec sens et impact',
@@ -21,7 +22,7 @@ export default function LeasingPage() {
       <Advantages />
       <Benefits />
       <Investment />
-      <SliderSection />
+      <LeasingInfosServer titleKey="leasing.slider.title" descriptionKey="leasing.slider.subtitle" />
       <LeasingFAQ />
     </main>
   );

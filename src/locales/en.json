@@ -167,12 +167,12 @@
   "artists": {
     "title": "Our artists",
     "hero": {
-      "title": "Artists",
-      "subtitle": "Browse our artist basket to find the perfect work that reflects your style and shines in your space."
+      "title": "Discover our exceptional catalog",
+      "subtitle": "Artists already present in the largest galleries and auctions on the secondary market, and a selection of works chosen with our partner galleries to offer an even more qualitative and prestigious experience."
     },
     "faq": {
       "title": "Frequently Asked Questions about our artists",
-      "description": "Find here the answers to the most common questions about our partner artists, their selection and our curation process."
+      "description": "Find here all the answers to the most common questions about our partner artists, the quality of their selection and our demanding curation process."
     },
     "categories": {
       "title": "Artist categories",
@@ -356,7 +356,7 @@
     "header": {
       "title": "Join InRealArt",
       "description": "Discover the full range of resources needed to propel your next creative project. <br>InRealArt is the ideal partner to amplify your story and give it a unique scope.",
-      "description2": "This project is yours first and foremost, conceived with care and reflection over two years in collaboration with renowned artists and prestigious galleries, to offer you a unique tool that helps you fully reveal your potential.",
+      "description2": "This project is above all yours. Carefully and thoughtfully designed over more than two years, in collaboration with renowned artists and prestigious galleries, it offers you a unique ecosystem to showcase your work, develop your visibility, and fully reveal your potential.",
       "description3": "Why join us? <br>We are an independent team, passionate about art in all its forms. <br>It is this insatiable curiosity and our relational intelligence that have shaped this ambitious project, designed to meet your expectations. <br><br>The collective spirit, benevolence and innovation are the forces that animate InRealArt.",
       "artists": {
         "title": "You are an artist",
@@ -374,8 +374,8 @@
     "galleries": {
       "title": "Our Partner Galleries",
       "hero": {
-        "title": "Valuize your works <br>Join InRealArt",
-        "subtitle": "A unique platform for galleries: paintings, NFTs and fractionalized art, all in one place.",
+        "title": "You are a gallery",
+        "subtitle": "InRealArt accompanies you in the realization of your most daring creative projects, in collaboration with renowned artists.<br><br>Integrate your works into our catalog, benefit from joint marketing actions and access to our marketplace to reach a passionate clientele. We also help you bring collectors directly to your gallery, to valorize your exhibitions and facilitate the meeting with potential buyers. <br><br>Whether you want to highlight your space or offer the ideal work to a collector, we are by your side to make your ambitions a reality.",
         "button": "Get started now"
       },
       "opportunities": {
@@ -432,8 +432,8 @@
     },
     "artists": {
       "hero": {
-        "title": "Transform your passion into opportunity",
-        "subtitle": "Showcase your collections, reach a global audience and maximize your sales with innovative tools.",
+        "title": "You are an artist",
+        "subtitle": "Join InRealArt to integrate your work into our catalog, benefit from an editorial line with added value, a complete communication kit, and targeted promotion actions.<br><br> We also organize meetings with collectors and companies as well as dedicated events to valorize your works and develop your notoriety, with access to our marketplace in support.",
         "button": "Get started now"
       },
       "faq": {

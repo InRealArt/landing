@@ -167,12 +167,12 @@
   "artists": {
     "title": "Nos artistes",
     "hero": {
-      "title": "Artistes",
-      "subtitle": "Parcourez notre panier d'artistes pour trouver l'œuvre parfaite qui reflète votre style et rayonne dans votre espace."
+      "title": "Découvrez notre catalogue d’exception",
+      "subtitle": "Des artistes déjà présents dans les plus grandes galeries et ventes aux enchères sur le marché secondaire, et une sélection d’œuvres choisies avec nos galeristes partenaires pour offrir une expérience encore plus qualitative et prestigieuse."
     },
     "faq": {
       "title": "Questions fréquentes sur nos artistes",
-      "description": "Trouvez ici les réponses aux questions les plus courantes concernant nos artistes partenaires, leur sélection et notre processus de curation."
+      "description": "Retrouvez ici toutes les réponses aux questions fréquentes sur nos artistes partenaires, la qualité de leur sélection et notre processus de curation exigeant."
     },
     "categories": {
       "title": "Catégories d'artistes",
@@ -355,7 +355,7 @@
     "header": {
       "title": "Rejoignez InRealArt",
       "description": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. <br>InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. ",
-      "description2": "Ce projet est avant tout le vôtre, conçu avec soin et réflexion pendant plus de deux ans en collaboration avec des artistes de renommée et des galeries prestigieuses, afin de vous offrir un outil unique qui vous aide à révéler pleinement votre potentiel.",
+      "description2": "Ce projet est avant tout le vôtre. Conçu avec soin et réflexion pendant plus de deux ans, en collaboration avec des artistes de renom et des galeries prestigieuses, il vous offre un écosystème unique pour valoriser vos œuvres, développer votre visibilité et révéler pleinement votre potentiel.",
       "description3": "Pourquoi nous rejoindre ? <br>Nous sommes une équipe indépendante, passionnée par l'art sous toutes ses formes. <br>C'est cette curiosité insatiable et notre intelligence relationnelle qui ont façonné ce projet ambitieux, <br>pensé pour répondre à vos attentes. <br><br>L'esprit collectif, la bienveillance et l'innovation sont les forces qui animent InRealArt.",
       "artists": {
         "title": "Vous êtes un artiste",
@@ -373,8 +373,8 @@
     "galleries": {
       "title": "Nos Galeries partenaires",
       "hero": {
-        "title": "Valorisez vos œuvres Rejoignez InRealArt",
-        "subtitle": "Une plateforme innovante pour les galeries : toiles, NFTs et art fractionné, tout en un seul lieu.",
+        "title": "Vous êtes une galerie",
+        "subtitle": "InRealArt vous accompagne dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom.<br><br>Intégrez vos œuvres à notre catalogue, bénéficiez d’actions de marketing conjoint et profitez de notre marketplace pour toucher une clientèle passionnée. Nous vous aidons également à faire venir des collectionneurs directement dans votre galerie, pour valoriser vos expositions et faciliter la rencontre avec des acheteurs potentiels. <br><br>Que vous souhaitiez mettre en lumière votre espace ou proposer l’œuvre idéale à un collectionneur, nous sommes à vos côtés pour concrétiser vos ambitions.",
         "button": "Commencer dès maintenant"
       },
       "opportunities": {
@@ -431,8 +431,8 @@
     },
     "artists": {
       "hero": {
-        "title": "Transformez votre passion en opportunité",
-        "subtitle": "Exposer vos collections, atteindre un public mondial et maximiser vos ventes grâce à des outils innovants.",
+        "title": "Vous êtes un artiste",
+        "subtitle": "Rejoignez InRealArt pour intégrer votre travail à notre catalogue, bénéficier d’une ligne éditoriale à forte valeur ajoutée, d’un kit de communication complet, et d’actions de promotion ciblée.<br><br> Nous organisons également des rencontres avec collectionneurs et entreprises ainsi que des événements dédiés pour valoriser vos œuvres et développer votre notoriété, avec un accès à notre marketplace en soutien.",
         "button": "Commencer dès maintenant"
       },
       "faq": {
@@ -955,7 +955,7 @@
     },
     "slider": {
       "title": "Combinez leasing, NFT et droits d'auteur",
-      "subtitle": "Les secteurs de l'art et de la technologie sont en constante évolution. C'est pourquoi InRealArt vous propose un modèle d'optimisation innovant, combinant leasing, NFT, smart contract et blockchain pour répondre à vos besoins.",
+      "subtitle": "Les secteurs de l'art et de la technologie sont en constante évolution. <br>C'est pourquoi InRealArt vous propose un modèle d'optimisation innovant, combinant leasing, NFT, <br>smart contract et blockchain pour répondre à vos besoins.",
       "items": [
         {
           "id": "01",
