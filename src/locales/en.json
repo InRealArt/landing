@@ -339,7 +339,7 @@
     },
     "faq": {
       "title": "Frequently Asked Questions about the marketplace",
-      "description": "Find here the answers to the most common questions about our art marketplace and how it works."
+      "description": "Are you an artist or professional and want to sell your artworks? <br><br>Are you a collector or institution and want to discover, acquire or invest in contemporary art? <br><br>Our marketplace FAQ answers all your questions and guides you to make the most of our platform."
     }
   },
   "common": {
@@ -585,17 +585,17 @@
     }
   },
   "presale": {
+    "faq": {
+      "title": "Any questions about our artworks ? ",
+      "description": "Find all the answers concerning the acquisition, provenance, authenticity and purchase conditions of our pieces. Our FAQ guides you to explore and buy with confidence on our marketplace."
+    },
     "intro": {
-      "title": "Art has never been so accessible",
-      "subtitle": "Acquire rare physical works that can be linked with NFTs and their copyrights. Explore artwork fractioning and open your portfolio to the assets of the future",
+      "title": "Acquire rare physical works",
+      "subtitle": "Explore new ways to diversify your collection and open your portfolio to innovative art and asset forms.",
       "buttons": {
         "catalog": "Download the 2025 catalog",
         "whitepaper": "Read our manifesto"
       }
-    },
-    "faq": {
-      "title": "Frequently Asked Questions about the presale",
-      "description": "Find here the answers to the most common questions about the presale."
     },
     "filters": {
       "allArtists": "All artists",

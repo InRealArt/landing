@@ -5,6 +5,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import Question from './subcomponents/Question'
 import { titleClassName } from '@/utils/classes'
 import Button from '@/components/common/Button'
+import TranslatedText from '@/components/common/TranslatedText'
 import { ArrowRight } from 'lucide-react'
 
 interface PageFAQProps {
@@ -63,7 +64,10 @@ const PageFAQ = ({
     return (
       <section className={`w-full m-auto mt-36 flex flex-col gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
         <div className="text-red-500">
-          <p>{t('common.error')}</p>
+          <TranslatedText
+            as="p"
+            translationKey="common.error"
+          />
         </div>
       </section>
     )
@@ -76,8 +80,18 @@ const PageFAQ = ({
   return (
     <section className={`w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
       <div className='w-full md:w-1/3'>
-        <h2 className={titleClassName}>{t(titleKey)}</h2>
-        <p className='mt-8'>{t(descriptionKey)}</p>
+        <TranslatedText
+          as="h2"
+          translationKey={titleKey}
+          className={titleClassName}
+          allowHtml={true}
+        />
+        <TranslatedText
+          as="p"
+          translationKey={descriptionKey}
+          className="mt-8"
+          allowHtml={true}
+        />
         <Button
           text={t('buttons.viewGlobalFAQ')}
           link="/faq"

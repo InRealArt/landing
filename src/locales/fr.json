@@ -338,7 +338,7 @@
     },
     "faq": {
       "title": "Questions fréquentes sur la marketplace",
-      "description": "Trouvez ici les réponses aux questions les plus courantes concernant notre marketplace d'art et son fonctionnement."
+      "description": "Vous êtes artiste ou professionnel et souhaitez vendre vos œuvres ? <br><br>Vous êtes collectionneur ou institution et voulez découvrir, acquérir ou investir dans l’art contemporain ? <br><br>Notre FAQ de la marketplace répond à toutes vos questions et vous guide pour tirer le meilleur parti de notre plateforme."
     }
   },
   "common": {
@@ -588,12 +588,12 @@
   },
   "presale": {
     "faq": {
-      "title": "Questions fréquentes sur la pré-vente",
-      "description": "Trouvez ici les réponses aux questions les plus courantes sur la pré-vente."
+      "title": "Des questions sur nos œuvres ? ",
+      "description": "Retrouvez toutes les réponses concernant l’acquisition, la provenance, l’authenticité et les modalités d’achat de nos pièces. Notre FAQ vous guide pour explorer et acheter en toute confiance sur notre marketplace."
     },
     "intro": {
-      "title": "L'art n'a jamais été aussi accessible",
-      "subtitle": "Acquérir des œuvres physiques rares qui peuvent être liées à des NFT et leurs droits d'auteur. Explorez le fractionnement des œuvres d'art et ouvrez votre portefeuille aux actifs du futur",
+      "title": "Acquérez des œuvres physiques rares et uniques",
+      "subtitle": "Explorez de nouvelles manières de diversifier votre collection et ouvrez votre portefeuille à des formes d’art et d’actifs innovants.",
       "buttons": {
         "catalog": "Télécharger le catalogue 2025",
         "whitepaper": "Lire notre manifeste"

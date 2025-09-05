@@ -5,7 +5,7 @@ import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
-import PresaleFAQ from '@/components/presale/PresaleFAQ';
+import BlockFaq from '@/components/common/BlockFaq';
 import Button from "@/components/common/Button";
 import { ArrowRight } from "lucide-react";
 
@@ -233,7 +233,7 @@ export default function Presale() {
         {/* <BuyProcess /> */}
       </div>
 
-      <PresaleFAQ />
+      <BlockFaq title={t('presale.faq.title')} description={t('presale.faq.description')} />
     </>
   );
 }
