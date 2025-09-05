@@ -294,20 +294,20 @@
       "title": "Bénéfices",
       "items": {
         "authenticity": {
-          "title": "Authenticité et Traçabilité intégrales",
-          "description": "Chaque œuvre est authentifiée des experts et certifiée sur la blockchain pour une transparence totale."
+          "title": "Une sélection exigeante",
+          "description": "Chaque œuvre est choisie pour sa qualité, sa singularité et sa résonance contemporaine."
         },
         "exclusivity": {
-          "title": "Exclusivité et Confiance",
-          "description": "La marketplace n'héberge que diverses œuvres vérifiées, chaque achat est une assurance de garantie authentique pour des œuvres de dernier cri."
+          "title": "Authenticité garantie",
+          "description": "Provenance vérifiée, expertise reconnue et traçabilité complète pour une acquisition en toute confiance."
         },
         "resale": {
-          "title": "Possibilité de Revente Sécurisée",
-          "description": "Grâce aux NFTs de propriété, la revente devient simple, rapide et sécurisée, en garantissant une authentification fiable pour les acheteurs."
+          "title": "Des solutions de financement accessibles",
+          "description": "Achat direct, paiement échelonné, leasing ou mécénat : des formules souples pour collectionner autrement."
         },
         "copyright": {
-          "title": "Achat de droits d'auteurs",
-          "description": "Possibilité d'achat d'une part d'œuvre d'exception pour davantage de contrôle, avec une liquidité intégrée lors d'une acquisition future."
+          "title": "L’innovation au service des collectionneurs",
+          "description": "De nouvelles technologies et outils digitaux ouvrent la voie à des expériences inédites, pour acheter, partager et transmettre l’art de manière fluide et durable."
         }
       }
     },
@@ -327,12 +327,12 @@
         "verification": {
           "number": "02",
           "title": "Processus de Vérification",
-          "description": "Chaque œuvre est soumise à un processus rigoureux de vérification et d'authentification par nos experts."
+          "description": "Chaque œuvre est accompagnée d’une traçabilité complète et vérifiée. Nous collaborons directement avec les artistes, galeries et experts afin d’assurer la provenance, l’intégrité et la légitimité de chaque pièce. Vous avez ainsi la certitude d’acquérir une œuvre authentique, protégée de toute incertitude."
         },
         "tokenization": {
           "number": "03",
           "title": "Tokenisation Sécurisée",
-          "description": "Les œuvres sont tokenisées sur la blockchain, créant un certificat de propriété numérique unique et inviolable."
+          "description": "Parce que collectionner, c’est aussi investir, InRealArt facilite l’accès à différentes modalités de financement : acquisition directe, paiement échelonné, leasing ou mécénat. En parallèle, nous explorons les nouvelles technologies émergentes qui transformeront demain la manière d’acheter, de partager et de transmettre l’art. Notre ambition : offrir des solutions flexibles, durables et adaptées aux besoins des collectionneurs d’aujourd’hui comme à ceux des générations futures."
         }
       }
     },

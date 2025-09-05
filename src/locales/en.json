@@ -295,20 +295,20 @@
       "title": "Benefits",
       "items": {
         "authenticity": {
-          "title": "Complete Authenticity and Traceability",
-          "description": "Each artwork is authenticated by experts and certified on the blockchain for total transparency."
+          "title": "A rigorous selection",
+          "description": "Each artwork is chosen for its quality, singularity and contemporary resonance."
         },
         "exclusivity": {
-          "title": "Exclusivity and Trust",
-          "description": "The marketplace hosts only verified diverse artworks, each purchase is a guarantee of authenticity for cutting-edge works."
+          "title": "Guaranteed authenticity",
+          "description": "Verified provenance, recognized expertise and complete traceability for a secure acquisition."
         },
         "resale": {
-          "title": "Secure Resale Possibility",
-          "description": "Property NFTs make resale simple, fast and secure, guaranteeing reliable authentication for buyers."
+          "title": "Accessible funding solutions",
+          "description": "Direct purchase, installment payment, leasing or patronage: flexible formulas to collect differently."
         },
         "copyright": {
-          "title": "Copyright Purchase",
-          "description": "Possibility to purchase a share of exceptional artwork for more control, with integrated liquidity for future acquisition."
+          "title": "Innovation at the service of collectors",
+          "description": "New technologies and digital tools open up new experiences, for buying, sharing and transmitting art in a fluid and durable way."
         }
       }
     },
@@ -328,12 +328,12 @@
         "verification": {
           "number": "02",
           "title": "Verification Process",
-          "description": "Each artwork undergoes a rigorous verification and authentication process by our experts."
+          "description": "Each artwork is accompanied by a complete and verified traceability. We collaborate directly with artists, galleries and experts to ensure the provenance, integrity and legitimacy of each piece. You thus have the certainty of acquiring an authentic work, protected from any uncertainty."
         },
         "tokenization": {
           "number": "03",
           "title": "Secure Tokenization",
-          "description": "Artworks are tokenized on the blockchain, creating a unique and tamper-proof digital certificate of ownership."
+          "description": "Because collecting is also investing, InRealArt facilitates access to different funding modes: direct purchase, installment payment, leasing or patronage. In parallel, we explore emerging technologies that will transform tomorrow's way of buying, sharing and transmitting art. Our ambition: offer flexible, durable and adapted solutions to the needs of collectors today as well as future generations."
         }
       }
     },
