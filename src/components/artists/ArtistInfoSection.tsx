@@ -40,7 +40,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             
             {/* Description de l'artiste */}
             <p className="text-white text-sm leading-relaxed bricolage-grotesque font-serif">
-              {t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
+              {artist.quoteFromInRealArt || t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
             </p>
             
             {/* Tags de médium */}

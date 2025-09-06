@@ -23,6 +23,7 @@ export interface ArtistData {
     birthYear?: number | null
     quoteHeader?: string | null
     quoteText?: string | null
+    quoteFromInRealArt?: string | null
     biographyHeader1?: string | null
     biographyText1?: string | null
     biographyHeader2?: string | null
@@ -35,6 +36,7 @@ export interface ArtistData {
         artworkStyle?: Record<string, string>
         quoteHeader?: Record<string, string>
         quoteText?: Record<string, string>
+        quoteFromInRealArt?: Record<string, string>
         biographyHeader1?: Record<string, string>
         biographyText1?: Record<string, string>
         biographyHeader2?: Record<string, string>
@@ -76,6 +78,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 mediumTags: true,
                 quoteHeader: true,
                 quoteText: true,
+                quoteFromInRealArt: true,
                 biographyHeader1: true,
                 biographyText1: true,
                 biographyHeader2: true,
@@ -142,6 +145,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
                 quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
                 quoteText: translationsByEntity[landingArtistKey]?.quoteText || {},
+                quoteFromInRealArt: translationsByEntity[landingArtistKey]?.quoteFromInRealArt || {},
                 biographyHeader1: translationsByEntity[landingArtistKey]?.biographyHeader1 || {},
                 biographyText1: translationsByEntity[landingArtistKey]?.biographyText1 || {},
                 biographyHeader2: translationsByEntity[landingArtistKey]?.biographyHeader2 || {},
@@ -188,6 +192,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 birthYear: la.artist.birthYear ?? null,
                 quoteHeader: la.quoteHeader ?? null,
                 quoteText: la.quoteText ?? null,
+                quoteFromInRealArt: la.quoteFromInRealArt ?? null,
                 biographyHeader1: la.biographyHeader1 ?? null,
                 biographyText1: la.biographyText1 ?? null,
                 biographyHeader2: la.biographyHeader2 ?? null,
@@ -317,6 +322,7 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
                 mediumTags: true,
                 quoteHeader: true,
                 quoteText: true,
+                quoteFromInRealArt: true,
                 biographyHeader1: true,
                 biographyText1: true,
                 biographyHeader2: true,
@@ -485,6 +491,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 mediumTags: true,
                 quoteHeader: true,
                 quoteText: true,
+                quoteFromInRealArt: true,
                 biographyHeader1: true,
                 biographyText1: true,
                 biographyHeader2: true,
@@ -541,6 +548,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 artworkStyle: translationsByEntity[landingArtistKey]?.artworkStyle || {},
                 quoteHeader: translationsByEntity[landingArtistKey]?.quoteHeader || {},
                 quoteText: translationsByEntity[landingArtistKey]?.quoteText || {},
+                quoteFromInRealArt: translationsByEntity[landingArtistKey]?.quoteFromInRealArt || {},
                 biographyHeader1: translationsByEntity[landingArtistKey]?.biographyHeader1 || {},
                 biographyText1: translationsByEntity[landingArtistKey]?.biographyText1 || {},
                 biographyHeader2: translationsByEntity[landingArtistKey]?.biographyHeader2 || {},

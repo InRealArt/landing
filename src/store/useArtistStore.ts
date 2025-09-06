@@ -18,6 +18,7 @@ export interface ArtistData {
     birthYear?: number | null
     quoteHeader?: string | null
     quoteText?: string | null
+    quoteFromInRealArt?: string | null
     biographyHeader1?: string | null
     biographyText1?: string | null
     biographyHeader2?: string | null
@@ -108,6 +109,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     birthYear: artist.birthYear ?? null,
                     quoteHeader: artist.quoteHeader ?? null,
                     quoteText: artist.quoteText ?? null,
+                    quoteFromInRealArt: artist.quoteFromInRealArt ?? null,
                     biographyHeader1: artist.biographyHeader1 ?? null,
                     biographyText1: artist.biographyText1 ?? null,
                     biographyHeader2: artist.biographyHeader2 ?? null,
