@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { useArtistStore } from '@/store/useArtistStore'
+import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 
 interface ArtistBiographyProps {
   artist: {
@@ -33,6 +34,17 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                     artist.biographyHeader2 || artist.biographyText2 || 
                     artist.biographyHeader3 || artist.biographyText3
   
+  // Debug temporaire pour vérifier les données
+  console.log('Artist Biography Debug:', {
+    biographyHeader1: artist.biographyHeader1,
+    biographyText1: artist.biographyText1,
+    biographyHeader2: artist.biographyHeader2,
+    biographyText2: artist.biographyText2,
+    biographyHeader3: artist.biographyHeader3,
+    biographyText3: artist.biographyText3,
+    hasContent
+  })
+  
   if (!hasContent) {
     return null
   }
@@ -40,9 +52,10 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
   return (
     <section className="py-16 lg:py-24" style={{ backgroundColor: 'rgb(19, 19, 19)' }}>
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+        {/* Layout responsive : 3 colonnes sur grand écran, 1 colonne sur petit écran */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* Colonne gauche - Image aléatoire */}
+          {/* Image - Affichée en premier sur mobile, à gauche sur desktop */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative w-full max-w-sm h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-lg">
               {randomImage && (
@@ -55,8 +68,8 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             </div>
           </div>
           
-          {/* Colonne centrale - Biographie sections 1 et 2 */}
-          <div className="space-y-8">
+          {/* Contenu biographie - Sections 1, 2 et 3 dans l'ordre */}
+          <div className="lg:col-span-2 space-y-8">
             {/* Section biographie 1 */}
             {(artist.biographyHeader1 || artist.biographyText1) && (
               <div className="space-y-4">
@@ -66,9 +79,9 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1) && (
-                  <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1}
-                  </p>
+                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                    {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1)}
+                  </div>
                 )}
               </div>
             )}
@@ -82,17 +95,14 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2) && (
-                  <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2}
-                  </p>
+                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                    {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2)}
+                  </div>
                 )}
               </div>
             )}
-          </div>
-          
-          {/* Colonne droite - Biographie section 3 */}
-          <div className="space-y-4 flex flex-col justify-end">
-            <div className="mb-16"></div>
+            
+            {/* Section biographie 3 */}
             {(artist.biographyHeader3 || artist.biographyText3) && (
               <div className="space-y-4">
                 {(getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3) && (
@@ -101,9 +111,9 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3) && (
-                  <p className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
-                    {getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3}
-                  </p>
+                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                    {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3)}
+                  </div>
                 )}
               </div>
             )}

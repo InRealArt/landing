@@ -81,9 +81,9 @@ export const stringToSlug = (str: string): string => {
 export const formatTextWithLineBreaksJSX = (text: string | null | undefined) => {
   if (!text) return null
   return text.split('\n').map((line, index, array) => (
-    <span key= { index } >
-    { line }
-      { index<array.length - 1 && <br /> }
+    <span key={index}>
+      {line}
+      {index < array.length - 1 && <br />}
     </span>
   ))
 };
