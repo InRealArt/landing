@@ -66,7 +66,7 @@ export default function BlogCategories() {
             <Link
               key={category.id}
               href={`/blog/category/${category.url || category.id}`}
-              className="inline-flex items-center px-6 py-3 bg-purpleColor border border-textColor rounded-full text-textColor font-medium unbounded transition-all duration-300 hover:bg-purple-700 hover:scale-105 hover:shadow-lg"
+              className="inline-flex items-center px-6 py-3 bg-purpleColor border border-white rounded-full text-white font-medium unbounded transition-all duration-300 hover:bg-purple-700 hover:scale-105 hover:shadow-lg"
             >
               {category.name}
             </Link>

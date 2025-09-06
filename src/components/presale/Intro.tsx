@@ -22,7 +22,7 @@ const Intro = () => {
       {/* Dégradé du bas vers le background - blanc en mode clair, noir en mode sombre */}
       <div className={`absolute inset-0 z-10 ${
         theme === 'light' 
-          ? 'bg-gradient-to-t from-white via-white/80 to-transparent' 
+          ? 'bg-gradient-to-t from-white via-white/50 to-transparent' 
           : 'bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent'
       }`} />
 

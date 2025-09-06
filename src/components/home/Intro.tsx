@@ -10,7 +10,7 @@ const Intro = () => {
   const { t } = useLanguageStore();
   const { theme } = useTheme();
 
-  const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.8)'
+  const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
   return (
     <OptimizedBackgroundImage
       src="/images/home/hero/bg.png"
@@ -28,10 +28,18 @@ const Intro = () => {
           <h1 className="text-white text-4xl md:text-6xl bricolage-grotesque font-medium mb-6 max-w-[80%]">
             {t('home.intro.title')}
           </h1>
+          <div className="mt-12 md:mt-4">
+            <Button
+              text={t('buttons.readWhitepaper')}
+              additionalClassName="border border-white text-textColor rounded-full py-3 px-8"
+              center
+              link="manifest"
+            />
+          </div>
         </div>
 
         {/* Artist Slider Section */}
-        <div className="flex-1 w-full max-w-lg">
+        <div className="flex-1 w-full max-w-2xl">
           <HeroArtistSlider />
         </div>
 
@@ -75,14 +83,7 @@ const Intro = () => {
           </div>
         </div> */}
       </div>
-      <div className="mt-12 md:mt-4">
-        <Button
-          text={t('buttons.readWhitepaper')}
-          additionalClassName="border border-white text-textColor rounded-full py-3 px-8"
-          center
-          link="manifest"
-        />
-      </div>
+
     </OptimizedBackgroundImage>
   );
 }

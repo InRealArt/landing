@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguageStore } from '@/store/languageStore';
 import { BlogPost } from '@/types/blog';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -21,6 +22,9 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
     return translatedTag === translationKey ? tag : translatedTag
   }
 
+  const { theme } = useTheme();
+
+  const color = theme === 'light' ? 'black' : 'white';
   return (
     <Link href={`/blog/${post.id}`} className="bg-cardBackground rounded-lg overflow-hidden border border-white-800">
       <div className="relative h-[240px]">
@@ -34,7 +38,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.slice(0, 4).map((tag, index) => (
-            <span key={index} className="px-3 py-1 bg-transparent rounded-full text-xs text-[#828282] border border-[#828282]">
+            <span key={index} className={`px-3 py-1 bg-transparent rounded-full text-xs text-${color} border border-${color}`}>
               {getTagName(tag)}
             </span>
           ))}

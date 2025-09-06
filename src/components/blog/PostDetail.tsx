@@ -328,7 +328,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
                       </div>
 
                       <div className="p-4">
-                        <h3 className="text-lg font-bold mb-2 hover:text-blue-600 text-gray-900">
+                        <h3 className="text-lg font-bold mb-2 hover:text-blue-600 text-gray-900 line-clamp-2">
                           {relatedPost.title}
                         </h3>
 

@@ -1,10 +1,12 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
+import { useTheme } from '@/contexts/ThemeContext'
 import { useLanguageStore } from '@/store/languageStore'
 
 export default function TeamHero() {
   const { t } = useLanguageStore()
+  const { theme } = useTheme()
 
   return (
     <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
@@ -18,8 +20,10 @@ export default function TeamHero() {
       />
       
       {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-transparent to-transparent z-10" />
-
+      <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'light'
+          ? 'bg-gradient-to-t from-white via-white/50 to-transparent'
+          : 'bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent'
+        }`} />
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-end h-full">
         <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
