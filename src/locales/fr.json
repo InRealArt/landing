@@ -251,9 +251,9 @@
           }
         },
         "block2": {
-          "title": "Pour les collectionneurs privés et les chefs d’entreprise",
+          "title": "Pour les collectionneurs privés <br>et les chefs d’entreprise",
           "label": "",
-          "description": "InRealArt n’est pas une simple plateforme de vente : c’est un espace curatorial d’excellence, pensé comme un pont entre la création artistique, la constitution d’une collection et la transmission patrimoniale. <br><br>InRealArt s’adresse à celles et ceux qui construisent un patrimoine.Plus qu’un lieu de vente, nous offrons un cadre curatorial où chaque œuvre est choisie pour sa force singulière et sa capacité à s’intégrer dans une vision durable de la collection. <br><br>InRealArt accompagne les entrepreneurs et collectionneurs privés dans la constitution d’ensembles cohérents, porteurs à la fois de valeur artistique, de sens et de potentiel de transmission",
+          "description": "InRealArt n’est pas une simple plateforme de vente : c’est un espace curatorial d’excellence, pensé comme un pont entre la création artistique, la constitution d’une collection et la transmission patrimoniale. <br><br>InRealArt accompagne les entrepreneurs et collectionneurs privés dans la constitution d’ensembles cohérents, porteurs à la fois de valeur artistique, de sens et de potentiel de transmission",
           "buttons": {
             "marketplace": "Nous vous accompagnons"
           }
@@ -284,7 +284,7 @@
           "label": "Transactions réalisées sur le testnet notre marketplace"
         },
         "ranking": {
-          "number": "99%",
+          "number": "100%",
           "label": "De nos artistes satisfaits de leurs accompagnements"
         }
       }

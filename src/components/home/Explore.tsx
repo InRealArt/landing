@@ -72,8 +72,9 @@ export default function Explore() {
               <div className="basis-1/2">
                 <TranslatedText 
                   as="h1" 
-                  className="text-2xl lg:text-5xl bricolage-grotesque font-bold" 
+                  className="text-xl lg:text-3xl bricolage-grotesque font-bold" 
                   translationKey={item.titleKey} 
+                  allowHtml={true}
                 />
                 <TranslatedText 
                   as="label" 

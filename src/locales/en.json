@@ -252,9 +252,9 @@
           }
         },
         "block2": {
-          "title": "For private collectors and CEOs",
+          "title": "For private collectors <br>and CEOs",
           "label": "",
-          "description": "InRealArt is not a simple sales platform, it is a rigorous curatorial space, conceived as a bridge between creation, collection and transmission.<br><br>InRealArt addresses those who build a heritage. More than a sales platform, we offer a curatorial framework where each work is chosen for its singular strength and its ability to integrate into a lasting collection vision. <br><br>InRealArt accompanies entrepreneurs and private collectors in the construction of coherent collections, both artistic and meaningful, with potential for transmission",
+          "description": "InRealArt is not a simple sales platform, it is a rigorous curatorial space, conceived as a bridge between creation, collection and transmission.<br><br>InRealArt accompanies entrepreneurs and private collectors in the construction of coherent collections, both artistic and meaningful, with potential for transmission",
           "buttons": {
             "marketplace": "We support you"
           }
@@ -285,7 +285,7 @@
           "label": "Transactions completed on our testnet marketplace"
         },
         "ranking": {
-          "number": "99%",
+          "number": "100%",
           "label": "of our artists satisfied with their support"
         }
       }
