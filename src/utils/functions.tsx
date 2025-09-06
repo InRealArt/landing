@@ -1,3 +1,4 @@
+import React from "react";
 import { ArtWork, TeamMemberData } from "@/types/types";
 import { ref } from "firebase/storage";
 import { getDownloadURL } from "firebase/storage";
