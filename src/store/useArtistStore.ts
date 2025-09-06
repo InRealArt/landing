@@ -108,6 +108,12 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     birthYear: artist.birthYear ?? null,
                     quoteHeader: artist.quoteHeader ?? null,
                     quoteText: artist.quoteText ?? null,
+                    biographyHeader1: artist.biographyHeader1 ?? null,
+                    biographyText1: artist.biographyText1 ?? null,
+                    biographyHeader2: artist.biographyHeader2 ?? null,
+                    biographyText2: artist.biographyText2 ?? null,
+                    biographyHeader3: artist.biographyHeader3 ?? null,
+                    biographyText3: artist.biographyText3 ?? null,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
