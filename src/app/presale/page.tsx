@@ -140,7 +140,7 @@ export default function Presale() {
               <button
                 type="button"
                 onClick={() => setIsOpen(o => !o)}
-                className="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2 shadow-sm hover:shadow transition bricolage-grotesque"
+                className="inline-flex items-center gap-2 rounded-full bg-backgroundColor text-textColor px-5 py-2 shadow-sm hover:shadow transition bricolage-grotesque"
               >
                 <span>{params.artist || t('presale.filters.allArtists')}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,16 +149,16 @@ export default function Presale() {
               </button>
 
               {isOpen && (
-                <div className="absolute z-20 mt-2 w-56 rounded-2xl bg-white p-2 shadow-lg ring-1 ring-black/5">
+                <div className="absolute z-20 mt-2 w-56 rounded-2xl bg-backgroundColor p-2 shadow-lg ring-1 ring-black/5">
                   <button
-                    className={`w-full text-left px-3 py-2 rounded-lg ${params.artist === '' ? 'bg-black/5' : 'hover:bg-black/5'} text-black bricolage-grotesque`}
+                    className={`w-full text-left px-3 py-2 rounded-lg ${params.artist === '' ? 'bg-backgroundColor/5' : 'hover:bg-backgroundColor/5'} text-textColor bricolage-grotesque`}
                     onClick={() => { setParams({ artist: '', page: 1 }); setIsOpen(false) }}
                   >{t('presale.filters.allArtists')}</button>
                   <div className="max-h-64 overflow-y-auto">
                     {artists.map(artist => (
                       <button
                         key={artist}
-                        className={`w-full text-left px-3 py-2 rounded-lg text-black bricolage-grotesque ${params.artist === artist ? 'bg-black/5' : 'hover:bg-black/5'}`}
+                        className={`w-full text-left px-3 py-2 rounded-lg text-textColor bricolage-grotesque ${params.artist === artist ? 'bg-backgroundColor/5' : 'hover:bg-backgroundColor/5'}`}
                         onClick={() => { setParams({ artist, page: 1 }); setIsOpen(false) }}
                       >{artist}</button>
                     ))}
@@ -167,10 +167,10 @@ export default function Presale() {
               )}
             </div>
 
-            <span className="text-white/40 select-none">|</span>
+            <span className="text-textColor/40 select-none">|</span>
 
             {/* Barre de recherche */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-1.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-backgroundColor text-textColor px-4 py-1.5 shadow-sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
@@ -185,7 +185,7 @@ export default function Presale() {
           </div>
           
           {/* Nombre de résultats */}
-          <div className="text-white/60 text-sm bricolage-grotesque">
+          <div className="text-textColor/60 text-sm bricolage-grotesque">
             {filtered.length} {filtered.length > 1 ? t('presale.filters.artworksFound') : t('presale.filters.artworkFound')}
           </div>
         </div>
@@ -203,17 +203,17 @@ export default function Presale() {
             <button
               disabled={page === 1}
               onClick={() => setParams({ page: page - 1 })}
-              className="px-4 py-2 rounded-lg bg-white/10 text-white disabled:opacity-40 hover:bg-white/20 transition-colors"
+              className="px-4 py-2 rounded-lg bg-backgroundColor/10 text-textColor disabled:opacity-40 hover:bg-backgroundColor/20 transition-colors"
             >
               {t('pagination.previous')}
             </button>
-            <div className="text-white/80 px-4">
+            <div className="text-textColor/80 px-4">
               {t('pagination.page')} {page} / {totalPages}
             </div>
             <button
               disabled={page === totalPages}
               onClick={() => setParams({ page: page + 1 })}
-              className="px-4 py-2 rounded-lg bg-white/10 text-white disabled:opacity-40 hover:bg-white/20 transition-colors"
+              className="px-4 py-2 rounded-lg bg-backgroundColor/10 text-textColor disabled:opacity-40 hover:bg-backgroundColor/20 transition-colors"
             >
               {t('pagination.next')}
             </button>

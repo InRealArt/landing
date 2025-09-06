@@ -20,7 +20,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.publisher.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.publisher.content')}
             </p>
           </section>
@@ -30,7 +30,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.design.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.design.content')}
             </p>
           </section>
@@ -40,7 +40,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('terms.intellectualProperty.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('terms.intellectualProperty.content')}
             </p>
           </section>
@@ -50,7 +50,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.links.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.links.content')}
             </p>
           </section>
@@ -60,7 +60,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.disclaimer.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.disclaimer.content')}
             </p>
           </section>
@@ -70,7 +70,7 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.changes.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.changes.content')}
             </p>
           </section>
@@ -80,10 +80,10 @@ export default function LegalPage() {
             <h2 className="text-2xl font-semibold mb-4">
               {t('legal.mediation.title')}
             </h2>
-            <p className="text-gray-300 mb-4">
+            <p className="text-grayText mb-4">
               {t('legal.mediation.content')}
             </p>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <ul className="list-disc list-inside text-grayText space-y-2">
               {mediationOptions.map((option: string, index: number) => (
                 <li key={index}>{option}</li>
               ))}

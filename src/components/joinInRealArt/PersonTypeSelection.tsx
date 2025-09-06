@@ -28,7 +28,7 @@ export default function PersonTypeSelection() {
           {selectPersonType.map((personType, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{personType.title}</h3>
-              <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">
+              <p className="text-sm text-grayText mb-6 bricolage-grotesque">
                 <TranslatedText 
                   translationKey={personType.description}
                   allowHtml={true}

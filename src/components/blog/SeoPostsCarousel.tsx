@@ -116,7 +116,7 @@ export default function SeoPostsCarousel({
             <p className="text-red-500 mb-4">{error}</p>
             <button
               onClick={retry}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              className="px-4 py-2 bg-blue-500 text-textColor rounded hover:bg-blue-600 transition-colors"
             >
               {t('common.retry')}
             </button>
@@ -185,7 +185,7 @@ export default function SeoPostsCarousel({
               {currentPage > 0 && (
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
-                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-backgroundColor border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
                   disabled={isTransitioning}
                 >
                   {t('blog.carousel.previous')}
@@ -200,8 +200,8 @@ export default function SeoPostsCarousel({
                     onClick={() => handlePageChange(page)}
                     className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                       page === currentPage
-                        ? 'bg-indigo-600 text-white'
-                        : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                        ? 'bg-indigo-600 text-textColor'
+                        : 'text-gray-700 bg-backgroundColor border border-gray-300 hover:bg-gray-50'
                     } disabled:opacity-50`}
                     disabled={isTransitioning || page === currentPage}
                   >
@@ -214,7 +214,7 @@ export default function SeoPostsCarousel({
               {currentPage < totalPages - 1 && (
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
-                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-backgroundColor border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
                   disabled={isTransitioning}
                 >
                   {t('blog.carousel.next')}

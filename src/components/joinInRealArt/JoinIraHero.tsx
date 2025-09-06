@@ -40,7 +40,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
               <TranslatedText 
                 translationKey={title}
                 as="h1"
-                className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6"
+                className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6"
                 allowHtml={true}
               />
             </div>
@@ -50,7 +50,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
               <TranslatedText 
                 translationKey={subtitle}
                 as="p"
-                className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl leading-relaxed mb-8"
+                className="text-base md:text-lg lg:text-xl text-textColor/90 max-w-2xl leading-relaxed mb-8"
                 allowHtml={true}
               />
               <Button 

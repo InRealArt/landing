@@ -13,7 +13,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function RoadmapPage() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-textColor">
       <Intro />
       <Roadmap items={[]} />
       <RoadmapFAQ />

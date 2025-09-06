@@ -65,18 +65,18 @@ export default function TeamModal({ isOpen, onClose, member }: TeamModalProps) {
       onClick={handleBackdropClick}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-backgroundColor/50 backdrop-blur-sm" />
       
       {/* Modal Content */}
       <div
-        className={`relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl transform transition-all duration-300 ${
+        className={`relative w-full max-w-2xl bg-backgroundColor rounded-2xl shadow-2xl transform transition-all duration-300 ${
           isOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'
         }`}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200"
+          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-backgroundColor/90 hover:bg-backgroundColor shadow-lg hover:shadow-xl transition-all duration-200"
           aria-label={t('common.close')}
         >
           <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

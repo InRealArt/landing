@@ -105,12 +105,12 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
   }
 
   return (
-    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-b-2xl lg:rounded-r-2xl lg:rounded-l-none text-white space-y-8">
+    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-b-2xl lg:rounded-r-2xl lg:rounded-l-none text-textColor space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 font-bricolage">
+        <h2 className="text-2xl lg:text-3xl font-bold text-textColor mb-4 font-bricolage">
           {t('heritageArtSimulator.results.title')}
         </h2>
-        <p className="text-gray-300 text-lg">
+        <p className="text-grayText text-lg">
           {t('heritageArtSimulator.results.subtitle')}
         </p>
       </div>
@@ -223,9 +223,9 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
         <Button
           action={handleSendPDF}
           disabled={isLoading}
-          additionalClassName={`w-full text-white font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
+          additionalClassName={`w-full text-textColor font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
             isLoading 
-              ? 'bg-white/10 cursor-not-allowed opacity-50' 
+              ? 'bg-backgroundColor/10 cursor-not-allowed opacity-50' 
               : 'bg-purple-600 hover:bg-purple-700'
           }`}
           text={isLoading ? t('heritageArtSimulator.results.sending') : t('heritageArtSimulator.results.sendPDF')}

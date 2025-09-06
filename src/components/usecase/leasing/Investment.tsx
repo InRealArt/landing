@@ -24,10 +24,10 @@ export default function Investment() {
             <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-6">
               {t('leasing.investment.title')}
             </h2>
-            <p className="text-sm inter text-gray-300 mb-6">
+            <p className="text-sm text-grayText mb-6">
               {t('leasing.investment.description')}
             </p>
-            <ul className="space-y-4 text-sm inter text-gray-300">
+            <ul className="space-y-4 text-sm text-grayText">
               <li className="flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
                 <span>{t('leasing.investment.bullets.0')}</span>

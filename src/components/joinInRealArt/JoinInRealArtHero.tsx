@@ -42,10 +42,10 @@ export default function JoinInRealArtHero() {
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
             {/* Contenu principal à gauche */}
             <div className="lg:w-3/5">
-              <h1 className="bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
+              <h1 className="bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-textColor mb-2 sm:mb-3 md:mb-4 leading-tight">
                 {t('joinInRealArt.header.title')}
               </h1>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-2xl leading-relaxed mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-textColor/90 max-w-2xl leading-relaxed mb-4 sm:mb-6">
                 <TranslatedText 
                   translationKey="joinInRealArt.header.description"
                   allowHtml={true}
@@ -58,10 +58,10 @@ export default function JoinInRealArtHero() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
                 {selectPersonType.map((personType, index) => (
                   <div key={index} className="bg-[rgb(30,30,30)]/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/20">
-                    <h3 className="text-base sm:text-lg bricolage-grotesque font-semibold text-white mb-2 sm:mb-3">
+                    <h3 className="text-base sm:text-lg bricolage-grotesque font-semibold text-textColor mb-2 sm:mb-3">
                       {personType.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/80 mb-3 sm:mb-4 bricolage-grotesque leading-relaxed">
+                    <p className="text-xs sm:text-sm text-textColor/80 mb-3 sm:mb-4 bricolage-grotesque leading-relaxed">
                       <TranslatedText 
                         translationKey={personType.description}
                         allowHtml={true}

@@ -24,10 +24,10 @@ export default function TeamHero() {
       <div className="absolute inset-0 z-20 flex items-end h-full">
         <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
           <div className="max-w-4xl">
-            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6">
+            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6">
               {t('team.hero.title')}
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-textColor/90 max-w-2xl leading-relaxed">
               {t('team.hero.subtitle')}
             </p>
           </div>

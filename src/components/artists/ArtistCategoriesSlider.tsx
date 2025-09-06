@@ -50,7 +50,7 @@ export default function ArtistCategoriesSlider() {
   if (isLoading) {
     return (
       <div className="w-full h-64 flex items-center justify-center">
-        <div className="text-white">{t('common.loading')}</div>
+        <div className="text-textColor">{t('common.loading')}</div>
       </div>
     )
   }
@@ -63,17 +63,17 @@ export default function ArtistCategoriesSlider() {
     <section className="w-full mb-16 mt-24">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="bricolage-grotesque text-3xl md:text-4xl text-white">
+          <h2 className="bricolage-grotesque text-3xl md:text-4xl text-textColor">
             {t('artists.categories.title') || 'Catégories d\'artistes'}
           </h2>
           
           {/* Navigation buttons */}
           <div className="flex items-center space-x-4">
-            <button className="swiper-button-prev-custom w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center group">
-              <ChevronLeft className="w-6 h-6 text-white group-hover:text-white/80" />
+            <button className="swiper-button-prev-custom w-12 h-12 rounded-full bg-textColor/10 hover:bg-textColor/20 transition-colors duration-200 flex items-center justify-center group">
+              <ChevronLeft className="w-6 h-6 text-textColor group-hover:text-textColor/80" />
             </button>
-            <button className="swiper-button-next-custom w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center group">
-              <ChevronRight className="w-6 h-6 text-white group-hover:text-white/80" />
+            <button className="swiper-button-next-custom w-12 h-12 rounded-full bg-textColor/10 hover:bg-textColor/20 transition-colors duration-200 flex items-center justify-center group">
+              <ChevronRight className="w-6 h-6 text-textColor group-hover:text-textColor/80" />
             </button>
           </div>
         </div>
@@ -123,15 +123,15 @@ export default function ArtistCategoriesSlider() {
                   }}
                 >
                   {/* Overlay léger pour lisibilité globale */}
-                  <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-black/20" />
+                  <div className="absolute inset-0 bg-backgroundColor/10 transition-colors duration-300 group-hover:bg-backgroundColor/20" />
 
                   {/* Dégradé bas pour fondre avec le fond noir du site */}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-28 lg:h-32 bg-gradient-to-b from-transparent to-black" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-28 lg:h-32 bg-gradient-to-b from-transparent to-backgroundColor" />
 
                   {/* Bouton en pilule comme le screenshot */}
                   <div className="absolute bottom-4 left-4">
                     <button 
-                      className="inline-flex items-center justify-between gap-3 rounded-full border border-white/80 bg-white/10 px-4 py-2 text-white font-semibold backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
+                      className="inline-flex items-center justify-between gap-3 rounded-full border border-textColor/20 bg-textColor/10 px-4 py-2 text-textColor font-semibold backdrop-blur-sm hover:bg-textColor/20 transition-all duration-300"
                       onClick={(e) => {
                         e.stopPropagation()
                         handleCategoryClick(category)

@@ -34,7 +34,7 @@ export default function TokenHowToBuy() {
         {t('presale.token.howToBuy.title')}
       </h2>
 
-      <p className="text-gray-300 max-w-3xl mb-16 bricolage-grotesque">
+      <p className="text-grayText max-w-3xl mb-16 bricolage-grotesque">
         {t('presale.token.howToBuy.subtitle')}
       </p>
 
@@ -48,7 +48,7 @@ export default function TokenHowToBuy() {
               {t('presale.token.howToBuy.step1.title')}
             </h3>
           </div>
-          <p className="text-gray-300 mb-6">
+          <p className="text-grayText mb-6">
             {t('presale.token.howToBuy.step1.description')}
           </p>
           <div className="flex space-x-4 mt-4">
@@ -71,7 +71,7 @@ export default function TokenHowToBuy() {
               {t('presale.token.howToBuy.step2.title')}
             </h3>
           </div>
-          <p className="text-gray-300 mb-4">
+          <p className="text-grayText mb-4">
             {t('presale.token.howToBuy.step2.description')}
           </p>
          
@@ -86,10 +86,10 @@ export default function TokenHowToBuy() {
             {t('presale.token.howToBuy.step3.title')}
           </h3>
         </div>
-        <p className="text-gray-300 mb-4">
+        <p className="text-grayText mb-4">
           {t('presale.token.howToBuy.step3.description')}
         </p>
-        <p className="text-gray-300 mb-6">
+        <p className="text-grayText mb-6">
           {t('presale.token.howToBuy.step3.additionalInfo')}
         </p>
 

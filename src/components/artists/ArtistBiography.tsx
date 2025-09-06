@@ -74,12 +74,12 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             {(artist.biographyHeader1 || artist.biographyText1) && (
               <div className="space-y-4">
                 {(getTranslatedField(artist.id, 'biographyHeader1', artist.biographyHeader1 || '') || artist.biographyHeader1) && (
-                  <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
+                  <h3 className="text-xl lg:text-2xl font-bold text-textColor bricolage-grotesque font-serif">
                     {getTranslatedField(artist.id, 'biographyHeader1', artist.biographyHeader1 || '') || artist.biographyHeader1}
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1) && (
-                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                  <div className="text-textColor text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
                     {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText1', artist.biographyText1 || '') || artist.biographyText1)}
                   </div>
                 )}
@@ -90,12 +90,12 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             {(artist.biographyHeader2 || artist.biographyText2) && (
               <div className="space-y-4">
                 {(getTranslatedField(artist.id, 'biographyHeader2', artist.biographyHeader2 || '') || artist.biographyHeader2) && (
-                  <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
+                  <h3 className="text-xl lg:text-2xl font-bold text-textColor bricolage-grotesque font-serif">
                     {getTranslatedField(artist.id, 'biographyHeader2', artist.biographyHeader2 || '') || artist.biographyHeader2}
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2) && (
-                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                  <div className="text-textColor text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
                     {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText2', artist.biographyText2 || '') || artist.biographyText2)}
                   </div>
                 )}
@@ -106,12 +106,12 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             {(artist.biographyHeader3 || artist.biographyText3) && (
               <div className="space-y-4">
                 {(getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3) && (
-                  <h3 className="text-xl lg:text-2xl font-bold text-white bricolage-grotesque font-serif">
+                  <h3 className="text-xl lg:text-2xl font-bold text-textColor bricolage-grotesque font-serif">
                     {getTranslatedField(artist.id, 'biographyHeader3', artist.biographyHeader3 || '') || artist.biographyHeader3}
                   </h3>
                 )}
                 {(getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3) && (
-                  <div className="text-white text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
+                  <div className="text-textColor text-sm lg:text-base leading-relaxed bricolage-grotesque font-serif">
                     {formatTextWithLineBreaksJSX(getTranslatedField(artist.id, 'biographyText3', artist.biographyText3 || '') || artist.biographyText3)}
                   </div>
                 )}

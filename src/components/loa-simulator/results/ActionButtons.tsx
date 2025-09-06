@@ -44,15 +44,15 @@ export default function ActionButtons({ leaseResults, comparison, formData }: Ac
   }
 
   return (
-    <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
+    <div className="bg-backgroundColor/30 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={handleGeneratePDF}
           disabled={isGeneratingPDF}
-          className={`flex-1 text-white font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
+          className={`flex-1 text-textColor font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
             isGeneratingPDF 
-              ? 'bg-white/10 cursor-not-allowed opacity-50' 
-              : 'bg-white/20 hover:bg-white/30'
+              ? 'bg-backgroundColor/10 cursor-not-allowed opacity-50' 
+              : 'bg-backgroundColor/20 hover:bg-backgroundColor/30'
           }`}
         >
           {isGeneratingPDF ? (
@@ -70,7 +70,7 @@ export default function ActionButtons({ leaseResults, comparison, formData }: Ac
         
         <button
           onClick={() => window.print()}
-          className="flex-1 bg-white/10 text-white font-medium py-3 px-6 rounded-xl transition-all hover:bg-white/20 flex items-center justify-center gap-2 font-unbounded"
+          className="flex-1 bg-backgroundColor/10 text-textColor font-medium py-3 px-6 rounded-xl transition-all hover:bg-backgroundColor/20 flex items-center justify-center gap-2 font-unbounded"
         >
           <FileText className="w-5 h-5" />
           Print

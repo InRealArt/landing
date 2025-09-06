@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="mt-12 md:mt-4">
             <Button
               text={t('marketplace.hero.mainButton')}
-              additionalClassName="border border-white text-white rounded-full py-3 px-8 opacity-50 cursor-not-allowed"
+              additionalClassName="border border-white text-textColor rounded-full py-3 px-8 opacity-50 cursor-not-allowed"
               center
               disabled={true}
             />

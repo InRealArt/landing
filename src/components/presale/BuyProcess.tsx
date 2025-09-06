@@ -78,16 +78,16 @@ const BuyProcess = () => {
           <img src={item.image.src} alt="buy" className="w-full h-auto" />
           <h1 className="unbounded absolute text-[8px] leading-[0.9] lg:text-xl top-0 left-0">{t('presale.buyProcess.step')} {item.step}</h1>
           <h3 className="unbounded absolute bottom-0 left-0 text-xs md:text-2xl lg:text-3xl xl:text-5xl max-w-65" dangerouslySetInnerHTML={{ __html: sanitizedName }} />
-          <div className="unbounded absolute bottom-2 right-2 w-30 bg-white p-4 rounded-lg hidden lg:block">
-            <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+          <div className="unbounded absolute bottom-2 right-2 w-30 bg-backgroundColor p-4 rounded-lg hidden lg:block">
+            <p className="text-[11px] text-textColor" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
             <div className="flex justify-between mt-6">
               <Button action={() => handleSlide()} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.previous')} />
               <Button action={() => handleSlide(true)} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.next')} />
             </div>
           </div>
         </div>
-        <div className="unbounded w-full bg-white p-4 rounded-lg lg:hidden mt-10">
-          <p className="text-[11px] text-black" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+        <div className="unbounded w-full bg-backgroundColor p-4 rounded-lg lg:hidden mt-10">
+          <p className="text-[11px] text-textColor" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <div className="flex justify-between mt-6">
             <Button action={() => handleSlide()} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.previous')} />
             <Button action={() => handleSlide(true)} additionalClassName="bg-purpleColor text-xs" text={t('presale.buyProcess.buttons.next')} />

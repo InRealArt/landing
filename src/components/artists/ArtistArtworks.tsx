@@ -44,7 +44,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
       {/* Compteur d'artworks */}
       {artworks.length > 0 && (
         <div className="flex items-center justify-start mb-6">
-          <div className="text-white/60 text-sm">
+          <div className="text-textColor/60 text-sm">
             {artworks.length} {artworks.length > 1 ? t('artistPage.artwork_plural') : t('artistPage.artwork_singular')}
           </div>
         </div>
@@ -63,17 +63,17 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
           <button
             disabled={page === 1}
             onClick={() => setParams({ page: page - 1 })}
-            className="px-4 py-2 rounded-md bg-white/10 text-white disabled:opacity-40 hover:bg-white/20 transition-colors disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded-md bg-backgroundColor/10 text-textColor disabled:opacity-40 hover:bg-backgroundColor/20 transition-colors disabled:cursor-not-allowed"
           >
             {t('artists.previous') || 'Précédent'}
           </button>
-          <div className="text-white/80 px-4">
+          <div className="text-textColor/80 px-4">
             Page {page} / {totalPages}
           </div>
           <button
             disabled={page === totalPages}
             onClick={() => setParams({ page: page + 1 })}
-            className="px-4 py-2 rounded-md bg-white/10 text-white disabled:opacity-40 hover:bg-white/20 transition-colors disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded-md bg-backgroundColor/10 text-textColor disabled:opacity-40 hover:bg-backgroundColor/20 transition-colors disabled:cursor-not-allowed"
           >
             {t('artists.next') || 'Suivant'}
           </button>

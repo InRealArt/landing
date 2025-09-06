@@ -28,7 +28,7 @@ export default function Contact() {
           <h1 className="text-3xl md:text-6xl bricolage-grotesque mb-8">
             {t('contact.title')}
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mb-16">
+          <p className="text-xl text-grayText max-w-2xl mb-16">
             {t('contact.subtitle')}
           </p>
           
@@ -36,10 +36,10 @@ export default function Contact() {
             {/* Calendly */}
             <div className="bg-cardBackground p-8 rounded-lg border border-white/20 flex flex-col items-center">
               <div className="bg-purpleColor rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <Calendar size={24} className="text-white" />
+                <Calendar size={24} className="text-textColor" />
               </div>
               <h3 className="text-xl font-medium mb-3">{t('contact.calendly')}</h3>
-              <p className="text-gray-300 mb-6">{t('contact.calendlyDescription')}</p>
+              <p className="text-grayText mb-6">{t('contact.calendlyDescription')}</p>
               <Button
                 text={t('contact.scheduleMeeting')}
                 additionalClassName="bg-purpleColor w-full"
@@ -52,10 +52,10 @@ export default function Contact() {
             {/* Email */}
             <div className="bg-cardBackground p-8 rounded-lg border border-white/20 flex flex-col items-center">
               <div className="bg-purpleColor rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <Mail size={24} className="text-white" />
+                <Mail size={24} className="text-textColor" />
               </div>
               <h3 className="text-xl font-medium mb-3">{t('contact.email')}</h3>
-              <p className="text-gray-300 mb-6">{contactInfo.email}</p>
+              <p className="text-grayText mb-6">{contactInfo.email}</p>
               <Button
                 text={t('contact.sendEmail')}
                 additionalClassName="bg-purpleColor w-full"
@@ -67,7 +67,7 @@ export default function Contact() {
             {/* Social */}
             <div className="bg-cardBackground p-8 rounded-lg border border-white/20 flex flex-col items-center">
               <div className="bg-purpleColor rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <OptimizedSVG src="/icons/linkedin.svg" alt="Social" width={24} height={24} className="text-white" />
+                <OptimizedSVG src="/icons/linkedin.svg" alt="Social" width={24} height={24} className="text-textColor" />
               </div>
               <h3 className="text-xl font-medium mb-3">{t('contact.social')}</h3>
               <div className="flex gap-4 mb-6">
@@ -85,12 +85,12 @@ export default function Contact() {
                       alt={platform.name} 
                       width={platform.name === 'Facebook' ? 16 : 24} 
                       height={platform.name === 'Facebook' ? 16 : 24} 
-                      className="text-white" 
+                      className="text-textColor" 
                     />
                   </Link>
                 ))}
               </div>
-              <p className="text-gray-300">{t('contact.followUs')}</p>
+              <p className="text-grayText">{t('contact.followUs')}</p>
             </div>
           </div>
         </div>

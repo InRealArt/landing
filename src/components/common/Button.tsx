@@ -28,7 +28,7 @@ const Button = ({
   iconBefore = false,
   target = '_self'
 }: Props) => {
-  const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`;
+  const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} ${additionalClassName?.includes('bg-purpleColor') ? 'text-white' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`;
 
   if (link)
     return (

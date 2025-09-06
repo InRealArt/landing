@@ -37,7 +37,7 @@ export default function SimulatorSelect({
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor={id} className="block text-sm font-medium text-grayText mb-2">
           {label}
           {required && <span className="text-red-400 ml-1">*</span>}
         </label>
@@ -49,10 +49,10 @@ export default function SimulatorSelect({
           value={value}
           onChange={handleChange}
           required={required}
-          className={`w-full px-4 py-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-gray-800 focus:border-purple-500 focus:outline-none text-white appearance-none font-unbounded`}
+          className={`w-full px-4 py-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-backgroundGrey focus:border-purple-500 focus:outline-none text-textColor appearance-none font-unbounded`}
         >
           {placeholder && (
-            <option value="" disabled className="text-gray-400">
+            <option value="" disabled className="text-grayText">
               {placeholder}
             </option>
           )}
@@ -61,13 +61,13 @@ export default function SimulatorSelect({
               key={option.value}
               value={option.value}
               disabled={option.disabled}
-              className="bg-gray-800 text-white"
+              className="bg-gray-800 text-textColor"
             >
               {option.label}
             </option>
           ))}
         </select>
-        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-grayText pointer-events-none" />
       </div>
       {error && (
         <p className="text-red-400 text-sm mt-1">{error}</p>

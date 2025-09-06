@@ -1,6 +1,4 @@
-import { Ref } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { stringToSlug } from "@/utils/functions";
 
 interface ArtworkCardProps {
@@ -29,7 +27,7 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
           />
         </div>
       )}
-      <p className="mt-4 h-6 overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
+      <p className="mt-4 h-6 bricolage-grotesque overflow-hidden text-ellipsis whitespace-nowrap font-medium">{name}</p>
     </Link>
   );
 }

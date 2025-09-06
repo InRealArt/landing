@@ -29,7 +29,7 @@ const BlogIcon = () => (
 
 const ChevronIcon = () => (
   <svg 
-    className="w-4 h-4 text-gray-400" 
+    className="w-4 h-4 text-grayText" 
     fill="currentColor" 
     viewBox="0 0 20 20"
     aria-hidden="true"
@@ -57,14 +57,14 @@ export default function Breadcrumb({ items, className = '', showIcons = false }:
             {item.href && !item.current ? (
               <Link 
                 href={item.href} 
-                className="text-gray-400 hover:text-white transition-colors flex items-center space-x-1"
+                className="text-grayText hover:text-textColor transition-colors flex items-center space-x-1"
               >
                 {showIcons && item.icon && <span>{item.icon}</span>}
                 <span>{item.label}</span>
               </Link>
             ) : (
               <div 
-                className={`${item.current ? 'text-white' : 'text-gray-400'} flex items-center space-x-1`}
+                className={`${item.current ? 'text-textColor' : 'text-grayText'} flex items-center space-x-1`}
                 title={item.current ? item.label : undefined}
                 aria-current={item.current ? 'page' : undefined}
               >

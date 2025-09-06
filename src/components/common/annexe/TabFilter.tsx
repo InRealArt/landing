@@ -16,8 +16,8 @@ export default function TabFilter({ activeTab, tabs, setActiveTab, className = "
             key={tab}
             className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
               activeTab === tab
-                ? "bg-[#6358DC] text-white"
-                : "bg-[#1E1E1E] text-white border border-white/10 hover:border-white/30"
+                ? "bg-[#6358DC] text-textColor"
+                : "bg-[#1E1E1E] text-textColor border border-white/10 hover:border-white/30"
             }`}
             onClick={() => setActiveTab(tab)}
           >

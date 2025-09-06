@@ -36,7 +36,7 @@ export default function ReadyToStart() {
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
         {t('usecase.items.gallery.title')}
       </h2>
-      <p className="text-base md:text-lg inter text-gray-300 mb-10">
+      <p className="text-base md:text-lg text-grayText mb-10">
         {t('usecase.items.gallery.description')}
       </p>
 
@@ -44,7 +44,7 @@ export default function ReadyToStart() {
         {galleries.map((gallery, index) => (
           <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
             <h3 className="text-xl bricolage-grotesque font-medium mb-4">{gallery.title}</h3>
-            <p className="text-sm inter mb-6">{gallery.description}</p>
+            <p className="text-sm mb-6">{gallery.description}</p>
             <Button 
               text={t('buttons.readMore')} 
               additionalClassName="bg-purpleColor w-full justify-center" 

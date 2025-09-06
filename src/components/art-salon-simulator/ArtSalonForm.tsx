@@ -160,7 +160,7 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
 
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
+      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
         {t('footer.artSalonSimulator')} {salonName}
       </h1>
 

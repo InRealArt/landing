@@ -34,15 +34,15 @@ export default function SimulatorRadioGroup({
   return (
     <div>
       <fieldset>
-        <legend className="block text-sm font-medium text-gray-300 mb-3 font-unbounded">
+        <legend className="block text-sm font-medium text-grayText mb-3 font-unbounded">
           {label}
           {required && <span className="text-red-400 ml-1">*</span>}
         </legend>
-        <div className={`${inline ? 'flex flex-wrap gap-4' : 'space-y-3'} p-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-gray-800`}>
+        <div className={`${inline ? 'flex flex-wrap gap-4' : 'space-y-3'} p-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-backgroundGrey`}>
           {options.map((option) => (
             <label
               key={option.value}
-              className={`flex items-center cursor-pointer ${inline ? 'flex-shrink-0' : ''} ${
+              className={`flex items-center cursor-po${inline ? 'flex-shrink-0' : ''} ${
                 option.disabled ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
@@ -55,7 +55,7 @@ export default function SimulatorRadioGroup({
                 disabled={option.disabled}
                 className="w-4 h-4 text-purple-600 bg-gray-700 border-gray-600 focus:ring-purple-500 focus:ring-2"
               />
-              <span className="ml-3 text-white font-unbounded">{option.label}</span>
+              <span className="ml-3 text-textColor font-unbounded">{option.label}</span>
             </label>
           ))}
         </div>

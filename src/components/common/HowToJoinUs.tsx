@@ -51,7 +51,7 @@ export default function HowToJoinUs({
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium bricolage-grotesque text-white mb-6 md:mb-0">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium bricolage-grotesque text-textColor mb-6 md:mb-0">
             {displayTitle}
           </h2>
           {useModal ? (
@@ -82,11 +82,11 @@ export default function HowToJoinUs({
                 {/* Card */}
                 <div className="bg-cardBackground rounded-xl p-6 md:p-8 border border-white relative z-10 flex items-center justify-center min-h-[120px]">
                   <div className="max-w-4xl text-center">
-                    <h3 className="text-xl md:text-2xl font-medium bricolage-grotesque text-white mb-4">
+                    <h3 className="text-xl md:text-2xl font-medium bricolage-grotesque text-textColor mb-4">
                       {t(step.title)}
                     </h3>
                     {step.description && (
-                      <p className="text-gray-300 inter leading-relaxed">
+                      <p className="text-grayText leading-relaxed">
                         {t(step.description)}
                       </p>
                     )}

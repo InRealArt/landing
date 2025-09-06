@@ -66,45 +66,45 @@ export default function TokenSaleInfo() {
 
   return (
     <div className="w-full max-w-md bg-[#13111D]/70 backdrop-blur-md rounded-xl p-6 border border-[#2D2A3D]">
-      <h2 className="text-center text-2xl text-white font-medium mb-6">
+      <h2 className="text-center text-2xl text-textColor font-medium mb-6">
         {t('presale.token.countdown.title')}
       </h2>
       
       <div className="flex justify-center gap-4 mb-8">
         <div className="flex flex-col items-center">
-          <div className="bg-[#2D1E69] text-white text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
+          <div className="bg-[#2D1E69] text-textColor text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
             {formatTimeUnit(timeLeft.days)}
           </div>
-          <span className="text-gray-400 text-sm mt-1">{t('presale.token.countdown.days')}</span>
+          <span className="text-grayText text-sm mt-1">{t('presale.token.countdown.days')}</span>
         </div>
-        <div className="text-white text-3xl font-bold">:</div>
+        <div className="text-textColor text-3xl font-bold">:</div>
         <div className="flex flex-col items-center">
-          <div className="bg-[#2D1E69] text-white text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
+          <div className="bg-[#2D1E69] text-textColor text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
             {formatTimeUnit(timeLeft.hours)}
           </div>
-          <span className="text-gray-400 text-sm mt-1">{t('presale.token.countdown.hours')}</span>
+          <span className="text-grayText text-sm mt-1">{t('presale.token.countdown.hours')}</span>
         </div>
-        <div className="text-white text-3xl font-bold">:</div>
+        <div className="text-textColor text-3xl font-bold">:</div>
         <div className="flex flex-col items-center">
-          <div className="bg-[#2D1E69] text-white text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
+          <div className="bg-[#2D1E69] text-textColor text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
             {formatTimeUnit(timeLeft.minutes)}
           </div>
-          <span className="text-gray-400 text-sm mt-1">{t('presale.token.countdown.mins')}</span>
+          <span className="text-grayText text-sm mt-1">{t('presale.token.countdown.mins')}</span>
         </div>
-        <div className="text-white text-3xl font-bold">:</div>
+        <div className="text-textColor text-3xl font-bold">:</div>
         <div className="flex flex-col items-center">
-          <div className="bg-[#2D1E69] text-white text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
+          <div className="bg-[#2D1E69] text-textColor text-3xl font-bold rounded-md w-16 h-16 flex items-center justify-center">
             {formatTimeUnit(timeLeft.seconds)}
           </div>
-          <span className="text-gray-400 text-sm mt-1">{t('presale.token.countdown.secs')}</span>
+          <span className="text-grayText text-sm mt-1">{t('presale.token.countdown.secs')}</span>
         </div>
       </div>
       
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-white">
+        <span className="text-textColor">
           {t('presale.token.saleProgress.raised').replace('{{amount}}', currentRaised.toString())}
         </span>
-        <span className="text-white">
+        <span className="text-textColor">
           {t('presale.token.saleProgress.target').replace('{{amount}}', targetAmount.toString())}
         </span>
       </div>
@@ -118,13 +118,13 @@ export default function TokenSaleInfo() {
       
       <div className="grid grid-cols-3 text-center">
         <div className="border-r border-[#2D2A3D]">
-          <p className="text-gray-400 text-xs">{t('presale.token.saleProgress.softCap')}</p>
+          <p className="text-grayText text-xs">{t('presale.token.saleProgress.softCap')}</p>
         </div>
         <div className="border-r border-[#2D2A3D]">
-          <p className="text-gray-400 text-xs">{t('presale.token.saleProgress.crowdsale')}</p>
+          <p className="text-grayText text-xs">{t('presale.token.saleProgress.crowdsale')}</p>
         </div>
         <div>
-          <p className="text-gray-400 text-xs">{t('presale.token.saleProgress.hardCap')}</p>
+          <p className="text-grayText text-xs">{t('presale.token.saleProgress.hardCap')}</p>
         </div>
       </div>
     </div>

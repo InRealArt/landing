@@ -14,7 +14,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function FractionatePage() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-textColor">
       <Hero />
       <Benefits />
       <HowItWorks />

@@ -60,7 +60,7 @@ export default function CustomerStories() {
       <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
         {t('usecase.intro.title')}
       </h2>
-      <p className="text-base md:text-lg inter text-gray-300 mb-10">
+      <p className="text-base md:text-lg text-grayText mb-10">
         {t('usecase.intro.subtitle')}
       </p>
 
@@ -68,7 +68,7 @@ export default function CustomerStories() {
         {stories.map((story, index) => (
           <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">
             <h3 className="text-xl bricolage-grotesque font-medium mb-4">{story.title}</h3>
-            <p className="text-sm text-gray-300 mb-6">{story.description}</p>
+            <p className="text-sm text-grayText mb-6">{story.description}</p>
             <ul className="mb-6">
               {story.benefits.map((benefit: string, bIndex: number) => (
                 <li key={bIndex} className="flex items-start mb-2">

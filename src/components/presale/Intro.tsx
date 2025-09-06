@@ -26,7 +26,7 @@ const Intro = () => {
           <div className="flex flex-col md:flex-row md:justify-between gap-12">
             <div className="md:w-6/12 bricolage-grotesque font-semibold">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl bricolage-grotesque mb-6 sm:mb-8 text-white">{t('presale.intro.title')}</h1>
-              <h3 className="mb-6 sm:mb-8 inter text-sm sm:text-base md:text-lg text-white/90">{t('presale.intro.subtitle')}</h3>
+              <h3 className="mb-6 sm:mb-8 text-sm sm:text-base md:text-lg text-white/90">{t('presale.intro.subtitle')}</h3>
             </div>
           </div>
         </div>

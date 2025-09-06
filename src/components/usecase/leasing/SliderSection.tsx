@@ -27,7 +27,7 @@ export default function SliderSection() {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <p className="text-sm inter text-gray-300 mb-10 max-w-3xl">
+        <p className="text-sm text-grayText mb-10 max-w-3xl">
           {t('leasing.slider.subtitle')}
         </p>
         

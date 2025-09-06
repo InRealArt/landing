@@ -33,7 +33,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
       </div>
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
-          {post.tags.map((tag, index) => (
+          {post.tags.slice(0, 4).map((tag, index) => (
             <span key={index} className="px-3 py-1 bg-transparent rounded-full text-xs text-[#828282] border border-[#828282]">
               {getTagName(tag)}
             </span>
@@ -46,9 +46,9 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           <span>{post.readTime}</span>
         </div>
         
-        <h3 className="text-xl font-bold mb-3">{post.title}</h3>
+        <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
         
-        <p className="text-sm">{post.description}</p>
+        <p className="text-sm line-clamp-4">{post.description}</p>
       </div>
     </Link>
   );

@@ -20,7 +20,7 @@ export default function BlogPage() {
         }}
       />
       
-      <main className="min-h-screen pt-headerSize text-white">
+      <main className="min-h-screen pt-headerSize text-textColor">
         <Hero />
         <BlogCategories />
         <FeaturedPost />

@@ -129,7 +129,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
     return (
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">{t('artwork.notFound')}</h1>
+          <h1 className="text-2xl font-bold text-textColor mb-4">{t('artwork.notFound')}</h1>
           <Link href="/artists" className="text-purpleColor hover:underline">
             {t('artwork.backToArtists')}
           </Link>
@@ -191,12 +191,12 @@ export default function ArtworkPageClient({ artworkId }: Props) {
           {/* Artwork details */}
           <div>
             <div className="flex justify-between items-start mb-6">
-              <h1 className="text-3xl font-bold text-white unbounded">{artworkName}</h1>
+              <h1 className="text-3xl font-bold text-textColor unbounded">{artworkName}</h1>
             </div>
 
             <div className="mb-8">
-              <p className="text-gray-400 mb-2">{t('artwork.by')} <span className="text-white">{artwork.artistName}</span></p>
-              <p className="text-gray-400 mb-2">{t('artwork.dimensions')}: <span className="text-white">
+              <p className="text-grayText mb-2">{t('artwork.by')} <span className="text-textColor">{artwork.artistName}</span></p>
+              <p className="text-grayText mb-2">{t('artwork.dimensions')}: <span className="text-textColor">
                 {artwork.width && artwork.height 
                   ? `${artwork.width} x ${artwork.height} cm` 
                   : 'N/A'
@@ -205,8 +205,8 @@ export default function ArtworkPageClient({ artworkId }: Props) {
             </div>
 
             <div className="mb-8">
-              <h2 className="text-xl font-semibold text-white mb-4">{t('artwork.description')}</h2>
-              <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
+              <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.description')}</h2>
+              <p className="text-grayText" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
             </div>
 
             {/* Additional artwork details would go here */}

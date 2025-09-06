@@ -40,7 +40,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <div className={`fixed inset-0 z-50  bg-opacity-80 flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className={`bg-cardBackground min-h-[100vh] w-full max-w-[85%] p-6 flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex justify-end mb-8">
-          <button onClick={onClose} className="text-white p-2">
+          <button onClick={onClose} className="text-textColor p-2">
             <X size={24} />
           </button>
         </div>
@@ -48,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <nav className="flex flex-col gap-6 bricolage-grotesque font-semibold text-xl">
           <Link
             href="/"
-            className={`${pathname === '/' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.home')}
@@ -56,49 +56,49 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           <Link
             href="/marketplace"
-            className={`${pathname === '/marketplace' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/marketplace' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.marketplace')}
           </Link>
           <Link
             href="/presale"
-            className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.artworks')}
           </Link>
           <Link
             href="/artists"
-            className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.artists')}
           </Link>
           <Link
             href="/joinInRealArt"
-            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.joinInRealArt')}
           </Link>
           <Link
             href="/usecase"
-            className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.usecase')}
           </Link>
           <Link
             href="/blog"
-            className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.blog')}
           </Link>
           <Link
             href="/about"
-            className={`${pathname === '/about' ? 'text-purpleColor' : 'text-white'} py-2 border-b border-[#ffffff1f]`}
+            className={`${pathname === '/about' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.aboutInRealArt')}

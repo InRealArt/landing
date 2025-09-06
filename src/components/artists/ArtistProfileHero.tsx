@@ -35,7 +35,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
         style={{ backgroundImage: `url('${backgroundImage}')` }}
       >
         {/* Overlay sombre pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
+        <div className="absolute inset-0 bg-backgroundColor bg-opacity-40" />
       </div>
 
       {/* Contenu principal */}
@@ -59,7 +59,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
                   {artist.mediumTags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm inter font-medium"
+                      className="px-3 py-1 bg-backgroundColor/20 backdrop-blur-sm text-white rounded-full text-sm font-medium"
                     >
                       {tag}
                     </span>
@@ -72,7 +72,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
             <div className="absolute bottom-4 left-4 right-4 z-10">
               {/* Année de naissance et pays */}
               {(artist.birthYear || artist.countryName) && (
-                <p className="text-sm text-white/90 mb-2 inter">
+                <p className="text-sm text-textColor/90 mb-2 inter">
                   {artist.birthYear && `${t('artistPage.bornIn')} ${artist.birthYear}`}
                   {artist.birthYear && artist.countryName && ' - '}
                   {artist.countryName}

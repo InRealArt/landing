@@ -19,7 +19,7 @@
     "companies": "Entreprises",
     "lending": "Prêt",
     "fractionate": "Fractionnement",
-    "joinInRealArt": "Rejoindre InRealArt",
+    "joinInRealArt": "Nous rejoindre",
     "aboutInRealArt": "L'entreprise InRealArt"
   },
   "intro": {
@@ -53,7 +53,17 @@
     "leasing": "Leasing d'entreprise",
     "loaSimulator": "Simulateur LOA",
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
-    "artSalonSimulator": "Simulateur de frais au salon"
+    "artSalonSimulator": "Simulateur de frais au salon",
+    "viewAllSimulators": "Voir tous les simulateurs"
+  },
+  "simulators": {
+    "title": "Tous les Simulateurs",
+    "description": "Accédez à tous nos simulateurs d'art et de patrimoine pour calculer les coûts, explorer les opportunités d'investissement et prendre des décisions éclairées.",
+    "otherSimulators": "Autres Simulateurs",
+    "accessSimulator": "Accéder au simulateur",
+    "loaDescription": "Calculez vos coûts et avantages LOA (Location avec Option d'Achat)",
+    "heritageDescription": "Explorez les opportunités d'investissement patrimoine et art",
+    "backToHome": "Retour à l'accueil"
   },
   "manifest": {
     "title": "Manifeste InRealArt",
@@ -205,6 +215,10 @@
   "language": {
     "switchTo": "Passer en français",
     "current": "FR"
+  },
+  "theme": {
+    "switchToLight": "Passer en mode clair",
+    "switchToDark": "Passer en mode sombre"
   },
   "home": {
     "intro": {

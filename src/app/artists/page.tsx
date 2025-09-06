@@ -21,15 +21,15 @@ function CategoriesSliderSkeleton () {
     <section className="w-full mb-16 mt-24">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
-          <div className="h-8 w-64 rounded bg-white/10 animate-pulse" />
+          <div className="h-8 w-64 rounded bg-backgroundColor/10 animate-pulse" />
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-full bg-white/10 animate-pulse" />
-            <div className="w-12 h-12 rounded-full bg-white/10 animate-pulse" />
+            <div className="w-12 h-12 rounded-full bg-backgroundColor/10 animate-pulse" />
+            <div className="w-12 h-12 rounded-full bg-backgroundColor/10 animate-pulse" />
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[0,1,2].map(i => (
-            <div key={i} className="h-64 rounded-2xl bg-white/10 animate-pulse" />
+            <div key={i} className="h-64 rounded-2xl bg-backgroundColor/10 animate-pulse" />
           ))}
         </div>
       </div>
@@ -51,7 +51,7 @@ export default function ArtistsPage() {
   if (artistsLoading || artworksLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-white">{t('common.loading')}</div>
+        <div className="text-textColor">{t('common.loading')}</div>
       </div>
     );
   }
@@ -106,12 +106,12 @@ export default function ArtistsPage() {
       </Suspense> */}
 
       {/* Grille d'artistes avec filtre nationalité & pagination via Nuqs */}
-      <Suspense fallback={<div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-white/70">Chargement…</div>}>
+      <Suspense fallback={<div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-textColor/70">Chargement…</div>}>
         <ArtistsGrid />
       </Suspense>
 
       {/* <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-headerSize">
-        <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-white">
+        <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-textColor">
           {t('artists.title')}
         </h2>
         {formattedArtists.length > 0 && (

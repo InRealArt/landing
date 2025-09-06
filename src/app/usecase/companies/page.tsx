@@ -13,7 +13,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function CompaniesPage() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-textColor">
       <Hero />
       {/* <Expert /> */}
       <Possibilities />

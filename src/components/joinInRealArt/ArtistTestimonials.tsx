@@ -19,7 +19,7 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
       <TranslatedText 
         content={testimonial.text}
         as="p"
-        className="text-gray-300 text-sm lg:text-base leading-relaxed mb-6 flex-1"
+        className="text-grayText text-sm lg:text-base leading-relaxed mb-6 flex-1"
         allowHtml={true}
       />
       <div className="flex items-center gap-3 mt-auto">
@@ -31,7 +31,7 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
           className="rounded-lg object-cover w-12 h-12 flex-shrink-0" 
         />
         <div className="flex-1">
-          <p className="text-white font-medium bricolage-grotesque">
+          <p className="text-textColor font-medium bricolage-grotesque">
             {testimonial.nomArtiste}
             {testimonial.prenomArtiste && (
               <>
@@ -41,7 +41,7 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
             )}
           </p>
           {testimonial.classementIcac && (
-            <p className="text-gray-400 text-xs mt-1">
+            <p className="text-grayText text-xs mt-1">
               Classement ICAC: {testimonial.classementIcac}
             </p>
           )}
@@ -80,14 +80,14 @@ export default function ArtistTestimonials({
     <section className={`w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-20 ${className}`}>
       <div className="mb-12">
         {title ? (
-          <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-white mb-6 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 text-center">
             {title}
           </h1>
         ) : (
           <TranslatedText 
             translationKey={titleKey}
             as="h1"
-            className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-white mb-6 text-center"
+            className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 text-center"
             allowHtml={true}
           />
         )}

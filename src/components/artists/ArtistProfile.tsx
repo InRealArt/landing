@@ -27,16 +27,16 @@ export default function ArtistProfile({ artist }: ArtistProfileProps) {
         />
         <div className='p-6 lg:px-20 lg:pt-20 lg:pb-6 flex-1 flex flex-col gap-6'>
           {artist.intro && (
-            <h2 className='inter font-bold text-base md:text-lg text-white'>
+            <h2 className='font-bold text-base md:text-lg text-textColor'>
               &ldquo;{artist.intro}&rdquo;
             </h2>
           )}
-          <p className='inter text-xs font-medium md:text-base'>
+          <p className='text-xs font-medium md:text-base'>
             {artist.description}
           </p>
           <div>
-            <p className='inter font-bold text-base text-white mb-2'>{artist.name}</p>
-            <p className='inter text-base font-medium'>{artist.role}</p>
+            <p className='font-bold text-base text-textColor mb-2'>{artist.name}</p>
+            <p className='text-base font-medium'>{artist.role}</p>
           </div>
         </div>
       </div>

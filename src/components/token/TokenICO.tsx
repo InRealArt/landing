@@ -20,7 +20,7 @@ export default function TokenICO() {
         <h2 className="text-4xl md:text-5xl font-bold mb-4 bricolage-grotesque">
           {t('token.ico.title')}
         </h2>
-        <p className="text-gray-300 mx-auto max-w-3xl">
+        <p className="text-grayText mx-auto max-w-3xl">
           {t('token.ico.subtitle')}
         </p>
       </div>
@@ -33,7 +33,7 @@ export default function TokenICO() {
               className={`p-2 rounded-lg ${item.className} border border-gray-800`}
             >
               <div className="font-semibold text-xl mb-1">{t(`token.ico.timeline.${item.key}.label`)}</div>
-              <div className="text-gray-300 text-sm">{t(`token.ico.timeline.${item.key}.date`)}</div>
+              <div className="text-grayText text-sm">{t(`token.ico.timeline.${item.key}.date`)}</div>
             </div>
           ))}
         </div>

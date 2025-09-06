@@ -5,13 +5,13 @@
 }
 
 #blog-content-container a {
-  color: #6052ff !important;
+  color: var(--purple) !important;
 }
 
 #blog-content-container {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: rgb(255, 255, 255); /* Changé de #333 à blanc */
+  color: var(--text);
 }
 
 /* Style pour le titre principal H1 */
@@ -20,7 +20,7 @@
   font-weight: 700 !important; /* font-bold */
   margin-bottom: 1.5rem !important; /* mb-6 */
   font-family: "Bricolage Grotesque", serif !important;
-  color: rgb(255, 255, 255) !important;
+  color: var(--text) !important;
   line-height: 1.1 !important;
 }
 
@@ -31,7 +31,7 @@
   margin-top: 2.5rem !important; /* mt-10 */
   margin-bottom: 1rem !important; /* mb-4 */
   font-family: "Bricolage Grotesque", serif !important;
-  color: rgb(255, 255, 255) !important;
+  color: var(--text) !important;
   line-height: 1.2 !important;
 }
 
@@ -60,12 +60,12 @@
   text-align: center;
   font-style: italic;
   margin-top: 0.5em;
-  color: #666;
+  color: var(--gray-text);
 }
 
 #blog-content-container .article-meta {
   font-size: 0.9em;
-  color: #666;
+  color: var(--gray-text);
   margin-bottom: 2em;
 }
 
@@ -75,17 +75,45 @@
   margin-bottom: 2em;
 }
 
-/* Adaptation au mode sombre */
-@media (prefers-color-scheme: dark) {
-  #blog-content-container {
-    color: #e5e7eb;
-    background-color: transparent;
-  }
-  
-  #blog-content-container figcaption,
-  #blog-content-container .article-meta {
-    color: #9ca3af;
-  }
+/* Theme-aware styles - automatically handled by CSS variables */
+
+/* Additional theme-aware styles for better blog content */
+#blog-content-container h3,
+#blog-content-container h4,
+#blog-content-container h5,
+#blog-content-container h6 {
+  color: var(--text);
+  font-family: "Bricolage Grotesque", serif;
+}
+
+#blog-content-container blockquote {
+  border-left: 4px solid var(--purple);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--gray-text);
+}
+
+#blog-content-container code {
+  background-color: var(--background-grey);
+  color: var(--text);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+#blog-content-container pre {
+  background-color: var(--background-grey);
+  color: var(--text);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+#blog-content-container pre code {
+  background-color: transparent;
+  padding: 0;
 }
 
 /* Media queries pour la responsivité du titre principal */

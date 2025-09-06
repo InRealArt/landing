@@ -79,6 +79,8 @@ const Intro = () => {
           </div>
         </div>
 
+        
+
         {/* <OptimizedContentImage 
           className="my-8 md:my-12" 
           src={schema.src} 

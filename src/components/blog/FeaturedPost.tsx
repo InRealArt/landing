@@ -71,14 +71,14 @@ export default function FeaturedPost() {
         <div className="mb-16">
           <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="h-[440px] bg-gray-200 animate-pulse rounded-lg" />
-            <div className="p-8 bg-white rounded-lg">
-              <div className="h-4 bg-gray-200 animate-pulse rounded mb-3" />
-              <div className="h-8 bg-gray-200 animate-pulse rounded mb-3" />
-              <div className="h-20 bg-gray-200 animate-pulse rounded mb-6" />
+            <div className="h-[440px] bg-backgroundGrey animate-pulse rounded-lg" />
+            <div className="p-8 bg-backgroundColor rounded-lg">
+              <div className="h-4 bg-backgroundGrey animate-pulse rounded mb-3" />
+              <div className="h-8 bg-backgroundGrey animate-pulse rounded mb-3" />
+              <div className="h-20 bg-backgroundGrey animate-pulse rounded mb-6" />
               <div className="flex gap-2 mb-6">
-                <div className="h-6 w-16 bg-gray-200 animate-pulse rounded-full" />
-                <div className="h-6 w-20 bg-gray-200 animate-pulse rounded-full" />
+                <div className="h-6 w-16 bg-backgroundGrey animate-pulse rounded-full" />
+                <div className="h-6 w-20 bg-backgroundGrey animate-pulse rounded-full" />
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function FeaturedPost() {
       <section className="mx-auto px-4 max-w-screen-xl">
         <div className="mb-16">
           <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
-          <div className="p-8 bg-gray-50 border border-gray-200 rounded-lg text-gray-700">
+          <div className="p-8 bg-backgroundGrey border border-textColor/20 rounded-lg text-grayText">
             {t('blog.noFeaturedPost')}
           </div>
         </div>
@@ -118,10 +118,10 @@ export default function FeaturedPost() {
       <div className="mb-16">
         <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-textColor items-stretch">
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative h-[440px] cursor-pointer overflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
+            className="relative h-[440px] cursor-pooverflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
           >
             {featuredPost.mainImageUrl ? (
               <OptimizedImage
@@ -133,15 +133,15 @@ export default function FeaturedPost() {
                 priority
               />
             ) : (
-              <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">{t('blog.noImage')}</span>
+              <div className="w-full h-full bg-backgroundGrey rounded-lg flex items-center justify-center">
+                <span className="text-grayText">{t('blog.noImage')}</span>
               </div>
             )}
           </Link>
 
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative p-8 flex flex-col justify-center rounded-lg bg-white cursor-pointer hover:bg-gray-50 transition-colors duration-300 h-full"
+            className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer hover:bg-backgroundGrey transition-colors duration-300 h-full"
           >
             {/* Catégorie en haut à droite */}
             {featuredPost.category && (
@@ -158,7 +158,7 @@ export default function FeaturedPost() {
               </div>
             )}
 
-            <div className="flex items-center gap-2 text-sm mb-3 text-gray-600">
+            <div className="flex items-center gap-2 text-sm mb-3 text-grayText">
               <span>{formatDate(featuredPost.createdAt)}</span>
               <span>•</span>
               <span>{formatReadTime(featuredPost.estimatedReadTime)}</span>
@@ -172,7 +172,7 @@ export default function FeaturedPost() {
 
             <h3 className="text-2xl font-bold mb-3">{featuredPost.title}</h3>
 
-            <p className="mb-6 text-gray-700">
+            <p className="mb-6 text-grayText">
               {featuredPost.excerpt || featuredPost.metaDescription}
             </p>
 
@@ -180,11 +180,8 @@ export default function FeaturedPost() {
               {featuredPost.listTags.slice(0, 3).map((tag, index) => (
                 <span 
                   key={index} 
-                  className="px-4 py-1 border rounded-full text-sm"
-                  style={{ 
-                    borderColor: featuredPost.category.color || '#e5e7eb',
-                    color: featuredPost.category.color || '#374151'
-                  }}
+                  className="px-4 py-1 border rounded-full text-sm text-textColor"
+
                 >
                   {tag}
                 </span>
@@ -192,7 +189,7 @@ export default function FeaturedPost() {
             </div>
 
             <div className="flex items-center">
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-grayText">
                 {t('blog.by')} {featuredPost.author}
               </span>
             </div>

@@ -14,7 +14,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function UseCase() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-textColor">
       <Header />
       <UseCaseFAQ />
       {/* <CustomerStories /> */}

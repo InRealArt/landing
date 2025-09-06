@@ -52,7 +52,7 @@ export default function HeritageArtSimulatorPage() {
             />
           </div>
         </div>
-        <div className="text-gray-300 max-w-md mx-auto">
+        <div className="text-grayText max-w-md mx-auto">
           <p className="text-lg font-medium mb-2">
             🎨 Optimisez votre patrimoine
           </p>

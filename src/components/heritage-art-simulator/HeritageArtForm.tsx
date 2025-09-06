@@ -154,7 +154,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
 
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
+      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
         {t('heritageArtSimulator.form.title')}
       </h1>
 
@@ -163,7 +163,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Répartition du patrimoine */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-white mb-4">
+              <h2 className="text-xl font-semibold text-textColor mb-4">
                 {t('heritageArtSimulator.form.repartitionTitle')}
               </h2>
 
@@ -289,7 +289,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Informations personnelles */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-white mb-4">
+              <h2 className="text-xl font-semibold text-textColor mb-4">
                 {t('heritageArtSimulator.form.personalInfo')}
               </h2>
 

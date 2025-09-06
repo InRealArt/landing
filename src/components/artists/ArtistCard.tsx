@@ -23,13 +23,13 @@ export default function ArtistCard ({ name, role = '', countryName, imageUrl, sl
       </Link>
       <div className="p-4">
         {countryName ? (
-          <div className="text-xs text-white/60">{countryName}</div>
+          <div className="text-xs text-textColor/60">{countryName}</div>
         ) : null}
-        <div className="mt-1 text-white font-semibold">{name}</div>
-        <div className="text-sm text-white/70">{mediumTags.length > 0 ? mediumTags.join(' | ') : role}</div>
+        <div className="mt-1 text-textColor font-semibold">{name}</div>
+        <div className="text-sm text-textColor/70">{mediumTags.length > 0 ? mediumTags.join(' | ') : role}</div>
         {showFollowButton ? (
           <div className="mt-3">
-            <button className="px-4 py-1.5 text-sm rounded-full bg-white/10 text-white hover:bg-white/20 transition">Suivre +</button>
+            <button className="px-4 py-1.5 text-sm rounded-full bg-backgroundColor/10 text-textColor hover:bg-backgroundColor/20 transition">Suivre +</button>
           </div>
         ) : null}
       </div>

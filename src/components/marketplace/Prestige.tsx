@@ -17,7 +17,7 @@ export default function Prestige() {
           <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-6">
             {t('marketplace.prestige.title')}
           </h2>
-          <p className="inter text-sm md:text-base mb-8 text-gray-300 max-w-xl">
+          <p className="text-sm md:text-base mb-8 text-grayText max-w-xl">
             {t('marketplace.prestige.description')}
           </p>
           <Button

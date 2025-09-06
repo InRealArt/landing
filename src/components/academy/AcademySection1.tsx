@@ -10,7 +10,7 @@ export default function AcademySection1() {
     <section className="relative w-full py-16 md:py-24 bg-[rgb(19,19,19)]">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto">
         {/* Titre principal */}
-        <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl font-bold text-white text-left mb-12">
+        <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl font-bold text-textColor text-left mb-12">
           {t('academy.section1.mainTitle')}
         </h2>
         
@@ -30,10 +30,10 @@ export default function AcademySection1() {
               >
                 <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
               </OptimizedBackgroundImage>
-              <h3 className="bricolage-grotesque text-2xl md:text-3xl font-bold text-white mb-4">
+              <h3 className="bricolage-grotesque text-2xl md:text-3xl font-bold text-textColor mb-4">
                 {t('academy.section1.block1.title')}
               </h3>
-              <p className="text-white/90 text-base leading-relaxed">
+              <p className="text-textColor/90 text-base leading-relaxed">
                 {t('academy.section1.block1.description')}
               </p>
             </div>
@@ -46,10 +46,10 @@ export default function AcademySection1() {
             <div className="bg-[rgb(30,30,30)] rounded-2xl p-6">
               <div className="flex gap-6">
                 <div className="w-1/2">
-                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-white mb-3">
+                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-textColor mb-3">
                     {t('academy.section1.block2.title')}
                   </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
+                  <p className="text-textColor/90 text-sm leading-relaxed">
                     {t('academy.section1.block2.description')}
                   </p>
                 </div>
@@ -72,10 +72,10 @@ export default function AcademySection1() {
             <div className="bg-[rgb(30,30,30)] rounded-2xl p-6">
               <div className="flex gap-6">
                 <div className="w-1/2">
-                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-white mb-3">
+                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-textColor mb-3">
                     {t('academy.section1.block3.title')}
                   </h3>
-                  <p className="text-white/90 text-sm leading-relaxed mb-4">
+                  <p className="text-textColor/90 text-sm leading-relaxed mb-4">
                     {t('academy.section1.block3.description')}
                   </p>
                   <OptimizedBackgroundImage
@@ -100,10 +100,10 @@ export default function AcademySection1() {
                   >
                     <div className="absolute inset-0 border-2 border-white rounded-xl"></div>
                   </OptimizedBackgroundImage>
-                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-white mb-3">
+                  <h3 className="bricolage-grotesque text-xl md:text-2xl font-bold text-textColor mb-3">
                     {t('academy.section1.block4.title')}
                   </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
+                  <p className="text-textColor/90 text-sm leading-relaxed">
                     {t('academy.section1.block4.description')}
                   </p>
                 </div>

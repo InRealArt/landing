@@ -74,11 +74,11 @@ export default function TokenForm() {
   return (
     <div className="w-full max-w-xl bg-cardBackground rounded-xl p-8 border border-[#2D2A3D]">
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-white unbounded">{t('presale.token.accessAllocation')}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-10 text-textColor unbounded">{t('presale.token.accessAllocation')}</h1>
 
       <form onSubmit={handleSubmit} className='inter'>
         <div className="mb-6">
-          <label htmlFor="name" className="block text-white mb-2">{t('presale.token.name')}</label>
+          <label htmlFor="name" className="block text-textColor mb-2">{t('presale.token.name')}</label>
           <div className="relative">
             <input
               type="text"
@@ -89,7 +89,7 @@ export default function TokenForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder={t('presale.token.namePlaceholder')}
-              className="w-full bg-cardBackground border border-[#2D2A3D] rounded-lg p-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#6052ff]"
+              className="w-full bg-cardBackground border border-[#2D2A3D] rounded-lg p-4 pl-12 text-textColor placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#6052ff]"
             />
             <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@ export default function TokenForm() {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="email" className="block text-white mb-2">{t('presale.token.email')}</label>
+          <label htmlFor="email" className="block text-textColor mb-2">{t('presale.token.email')}</label>
           <div className="relative">
             <input
               type="email"
@@ -110,7 +110,7 @@ export default function TokenForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder={t('presale.token.emailPlaceholder')}
-              className="w-full bg-cardBackground border border-[#2D2A3D] rounded-lg p-4 pl-12 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#6052ff]"
+              className="w-full bg-cardBackground border border-[#2D2A3D] rounded-lg p-4 pl-12 text-textColor placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#6052ff]"
               required
               disabled={isSubmitting}
             />
@@ -124,7 +124,7 @@ export default function TokenForm() {
         </div>
 
         <div className='mb-6'>
-          <label htmlFor="phoneNumber" className="block text-sm font-medium text-white mb-2">
+          <label htmlFor="phoneNumber" className="block text-sm font-medium text-textColor mb-2">
             {t('presale.token.phoneNumber')}
           </label>
           <PhoneInput
@@ -141,7 +141,7 @@ export default function TokenForm() {
         <Button
           type='submit'
           text={isSubmitting ? t('common.submitting') : t('presale.token.secureAllocation')}
-          additionalClassName="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium py-4 rounded-lg transition-all hover:opacity-90 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          additionalClassName="bg-gradient-to-r from-purple-600 to-blue-500 text-textColor font-medium py-4 rounded-lg transition-all hover:opacity-90 w-full disabled:opacity-50 disabled:cursor-not-allowed"
           center
           disabled={isSubmitting}
         />
@@ -150,15 +150,15 @@ export default function TokenForm() {
       {/* <div className="flex justify-center gap-6 mt-10">
         <div className="flex items-center gap-2">
           <Shield className="text-teal-400" size={20} />
-          <span className="text-gray-400 text-sm">{t('presale.token.kycVerified')}</span>
+          <span className="text-grayText text-sm">{t('presale.token.kycVerified')}</span>
         </div>
         <div className="flex items-center gap-2">
           <BadgeCheck className="text-teal-400" size={20} />
-          <span className="text-gray-400 text-sm">{t('presale.token.auditedBy')}</span>
+          <span className="text-grayText text-sm">{t('presale.token.auditedBy')}</span>
         </div>
         <div className="flex items-center gap-2">
           <Lock className="text-teal-400" size={20} />
-          <span className="text-gray-400 text-sm">{t('presale.token.secureTransaction')}</span>
+          <span className="text-grayText text-sm">{t('presale.token.secureTransaction')}</span>
         </div>
       </div> */}
     </div >

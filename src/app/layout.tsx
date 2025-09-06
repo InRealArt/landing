@@ -1,24 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
 import LanguageProvider from '@/components/providers/LanguageProvider'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
-import GlobalNavigationTest from '@/components/common/GlobalNavigationTest'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "In Real Art",
@@ -68,7 +63,7 @@ export default function RootLayout ({
       </head>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
       <body
-        className={`${inter.variable} antialiased`}
+        className={'antialiased'}
       >
         <GoogleAnalytics gaId="G-LRX6096NCS" />
         <noscript>
@@ -79,19 +74,21 @@ export default function RootLayout ({
 
         <Suspense>
           <NuqsAdapter>
-            <LanguageProvider>
-              <GoogleCaptchaWrapper>
-                  <Header />
-                  {children}
-                  {/* <FAQ /> */}
-                  <Footer />
-                  <Toaster />
-                  <CookieConsentBanner />
-                  <NewsletterManager delayInSeconds={5} />
-                  {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
-                  {/* <GlobalNavigationTest /> */}
-              </GoogleCaptchaWrapper>
-            </LanguageProvider>
+            <ThemeProvider>
+              <LanguageProvider>
+                <GoogleCaptchaWrapper>
+                    <Header />
+                    {children}
+                    {/* <FAQ /> */}
+                    <Footer />
+                    <Toaster />
+                    <CookieConsentBanner />
+                    <NewsletterManager delayInSeconds={5} />
+                    {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
+                    {/* <GlobalNavigationTest /> */}
+                </GoogleCaptchaWrapper>
+              </LanguageProvider>
+            </ThemeProvider>
           </NuqsAdapter>
         </Suspense>
       </body> 

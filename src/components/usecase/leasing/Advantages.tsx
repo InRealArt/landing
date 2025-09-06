@@ -26,7 +26,7 @@ export default function Advantages() {
         <h2 className="text-2xl md:text-5xl bricolage-grotesque font-medium mb-4">
           {t('leasing.advantages.title')}
         </h2>
-        <p className="text-sm inter mb-8 max-w-lg">
+        <p className="text-sm mb-8 max-w-lg">
           {t('leasing.advantages.subtitle')}
         </p>
         
@@ -39,7 +39,7 @@ export default function Advantages() {
               <h3 className="text-xl bricolage-grotesque font-medium mb-3">
                 {item.title}
               </h3>
-              <p className="text-sm inter text-gray-300">
+              <p className="text-sm text-grayText">
                 {item.description}
               </p>
             </div>

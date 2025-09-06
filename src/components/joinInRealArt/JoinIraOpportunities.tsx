@@ -29,7 +29,7 @@ export default function JoinIraOpportunities({
   return (
     <section className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-20">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-white mb-6 lg:mb-0 lg:max-w-2xl">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 lg:mb-0 lg:max-w-2xl">
           {t(titleKey)}
         </h1>
         <Button 
@@ -44,10 +44,10 @@ export default function JoinIraOpportunities({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         {opportunities.map((opportunity, index) => (
           <div key={opportunity.key} className="p-6 lg:p-8 border border-white rounded-xl bg-cardBackground h-full">
-            <h3 className="text-xl lg:text-2xl bricolage-grotesque font-semibold text-white mb-4">
+            <h3 className="text-xl lg:text-2xl bricolage-grotesque font-semibold text-textColor mb-4">
               {t(opportunity.titleKey)}
             </h3>
-            <p className="text-gray-300 text-sm lg:text-base leading-relaxed">
+            <p className="text-grayText text-sm lg:text-base leading-relaxed">
               {t(opportunity.descriptionKey)}
             </p>
           </div>

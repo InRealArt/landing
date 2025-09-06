@@ -23,7 +23,7 @@ function BenefitCard({ title, description, index }: BenefitCardProps) {
   return (
     <div className="bg-cardBackground rounded-xl p-6 border border-white-600 flex flex-col h-full">
       <h3 className="unbounded text-xl font-medium mb-3">{title}</h3>
-      <p className="text-gray-300 text-sm mb-6 flex-grow bricolage-grotesque">{description}</p>
+      <p className="text-grayText text-sm mb-6 flex-grow bricolage-grotesque">{description}</p>
       <Button 
         text={t('presale.token.acquireTokens')}
         action={scrollToTop}

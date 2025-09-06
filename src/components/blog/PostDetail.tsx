@@ -312,7 +312,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
-                    <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow bg-white">
+                    <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow bg-backgroundColor">
                       <div className="aspect-video bg-gray-200 relative">
                         {relatedPost.mainImageUrl ? (
                           <img

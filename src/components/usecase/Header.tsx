@@ -52,10 +52,10 @@ export default function Header() {
       {/* Contenu du header */}
       <div className="relative z-20 max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white">
+          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-textColor">
             {t('usecase.intro.title')}
           </h1>
-          <p className="text-lg md:text-xl inter text-white/90">
+          <p className="text-lg md:text-xl text-textColor/90">
             {t('usecase.intro.subtitle')}
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function Header() {
           {caseStudies.map((caseStudy, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
               <h3 className="text-xl bricolage-grotesque font-medium mb-6">{caseStudy.title}</h3>
-              <p className="text-sm text-gray-300 mb-6 bricolage-grotesque">{caseStudy.description}</p>
+              <p className="text-sm text-grayText mb-6 bricolage-grotesque">{caseStudy.description}</p>
               <Button 
                 text={t('buttons.readMore')} 
                 additionalClassName="bg-purpleColor w-full justify-center mt-auto" 

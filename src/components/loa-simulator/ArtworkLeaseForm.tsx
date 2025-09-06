@@ -172,7 +172,7 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
 
   return (
     <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-white mb-8 font-bricolage">
+      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
         {t('loaSimulator.title')}
       </h1>
 
@@ -272,9 +272,9 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         />
 
         {/* Explication des champs marqués d'un astérisque */}
-        <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">
-          <h3 className="text-white font-semibold text-sm font-bricolage mb-2">{t('loaSimulator.form.infoBloc.title')}</h3>
-          <div className="space-y-2 text-gray-300 text-sm">
+        <div className="bg-backgroundGrey border border-gray-700 rounded-lg p-4 space-y-2">
+          <h3 className="text-textColor font-semibold text-sm font-bricolage mb-2">{t('loaSimulator.form.infoBloc.title')}</h3>
+          <div className="space-y-2 text-grayText text-sm">
             <div>
               <span className="text-purple-400 font-medium">• {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
             </div>

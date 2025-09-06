@@ -43,7 +43,7 @@ export default function JoinInRealArtArtistsPage() {
     }
   ]
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen text-textColor">
       <JoinIraHero 
         title="joinInRealArt.artists.hero.title"
         subtitle="joinInRealArt.artists.hero.subtitle"

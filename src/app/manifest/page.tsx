@@ -21,7 +21,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function ManifestPage() {
   return (
-    <main className="text-white">
+    <main className="text-textColor">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 relative">
           {/* Left: text */}
@@ -34,41 +34,41 @@ export default function ManifestPage() {
             <TranslatedText
               as="p"
               translationKey="manifest.p1"
-              className="mt-6 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-6 text-base md:text-lg text-grayText leading-relaxed"
             />
             <TranslatedText
               as="p"
               translationKey="manifest.p2"
-              className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-4 text-base md:text-lg text-grayText leading-relaxed"
             />
 
             <TranslatedText
               as="p"
               translationKey="manifest.p3"
-              className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-4 text-base md:text-lg text-grayText leading-relaxed"
             />
 
             <TranslatedText
               as="p"
               translationKey="manifest.p4"
-              className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-4 text-base md:text-lg text-grayText leading-relaxed"
             />
 
             <ul className="mt-6 space-y-3 text-gray-200">
               <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-white/80" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-backgroundColor/80" />
                 <TranslatedText translationKey="manifest.bullets.access" />
               </li>
               <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-white/80" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-backgroundColor/80" />
                 <TranslatedText translationKey="manifest.bullets.support" />
               </li>
               <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-white/80" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-backgroundColor/80" />
                 <TranslatedText translationKey="manifest.bullets.bridges" />
               </li>
               <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-white/80" />
+                <span className="mt-1 h-2 w-2 rounded-full bg-backgroundColor/80" />
                 <TranslatedText translationKey="manifest.bullets.traceability" />
               </li>
             </ul>
@@ -76,12 +76,12 @@ export default function ManifestPage() {
             <TranslatedText
               as="p"
               translationKey="manifest.p5"
-              className="mt-6 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-6 text-base md:text-lg text-grayText leading-relaxed"
             />
             <TranslatedText
               as="p"
               translationKey="manifest.p6"
-              className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed"
+              className="mt-4 text-base md:text-lg text-grayText leading-relaxed"
             />
           </section>
 

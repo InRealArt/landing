@@ -10,17 +10,17 @@ export default function AboutTeam() {
   const { t } = useLanguageStore()
 
   return (
-    <section className="relative w-full py-12 md:py-16 bg-[rgb(19,19,19)]">
+    <section className="relative w-full py-12 md:py-16">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto relative">
         {/* Fond gris rectangulaire qui s'étend sur les côtés avec des marges */}
-        <div className="absolute left-0 right-0 top-0 h-1/2 bg-gray-800 transform -translate-y-4"></div>
+        <div className="absolute left-0 right-0 top-0 h-1/2 bg-backgroundGrey transform -translate-y-4"></div>
         
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-8">
           
           {/* Colonne gauche - Contenu textuel avec image - élargie */}
           <div className="space-y-6 flex flex-col w-full">
             {/* Titre principal - aligné avec le haut de l'image 2 */}
-            <div className="text-white">
+            <div className="text-textColor">
               <TranslatedText
                 translationKey="about.team.title"
                 as="h2"
@@ -40,11 +40,11 @@ export default function AboutTeam() {
             />
             
             {/* Premier paragraphe */}
-            <div className="text-white/90 leading-relaxed">
+            <div className="text-textColor/90 leading-relaxed">
               <TranslatedText
                 translationKey="about.team.paragraph1"
                 as="h3"
-                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                className="bricolage-grotesque text-xl font-semibold text-textColor mb-2"
                 allowHtml={true}
               />
               <TranslatedText
@@ -56,11 +56,11 @@ export default function AboutTeam() {
             </div>
             
             {/* Deuxième paragraphe */}
-            <div className="text-white/80 leading-relaxed">
+            <div className="text-textColor/80 leading-relaxed">
               <TranslatedText
                 translationKey="about.team.paragraph2"
                 as="h3"
-                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                className="bricolage-grotesque text-xl font-semibold text-textColor mb-2"
                 allowHtml={true}
               />
               <TranslatedText
@@ -72,11 +72,11 @@ export default function AboutTeam() {
             </div>
             
             {/* Troisième paragraphe */}
-            <div className="text-white/80 leading-relaxed">
+            <div className="text-textColor/80 leading-relaxed">
               <TranslatedText
                 translationKey="about.team.paragraph3"
                 as="h3"
-                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                className="bricolage-grotesque text-xl font-semibold text-textColor mb-2"
                 allowHtml={true}
               />
               <TranslatedText
@@ -88,7 +88,7 @@ export default function AboutTeam() {
             </div>
 
             {/* Sous-titre avec partie en violet */}
-            {/* <div className="text-white/90 leading-relaxed">
+            {/* <div className="text-textColor/90 leading-relaxed">
               <p className="text-lg">
                 {t('about.team.subtitlePart1')}{' '}
                 <span className="text-purpleColor font-semibold">

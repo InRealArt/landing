@@ -28,7 +28,7 @@ export default function ArtistCategoryPageClient({
   }, [category, language])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-backgroundColor text-textColor">
       {/* Hero Section */}
       <section 
         className="relative w-full h-96 md:h-[500px] bg-cover bg-center bg-no-repeat"
@@ -39,16 +39,16 @@ export default function ArtistCategoryPageClient({
         }}
       >
         {/* Overlay pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-backgroundColor/40" />
         
         {/* Contenu du hero */}
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 text-center">
-            <h1 className="bricolage-grotesque text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="bricolage-grotesque text-4xl md:text-6xl lg:text-7xl font-bold text-textColor mb-6">
               {displayCategory.name}
             </h1>
             {displayCategory.description && (
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-textColor/90 max-w-3xl mx-auto leading-relaxed">
                 {displayCategory.description}
               </p>
             )}

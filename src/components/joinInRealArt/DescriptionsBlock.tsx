@@ -33,7 +33,7 @@ export default function DescriptionsBlock() {
               </div>
               <div className="md:w-3/5 flex items-center">
                 <div>
-                  <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                  <p className="text-textColor/90 text-sm md:text-base leading-relaxed">
                     <TranslatedText 
                       translationKey="joinInRealArt.header.description2"
                       allowHtml={true}
@@ -49,7 +49,7 @@ export default function DescriptionsBlock() {
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               <div className="md:w-3/5 flex items-center order-2 md:order-1">
                 <div>
-                  <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                  <p className="text-textColor/90 text-sm md:text-base leading-relaxed">
                     <TranslatedText 
                       translationKey="joinInRealArt.header.description3"
                       allowHtml={true}

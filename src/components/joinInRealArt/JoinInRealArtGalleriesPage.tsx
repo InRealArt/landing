@@ -45,7 +45,7 @@ export default function JoinInRealArtGalleriesPage() {
   ]
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen text-textColor">
       <JoinIraHero 
         title="joinInRealArt.galleries.hero.title"
         subtitle="joinInRealArt.galleries.hero.subtitle"

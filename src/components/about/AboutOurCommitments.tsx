@@ -7,7 +7,7 @@ export default function AboutOurCommitments() {
   const { t } = useLanguageStore()
 
   return (
-    <section className="relative w-full py-16 md:py-24 bg-[rgb(19,19,19)]">
+    <section className="relative w-full py-16 md:py-24">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
@@ -30,26 +30,26 @@ export default function AboutOurCommitments() {
               </h2>
               
               <div className="space-y-4">
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-textColor/90 text-lg leading-relaxed">
                   {t('about.ourCommitments.commitments.commitment1')}
                 </p>
                 
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-textColor/90 text-lg leading-relaxed">
                   {t('about.ourCommitments.commitments.commitment2')}
                 </p>
                 
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-textColor/90 text-lg leading-relaxed">
                   {t('about.ourCommitments.commitments.commitment3')}
                 </p>
                 
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-textColor/90 text-lg leading-relaxed">
                   {t('about.ourCommitments.commitments.commitment4')}
                 </p>
               </div>
             </div>
             
             {/* Texte Lorem ipsum */}
-            <div className="text-white/90 leading-relaxed">
+            <div className="text-textColor/90 leading-relaxed">
               <p className="text-lg">
                 {t('about.ourCommitments.description')}
               </p>

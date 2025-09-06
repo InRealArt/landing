@@ -31,12 +31,12 @@ export default function PreviousPageTest() {
     <div className="fixed bottom-4 right-4 z-50">
       <Button
         text="🧪 Test PreviousPage"
-        additionalClassName="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg shadow-lg"
+        additionalClassName="bg-orange-500 hover:bg-orange-600 text-textColor px-4 py-2 rounded-lg shadow-lg"
         action={handleTest}
       />
 
       {/* Indicateur visuel de la page précédente */}
-      <div className="absolute -top-12 right-0 bg-black/80 text-white px-2 py-1 rounded text-xs whitespace-nowrap">
+      <div className="absolute -top-12 right-0 bg-backgroundColor/80 text-textColor px-2 py-1 rounded text-xs whitespace-nowrap">
         Prev: {previousPage || 'null'} | Current: {currentPage}
       </div>
     </div>

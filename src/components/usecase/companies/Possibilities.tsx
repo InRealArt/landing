@@ -67,7 +67,7 @@ export default function Possibilities() {
         {/* Grid for sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {sections.map((section) => (
-            <div key={section.id} className="bg-cardBackground rounded-lg p-6 border border-white/80">
+            <div key={section.id} className="bg-cardBackground rounded-lg p-6 border border-textColor/20">
               <div className="mb-6 overflow-hidden rounded-lg h-48">
                 <OptimizedImage
                   src={section.image}
@@ -78,13 +78,13 @@ export default function Possibilities() {
                 />
               </div>
               <h3 className="text-xl bricolage-grotesque font-medium mb-4">{section.title}</h3>
-              <p className="text-sm text-gray-300 mb-4">{section.description}</p>
+              <p className="text-sm text-grayText mb-4">{section.description}</p>
             </div>
           ))}
         </div>
 
         {/* Process Steps */}
-        <div className="bg-cardBackground rounded-lg p-8 border border-white/80 mb-16">
+        <div className="bg-cardBackground rounded-lg p-8 border border-textColor/20 mb-16">
           {/* Image */}
           <div className="mb-8 overflow-hidden rounded-lg h-96">
             <OptimizedImage
@@ -99,7 +99,7 @@ export default function Possibilities() {
           {/* Steps */}
           <div className="space-y-6">
             {steps.map((step) => (
-              <div key={step.id} className="p-8 rounded-lg border border-white/80 bricolage-grotesque">
+              <div key={step.id} className="p-8 rounded-lg border border-textColor/20 bricolage-grotesque">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-base md:text-xl font-medium">
                     {step.title}
@@ -108,7 +108,7 @@ export default function Possibilities() {
                     {step.number}
                   </span>
                 </div>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-grayText">
                   {step.description}
                 </p>
               </div>

@@ -62,7 +62,7 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen pt-headerSize text-white">
+      <main className="min-h-screen pt-headerSize text-textColor">
         <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
           <div className="animate-pulse">
             <div className="h-8 bg-gray-700 rounded w-64 mb-8"></div>
@@ -79,7 +79,7 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
 
   if (error || !category) {
     return (
-      <main className="min-h-screen pt-headerSize text-white">
+      <main className="min-h-screen pt-headerSize text-textColor">
         <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">{error || 'Catégorie non trouvée'}</h1>
@@ -118,12 +118,12 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
         }}
       />
       
-      <main className="min-h-screen pt-headerSize text-white">
+      <main className="min-h-screen pt-headerSize text-textColor">
         <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
           <div className="mb-12">
             <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
             {category.description && (
-              <p className="text-gray-300 text-lg">{category.description}</p>
+              <p className="text-grayText text-lg">{category.description}</p>
             )}
           </div>
 
@@ -146,8 +146,8 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
                       {post.title}
                     </Link>
                   </h2>
-                  <p className="text-gray-300 mb-4">{post.excerpt}</p>
-                  <div className="flex justify-between items-center text-sm text-gray-400">
+                  <p className="text-grayText mb-4">{post.excerpt}</p>
+                  <div className="flex justify-between items-center text-sm text-grayText">
                     <span>{post.author}</span>
                     <span>{new Date(post.createdAt).toLocaleDateString('fr-FR')}</span>
                   </div>

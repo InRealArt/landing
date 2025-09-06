@@ -31,14 +31,14 @@ export default function TokenAllocation() {
       <div className="flex justify-center mb-10">
         <div className="bg-cardBackground rounded-full p-1 inline-flex unbounded">
           <button
-            className={`py-2 px-6 rounded-full text-sm font-medium transition-all ${activeTab === 'distribution' ? 'bg-purpleColor text-white' : 'text-gray-400'
+            className={`py-2 px-6 rounded-full text-sm font-medium transition-all ${activeTab === 'distribution' ? 'bg-purpleColor text-textColor' : 'text-grayText'
               }`}
             onClick={() => setActiveTab('distribution')}
           >
             {t('presale.token.allocation.tabs.distribution')}
           </button>
           <button
-            className={`py-2 px-6 rounded-full text-sm font-medium transition-all ${activeTab === 'funding' ? 'bg-purpleColor text-white' : 'text-gray-400'
+            className={`py-2 px-6 rounded-full text-sm font-medium transition-all ${activeTab === 'funding' ? 'bg-purpleColor text-textColor' : 'text-grayText'
               }`}
             onClick={() => setActiveTab('funding')}
           >
@@ -49,7 +49,7 @@ export default function TokenAllocation() {
       
       <div className="flex justify-center mb-10 bricolage-grotesque text-lg font-bold">
         {/* <div className="bg-cardBackground rounded-xl p-8 max-w-3xl mx-auto"> */}
-          <p className="mb-6 text-gray-300">
+          <p className="mb-6 text-grayText">
             $IRA {t('presale.token.allocation.maxSupply')} : 100 000 000
           </p>
         {/* </div> */}
@@ -88,7 +88,7 @@ export default function TokenAllocation() {
                 <span className="text-sm mb-2 unbounded">{t(`presale.token.allocation.distribution.${item.name.toLowerCase().replace(' ', '')}`)}: {item.value}%</span>
                 <div className={`w-full bg-cardBackground h-3 rounded-full overflow-hidden mr-3`}>
                   <div
-                    className={`h-full rounded-full ${activeCell === item.name ? `!bg-white/70` : ''}`}
+                    className={`h-full rounded-full ${activeCell === item.name ? `!bg-backgroundColor/70` : ''}`}
                     style={{ width: `${item.value}%`, backgroundColor: item.color }}
                   />
                 </div>
@@ -98,7 +98,7 @@ export default function TokenAllocation() {
         </div>
       ) : (
         <div className="bg-cardBackground rounded-xl p-8 max-w-3xl mx-auto">
-          <p className="mb-6 text-gray-300">
+          <p className="mb-6 text-grayText">
             {t('presale.token.allocation.funding.description')}
           </p>
           <ul className="space-y-4">
@@ -106,28 +106,28 @@ export default function TokenAllocation() {
               <span className="font-bold text-purpleColor mr-2">•</span>
               <div>
                 <span className="font-medium">{t('presale.token.allocation.funding.privateSales.title')}</span>
-                <p className="text-gray-300 text-sm">{t('presale.token.allocation.funding.privateSales.description')}</p>
+                <p className="text-grayText text-sm">{t('presale.token.allocation.funding.privateSales.description')}</p>
               </div>
             </li>
             <li className="flex items-start">
               <span className="font-bold text-purpleColor mr-2">•</span>
               <div>
                 <span className="font-medium">{t('presale.token.allocation.funding.publicSales.title')}</span>
-                <p className="text-gray-300 text-sm">{t('presale.token.allocation.funding.publicSales.description')}</p>
+                <p className="text-grayText text-sm">{t('presale.token.allocation.funding.publicSales.description')}</p>
               </div>
             </li>
             <li className="flex items-start">
               <span className="font-bold text-purpleColor mr-2">•</span>
               <div>
                 <span className="font-medium">{t('presale.token.allocation.funding.liquidityPools.title')}</span>
-                <p className="text-gray-300 text-sm">{t('presale.token.allocation.funding.liquidityPools.description')}</p>
+                <p className="text-grayText text-sm">{t('presale.token.allocation.funding.liquidityPools.description')}</p>
               </div>
             </li>
             <li className="flex items-start">
               <span className="font-bold text-purpleColor mr-2">•</span>
               <div>
                 <span className="font-medium">{t('presale.token.allocation.funding.teamAdvisors.title')}</span>
-                <p className="text-gray-300 text-sm">{t('presale.token.allocation.funding.teamAdvisors.description')}</p>
+                <p className="text-grayText text-sm">{t('presale.token.allocation.funding.teamAdvisors.description')}</p>
               </div>
             </li>
           </ul>

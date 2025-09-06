@@ -12,7 +12,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
   const { getTranslatedField } = useArtistStore()
 
   return (
-    <section className="pt-32 pb-16" style={{ backgroundColor: 'rgb(19, 19, 19)' }}>
+    <section className="pt-32 pb-16">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
@@ -20,7 +20,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
           <div className="space-y-6">
             {/* Année de naissance et pays */}
             {(artist.birthYear || artist.countryName) && (
-              <p className="text-gray-400 text-sm bricolage-grotesque font-serif">
+              <p className="text-grayText text-sm bricolage-grotesque font-serif">
                 {artist.birthYear && `${t('artists.profile.bornIn')} ${artist.birthYear}`}
                 {artist.birthYear && artist.countryName && ' - '}
                 {artist.countryName}
@@ -28,18 +28,18 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             )}
             
             {/* Nom de l'artiste */}
-            <h2 className="text-3xl lg:text-4xl font-bold text-white bricolage-grotesque font-serif">
+            <h2 className="text-3xl lg:text-4xl font-bold text-textColor bricolage-grotesque font-serif">
               {artist.name}
             </h2>
             
             {/* Bouton Suivre l'artiste */}
-            {/* <button className="px-6 py-3 bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-lg text-white transition-colors duration-200 flex items-center gap-2 bricolage-grotesque font-serif">
+            {/* <button className="px-6 py-3 bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-lg text-textColor transition-colors duration-200 flex items-center gap-2 bricolage-grotesque font-serif">
               <span>{t('artists.profile.followArtist')}</span>
               <span className="text-xl">+</span>
             </button> */}
             
             {/* Description de l'artiste */}
-            <p className="text-white text-sm leading-relaxed bricolage-grotesque font-serif">
+            <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
               {artist.quoteFromInRealArt || t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
             </p>
             
@@ -49,7 +49,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
                 {artist.mediumTags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-600 text-white rounded-full text-sm inter font-medium"
+                    className="px-3 py-1 bg-gray-600 text-white rounded-full text-sm font-medium"
                   >
                     {tag}
                   </span>
@@ -62,14 +62,14 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
           <div className="space-y-6">
             {/* Citation principale */}
             {(getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader) && (
-              <blockquote className="text-2xl lg:text-3xl text-white font-medium leading-relaxed bricolage-grotesque font-serif">
+              <blockquote className="text-2xl lg:text-3xl text-textColor font-medium leading-relaxed bricolage-grotesque font-serif">
                 « {getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader} »
               </blockquote>
             )}
             
             {/* Texte descriptif */}
             {(getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText) && (
-              <p className="text-white text-sm leading-relaxed bricolage-grotesque font-serif">
+              <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
                 {getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText}
               </p>
             )}

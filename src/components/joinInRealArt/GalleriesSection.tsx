@@ -8,7 +8,7 @@ export default function GalleriesSection() {
 
   return (
     <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 py-16">
-      <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-white">
+      <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-textColor">
         {t('joinInRealArt.galleries.title')}
       </h2>
       <ArtistSlider isGallery={true} />

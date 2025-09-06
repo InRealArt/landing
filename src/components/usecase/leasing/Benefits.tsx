@@ -43,7 +43,7 @@ export default function Benefits() {
                 <h3 className="text-xl bricolage-grotesque font-medium mb-3">
                   {item.title}
                 </h3>
-                <p className="text-sm inter text-gray-300">
+                <p className="text-sm text-grayText">
                   {item.description}
                 </p>
               </div>

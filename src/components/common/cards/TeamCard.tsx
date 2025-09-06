@@ -34,14 +34,14 @@ const TeamCard = ({ image, name, role, intro, description, socials, additionalCl
   return (
     <div className={`p-4 border rounded-lg bg-cardBackground bg-center ${isSlider ? 'h-full' : 'h-auto'}  ${additionalClassName ?? ''}`}>
       <div className={`bg-cover m-auto bg-no-repeat bg-top  w-full rounded-lg ${isSlider ? 'h-48 md:h-80' : 'h-80'}`} style={{ backgroundImage: ` url('${image.src}')` }} />
-      <p className="mt-4 inter text-2xl font-semibold">{name}</p>
+      <p className="mt-4 text-2xl font-semibold">{name}</p>
       <p className="mt-2 inter">{role}</p>
       {intro && (
-        <p className="mt-2 inter text-sm text-gray-600">{intro}</p>
+        <p className="mt-2 text-sm text-gray-600">{intro}</p>
       )}
       {description && (
         <div className="mt-2">
-          <p className="inter text-sm leading-relaxed">{displayDescription}</p>
+          <p className="text-sm leading-relaxed">{displayDescription}</p>
           {shouldShowMoreButton && (
             <div className="mt-2 flex gap-2">
               {!isExpanded ? (

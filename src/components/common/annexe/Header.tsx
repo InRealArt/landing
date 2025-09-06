@@ -35,10 +35,10 @@ export default function Header({
             <TranslatedText
               as="p"
               translationKey={descriptionKey}
-              className="text-base md:text-lg max-w-2xl inter leading-relaxed text-gray-300"
+              className="text-base md:text-lg max-w-2xl inter leading-relaxed text-grayText"
             />
           ) : (
-            <p className="text-base md:text-lg max-w-2xl inter leading-relaxed text-gray-300">
+            <p className="text-base md:text-lg max-w-2xl inter leading-relaxed text-grayText">
               {description}
             </p>
           )}

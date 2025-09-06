@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,25 +11,72 @@
   --purple: #6052ff;
   --header-height: 90px;
   --footer-height: 300px;
-  --font-unbounded: "Unbounded", sans-serif;
-  --font-bricolage: "Bricolage Grotesque", serif;
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-bricolage: 'Bricolage Grotesque', serif;
+}
+
+/* Light mode variables */
+[data-theme='light'] {
+  --background: #ffffff;
+  --text: #1a1a1a;
+  --card: #f6f3ee;
+  --purple: #6052ff;
+  --gradient-start: rgba(255, 255, 255, 0.9);
+  --gradient-end: rgba(255, 255, 255, 0);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --stroke-color: rgba(0, 0, 0, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --gradient-from: #e5e7eb;
+  --gradient-to: #d1d5db;
+  --gray-text: #6b7280;
+  --background-grey: #f3f4f6;
+}
+
+/* Dark mode variables (explicit for consistency) */
+[data-theme='dark'] {
+  --background: #131313;
+  --text: #ffffff;
+  --card: #1d1c1c;
+  --purple: #6052ff;
+  --gradient-start: rgba(0, 0, 0, 0.9);
+  --gradient-end: rgba(255, 255, 255, 0);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --stroke-color: rgba(255, 255, 255, 0.3);
+  --shadow-color: rgba(255, 255, 255, 0.08);
+  --gradient-from: #111827;
+  --gradient-to: #1f2937;
+  --gray-text: #9ca3af;
+  --background-grey: #111827;
 }
 
 .bricolage-grotesque {
-  font-family: "Bricolage Grotesque", serif;
+  font-family: 'Bricolage Grotesque', serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "width" 100;
+  font-variation-settings: 'width' 100;
 }
 
 .unbounded {
-  font-family: "Unbounded", serif;
+  font-family: 'Unbounded', serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.inter {
-  font-family: "Inter", serif;
+p,
+span {
+  font-family: 'Bricolage Grotesque', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'width' 100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Unbounded', serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -61,7 +108,7 @@ body {
   position: absolute;
   left: -3px;
   top: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,0.9038209033613446) 0%, rgba(255,255,255,0) 50%);
+  background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 50%);
   z-index: 20;
   pointer-events: none;
 }
@@ -73,13 +120,13 @@ body {
   position: absolute;
   right: -3px;
   top: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 50%, rgba(0,0,0,0.9038209033613446) 100%);
+  background: linear-gradient(90deg, var(--gradient-end) 50%, var(--gradient-start) 100%);
   z-index: 20;
   pointer-events: none;
 }
 
 .swiper-slide {
-  height: auto!important;
+  height: auto !important;
 }
 
 .roadmap-line {
@@ -91,7 +138,7 @@ body {
   width: 100%;
   position: absolute;
   top: 0;
-  background: linear-gradient( #131313 0%, #6052FF 100%);
+  background: linear-gradient(#131313 0%, #6052ff 100%);
   z-index: 20;
   pointer-events: none;
 }
@@ -102,42 +149,42 @@ body {
   width: 30px;
   position: absolute;
   top: 3%;
-  background: #6052FF ;
+  background: #6052ff;
   z-index: 20;
   border-radius: 50%;
   left: -11px;
 }
 
 .stroke {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.30);
-  text-stroke: 1px rgba(255, 255, 255, 0.30);
-  text-shadow: 0 0 13px #ffffff08;
+  -webkit-text-stroke: 1px var(--stroke-color);
+  text-stroke: 1px var(--stroke-color);
+  text-shadow: 0 0 13px var(--shadow-color);
 }
 
 /* Phone Input Styles */
 
 .phone-input-container.phone-input-container-simulator .PhoneInputInput {
-  @apply w-full border-r border-2 border-gray-700 rounded-lg px-4 py-3 bg-gray-800 focus:border-purple-500 focus:outline-none text-white placeholder-gray-400 font-unbounded;
+  @apply w-full border-r border-2 border-gray-700 rounded-lg px-4 py-3 bg-cardBackground focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded;
 }
 
 .phone-input-container.phone-input-container-simulator .PhoneInputCountry {
-  @apply bg-gray-800 border-r border-2 border-gray-700 rounded-lg px-3;
+  @apply bg-cardBackground border-r border-2 border-gray-700 rounded-lg px-3;
 }
 
 .phone-input-container.phone-input-container-simulator .PhoneInputCountrySelect {
-  @apply bg-gray-800 text-white;
+  @apply bg-cardBackground text-textColor;
 }
 
 .phone-input-container .PhoneInputInput {
-  @apply w-full px-4 py-3 bg-[#1A1A1A] border border-[#2D2A3D] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purpleColor focus:border-transparent;
+  @apply w-full px-4 py-3 bg-cardBackground border border-gray-600 rounded-lg text-textColor placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purpleColor focus:border-transparent;
 }
 
 .phone-input-container .PhoneInputCountry {
-  @apply bg-[#1A1A1A] border-r border-[#2D2A3D] rounded-l-lg px-3;
+  @apply bg-cardBackground border-r border-gray-600 rounded-l-lg px-3;
 }
 
 .phone-input-container .PhoneInputCountrySelect {
-  @apply bg-[#1A1A1A] text-white;
+  @apply bg-cardBackground text-textColor;
 }
 
 .phone-input-container .PhoneInputCountryIcon {
@@ -145,12 +192,12 @@ body {
 }
 
 .phone-input-container .PhoneInputCountrySelectArrow {
-  @apply border-t-white opacity-70;
+  @apply border-t-textColor opacity-70;
 }
 
 /* Pour le débogage, rendons le badge visible temporairement */
-.grecaptcha-badge { 
-  visibility: visible !important; 
+.grecaptcha-badge {
+  visibility: visible !important;
   opacity: 1 !important;
   z-index: 999 !important;
 }
@@ -158,12 +205,12 @@ body {
 /* Classe CSS pour les tags dans les articles de blog */
 .tag-badge {
   padding: 0.25rem 1rem !important; /* px-4 py-1 */
-  border: 1px solid #374151 !important; /* border border-gray-700 */
+  border: 1px solid var(--border-color) !important;
   border-radius: 9999px !important; /* rounded-full */
   font-size: 0.875rem !important; /* text-sm */
   line-height: 1.25rem !important;
   display: inline-block !important;
-  color: rgb(255, 255, 255) !important;
+  color: var(--text) !important;
   background-color: transparent !important;
   text-decoration: none !important;
   margin: 0.25rem 0.25rem 0.25rem 0 !important;
@@ -172,7 +219,7 @@ body {
 
 /* Styles pour PhoneInput dans les simulateurs */
 .phone-input-container .PhoneInputInput {
-  @apply w-full px-4 py-4 rounded-lg border-2 border-gray-700 bg-gray-800 text-white placeholder-gray-400 font-unbounded;
+  @apply w-full px-4 py-4 rounded-lg border-2 border-gray-700 bg-cardBackground text-textColor placeholder-gray-400 font-unbounded;
   @apply focus:border-purple-500 focus:outline-none;
 }
 
@@ -181,7 +228,7 @@ body {
 }
 
 .phone-input-container .PhoneInputCountrySelect {
-  @apply bg-gray-800 border-gray-700 text-white rounded-l-lg px-2;
+  @apply bg-cardBackground border-gray-700 text-textColor rounded-l-lg px-2;
 }
 
 .phone-input-container .PhoneInputCountrySelect:focus {
@@ -189,5 +236,5 @@ body {
 }
 
 .phone-input-container .PhoneInputCountrySelectArrow {
-  @apply border-t-white opacity-70;
+  @apply border-t-textColor opacity-70;
 }

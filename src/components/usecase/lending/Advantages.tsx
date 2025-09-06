@@ -18,7 +18,7 @@ export default function Advantages() {
             <h2 className="text-3xl md:text-4xl bricolage-grotesque font-medium mb-6">
               {t('lending.advantages.title')}
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-grayText mb-6">
               {t('lending.advantages.description')}
             </p>
             <Button 

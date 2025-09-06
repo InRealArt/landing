@@ -23,7 +23,7 @@ export default function ContentGrid({ items, className = "" }: ContentGridProps)
             style={{ background: "#1A1A1A" }}
           >
             <h3 className="text-xl bricolage-grotesque font-medium mb-4">{item.title}</h3>
-            <p className="text-gray-300 text-sm inter leading-relaxed">{item.content}</p>
+            <p className="text-grayText text-sm leading-relaxed">{item.content}</p>
           </div>
         ))}
       </div>

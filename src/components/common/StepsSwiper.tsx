@@ -57,9 +57,9 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
             <SwiperSlide key={index}>
               <div className="w-full rounded-lg p-10 md:p-16 bg-gradient-to-r from-[#1E1E1E] via-[#2E287A] to-[#1E1E1E] h-full">
                 <div className="max-w-3xl mx-auto text-center flex flex-col gap-10 h-full">
-                  <h3 className="text-6xl md:text-8xl bricolage-grotesque text-white">{step.number}</h3>
-                  <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-white">{step.title}</h4>
-                  <p className="text-sm md:text-base inter text-white leading-relaxed">{step.description}</p>
+                  <h3 className="text-6xl md:text-8xl bricolage-grotesque text-textColor">{step.number}</h3>
+                  <h4 className="text-xl md:text-2xl bricolage-grotesque font-medium text-textColor">{step.title}</h4>
+                  <p className="text-sm md:text-base text-textColor leading-relaxed">{step.description}</p>
                 </div>
               </div>
             </SwiperSlide>
@@ -72,8 +72,8 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
           disabled={activeSlide === 0}
           className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
             activeSlide === 0
-              ? 'border-gray-400 text-gray-400 cursor-not-allowed'
-              : 'border-white text-white hover:bg-white hover:text-black'
+              ? 'border-gray-400 text-grayText cursor-not-allowed'
+              : 'border-white text-textColor hover:bg-backgroundColor hover:text-textColor'
           }`}
           aria-label="Étape précédente"
         >
@@ -97,8 +97,8 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
           disabled={activeSlide === steps.length - 1}
           className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
             activeSlide === steps.length - 1
-              ? 'border-gray-400 text-gray-400 cursor-not-allowed'
-              : 'border-white text-white hover:bg-white hover:text-black'
+              ? 'border-gray-400 text-grayText cursor-not-allowed'
+              : 'border-white text-textColor hover:bg-backgroundColor hover:text-textColor'
           }`}
           aria-label="Étape suivante"
         >
@@ -118,7 +118,7 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
 
         {/* Indicateur de position */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
-          <span className="text-white text-sm bg-black/50 px-3 py-1 rounded-full">
+          <span className="text-textColor text-sm bg-backgroundColor/50 px-3 py-1 rounded-full">
             {activeSlide + 1} / {steps.length}
           </span>
         </div>

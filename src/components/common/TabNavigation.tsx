@@ -19,7 +19,7 @@ export default function TabNavigation<T extends string = string>({
   className = "" 
 }: TabNavigationProps<T>) {
   return (
-    <div className={`bg-black/30 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden shadow-2xl ${className}`}>
+    <div className={`bg-backgroundColor/30 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden shadow-2xl ${className}`}>
       <div className="flex overflow-x-auto">
         {tabs.map((tab) => (
           <button
@@ -27,8 +27,8 @@ export default function TabNavigation<T extends string = string>({
             onClick={() => onTabChange(tab.id)}
             className={`flex-1 py-3 px-4 text-sm font-medium transition-colors font-unbounded ${
               activeTab === tab.id
-                ? 'bg-white/20 text-white' 
-                : 'text-white/70 hover:text-white hover:bg-white/10'
+                ? 'bg-backgroundColor/20 text-textColor' 
+                : 'text-textColor/70 hover:text-textColor hover:bg-backgroundColor/10'
             }`}
           >
             {tab.label}

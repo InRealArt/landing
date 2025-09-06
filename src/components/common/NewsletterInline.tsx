@@ -5,15 +5,10 @@ import { useState, useTransition } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { toast } from 'sonner'
-import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
+import { subscribeToNewsletter } from '@/actions/newsletterActions'
 import OptimizedImage from './OptimizedImage'
 import Button from './Button'
 
-const initialState: NewsletterActionResult = {
-  success: false,
-  message: '',
-  errors: undefined
-}
 
 export default function NewsletterInline() {
   const { t } = useLanguageStore()
@@ -53,9 +48,9 @@ export default function NewsletterInline() {
   }
 
   return (
-        <section className="w-full bg-[#131313] text-white py-16 mt-16">
+        <section className="w-full bg-backgroundColor text-textColor py-16 mt-16">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-2xl overflow-hidden">
+        <div className="bg-gradient-to-br from-gradientFrom to-gradientTo rounded-xl shadow-2xl overflow-hidden">
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[500px]">
           {/* Colonne gauche - Images */}
@@ -94,12 +89,12 @@ export default function NewsletterInline() {
               </h2>
 
               {/* Sous-titre */}
-              <p className="text-gray-300 mb-2">
+              <p className="text-textColor/80 mb-2">
                 {t('newsletter.modal.subtitle')}
               </p>
 
               {/* Description */}
-              <p className="text-sm text-gray-400 mb-6">
+              <p className="text-sm text-textColor/60 mb-6">
                 {t('newsletter.modal.description')}
               </p>
 
@@ -112,7 +107,7 @@ export default function NewsletterInline() {
               <input type="hidden" name="language" value={useLanguageStore.getState().language} />
 
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textColor/60" size={20} />
                 <input
                   type="email"
                   name="email"
@@ -120,7 +115,7 @@ export default function NewsletterInline() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('newsletter.modal.emailPlaceholder')}
                   disabled={isPending}
-                  className="w-full pl-12 pr-4 py-4 bg-transparent border-2 border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purpleColor transition-colors"
+                  className="w-full pl-12 pr-4 py-4 bg-transparent border-2 border-textColor/20 rounded-lg text-textColor placeholder-textColor/40 focus:outline-none focus:border-purpleColor transition-colors"
                   required
                 />
               </div>
@@ -129,7 +124,7 @@ export default function NewsletterInline() {
               <Button
                 type="submit"
                 disabled={isPending}
-                additionalClassName="w-full py-4 bg-purpleColor text-white rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                additionalClassName="w-full py-4 bg-purpleColor text-textColor rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 text={isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}
                 center
               />

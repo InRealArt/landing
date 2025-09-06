@@ -33,8 +33,8 @@ export default function Expert() {
             <blockquote className="text-lg md:text-xl bricolage-grotesque leading-relaxed italic mb-8" dangerouslySetInnerHTML={{ __html: sanitizedQuote }}/>
             <div className="mb-8">
               <p className="font-medium">{t('companies.expert.name')}</p>
-              <p className="text-gray-300 text-sm">{t('companies.expert.position')}</p>
-              <p className="text-gray-300 text-sm">{t('companies.expert.company')}</p>
+              <p className="text-grayText text-sm">{t('companies.expert.position')}</p>
+              <p className="text-grayText text-sm">{t('companies.expert.company')}</p>
             </div>
             <Button
               text={t('companies.expert.button')}

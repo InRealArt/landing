@@ -16,7 +16,7 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function LendingPage() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-textColor">
       <Hero />
       <Advantages />
       <Solutions />

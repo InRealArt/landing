@@ -143,7 +143,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
           disabled={!formData}
           className={`px-6 py-3 rounded-xl font-medium transition-all flex items-center gap-2 ${!formData
             ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-            : 'bg-gray-600 text-white hover:bg-gray-700 border border-gray-500'
+            : 'bg-gray-600 text-textColor hover:bg-gray-700 border border-gray-500'
             }`}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
           disabled={isSendingPDF || !formData}
           additionalClassName={`px-8 py-4 rounded-xl transition-all items-center ${!formData
             ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-            : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700'
+            : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-textColor hover:from-purple-600 hover:to-indigo-700'
             } ${isSendingPDF ? 'opacity-50 cursor-not-allowed' : ''}`}
           center
           text={isSendingPDF ? t('loaSimulator.form.sendingPDF') : t('loaSimulator.form.sendPDF')}

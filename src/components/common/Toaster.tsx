@@ -1,16 +1,19 @@
 'use client'
 
 import { Toaster as SonnerToaster } from 'sonner'
+import { useTheme } from '@/contexts/ThemeContext'
 
 function Toaster() {
+  const { theme } = useTheme()
+
   return (
     <SonnerToaster
       position="top-right"
       richColors
-      theme="dark" // Le thème est fixé à dark, on pourrait le rendre dynamique plus tard
+      theme={theme}
       className="bricolage-grotesque font-medium"
       toastOptions={{
-        className: 'border border-white/10',
+        className: 'border border-white/10 dark:border-white/10 border-black/10',
         duration: 4000,
       }}
     />

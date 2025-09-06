@@ -29,6 +29,15 @@ export default {
         backgroundColor: "var(--background)",
         textColor: "var(--text)",
         cardBackground: "var(--card)",
+        gradientStart: "var(--gradient-start)",
+        gradientEnd: "var(--gradient-end)",
+        borderColor: "var(--border-color)",
+        strokeColor: "var(--stroke-color)",
+        shadowColor: "var(--shadow-color)",
+        gradientFrom: "var(--gradient-from)",
+        gradientTo: "var(--gradient-to)",
+        grayText: "var(--gray-text)",
+        backgroundGrey: "var(--background-grey)",
       },
       minHeight: {
         headerSize: "var(--header-height)",
@@ -57,10 +66,10 @@ export default {
     },
   },
   plugins: [
-    function({ addUtilities }: any) {
+    function({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string>>) => void }) {
       const newUtilities = {
         '.text-simulator': {
-          'color': 'white',
+          'color': 'var(--text)',
           'font-family': 'Unbounded, sans-serif',
           'width': '65%',
           'word-break': 'break-all'

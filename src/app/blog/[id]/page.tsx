@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!slug) {
     return (
-      <main className="min-h-screen text-white pt-headerSize">
+      <main className="min-h-screen text-textColor pt-headerSize">
         <div className="max-w-screen-lg mx-auto p-8">
           <h1 className="text-3xl font-bold mb-8">Post not found</h1>
         </div>
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen pt-headerSize text-white">
+    <main className="min-h-screen pt-headerSize text-textColor">
       <PostDetail slug={slug} />
     </main>
   )

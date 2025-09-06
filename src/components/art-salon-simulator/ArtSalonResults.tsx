@@ -78,8 +78,8 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
         {activeTab === 'summary' && (
           <div className="space-y-6">
             {/* Personal Info Card */}
-            <div className="bg-white bg-opacity-10 rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-textColor mb-3 flex items-center gap-2">
                 <Users className="w-5 h-5" />
                 {t('artSalonSimulator.results.sections.personalInfo')}
               </h3>
@@ -91,8 +91,8 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
             </div>
 
             {/* Exhibition Details Card */}
-            <div className="bg-white bg-opacity-10 rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-textColor mb-3 flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 {t('artSalonSimulator.results.sections.salonDetails')}
               </h3>
@@ -110,11 +110,11 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
 
             {/* Total Cost */}
             <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 text-center">
-              <h3 className="text-xl font-semibold text-white mb-2 flex items-center justify-center gap-2">
+              <h3 className="text-xl font-semibold text-textColor mb-2 flex items-center justify-center gap-2">
                 <Euro className="w-6 h-6" />
                 {t('artSalonSimulator.results.sections.totalCost')}
               </h3>
-              <p className="text-4xl font-bold text-white">
+              <p className="text-4xl font-bold text-textColor">
                 {formatPrice(results.breakdown.total)}
               </p>
               <p className="text-purple-100 mt-2">
@@ -129,48 +129,48 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
 
         {activeTab === 'breakdown' && (
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-semibold text-textColor mb-4 flex items-center gap-2">
               <Euro className="w-5 h-5" />
               {t('artSalonSimulator.results.breakdown.title')}
             </h3>
 
             <div className="space-y-3">
-              <div className="bg-white bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
+              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
                 <span className="text-purple-100">
                   {t('artSalonSimulator.results.breakdown.transport').replace('{count}', results.totalPersons.toString())}
                 </span>
-                <span className="text-white font-semibold">{formatPrice(results.breakdown.transport)}</span>
+                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.transport)}</span>
               </div>
 
-              <div className="bg-white bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
+              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
                 <span className="text-purple-100">
                   {t('artSalonSimulator.results.breakdown.accommodation')
                     .replace('{nights}', Math.max(0, results.salonDetails.days - 1).toString())
                     .replace('{persons}', results.totalPersons.toString())
                   }
                 </span>
-                <span className="text-white font-semibold">{formatPrice(results.breakdown.accommodation)}</span>
+                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.accommodation)}</span>
               </div>
 
-              <div className="bg-white bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
+              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
                 <span className="text-purple-100">
                   {t('artSalonSimulator.results.breakdown.pass').replace('{persons}', results.totalPersons.toString())}
                 </span>
-                <span className="text-white font-semibold">{formatPrice(results.breakdown.pass)}</span>
+                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.pass)}</span>
               </div>
 
               {results.breakdown.comfortSupplement > 0 && (
-                <div className="bg-white bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
+                <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
                   <span className="text-purple-100">{t('artSalonSimulator.results.breakdown.comfortSupplement')}</span>
-                  <span className="text-white font-semibold">{formatPrice(results.breakdown.comfortSupplement)}</span>
+                  <span className="text-textColor font-semibold">{formatPrice(results.breakdown.comfortSupplement)}</span>
                 </div>
               )}
             </div>
 
             <div className="border-t border-purple-300 pt-4">
               <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-4 flex justify-between items-center">
-                <span className="text-white font-bold text-lg">{t('artSalonSimulator.results.breakdown.total')}</span>
-                <span className="text-white font-bold text-2xl">{formatPrice(results.breakdown.total)}</span>
+                <span className="text-textColor font-bold text-lg">{t('artSalonSimulator.results.breakdown.total')}</span>
+                <span className="text-textColor font-bold text-2xl">{formatPrice(results.breakdown.total)}</span>
               </div>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
           disabled={isSendingPDF || !formData}
           additionalClassName={`w-full py-3 px-4 rounded-lg transition-colors duration-200 ${!formData
               ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-              : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700'
+              : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-textColor hover:from-purple-600 hover:to-indigo-700'
             } ${isSendingPDF ? 'opacity-50 cursor-not-allowed' : ''}`}
           center
           text={isSendingPDF ? 'Envoi...' : t('artSalonSimulator.pdf.downloadButton')}
