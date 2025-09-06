@@ -22,7 +22,7 @@ export default function LeasingPage() {
       <Advantages />
       <Benefits />
       <Investment />
-      <LeasingInfosServer titleKey="leasing.slider.title" descriptionKey="leasing.slider.subtitle" />
+      {/* <LeasingInfosServer titleKey="leasing.slider.title" descriptionKey="leasing.slider.subtitle" /> */}
       <LeasingFAQ />
     </main>
   );

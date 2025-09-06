@@ -3,6 +3,7 @@
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
+import TranslatedText from '@/components/common/TranslatedText'
 import { ArrowRight } from 'lucide-react'
 
 export default function AboutTeam() {
@@ -20,9 +21,12 @@ export default function AboutTeam() {
           <div className="space-y-6 flex flex-col w-full">
             {/* Titre principal - aligné avec le haut de l'image 2 */}
             <div className="text-white">
-              <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                {t('about.team.title')}
-              </h2>
+              <TranslatedText
+                translationKey="about.team.title"
+                as="h2"
+                className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
+                allowHtml={true}
+              />
             </div>
             
             {/* Image de l'équipe */}
@@ -37,32 +41,50 @@ export default function AboutTeam() {
             
             {/* Premier paragraphe */}
             <div className="text-white/90 leading-relaxed">
-              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
-                {t('about.team.paragraph1')}
-              </h3>
-              <p className="text-sm">
-              {t('about.team.paragraph1Description')}
-              </p>
+              <TranslatedText
+                translationKey="about.team.paragraph1"
+                as="h3"
+                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                allowHtml={true}
+              />
+              <TranslatedText
+                translationKey="about.team.paragraph1Description"
+                as="p"
+                className="text-sm"
+                allowHtml={true}
+              />
             </div>
             
             {/* Deuxième paragraphe */}
             <div className="text-white/80 leading-relaxed">
-              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
-                {t('about.team.paragraph2')}
-              </h3>
-              <p className="text-sm">
-              {t('about.team.paragraph2Description')}
-              </p>
+              <TranslatedText
+                translationKey="about.team.paragraph2"
+                as="h3"
+                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                allowHtml={true}
+              />
+              <TranslatedText
+                translationKey="about.team.paragraph2Description"
+                as="p"
+                className="text-sm"
+                allowHtml={true}
+              />
             </div>
             
             {/* Troisième paragraphe */}
             <div className="text-white/80 leading-relaxed">
-              <h3 className="bricolage-grotesque text-xl font-semibold text-white mb-2">
-                {t('about.team.paragraph3')}
-              </h3>
-              <p className="text-sm">
-              {t('about.team.paragraph3Description')}
-              </p>
+              <TranslatedText
+                translationKey="about.team.paragraph3"
+                as="h3"
+                className="bricolage-grotesque text-xl font-semibold text-white mb-2"
+                allowHtml={true}
+              />
+              <TranslatedText
+                translationKey="about.team.paragraph3Description"
+                as="p"
+                className="text-sm"
+                allowHtml={true}
+              />
             </div>
 
             {/* Sous-titre avec partie en violet */}
