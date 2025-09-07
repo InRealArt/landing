@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">
-            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-textColor" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
+            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
             <div className="mt-auto">
               <Button
                 text={t('companies.hero.button')}
@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Text */}
-          <div className="text-lg text-textColor/90 font-bold">
+          <div className="text-lg text-white/90 font-bold">
             <p className="mb-4">
               {t('companies.hero.description.p1')}
             </p>

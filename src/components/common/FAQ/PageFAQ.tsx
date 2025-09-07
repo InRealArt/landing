@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { useDetailedFaqStore } from '@/store/useDetailedFaqStore'
 import { useLanguageStore } from '@/store/languageStore'
+import { useTheme } from '@/contexts/ThemeContext'
 import Question from './subcomponents/Question'
 import { titleClassName } from '@/utils/classes'
 import Button from '@/components/common/Button'
@@ -23,6 +24,7 @@ const PageFAQ = ({
 }: PageFAQProps) => {
   const { rawFaqData, isLoading, hasError, fetchDetailedFaqPageData, getTranslatedFaqItems } = useDetailedFaqStore()
   const { t, language } = useLanguageStore()
+  const { theme } = useTheme()
   
   useEffect(() => {
     // Récupérer les données brutes avec toutes les traductions
@@ -45,14 +47,14 @@ const PageFAQ = ({
     return (
       <section className={`w-full m-auto mt-36 flex flex-col gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
         <div className="animate-pulse">
-          <div className="h-12 bg-gray-700 rounded w-1/3 mb-8"></div>
-          <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+          <div className={`h-12 rounded w-1/3 mb-8 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
+          <div className={`h-4 rounded w-2/3 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
         </div>
         <div className="space-y-6">
           {[1, 2, 3].map((i) => (
             <div key={i} className="animate-pulse">
-              <div className="h-6 bg-gray-700 rounded w-full mb-4"></div>
-              <div className="h-4 bg-gray-700 rounded w-3/4"></div>
+              <div className={`h-6 rounded w-full mb-4 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
+              <div className={`h-4 rounded w-3/4 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
             </div>
           ))}
         </div>

@@ -5,6 +5,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import TranslatedText from "@/components/common/TranslatedText"
 import { ArrowRight } from "lucide-react"
 import Button from "@/components/common/Button"
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function JoinInRealArtHero() {
   const { t } = useLanguageStore()
@@ -22,55 +23,60 @@ export default function JoinInRealArtHero() {
     }
   ]
 
+  const { theme } = useTheme()
+
+  const overlayColor = theme === 'light'
+    ? 'linear-gradient(to top, rgb(255,255,255), rgba(255,255,255,0.8), transparent)'
+    : 'linear-gradient(to top, rgb(19,19,19), rgba(19,19,19,0.8), transparent)'
+
   return (
-    <section className="relative w-full h-[70vh] sm:h-[65vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
-      <OptimizedBackgroundImage
-        src="/images/joinInRealArt/hero_joinInRealArt.webp"
-        alt={t('joinInRealArt.header.title')}
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full"
-        overlay={false}
-      />
-      
-      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
-      
+    <OptimizedBackgroundImage
+      src="/images/joinInRealArt/hero_joinInRealArt.webp"
+      alt={t('joinInRealArt.header.title')}
+      width={1920}
+      height={1080}
+      className="inset-0 w-full h-screen flex items-center justify-center mt-headerSizeMobile md:mt-headerSize md:mt-0 m-auto"
+      overlay={true}
+      overlayColor={overlayColor}
+      overlayOpacity={1}
+    >
       {/* Contenu du hero */}
-      <div className="absolute inset-0 z-20 flex items-center">
+      <div className="inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
-          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+          <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">
             {/* Contenu principal à gauche */}
             <div className="lg:w-3/5">
-              <h1 className="bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-textColor mb-2 sm:mb-3 md:mb-4 leading-tight">
+              <h1 className={`bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 leading-tight ${theme === 'light' ? 'text-gray-900' : 'text-textColor'}`}>
                 {t('joinInRealArt.header.title')}
               </h1>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-textColor/90 max-w-2xl leading-relaxed mb-4 sm:mb-6">
-                <TranslatedText 
+              <p className={`text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 ${theme === 'light' ? 'text-gray-700' : 'text-textColor/90'}`}>
+                <TranslatedText
                   translationKey="joinInRealArt.header.description"
                   allowHtml={true}
                 />
               </p>
             </div>
-            
+
             {/* PersonTypeSelection à droite */}
-            <div className="lg:w-2/5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+            <div className="w-full">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 {selectPersonType.map((personType, index) => (
-                  <div key={index} className="bg-[rgb(30,30,30)]/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/20">
-                    <h3 className="text-base sm:text-lg bricolage-grotesque font-semibold text-textColor mb-2 sm:mb-3">
+                  <div key={index} className={`backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border ${theme === 'light' 
+                    ? 'bg-white/90 border-gray-200' 
+                    : 'bg-[rgb(30,30,30)]/90 border-white/20'}`}>
+                    <h3 className={`text-base sm:text-lg bricolage-grotesque font-semibold mb-2 sm:mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-textColor'}`}>
                       {personType.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-textColor/80 mb-3 sm:mb-4 bricolage-grotesque leading-relaxed">
-                      <TranslatedText 
+                    <p className={`text-xs sm:text-sm mb-3 sm:mb-4 bricolage-grotesque leading-relaxed ${theme === 'light' ? 'text-gray-700' : 'text-textColor/80'}`}>
+                      <TranslatedText
                         translationKey={personType.description}
                         allowHtml={true}
                       />
                     </p>
-                    <Button 
-                      text={t('buttons.readMore')} 
-                      additionalClassName="bg-purpleColor w-full justify-center text-xs sm:text-sm" 
-                      icon={<ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />} 
+                    <Button
+                      text={t('buttons.readMore')}
+                      additionalClassName="bg-purpleColor w-full justify-center text-xs sm:text-sm"
+                      icon={<ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />}
                       link={personType.link}
                     />
                   </div>
@@ -80,6 +86,6 @@ export default function JoinInRealArtHero() {
           </div>
         </div>
       </div>
-    </section>
+    </OptimizedBackgroundImage>
   )
 }

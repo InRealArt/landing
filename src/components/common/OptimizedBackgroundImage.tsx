@@ -10,6 +10,7 @@ interface OptimizedBackgroundImageProps {
   height?: number
   fill?: boolean
   className?: string
+  contentClassName?: string
   children?: React.ReactNode
   overlay?: boolean
   overlayColor?: string
@@ -25,6 +26,7 @@ const OptimizedBackgroundImage = ({
   height,
   fill = false,
   className = '',
+  contentClassName = '',
   children,
   overlay = false,
   overlayColor = 'rgba(0, 0, 0, 0.3)',
@@ -35,7 +37,7 @@ const OptimizedBackgroundImage = ({
   // Valeurs par défaut pour le hook d'optimisation
   const defaultWidth = width || 1920
   const defaultHeight = height || 1080
-  
+
   const { shouldOptimize, quality: optimizedQuality, unoptimized } = useImageOptimization({
     src,
     width: defaultWidth,
@@ -52,8 +54,8 @@ const OptimizedBackgroundImage = ({
       <Image
         src={src}
         alt={alt}
-        {...(fill ? 
-          { fill: true } : 
+        {...(fill ?
+          { fill: true } :
           { width: defaultWidth, height: defaultHeight }
         )}
         className="absolute inset-0 w-full h-full object-cover"
@@ -65,7 +67,7 @@ const OptimizedBackgroundImage = ({
           objectPosition: 'center',
         }}
       />
-      
+
       {/* Overlay optionnel */}
       {overlay && (
         <div
@@ -76,10 +78,10 @@ const OptimizedBackgroundImage = ({
           }}
         />
       )}
-      
+
       {/* Contenu superposé */}
       {children && (
-        <div className="relative z-10">
+        <div className={`relative z-10 ${contentClassName}`}>
           {children}
         </div>
       )}

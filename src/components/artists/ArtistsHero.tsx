@@ -7,7 +7,6 @@ import OptimizedBackgroundImage from "@/components/common/OptimizedBackgroundIma
 export default function ArtistsHero() {
   const { t } = useLanguageStore()
   const { theme } = useTheme()
-
   return (
     <section className="relative w-screen h-96 md:h-[550px] overflow-hidden ml-[calc(-50vw+50%)]">
       <OptimizedBackgroundImage
@@ -16,7 +15,6 @@ export default function ArtistsHero() {
         width={1920}
         height={1080}
         className="absolute inset-0 w-full h-full"
-        overlay={false}
       />
       
       {/* Dégradé du bas vers le background - blanc en mode clair, noir en mode sombre */}

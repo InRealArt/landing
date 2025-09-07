@@ -374,7 +374,7 @@
   "joinInRealArt": {
     "header": {
       "title": "Join InRealArt",
-      "description": "Discover the full range of resources needed to propel your next creative project. <br>InRealArt is the ideal partner to amplify your story and give it a unique scope.",
+      "description": "Discover the full range of resources needed to propel your next creative project. <br><br>InRealArt is the ideal partner to amplify your story and give it a unique scope.",
       "description2": "This project is above all yours. Carefully and thoughtfully designed over more than two years, in collaboration with renowned artists and prestigious galleries, it offers you a unique ecosystem to showcase your work, develop your visibility, and fully reveal your potential.",
       "description3": "Why join us? <br>We are an independent team, passionate about art in all its forms. <br>It is this insatiable curiosity and our relational intelligence that have shaped this ambitious project, designed to meet your expectations. <br><br>The collective spirit, benevolence and innovation are the forces that animate InRealArt.",
       "artists": {
@@ -2301,13 +2301,13 @@
     "page": "Page"
   },
   "leadGenerator": {
-    "defaultTitle1": "Catherine Sénéchal",
+    "defaultTitle1": "Catherine Sénéchal - Painter",
     "defaultDescription1": "I was finally able to showcase my work on social media and at art fairs! The provided materials are clear, professional and super easy to use. My visibility has exploded, I highly recommend it!",
-    "defaultTitle2": "Monique Laville",
+    "defaultTitle2": "Monique Laville - Painter listed on Drouot and Artprice",
     "defaultDescription2": "I feel supported on a daily basis! The team is always there to answer my questions, guide me and even accompany me during events. There's a real authentic closeness, I don't feel isolated",
-    "defaultTitle3": "Martin Ronan",
+    "defaultTitle3": "Martin Ronan - Painter listed on Icac",
     "defaultDescription3": "I discovered this project by meeting Catherine Meulemans, director of the Artthema gallery. I was won over by the sensitivity of the project leader, the team and the trust of their partners. I joined the adventure and I'm very satisfied with it.",
-    "defaultTitle4": "Jean-Paul Boyer",
+    "defaultTitle4": "Jean-Paul Boyer - Sculptor",
     "defaultDescription4": "I tested other platforms, but everything costs a lot and is never adapted to my situation. Inrealart really understood my needs: a fair counterpart and a flexible solution that fits my needs.",
     "defaultCta1": "Get started now",
     "defaultCta2": "Get started now",

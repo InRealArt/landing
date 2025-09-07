@@ -81,7 +81,7 @@ export default function HeroArtistSlider() {
           <SwiperSlide key={artist.id}>
             <div className="relative">
               {/* Artist Image */}
-              <div className="relative w-full rounded-2xl flex">
+              <div className="relative w-full rounded-2xl flex flex-col md:flex-row">
                 <blockquote>
                   <p className={`leading-relaxed text-white italic text-lg font-medium`}>
                     &ldquo;{t(artist.citationKey)}&rdquo;
@@ -91,7 +91,7 @@ export default function HeroArtistSlider() {
                   </cite>
                 </blockquote>
                 <Image
-                  className="w-full h-auto"
+                  className="h-48 w-auto m-auto lg:w-full lg:h-auto lg:m-0"
                   src={artist.image}
                   alt={t(artist.nameKey)}
                   width={400}

@@ -31,10 +31,10 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-20 pt-headerSize pb-20 h-full flex items-center justify-center">
         {/* Left Column - Title and Button */}
         <div className="flex flex-col">
-                      <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-textColor">
+                      <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white">
             {t('lending.hero.title')}
           </h1>
-                      <p className="text-lg text-textColor/90 mb-8">
+                      <p className="text-lg text-white/90 mb-8">
             {t('lending.hero.description')}
           </p>
           <div className="mt-auto">

@@ -52,10 +52,10 @@ export default function Header() {
       {/* Contenu du header */}
       <div className="relative z-20 max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-textColor">
+          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white">
             {t('usecase.intro.title')}
           </h1>
-          <p className="text-lg md:text-xl text-textColor/90">
+          <p className="text-lg md:text-xl text-white/90">
             {t('usecase.intro.subtitle')}
           </p>
         </div>

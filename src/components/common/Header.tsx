@@ -38,6 +38,8 @@ const Header = () => {
           <Link href="/presale">{t('nav.artworks')}</Link>
           <Link href="/artists">{t('nav.artists')}</Link>
           <Link href="/joinInRealArt">{t('nav.joinInRealArt')}</Link>
+          <Link href="/usecase">{t('nav.usecase')}</Link>
+
           <Link href="/blog">Blog</Link>
           <Link href="/about">{t('nav.aboutInRealArt')}</Link>
         </ul>

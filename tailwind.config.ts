@@ -49,6 +49,7 @@ export default {
       },
       spacing: {
         headerSize: "calc(var(--header-height) + 2rem)",
+        headerSizeMobile: "var(--header-height)",
         fullMinusHeader: "calc(100% - 200px)",
         90: '91.666667%',
         65: '65%',
