@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
+import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 
 interface ArtistProfileHeroProps {
   artist: {
@@ -29,17 +30,25 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
   return (
     <div className="relative h-[560px] lg:h-[700px] w-full overflow-hidden">
-      {/* Image de fond */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${backgroundImage}')` }}
-      >
-        {/* Overlay sombre pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-backgroundColor bg-opacity-40" />
+      {/* Image de fond avec OptimizedBackgroundImage */}
+      <div className="absolute inset-0">
+        <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
+          <OptimizedBackgroundImage
+            src={backgroundImage}
+            alt={`Arrière-plan pour ${artist.name}`}
+            width={1920}
+            height={1080}
+            className="w-full h-full"
+            overlay={false}
+          />
+        </div>
       </div>
+      
+      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
 
       {/* Contenu principal */}
-      <div className="relative z-10 h-full flex items-end pb-8 lg:pb-12">
+      <div className="relative z-20 h-full flex items-end pb-8 lg:pb-12">
         <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full px-4">
           {/* Carte de l'artiste */}
           <div className="relative max-w-sm h-80 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">

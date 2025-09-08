@@ -17,10 +17,10 @@ export default function ArtistsHero() {
         className="absolute inset-0 w-full h-full"
       />
       
-      {/* Dégradé du bas vers le background - blanc en mode clair, noir en mode sombre */}
+      {/* Dégradé du bas vers le background - plus transparent pour voir l'image */}
       <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'light'
-          ? 'bg-gradient-to-t from-white via-white/50 to-transparent'
-          : 'bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent'
+          ? 'bg-gradient-to-t from-white/80 via-white/20 to-transparent'
+          : 'bg-gradient-to-t from-[rgb(19,19,19,0.8)] via-[rgb(19,19,19,0.3)] to-transparent'
         }`} />
 
       {/* Contenu du hero */}
