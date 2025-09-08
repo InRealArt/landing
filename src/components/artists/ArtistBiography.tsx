@@ -50,7 +50,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
   }
 
   return (
-    <section className="py-16 lg:py-24" style={{ backgroundColor: 'rgb(19, 19, 19)' }}>
+    <section className="py-16 lg:py-24 bg-backgroundColor">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         {/* Layout responsive : 3 colonnes sur grand écran, 1 colonne sur petit écran */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
