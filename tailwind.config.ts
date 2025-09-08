@@ -43,7 +43,7 @@ export default {
         headerSize: "var(--header-height)",
         footerSize: "var(--footer-height)"
       },
-      height: { 
+      height: {
         headerSize: "var(--header-height)",
         footerSize: "var(--footer-height)"
       },
@@ -61,19 +61,43 @@ export default {
       maxWidth: {
         "screen-image": "1440px",
       },
-      borderColor:{
+      borderColor: {
         purpleColor: "var(--purple)"
       }
     },
   },
   plugins: [
-    function({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string>>) => void }) {
+    function ({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string>>) => void }) {
       const newUtilities = {
         '.text-simulator': {
           'color': 'var(--text)',
           'font-family': 'Unbounded, sans-serif',
           'width': '65%',
           'word-break': 'break-all'
+        },
+        '.hero-text-container': {
+          'backdrop-filter': 'blur(4px)',
+          'background-color': 'rgba(0, 0, 0, 0.4)',
+          'border-radius': '0.5rem',
+          'box-shadow': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+          'padding': '1rem 1.5rem',
+          'max-width': '56rem'
+        },
+        '.hero-title': {
+          'color': 'white',
+          'text-shadow': '0 4px 6px rgba(0, 0, 0, 0.3)',
+          'font-family': 'Bricolage Grotesque, sans-serif',
+          'font-weight': '700'
+        },
+        '.hero-subtitle': {
+          'color': 'white',
+          'text-shadow': '0 2px 4px rgba(0, 0, 0, 0.3)'
+        },
+        '.hero-text-container-sm': {
+          'padding': '1.5rem 2rem'
+        },
+        '.hero-text-container-md': {
+          'padding': '2rem'
         }
       }
       addUtilities(newUtilities)

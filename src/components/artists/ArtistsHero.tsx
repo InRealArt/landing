@@ -3,6 +3,7 @@
 import { useLanguageStore } from '@/store/languageStore'
 import { useTheme } from '@/contexts/ThemeContext'
 import OptimizedBackgroundImage from "@/components/common/OptimizedBackgroundImage"
+import HeroText from "@/components/common/HeroText"
 
 export default function ArtistsHero() {
   const { t } = useLanguageStore()
@@ -26,16 +27,12 @@ export default function ArtistsHero() {
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
-          <h1 className={`bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 leading-tight ${
-            theme === 'light' ? 'text-gray-900' : 'text-white'
-          }`}>
-            {t('artists.hero.title')}
-          </h1>
-          <p className={`text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed ${
-            theme === 'light' ? 'text-gray-700' : 'text-white/90'
-          }`}>
-            {t('artists.hero.subtitle')}
-          </p>
+          <HeroText
+            title={t('artists.hero.title')}
+            subtitle={t('artists.hero.subtitle')}
+            titleClassName="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl mb-2 sm:mb-3 md:mb-4 leading-tight"
+            subtitleClassName="text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed"
+          />
         </div>
       </div>
     </section>
