@@ -10,6 +10,7 @@ export interface ArtistData {
     photo: string
     intro: string
     description: string
+    secondaryImageUrl: string
     slug: string
     artistId?: number // ID de l'artiste dans la table Artist (clé étrangère)
     countryCode?: string | null
@@ -102,6 +103,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     role: artworkStyle || 'Artiste',
                     intro,
                     description,
+                    secondaryImageUrl: artist.secondaryImageUrl || '',
                     slug: artist.slug,
                     countryCode: artist.countryCode ?? null,
                     countryName: artist.countryName ?? null,

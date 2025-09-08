@@ -14,7 +14,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
   return (
     <section className="pt-32 pb-16">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Colonne gauche - Informations de l'artiste */}
           <div className="space-y-6">
@@ -29,7 +29,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             
             {/* Nom de l'artiste */}
             <h2 className="text-3xl lg:text-4xl font-bold text-textColor bricolage-grotesque font-serif">
-              {artist.name}
+              {getTranslatedField(artist.id, 'intro', artist.intro || '') || artist.intro}
             </h2>
             
             {/* Bouton Suivre l'artiste */}
@@ -40,7 +40,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             
             {/* Description de l'artiste */}
             <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
-              {artist.quoteFromInRealArt || t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
+              {getTranslatedField(artist.id, 'description', artist.description || '') || artist.description || t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
             </p>
             
             {/* Tags de médium */}
@@ -77,11 +77,11 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
           
           {/* Colonne droite - Photo de l'artiste */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            <div className="max-w-sm">
               <img
-                src={artist.photo}
+                src={artist.secondaryImageUrl}
                 alt={`Photo de ${artist.name}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto rounded-2xl"
               />
             </div>
           </div>

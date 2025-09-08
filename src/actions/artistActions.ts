@@ -14,6 +14,7 @@ export interface ArtistData {
     artworkStyle: string | null
     artistsPage: boolean | null
     imageUrl: string
+    secondaryImageUrl: string | null
     backgroundImage: string | null
     artworkImages: any | null // Stocké comme JSON dans la base de données
     artistId: number // ID de l'artiste dans la table Artist
@@ -74,6 +75,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 artworkStyle: true,
                 artistsPage: true,
                 imageUrl: true,
+                secondaryImageUrl: true,
                 artistId: true,
                 mediumTags: true,
                 quoteFromInRealArt: true,
@@ -182,6 +184,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 artworkStyle: la.artworkStyle,
                 artistsPage: la.artistsPage,
                 imageUrl: la.imageUrl,
+                secondaryImageUrl: la.secondaryImageUrl,
                 description: la.artist.description,
                 backgroundImage: la.artist.backgroundImage,
                 artworkImages,
@@ -244,6 +247,7 @@ export async function getTestimonialArtists(): Promise<ArtistData[]> {
             artworkStyle: null,
             artistsPage: null,
             imageUrl: artist.LandingArtist[0]?.imageUrl || artist.imageUrl,
+            secondaryImageUrl: null,
             backgroundImage: null,
             artworkImages: null,
             artistId: artist.id
@@ -290,6 +294,7 @@ export async function getTestimonialGalleries(): Promise<ArtistData[]> {
             artworkStyle: null,
             artistsPage: null,
             imageUrl: gallery.LandingArtist[0]?.imageUrl || gallery.imageUrl,
+            secondaryImageUrl: null,
             backgroundImage: null,
             artworkImages: null,
             artistId: gallery.id
@@ -318,6 +323,7 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
                 artworkStyle: true,
                 artistsPage: true,
                 imageUrl: true,
+                secondaryImageUrl: true,
                 artistId: true,
                 mediumTags: true,
                 quoteFromInRealArt: true,
@@ -414,6 +420,7 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
             artworkStyle: landingArtist.artworkStyle,
             artistsPage: landingArtist.artistsPage,
             imageUrl: landingArtist.imageUrl,
+            secondaryImageUrl: landingArtist.secondaryImageUrl,
             description: landingArtist.artist.description,
             backgroundImage: landingArtist.artist.backgroundImage,
             artworkImages,
@@ -489,6 +496,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 artworkStyle: true,
                 artistsPage: true,
                 imageUrl: true,
+                secondaryImageUrl: true,
                 artistId: true,
                 mediumTags: true,
                 quoteFromInRealArt: true,
@@ -587,6 +595,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 artworkStyle: la.artworkStyle,
                 artistsPage: la.artistsPage,
                 imageUrl: la.imageUrl,
+                secondaryImageUrl: la.secondaryImageUrl,
                 description: la.artist.description,
                 backgroundImage: la.artist.backgroundImage,
                 artworkImages,
