@@ -1331,6 +1331,11 @@
     "emailSuccess": "Successfully registered for presale",
     "emailError": "An error occurred while registering your email"
   },
+  "biography": {
+    "title": "Artist Infos",
+    "showMore": "Show more",
+    "showLess": "Show less"
+  },
   "terms": {
     "title": "Terms Conditions of Sale",
     "presentation": {

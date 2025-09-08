@@ -1340,6 +1340,11 @@
     "emailSuccess": "Inscription à la prévente réussie",
     "emailError": "Une erreur est survenue lors de l'inscription de votre email"
   },
+  "biography": {
+    "title": "Infos artiste",
+    "showMore": "Voir plus",
+    "showLess": "Voir moins"
+  },
   "terms": {
     "title": "Conditions Générales de Vente",
     "presentation": {
