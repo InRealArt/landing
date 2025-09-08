@@ -79,7 +79,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
           <div className="flex justify-center lg:justify-end">
             <div className="max-w-sm">
               <img
-                src={artist.secondaryImageUrl}
+                src={artist.secondaryImageUrl || artist.photo}
                 alt={`Photo de ${artist.name}`}
                 className="w-full h-auto rounded-2xl"
               />
