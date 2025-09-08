@@ -91,7 +91,7 @@ export default function HeroArtistSlider() {
                   </cite>
                 </blockquote>
                 <Image
-                  className="h-48 w-auto m-auto lg:w-full lg:h-auto lg:m-0"
+                  className="h-48 w-auto m-auto lg:w-full lg:h-auto lg:m-0 max-w-xs"
                   src={artist.image}
                   alt={t(artist.nameKey)}
                   width={400}
