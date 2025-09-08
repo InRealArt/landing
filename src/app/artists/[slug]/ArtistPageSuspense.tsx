@@ -1,8 +1,6 @@
-'use client'
-
 import { Suspense } from 'react'
 import ArtistPageClient from './ArtistPageClient'
-import Loading from './loading'
+import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 
 interface Props {
   slug: string
@@ -10,7 +8,7 @@ interface Props {
 
 export default function ArtistPageSuspense({ slug }: Props) {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<ArtistPageSkeleton />}>
       <ArtistPageClient slug={slug} />
     </Suspense>
   )

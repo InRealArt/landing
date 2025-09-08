@@ -365,6 +365,10 @@
     "error": "Erreur",
     "unknownError": "Une erreur inconnue s'est produite",
     "submitting": "Envoi en cours...",
+    "noTitle": "Sans titre",
+    "loadingError": "Erreur de chargement",
+    "artistLoadingError": "Impossible de charger les informations de l'artiste.",
+    "artistType": "Artiste",
     "faq": {
       "title": "Questions fréquentes",
       "description": "Trouvez ici les réponses aux questions les plus courantes."

@@ -6,6 +6,7 @@ import ArtistArtworks from '@/components/artists/ArtistArtworks'
 import ArtistInfoSection from '@/components/artists/ArtistInfoSection'
 import ArtistBiography from '@/components/artists/ArtistBiography'
 import ExpertSection from '@/components/artists/ExpertSection'
+import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtWork, Lang } from '@/types/types'
 import { generatePersonJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export default function ArtistPageClient({ slug }: Props) {
-  const { language } = useLanguageStore()
+  const { language, t } = useLanguageStore()
 
   // Optimisation : useMemo pour la fonction de formatage
   const formatArtworksForDisplay = useMemo(() => {
@@ -25,26 +26,31 @@ export default function ArtistPageClient({ slug }: Props) {
         id: artwork.id,
         name: typeof artwork.name === 'string' 
           ? artwork.name 
-          : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || 'Sans titre',
+          : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || t('common.noTitle'),
         price: artwork.price,
         image: { src: artwork.image || '' }
       }))
     }
-  }, [language])
+  }, [language, t])
 
   return (
     <ArtistDataProvider slug={slug}>
       {({ artist, artworks, isLoading, hasError }) => {
-        // Si en cours de chargement ou pas d'artiste, ne rien afficher
-        // Le composant loading.tsx sera affiché automatiquement par Next.js
+        // Si en cours de chargement ou pas d'artiste, afficher le skeleton
         if (isLoading || !artist) {
-          return null
+          return <ArtistPageSkeleton />
         }
 
-        // Si erreur, ne rien afficher
-        // Le composant error.tsx sera affiché automatiquement par Next.js
+        // Si erreur, afficher un message d'erreur
         if (hasError) {
-          return null
+          return (
+            <div className="min-h-screen flex items-center justify-center bg-backgroundColor">
+              <div className="text-center">
+                <h1 className="text-2xl font-bold text-textColor mb-4">{t('common.loadingError')}</h1>
+                <p className="text-grayText">{t('common.artistLoadingError')}</p>
+              </div>
+            </div>
+          )
         }
 
         const formattedArtworks = formatArtworksForDisplay(artworks)
@@ -56,7 +62,7 @@ export default function ArtistPageClient({ slug }: Props) {
               dangerouslySetInnerHTML={{ 
                 __html: generatePersonJsonLd(
                   artist.name,
-                  'Artiste',
+                  t('common.artistType'),
                   artist.description,
                   artist.photo,
                   `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
@@ -67,8 +73,8 @@ export default function ArtistPageClient({ slug }: Props) {
               type="application/ld+json"
               dangerouslySetInnerHTML={{ 
                 __html: generateBreadcrumbJsonLd([
-                  { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
-                  { name: 'Artistes', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists` },
+                  { name: t('nav.home'), url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
+                  { name: t('nav.artists'), url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists` },
                   { name: artist.name }
                 ])
               }}
