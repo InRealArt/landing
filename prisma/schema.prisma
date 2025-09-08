@@ -195,28 +195,29 @@ model ArtistCategoryArtist {
 }
 
 model LandingArtist {
-  id            Int      @id @default(autoincrement())
-  slug          String   @unique
-  intro         String?
-  description   String?
-  artworkImages Json     @default("[]")
-  artworkStyle  String?
-  artistsPage   Boolean? @default(false)
-  imageUrl      String   @unique
-  artistId      Int
+  id                 Int                    @id @default(autoincrement())
+  slug               String                 @unique
+  intro              String?
+  description        String?
+  artworkImages      Json                   @default("[]")
+  artworkStyle       String?
+  artistsPage        Boolean?               @default(false)
+  imageUrl           String                 @unique
+  secondaryImageUrl  String?
+  artistId           Int
   //Champs pour le descriptif détaillé de l'artiste sur la landing
-  mediumTags         String[]         @default([])
+  mediumTags         String[]               @default([])
   quoteFromInRealArt String?
-  quoteHeader        String?
-  quoteText          String?
   biographyHeader1   String?
   biographyText1     String?
   biographyHeader2   String?
   biographyText2     String?
   biographyHeader3   String?
   biographyText3     String?
+  biographyHeader4   String?
+  biographyText4     String?
   artistCategories   ArtistCategoryArtist[]
-  artist        Artist   @relation(fields: [artistId], references: [id])
+  artist             Artist                 @relation(fields: [artistId], references: [id])
 
   @@index([artistId])
   @@schema("landing")

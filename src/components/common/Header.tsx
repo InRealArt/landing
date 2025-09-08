@@ -34,14 +34,15 @@ const Header = () => {
           />
         </Link>
         <ul className="gap-6 items-center hidden lg:flex bricolage-grotesque font-semibold">
-          <Link href="/">{t('nav.home')}</Link>
-          <Link href="/presale">{t('nav.artworks')}</Link>
-          <Link href="/artists">{t('nav.artists')}</Link>
-          <Link href="/joinInRealArt">{t('nav.joinInRealArt')}</Link>
-          <Link href="/usecase">{t('nav.usecase')}</Link>
+          <li className="whitespace-nowrap"><Link href="/">{t('nav.home')}</Link></li>
+          <li className="whitespace-nowrap"><Link href="/about">{t('nav.aboutInRealArt')}</Link></li>
+          <li className="whitespace-nowrap"><Link href="/usecase">{t('nav.usecase')}</Link></li>
 
-          <Link href="/blog">Blog</Link>
-          <Link href="/about">{t('nav.aboutInRealArt')}</Link>
+          <li className="whitespace-nowrap"><Link href="/presale">{t('nav.artworks')}</Link></li>
+          <li className="whitespace-nowrap"><Link href="/artists">{t('nav.artists')}</Link></li>
+            <li className="whitespace-nowrap"><Link href="/blog" className="text-purpleColor">Blog</Link></li>
+            <li className="whitespace-nowrap"><Link href="/joinInRealArt" className="text-purpleColor">{t('nav.joinInRealArt')}</Link></li>
+          
         </ul>
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
