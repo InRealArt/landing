@@ -69,14 +69,14 @@ export default function ArtworkPageClient({ artworkId }: Props) {
                 countryName: foundArtist.countryName,
                 mediumTags: foundArtist.mediumTags || [],
                 birthYear: foundArtist.birthYear,
-                quoteHeader: foundArtist.quoteHeader,
-                quoteText: foundArtist.quoteText,
                 biographyHeader1: foundArtist.biographyHeader1,
                 biographyText1: foundArtist.biographyText1,
                 biographyHeader2: foundArtist.biographyHeader2,
                 biographyText2: foundArtist.biographyText2,
                 biographyHeader3: foundArtist.biographyHeader3,
                 biographyText3: foundArtist.biographyText3,
+                biographyHeader4: foundArtist.biographyHeader4,
+                biographyText4: foundArtist.biographyText4,
                 artworkImages: foundArtist.artworkImages ? JSON.parse(JSON.stringify(foundArtist.artworkImages)) : []
               }
               setArtist(transformedArtist)

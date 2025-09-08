@@ -59,21 +59,21 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
           </div>
           
           {/* Colonne centrale - Citation */}
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             {/* Citation principale */}
-            {(getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader) && (
+            {/* {(getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader) && (
               <blockquote className="text-2xl lg:text-3xl text-textColor font-medium leading-relaxed bricolage-grotesque font-serif">
                 « {getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader} »
               </blockquote>
-            )}
+            )} */}
             
             {/* Texte descriptif */}
-            {(getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText) && (
+            {/* {(getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText) && (
               <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
                 {getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText}
               </p>
-            )}
-          </div>
+            )} */}
+          {/* </div> */} 
           
           {/* Colonne droite - Photo de l'artiste */}
           <div className="flex justify-center lg:justify-end">

@@ -63,7 +63,7 @@
     "accessSimulator": "Accéder au simulateur",
     "loaDescription": "Calculez vos coûts et avantages LOA (Location avec Option d'Achat)",
     "heritageDescription": "Explorez les opportunités d'investissement patrimoine et art",
-    "backToHome": "Retour à l'accueil"
+    "scheduleMeeting": "Prendre RDV"
   },
   "manifest": {
     "title": "Manifeste InRealArt",

@@ -101,10 +101,11 @@ export default function SimulatorsPageClient() {
         {/* Back to Home */}
         <div className="text-center">
           <Link
-            href="/"
-            className="inline-flex items-center px-6 py-3 bg-purpleColor text-textColor rounded-lg hover:bg-purpleColor/90 transition-colors font-medium"
+            href="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+            target="_blank"
+            className="inline-flex border bg-purpleColor text-white p-4 gap-4 rounded-xl items-center justify-center hover:bg-purpleColor/90 transition-colors"
           >
-            {t('simulators.backToHome')}
+            <span className='unbounded font-semibold text-sm'>{t('simulators.scheduleMeeting')}</span>
           </Link>
         </div>
       </div>

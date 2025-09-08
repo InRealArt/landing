@@ -16,8 +16,6 @@ export interface ArtistData {
     countryName?: string | null
     mediumTags?: string[]
     birthYear?: number | null
-    quoteHeader?: string | null
-    quoteText?: string | null
     quoteFromInRealArt?: string | null
     biographyHeader1?: string | null
     biographyText1?: string | null
@@ -25,6 +23,8 @@ export interface ArtistData {
     biographyText2?: string | null
     biographyHeader3?: string | null
     biographyText3?: string | null
+    biographyHeader4?: string | null
+    biographyText4?: string | null
     artworkImages: {
         image: string
         name: string
@@ -107,8 +107,6 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     countryName: artist.countryName ?? null,
                     mediumTags: artist.mediumTags ?? [],
                     birthYear: artist.birthYear ?? null,
-                    quoteHeader: artist.quoteHeader ?? null,
-                    quoteText: artist.quoteText ?? null,
                     quoteFromInRealArt: artist.quoteFromInRealArt ?? null,
                     biographyHeader1: artist.biographyHeader1 ?? null,
                     biographyText1: artist.biographyText1 ?? null,
@@ -116,6 +114,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     biographyText2: artist.biographyText2 ?? null,
                     biographyHeader3: artist.biographyHeader3 ?? null,
                     biographyText3: artist.biographyText3 ?? null,
+                    biographyHeader4: artist.biographyHeader4 ?? null,
+                    biographyText4: artist.biographyText4 ?? null,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -218,7 +218,9 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
             biographyHeader2: rawArtist.biographyHeader2 ?? null,
             biographyText2: rawArtist.biographyText2 ?? null,
             biographyHeader3: rawArtist.biographyHeader3 ?? null,
-            biographyText3: rawArtist.biographyText3 ?? null
+            biographyText3: rawArtist.biographyText3 ?? null,
+            biographyHeader4: rawArtist.biographyHeader4 ?? null,
+            biographyText4: rawArtist.biographyText4 ?? null
         }
     },
 
