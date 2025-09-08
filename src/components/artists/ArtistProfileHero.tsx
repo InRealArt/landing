@@ -79,35 +79,41 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
             {/* Informations de l'artiste en bas */}
             <div className="absolute bottom-4 left-4 right-4 z-10">
-              {/* Année de naissance et pays */}
+              {/* Année de naissance et pays avec effet de blur grisé */}
               {(artist.birthYear || artist.countryName) && (
-                <p className="text-sm text-textColor/90 mb-2 inter">
-                  {artist.birthYear && `${t('artistPage.bornIn')} ${artist.birthYear}`}
-                  {artist.birthYear && artist.countryName && ' - '}
-                  {artist.countryName}
-                </p>
+                <div className="mb-3">
+                  <div className="inline-block px-3 py-1 bg-black/30 backdrop-blur-md rounded-lg">
+                    <p className="text-sm text-white font-medium inter">
+                      {artist.birthYear && `${t('artistPage.bornIn')} ${artist.birthYear}`}
+                      {artist.birthYear && artist.countryName && ' - '}
+                      {artist.countryName}
+                    </p>
+                  </div>
+                </div>
               )}
               
-              {/* Prénom et nom sur deux lignes */}
-              <div className="bricolage-grotesque text-white">
-                {(() => {
-                  const nameParts = artist.name.split(' ')
-                  const firstName = nameParts[0]
-                  const lastName = nameParts.slice(1).join(' ')
-                  
-                  return (
-                    <>
-                      <h1 className="text-3xl lg:text-4xl font-bold leading-tight">
-                        {firstName}
-                      </h1>
-                      {lastName && (
-                        <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-                          {lastName}
-                        </h2>
-                      )}
-                    </>
-                  )
-                })()}
+              {/* Prénom et nom sur deux lignes avec effet de blur grisé */}
+              <div className="bricolage-grotesque">
+                <div className="inline-block px-4 py-2 bg-black/30 backdrop-blur-md rounded-lg">
+                  {(() => {
+                    const nameParts = artist.name.split(' ')
+                    const firstName = nameParts[0]
+                    const lastName = nameParts.slice(1).join(' ')
+                    
+                    return (
+                      <>
+                        <h1 className="text-3xl lg:text-4xl font-bold leading-tight text-white">
+                          {firstName}
+                        </h1>
+                        {lastName && (
+                          <h2 className="text-3xl lg:text-4xl font-bold leading-tight text-white">
+                            {lastName}
+                          </h2>
+                        )}
+                      </>
+                    )
+                  })()}
+                </div>
               </div>
             </div>
           </div>
