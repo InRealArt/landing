@@ -64,6 +64,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
                 role: foundArtist.artworkStyle || 'Artiste',
                 intro: foundArtist.intro || '',
                 description: foundArtist.description || '',
+                secondaryImageUrl: foundArtist.secondaryImageUrl || '',
                 slug: foundArtist.slug,
                 countryCode: foundArtist.countryCode,
                 countryName: foundArtist.countryName,
