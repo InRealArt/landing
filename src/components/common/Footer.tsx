@@ -165,7 +165,11 @@ const Footer = () => {
               <input
                 name="email"
                 type="text"
-                className="w-full bg-transparent border border-white bricolage-grotesque rounded-3xl font-semibold border-1 py-6 px-4 pr-16 outline-0"
+                className={`w-full bricolage-grotesque rounded-3xl font-semibold py-6 px-4 pr-16 outline-0 ${
+                  theme === 'light' 
+                    ? 'bg-transparent border-2 border-black text-gray-800 placeholder-gray-500 focus:border-gray-800' 
+                    : 'bg-transparent border border-white'
+                }`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('buttons.subscribe')}
