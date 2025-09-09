@@ -108,13 +108,13 @@ export default function NewsletterModal() {
       onClick={handleBackdropClick}
     >
       <div
-        className="relative w-full max-w-4xl transform rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 text-textColor shadow-2xl transition-all duration-300 ease-out overflow-hidden max-h-[95vh]"
+        className="relative w-full max-w-4xl transform rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 text-white dark:text-textColor shadow-2xl transition-all duration-300 ease-out overflow-hidden max-h-[95vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Bouton de fermeture */}
         <button
           onClick={closeModal}
-          className="absolute right-4 top-4 z-10 text-grayText hover:text-textColor transition-colors"
+          className="absolute right-4 top-4 z-10 text-white/70 hover:text-white dark:text-grayText dark:hover:text-textColor transition-colors"
           aria-label="Fermer"
         >
           <X size={24} />
@@ -153,17 +153,17 @@ export default function NewsletterModal() {
           <div className="p-6 flex flex-col justify-center">
             <div className="text-center">
               {/* Titre */}
-              <h2 className="text-2xl font-bold mb-2">
+              <h2 className="text-2xl font-bold mb-2 text-white dark:text-textColor">
                 {t('newsletter.modal.title')}
               </h2>
 
               {/* Sous-titre */}
-              <p className="text-grayText mb-2">
+              <p className="text-white/80 dark:text-grayText mb-2">
                 {t('newsletter.modal.subtitle')}
               </p>
 
               {/* Description */}
-              <p className="text-sm text-grayText mb-6">
+              <p className="text-sm text-white/70 dark:text-grayText mb-6">
                 {t('newsletter.modal.description')}
               </p>
 
@@ -176,7 +176,7 @@ export default function NewsletterModal() {
                 <input type="hidden" name="language" value={useLanguageStore.getState().language} />
 
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-grayText" size={20} />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 dark:text-grayText" size={20} />
                   <input
                     type="email"
                     name="email"
@@ -184,7 +184,7 @@ export default function NewsletterModal() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={t('newsletter.modal.emailPlaceholder')}
                     disabled={isPending}
-                    className="w-full pl-12 pr-4 py-4 bg-transparent border-2 border-white/20 rounded-lg text-textColor placeholder-gray-400 focus:outline-none focus:border-purpleColor transition-colors"
+                    className="w-full pl-12 pr-4 py-4 bg-transparent border-2 border-white/20 rounded-lg text-white dark:text-textColor placeholder-white/50 dark:placeholder-gray-400 focus:outline-none focus:border-purpleColor transition-colors"
                     required
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function NewsletterModal() {
                 <Button
                   type="submit"
                   disabled={isPending}
-                  additionalClassName="w-full py-4 bg-purpleColor text-textColor rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  additionalClassName="w-full py-4 bg-purpleColor text-white dark:text-textColor rounded-lg hover:bg-purpleColor/90 transition-colors font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   text={isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}
                   center
                 />
@@ -203,7 +203,7 @@ export default function NewsletterModal() {
               <div className="mt-4 text-center">
                 <Button
                   action={handleNotInterested}
-                  additionalClassName="text-xs text-grayText hover:text-grayText transition-colors underline bg-transparent border-none"
+                  additionalClassName="text-xs text-white/60 hover:text-white/80 dark:text-grayText dark:hover:text-grayText transition-colors underline bg-transparent border-none"
                   text={t('newsletter.modal.notInterested')}
                 />
               </div>
