@@ -54,7 +54,14 @@
     "loaSimulator": "Simulateur LOA",
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon",
-    "viewAllSimulators": "Voir tous les simulateurs"
+    "viewAllSimulators": "Voir tous les simulateurs",
+    "recaptcha": {
+      "notice": "Ce site est protégé par reCAPTCHA et les",
+      "privacyPolicy": "règles de confidentialité",
+      "and": "et les",
+      "termsOfService": "conditions d'utilisation",
+      "googleApplies": "de Google s'appliquent."
+    }
   },
   "simulators": {
     "title": "Tous les Simulateurs",

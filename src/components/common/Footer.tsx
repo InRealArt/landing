@@ -326,15 +326,15 @@ const Footer = () => {
 
         {/* Notice reCAPTCHA conforme aux conditions Google */}
         <div className="text-xs text-gray-500 text-center mt-4">
-          Ce site est protégé par reCAPTCHA et les &nbsp;
+          {t('footer.recaptcha.notice')} &nbsp;
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
-            règles de confidentialité
+            {t('footer.recaptcha.privacyPolicy')}
           </a> &nbsp;
-          et les &nbsp;
+          {t('footer.recaptcha.and')} &nbsp;
           <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
-            conditions d&quote;utilisation
+            {t('footer.recaptcha.termsOfService')}
           </a> &nbsp;
-          de Google s&quote;appliquent.
+          {t('footer.recaptcha.googleApplies')}
         </div>
       </div>
     </footer>
