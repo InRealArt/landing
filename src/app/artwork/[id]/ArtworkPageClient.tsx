@@ -12,7 +12,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { validateEmail } from '@/utils/functions'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { Lang } from '@/types/types'
-import { ArtistInfoSection } from '@/components/artists'
+import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
 import { ArtistData } from '@/store/useArtistStore'
 
 interface Props {
@@ -21,9 +21,10 @@ interface Props {
 
 export default function ArtworkPageClient({ artworkId }: Props) {
   const { t, language } = useLanguageStore()
-  const { artworks, fetchArtworks, getArtworkBySlug } = useArtworksStore()
+  const { artworks, fetchArtworks, getArtworkBySlug, getArtworksByArtistId } = useArtworksStore()
   const [artwork, setArtwork] = useState<any>(null)
   const [artist, setArtist] = useState<ArtistData | null>(null)
+  const [artistArtworks, setArtistArtworks] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -81,6 +82,16 @@ export default function ArtworkPageClient({ artworkId }: Props) {
                 artworkImages: foundArtist.artworkImages ? JSON.parse(JSON.stringify(foundArtist.artworkImages)) : []
               }
               setArtist(transformedArtist)
+
+              // Récupérer les artworks de l'artiste pour le carousel
+              try {
+                const artworks = await getArtworksByArtistId(foundArtist.artistId)
+                console.log("Artist artworks:", artworks)
+                setArtistArtworks(artworks)
+              } catch (error) {
+                console.error('Error loading artist artworks:', error)
+                setArtistArtworks([])
+              }
             }
           }
           
@@ -217,6 +228,25 @@ export default function ArtworkPageClient({ artworkId }: Props) {
 
       {/* Section d'informations sur l'artiste */}
       {artist && <ArtistInfoSection artist={artist} />}
+
+      {/* Carousel des artworks de l'artiste */}
+      {artist && artistArtworks.length > 0 && (
+        <div className="container mx-auto px-4 py-8">
+          <ArtistArtworkCarousel 
+            artistName={artist.name}
+            artworks={artistArtworks.map(artwork => ({
+              id: artwork.id.toString(),
+              name: typeof artwork.name === 'string' 
+                ? artwork.name 
+                : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || 'Sans titre',
+              price: artwork.price,
+              image: {
+                src: artwork.url
+              }
+            }))}
+          />
+        </div>
+      )}
     </>
   )
 } 
