@@ -13,10 +13,10 @@ function PartnersSkeleton() {
   return (
     <section className="mt-12">
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">
           {t('home.partners.title')}
         </h2>
-        <p className="text-gray-300 text-lg">
+        <p className="text-grayText text-lg">
           {t('home.partners.description')}
         </p>
       </div>
@@ -53,11 +53,11 @@ function Partners() {
     return (
       <section className="mt-12">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">
             {t('home.partners.title')}
           </h2>
           <div className="flex justify-center items-center p-8">
-            <p className="text-gray-300">{t('home.partners.loadingError')}</p>
+            <p className="text-grayText">{t('home.partners.loadingError')}</p>
           </div>
         </div>
       </section>
@@ -68,11 +68,11 @@ function Partners() {
     return (
       <section className="mt-12">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">
             {t('home.partners.title')}
           </h2>
           <div className="flex justify-center items-center p-8">
-            <p className="text-gray-300">{t('home.partners.noPartners')}</p>
+            <p className="text-grayText">{t('home.partners.noPartners')}</p>
           </div>
         </div>
       </section>
@@ -82,10 +82,10 @@ function Partners() {
   return (
     <section className="mt-12">
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-textColor mb-4">
           {t('home.partners.title')}
         </h2>
-        <p className="text-gray-300 text-lg">
+        <p className="text-grayText text-lg">
           {t('home.partners.description')}
         </p>
       </div>
@@ -106,11 +106,11 @@ function Partners() {
                 sizes="(max-width: 768px) 200px, 250px"
               />
             </div>
-            <h3 className="text-white font-semibold text-lg mb-2 truncate">
+            <h3 className="text-textColor font-semibold text-lg mb-2 truncate">
               {partner.name}
             </h3>
             {partner.countryName && (
-              <p className="text-gray-400 text-xs mt-2">
+              <p className="text-grayText text-xs mt-2">
                 {partner.countryName}
               </p>
             )}
