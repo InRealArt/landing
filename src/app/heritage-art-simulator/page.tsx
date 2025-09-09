@@ -9,6 +9,7 @@ import FormSection from '@/components/common/simulator/FormSection'
 import ResultSection from '@/components/common/simulator/ResultSection'
 import { type HeritageArtResults as HeritageArtResultsType } from '@/utils/heritageArtCalculations'
 import HeritageArtSimulatorFAQ from '@/components/heritage-art-simulator/HeritageArtSimulatorFAQ'
+import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
 
 export default function HeritageArtSimulatorPage() {
   const [results, setResults] = useState<{
@@ -35,20 +36,11 @@ export default function HeritageArtSimulatorPage() {
         <div className="relative w-80 h-80 mx-auto">
           <div className="w-full h-full overflow-hidden rounded-lg shadow-lg">
             <OptimizedImage
-              src="/images/joinUs-1.png"
-              alt="Art integration dans le patrimoine"
-              width={320}
-              height={320}
+              src={getRandomSimulatorImage()}
+              alt="Simulateur Art Patrimoine"
+              width={350}
+              height={350}
               className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:opacity-80"
-            />
-          </div>
-          <div className="absolute -bottom-4 -right-4 w-[150px] h-[150px] overflow-hidden rounded-lg shadow-lg">
-            <OptimizedImage
-              src="/images/joinUs-2.png"
-              alt="Diversification artistique"
-              width={150}
-              height={150}
-              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:opacity-90"
             />
           </div>
         </div>

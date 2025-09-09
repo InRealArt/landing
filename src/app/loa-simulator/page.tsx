@@ -14,6 +14,7 @@ import {
   type ArtworkLeaseInputs
 } from '@/utils/artworkLeaseCalculations'
 import LoaSimulatorFAQ from '@/components/loa-simulator/LoaSimulatorFAQ'
+import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
 
 export default function LoaSimulatorPage() {
   const { t } = useLanguageStore()
@@ -33,20 +34,13 @@ export default function LoaSimulatorPage() {
 
   // Default content for LOA simulator
   const defaultContent = (
-    <div className="flex-1 flex items-end p-8 relative">
+    <div className="flex-1 flex items-center justify-center p-8">
       <OptimizedImage
-        src="/images/joinUs-1.png"
-        alt="Portrait artwork"
-        width={300}
-        height={300}
-        className="w-1/2 [&_img]:w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:shadow-lg"
-      />
-      <OptimizedImage
-        src="/images/joinUs-2.png"
-        alt="Abstract artwork"
-        width={250}
-        height={200}
-        className="w-1/2 ml-[-20px] mb-[4rem] [&_img]:w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:shadow-lg"
+        src={getRandomSimulatorImage()}
+        alt="Simulateur LOA"
+        width={500}
+        height={500}
+        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:shadow-lg"
       />
     </div>
   )
