@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Intro from "@/components/presale/Intro";
+import PresaleHero from "@/components/presale/PresaleHero";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
@@ -106,7 +106,7 @@ export default function Presale() {
   if (isLoading) {
     return (
       <>
-        <Intro />
+        <PresaleHero />
         <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
           {t('team.loading')}
         </div>
@@ -117,7 +117,7 @@ export default function Presale() {
   if (hasError) {
     return (
       <>
-        <Intro />
+        <PresaleHero />
         <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center">
           {t('team.error')}
         </div>
@@ -128,7 +128,7 @@ export default function Presale() {
 
   return (
     <>
-      <Intro />
+      <PresaleHero />
       <div className="relative max-w-90 xl:max-w-screen-xl m-auto">
         <h1 className="text-2xl md:text-4xl font-bold mt-10 mb-6">{t('presale.onDemand')}</h1>
         
