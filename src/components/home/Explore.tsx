@@ -15,6 +15,7 @@ export default function Explore() {
       titleKey: 'home.explore.items.block1.title',
       labelKey: 'home.explore.items.block1.label',
       descriptionKey: 'home.explore.items.block1.description',
+      backgroundImage: '/images/home/inrealart_for_artists.webp',
       buttons: {
         first: {
           text: t('home.explore.items.block1.buttons.artworks'),
@@ -27,6 +28,7 @@ export default function Explore() {
       titleKey: 'home.explore.items.block2.title',
       labelKey: 'home.explore.items.block2.label',
       descriptionKey: 'home.explore.items.block2.description',
+      backgroundImage: '/images/home/inrealart_for_ceos.webp',
       buttons: {
         first: {
           text: t('home.explore.items.block2.buttons.marketplace'),
@@ -39,6 +41,7 @@ export default function Explore() {
       titleKey: 'home.explore.items.block3.title',
       labelKey: 'home.explore.items.block3.label',
       descriptionKey: 'home.explore.items.block3.description',
+      backgroundImage: '/images/home/inrealart_for_institutions.webp',
       buttons: {
         first: {
           text: t('home.explore.items.block3.buttons.usecase'),
@@ -69,18 +72,36 @@ export default function Explore() {
           const reverseClassName = index % 2 !== 0 ? 'md:flex-row-reverse' : '';
           return (
             <div key={item.key} className={`w-full flex flex-col md:flex-row gap-6 md:gap-20 mt-28 items-center ${reverseClassName}`}>
-              <div className="basis-1/2">
-                <TranslatedText 
-                  as="h1" 
-                  className="text-xl lg:text-3xl bricolage-grotesque font-bold" 
-                  translationKey={item.titleKey} 
-                  allowHtml={true}
-                />
-                <TranslatedText 
-                  as="label" 
-                  className="my-4 block bricolage-grotesque" 
-                  translationKey={item.labelKey} 
-                />
+              <div className="basis-1/2 relative min-h-[300px] md:min-h-[400px] overflow-hidden rounded-lg">
+                {/* Image de fond */}
+                <div className="absolute inset-0 -z-10">
+                  <OptimizedImage 
+                    src={item.backgroundImage} 
+                    alt={`Background for ${item.key}`} 
+                    width={600} 
+                    height={400} 
+                    className="w-full h-full object-cover"
+                    priority={false}
+                  />
+                </div>
+                {/* Contenu du titre et label */}
+                <div className="relative z-10 p-4 h-full flex flex-col justify-center">
+                  <div className="relative">
+                    {/* Zone de surbrillance derrière le titre */}
+                    <div className="absolute inset-0 bg-gray-500/30 backdrop-blur-sm rounded-lg -m-2"></div>
+                    <TranslatedText 
+                      as="h1" 
+                      className="relative text-xl lg:text-3xl bricolage-grotesque font-bold text-white drop-shadow-lg" 
+                      translationKey={item.titleKey} 
+                      allowHtml={true}
+                    />
+                  </div>
+                  <TranslatedText 
+                    as="label" 
+                    className="my-4 block bricolage-grotesque text-white drop-shadow-lg" 
+                    translationKey={item.labelKey} 
+                  />
+                </div>
               </div>
               <div className="basis-1/2">
                 <TranslatedText 
