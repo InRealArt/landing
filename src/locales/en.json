@@ -283,6 +283,12 @@
         }
       }
     },
+    "partners": {
+      "title": "Our Partner Galleries",
+      "description": "Discover our partner galleries who trust us",
+      "loadingError": "Error loading partner galleries",
+      "noPartners": "No partner galleries available"
+    },
     "statistics": {
       "title": "The InRealArt catalog includes:",
       "items": {

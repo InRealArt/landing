@@ -5,6 +5,7 @@ import Team from "@/components/common/Team";
 import HowItWorks from "@/components/home/HowItWorks";
 import Explore from "@/components/home/Explore";
 import ArtistSlider from "@/components/home/ArtistSlider";
+import Partners from "@/components/home/Partners";
 import ArtworkSlider from "@/components/home/ArtworkSlider";
 import HomeFaq from "@/components/common/BlockFaq";
 import NewsletterInline from "@/components/common/NewsletterInline";
@@ -36,6 +37,7 @@ export default function Home() {
       <Explore />
       <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider />
+        <Partners />
         <ArtworkSlider />
       </div>
       <Team />

@@ -282,6 +282,12 @@
         }
       }
     },
+    "partners": {
+      "title": "Nos Galeries Partenaires",
+      "description": "Découvrez nos galeries partenaires qui nous font confiance",
+      "loadingError": "Erreur lors du chargement des galeries partenaires",
+      "noPartners": "Aucune galerie partenaire disponible"
+    },
     "statistics": {
       "title": "Le catalogue InRealArt c'est :",
       "items": {
