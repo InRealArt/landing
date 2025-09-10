@@ -157,8 +157,8 @@ const Footer = () => {
               <Link href="https://www.facebook.com/inrealart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <OptimizedSVG src="/icons/facebook.svg" alt="Facebook" width={16} height={16} className={svgClass} />
               </Link>
-              <Link href="https://x.com/InRealArt/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
-                <OptimizedSVG src="/icons/twitter.svg" alt="Twitter/X" width={24} height={24} className={svgClass} />
+              <Link href="https://pinterest.com/teaminrealart/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                <OptimizedSVG src="/icons/pinterest.svg" alt="Pinterest" width={24} height={24} className={svgClass} />
               </Link>
             </div>
             <div className="relative w-full md:w-80 mt-4">
