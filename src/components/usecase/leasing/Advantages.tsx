@@ -36,10 +36,10 @@ export default function Advantages() {
               key={index}
               className="p-6 rounded-lg bg-[#1D1C1C]"
             >
-              <h3 className="text-xl bricolage-grotesque font-medium mb-3">
+              <h3 className="text-xl bricolage-grotesque font-medium mb-3 text-white dark:text-white">
                 {item.title}
               </h3>
-              <p className="text-sm text-grayText">
+              <p className="text-sm text-white dark:text-grayText">
                 {item.description}
               </p>
             </div>

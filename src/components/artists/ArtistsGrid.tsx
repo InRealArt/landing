@@ -115,25 +115,33 @@ export default function ArtistsGrid () {
           <button
             type="button"
             onClick={() => setIsOpen(o => !o)}
-            className="inline-flex items-center gap-2 rounded-full bg-backgroundColor text-textColor px-5 py-2 shadow-sm hover:shadow transition"
+            className="inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-5 py-2 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-600 transition-all duration-200 bricolage-grotesque font-medium"
           >
             <span>{t('artists.nationality')}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
           {isOpen && (
-            <div className="absolute z-20 mt-2 w-56 rounded-2xl bg-backgroundColor p-2 shadow-lg ring-1 ring-black/5">
+            <div className="absolute z-20 mt-2 w-56 rounded-2xl bg-white dark:bg-gray-800 p-2 shadow-xl ring-1 ring-gray-200 dark:ring-gray-600 border border-gray-200 dark:border-gray-600">
               <button
-                className={`w-full text-left px-3 py-2 rounded-lg ${params.nationality === '' ? 'bg-backgroundColor/5' : 'hover:bg-backgroundColor/5'} text-textColor`}
+                className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium ${
+                  params.nationality === '' 
+                    ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' 
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
                 onClick={() => { setParams({ nationality: '', page: 1 }); setIsOpen(false) }}
               >{t('artists.all')}</button>
               <div className="max-h-64 overflow-y-auto">
                 {nationalities.map(n => (
                   <button
                     key={n.code}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-textColor ${params.nationality.toUpperCase() === n.code ? 'bg-backgroundColor/5' : 'hover:bg-backgroundColor/5'}`}
+                    className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium ${
+                      params.nationality.toUpperCase() === n.code 
+                        ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' 
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`}
                     onClick={() => { setParams({ nationality: n.code, page: 1 }); setIsOpen(false) }}
                   >{n.label}</button>
                 ))}
@@ -142,10 +150,10 @@ export default function ArtistsGrid () {
           )}
           </div>
 
-          <span className="text-textColor/40 select-none">|</span>
+          <span className="text-gray-400 dark:text-gray-500 select-none">|</span>
 
-          <div className="inline-flex items-center gap-2 rounded-full bg-backgroundColor text-textColor px-4 py-1.5 shadow-sm">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="inline-flex items-center gap-3 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-4 py-2 shadow-md border border-gray-200 dark:border-gray-600 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-transparent transition-all duration-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-500 dark:text-gray-400">
               <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
             </svg>
@@ -153,11 +161,11 @@ export default function ArtistsGrid () {
               value={params.q}
               onChange={e => setParams({ q: e.target.value, page: 1 })}
               placeholder={t('artists.searchPlaceholder')}
-              className="bg-transparent outline-none text-sm min-w-[220px] placeholder-black/40"
+              className="bg-transparent outline-none text-sm min-w-[280px] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 bricolage-grotesque font-medium"
             />
           </div>
         </div>
-        <div className="text-textColor/60 text-sm">{filtered.length} {t('artists.artistsFound')}</div>
+        <div className="text-gray-600 dark:text-gray-400 text-sm bricolage-grotesque font-medium">{filtered.length} {t('artists.artistsFound')}</div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -180,13 +188,13 @@ export default function ArtistsGrid () {
           <button
             disabled={page === 1}
             onClick={() => setParams({ page: page - 1 })}
-            className="px-3 py-2 rounded-md bg-backgroundColor/10 text-textColor disabled:opacity-40"
+            className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 disabled:opacity-40 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-colors duration-200 bricolage-grotesque font-medium"
           >{t('artists.previous')}</button>
-          <div className="text-textColor/80">{t('artists.page')} {page} / {totalPages}</div>
+          <div className="text-gray-600 dark:text-gray-400 px-4 bricolage-grotesque font-medium">{t('artists.page')} {page} / {totalPages}</div>
           <button
             disabled={page === totalPages}
             onClick={() => setParams({ page: page + 1 })}
-            className="px-3 py-2 rounded-md bg-backgroundColor/10 text-textColor disabled:opacity-40"
+            className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 disabled:opacity-40 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-colors duration-200 bricolage-grotesque font-medium"
           >{t('artists.next')}</button>
         </div>
       )}
