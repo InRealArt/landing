@@ -21,7 +21,7 @@ interface Props {
 
 export default function ArtworkPageClient({ artworkId }: Props) {
   const { t, language } = useLanguageStore()
-  const { artworks, fetchArtworks, getArtworkBySlug, getArtworksByArtistId } = useArtworksStore()
+  const { artworks, fetchArtworks, getArtworkBySlug, getArtworksByArtistId, getTranslatedField } = useArtworksStore()
   const [artwork, setArtwork] = useState<any>(null)
   const [artist, setArtist] = useState<ArtistData | null>(null)
   const [artistArtworks, setArtistArtworks] = useState<any[]>([])
@@ -95,11 +95,16 @@ export default function ArtworkPageClient({ artworkId }: Props) {
             }
           }
           
-          // Sanitize description when artwork is loaded
-          if (foundArtwork.description?.FR) {
+          // Sanitize description when artwork is loaded - use dynamic translation
+          const defaultDescription = typeof foundArtwork.description === 'string' 
+            ? foundArtwork.description 
+            : foundArtwork.description?.FR || ''
+          const descriptionText = getTranslatedField(parseInt(foundArtwork.id), 'description', defaultDescription)
+          
+          if (descriptionText) {
             const importDOMPurify = async () => {
               const DOMPurify = (await import('dompurify')).default;
-              setSanitizedDescription(DOMPurify.sanitize(foundArtwork.description?.FR));
+              setSanitizedDescription(DOMPurify.sanitize(descriptionText));
             };
             importDOMPurify();
           }
@@ -114,7 +119,25 @@ export default function ArtworkPageClient({ artworkId }: Props) {
     if (mounted) {
       loadArtwork()
     }
-  }, [artworkId, artworks.length, fetchArtworks, getArtworkBySlug, mounted])
+  }, [artworkId, artworks.length, fetchArtworks, getArtworkBySlug, getTranslatedField, mounted, language])
+
+  // Mettre à jour la description quand la langue change
+  useEffect(() => {
+    if (artwork) {
+      const defaultDescription = typeof artwork.description === 'string' 
+        ? artwork.description 
+        : artwork.description?.FR || ''
+      const descriptionText = getTranslatedField(parseInt(artwork.id), 'description', defaultDescription)
+      
+      if (descriptionText) {
+        const importDOMPurify = async () => {
+          const DOMPurify = (await import('dompurify')).default;
+          setSanitizedDescription(DOMPurify.sanitize(descriptionText));
+        };
+        importDOMPurify();
+      }
+    }
+  }, [artwork, getTranslatedField, language])
 
   // Show a loading state until the component is mounted
   if (!mounted) {
@@ -214,15 +237,19 @@ export default function ArtworkPageClient({ artworkId }: Props) {
                   : 'N/A'
                 }
               </span></p>
-            </div>
-
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.description')}</h2>
-              <p className="text-grayText" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
+              <p className="text-grayText mb-2">{t('artwork.price')}: <span className="text-textColor font-semibold">
+                {artwork.price ? `${artwork.price.toLocaleString()} €` : t('artwork.onDemand')}
+              </span></p>
             </div>
 
             {/* Additional artwork details would go here */}
           </div>
+        </div>
+
+        {/* Description section under the image */}
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.aboutArtwork')}</h2>
+          <p className="text-grayText" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
         </div>
       </div>
 
