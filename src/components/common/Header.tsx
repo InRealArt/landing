@@ -34,12 +34,12 @@ const Header = () => {
           />
         </Link>
         <ul className="gap-6 items-center hidden lg:flex bricolage-grotesque font-semibold">
-          <li className="whitespace-nowrap"><Link href="/">{t('nav.home')}</Link></li>
           <li className="whitespace-nowrap"><Link href="/about">{t('nav.aboutInRealArt')}</Link></li>
-          <li className="whitespace-nowrap"><Link href="/usecase">{t('nav.usecase')}</Link></li>
-
           <li className="whitespace-nowrap"><Link href="/presale">{t('nav.artworks')}</Link></li>
           <li className="whitespace-nowrap"><Link href="/artists">{t('nav.artists')}</Link></li>
+
+          <li className="whitespace-nowrap"><Link href="/usecase">{t('nav.usecase')}</Link></li>
+
             <li className="whitespace-nowrap"><Link href="/blog" className="text-purpleColor">Blog</Link></li>
             <li className="whitespace-nowrap"><Link href="/joinInRealArt" className="text-purpleColor">{t('nav.joinInRealArt')}</Link></li>
           
@@ -47,7 +47,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
           <LanguageSwitcher />
-          <Button text={t('buttons.presale')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" />
+          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" />
           <button
             className="text-textColor p-2 lg:hidden"
             onClick={toggleMobileMenu}

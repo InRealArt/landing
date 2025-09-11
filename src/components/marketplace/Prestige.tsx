@@ -21,7 +21,7 @@ export default function Prestige() {
             {t('marketplace.prestige.description')}
           </p>
           <Button
-            text={t('buttons.presale')}
+            text={t('buttons.contactUs')}
             additionalClassName="bg-purpleColor"
             icon={<ArrowRight />}
             link='/presale'

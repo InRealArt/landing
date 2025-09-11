@@ -108,7 +108,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <div className="mt-16 ">
           <Button
-            text={t('buttons.presale')}
+            text={t('buttons.contactUs')}
             additionalClassName="bg-purpleColor w-full"
             icon={<Phone />}
             center

@@ -31,10 +31,11 @@ const Intro = () => {
           </h1>
           <div className="mt-12 md:mt-4">
             <Button
-              text={t('buttons.readWhitepaper')}
-              additionalClassName="border border-white text-textColor rounded-full py-3 px-8"
+              text={t('buttons.contactUs')}
+              additionalClassName="bg-purpleColor"
               center
-              link="manifest"
+              target="_blank"
+              link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
             />
           </div>
         </div>

@@ -11,7 +11,7 @@
     "artists": "Artistes",
     "presale": "Oeuvres",
     "artworks": "Œuvres",
-    "usecase": "Use Case",
+    "usecase": "Cas d'utilisation",
     "whitepaper": "Manifeste",
     "airdrop": "AirDrop/Testnet",
     "blog": "Blog",
@@ -20,7 +20,7 @@
     "lending": "Prêt",
     "fractionate": "Fractionnement",
     "joinInRealArt": "Nous rejoindre",
-    "aboutInRealArt": "L'entreprise InRealArt"
+    "aboutInRealArt": "InRealArt"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -94,7 +94,7 @@
     "subscribe": "S'abonner à notre newsletter",
     "submit": "Soumettre",
     "connect": "Connecter",
-    "presale": "Nous contacter",
+    "contactUs": "Nous contacter",
     "readWhitepaper": "Lire notre manifeste",
     "team": "L'équipe",
     "viewFAQ": "Consulter la FAQ",

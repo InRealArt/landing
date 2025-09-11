@@ -34,7 +34,7 @@ const Question = ({ question, answer }: QuestionProps) => {
       <div className={`mt-4 ${isOpen ? 'visible' : 'hidden'}`}>
         <p className="text-sm unbounded mb-3">{t('faqPerPage.haveQuestions')}</p>
         <Button
-          text={t('buttons.presale')}
+          text={t('buttons.contactUs')}
           action={handleCalendlyClick}
           additionalClassName="bg-purpleColor w-fit"
           icon={<Phone />}
