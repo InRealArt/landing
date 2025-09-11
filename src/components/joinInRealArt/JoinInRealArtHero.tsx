@@ -6,6 +6,7 @@ import TranslatedText from "@/components/common/TranslatedText"
 import { ArrowRight } from "lucide-react"
 import Button from "@/components/common/Button"
 import { useTheme } from '@/contexts/ThemeContext'
+import { Phone } from 'lucide-react'
 
 export default function JoinInRealArtHero() {
   const { t } = useLanguageStore()
@@ -55,6 +56,14 @@ export default function JoinInRealArtHero() {
                   allowHtml={true}
                 />
               </p>
+              <Button
+                text={t('buttons.joinUs')}
+                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                target="_blank"
+                additionalClassName="bg-purpleColor w-fit"
+                icon={<Phone />}
+                iconBefore
+              />
             </div>
 
             {/* PersonTypeSelection à droite */}

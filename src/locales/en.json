@@ -99,7 +99,8 @@
     "team": "The Team",
     "viewFAQ": "View FAQ",
     "viewGlobalFAQ": "View global FAQ",
-    "back": "Back to articles"
+    "back": "Back to articles",
+    "joinUs": "Join Us"
   },
   "faqPerPage": {
     "haveQuestions": "Do you have questions?"
