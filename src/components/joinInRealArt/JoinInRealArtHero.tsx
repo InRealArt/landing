@@ -47,23 +47,25 @@ export default function JoinInRealArtHero() {
           <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">
             {/* Contenu principal à gauche */}
             <div className="lg:w-3/5">
-              <h1 className={`bricolage-grotesque text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 leading-tight ${theme === 'light' ? 'text-gray-900' : 'text-textColor'}`}>
-                {t('joinInRealArt.header.title')}
-              </h1>
-              <p className={`text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 ${theme === 'light' ? 'text-gray-700' : 'text-textColor/90'}`}>
-                <TranslatedText
-                  translationKey="joinInRealArt.header.description"
-                  allowHtml={true}
+              <div className="hero-text-container">
+                <h1 className="hero-title text-white text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl mb-2 sm:mb-3 md:mb-4 leading-tight">
+                  {t('joinInRealArt.header.title')}
+                </h1>
+                <p className="hero-subtitle text-white text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">
+                  <TranslatedText
+                    translationKey="joinInRealArt.header.description"
+                    allowHtml={true}
+                  />
+                </p>
+                <Button
+                  text={t('buttons.joinUs')}
+                  link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                  target="_blank"
+                  additionalClassName="bg-purpleColor w-fit"
+                  icon={<Phone />}
+                  iconBefore
                 />
-              </p>
-              <Button
-                text={t('buttons.joinUs')}
-                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
-                target="_blank"
-                additionalClassName="bg-purpleColor w-fit"
-                icon={<Phone />}
-                iconBefore
-              />
+              </div>
             </div>
 
             {/* PersonTypeSelection à droite */}
