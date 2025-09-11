@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import OptimizedContentImage from '@/components/common/OptimizedContentImage'
+import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
+import ArtworkImageModal from '@/components/common/ArtworkImageModal'
 import { useLanguageStore } from '@/store/languageStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
@@ -30,6 +32,8 @@ export default function ArtworkPageClient({ artworkId }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { executeRecaptcha } = useGoogleReCaptcha()
   const [sanitizedDescription, setSanitizedDescription] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   // Use mounted state to prevent hydration mismatch
   useEffect(() => {
@@ -86,7 +90,6 @@ export default function ArtworkPageClient({ artworkId }: Props) {
               // Récupérer les artworks de l'artiste pour le carousel
               try {
                 const artworks = await getArtworksByArtistId(foundArtist.artistId)
-                console.log("Artist artworks:", artworks)
                 setArtistArtworks(artworks)
               } catch (error) {
                 console.error('Error loading artist artworks:', error)
@@ -181,6 +184,31 @@ export default function ArtworkPageClient({ artworkId }: Props) {
     ? artwork.description
     : artwork.description[language as Lang] || artwork.description.FR || Object.values(artwork.description)[0] || ''
 
+  // Préparer les images pour le carousel (image principale + images secondaires)
+  const getArtworkImages = () => {
+    const images = [artwork.url] // Image principale
+    
+    // Ajouter les images secondaires si elles existent
+    if (artwork.mockups && Array.isArray(artwork.mockups) && artwork.mockups.length > 0) {
+      images.push(...artwork.mockups)
+    }
+    
+    return images
+  }
+
+  const handleViewDetails = () => {
+    setCurrentImageIndex(0)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleImageIndexChange = (index: number) => {
+    setCurrentImageIndex(index)
+  }
+
   return (
     <>
       <script
@@ -210,16 +238,16 @@ export default function ArtworkPageClient({ artworkId }: Props) {
       
       <div className="container mx-auto px-4 py-8 pt-headerSize">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Artwork image */}
+          {/* Artwork image avec bouton de survol */}
           <div className="relative rounded-lg overflow-hidden bg-[#1A1A1A]">
-            <OptimizedContentImage
+            <ArtworkImageWithHover
               src={artwork.url}
               alt={artworkName}
               width={800}
               height={800}
               className="w-full h-auto"
               priority={true}
-              isDecorative={false}
+              onViewDetails={handleViewDetails}
             />
           </div>
 
@@ -274,6 +302,16 @@ export default function ArtworkPageClient({ artworkId }: Props) {
           />
         </div>
       )}
+
+      {/* Modale de carousel d'images */}
+      <ArtworkImageModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        images={getArtworkImages()}
+        currentIndex={currentImageIndex}
+        onIndexChange={handleImageIndexChange}
+        artworkName={artworkName}
+      />
     </>
   )
 } 

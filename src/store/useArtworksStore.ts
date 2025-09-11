@@ -81,7 +81,15 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                 let mockups: string[] = []
                 if (artwork.mockupUrls) {
                     if (Array.isArray(artwork.mockupUrls)) {
-                        mockups = artwork.mockupUrls
+                        // Si c'est un tableau d'objets avec name et url, extraire les URLs
+                        if (artwork.mockupUrls.length > 0 && typeof artwork.mockupUrls[0] === 'object' && artwork.mockupUrls[0].url) {
+                            mockups = artwork.mockupUrls
+                                .filter((mockup: any) => mockup && mockup.url)
+                                .map((mockup: any) => mockup.url)
+                        } else {
+                            // Si c'est un tableau de strings, utiliser directement
+                            mockups = artwork.mockupUrls
+                        }
                     }
                 }
 
@@ -197,7 +205,15 @@ export const useArtworksStore = create<ArtworksState>((set, get) => ({
                 let mockups: string[] = []
                 if (artwork.mockupUrls) {
                     if (Array.isArray(artwork.mockupUrls)) {
-                        mockups = artwork.mockupUrls
+                        // Si c'est un tableau d'objets avec name et url, extraire les URLs
+                        if (artwork.mockupUrls.length > 0 && typeof artwork.mockupUrls[0] === 'object' && artwork.mockupUrls[0].url) {
+                            mockups = artwork.mockupUrls
+                                .filter((mockup: any) => mockup && mockup.url)
+                                .map((mockup: any) => mockup.url)
+                        } else {
+                            // Si c'est un tableau de strings, utiliser directement
+                            mockups = artwork.mockupUrls
+                        }
                     }
                 }
 

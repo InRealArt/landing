@@ -33,14 +33,16 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
       {/* Image de fond avec OptimizedBackgroundImage */}
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
-          <OptimizedBackgroundImage
-            src={backgroundImage}
-            alt={`Arrière-plan pour ${artist.name}`}
-            width={1920}
-            height={1080}
-            className="w-full h-full"
-            overlay={false}
-          />
+          {backgroundImage && (
+            <OptimizedBackgroundImage
+              src={backgroundImage}
+              alt={`Arrière-plan pour ${artist.name}`}
+              width={1920}
+              height={1080}
+              className="w-full h-full"
+              overlay={false}
+            />
+          )}
         </div>
       </div>
       

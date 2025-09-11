@@ -1348,6 +1348,11 @@
     "enterEmail": "Enter your email to register for presale",
     "emailPlaceholder": "your@email.com",
     "register": "Register for Presale",
+    "viewDetails": "View details",
+    "closeModal": "Close",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "loadingImage": "Loading image...",
     "emailSuccess": "Successfully registered for presale",
     "emailError": "An error occurred while registering your email"
   },

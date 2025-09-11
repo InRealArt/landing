@@ -1357,6 +1357,11 @@
     "enterEmail": "Entrez votre email pour vous inscrire à la prévente",
     "emailPlaceholder": "votre@email.com",
     "register": "S'inscrire à la prévente",
+    "viewDetails": "Voir détail",
+    "closeModal": "Fermer",
+    "previousImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "loadingImage": "Chargement de l'image...",
     "emailSuccess": "Inscription à la prévente réussie",
     "emailError": "Une erreur est survenue lors de l'inscription de votre email"
   },

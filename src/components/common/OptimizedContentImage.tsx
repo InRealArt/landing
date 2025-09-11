@@ -16,6 +16,8 @@ interface OptimizedContentImageProps {
   placeholder?: 'blur' | 'empty'
   blurDataURL?: string
   isDecorative?: boolean
+  onLoad?: () => void
+  onError?: () => void
 }
 
 const OptimizedContentImage = ({
@@ -30,6 +32,8 @@ const OptimizedContentImage = ({
   placeholder = 'empty',
   blurDataURL,
   isDecorative = false,
+  onLoad,
+  onError,
   ...props
 }: OptimizedContentImageProps) => {
   const { shouldOptimize, priority: optimizedPriority, unoptimized } = useImageOptimization({
@@ -59,6 +63,8 @@ const OptimizedContentImage = ({
         placeholder={placeholder}
         blurDataURL={blurDataURL}
         unoptimized={!shouldOptimizeCustom}
+        onLoad={onLoad}
+        onError={onError}
         style={{
           maxWidth: '100%',
           height: 'auto',
