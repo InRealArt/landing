@@ -189,9 +189,12 @@ export default function ArtistsGrid () {
           <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10 hover:border-purpleColor/30 transition-all duration-300 group">
             <div className="h-52 md:h-64 w-full bg-gradient-to-br from-purpleColor/10 to-purpleColor/5 flex items-center justify-center">
               <div className="text-center p-6">
-                  <h3 className="text-3xl md:text-4xl font-bold text-textColor mb-2 bricolage-grotesque">
-                    {t('artists.joinCard.title')}
-                  </h3>
+                <div className="text-6xl md:text-7xl font-bold text-white mb-2 bricolage-grotesque">
+                  +
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-textColor mb-2 bricolage-grotesque">
+                  {t('artists.joinCard.title')}
+                </h3>
                 {/* <div className="w-16 h-16 mx-auto mb-4 bg-purpleColor/20 rounded-full flex items-center justify-center group-hover:bg-purpleColor/30 transition-colors duration-300">
                   <Calendar className="w-8 h-8 text-purpleColor" />
                 </div> */}
