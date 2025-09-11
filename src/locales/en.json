@@ -207,6 +207,11 @@
     "previous": "Previous",
     "next": "Next",
     "page": "Page",
+    "joinCard": {
+      "title": "You?",
+      "description": "Join our community of exceptional artists",
+      "cta": "Join Us"
+    },
     "profile": {
       "bornIn": "Born in",
       "followArtist": "Follow artist",

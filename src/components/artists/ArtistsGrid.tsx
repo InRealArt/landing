@@ -5,6 +5,8 @@ import { useArtistStore } from '@/store/useArtistStore'
 import { useLanguageStore } from '@/store/languageStore'
 import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
+import Button from '@/components/common/Button'
+import { Calendar } from 'lucide-react'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -181,6 +183,32 @@ export default function ArtistsGrid () {
             showFollowButton={false}
           />
         ))}
+        
+        {/* Carte "Vous ?" - seulement sur la première page */}
+        {page === 1 && (
+          <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10 hover:border-purpleColor/30 transition-all duration-300 group">
+            <div className="h-52 md:h-64 w-full bg-gradient-to-br from-purpleColor/10 to-purpleColor/5 flex items-center justify-center">
+              <div className="text-center p-6">
+                  <h3 className="text-3xl md:text-4xl font-bold text-textColor mb-2 bricolage-grotesque">
+                    {t('artists.joinCard.title')}
+                  </h3>
+                {/* <div className="w-16 h-16 mx-auto mb-4 bg-purpleColor/20 rounded-full flex items-center justify-center group-hover:bg-purpleColor/30 transition-colors duration-300">
+                  <Calendar className="w-8 h-8 text-purpleColor" />
+                </div> */}
+              </div>
+            </div>
+            <div className="p-4">
+              <Button
+                text={t('artists.joinCard.cta')}
+                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                target="_blank"
+                additionalClassName="bg-purpleColor text-white w-full justify-center hover:bg-purpleColor/90 transition-colors duration-200"
+                icon={<Calendar className="w-4 h-4" />}
+                iconBefore
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {totalPages > 1 && (

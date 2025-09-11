@@ -189,8 +189,8 @@
   "artists": {
     "title": "Nos artistes",
     "hero": {
-      "title": "Découvrez notre catalogue d’exception",
-      "subtitle": "Des artistes déjà présents dans les plus grandes galeries et ventes aux enchères sur le marché secondaire, et une sélection d’œuvres choisies avec nos galeristes partenaires pour offrir une expérience encore plus qualitative et prestigieuse."
+      "title": "Découvrez notre catalogue d'exception",
+      "subtitle": "Des artistes déjà présents dans les plus grandes galeries et ventes aux enchères sur le marché secondaire, et une sélection d'œuvres choisies avec nos galeristes partenaires pour offrir une expérience encore plus qualitative et prestigieuse."
     },
     "faq": {
       "title": "Questions fréquentes sur nos artistes",
@@ -207,6 +207,11 @@
     "previous": "Précédent",
     "next": "Suivant",
     "page": "Page",
+    "joinCard": {
+      "title": "Vous ?",
+      "description": "Rejoignez notre communauté d'artistes exceptionnels",
+      "cta": "Nous rejoindre"
+    },
     "profile": {
       "bornIn": "Né en",
       "followArtist": "Suivre l'artiste",
@@ -633,7 +638,7 @@
       "title": "Acquérez des œuvres physiques rares et uniques",
       "subtitle": "Explorez de nouvelles manières de diversifier votre collection et ouvrez votre portefeuille à des formes d’art et d’actifs innovants.",
       "buttons": {
-        "catalog": "Télécharger le catalogue 2025",
+        "catalog": "Téléchargez le catalogue 2025",
         "whitepaper": "Lire notre manifeste"
       }
     },
@@ -1792,7 +1797,7 @@
       "amountType": "Type de montant",
       "calculate": "Calculer",
       "calculating": "Calcul en cours...",
-      "downloadPDF": "Télécharger PDF",
+      "downloadPDF": "Téléchargez PDF",
       "generating": "Génération...",
       "sendPDF": "Recevoir le PDF par mail",
       "sendingPDF": "Envoi en cours...",
@@ -1846,7 +1851,7 @@
         "yes": "Oui",
         "no": "Non",
         "months": "mois",
-        "downloadPDF": "Télécharger en PDF"
+        "downloadPDF": "Téléchargez en PDF"
       },
       "lease": {
         "title": "Résultats du Leasing",
