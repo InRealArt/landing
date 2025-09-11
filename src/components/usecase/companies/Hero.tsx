@@ -2,22 +2,11 @@
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage';
 import Button from "@/components/common/Button";
+import TranslatedText from '@/components/common/TranslatedText';
 import { useLanguageStore } from '@/store/languageStore';
-import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const { t } = useLanguageStore();
-  const [sanitizedTitle, setSanitizedTitle] = useState('');
-  
-  useEffect(() => {
-    // Importer DOMPurify uniquement côté client
-    const importDOMPurify = async () => {
-      const DOMPurify = (await import('dompurify')).default;
-      setSanitizedTitle(DOMPurify.sanitize(t('companies.hero.title')));
-    };
-    
-    importDOMPurify();
-  }, [t]);
 
   return (
     <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
@@ -42,7 +31,12 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">
-            <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
+            <TranslatedText
+              translationKey="companies.hero.title"
+              as="h1"
+              className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white"
+              allowHtml={true}
+            />
             <div className="mt-auto">
               <Button
                 text={t('companies.hero.button')}
@@ -54,15 +48,23 @@ export default function Hero() {
 
           {/* Right Column - Text */}
           <div className="text-lg text-white/90 font-bold">
-            <p className="mb-4">
-              {t('companies.hero.description.p1')}
-            </p>
-            <p className="mb-4">
-              {t('companies.hero.description.p2')}
-            </p>
-            <p>
-              {t('companies.hero.description.p3')}
-            </p>
+            <TranslatedText
+              translationKey="companies.hero.description.p1"
+              as="p"
+              className="mb-4"
+              allowHtml={true}
+            />
+            <TranslatedText
+              translationKey="companies.hero.description.p2"
+              as="p"
+              className="mb-4"
+              allowHtml={true}
+            />
+            <TranslatedText
+              translationKey="companies.hero.description.p3"
+              as="p"
+              allowHtml={true}
+            />
           </div>
         </div>
       </div>

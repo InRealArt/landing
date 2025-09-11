@@ -190,8 +190,8 @@
   "artists": {
     "title": "Nos artistes",
     "hero": {
-      "title": "Découvrez notre catalogue d'exception",
-      "subtitle": "Des artistes déjà présents dans les plus grandes galeries et ventes aux enchères sur le marché secondaire, et une sélection d'œuvres choisies avec nos galeristes partenaires pour offrir une expérience encore plus qualitative et prestigieuse."
+      "title": "Les artistes, l’épicentre d’InRealArt",
+      "subtitle": "Ici, chaque artiste incarne le cœur vibrant d’IRA. Présence mondiale, audace créative, excellence assumée. <br>Une sélection premium, pensée comme un lien de confiance. L’œuvre n’existe pas seule : elle vit dans un écosystème rare, où chaque détail compte, chaque regard est accueilli. <br>Entrer ici, c’est toucher l’art contemporain dans sa vérité la plus intime."
     },
     "faq": {
       "title": "Questions fréquentes sur nos artistes",
@@ -636,8 +636,8 @@
       "description": "Retrouvez toutes les réponses concernant l’acquisition, la provenance, l’authenticité et les modalités d’achat de nos pièces. Notre FAQ vous guide pour explorer et acheter en toute confiance sur notre marketplace."
     },
     "intro": {
-      "title": "Acquérez des œuvres physiques rares et uniques",
-      "subtitle": "Explorez de nouvelles manières de diversifier votre collection et ouvrez votre portefeuille à des formes d’art et d’actifs innovants.",
+      "title": "Catalogue unique et diversifié d’œuvres",
+      "subtitle": "Explorez notre catalogue unique d’InRealArt, où peinture et sculpture rencontrent l’innovation. <br>Chaque œuvre est sélectionnée pour réinventer votre vision de l’art contemporain et inspirer les collectionneurs comme les passionnés.",
       "buttons": {
         "catalog": "Téléchargez le catalogue 2025",
         "whitepaper": "Lire notre manifeste"
@@ -874,7 +874,7 @@
   "usecase": {
     "intro": {
       "title": "Cas d'Utilisation",
-      "subtitle": "Découvrez comment InRealArt transforme le marché de l'art à travers des cas d'utilisation innovants"
+      "subtitle": "Découvrez comment IRA transforme les performances grâce à des cas d'utilisations concrets, <br>pour les cadres dirigeants et les entreprises."
     },
     "items": {
       "fractionate": {

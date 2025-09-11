@@ -190,8 +190,8 @@
   "artists": {
     "title": "Our artists",
     "hero": {
-      "title": "Discover our exceptional catalog",
-      "subtitle": "Artists already present in the largest galleries and auctions on the secondary market, and a selection of works chosen with our partner galleries to offer an even more qualitative and prestigious experience."
+      "title": "Artists, the epicenter of InRealArt",
+      "subtitle": "Here, each artist embodies the vibrant heart of IRA. Global presence, creative audacity, assumed excellence. <br>A premium selection, thought as a trust link. The work does not exist alone: it lives in a rare ecosystem, where each detail counts, each look is welcomed. <br>Entering here, it is touching contemporary art in its most intimate truth."
     },
     "faq": {
       "title": "Frequently Asked Questions about our artists",
@@ -634,8 +634,8 @@
       "description": "Find all the answers concerning the acquisition, provenance, authenticity and purchase conditions of our pieces. Our FAQ guides you to explore and buy with confidence on our marketplace."
     },
     "intro": {
-      "title": "Acquire rare physical works",
-      "subtitle": "Explore new ways to diversify your collection and open your portfolio to innovative art and asset forms.",
+      "title": "Catalog of unique and diverse artworks",
+      "subtitle": "Explore our unique InRealArt catalog, where painting and sculpture meet innovation. <br>Each artwork is selected to reinvent your vision of contemporary art and inspire collectors and enthusiasts.",
       "buttons": {
         "catalog": "Download the 2025 catalog",
         "whitepaper": "Read our manifesto"
@@ -873,7 +873,7 @@
   "usecase": {
     "intro": {
       "title": "Use Cases",
-      "subtitle": "Discover how InRealArt transforms the art market through innovative use cases"
+      "subtitle": "Discover how InRealArt transforms performances through concrete use cases for CEOs and businesses."
     },
     "items": {
       "fractionate": {

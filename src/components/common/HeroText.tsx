@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
+import TranslatedText from '@/components/common/TranslatedText'
 
 interface HeroTextProps {
   title: string
@@ -21,13 +22,19 @@ export default function HeroText({
 }: HeroTextProps) {
   return (
     <div className={`hero-text-container ${className}`}>
-      <h1 className={`hero-title ${titleClassName}`}>
-        {title}
-      </h1>
+      <TranslatedText
+        content={title}
+        as="h1"
+        className={`hero-title ${titleClassName}`}
+        allowHtml={true}
+      />
       {subtitle && (
-        <p className={`hero-subtitle ${subtitleClassName}`}>
-          {subtitle}
-        </p>
+        <TranslatedText
+          content={subtitle}
+          as="p"
+          className={`hero-subtitle ${subtitleClassName}`}
+          allowHtml={true}
+        />
       )}
       {children}
     </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
+import TranslatedText from '@/components/common/TranslatedText'
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
@@ -52,19 +53,35 @@ export default function Header() {
       {/* Contenu du header */}
       <div className="relative z-20 max-w-90 xl:max-w-screen-xl m-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white">
-            {t('usecase.intro.title')}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90">
-            {t('usecase.intro.subtitle')}
-          </p>
+          <TranslatedText
+            translationKey="usecase.intro.title"
+            as="h1"
+            className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white"
+            allowHtml={true}
+          />
+          <TranslatedText
+            translationKey="usecase.intro.subtitle"
+            as="p"
+            className="text-lg md:text-xl text-white/90"
+            allowHtml={true}
+          />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {caseStudies.map((caseStudy, index) => (
             <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
-              <h3 className="text-xl bricolage-grotesque font-medium mb-6">{caseStudy.title}</h3>
-              <p className="text-sm text-grayText mb-6 bricolage-grotesque">{caseStudy.description}</p>
+              <TranslatedText
+                content={caseStudy.title}
+                as="h3"
+                className="text-xl bricolage-grotesque font-medium mb-6"
+                allowHtml={true}
+              />
+              <TranslatedText
+                content={caseStudy.description}
+                as="p"
+                className="text-sm text-grayText mb-6 bricolage-grotesque"
+                allowHtml={true}
+              />
               <Button 
                 text={t('buttons.readMore')} 
                 additionalClassName="bg-purpleColor w-full justify-center mt-auto" 
