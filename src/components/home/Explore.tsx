@@ -61,7 +61,7 @@ export default function Explore() {
         <TranslatedText 
           translationKey="home.explore.subtitle" 
           as="label" 
-          className="text-2xl lg:text-5xl block bricolage-grotesque !leading-snug" 
+          className="text-xl lg:text-4xl block bricolage-grotesque !leading-snug" 
           allowHtml={true} 
         />
       </div>

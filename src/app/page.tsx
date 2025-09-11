@@ -36,9 +36,9 @@ export default function Home() {
       <HowItWorks />
       <Explore />
       <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
-        <ArtistSlider />
-        <Partners />
+        <ArtistSlider isGallery={false} />
         <ArtworkSlider />
+        <Partners />
       </div>
       <Team />
       {/* <HomeFaq /> */}
