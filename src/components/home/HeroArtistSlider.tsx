@@ -75,7 +75,7 @@ export default function HeroArtistSlider() {
         }}
         loop={true}
         onSwiper={setSwiper}
-        className="hero-artist-swiper h-96"
+        className="hero-artist-swiper h-[28rem] sm:h-96"
       >
         {artists.map((artist) => (
           <SwiperSlide key={artist.id}>
