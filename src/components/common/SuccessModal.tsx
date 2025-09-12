@@ -1,16 +1,25 @@
 'use client'
 
 import { X, CheckCircle, Mail } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
 import Button from './Button'
 
-interface CatalogSuccessModalProps {
+interface SuccessModalProps {
   isOpen: boolean
   onClose: () => void
+  title: string
+  subtitle: string
+  message: string
+  closeButtonText: string
 }
 
-export default function CatalogSuccessModal({ isOpen, onClose }: CatalogSuccessModalProps) {
-  const { t } = useLanguageStore()
+export default function SuccessModal({ 
+  isOpen, 
+  onClose, 
+  title, 
+  subtitle, 
+  message, 
+  closeButtonText 
+}: SuccessModalProps) {
 
   if (!isOpen) return null
 
@@ -49,22 +58,22 @@ export default function CatalogSuccessModal({ isOpen, onClose }: CatalogSuccessM
 
           {/* Titre */}
           <h3 className="text-2xl font-bold text-textColor mb-3">
-            {t('presale.intro.successPopup.title')}
+            {title}
           </h3>
 
           {/* Message principal */}
           <p className="text-textColor/90 text-lg mb-2">
-            {t('presale.intro.successPopup.message')}
+            {message}
           </p>
 
           {/* Sous-titre */}
           <p className="text-textColor/70 text-sm mb-6">
-            {t('presale.intro.successPopup.subtitle')}
+            {subtitle}
           </p>
 
           {/* Bouton de fermeture */}
           <Button
-            text={t('presale.intro.successPopup.closeButton')}
+            text={closeButtonText}
             additionalClassName="bg-purpleColor"
             action={onClose}
             center

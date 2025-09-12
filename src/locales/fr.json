@@ -55,6 +55,14 @@
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon",
     "viewAllSimulators": "Voir tous les simulateurs",
+    "newsletter": {
+      "subscribe": "S'abonner à notre newsletter",
+      "success": {
+        "title": "Inscription réussie !",
+        "subtitle": "Merci de vous être abonné à notre newsletter",
+        "closeButton": "Fermer"
+      }
+    },
     "recaptcha": {
       "notice": "Ce site est protégé par reCAPTCHA et les",
       "privacyPolicy": "règles de confidentialité",

@@ -2,20 +2,16 @@
 
 import OptimizedImage from '@/components/common/OptimizedImage'
 import OptimizedSVG from '@/components/common/OptimizedSVG'
+import SuccessModal from '@/components/common/SuccessModal'
 import { useLanguageStore } from '@/store/languageStore'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
 import Link from 'next/link'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import { validateEmail } from '@/utils/functions'
+import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
 import { salons } from '@/utils/artSalonCalculations'
 import { useTheme } from '@/contexts/ThemeContext'
 
-// Type pour la réponse de l'API
-type SubscribeResponse = {
-  success: boolean
-  message: string
-}
 
 // Type pour les liens de navigation
 type NavigationLink = {
@@ -46,78 +42,45 @@ const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6, 9)
 
 
 const Footer = () => {
-  const { t } = useLanguageStore()
+  const { t, language } = useLanguageStore()
   const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [isPending, startTransition] = useTransition()
   const { executeRecaptcha } = useGoogleReCaptcha()
   const { theme } = useTheme()
+  
+  // États pour la modal de succès
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
 
-  // Fonction pour soumettre l'email
-  const handleSubscribe = async () => {
-    // Vérifier si l'email est vide
-    if (!email.trim()) {
-      toast.error(t('toaster.emailValidationRequired'))
+  // Wrapper pour la server action compatible avec les bonnes pratiques
+  const handleSubmit = async (formData: FormData) => {
+    if (!executeRecaptcha) {
+      toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
       return
     }
 
-    // Valider l'email
-    if (!validateEmail(email)) {
-      toast.error(t('toaster.emailValidationError'))
-      return
-    }
+    startTransition(async () => {
+      try {
+        // Générer le token reCAPTCHA
+        const recaptchaToken = await executeRecaptcha('newsletter_subscribe')
 
-    setIsLoading(true)
+        // Ajouter le token au FormData
+        formData.append('recaptchaToken', recaptchaToken)
 
-    try {
-      // Exécuter reCAPTCHA si disponible
-      let recaptchaToken = undefined
+        // Appeler la server action
+        const result = await subscribeToNewsletter(formData)
 
-      if (executeRecaptcha) {
-        try {
-          recaptchaToken = await executeRecaptcha('newsletter_subscribe')
-        } catch (recaptchaError) {
-          console.error('❌ Erreur reCAPTCHA:', recaptchaError)
-
-          // Tenter d'exécuter reCAPTCHA via l'API globale comme solution de contournement
-          if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
-            try {
-              const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""
-              recaptchaToken = await window.grecaptcha.execute(recaptchaKey, { action: 'newsletter_subscribe' });
-            } catch (fallbackError) {
-              console.error('❌ Échec du plan B avec l\'API globale:', fallbackError)
-            }
-          }
+        if (result.success) {
+          setIsSuccessModalOpen(true)
+          setEmail('')
+        } else {
+          toast.error(result.message)
         }
-      } else {
-        console.warn('❌ executeRecaptcha non disponible - reCAPTCHA ne fonctionne pas correctement')
+      } catch (error) {
+        console.error('Erreur lors de l\'abonnement:', error)
+        toast.error('Une erreur inattendue s\'est produite.')
       }
-
-      // Appel API pour enregistrer l'email
-      const response = await fetch('/api/newsletter/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          recaptchaToken
-        }),
-      })
-
-      const data: SubscribeResponse = await response.json()
-
-      if (data.success) {
-        toast.success(t('toaster.newsletter.success'))
-        setEmail('') // Réinitialiser le champ après succès
-      } else {
-        toast.error(data.message || t('leasing.toaster.newsletter.error'))
-      }
-    } catch (error) {
-      console.error('Erreur lors de l\'inscription:', error)
-      toast.error(t('leasing.toaster.newsletter.error'))
-    } finally {
-      setIsLoading(false)
-    }
+    })
   }
 
   const svgClass = theme === 'light' ? 'hover:opacity-80 transition-opacity invert' : 'hover:opacity-80 transition-opacity'
@@ -216,8 +179,61 @@ const Footer = () => {
 
 
         </div>
+        
         {/* Newsletter */}
-
+        <div className="mt-12 flex flex-col items-center text-center">
+          <form
+            action={handleSubmit}
+            className="relative w-full md:w-80"
+          >
+            {/* Champ caché pour la langue */}
+            <input type="hidden" name="language" value={language} />
+            
+            <input
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t('footer.newsletter.subscribe')}
+              disabled={isPending}
+              className={`w-full bricolage-grotesque rounded-3xl font-semibold py-6 px-4 pr-16 outline-0 ${
+                theme === 'light' 
+                  ? 'bg-transparent border-2 border-black text-gray-800 placeholder-gray-500 focus:border-gray-800' 
+                  : 'bg-transparent border border-white'
+              }`}
+              required
+            />
+            <button
+              type="submit"
+              className={`absolute right-2 top-1/2 -translate-y-1/2 bg-[#6052FF] text-textColor rounded-full w-12 h-12 flex items-center justify-center border border-white ${isPending ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#4F3EED] transition-colors'}`}
+              aria-label={t('footer.newsletter.subscribe')}
+              disabled={isPending}
+            >
+              {isPending ? (
+                <svg className="animate-spin h-5 w-5 text-textColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              ) : (
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.0001 17.0001L19.0001 12.0001M19.0001 12.0001L13.0001 7.00012M19.0001 12.0001H5.00012"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </button>
+          </form>
+        </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col items-center space-y-6">
@@ -266,6 +282,16 @@ const Footer = () => {
           {t('footer.recaptcha.googleApplies')}
         </div>
       </div>
+      
+      {/* Modal de succès */}
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+        title={t('footer.newsletter.success.title')}
+        subtitle={t('footer.newsletter.success.subtitle')}
+        message=''
+        closeButtonText={t('footer.newsletter.success.closeButton')}
+      />
     </footer>
   );
 }

@@ -12,7 +12,7 @@ import FAQ from '@/components/common/FAQ/FAQ';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { toast } from 'sonner'
 import { downloadCatalog } from '@/actions/catalogActions'
-import CatalogSuccessModal from '@/components/common/CatalogSuccessModal'
+import CatalogSuccessModal from '@/components/common/SuccessModal'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -326,6 +326,10 @@ export default function Presale() {
       <CatalogSuccessModal 
         isOpen={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
+        title={t('presale.intro.successPopup.title')}
+        subtitle={t('presale.intro.successPopup.subtitle')}
+        message={t('presale.intro.successPopup.message')}
+        closeButtonText={t('presale.intro.successPopup.closeButton')}
       />
     </>
   );
