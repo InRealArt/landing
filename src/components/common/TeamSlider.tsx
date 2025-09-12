@@ -53,7 +53,6 @@ export default function TeamSlider({ members }: TeamSliderProps) {
       const originalIndex = i % members.length
       loopSlides.push({
         ...members[originalIndex],
-        id: `${members[originalIndex].name}-loop-${i}`,
         isDuplicate: i >= members.length
       })
     }
@@ -123,7 +122,7 @@ export default function TeamSlider({ members }: TeamSliderProps) {
           }}
         >
           {loopSlides.map((member, index) => (
-            <SwiperSlide key={`team-slide-${member.id || member.name}-${index}`}>
+            <SwiperSlide key={`team-slide-${member.name}-${index}`}>
               <TeamCard 
                 name={member.name} 
                 image={member.image} 
