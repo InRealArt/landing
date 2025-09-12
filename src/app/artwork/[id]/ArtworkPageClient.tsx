@@ -239,13 +239,11 @@ export default function ArtworkPageClient({ artworkId }: Props) {
       <div className="container mx-auto px-4 py-8 pt-headerSize">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Artwork image avec bouton de survol */}
-          <div className="relative rounded-lg overflow-hidden bg-[#1A1A1A]">
+          <div className="relative rounded-lg overflow-hidden min-h-[400px] border border-borderColor shadow-lg hover:shadow-xl transition-all duration-300 hover:border-purpleColor/30">
             <ArtworkImageWithHover
               src={artwork.url}
               alt={artworkName}
-              width={800}
-              height={800}
-              className="w-full h-auto"
+              className="w-full h-full"
               priority={true}
               onViewDetails={handleViewDetails}
             />

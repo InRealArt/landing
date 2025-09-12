@@ -8,8 +8,8 @@ import LoadingSpinner from './LoadingSpinner'
 interface ArtworkImageWithHoverProps {
   src: string
   alt: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   className?: string
   priority?: boolean
   onViewDetails: () => void
@@ -38,7 +38,7 @@ export default function ArtworkImageWithHover({
 
   return (
     <div
-      className={`relative group overflow-hidden rounded-lg ${className}`}
+      className={`relative group overflow-hidden rounded-lg min-h-[400px] ring-1 ring-borderColor/50 hover:ring-purpleColor/30 transition-all duration-300 ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -55,7 +55,7 @@ export default function ArtworkImageWithHover({
         alt={alt}
         width={width}
         height={height}
-        className={`w-full h-auto transition-transform duration-300 group-hover:scale-105 ${
+        className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
           isImageLoading ? 'opacity-0' : 'opacity-100'
         }`}
         priority={priority}

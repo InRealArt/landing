@@ -7,8 +7,8 @@ import { shouldOptimizeImage, getOptimalQuality, getResponsiveSizes } from '@/co
 interface OptimizedContentImageProps {
   src: string
   alt: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   className?: string
   priority?: boolean
   sizes?: string
@@ -44,7 +44,29 @@ const OptimizedContentImage = ({
     isDecorative,
   })
 
-  // Utiliser notre configuration personnalisée
+  // Si width et height ne sont pas fournis, utiliser fill pour un affichage naturel
+  if (!width || !height) {
+    return (
+      <div className={`relative w-full h-full ${className}`}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          priority={optimizedPriority}
+          quality={getOptimalQuality(false, isDecorative, quality)}
+          placeholder={placeholder}
+          blurDataURL={blurDataURL}
+          unoptimized={!shouldOptimizeImage(src, 0, 0, false)}
+          onLoad={onLoad}
+          onError={onError}
+          {...props}
+        />
+      </div>
+    )
+  }
+
+  // Utiliser notre configuration personnalisée pour les dimensions spécifiées
   const shouldOptimizeCustom = shouldOptimizeImage(src, width, height, false)
   const optimalQuality = getOptimalQuality(false, isDecorative, quality)
   const responsiveSizes = getResponsiveSizes(width, sizes)
