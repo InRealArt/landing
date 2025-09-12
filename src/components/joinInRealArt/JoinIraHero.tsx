@@ -19,7 +19,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
   const { t } = useLanguageStore()
   const { theme } = useTheme()
   return (
-    <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
+    <section className="relative w-full h-[60vh] sm:h-[50vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
       <OptimizedBackgroundImage
         src="/images/joinInRealArt/artists/hero_joinInReal_artists.webp"
         alt="Hero background"
@@ -35,15 +35,15 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
           : 'bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent'
         }`} />      
       {/* Contenu du hero */}
-      <div className="absolute inset-0 z-20 flex items-end">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
+      <div className="absolute inset-0 z-20 flex items-center md:items-end">
+        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full px-4 pt-20 sm:pt-24 md:pt-0 pb-12 md:pb-16 lg:pb-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             {/* Texte principal à gauche */}
             <div className="flex-1 text-center md:text-left">
               <TranslatedText 
                 translationKey={title}
                 as="h1"
-                className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6"
+                className="bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6"
                 allowHtml={true}
               />
             </div>
@@ -53,12 +53,12 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
               <TranslatedText 
                 translationKey={subtitle}
                 as="p"
-                className="text-base md:text-lg lg:text-xl text-textColor/90 max-w-2xl leading-relaxed mb-8"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-textColor/90 max-w-2xl leading-relaxed mb-8"
                 allowHtml={true}
               />
               <Button 
                 text={t(buttonText)} 
-                additionalClassName="bg-purpleColor hidden lg:flex w-fit" 
+                additionalClassName="bg-purpleColor flex w-fit text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3" 
                 icon={<ArrowRight />} 
                 center 
                 link={buttonUrl}
