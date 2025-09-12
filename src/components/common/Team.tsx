@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import Slider from "@/components/home/Slider";
+import TeamSlider from "./TeamSlider";
 import Button from "./Button";
 import { ArrowRight } from 'lucide-react';
 import { useTeamStore } from '@/store/useTeamStore';
@@ -50,11 +50,9 @@ export default function Team() {
       
       <Suspense fallback={<SkeletonSlider context="team" additionnalClassName="relative bg-gradient" />}>
         {formattedMembers.length > 0 ? (
-          <Slider 
+          <TeamSlider 
             key={key}
-            context="team" 
-            items={formattedMembers} 
-            additionnalClassName="relative bg-gradient" 
+            members={formattedMembers} 
           />
         ) : (
           <SkeletonSlider context="team" additionnalClassName="relative bg-gradient" />
