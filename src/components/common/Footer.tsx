@@ -89,7 +89,7 @@ const Footer = () => {
     <footer className="text-textColor py-12 mt-36 bg-linear-to-b from-[#1F1F1F] to-[##1f1f1f29]">
       <div className="container mx-auto px-4">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {/* // Pages - First Column */}
 
@@ -129,10 +129,11 @@ const Footer = () => {
 
           </div>
 
-          {/* Simulators Section */}
+          {/* Simulators Section - Combined */}
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.simulators')}</h3>
+            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.professionalsAndCompanies')}</h3>
             <ul className="space-y-2">
+              {/* Art Salon Simulators */}
               {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
                 <li key={slug}>
                   <Link
@@ -143,20 +144,7 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/simulators"
-                  className="text-grayText hover:text-textColor transition-colors font-medium"
-                >
-                  {t('footer.viewAllSimulators')} →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.leasing')}</h3>
-            <ul className="space-y-2">
+              {/* LOA Simulator */}
               <li>
                 <Link
                   href="/loa-simulator"
@@ -165,12 +153,22 @@ const Footer = () => {
                   {t('footer.loaSimulator')}
                 </Link>
               </li>
+              {/* Heritage Art Simulator */}
               <li>
                 <Link
                   href="/heritage-art-simulator"
                   className="text-grayText hover:text-textColor transition-colors"
                 >
                   {t('footer.heritageArtSimulator')}
+                </Link>
+              </li>
+              {/* View All Simulators */}
+              <li>
+                <Link
+                  href="/simulators"
+                  className="text-grayText hover:text-textColor transition-colors font-medium"
+                >
+                  {t('footer.viewAllSimulators')} →
                 </Link>
               </li>
             </ul>

@@ -36,10 +36,14 @@ const OptimizedContentImage = ({
   onError,
   ...props
 }: OptimizedContentImageProps) => {
+  // Utiliser des valeurs par défaut pour éviter l'appel conditionnel du hook
+  const defaultWidth = width ?? 0
+  const defaultHeight = height ?? 0
+  
   const { shouldOptimize, priority: optimizedPriority, unoptimized } = useImageOptimization({
     src,
-    width,
-    height,
+    width: defaultWidth,
+    height: defaultHeight,
     priority,
     isDecorative,
   })
