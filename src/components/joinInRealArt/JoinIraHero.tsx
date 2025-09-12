@@ -36,7 +36,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
         }`} />      
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-center md:items-end">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full px-4 pt-20 sm:pt-24 md:pt-0 pb-12 md:pb-16 lg:pb-20">
+        <div className="max-w-full sm:max-w-90 xl:max-w-screen-xl mx-auto w-full px-6 sm:px-4 pt-20 sm:pt-24 md:pt-0 pb-12 md:pb-16 lg:pb-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             {/* Texte principal à gauche */}
             <div className="flex-1 text-center md:text-left">
