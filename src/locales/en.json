@@ -639,6 +639,29 @@
       "buttons": {
         "catalog": "Download the 2025 catalog",
         "whitepaper": "Read our manifesto"
+      },
+      "form": {
+        "emailPlaceholder": "Your email address",
+        "downloadButton": "Download Catalog",
+        "downloadingButton": "Downloading...",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email address"
+      },
+      "messages": {
+        "success": "Thank you! Your catalog download link has been sent to your email",
+        "invalidData": "Invalid data",
+        "recaptchaFailed": "reCAPTCHA verification failed",
+        "configurationError": "Service configuration error",
+        "serviceUnavailable": "Service temporarily unavailable. Please try again later.",
+        "downloadError": "Error during catalog download. Please try again.",
+        "connectionError": "Connection error to download service",
+        "internalError": "An internal error occurred. Please try again later."
+      },
+      "successPopup": {
+        "title": "",
+        "message": "Thank you! You will soon receive our art catalog.",
+        "subtitle": "We will send you the download link by email.",
+        "closeButton": "Close"
       }
     },
     "filters": {

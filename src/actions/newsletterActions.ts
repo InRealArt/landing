@@ -2,6 +2,7 @@
 
 import { z } from 'zod'
 import { verifyRecaptchaToken } from '@/lib/recaptcha'
+import { getBrevoNewsletterListId, BREVO_CONTACT_ATTRIBUTES } from '@/config/brevoConfig'
 
 // Validation Zod pour les données d'entrée
 const NewsletterSubscriptionSchema = z.object({
@@ -156,12 +157,8 @@ async function addContactToBrevo(email: string, language: string = 'fr'): Promis
         // Configuration de l'API Brevo
         const brevoApiKey = process.env.BREVO_API_KEY
 
-        // Déterminer l'ID de liste selon la langue
-        const getListIdByLanguage = (lang: string): number => {
-            return lang.toLowerCase() === 'en' ? 17 : 14 // 17 pour EN, 14 pour FR
-        }
-
-        const brevoListId = getListIdByLanguage(language)
+        // Obtenir l'ID de liste newsletter selon la langue
+        const brevoListId = getBrevoNewsletterListId(language)
 
         if (!brevoApiKey) {
             console.error('❌ Clé API Brevo manquante')
@@ -186,7 +183,7 @@ async function addContactToBrevo(email: string, language: string = 'fr'): Promis
                     FIRSTNAME: '', // Peut être étendu si nécessaire
                     LASTNAME: '',
                     LANGUAGE: language.toUpperCase(),
-                    SOURCE: 'Website Newsletter Popup'
+                    SOURCE: BREVO_CONTACT_ATTRIBUTES.NEWSLETTER_SOURCE
                 }
             })
         })

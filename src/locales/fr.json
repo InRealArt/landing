@@ -636,11 +636,34 @@
       "description": "Retrouvez toutes les réponses concernant l’acquisition, la provenance, l’authenticité et les modalités d’achat de nos pièces. Notre FAQ vous guide pour explorer et acheter en toute confiance sur notre marketplace."
     },
     "intro": {
-      "title": "Catalogue unique et diversifié d’œuvres",
-      "subtitle": "Explorez notre catalogue unique d’InRealArt, où peinture et sculpture rencontrent l’innovation. <br>Chaque œuvre est sélectionnée pour réinventer votre vision de l’art contemporain et inspirer les collectionneurs comme les passionnés.",
+      "title": "Catalogue unique et diversifié d'œuvres",
+      "subtitle": "Explorez notre catalogue unique d'InRealArt, où peinture et sculpture rencontrent l'innovation. <br>Chaque œuvre est sélectionnée pour réinventer votre vision de l'art contemporain et inspirer les collectionneurs comme les passionnés.",
       "buttons": {
         "catalog": "Téléchargez le catalogue 2025",
         "whitepaper": "Lire notre manifeste"
+      },
+      "form": {
+        "emailPlaceholder": "Votre adresse email",
+        "downloadButton": "Télécharger le catalogue",
+        "downloadingButton": "Téléchargement...",
+        "emailRequired": "L'email est requis",
+        "emailInvalid": "Adresse email invalide"
+      },
+      "messages": {
+        "success": "Merci ! Le lien de téléchargement du catalogue a été envoyé à votre email",
+        "invalidData": "Données invalides",
+        "recaptchaFailed": "Échec de la vérification reCAPTCHA",
+        "configurationError": "Configuration manquante pour le téléchargement",
+        "serviceUnavailable": "Service temporairement indisponible. Veuillez réessayer plus tard.",
+        "downloadError": "Erreur lors du téléchargement du catalogue. Veuillez réessayer.",
+        "connectionError": "Erreur de connexion au service de téléchargement",
+        "internalError": "Une erreur interne s'est produite. Veuillez réessayer plus tard."
+      },
+      "successPopup": {
+        "title": "",
+        "message": "Merci ! Vous recevrez prochainement notre catalogue d'œuvres d'art.",
+        "subtitle": "Nous vous enverrons le lien de téléchargement par email.",
+        "closeButton": "Fermer"
       }
     },
     "filters": {

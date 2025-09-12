@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import PresaleHero from "@/components/presale/PresaleHero";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
@@ -7,8 +7,12 @@ import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import BlockFaq from '@/components/common/BlockFaq';
 import Button from "@/components/common/Button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Download } from "lucide-react";
 import FAQ from '@/components/common/FAQ/FAQ';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { toast } from 'sonner'
+import { downloadCatalog } from '@/actions/catalogActions'
+import CatalogSuccessModal from '@/components/common/CatalogSuccessModal'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -21,11 +25,11 @@ export default function Presale() {
     hasError 
   } = usePresaleArtworkStore()
 
-  // URLs pour les catalogues hébergés en ligne
-  const catalogUrls = {
-    en: 'https://drive.google.com/file/d/1P_3Q_nTExvorTrAQhoLTv_kGs8FDCWNu/view?usp=sharing',
-    fr: 'https://drive.google.com/file/d/1Z56Fvbi2HD5raHO8fDh3Fx6UhMzL6ot-/view?usp=sharing'
-  };
+  // États pour le formulaire de téléchargement du catalogue
+  const [email, setEmail] = useState('')
+  const [isPending, startTransition] = useTransition()
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),
@@ -57,6 +61,38 @@ export default function Presale() {
       document.removeEventListener('keydown', onKey)
     }
   }, [])
+
+  // Fonction de gestion du téléchargement du catalogue
+  const handleCatalogDownload = async (formData: FormData) => {
+    if (!executeRecaptcha) {
+      toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
+      return
+    }
+
+    startTransition(async () => {
+      try {
+        // Générer le token reCAPTCHA
+        const recaptchaToken = await executeRecaptcha('catalog_download')
+
+        // Ajouter le token au FormData
+        formData.append('recaptchaToken', recaptchaToken)
+
+        // Appeler la server action
+        const result = await downloadCatalog(formData)
+
+        if (result.success) {
+          setEmail('')
+          // Afficher la popup de succès (sans téléchargement automatique)
+          setShowSuccessModal(true)
+        } else {
+          toast.error(result.message)
+        }
+      } catch (error) {
+        console.error('Erreur lors du téléchargement du catalogue:', error)
+        toast.error('Une erreur inattendue s\'est produite.')
+      }
+    })
+  }
 
   // Logique de filtrage
   const filtered = useMemo(() => {
@@ -228,15 +264,56 @@ export default function Presale() {
           </div>
         )}
 
-        {/* Bouton du catalogue après la pagination */}
+        {/* Formulaire de téléchargement du catalogue après la pagination */}
         <div className="flex justify-center mt-12">
-          <Button 
-            link={language === 'en' ? catalogUrls.en : catalogUrls.fr} 
-            text={t('presale.intro.buttons.catalog')} 
-            additionalClassName="bg-purpleColor" 
-            icon={<ArrowRight />} 
-            target='_blank' 
-          />
+          <div className="bg-gradient-to-br from-gradientFrom to-gradientTo rounded-2xl p-8 max-w-md w-full">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-textColor mb-2">
+                {t('presale.intro.buttons.catalog')}
+              </h3>
+              <p className="text-textColor/80 text-sm">
+                {language === 'en' 
+                  ? 'Enter your email to download our catalog' 
+                  : 'Entrez votre email pour télécharger notre catalogue'
+                }
+              </p>
+            </div>
+
+            <form
+              action={handleCatalogDownload}
+              className="space-y-4"
+            >
+              {/* Champ caché pour la langue */}
+              <input type="hidden" name="language" value={language} />
+
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textColor/60" size={20} />
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t('presale.intro.form.emailPlaceholder')}
+                  disabled={isPending}
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 dark:bg-black/20 border-2 border-black dark:border-textColor/20 rounded-lg text-textColor placeholder-textColor/50 focus:outline-none focus:border-purpleColor transition-colors"
+                  required
+                />
+              </div>
+
+              {/* Bouton de téléchargement */}
+              <Button
+                type="submit"
+                disabled={isPending}
+                text={isPending 
+                  ? t('presale.intro.form.downloadingButton')
+                  : t('presale.intro.form.downloadButton')
+                }
+                additionalClassName="w-full bg-purpleColor"
+                icon={<Download />}
+                center
+              />
+            </form>
+          </div>
         </div>
         
         {/* <BuyProcess /> */}
@@ -244,6 +321,12 @@ export default function Presale() {
 
       {/* <BlockFaq title={t('presale.faq.title')} description={t('presale.faq.description')} /> */}
       <FAQ titre={t('presale.faq.title')} description={t('presale.faq.description')} />
+      
+      {/* Popup de succès */}
+      <CatalogSuccessModal 
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+      />
     </>
   );
 }
