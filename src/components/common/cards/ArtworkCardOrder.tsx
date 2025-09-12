@@ -19,8 +19,8 @@ const ArtworkCardOrder = ({ image, name, artistName, price }: ArtworkCardOrderPr
   const slug = stringToSlug(name);
 
   return (
-    <div className="p-6 border border-gray-300 rounded-lg bg-cardBackground relative">
-      <Link href={`/artwork/${slug}`} className="block">
+    <div className="p-6 border border-gray-300 rounded-lg bg-cardBackground flex flex-col h-full">
+      <Link href={`/artwork/${slug}`} className="block flex-1">
         <div className="bg-contain bg-center m-auto bg-no-repeat h-72 md:h-80 w-full rounded-lg" style={{ backgroundImage: ` url('${image.src}')` }} />
         <div className="mt-4">
           <p className="text-textColor font-medium text-lg">{name}</p>
@@ -31,9 +31,11 @@ const ArtworkCardOrder = ({ image, name, artistName, price }: ArtworkCardOrderPr
         </div>
       </Link>
       
-      <Link href={`/artwork/${slug}`} className="absolute bottom-6 right-6 px-4 py-2 bg-cardBackground hover:bg-gray-600 border border-gray-500 rounded-lg text-textColor text-sm transition-colors duration-200 bricolage-grotesque">
-        {t('presale.artworks.button.seeDetail')}
-      </Link>
+      <div className="mt-4 flex justify-end">
+        <Link href={`/artwork/${slug}`} className="px-4 py-2 bg-cardBackground hover:bg-gray-600 border border-gray-500 rounded-lg text-textColor text-sm transition-colors duration-200 bricolage-grotesque">
+          {t('presale.artworks.button.seeDetail')}
+        </Link>
+      </div>
     </div>
   );
 }
