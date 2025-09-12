@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { stringToSlug } from "@/utils/functions";
+import OptimizedContentImage from "../OptimizedContentImage";
 
 interface ArtworkCardProps {
   image: {
@@ -19,11 +20,14 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
         <div className="bg-cover m-auto bg-no-repeat bg-top h-52 md:h-80 w-full rounded-lg" 
           style={{ backgroundImage: `url('${image.src}')` }} />
       ) : (
-        <div className="relative h-52 md:h-80 w-full rounded-lg overflow-hidden flex items-center justify-center">
-          <img 
-            src={image.src} 
-            alt={name} 
+        <div className="relative h-52 md:h-80 w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
+          <OptimizedContentImage
+            src={image.src}
+            alt={name}
             className="object-contain max-h-full max-w-full h-auto"
+            width={320}
+            height={320}
+            priority={false}
           />
         </div>
       )}
