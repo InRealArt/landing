@@ -19,7 +19,7 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
   const { t } = useLanguageStore()
   const { theme } = useTheme()
   return (
-    <section className="relative w-full h-[60vh] sm:h-[50vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
+    <section className="relative w-full h-[80vh] sm:h-[70vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
       <OptimizedBackgroundImage
         src="/images/joinInRealArt/artists/hero_joinInReal_artists.webp"
         alt="Hero background"
