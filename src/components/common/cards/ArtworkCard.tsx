@@ -17,10 +17,10 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
   return (
     <Link href={`/${type}/${slug}`} className="p-2 border rounded-lg bg-cardBackground block">
       {type === 'artist' ? (
-        <div className="bg-cover m-auto bg-no-repeat bg-top h-96 md:h-[32rem] w-full rounded-lg" 
+        <div className="bg-cover m-auto bg-no-repeat bg-top h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg" 
           style={{ backgroundImage: `url('${image.src}')` }} />
       ) : (
-        <div className="relative h-96 md:h-[32rem] w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
+        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
           <OptimizedContentImage
             src={image.src}
             alt={name}
