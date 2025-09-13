@@ -36,14 +36,14 @@ export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: 
         }`} />      
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-center md:items-end">
-        <div className="max-w-full sm:max-w-90 xl:max-w-screen-xl mx-auto w-full px-6 sm:px-4 pt-20 sm:pt-24 md:pt-0 pb-12 md:pb-16 lg:pb-20">
+        <div className="max-w-full sm:max-w-90 xl:max-w-screen-xl mx-auto w-full px-6 sm:px-4 pt-32 sm:pt-36 md:pt-20 pb-12 md:pb-16 lg:pb-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             {/* Texte principal à gauche */}
             <div className="flex-1 text-center md:text-left">
               <TranslatedText 
                 translationKey={title}
                 as="h1"
-                className="bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6"
+                className="bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6 mt-8 sm:mt-12 md:mt-16"
                 allowHtml={true}
               />
             </div>
