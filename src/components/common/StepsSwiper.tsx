@@ -70,7 +70,7 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
         <button
           onClick={goToPrev}
           disabled={activeSlide === 0}
-          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
+          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${
             activeSlide === 0
               ? 'border-gray-400 text-gray-400 cursor-not-allowed'
               : 'border-white text-white hover:bg-white hover:text-black'
@@ -78,8 +78,8 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
           aria-label="Étape précédente"
         >
           <svg
-            width="20"
-            height="20"
+            width="15"
+            height="15"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -95,7 +95,7 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
         <button
           onClick={goToNext}
           disabled={activeSlide === steps.length - 1}
-          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-300 ${
+          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-300 ${
             activeSlide === steps.length - 1
               ? 'border-gray-400 text-gray-400 cursor-not-allowed'
               : 'border-white text-white hover:bg-white hover:text-black'
@@ -103,8 +103,8 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
           aria-label="Étape suivante"
         >
           <svg
-            width="20"
-            height="20"
+            width="15"
+            height="15"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

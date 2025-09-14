@@ -511,13 +511,20 @@
       "testimonials": {
         "title": "Ils Ont Transformé Leur Art Avec IRA",
         "artist1": {
-          "text": "À travers InRealArt, mes peintures nocturnes prennent vie, mélangeant clair-obscur et lumières mystiques pour transporter le spectateur dans des mondes imaginaires."
+          "name": "Catherine Sénéchal - Peintre",
+          "text": "J'ai enfin pu exposer mon travail sur les réseaux sociaux et dans les salons d'art ! Les supports fournis sont clairs, professionnels et super faciles à utiliser. Ma visibilité a explosé, je recommande vivement !"
         },
         "artist2": {
-          "text": "InRealArt me permet de porter l'art du trompe-l'œil à son plus haut niveau, en immortalisant ma vision à travers ces créations. C'est une opportunité unique de combiner maîtrise classique et technologie contemporaine pour une expérience artistique marquante."
+          "name": "Monique Laville - Peintre cotée sur Drouot et Artprice",
+          "text": "Je me sens accompagnée au quotidien ! L'équipe est toujours là pour répondre à mes questions, me guider et même m'accompagner lors d'événements. Il y a une vraie proximité authentique, je ne me sens pas isolée"
         },
         "artist3": {
-          "text": "Grâce à InRealArt, je révèle un art spontané et instructif libéré de toute intention. Cette plateforme révolutionne la création artistique en alliant innovation et technologie et liberté, ouvrant la voie à une nouvelle ère artistique."
+          "name": "Martin Ronan - Peintre coté sur Icac",
+          "text": "J'ai découvert ce projet en rencontrant Catherine Meulemans, directrice de la galerie Artthema. J'ai été conquis par la sensibilité du porteur de projet, de l'équipe et la confiance de leurs partenaires. J'ai rejoint l'aventure et j'en suis très satisfait."
+        },
+        "artist4": {
+          "name": "Jean-Paul Boyer - Sculpteur",
+          "text": "J'ai testé d'autres plateformes, mais tout coûte cher et n'est jamais adapté à ma situation. Inrealart a vraiment compris mes besoins : une contrepartie équitable et une solution flexible qui s'adapte à mes besoins."
         }
       },
       "howToJoin": {

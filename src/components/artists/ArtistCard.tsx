@@ -17,7 +17,7 @@ export default function ArtistCard ({ name, role = '', countryName, imageUrl, sl
     <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10">
       <Link href={`/artists/${slug}`} className="block">
         <div
-          className="h-52 md:h-64 w-full bg-center bg-cover"
+          className="h-64 w-full bg-top bg-cover"
           style={{ backgroundImage: `url(${imageUrl})` }}
         />
       </Link>

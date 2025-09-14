@@ -3,13 +3,13 @@
 import { useLanguageStore } from '@/store/languageStore';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import TranslatedText from '@/components/common/TranslatedText';
+import OptimizedBackgroundImage from '../common/OptimizedBackgroundImage';
 
 interface TestimonialItem {
   text: string;
   classementIcac?: string;
   urlImageArtiste: string;
-  nomArtiste: string;
-  prenomArtiste: string;
+  name: string;
 }
 
 // Composant pour un témoignage individuel avec gestion du HTML sanitisé
@@ -23,22 +23,16 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
         allowHtml={true}
       />
       <div className="flex items-center gap-3 mt-auto">
-        <OptimizedImage 
+        <OptimizedBackgroundImage 
           src={testimonial.urlImageArtiste} 
-          alt={`${testimonial.prenomArtiste} ${testimonial.nomArtiste}`} 
+          alt={`${testimonial.name}`} 
           width={48} 
           height={48} 
           className="rounded-lg object-cover w-12 h-12 flex-shrink-0" 
         />
         <div className="flex-1">
-          <p className="text-textColor font-medium bricolage-grotesque">
-            {testimonial.nomArtiste}
-            {testimonial.prenomArtiste && (
-              <>
-                <br />
-                {testimonial.prenomArtiste}
-              </>
-            )}
+          <p className="text-textColor text-sm font-medium bricolage-grotesque">
+            {testimonial.name}
           </p>
           {testimonial.classementIcac && (
             <p className="text-grayText text-xs mt-1">

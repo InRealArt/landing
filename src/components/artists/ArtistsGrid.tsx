@@ -10,7 +10,7 @@ import { Calendar } from 'lucide-react'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
-export function ArtistsGridSkeleton () {
+export function ArtistsGridSkeleton() {
   const skeletons = Array.from({ length: PAGE_SIZE })
   return (
     <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
@@ -37,7 +37,7 @@ export function ArtistsGridSkeleton () {
   )
 }
 
-export default function ArtistsGrid () {
+export default function ArtistsGrid() {
   const { artists, isLoading } = useArtistStore()
   const { t } = useLanguageStore()
 
@@ -53,12 +53,12 @@ export default function ArtistsGrid () {
     // Filtre nationalité
     const byNation = params.nationality
       ? artists.filter(a => {
-          const code = params.nationality.toUpperCase()
-          return (
-            (a.countryCode || '').toUpperCase() === code ||
-            (a.countryName || '').toLowerCase() === params.nationality.toLowerCase()
-          )
-        })
+        const code = params.nationality.toUpperCase()
+        return (
+          (a.countryCode || '').toUpperCase() === code ||
+          (a.countryName || '').toLowerCase() === params.nationality.toLowerCase()
+        )
+      })
       : artists
 
     // Filtre par nom (insensible à la casse)
@@ -92,11 +92,11 @@ export default function ArtistsGrid () {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    function onClickOutside (e: MouseEvent) {
+    function onClickOutside(e: MouseEvent) {
       if (!dropdownRef.current) return
       if (!dropdownRef.current.contains(e.target as Node)) setIsOpen(false)
     }
-    function onKey (e: KeyboardEvent) {
+    function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setIsOpen(false)
     }
     document.addEventListener('click', onClickOutside)
@@ -111,63 +111,66 @@ export default function ArtistsGrid () {
 
   return (
     <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-4">
+      <div className="space-y-4 mb-6">
+        {/* Top row: Filter button and results count */}
+        <div className="flex items-center justify-between w-full">
           <div ref={dropdownRef} className="relative inline-block">
-          <button
-            type="button"
-            onClick={() => setIsOpen(o => !o)}
-            className="inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-5 py-2 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-600 transition-all duration-200 bricolage-grotesque font-medium"
-          >
-            <span>{t('artists.nationality')}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+            <button
+              type="button"
+              onClick={() => setIsOpen(o => !o)}
+              className="inline-flex items-center gap-2 rounded-full bg-cardBackground text-textColor px-4 py-2 shadow-md hover:shadow-lg border border-borderColor transition-all duration-200 bricolage-grotesque font-medium text-sm"
+            >
+              <span className="truncate max-w-[140px] sm:max-w-none">{t('artists.nationality')}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 flex-shrink-0" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
 
-          {isOpen && (
-            <div className="absolute z-20 mt-2 w-56 rounded-2xl bg-white dark:bg-gray-800 p-2 shadow-xl ring-1 ring-gray-200 dark:ring-gray-600 border border-gray-200 dark:border-gray-600">
-              <button
-                className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium ${
-                  params.nationality === '' 
-                    ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' 
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                }`}
-                onClick={() => { setParams({ nationality: '', page: 1 }); setIsOpen(false) }}
-              >{t('artists.all')}</button>
-              <div className="max-h-64 overflow-y-auto">
-                {nationalities.map(n => (
-                  <button
-                    key={n.code}
-                    className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium ${
-                      params.nationality.toUpperCase() === n.code 
-                        ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' 
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+            {isOpen && (
+              <div className="absolute z-20 mt-2 w-48 sm:w-56 rounded-2xl bg-cardBackground p-2 shadow-xl ring-1 ring-borderColor border border-borderColor right-0 sm:right-auto">
+                <button
+                  className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium text-sm ${params.nationality === ''
+                      ? 'bg-purpleColor/20 text-purpleColor'
+                      : 'text-textColor hover:bg-backgroundGrey'
                     }`}
-                    onClick={() => { setParams({ nationality: n.code, page: 1 }); setIsOpen(false) }}
-                  >{n.label}</button>
-                ))}
+                  onClick={() => { setParams({ nationality: '', page: 1 }); setIsOpen(false) }}
+                >{t('artists.all')}</button>
+                <div className="max-h-48 sm:max-h-64 overflow-y-auto">
+                  {nationalities.map(n => (
+                    <button
+                      key={n.code}
+                      className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium text-sm ${params.nationality.toUpperCase() === n.code
+                          ? 'bg-purpleColor/20 text-purpleColor'
+                          : 'text-textColor hover:bg-backgroundGrey'
+                        }`}
+                      onClick={() => { setParams({ nationality: n.code, page: 1 }); setIsOpen(false) }}
+                    >{n.label}</button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
           </div>
 
-          <span className="text-gray-400 dark:text-gray-500 select-none">|</span>
+          <div className="text-grayText text-sm bricolage-grotesque font-medium">
+            {filtered.length} {t('artists.artistsFound')}
+          </div>
+        </div>
 
-          <div className="inline-flex items-center gap-3 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-4 py-2 shadow-md border border-gray-200 dark:border-gray-600 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-transparent transition-all duration-200">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gray-500 dark:text-gray-400">
-              <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
+        {/* Bottom row: Search bar */}
+        <div className="w-full">
+          <div className="inline-flex items-center gap-3 rounded-full bg-cardBackground text-textColor px-4 py-2 shadow-md border border-borderColor focus-within:ring-2 focus-within:ring-purpleColor focus-within:border-transparent transition-all duration-200 w-full max-w-md">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-grayText flex-shrink-0">
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
             </svg>
             <input
               value={params.q}
               onChange={e => setParams({ q: e.target.value, page: 1 })}
               placeholder={t('artists.searchPlaceholder')}
-              className="bg-transparent outline-none text-sm min-w-[280px] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 bricolage-grotesque font-medium"
+              className="bg-transparent outline-none text-sm placeholder-grayText text-textColor bricolage-grotesque font-medium flex-1 min-w-0"
             />
           </div>
         </div>
-        <div className="text-gray-600 dark:text-gray-400 text-sm bricolage-grotesque font-medium">{filtered.length} {t('artists.artistsFound')}</div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -183,7 +186,7 @@ export default function ArtistsGrid () {
             showFollowButton={false}
           />
         ))}
-        
+
         {/* Carte "Vous ?" - seulement sur la première page */}
         {page === 1 && (
           <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10 hover:border-purpleColor/30 transition-all duration-300 group">

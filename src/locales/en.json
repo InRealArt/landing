@@ -512,14 +512,21 @@
       "testimonials": {
         "title": "They Transformed Their Art With IRA",
         "artist1": {
-          "text": "Through InRealArt, my nocturnal paintings come to life, blending chiaroscuro and mystical lights to transport the viewer into imaginary worlds."
+          "name": "Catherine Sénéchal - Painter",
+          "text": "I was finally able to showcase my work on social media and at art fairs! The provided materials are clear, professional and super easy to use. My visibility has exploded, I highly recommend it!"
         },
         "artist2": {
-          "text": "InRealArt allows me to take the art of trompe-l'œil to its highest level, immortalizing my vision through these creations. It's a unique opportunity to combine classical mastery and contemporary technology for a remarkable artistic experience."
+          "name": "Monique Laville - Painter listed on Drouot and Artprice",
+          "text": "I feel supported on a daily basis! The team is always there to answer my questions, guide me and even accompany me during events. There's a real authentic closeness, I don't feel isolated"
         },
         "artist3": {
-          "text": "Thanks to InRealArt, I reveal a spontaneous and instructive art free from any intention. This platform revolutionizes artistic creation by combining innovation and technology and freedom, opening the way to a new artistic era."
-        }
+          "name": "Martin Ronan - Painter listed on Icac",
+          "text": "I discovered this project by meeting Catherine Meulemans, director of the Artthema gallery. I was won over by the sensitivity of the project leader, the team and the trust of their partners. I joined the adventure and I'm very satisfied with it."
+        },
+        "artist4": {
+          "name": "Jean-Paul Boyer - Sculptor",
+          "text": "I tested other platforms, but everything costs a lot and is never adapted to my situation. Inrealart really understood my needs: a fair counterpart and a flexible solution that fits my needs."
+        }    
       },
       "howToJoin": {
         "title": "How to join us?",
