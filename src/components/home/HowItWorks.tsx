@@ -25,7 +25,7 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section className="w-full max-w-[1600px] m-auto mt-36 px-6">
+    <section className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
       <h1 className="text-3xl lg:text-5xl bricolage-grotesque text-center">{t('home.howItWorks.title')}</h1>
       <label className="mt-4 block text-center">{t('home.howItWorks.subtitle')}</label>
       <div className="flex flex-col lg:flex-row flex-wrap gap-5 mt-10 justify-between">
