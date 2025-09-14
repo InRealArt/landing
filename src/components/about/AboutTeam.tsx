@@ -13,7 +13,7 @@ export default function AboutTeam() {
     <section className="relative w-full py-12 md:py-16">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto relative">
         {/* Fond gris rectangulaire qui s'étend sur les côtés avec des marges */}
-        <div className="absolute left-0 right-0 top-0 h-1/3 bg-backgroundGrey transform -translate-y-4"></div>
+        <div className="absolute left-0 right-0 top-0 h-full md:h-1/3 bg-backgroundGrey transform -translate-y-4"></div>
         
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-8">
           
@@ -114,7 +114,7 @@ export default function AboutTeam() {
               src="/images/about/about_team_photo2.webp"
               alt="Personne travaillant sur un ordinateur portable"
               fill={true}
-              className="w-full aspect-[2/3] rounded-2xl"
+              className="w-full aspect-[2/3] rounded-2xl hidden md:block"
               quality={90}
               priority={false}
             />

@@ -19,8 +19,7 @@ export default function ContentGrid({ items, className = "" }: ContentGridProps)
         {items.map((item, index) => (
           <div 
             key={index} 
-            className="rounded-lg p-8 border border-white/10 flex flex-col" 
-            style={{ background: "#1A1A1A" }}
+            className="rounded-lg p-8 border border-white/10 flex flex-col bg-cardBackground" 
           >
             <h3 className="text-xl bricolage-grotesque font-medium mb-4">{item.title}</h3>
             <p className="text-grayText text-sm leading-relaxed">{item.content}</p>

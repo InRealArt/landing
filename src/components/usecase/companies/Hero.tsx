@@ -9,7 +9,7 @@ export default function Hero() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+    <section className="relative w-full min-h-[550px] overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
           <OptimizedBackgroundImage
@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
 
       {/* Content Overlay */}
-      <div className="container mx-auto px-4 relative z-20 h-full flex items-center justify-center">
+      <div className="pt-headerSizeMobile md:pt-headerSize pb-12 mx-auto px-4 relative z-20 h-full flex items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Title and Button */}
           <div className="flex flex-col">

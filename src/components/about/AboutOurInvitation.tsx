@@ -9,9 +9,9 @@ export default function AboutOurInvitation() {
 
   return (
     <section className="relative w-full py-16 md:py-24">
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto relative">
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto relative py-12">
         {/* Fond gris rectangulaire qui englobe le contenu - positionné encore plus bas */}
-        <div className="absolute left-0 right-0 bottom-0 h-1/2 bg-backgroundGrey transform translate-y-8"></div>
+        <div className="absolute left-0 right-0 bottom-0 h-full md:h-1/2 bg-backgroundGrey transform translate-y-0 md:translate-y-8"></div>
         
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 px-8">
           

@@ -10,7 +10,7 @@ export default function Hero() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+    <section className="relative w-full min-h-[550px] overflow-hidden">
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
           <OptimizedBackgroundImage

@@ -27,12 +27,12 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   const color = theme === 'light' ? 'black' : 'white';
   return (
     <Link href={`/blog/${post.id}`} className="bg-cardBackground rounded-lg overflow-hidden border border-white-800">
-      <div className="relative h-[240px]">
+      <div className="relative h-[300px]">
         <Image 
           src={post.imageUrl} 
           alt={post.title}
           fill
-          style={{ objectFit: 'cover' }}
+          className="object-cover object-top"
         />
       </div>
       <div className="p-6">

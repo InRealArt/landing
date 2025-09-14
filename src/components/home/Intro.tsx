@@ -17,13 +17,13 @@ const Intro = () => {
       alt="Arrière-plan de la section d'introduction"
       width={1920}
       height={1080}
-      className="bg-cover m-auto bg-no-repeat bg-bottom w-full flex items-center justify-center mt-headerSizeMobile md:mt-headerSize md:mt-0 h-screen max"
+      className="bg-cover m-auto bg-no-repeat bg-bottom w-full flex items-center justify-center md:mt-0 min-h-screen"
       contentClassName="max-w-90 xl:max-w-screen-xl m-auto"
       overlay
       overlayColor={overlayColor}
       overlayOpacity={0.6}
     >
-      <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8 lg:gap-12">
+      <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8 lg:gap-12 py-headerSizeMobile md:py-headerSize">
         {/* Title Section */}
         <div className="flex-1">
           <h1 className="text-white text-4xl md:text-6xl bricolage-grotesque font-medium mb-6 w-full md:max-w-[80%]">

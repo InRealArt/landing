@@ -36,13 +36,13 @@ export default function JoinInRealArtHero() {
       alt={t('joinInRealArt.header.title')}
       width={1920}
       height={1080}
-      className="inset-0 w-full h-screen flex items-center justify-center mt-headerSizeMobile md:mt-headerSize md:mt-0 m-auto"
+      className="inset-0 w-full flex items-center justify-center md:mt-0 m-auto"
       overlay={true}
       overlayColor={overlayColor}
       overlayOpacity={1}
     >
       {/* Contenu du hero */}
-      <div className="inset-0 z-20 flex items-center">
+      <div className="inset-0 z-20 flex items-center pt-headerSize">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
           <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">
             {/* Contenu principal à gauche */}
