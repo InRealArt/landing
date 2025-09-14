@@ -121,7 +121,7 @@ export default function FeaturedPost() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-textColor items-stretch">
           <Link 
             href={`/blog/${featuredPost.slug}`} 
-            className="relative h-[440px] cursor-pooverflow-hidden rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
+            className="relative h-[440px] cursor-pointer rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
           >
             {featuredPost.mainImageUrl ? (
               <OptimizedImage
@@ -143,21 +143,6 @@ export default function FeaturedPost() {
             href={`/blog/${featuredPost.slug}`} 
             className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer hover:bg-backgroundGrey transition-colors duration-300 h-full"
           >
-            {/* Catégorie en haut à droite */}
-            {featuredPost.category && (
-              <div className="absolute top-4 right-4">
-                <span 
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ 
-                    backgroundColor: featuredPost.category.color || '#f3f4f6',
-                    color: featuredPost.category.color ? '#ffffff' : '#374151'
-                  }}
-                >
-                  {getTranslatedCategoryName(featuredPost.category.id, featuredPost.category.name)}
-                </span>
-              </div>
-            )}
-
             <div className="flex items-center gap-2 text-sm mb-3 text-grayText">
               <span>{formatDate(featuredPost.createdAt)}</span>
               <span>•</span>
@@ -170,9 +155,9 @@ export default function FeaturedPost() {
               )}
             </div>
 
-            <h3 className="text-2xl font-bold mb-3">{featuredPost.title}</h3>
+            <h3 className="text-2xl font-bold mb-3 line-clamp-2 md:line-clamp-none">{featuredPost.title}</h3>
 
-            <p className="mb-6 text-grayText">
+            <p className="mb-6 text-grayText line-clamp-4 md:line-clamp-none">
               {featuredPost.excerpt || featuredPost.metaDescription}
             </p>
 

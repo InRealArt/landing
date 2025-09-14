@@ -7,7 +7,7 @@ export default function Hero() {
   const { t } = useLanguageStore();
   
   return (
-    <section className="mx-auto pb-10 px-4 max-w-screen-xl pt-20 mt-4 sm:mt-0 md:pt-[calc(var(--header-height)+1rem)]">
+    <section className="mx-auto pb-10 px-4 max-w-screen-xl mt-4">
       <TranslatedText
         translationKey="blog.title"
         as="h1"

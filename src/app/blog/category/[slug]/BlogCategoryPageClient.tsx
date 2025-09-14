@@ -65,10 +65,10 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
       <main className="min-h-screen pt-headerSize text-textColor">
         <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-700 rounded w-64 mb-8"></div>
+            <div className="h-8 bg-backgroundGrey rounded w-64 mb-8"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(6)].map((_, index) => (
-                <div key={index} className="h-64 bg-gray-700 rounded"></div>
+                <div key={index} className="h-64 bg-backgroundGrey rounded"></div>
               ))}
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function BlogCategoryPageClient({ categorySlug }: Props) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <div key={post.id} className="bg-gray-800 rounded-lg overflow-hidden">
+              <div key={post.id} className="bg-cardBackground rounded-lg overflow-hidden border border-borderColor">
                 {post.mainImageUrl && (
                   <div className="aspect-video relative">
                     <Image
