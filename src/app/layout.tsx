@@ -60,6 +60,7 @@ export default function RootLayout ({
   return (
     <html lang="fr">
       <head>
+        <script src="/theme-init.js" async />
       </head>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
       <body

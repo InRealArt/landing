@@ -26,47 +26,36 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>('light')
-  const [isHydrated, setIsHydrated] = useState(false)
 
-  // Handle hydration on client side
+  // Initialize theme on mount
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme-storage')
-    if (storedTheme) {
-      try {
-        const parsedState = JSON.parse(storedTheme)
-        if (parsedState.state && parsedState.state.theme) {
-          setTheme(parsedState.state.theme)
-        }
-      } catch (e) {
-        // If parsing fails, check for simple string value
-        if (storedTheme === 'light' || storedTheme === 'dark') {
-          setTheme(storedTheme as Theme)
-        }
-      }
+    // Check localStorage first
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme)
+      document.documentElement.setAttribute('data-theme', savedTheme)
+    } else {
+      // Default to light mode and set it
+      setTheme('light')
+      document.documentElement.setAttribute('data-theme', 'light')
+      localStorage.setItem('theme', 'light')
     }
-    setIsHydrated(true)
   }, [])
 
-  // Update data-theme attribute when theme changes
-  useEffect(() => {
-    if (!isHydrated) return
-
-    const root = document.documentElement
-    root.setAttribute('data-theme', theme)
-
-    // Store theme preference
-    localStorage.setItem('theme-storage', JSON.stringify({
-      state: { theme },
-      version: 0
-    }))
-  }, [theme, isHydrated])
+  // Update theme when it changes
+  const handleSetTheme = (newTheme: Theme) => {
+    setTheme(newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
+    localStorage.setItem('theme', newTheme)
+  }
 
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark')
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    handleSetTheme(newTheme)
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: handleSetTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )
