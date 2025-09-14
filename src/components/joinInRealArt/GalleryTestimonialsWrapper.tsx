@@ -35,15 +35,13 @@ export default function GalleryTestimonialsWrapper() {
       text: t('joinInRealArt.galleries.testimonials.gallery1.text'),
       classementIcac: "",
       urlImageArtiste: artists.find(artist => artist.surname.toLowerCase().includes('leadouze'))?.imageUrl || '/images/team-member.png',
-      nomArtiste: "Alexandre Leadouze, Galerie Leadouze, 16 avenue Matignon,   Paris",
-      prenomArtiste: ""
+      name: "Alexandre Leadouze, Galerie Leadouze, 16 avenue Matignon,   Paris",
     },
     {
       text: t('joinInRealArt.galleries.testimonials.gallery2.text'),
       classementIcac: "",
       urlImageArtiste: artists.find(artist => artist.surname.toLowerCase().includes('arthema'))?.imageUrl || '/images/catherine_meulemans.webp',
-      nomArtiste: "Catherine Meulemans, Galerie ArtThema ",
-      prenomArtiste: ""
+      name: "Catherine Meulemans, Galerie ArtThema ",
     }
   ]
   
