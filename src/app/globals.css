@@ -87,6 +87,15 @@ html {
   overflow-x: hidden;
 }
 
+/* Style personnalisé pour la liste du manifeste */
+.manifest-list {
+  color: #000000;
+}
+
+[data-theme='dark'] .manifest-list {
+  color: #ffffff;
+}
+
 body {
   color: var(--text);
   background: var(--background);

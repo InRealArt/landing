@@ -54,7 +54,7 @@ export default function ManifestPage() {
               className="mt-4 text-base md:text-lg text-grayText leading-relaxed"
             />
 
-            <ul className="mt-6 space-y-3 text-gray-200">
+            <ul className="mt-6 space-y-3 manifest-list">
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-backgroundColor/80" />
                 <TranslatedText translationKey="manifest.bullets.access" />
