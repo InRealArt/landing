@@ -24,13 +24,13 @@ export default function Possibilities() {
     },
     {
       id: 'art',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist9.1.jpg?alt=media&token=3ddda256-5f2a-4404-aa2b-a5f01d9c716e',
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fm_peltzer_festinDesOmbres.webp?alt=media&token=f8bf1157-c709-4a16-bfa5-40384933f347',
       title: t('companies.possibilities.sections.art.title'),
       description: t('companies.possibilities.sections.art.description')
     },
     {
       id: 'events',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist4.1.jpg?alt=media&token=24959ffd-d81a-4c8c-9095-2b56ae07b6fa',
+      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fp_her_envol.webp?alt=media&token=d0dceccc-38af-43dd-8efe-acc43dda50ba',
       title: t('companies.possibilities.sections.events.title'),
       description: t('companies.possibilities.sections.events.description')
     }

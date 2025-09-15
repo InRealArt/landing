@@ -32,13 +32,15 @@ const navigation = {
     { label: 'nav.faq', href: '/faq' },
     { label: 'nav.glossary', href: '/glossary' },
     { label: 'nav.usecase', href: '/usecase' },
+    { label: 'nav.blog', href: '/blog' },
+    { label: 'nav.joinInRealArt', href: '/joinInRealArt' },
     
   ],
 }
 
 // Split links into two groups
 const firstColumnLinks: NavigationLink[] = navigation.pages.slice(0, 6)
-const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6, 9)
+const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6, 11)
 
 
 const Footer = () => {
@@ -118,7 +120,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`text-grayText hover:text-textColor transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                    className={`${link.href === '/joinInRealArt' ? 'text-purple-500 hover:text-purple-400' : 'text-grayText hover:text-textColor'} transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                   >
                     {t(link.label)}
                   </Link>

@@ -72,7 +72,7 @@ export default function Explore() {
           const reverseClassName = index % 2 !== 0 ? 'md:flex-row-reverse' : '';
           return (
             <div key={item.key} className={`w-full flex flex-col md:flex-row gap-6 md:gap-20 mt-28 items-center ${reverseClassName}`}>
-              <div className="basis-1/2 relative min-h-[300px] md:min-h-[400px] overflow-hidden rounded-lg">
+              <div className="w-full md:basis-1/2 relative min-h-[300px] md:min-h-[400px] overflow-hidden rounded-lg">
                 {/* Image de fond */}
                 <div className="absolute inset-0 -z-10">
                   <OptimizedImage 
@@ -103,7 +103,7 @@ export default function Explore() {
                   />
                 </div>
               </div>
-              <div className="basis-1/2">
+              <div className="w-full md:basis-1/2">
                 <TranslatedText 
                   as="label" 
                   className="my-4 block bricolage-grotesque" 
