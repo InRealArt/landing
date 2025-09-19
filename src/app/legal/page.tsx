@@ -15,6 +15,23 @@ export default function LegalPage() {
         <div className="py-16">
         <h1 className="text-4xl font-bold mb-8">{t('legal.title')}</h1>
 
+          {/* Intro Section */}
+          <section>
+            <p className="text-grayText mb-4">
+              {t('legal.intro')}
+            </p>
+          </section>
+
+          {/* Privacy Policy Section */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">
+              {t('legal.privacyPolicy.title')}
+            </h2>
+            <p className="text-grayText mb-4">
+              {t('legal.privacyPolicy.content')}
+            </p>
+          </section>
+
           {/* Publisher Section */}
           <section>
             <h2 className="text-2xl font-semibold mb-4">
@@ -38,10 +55,10 @@ export default function LegalPage() {
           {/* Intellectual Property Section */}
           <section>
             <h2 className="text-2xl font-semibold mb-4">
-              {t('terms.intellectualProperty.title')}
+              {t('legal.intellectualProperty.title')}
             </h2>
             <p className="text-grayText mb-4">
-              {t('terms.intellectualProperty.content')}
+              {t('legal.intellectualProperty.content')}
             </p>
           </section>
 

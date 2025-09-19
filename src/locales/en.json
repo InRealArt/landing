@@ -1541,7 +1541,12 @@
   "legal": {
     "title": "Legal Notice",
     "subtitle": "LEGAL NOTICES OF THE WEBSITE",
+    "intro": "The website www.inrealart.com (and its subdomains) is the property of InRealArt, whose headquarters are located at the following address: 6 rue du chateau d'eau 37260 Artannes sur Indre.",
     "website": "https://inrealart.com (hereinafter referred to as \"Site\")",
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "content": "In accordance with the amended French Data Protection Act of January 6, 1978, you have the right to access, rectify, and delete data concerning you. To exercise these rights: By mail: [6 rue du chateau d'eau 37260 Artannes sur Indre.]."
+    },
     "publisher": {
       "title": "Publisher",
       "content": "The Site is designed and administered by InRealArt, a de facto company that will be a simplified joint stock company. The publication director is Roy Timothée, who is the President of the company."
@@ -1552,11 +1557,11 @@
     },
     "intellectualProperty": {
       "title": "Intellectual Property Rights",
-      "content": "The Site is under the protection of intellectual property rights and is exclusively owned by InRealArt. The structure, design, texts, and layout of the Site constitute original works belonging entirely to InRealArt SAS. Any copying, imitation, reproduction, total or partial, without the authorization of InRealArt SAS or its rights holders is prohibited. This also applies to translation, adaptation, or arrangement by any means whatsoever."
+      "content": "This entire website is a creative work protected by intellectual property law. No modification of all or part of the content is permitted. Unless authorized by InRealArt, the reproduction, use, duplication, or distribution of the website's content on any medium whatsoever is prohibited, except for individual and private viewing. In this context, the content of the site may be quoted in limited circumstances, provided that the name of InRealArt is clearly cited. The names of companies or organizations, trademarks, designs, or patents cited in the content and not belonging to InRealArt SAS remain the property of their respective owners. Content InRealArt reserves the right to correct and modify the content of this site at any time without prior notice. The information presented on the www.inrealart.com website does not constitute a commercial or contractual offer, nor does it constitute legal advice or opinion. InRealArt does not guarantee the accuracy or completeness of the information provided on www.inrealart.com. The website may contain technical or factual inaccuracies or typographical errors. InRealArt declines all responsibility for any direct or indirect damage, whatever the cause, origin, nature or consequence, resulting from access to this website or the inability to access it, as well as from the use of the website www.inrealart.com and/or the credit given to any information directly or indirectly obtained from it."
     },
     "links": {
-      "title": "Links to Third Party Sites",
-      "content": "InRealArt SAS assumes no responsibility for the hypertext links from this Site to other Internet sites. Users of the Site are not allowed to establish a hypertext link to this Site without the prior and explicit agreement of InRealArt SAS."
+      "title": "External Links",
+      "content": "External hypertext links available on the InRealArt website may direct the user to external websites whose content cannot engage the responsibility of InRealArt."
     },
     "disclaimer": {
       "title": "Disclaimer",

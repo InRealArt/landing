@@ -1550,7 +1550,12 @@
   "legal": {
     "title": "Mentions Légales",
     "subtitle": "MENTIONS LÉGALES DU SITE",
+    "intro": "Le site www.inrealart.com (et ses sous-domaines) est la propriété de InRealArt, dont le siège est basé à l'adresse suivante : 6 rue du chateau d'eau 37260 Artannes sur Indre.",
     "website": "https://inrealart.com (ci-après dénommé \"Site\")",
+    "privacyPolicy": {
+      "title": "Données personnelles et protection de la vie privée",
+      "content": "Conformément à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de rectification et de suppression des données vous concernant. Pour exercer ces droits : Par courrier postal : [6 rue du chateau d'eau 37260 Artannes sur Indre.]."
+    },
     "publisher": {
       "title": "Éditeur",
       "content": "Le Site est conçu et administré par InRealArt, une société de fait qui sera une société par actions simplifiée. Le directeur de la publication est Roy Timothée, qui est le président de la société."
@@ -1560,12 +1565,12 @@
       "content": "La création du Site a été menée par InRealArt SAS et est hébergée par OVH, enregistrée sous le numéro OVH, EMEA SARL, 5 rue Plaetis L-2338 Luxembourg., https://ovh.com)."
     },
     "intellectualProperty": {
-      "title": "Droits d'Auteur et Propriété Intellectuelle",
-      "content": "Le Site est protégé par les droits d'auteur et est exclusivement propriété d'InRealArt. La structure, la conception, les textes, et le design du Site constituent des œuvres originales appartenant entièrement à InRealArt SAS. Toute copie, imitation, reproduction, totale ou partielle, sans l'autorisation d'InRealArt SAS ou de ses titulaires de droits est interdite. Cela s'applique également à la traduction, à l'adaptation, ou à l'arrangement par tout moyen."
+      "title": "Respect des droits de propriété intellectuelle",
+      "content": "L’ensemble de ce site est une œuvre de création protégée par le droit de la propriété intellectuelle. Aucune modification de tout ou partie du contenu n’est autorisée. Sauf autorisation d’InRealArt , la reproduction ainsi que l’utilisation du contenu du site, sa duplication, ou sa diffusion sur quelque support que ce soit sont interdites à l’exception de la consultation individuelle et privée. Dans ce cadre, le contenu du site peut faire l’objet de citations limitées à condition que le nom d’InRealArt soit clairement cité. Les noms d’entreprises ou d’organismes, de marques, dessins ou modèles ou brevets cités dans les contenus et n’appartenant pas à InRealArt SAS restent la propriété de leurs propriétaires respectifs. Contenu InRealArt se réserve le droit de corriger et de modifier le contenu de ce site à tout moment sans avertissement préalable. Les informations présentées par le site www.inrealart.com ne constituent en aucun cas une offre commerciale ou à contracter, ni des conseils ou avis juridiques. InRealArt ne garantit en aucune manière ni l’exactitude ni l’exhaustivité des informations offertes sur www.inrealart.com. Le site est susceptible de présenter des imprécisions techniques, factuelles ou des erreurs typographiques. InRealArt décline toute responsabilité pour tous dommages directs et indirects, quelles qu’en soient les causes, origines, nature ou conséquence, en raison de l’accès à ce site ou de l’impossibilité d’y accéder, de même que de l’utilisation du site www.inrealart.com et/ou du crédit accordé à une quelconque information qui en est directement ou indirectement retirée." 
     },
     "links": {
-      "title": "Liens vers d'autres sites Internet",
-      "content": "InRealArt SAS n'assume aucune responsabilité pour les liens hypertexte de ce Site vers d'autres sites Internet. Les utilisateurs du Site ne sont pas autorisés à établir un lien hypertexte vers ce Site sans l'accord préalable et explicite d'InRealArt SAS."
+      "title": "Liens externes",
+      "content": "Les liens hypertextes disponibles sur le site d’InRealArt  peuvent orienter l’internaute vers des sites extérieurs dont le contenu ne peut en aucune manière engager la responsabilité d’InRealArt."
     },
     "disclaimer": {
       "title": "Avertissement",
