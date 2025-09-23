@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguageStore } from '@/store/languageStore';
 import { initializeGTM } from '@/utils/gtm';
+import { debugAnalytics } from '@/utils/analyticsDebug';
 import CookieTester from '../CookieTester';
 
 // Déclaration de type pour window.gtag
@@ -39,18 +40,7 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
     window.dataLayer?.push(args);
   }
 
-  // Configuration par défaut (tout refusé)
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied', 
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied',
-    'functionality_storage': 'denied',
-    'personalization_storage': 'denied',
-    'security_storage': 'granted' // Toujours accordé pour la sécurité
-  });
-
-  // Mise à jour selon les préférences
+  // Mise à jour selon les préférences (pas de default ici, déjà fait dans layout.tsx)
   gtag('consent', 'update', {
     'analytics_storage': preferences.analytics ? 'granted' : 'denied',
     'ad_storage': preferences.marketing ? 'granted' : 'denied',
@@ -60,14 +50,25 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
     'personalization_storage': preferences.functionality ? 'granted' : 'denied'
   });
 
-  // Forcer l'initialisation de Google Analytics si activé
+  // Initialiser Google Analytics et GTM si analytics activé
   if (preferences.analytics && typeof window !== 'undefined') {
-    // Attendre un peu pour que GTM se charge
-    setTimeout(() => {
-      if (window.gtag) {
-        window.gtag('config', 'G-LRX6096NCS');
-      }
-    }, 1000);
+    // Charger GTM
+    const gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`;
+    document.head.appendChild(gtmScript);
+
+    // Charger GA4
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LRX6096NCS';
+    document.head.appendChild(gaScript);
+
+    // Configurer GA4
+    gtag('js', new Date());
+    gtag('config', 'G-LRX6096NCS', {
+      'send_page_view': true
+    });
   }
 };
 
@@ -169,6 +170,11 @@ const GDPRConsentBanner = () => {
     
     initializeGoogleConsentMode(allAccepted);
     initializeGTM(true);
+    
+    // Debug analytics after consent
+    setTimeout(() => {
+      debugAnalytics();
+    }, 2000);
   };
 
   // Gérer le refus de tous les cookies

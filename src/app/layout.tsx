@@ -62,15 +62,13 @@ export default function RootLayout ({
       <head>
         <script src="/theme-init.js" async />
       </head>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
       <body
         className={'antialiased'}
       >
-        <GoogleAnalytics gaId="G-LRX6096NCS" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Initialize Google Consent Mode v2
+              // Initialize Google Consent Mode v2 - Default denied state
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               

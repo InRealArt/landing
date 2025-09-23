@@ -32,39 +32,12 @@ export const initializeGTM = (hasConsent: boolean) => {
   // Initialize dataLayer if not already done
   window.dataLayer = window.dataLayer || [];
 
-  // Function gtag
-  function gtag(...args: any[]) {
-    window.dataLayer?.push(args);
-  }
-
   if (hasConsent) {
     // Enable GTM tracking with consent
     pushEvent('cookieConsentAccepted', { consent: true });
-
-    // Initialize Google Consent Mode v2
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted',
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'functionality_storage': 'granted',
-      'personalization_storage': 'granted',
-      'security_storage': 'granted'
-    });
   } else {
     // Disable GTM tracking without consent
     pushEvent('cookieConsentDeclined', { consent: false });
-
-    // Initialize Google Consent Mode v2 with denied consent
-    gtag('consent', 'update', {
-      'analytics_storage': 'denied',
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'functionality_storage': 'denied',
-      'personalization_storage': 'denied',
-      'security_storage': 'granted' // Security is still allowed
-    });
   }
 };
 
