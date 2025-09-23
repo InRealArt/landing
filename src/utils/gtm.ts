@@ -63,4 +63,5 @@ export const trackButtonClick = (buttonName: string, buttonText: string) => {
     button_name: buttonName,
     button_text: buttonText
   });
+  
 }; 
