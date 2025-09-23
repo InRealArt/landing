@@ -72,6 +72,18 @@ export default function RootLayout ({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               
+              // CRITICAL: Configuration globale des cookies selon Context7
+              const isLocalhost = window.location.hostname === 'localhost';
+              console.log('🌐 GA4 Init - Domain:', window.location.hostname, 'Local:', isLocalhost);
+              
+              // Configuration globale des cookies
+              gtag('set', {
+                'cookie_domain': isLocalhost ? 'none' : 'auto',
+                'cookie_flags': isLocalhost ? '' : 'SameSite=Lax;Secure',
+                'cookie_path': '/',
+                'cookie_update': true
+              });
+              
               // Set default consent to 'denied' (GDPR compliant)
               gtag('consent', 'default', {
                 'ad_storage': 'denied',
