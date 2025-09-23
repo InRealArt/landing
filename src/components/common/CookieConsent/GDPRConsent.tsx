@@ -52,23 +52,38 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
 
   // Initialiser Google Analytics et GTM si analytics activé
   if (preferences.analytics && typeof window !== 'undefined') {
-    // Charger GTM
-    const gtmScript = document.createElement('script');
-    gtmScript.async = true;
-    gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`;
-    document.head.appendChild(gtmScript);
-
-    // Charger GA4
+    // Charger GA4 d'abord
     const gaScript = document.createElement('script');
     gaScript.async = true;
     gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LRX6096NCS';
+    
+    // Attendre que le script GA4 soit chargé
+    gaScript.onload = () => {
+      console.log('GA4 script loaded, initializing...');
+      
+      // Configurer GA4 avec debug mode
+      gtag('js', new Date());
+      gtag('config', 'G-LRX6096NCS', {
+        'send_page_view': true,
+        'debug_mode': true // Activer le mode debug
+      });
+      
+      // Charger GTM après GA4
+      const gtmScript = document.createElement('script');
+      gtmScript.async = true;
+      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`;
+      gtmScript.onload = () => {
+        console.log('GTM script loaded');
+        // Déclencher un événement de test
+        gtag('event', 'consent_granted', {
+          'event_category': 'engagement',
+          'event_label': 'analytics_enabled'
+        });
+      };
+      document.head.appendChild(gtmScript);
+    };
+    
     document.head.appendChild(gaScript);
-
-    // Configurer GA4
-    gtag('js', new Date());
-    gtag('config', 'G-LRX6096NCS', {
-      'send_page_view': true
-    });
   }
 };
 
@@ -171,10 +186,10 @@ const GDPRConsentBanner = () => {
     initializeGoogleConsentMode(allAccepted);
     initializeGTM(true);
     
-    // Debug analytics after consent
+    // Debug analytics after consent (attendre plus longtemps pour que les scripts se chargent)
     setTimeout(() => {
       debugAnalytics();
-    }, 2000);
+    }, 5000);
   };
 
   // Gérer le refus de tous les cookies
