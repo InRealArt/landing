@@ -49,6 +49,8 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
     'functionality_storage': preferences.functionality ? 'granted' : 'denied',
     'personalization_storage': preferences.functionality ? 'granted' : 'denied'
   });
+  
+  console.log('Consent updated:', preferences);
 
   // Initialiser Google Analytics et GTM si analytics activé
   if (preferences.analytics && typeof window !== 'undefined') {
@@ -65,8 +67,12 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
       gtag('js', new Date());
       gtag('config', 'G-LRX6096NCS', {
         'send_page_view': true,
-        'debug_mode': true // Activer le mode debug
+        'debug_mode': true, // Activer le mode debug
+        'cookie_flags': 'SameSite=None;Secure', // Forcer les cookies
+        'cookie_domain': 'auto' // Domaine automatique
       });
+      
+      console.log('GA4 configured with ID: G-LRX6096NCS');
       
       // Charger GTM après GA4
       const gtmScript = document.createElement('script');
@@ -74,6 +80,19 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
       gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`;
       gtmScript.onload = () => {
         console.log('GTM script loaded');
+        
+        // Attendre un peu puis vérifier les cookies
+        setTimeout(() => {
+          const cookies = document.cookie.split(';').filter(c => 
+            c.includes('_ga') || c.includes('_gid') || c.includes('_gtm')
+          );
+          console.log('Cookies after 2s:', cookies);
+          
+          if (cookies.length === 0) {
+            console.warn('No GA cookies found! This might be a consent mode issue.');
+          }
+        }, 2000);
+        
         // Déclencher un événement de test
         gtag('event', 'consent_granted', {
           'event_category': 'engagement',
