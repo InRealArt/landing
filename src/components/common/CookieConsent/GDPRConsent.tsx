@@ -52,25 +52,46 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
   
   console.log('Consent mode updated:', preferences);
   
-  // Forcer un événement de test si analytics activé
+  // CRITICAL: Forcer la réinitialisation de GA4 après consent
   if (preferences.analytics && window.gtag) {
     setTimeout(() => {
+      console.log('🔄 Forcing GA4 reinitialization after consent...');
+      
+      // Force GA4 à se reconfigurer avec le nouveau consent
+      window.gtag('config', 'G-LRX6096NCS', {
+        'send_page_view': true,
+        'debug_mode': true,
+        'cookie_update': true, // Force cookie update
+        'cookie_expires': 63072000, // 2 years in seconds
+        'cookie_domain': 'auto'
+      });
+      
+      // Forcer un page_view après reconfiguration
+      window.gtag('event', 'page_view', {
+        'page_title': document.title,
+        'page_location': window.location.href,
+        'send_to': 'G-LRX6096NCS'
+      });
+      
+      // Test event
       window.gtag('event', 'consent_granted', {
         'event_category': 'engagement',
         'event_label': 'analytics_enabled'
       });
       
-      // Vérifier les cookies après un délai
+      // Vérifier les cookies après reconfiguration
       setTimeout(() => {
         const cookies = document.cookie.split(';').filter(c => 
           c.includes('_ga') || c.includes('_gid') || c.includes('_gtm')
         );
-        console.log('Analytics cookies after consent:', cookies);
+        console.log('🍪 Analytics cookies after reconfig:', cookies);
         
         if (cookies.length === 0) {
-          console.warn('No GA cookies found! Check if GA is properly loaded.');
+          console.error('❌ GA cookies still not created! Possible domain/ID issue.');
+        } else {
+          console.log('✅ GA cookies successfully created!');
         }
-      }, 1000);
+      }, 1500);
     }, 500);
   }
 };
@@ -127,8 +148,13 @@ const GDPRConsentBanner = () => {
         preferences,
         showBanner: false
       }));
-      initializeGoogleConsentMode(preferences);
-      initializeGTM(true);
+      
+      // CRITICAL: Attendre que GA4 soit chargé avant de configurer le consent
+      setTimeout(() => {
+        console.log('🔄 Initializing consent for existing user...');
+        initializeGoogleConsentMode(preferences);
+        initializeGTM(true);
+      }, 1000);
     } else if (savedConsent === 'false') {
       setState(prev => ({
         ...prev,
