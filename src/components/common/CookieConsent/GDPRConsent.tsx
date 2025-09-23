@@ -40,20 +40,19 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
     window.dataLayer?.push(args);
   }
 
-  // Mise à jour selon les préférences (pas de default ici, déjà fait dans layout.tsx)
-  gtag('consent', 'update', {
-    'analytics_storage': preferences.analytics ? 'granted' : 'denied',
-    'ad_storage': preferences.marketing ? 'granted' : 'denied',
-    'ad_user_data': preferences.marketing ? 'granted' : 'denied',
-    'ad_personalization': preferences.marketing ? 'granted' : 'denied',
-    'functionality_storage': preferences.functionality ? 'granted' : 'denied',
-    'personalization_storage': preferences.functionality ? 'granted' : 'denied'
-  });
-  
-  console.log('Consent updated:', preferences);
-
   // Initialiser Google Analytics et GTM si analytics activé
   if (preferences.analytics && typeof window !== 'undefined') {
+    // IMPORTANT: Configurer le consent mode AVANT de charger les scripts
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': preferences.marketing ? 'granted' : 'denied',
+      'ad_user_data': preferences.marketing ? 'granted' : 'denied',
+      'ad_personalization': preferences.marketing ? 'granted' : 'denied',
+      'functionality_storage': preferences.functionality ? 'granted' : 'denied',
+      'personalization_storage': preferences.functionality ? 'granted' : 'denied'
+    });
+    
+    console.log('Consent mode updated BEFORE loading scripts:', preferences);
     // Charger GA4 d'abord
     const gaScript = document.createElement('script');
     gaScript.async = true;

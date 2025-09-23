@@ -18,6 +18,12 @@ export const debugAnalytics = () => {
     console.log('Consent:', consent);
     console.log('Preferences:', preferences ? JSON.parse(preferences) : null);
 
+    // Check consent mode in dataLayer
+    const consentEvents = window.dataLayer?.filter(item =>
+        Array.isArray(item) && item[0] === 'consent'
+    ) || [];
+    console.log('Consent mode events:', consentEvents);
+
     // Check for GA cookies
     const cookies = document.cookie.split(';').reduce((acc, cookie) => {
         const [key, value] = cookie.trim().split('=');
