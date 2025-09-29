@@ -12,6 +12,7 @@ interface CookiePreferences {
 declare global {
     interface Window {
         gtag: (...args: any[]) => void
+        dataLayer: any[]
     }
 }
 
@@ -25,12 +26,19 @@ export function useGTMConsent(preferences: CookiePreferences | null) {
             return
         }
 
-        // Vérifier que GTM est chargé et que nous avons des préférences
-        if (typeof window !== 'undefined' && window.gtag && preferences) {
+        // Vérifier que nous avons des préférences et que nous sommes côté client
+        if (typeof window !== 'undefined' && preferences) {
             console.log('🔄 Mise à jour du consentement GTM:', preferences)
 
-            // Mettre à jour le consentement selon l'article Medium
-            window.gtag('consent', 'update', {
+            // Utiliser dataLayer directement car gtag pourrait ne pas être immédiatement disponible
+            window.dataLayer = window.dataLayer || []
+
+            function gtag(...args: any[]) {
+                window.dataLayer.push(args)
+            }
+
+            // Mettre à jour le consentement
+            gtag('consent', 'update', {
                 ad_storage: preferences.marketing ? 'granted' : 'denied',
                 ad_user_data: preferences.marketing ? 'granted' : 'denied',
                 ad_personalization: preferences.marketing ? 'granted' : 'denied',
@@ -41,7 +49,7 @@ export function useGTMConsent(preferences: CookiePreferences | null) {
 
             // Envoyer un événement de confirmation si analytics est activé
             if (preferences.analytics) {
-                window.gtag('event', 'consent_update', {
+                gtag('event', 'consent_update', {
                     event_category: 'engagement',
                     event_label: 'consent_granted'
                 })

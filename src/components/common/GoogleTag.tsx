@@ -10,8 +10,8 @@ interface GoogleTagProps {
 export default function GoogleTag({ GTM_ID }: GoogleTagProps) {
   const [consent, setConsent] = useState<string | null>(null)
 
-  // Définir la valeur du consentement depuis localStorage après le chargement du client
-  // En supposant que la réponse est stockée dans localStorage sous 'InRealArtCookieConsent'
+  // Set the consent value from localStorage after the client loads
+  // Avoiding potential errors caused by server-side rendering (selon l'article Medium)
   useEffect(() => {
     const cookieConsent = localStorage.getItem('InRealArtCookieConsent')
     const cookiePreferences = localStorage.getItem('InRealArtCookiePreferences')
@@ -19,7 +19,6 @@ export default function GoogleTag({ GTM_ID }: GoogleTagProps) {
     if (cookieConsent === 'true' && cookiePreferences) {
       try {
         const preferences = JSON.parse(cookiePreferences)
-        // Si les cookies analytics sont acceptés, on accorde le consentement
         setConsent(preferences.analytics ? 'granted' : 'denied')
       } catch (error) {
         console.error('Erreur parsing cookiePreferences:', error)
@@ -30,34 +29,22 @@ export default function GoogleTag({ GTM_ID }: GoogleTagProps) {
     }
   }, [GTM_ID])
 
-  // Ne pas rendre le composant tant que le consentement n'est pas défini
+  // The key principle from Medium article: don't render until client-side consent is determined
   if (consent === null) return null
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
-      />
+      {/* Pattern de l'article Medium: un seul script afterInteractive avec consent intégré */}
       <Script
         id="google-tag-manager"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
+            // GTM integration selon l'article Medium (adapté pour GTM au lieu de GA4)
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
             
-            // Configuration globale des cookies pour GTM
-            const isLocalhost = window.location.hostname === 'localhost';
-            gtag('set', {
-              'cookie_domain': isLocalhost ? 'none' : 'auto',
-              'cookie_flags': isLocalhost ? '' : 'SameSite=Lax;Secure',
-              'cookie_path': '/',
-              'cookie_update': true
-            });
-            
-            // Définir le consentement par défaut selon l'article Medium
+            // Consent Mode v2 setup (selon l'article Medium)
             gtag('consent', 'default', {
               'ad_storage': '${consent}',
               'ad_user_data': '${consent}',
@@ -68,15 +55,27 @@ export default function GoogleTag({ GTM_ID }: GoogleTagProps) {
               'security_storage': 'granted'
             });
             
-            // Configuration GTM
-            gtag('config', '${GTM_ID}', {
-              page_path: window.location.pathname,
-            });
+            // GTM initialization (différent de GA4 dans l'article original)
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${GTM_ID}');
             
             console.log('🏷️ GTM initialisé avec consentement:', '${consent}');
           `,
         }}
       />
+      
+      {/* GTM NoScript fallback */}
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+          height="0"
+          width="0"
+          style={{ display: 'none', visibility: 'hidden' }}
+        />
+      </noscript>
     </>
   )
 }
