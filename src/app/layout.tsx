@@ -6,7 +6,6 @@ import LanguageProvider from '@/components/providers/LanguageProvider'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
 import { GoogleTagManager } from '@next/third-parties/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
@@ -68,15 +67,15 @@ export default function RootLayout ({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Initialize Google Consent Mode v2 - Default denied state
+              // Initialize Google Consent Mode v2 - Default denied state for GTM
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               
-              // CRITICAL: Configuration globale des cookies selon Context7
+              // CRITICAL: Configuration globale des cookies selon Context7 pour GTM
               const isLocalhost = window.location.hostname === 'localhost';
-              console.log('🌐 GA4 Init - Domain:', window.location.hostname, 'Local:', isLocalhost);
+              console.log('🌐 GTM Init - Domain:', window.location.hostname, 'Local:', isLocalhost);
               
-              // Configuration globale des cookies
+              // Configuration globale des cookies pour GTM
               gtag('set', {
                 'cookie_domain': isLocalhost ? 'none' : 'auto',
                 'cookie_flags': isLocalhost ? '' : 'SameSite=Lax;Secure',
@@ -84,7 +83,7 @@ export default function RootLayout ({
                 'cookie_update': true
               });
               
-              // Set default consent to 'denied' (GDPR compliant)
+              // Set default consent to 'denied' (GDPR compliant) for GTM
               gtag('consent', 'default', {
                 'ad_storage': 'denied',
                 'ad_user_data': 'denied',
@@ -97,12 +96,7 @@ export default function RootLayout ({
             `
           }}
         />
-        <GoogleAnalytics gaId="G-LRX6096NCS" />
-        <noscript>
-          <iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"}`}
-            height="0" width="0" style={{display: "none", visibility: "hidden"}}>
-          </iframe>
-        </noscript>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
 
         <Suspense>
           <NuqsAdapter>

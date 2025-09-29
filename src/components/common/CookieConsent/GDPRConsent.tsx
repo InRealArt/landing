@@ -52,84 +52,43 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
   
   console.log('Consent mode updated:', preferences);
   
-  // CRITICAL: Forcer la réinitialisation de GA4 après consent
+  // CRITICAL: Gérer l'activation/désactivation de GTM après consent
   if (preferences.analytics && window.gtag) {
     setTimeout(() => {
-      console.log('🔄 Forcing GA4 reinitialization after consent...');
+      console.log('🔄 Updating GTM consent after user choice...');
       
-      // CRITICAL: Configuration domaine selon Context7
+      // CRITICAL: Configuration domaine selon Context7 pour GTM
       const currentDomain = window.location.hostname;
       console.log('🌐 Current domain:', currentDomain);
       
-      // Force GA4 à se reconfigurer avec le nouveau consent
-      window.gtag('config', 'G-LRX6096NCS', {
-        'send_page_view': true,
-        'debug_mode': true,
-        'cookie_update': true, // Force cookie update
-        'cookie_expires': 63072000, // 2 years in seconds
-        'cookie_domain': currentDomain === 'localhost' ? 'none' : 'auto', // Fix domaine
-        'cookie_flags': currentDomain === 'localhost' ? '' : 'SameSite=Lax;Secure',
-        'cookie_path': '/', // Force le path
-        'storage': 'cookies' // Force l'utilisation des cookies
-      });
-      
-      // Forcer un page_view après reconfiguration
-      window.gtag('event', 'page_view', {
-        'page_title': document.title,
-        'page_location': window.location.href,
-        'send_to': 'G-LRX6096NCS'
-      });
-      
-      // Test event
+      // Envoyer un événement GTM pour confirmer le consentement
       window.gtag('event', 'consent_granted', {
         'event_category': 'engagement',
-        'event_label': 'analytics_enabled'
+        'event_label': 'analytics_enabled_gtm'
       });
       
-      // Diagnostic avancé et création forcée des cookies
+      // Envoyer page view via GTM dataLayer
+      window.gtag('event', 'page_view', {
+        'page_title': document.title,
+        'page_location': window.location.href
+      });
+      
+      // Diagnostic des cookies GTM créés
       setTimeout(() => {
         const allCookies = document.cookie;
-        const gaCookies = document.cookie.split(';').filter(c => 
-          c.includes('_ga') || c.includes('_gid') || c.includes('_gtm')
+        const gtmCookies = document.cookie.split(';').filter(c => 
+          c.includes('_ga') || c.includes('_gid') || c.includes('_gtm') || c.includes('_gcl')
         );
         
         console.log('🍪 All cookies:', allCookies);
-        console.log('🔍 GA cookies found:', gaCookies);
+        console.log('🔍 GTM cookies found:', gtmCookies);
         console.log('📍 Current domain:', window.location.hostname);
         console.log('🔐 Is HTTPS:', window.location.protocol === 'https:');
         
-        if (gaCookies.length === 0) {
-          console.error('❌ GA cookies not created! Forcing manual creation...');
-          
-          // FORCER LA CRÉATION MANUELLE DES COOKIES SELON CONTEXT7
-          const clientId = Math.random().toString(36).substring(2) + '.' + Date.now();
-          const gaValue = `GA1.2.${clientId}`;
-          const gidValue = `GA1.2.${Math.random().toString(36).substring(2)}.${Date.now()}`;
-          
-          // Créer manuellement les cookies GA
-          const cookieSettings = currentDomain === 'localhost' 
-            ? '; path=/; SameSite=Lax'
-            : '; path=/; domain=.inrealart.com; SameSite=Lax; Secure';
-          
-          document.cookie = `_ga=${gaValue}${cookieSettings}`;
-          document.cookie = `_gid=${gidValue}${cookieSettings}`;
-          
-          console.log('🔧 Manual cookies created:', {
-            _ga: gaValue,
-            _gid: gidValue,
-            settings: cookieSettings
-          });
-          
-          // Relancer la configuration GA4 avec les nouveaux cookies
-          setTimeout(() => {
-            window.gtag('config', 'G-LRX6096NCS', {
-              'client_id': clientId,
-              'send_page_view': true
-            });
-          }, 500);
-          
+        if (gtmCookies.length > 0) {
+          console.log('✅ GTM cookies successfully created via dataLayer!');
         } else {
-          console.log('✅ GA cookies successfully created!');
+          console.warn('⚠️ No GTM cookies found - this may be normal if GTM is handling it differently');
         }
       }, 1500);
     }, 500);
@@ -140,9 +99,9 @@ const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
 const clearCookies = () => {
   if (typeof window === 'undefined') return;
 
-  // Nettoyer les cookies Google Analytics
+  // Nettoyer les cookies GTM et analytiques
   const cookiesToRemove = [
-    '_ga', '_ga_', '_gid', '_gat', '_gcl_au', '_gcl_aw', '_gcl_dc',
+    '_ga', '_ga_', '_gid', '_gat', '_gcl_au', '_gcl_aw', '_gcl_dc', '_gtm',
     '_fbp', '_fbc', 'IDE', 'test_cookie', 'NID', '1P_JAR'
   ];
 
@@ -189,9 +148,9 @@ const GDPRConsentBanner = () => {
         showBanner: false
       }));
       
-      // CRITICAL: Attendre que GA4 soit chargé avant de configurer le consent
+      // CRITICAL: Attendre que GTM soit chargé avant de configurer le consent
       setTimeout(() => {
-        console.log('🔄 Initializing consent for existing user...');
+        console.log('🔄 Initializing GTM consent for existing user...');
         initializeGoogleConsentMode(preferences);
         initializeGTM(true);
       }, 1000);
