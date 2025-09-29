@@ -84,6 +84,12 @@ export const debugGTM = () => {
 // Alias pour compatibilité
 export const debugAnalytics = debugGTM;
 
+// Exposer la fonction globalement pour le debug
+if (typeof window !== 'undefined') {
+    (window as any).debugGTM = debugGTM;
+    (window as any).debugAnalytics = debugAnalytics; // Alias pour compatibilité
+}
+
 // Auto-run debug in development
 if (process.env.NODE_ENV === 'development') {
     setTimeout(debugGTM, 2000);

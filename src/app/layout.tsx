@@ -12,6 +12,8 @@ import NewsletterManager from '@/components/common/NewsletterManager'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
+// Import pour exposer debugGTM globalement
+import '@/utils/analyticsDebug'
 
 
 export const metadata: Metadata = {
