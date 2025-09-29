@@ -5,7 +5,7 @@ import Footer from '@/components/common/Footer'
 import LanguageProvider from '@/components/providers/LanguageProvider'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
-import { GoogleTagManager } from '@next/third-parties/google'
+import GoogleTag from '@/components/common/GoogleTag'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
@@ -66,39 +66,7 @@ export default function RootLayout ({
       <body
         className={'antialiased'}
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Initialize Google Consent Mode v2 - Default denied state for GTM
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              
-              // CRITICAL: Configuration globale des cookies selon Context7 pour GTM
-              const isLocalhost = window.location.hostname === 'localhost';
-              console.log('🌐 GTM Init - Domain:', window.location.hostname, 'Local:', isLocalhost);
-              
-              // Configuration globale des cookies pour GTM
-              gtag('set', {
-                'cookie_domain': isLocalhost ? 'none' : 'auto',
-                'cookie_flags': isLocalhost ? '' : 'SameSite=Lax;Secure',
-                'cookie_path': '/',
-                'cookie_update': true
-              });
-              
-              // Set default consent to 'denied' (GDPR compliant) for GTM
-              gtag('consent', 'default', {
-                'ad_storage': 'denied',
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied',
-                'analytics_storage': 'denied',
-                'functionality_storage': 'denied',
-                'personalization_storage': 'denied',
-                'security_storage': 'granted'
-              });
-            `
-          }}
-        />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
+        <GoogleTag GTM_ID={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
 
         <Suspense>
           <NuqsAdapter>

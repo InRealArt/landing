@@ -1,5 +1,13 @@
 // Debug utilities for Google Tag Manager
 
+// Déclaration de type pour dataLayer
+declare global {
+    interface Window {
+        dataLayer: any[];
+        gtag: (...args: any[]) => void;
+    }
+}
+
 export const debugGTM = () => {
     if (typeof window === 'undefined') return;
 

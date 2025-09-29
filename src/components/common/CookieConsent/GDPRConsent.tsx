@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguageStore } from '@/store/languageStore';
-import { initializeGTM } from '@/utils/gtm';
 import { debugAnalytics } from '@/utils/analyticsDebug';
 import CookieTester from '../CookieTester';
+import { useGTMConsent } from '@/hooks/useGTMConsent';
 
 // Déclaration de type pour window.gtag
 declare global {
@@ -28,71 +28,11 @@ interface CookieConsentState {
   preferences: CookiePreferences;
 }
 
-// Fonction pour initialiser Google Consent Mode v2 (Next.js standard)
-const initializeGoogleConsentMode = (preferences: CookiePreferences) => {
-  if (typeof window === 'undefined') return;
-
-  // Initialiser dataLayer si pas déjà fait
-  window.dataLayer = window.dataLayer || [];
-  
-  // Fonction gtag
-  function gtag(...args: any[]) {
-    window.dataLayer?.push(args);
-  }
-
-  // Mise à jour du consent mode (Next.js standard)
-  gtag('consent', 'update', {
-    'analytics_storage': preferences.analytics ? 'granted' : 'denied',
-    'ad_storage': preferences.marketing ? 'granted' : 'denied',
-    'ad_user_data': preferences.marketing ? 'granted' : 'denied',
-    'ad_personalization': preferences.marketing ? 'granted' : 'denied',
-    'functionality_storage': preferences.functionality ? 'granted' : 'denied',
-    'personalization_storage': preferences.functionality ? 'granted' : 'denied'
-  });
-  
-  console.log('Consent mode updated:', preferences);
-  
-  // CRITICAL: Gérer l'activation/désactivation de GTM après consent
-  if (preferences.analytics && window.gtag) {
-    setTimeout(() => {
-      console.log('🔄 Updating GTM consent after user choice...');
-      
-      // CRITICAL: Configuration domaine selon Context7 pour GTM
-      const currentDomain = window.location.hostname;
-      console.log('🌐 Current domain:', currentDomain);
-      
-      // Envoyer un événement GTM pour confirmer le consentement
-      window.gtag('event', 'consent_granted', {
-        'event_category': 'engagement',
-        'event_label': 'analytics_enabled_gtm'
-      });
-      
-      // Envoyer page view via GTM dataLayer
-      window.gtag('event', 'page_view', {
-        'page_title': document.title,
-        'page_location': window.location.href
-      });
-      
-      // Diagnostic des cookies GTM créés
-      setTimeout(() => {
-        const allCookies = document.cookie;
-        const gtmCookies = document.cookie.split(';').filter(c => 
-          c.includes('_ga') || c.includes('_gid') || c.includes('_gtm') || c.includes('_gcl')
-        );
-        
-        console.log('🍪 All cookies:', allCookies);
-        console.log('🔍 GTM cookies found:', gtmCookies);
-        console.log('📍 Current domain:', window.location.hostname);
-        console.log('🔐 Is HTTPS:', window.location.protocol === 'https:');
-        
-        if (gtmCookies.length > 0) {
-          console.log('✅ GTM cookies successfully created via dataLayer!');
-        } else {
-          console.warn('⚠️ No GTM cookies found - this may be normal if GTM is handling it differently');
-        }
-      }, 1500);
-    }, 500);
-  }
+// Fonction simplifiée pour nettoyer les préférences dans localStorage
+const saveConsentPreferences = (preferences: CookiePreferences, hasConsent: boolean) => {
+  localStorage.setItem('InRealArtCookieConsent', hasConsent ? 'true' : 'false');
+  localStorage.setItem('InRealArtCookiePreferences', JSON.stringify(preferences));
+  console.log('✅ Préférences de consentement sauvegardées:', preferences);
 };
 
 // Fonction pour nettoyer les cookies
@@ -134,34 +74,36 @@ const GDPRConsentBanner = () => {
     }
   });
 
+  // Utiliser le hook GTM pour la gestion du consentement
+  useGTMConsent(state.hasConsent !== null ? state.preferences : null);
+
   // Vérifier le consentement existant au chargement avec timing optimisé
   useEffect(() => {
-    const savedConsent = localStorage.getItem('cookieConsent');
-    const savedPreferences = localStorage.getItem('cookiePreferences');
+    const savedConsent = localStorage.getItem('InRealArtCookieConsent');
+    const savedPreferences = localStorage.getItem('InRealArtCookiePreferences');
     
     if (savedConsent === 'true' && savedPreferences) {
-      const preferences = JSON.parse(savedPreferences);
-      setState(prev => ({
-        ...prev,
-        hasConsent: true,
-        preferences,
-        showBanner: false
-      }));
-      
-      // CRITICAL: Attendre que GTM soit chargé avant de configurer le consent
-      setTimeout(() => {
-        console.log('🔄 Initializing GTM consent for existing user...');
-        initializeGoogleConsentMode(preferences);
-        initializeGTM(true);
-      }, 1000);
+      try {
+        const preferences = JSON.parse(savedPreferences);
+        setState(prev => ({
+          ...prev,
+          hasConsent: true,
+          preferences,
+          showBanner: false
+        }));
+        console.log('🔄 Préférences de consentement chargées:', preferences);
+      } catch (error) {
+        console.error('Erreur lors du parsing des préférences:', error);
+        // En cas d'erreur, afficher la bannière
+        setState(prev => ({ ...prev, showBanner: true }));
+      }
     } else if (savedConsent === 'false') {
       setState(prev => ({
         ...prev,
         hasConsent: false,
-        showBanner: false
+        showBanner: false,
+        preferences: { necessary: true, analytics: false, marketing: false, functionality: false }
       }));
-      initializeGoogleConsentMode({ necessary: true, analytics: false, marketing: false, functionality: false });
-      initializeGTM(false);
     } else {
       // STRATEGY: Délai stratégique pour montrer la bannière après engagement
       setTimeout(() => {
@@ -196,11 +138,7 @@ const GDPRConsentBanner = () => {
       preferences: allAccepted
     }));
 
-    localStorage.setItem('cookieConsent', 'true');
-    localStorage.setItem('cookiePreferences', JSON.stringify(allAccepted));
-    
-    initializeGoogleConsentMode(allAccepted);
-    initializeGTM(true);
+    saveConsentPreferences(allAccepted, true);
     
     // Debug analytics after consent
     setTimeout(() => {
@@ -225,12 +163,8 @@ const GDPRConsentBanner = () => {
       preferences: onlyNecessary
     }));
 
-    localStorage.setItem('cookieConsent', 'false');
-    localStorage.setItem('cookiePreferences', JSON.stringify(onlyNecessary));
-    
+    saveConsentPreferences(onlyNecessary, false);
     clearCookies();
-    initializeGoogleConsentMode(onlyNecessary);
-    initializeGTM(false);
   };
 
   // Gérer l'acceptation des préférences personnalisées
@@ -242,11 +176,7 @@ const GDPRConsentBanner = () => {
       showPreferences: false
     }));
 
-    localStorage.setItem('cookieConsent', 'true');
-    localStorage.setItem('cookiePreferences', JSON.stringify(state.preferences));
-    
-    initializeGoogleConsentMode(state.preferences);
-    initializeGTM(state.preferences.analytics || state.preferences.marketing);
+    saveConsentPreferences(state.preferences, true);
   };
 
   // Gérer l'ouverture des préférences
@@ -281,8 +211,8 @@ const GDPRConsentBanner = () => {
   // Supprimer tous les cookies et recharger
   const handleDeleteCookies = () => {
     clearCookies();
-    localStorage.removeItem('cookieConsent');
-    localStorage.removeItem('cookiePreferences');
+    localStorage.removeItem('InRealArtCookieConsent');
+    localStorage.removeItem('InRealArtCookiePreferences');
     window.location.reload();
   };
 
