@@ -9,6 +9,7 @@ import GoogleTag from '@/components/common/GoogleTag'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
+import UmamiAnalytics from '@/components/common/UmamiAnalytics'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
@@ -67,6 +68,7 @@ export default function RootLayout ({
         className={'antialiased'}
       >
         <GoogleTag GTM_ID={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
+        <UmamiAnalytics websiteId="d103585b-b4cd-4953-b780-30a3c4dec14f" />
 
         <Suspense>
           <NuqsAdapter>
