@@ -27,6 +27,8 @@ export interface GamePage {
   artwork: GameArtwork;
   artist: GameArtist;
   mockup: string;
+  brevoListIdFr: number;
+  brevoListIdEn: number;
   title: Record<GameLang, string>;
   description: Record<GameLang, string>;
   howToParticipate: Record<GameLang, {

@@ -106,6 +106,9 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
           phone: formData.phone,
           gameSlug: game.slug,
           artworkName: game.artwork.name,
+          language: language,
+          brevoListIdFr: game.brevoListIdFr,
+          brevoListIdEn: game.brevoListIdEn,
         }),
       });
 

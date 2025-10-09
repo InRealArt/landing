@@ -4,6 +4,8 @@ export const games: GamePage[] = [
   {
     slug: 'monique-letang-aux-glycines',
     active: true,
+    brevoListIdFr: 41,
+    brevoListIdEn: 40,
     startDate: '2025-10-01',
     endDate: '2025-10-31',
     artwork: {
@@ -65,6 +67,8 @@ export const games: GamePage[] = [
   {
     slug: 'senechal-boudoir',
     active: true,
+    brevoListIdFr: 39,
+    brevoListIdEn: 38,
     startDate: '2025-10-01',
     endDate: '2025-10-31',
     artwork: {

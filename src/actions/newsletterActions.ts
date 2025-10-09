@@ -148,108 +148,55 @@ export async function subscribeToNewsletter(formData: FormData): Promise<Newslet
 }
 
 /**
- * Ajoute un contact à la base de données Brevo
+ * Ajoute un contact à la base de données Brevo pour la newsletter
  * @param email - L'adresse email du contact
  * @returns Résultat de l'opération
  */
 async function addContactToBrevo(email: string, language: string = 'fr'): Promise<{ success: boolean; message: string }> {
-    try {
-        // Configuration de l'API Brevo
-        const brevoApiKey = process.env.BREVO_API_KEY
+    const { addContactToBrevo: addContact } = await import('@/utils/brevoService');
+    
+    const brevoListId = getBrevoNewsletterListId(language);
+    
+    const result = await addContact({
+        email,
+        listId: brevoListId,
+        language,
+        source: BREVO_CONTACT_ATTRIBUTES.NEWSLETTER_SOURCE
+    });
 
-        // Obtenir l'ID de liste newsletter selon la langue
-        const brevoListId = getBrevoNewsletterListId(language)
-
-        if (!brevoApiKey) {
-            console.error('❌ Clé API Brevo manquante')
-            return {
-                success: false,
-                message: getNewsletterMessage('configurationError', language)
-            }
-        }
-
-        // Utilisation de l'API Brevo avec fetch (pour éviter les dépendances externes)
-        const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'api-key': brevoApiKey
-            },
-            body: JSON.stringify({
-                email,
-                listIds: [brevoListId],
-                updateEnabled: true, // Met à jour le contact s'il existe déjà
-                attributes: {
-                    FIRSTNAME: '', // Peut être étendu si nécessaire
-                    LASTNAME: '',
-                    LANGUAGE: language.toUpperCase(),
-                    SOURCE: BREVO_CONTACT_ATTRIBUTES.NEWSLETTER_SOURCE
-                }
-            })
-        })
-
-        if (!brevoResponse.ok) {
-            const errorData = await brevoResponse.json().catch(() => ({}))
-
-            // Gestion des erreurs spécifiques de Brevo
-            if (brevoResponse.status === 400 && errorData.code === 'duplicate_parameter') {
-                return {
-                    success: true,
-                    message: getNewsletterMessage('alreadySubscribed', language)
-                }
-            }
-
-            // Gestion des erreurs d'IP non autorisée (401)
-            if (brevoResponse.status === 401) {
-                console.error('❌ Erreur IP Brevo: 401', errorData)
-                console.error('💡 Solution: Désactiver les restrictions IP dans Brevo ou configurer les IP ranges de Vercel')
-                console.error('📖 Voir docs/vercel-ip-ranges.md pour plus d\'informations')
-
-                return {
-                    success: false,
-                    message: getNewsletterMessage('serviceUnavailable', language)
-                }
-            }
-
-            console.error('❌ Erreur API Brevo:', brevoResponse.status, errorData)
-            return {
-                success: false,
-                message: getNewsletterMessage('subscriptionError', language)
-            }
-        }
-
-        // Vérifier si la réponse contient du JSON avant de parser
-        let responseData = null
-        const contentType = brevoResponse.headers.get('content-type')
-
-        if (contentType && contentType.includes('application/json')) {
-            try {
-                const responseText = await brevoResponse.text()
-                if (responseText && responseText.trim()) {
-                    responseData = JSON.parse(responseText)
-                    console.log(`✅ Contact ajouté avec succès à Brevo (liste ${brevoListId} - ${language.toUpperCase()}):`, responseData.id || 'ID non fourni')
-                } else {
-                    console.log(`✅ Contact ajouté avec succès à Brevo (liste ${brevoListId} - ${language.toUpperCase()}) - réponse vide`)
-                }
-            } catch (parseError) {
-                console.log(`✅ Contact ajouté avec succès à Brevo (liste ${brevoListId} - ${language.toUpperCase()}) - JSON non parsable, mais succès confirmé`)
-            }
-        } else {
-            console.log(`✅ Contact ajouté avec succès à Brevo (liste ${brevoListId} - ${language.toUpperCase()}) - pas de JSON retourné`)
-        }
-
-        return {
-            success: true,
-            message: getNewsletterMessage('success', language)
-        }
-
-    } catch (error) {
-        console.error('❌ Erreur lors de l\'ajout du contact à Brevo:', error)
+    // Map generic messages to newsletter-specific messages
+    if (!result.success && result.message.includes('configuration')) {
         return {
             success: false,
-            message: getNewsletterMessage('connectionError', language)
-        }
+            message: getNewsletterMessage('configurationError', language)
+        };
     }
+
+    if (!result.success && result.message.includes('unavailable')) {
+        return {
+            success: false,
+            message: getNewsletterMessage('serviceUnavailable', language)
+        };
+    }
+
+    if (!result.success) {
+        return {
+            success: false,
+            message: getNewsletterMessage('subscriptionError', language)
+        };
+    }
+
+    if (result.message.includes('already exists')) {
+        return {
+            success: true,
+            message: getNewsletterMessage('alreadySubscribed', language)
+        };
+    }
+
+    return {
+        success: true,
+        message: getNewsletterMessage('success', language)
+    };
 }
 
 /**

@@ -137,98 +137,40 @@ export async function downloadCatalog(formData: FormData): Promise<CatalogDownlo
  * @returns Résultat de l'opération
  */
 async function addContactToBrevoForCatalog(email: string, language: string = 'fr'): Promise<{ success: boolean; message: string }> {
-    try {
-        // Configuration de l'API Brevo
-        const brevoApiKey = process.env.BREVO_API_KEY
+    const { addContactToBrevo } = await import('@/utils/brevoService');
+    
+    const brevoListId = getBrevoCatalogListId(language);
+    
+    const result = await addContactToBrevo({
+        email,
+        listId: brevoListId,
+        language,
+        source: BREVO_CONTACT_ATTRIBUTES.CATALOG_SOURCE
+    });
 
-        // Obtenir l'ID de liste catalogue selon la langue
-        const brevoListId = getBrevoCatalogListId(language)
-
-        if (!brevoApiKey) {
-            console.error('❌ Clé API Brevo manquante')
-            return {
-                success: false,
-                message: getCatalogMessage('configurationError', language)
-            }
-        }
-
-        // Utilisation de l'API Brevo avec fetch
-        const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'api-key': brevoApiKey
-            },
-            body: JSON.stringify({
-                email,
-                listIds: [brevoListId],
-                updateEnabled: true, // Met à jour le contact s'il existe déjà
-                attributes: {
-                    FIRSTNAME: '', // Peut être étendu si nécessaire
-                    LASTNAME: '',
-                    LANGUAGE: language.toUpperCase(),
-                    SOURCE: BREVO_CONTACT_ATTRIBUTES.CATALOG_SOURCE
-                }
-            })
-        })
-
-        if (!brevoResponse.ok) {
-            const errorData = await brevoResponse.json().catch(() => ({}))
-
-            // Gestion des erreurs spécifiques de Brevo
-            if (brevoResponse.status === 400 && errorData.code === 'duplicate_parameter') {
-                return {
-                    success: true,
-                    message: getCatalogMessage('success', language)
-                }
-            }
-
-            // Gestion des erreurs d'IP non autorisée (401)
-            if (brevoResponse.status === 401) {
-                console.error('❌ Erreur IP Brevo: 401', errorData)
-                return {
-                    success: false,
-                    message: getCatalogMessage('serviceUnavailable', language)
-                }
-            }
-
-            console.error('❌ Erreur API Brevo:', brevoResponse.status, errorData)
-            return {
-                success: false,
-                message: getCatalogMessage('downloadError', language)
-            }
-        }
-
-        // Vérifier si la réponse contient du JSON avant de parser
-        let responseData = null
-        const contentType = brevoResponse.headers.get('content-type')
-
-        if (contentType && contentType.includes('application/json')) {
-            try {
-                const responseText = await brevoResponse.text()
-                if (responseText && responseText.trim()) {
-                    responseData = JSON.parse(responseText)
-                    console.log(`✅ Contact ajouté avec succès à Brevo pour catalogue (liste ${brevoListId} - ${language.toUpperCase()}):`, responseData.id || 'ID non fourni')
-                } else {
-                    console.log(`✅ Contact ajouté avec succès à Brevo pour catalogue (liste ${brevoListId} - ${language.toUpperCase()}) - réponse vide`)
-                }
-            } catch (parseError) {
-                console.log(`✅ Contact ajouté avec succès à Brevo pour catalogue (liste ${brevoListId} - ${language.toUpperCase()}) - JSON non parsable, mais succès confirmé`)
-            }
-        } else {
-            console.log(`✅ Contact ajouté avec succès à Brevo pour catalogue (liste ${brevoListId} - ${language.toUpperCase()}) - pas de JSON retourné`)
-        }
-
-        return {
-            success: true,
-            message: getCatalogMessage('success', language)
-        }
-
-    } catch (error) {
-        console.error('❌ Erreur lors de l\'ajout du contact à Brevo pour catalogue:', error)
+    if (!result.success && result.message.includes('configuration')) {
         return {
             success: false,
-            message: getCatalogMessage('connectionError', language)
-        }
+            message: getCatalogMessage('configurationError', language)
+        };
     }
+
+    if (!result.success && result.message.includes('unavailable')) {
+        return {
+            success: false,
+            message: getCatalogMessage('serviceUnavailable', language)
+        };
+    }
+
+    if (!result.success) {
+        return {
+            success: false,
+            message: getCatalogMessage('downloadError', language)
+        };
+    }
+
+    return {
+        success: true,
+        message: getCatalogMessage('success', language)
+    };
 }

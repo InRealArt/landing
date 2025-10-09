@@ -275,6 +275,7 @@ export const createFallbackAdminEmailTemplate = (formData: FormData): string => 
 // Email service function
 // Game registration email templates
 export const createGameRegistrationUserTemplate = (name: string, artworkName: string, language: string) => {
+  if (language === 'fr') {
     return {
         subject: `Confirmation de participation - ${artworkName}`,
         html: `
@@ -338,9 +339,75 @@ export const createGameRegistrationUserTemplate = (name: string, artworkName: st
         </html>
       `
     };
+  }
+
+  return {
+    subject: `Participation Confirmation - ${artworkName}`,
+    html: `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Participation Confirmation</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: white;
+            }
+            .header {
+                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                color: white;
+                padding: 30px 20px;
+                text-align: center;
+                border-radius: 8px 8px 0 0;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .footer {
+                background-color: #1f2937;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 0 0 8px 8px;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🎨 Participation Confirmation</h1>
+            </div>
+            <div class="content">
+                <p>Hello ${name},</p>
+                <p>We have received your registration to win "${artworkName}".</p>
+                <p>We will contact you soon with more details about the contest.</p>
+                <p>Best regards,<br>The InRealArt Team</p>
+            </div>
+            <div class="footer">
+                <p><strong>InRealArt</strong></p>
+                <p>Email: teaminrealart@gmail.com</p>
+            </div>
+        </div>
+    </body>
+    </html>
+  `
+  };
 };
 
 export const createGameRegistrationAdminTemplate = (name: string, email: string, phone: string, artworkName: string, language: string) => {
+  if (language === 'fr') {
     return {
         subject: `Nouvelle participation au concours - ${artworkName}`,
         html: `
@@ -416,6 +483,83 @@ export const createGameRegistrationAdminTemplate = (name: string, email: string,
         </html>
       `
     };
+  }
+
+  return {
+    subject: `New Contest Participation - ${artworkName}`,
+    html: `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>New Contest Participation</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: white;
+            }
+            .header {
+                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                color: white;
+                padding: 30px 20px;
+                text-align: center;
+                border-radius: 8px 8px 0 0;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .info-box {
+                background-color: #f8f9fa;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
+            }
+            .footer {
+                background-color: #1f2937;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 0 0 8px 8px;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🎨 New Contest Participation</h1>
+            </div>
+            <div class="content">
+                <div class="info-box">
+                    <h3>Participant Details</h3>
+                    <ul>
+                        <li><strong>Name:</strong> ${name}</li>
+                        <li><strong>Email:</strong> ${email}</li>
+                        <li><strong>Phone:</strong> ${phone}</li>
+                        <li><strong>Artwork:</strong> ${artworkName}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <p><strong>InRealArt</strong></p>
+                <p>Generated on ${new Date().toLocaleDateString('en-US')} at ${new Date().toLocaleTimeString('en-US')}</p>
+            </div>
+        </div>
+    </body>
+    </html>
+  `
+  };
 };
 
 export async function sendEmailViaBrevo(to: string, subject: string, htmlContent: string, attachments?: any[]) {
