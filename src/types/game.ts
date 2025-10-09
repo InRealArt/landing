@@ -26,6 +26,7 @@ export interface GamePage {
   endDate: string;
   artwork: GameArtwork;
   artist: GameArtist;
+  mockup: string;
   title: Record<GameLang, string>;
   description: Record<GameLang, string>;
   howToParticipate: Record<GameLang, {

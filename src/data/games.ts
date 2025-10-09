@@ -12,6 +12,7 @@ export const games: GamePage[] = [
       dimensions: '73 x 54 cm',
       image: '/images/games/monique/artwork.webp'
     },
+    mockup: '/images/games/participation.webp',
     artist: {
       name: 'Monique Laville',
       image: '/images/games/monique/artist.webp',
@@ -80,6 +81,7 @@ export const games: GamePage[] = [
         fr: 'Catherine donne vie aux espaces intimes grâce à une technique magistrale et une attention aux détails.'
       }
     },
+    mockup: '/images/games/senechal/mockup.webp',
     title: {
       en: 'CONTEST: Try to win a painting by artist Catherine Sénéchal worth €880: Boudoir',
       fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Catherine Sénéchal d\'une valeur de 880€ : Boudoir'

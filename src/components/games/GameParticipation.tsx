@@ -74,7 +74,7 @@ export default function GameParticipation({ game }: GameParticipationProps) {
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-primary/0 to-primary/30 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
               <Image
-                src="/images/games/participation.webp"
+                src={game.mockup}
                 alt="Participation"
                 fill
                 className="object-cover rounded-lg shadow-xl group-hover:scale-[1.02] transition-transform duration-500"
