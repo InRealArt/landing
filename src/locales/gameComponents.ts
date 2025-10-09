@@ -17,6 +17,7 @@ export const gameTranslations = {
       fullName: 'Full Name',
       email: 'Email Address',
       phone: 'Phone Number',
+      newsletter: 'I accept to be registered on the newsletter',
       register: 'Register Now',
       registering: 'Registering...',
       success: 'Thank you for registering! Check your email for confirmation.',
@@ -25,6 +26,7 @@ export const gameTranslations = {
         emailRequired: 'Email is required',
         emailInvalid: 'Invalid email format',
         phoneRequired: 'Phone number is required',
+        newsletterRequired: 'You must accept newsletter registration to participate',
         submitError: 'An error occurred. Please try again.'
       }
     }
@@ -47,6 +49,7 @@ export const gameTranslations = {
       fullName: 'Nom Complet',
       email: 'Adresse Email',
       phone: 'Numéro de Téléphone',
+      newsletter: 'J\'accepte de m\'inscrire à la newsletter',
       register: 'S\'inscrire Maintenant',
       registering: 'Inscription...',
       success: 'Merci de votre inscription ! Vérifiez votre email pour la confirmation.',
@@ -55,6 +58,7 @@ export const gameTranslations = {
         emailRequired: 'L\'email est requis',
         emailInvalid: 'Format d\'email invalide',
         phoneRequired: 'Le numéro de téléphone est requis',
+        newsletterRequired: 'Vous devez accepter l\'inscription à la newsletter pour participer',
         submitError: 'Une erreur est survenue. Veuillez réessayer.'
       }
     }

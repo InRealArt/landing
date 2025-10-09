@@ -37,7 +37,7 @@ export default function GameHero({ game }: GameHeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text"
+            className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text"
           >
             {game.title[language]}
           </motion.h1>
@@ -86,22 +86,25 @@ export default function GameHero({ game }: GameHeroProps) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="relative aspect-[3/4] w-[70%] max-w-lg mx-auto group"
+          className="relative w-[70%] max-w-lg mx-auto group"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-10 pointer-events-none" />
           <motion.div
             initial={{ rotate: -5 }}
             whileHover={{ rotate: 0 }}
             transition={{ duration: 0.4 }}
-            className="relative h-full"
+            className="relative"
           >
-            <Image
-              src={game.artwork.image}
-              alt={game.artwork.name}
-              fill
-              className="object-cover rounded-lg shadow-2xl"
-              priority
-            />
+            <div className="relative w-full" style={{ maxHeight: '600px' }}>
+              <Image
+                src={game.artwork.image}
+                alt={game.artwork.name}
+                width={800}
+                height={1000}
+                className="object-contain rounded-lg shadow-2xl w-full h-auto max-h-[600px]"
+                priority
+              />
+            </div>
           </motion.div>
         </motion.div>
       </div>

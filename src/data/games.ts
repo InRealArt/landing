@@ -21,34 +21,31 @@ export const games: GamePage[] = [
       }
     },
     title: {
-      en: 'Win "L\'ETANG AUX GLYCINES" - A Masterpiece Worth €4,000',
-      fr: 'Gagnez "L\'ETANG AUX GLYCINES" - Un Chef-d\'œuvre d\'une Valeur de 4 000 €'
+      en: 'CONTEST: Try to win a painting by artist Monique Laville worth €4,000: L\'Étang aux Glycines',
+      fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Monique Laville d\'une valeur de 4000€ : L\'Étang aux Glycines'
     },
     description: {
-      en: 'Enter for a chance to win this stunning artwork that brings the serene beauty of a wisteria-laden pond to life.',
-      fr: 'Participez pour avoir la chance de gagner cette œuvre magnifique qui donne vie à la beauté sereine d\'un étang bordé de glycines.'
+      en: 'This is a very rare opportunity to acquire, for free, a unique painting to enhance your interior and impress your guests. Don\'t miss your chance!',
+      fr: 'C\'est une occasion très rare de pouvoir acquérir, gratuitement, une toile unique pour sublimer votre intérieur et épater vos invités. Ne manquez pas votre chance !'
     },
     howToParticipate: {
       en: {
         steps: [
-          'Fill out the participation form below',
-          'Follow InRealArt and the artist on Instagram',
-          'Share this contest with your friends',
-          'Winners will be announced on November 1st, 2025'
+          'Fill out the participation form below and accept to be registered on the newsletter',
+          'The winner will be announced on November 1st, 2025'
         ]
       },
       fr: {
         steps: [
-          'Remplissez le formulaire de participation ci-dessous',
-          'Suivez InRealArt et l\'artiste sur Instagram',
-          'Partagez ce concours avec vos amis',
-          'Les gagnants seront annoncés le 1er novembre 2025'
+          'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
+          'Le gagnant sera annoncé le 1er novembre 2025'
         ]
       }
     },
     termsAndConditions: {
       en: [
         'No purchase necessary to enter or win',
+        'You must fill out the form and subscribe to the newsletter',
         'Contest open to participants aged 18 and above',
         'One entry per person',
         'Winner will be selected randomly from all valid entries',
@@ -56,6 +53,7 @@ export const games: GamePage[] = [
       ],
       fr: [
         'Aucun achat nécessaire pour participer ou gagner',
+        'Il faut remplir le formulaire et s\'inscrire à la newsletter',
         'Concours ouvert aux participants de 18 ans et plus',
         'Une participation par personne',
         'Le gagnant sera sélectionné au hasard parmi toutes les participations valides',
@@ -83,34 +81,31 @@ export const games: GamePage[] = [
       }
     },
     title: {
-      en: 'Win "Boudoir" - An Intimate Masterpiece',
-      fr: 'Gagnez "Boudoir" - Un Chef-d\'œuvre Intime'
+      en: 'CONTEST: Try to win a painting by artist Catherine Sénéchal worth €880: Boudoir',
+      fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Catherine Sénéchal d\'une valeur de 880€ : Boudoir'
     },
     description: {
-      en: 'Enter our contest to win this exquisite artwork that captures the essence of intimate spaces.',
-      fr: 'Participez à notre concours pour gagner cette œuvre exquise qui capture l\'essence des espaces intimes.'
+      en: 'This is a very rare opportunity to acquire, for free, a unique painting to enhance your interior and impress your guests. Don\'t miss your chance!',
+      fr: 'C\'est une occasion très rare de pouvoir acquérir, gratuitement, une toile unique pour sublimer votre intérieur et épater vos invités. Ne manquez pas votre chance !'
     },
     howToParticipate: {
       en: {
         steps: [
-          'Fill out the participation form below',
-          'Follow InRealArt and the artist on Instagram',
-          'Share this contest with your friends',
-          'Winners will be announced on November 1st, 2025'
+          'Fill out the participation form below and accept to be registered on the newsletter',
+          'The winner will be announced on November 1st, 2025'
         ]
       },
       fr: {
         steps: [
-          'Remplissez le formulaire de participation ci-dessous',
-          'Suivez InRealArt et l\'artiste sur Instagram',
-          'Partagez ce concours avec vos amis',
-          'Les gagnants seront annoncés le 1er novembre 2025'
+          'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
+          'Le gagnant sera annoncé le 1er novembre 2025'
         ]
       }
     },
     termsAndConditions: {
       en: [
         'No purchase necessary to enter or win',
+        'You must fill out the form and subscribe to the newsletter',
         'Contest open to participants aged 18 and above',
         'One entry per person',
         'Winner will be selected randomly from all valid entries',
@@ -118,6 +113,7 @@ export const games: GamePage[] = [
       ],
       fr: [
         'Aucun achat nécessaire pour participer ou gagner',
+        'Il faut remplir le formulaire et s\'inscrire à la newsletter',
         'Concours ouvert aux participants de 18 ans et plus',
         'Une participation par personne',
         'Le gagnant sera sélectionné au hasard parmi toutes les participations valides',

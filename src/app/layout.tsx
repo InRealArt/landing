@@ -19,7 +19,7 @@ import '@/utils/analyticsDebug'
 
 export const metadata: Metadata = {
   title: "In Real Art",
-  description: "Landing page In Real Art, RWA: Elevating Art, Empowering Change",
+  description: "Landing page In Real Art, Catalyseur d'Art, culture et Patrimoine",
   icons: {
     icon: '/icons/favicon-32x32.png',
     shortcut: '/icons/favicon-16x16.png',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://inrealart.com/"),
   openGraph: {
     title: 'In Real Art',
-    description: 'RWA: Elevating Art, Empowering Change',
+    description: 'Catalyseur d\'Art, culture et Patrimoine',
     url: 'https://inrealart.com/',
     images: [
       {

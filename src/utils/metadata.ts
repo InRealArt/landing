@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 // Base configuration
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
 export const SITE_NAME = 'InRealArt'
-export const SITE_DESCRIPTION = 'RWA: Elevating Art, Empowering Change'
+export const SITE_DESCRIPTION = 'Catalyseur d\'Art, culture et Patrimoine'
 export const DEFAULT_OG_IMAGE = '/opengraph-image.png'
 
 // SEO metadata types

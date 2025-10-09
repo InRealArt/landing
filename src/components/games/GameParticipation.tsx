@@ -34,7 +34,7 @@ export default function GameParticipation({ game }: GameParticipationProps) {
             transition={{ duration: 0.8 }}
             className="flex-1"
           >
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-6">
               {game.howToParticipate[language].steps.map((step, index) => (
                 <motion.div
                   key={index}

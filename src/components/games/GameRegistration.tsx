@@ -7,6 +7,7 @@ import { GamePage } from '@/types/game';
 import { useLanguageStore } from '@/store/languageStore';
 import { gameTranslations } from '@/locales/gameComponents';
 import Button from '@/components/common/Button';
+import { subscribeToNewsletter } from '@/actions/newsletterActions';
 import 'react-phone-number-input/style.css';
 
 interface GameRegistrationProps {
@@ -19,13 +20,14 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
-    phone: ''
+    phone: '',
+    acceptNewsletter: false
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
@@ -48,6 +50,10 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
     
     if (!formData.phone.trim()) {
       newErrors.phone = t.registration.errors.phoneRequired;
+    }
+
+    if (!formData.acceptNewsletter) {
+      newErrors.newsletter = t.registration.errors.newsletterRequired;
     }
 
     setErrors(newErrors);
@@ -74,13 +80,30 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
     setLoading(true);
 
     try {
+      // Subscribe to newsletter if accepted
+      if (formData.acceptNewsletter) {
+        const newsletterFormData = new FormData();
+        newsletterFormData.append('email', formData.email);
+        newsletterFormData.append('language', language);
+        
+        const newsletterResult = await subscribeToNewsletter(newsletterFormData);
+        
+        if (!newsletterResult.success) {
+          console.warn('Newsletter subscription failed:', newsletterResult.message);
+          // Continue with game registration even if newsletter fails
+        }
+      }
+
+      // Register for the game
       const response = await fetch('/api/game-registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
+          email: formData.email,
+          name: formData.name,
+          phone: formData.phone,
           gameSlug: game.slug,
           artworkName: game.artwork.name,
         }),
@@ -93,7 +116,7 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
       }
 
       setSuccess(true);
-      setFormData({ email: '', name: '', phone: '' });
+      setFormData({ email: '', name: '', phone: '', acceptNewsletter: false });
       
       // Show success toast
       toast.success(
@@ -193,6 +216,24 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
               />
               {errors.phone && (
                 <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={formData.acceptNewsletter}
+                  onChange={(e) => handleChange('acceptNewsletter', e.target.checked)}
+                  className="mt-1 w-5 h-5 rounded border-2 border-gray-700 bg-backgroundGrey text-primary focus:ring-2 focus:ring-primary/50 cursor-pointer"
+                />
+                <span className="text-sm text-grayText group-hover:text-textColor transition-colors">
+                  {t.registration.newsletter}
+                  <span className="text-red-400 ml-1">*</span>
+                </span>
+              </label>
+              {errors.newsletter && (
+                <p className="text-red-400 text-sm mt-1">{errors.newsletter}</p>
               )}
             </div>
 
