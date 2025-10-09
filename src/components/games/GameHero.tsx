@@ -24,16 +24,16 @@ export default function GameHero({ game }: GameHeroProps) {
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90 z-10" />
-      
+
       <div className="relative z-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap:8 items-center">
         {/* Text Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-white space-y-6"
         >
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -41,7 +41,7 @@ export default function GameHero({ game }: GameHeroProps) {
           >
             {game.title[language]}
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -49,7 +49,7 @@ export default function GameHero({ game }: GameHeroProps) {
           >
             {game.description[language]}
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -63,26 +63,30 @@ export default function GameHero({ game }: GameHeroProps) {
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               {t.hero.dimensions}: {game.artwork.dimensions}
             </p>
+            <p className="text-xl flex items-center gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              {t.hero.medium}: {game.artwork.medium[language]}
+            </p>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Button 
-              center 
-              additionalClassName='w-full bg-purpleColor hover:bg-purpleColor/90 transition-colors' 
+            <Button
+              center
+              additionalClassName='w-full bg-purpleColor hover:bg-purpleColor/90 transition-colors'
               text={t.hero.participate}
               action={() => {
                 const registrationForm = document.querySelector('#registration-form');
                 registrationForm?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }} 
+              }}
             />
           </motion.div>
         </motion.div>
 
         {/* Artwork Image */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

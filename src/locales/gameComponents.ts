@@ -3,6 +3,7 @@ export const gameTranslations = {
     hero: {
       value: 'Value',
       dimensions: 'Dimensions',
+      medium: 'Medium',
       participate: 'Participate'
     },
     artist: {
@@ -35,6 +36,7 @@ export const gameTranslations = {
     hero: {
       value: 'Valeur',
       dimensions: 'Dimensions',
+      medium: 'Medium',
       participate: 'Participer'
     },
     artist: {

@@ -12,7 +12,11 @@ export const games: GamePage[] = [
       name: "L'ETANG AUX GLYCINES",
       value: 4000,
       dimensions: '73 x 54 cm',
-      image: '/images/games/monique/artwork.webp'
+      image: '/images/games/monique/artwork.webp',
+      medium: {
+        fr: 'Huile, Collage sur Toile',
+        en: 'Oil, Collage on Canvas'
+      },
     },
     mockup: '/images/games/participation.webp',
     artist: {
@@ -35,13 +39,13 @@ export const games: GamePage[] = [
       en: {
         steps: [
           'Fill out the participation form below and accept to be registered on the newsletter',
-          'The winner will be announced on November 1st, 2025'
+          'The winner will be announced on November 3rd, 2025'
         ]
       },
       fr: {
         steps: [
           'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
-          'Le gagnant sera annoncé le 1er novembre 2025'
+          'Le gagnant sera annoncé le 3 novembre 2025'
         ]
       }
     },
@@ -75,6 +79,10 @@ export const games: GamePage[] = [
       name: 'Boudoir',
       value: 880,
       dimensions: '21 x 26 cm',
+      medium: {
+        fr: 'Huile, Collage sur Toile',
+        en: 'Oil, Collage on Canvas'
+      },
       image: '/images/games/senechal/artwork.webp'
     },
     artist: {
@@ -98,13 +106,13 @@ export const games: GamePage[] = [
       en: {
         steps: [
           'Fill out the participation form below and accept to be registered on the newsletter',
-          'The winner will be announced on November 1st, 2025'
+          'The winner will be announced on November 3rd, 2025'
         ]
       },
       fr: {
         steps: [
           'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
-          'Le gagnant sera annoncé le 1er novembre 2025'
+          'Le gagnant sera annoncé le 3 novembre 2025'
         ]
       }
     },

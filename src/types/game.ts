@@ -5,6 +5,7 @@ export interface GameArtwork {
   value: number;
   dimensions: string;
   image: string;
+  medium: Record<GameLang, string>;
 }
 
 export interface GameArtist {
