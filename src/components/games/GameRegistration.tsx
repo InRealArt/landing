@@ -19,7 +19,8 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
   const t = gameTranslations[language];
   const [formData, setFormData] = useState({
     email: '',
-    name: '',
+    firstName: '',
+    lastName: '',
     phone: '',
     acceptNewsletter: false
   });
@@ -38,8 +39,12 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     
-    if (!formData.name.trim()) {
-      newErrors.name = t.registration.errors.nameRequired;
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = t.registration.errors.firstNameRequired;
+    }
+    
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = t.registration.errors.lastNameRequired;
     }
     
     if (!formData.email.trim()) {
@@ -102,7 +107,7 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
         },
         body: JSON.stringify({
           email: formData.email,
-          name: formData.name,
+          name: `${formData.firstName} ${formData.lastName}`,
           phone: formData.phone,
           gameSlug: game.slug,
           artworkName: game.artwork.name,
@@ -119,7 +124,7 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
       }
 
       setSuccess(true);
-      setFormData({ email: '', name: '', phone: '', acceptNewsletter: false });
+      setFormData({ email: '', firstName: '', lastName: '', phone: '', acceptNewsletter: false });
       
       // Show success toast
       toast.success(
@@ -158,29 +163,50 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
 
         {success ? (
           <div className="text-center p-6 bg-green-500/10 rounded-lg">
-            <p className="text-green-500 font-semibold">
+            <p className="text-green-500 font-semibold whitespace-pre-line">
               {t.registration.success}
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-grayText mb-2">
-                {t.registration.fullName}
-                <span className="text-red-400 ml-1">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={(e) => handleChange('name', e.target.value)}
-                className={`w-full px-4 py-4 rounded-lg border-2 ${
-                  errors.name ? 'border-red-500' : 'border-gray-700'
-                } bg-backgroundGrey focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded`}
-              />
-              {errors.name && (
-                <p className="text-red-400 text-sm mt-1">{errors.name}</p>
-              )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-grayText mb-2">
+                  {t.registration.firstName}
+                  <span className="text-red-400 ml-1">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  value={formData.firstName}
+                  onChange={(e) => handleChange('firstName', e.target.value)}
+                  className={`w-full px-4 py-4 rounded-lg border-2 ${
+                    errors.firstName ? 'border-red-500' : 'border-gray-700'
+                  } bg-backgroundGrey focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded`}
+                />
+                {errors.firstName && (
+                  <p className="text-red-400 text-sm mt-1">{errors.firstName}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-grayText mb-2">
+                  {t.registration.lastName}
+                  <span className="text-red-400 ml-1">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  value={formData.lastName}
+                  onChange={(e) => handleChange('lastName', e.target.value)}
+                  className={`w-full px-4 py-4 rounded-lg border-2 ${
+                    errors.lastName ? 'border-red-500' : 'border-gray-700'
+                  } bg-backgroundGrey focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded`}
+                />
+                {errors.lastName && (
+                  <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>
+                )}
+              </div>
             </div>
 
             <div>
