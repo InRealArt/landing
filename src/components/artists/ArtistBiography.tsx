@@ -18,6 +18,7 @@ interface ArtistBiographyProps {
     biographyText3?: string | null
     biographyHeader4?: string | null
     biographyText4?: string | null
+    imageArtistStudio?: string | null
   }
 }
 
@@ -83,11 +84,19 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
   const [randomImage, setRandomImage] = useState<string>('')
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
 
-  // Sélectionner une image aléatoire au chargement du composant
+  // Sélectionner l'image de l'atelier de l'artiste si disponible, sinon une image aléatoire
   useEffect(() => {
-    const imageNumber = Math.floor(Math.random() * 5) + 1
-    setRandomImage(`/images/artistBiography/artist_biography_${imageNumber}.webp`)
-  }, [])
+    console.log('ArtistBiography - artist.imageArtistStudio:', artist.imageArtistStudio)
+    if (artist.imageArtistStudio) {
+      console.log('Utilisation de l\'image de l\'atelier:', artist.imageArtistStudio)
+      setRandomImage(artist.imageArtistStudio)
+    } else {
+      const imageNumber = Math.floor(Math.random() * 5) + 1
+      const randomImagePath = `/images/artistBiography/artist_biography_${imageNumber}.webp`
+      console.log('Utilisation de l\'image aléatoire:', randomImagePath)
+      setRandomImage(randomImagePath)
+    }
+  }, [artist.imageArtistStudio])
 
   // Fonction pour basculer l'état d'expansion d'une section
   const toggleSection = (sectionKey: string) => {
@@ -141,7 +150,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                   {randomImage && (
                     <img
                       src={randomImage}
-                      alt={`Portrait de ${artist.name}`}
+                      alt={`Atelier de ${artist.name}`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   )}

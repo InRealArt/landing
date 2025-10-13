@@ -31,6 +31,7 @@ export interface ArtistData {
     biographyText3?: string | null
     biographyHeader4?: string | null
     biographyText4?: string | null
+    imageArtistStudio?: string | null
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -87,6 +88,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 biographyText3: true,
                 biographyHeader4: true,
                 biographyText4: true,
+                imageArtistStudio: true,
                 artist: {
                     select: {
                         name: true,
@@ -202,6 +204,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 biographyText3: la.biographyText3 ?? null,
                 biographyHeader4: la.biographyHeader4 ?? null,
                 biographyText4: la.biographyText4 ?? null,
+                imageArtistStudio: la.imageArtistStudio ?? null,
                 translations
             }
         })
@@ -335,6 +338,7 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
                 biographyText3: true,
                 biographyHeader4: true,
                 biographyText4: true,
+                imageArtistStudio: true,
                 artist: {
                     select: {
                         name: true,
@@ -438,6 +442,7 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
             biographyText3: landingArtist.biographyText3 ?? null,
             biographyHeader4: landingArtist.biographyHeader4 ?? null,
             biographyText4: landingArtist.biographyText4 ?? null,
+            imageArtistStudio: landingArtist.imageArtistStudio ?? null,
             translations
         }
     } catch (error) {
@@ -508,6 +513,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 biographyText3: true,
                 biographyHeader4: true,
                 biographyText4: true,
+                imageArtistStudio: true,
                 artist: {
                     select: {
                         name: true,
@@ -604,6 +610,7 @@ export async function getArtistsByCategory(categorySlug: string): Promise<Artist
                 countryName: la.artist.Country?.name ?? null,
                 mediumTags: la.mediumTags ?? [],
                 birthYear: la.artist.birthYear ?? null,
+                imageArtistStudio: la.imageArtistStudio ?? null,
                 translations
             }
         })

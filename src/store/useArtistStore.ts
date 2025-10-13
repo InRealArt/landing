@@ -26,6 +26,7 @@ export interface ArtistData {
     biographyText3?: string | null
     biographyHeader4?: string | null
     biographyText4?: string | null
+    imageArtistStudio?: string | null
     artworkImages: {
         image: string
         name: string
@@ -118,6 +119,7 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
                     biographyText3: artist.biographyText3 ?? null,
                     biographyHeader4: artist.biographyHeader4 ?? null,
                     biographyText4: artist.biographyText4 ?? null,
+                    imageArtistStudio: artist.imageArtistStudio ?? null,
                     artworkImages: artist.artworkImages ? JSON.parse(JSON.stringify(artist.artworkImages)) : []
                 };
             });
@@ -222,7 +224,8 @@ export const useArtistStore = create<ArtistState>((set, get) => ({
             biographyHeader3: rawArtist.biographyHeader3 ?? null,
             biographyText3: rawArtist.biographyText3 ?? null,
             biographyHeader4: rawArtist.biographyHeader4 ?? null,
-            biographyText4: rawArtist.biographyText4 ?? null
+            biographyText4: rawArtist.biographyText4 ?? null,
+            imageArtistStudio: rawArtist.imageArtistStudio ?? null
         }
     },
 
