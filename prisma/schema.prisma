@@ -8,7 +8,7 @@ datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
-  schemas   = ["landing", "public"]
+  schemas   = ["landing", "public", "landingUi"]
 }
 
 // Définition des langues disponibles
@@ -348,6 +348,21 @@ model SeoPostTag {
   @@id([postId, tagId])
   @@schema("landing")
 }
+
+model StickyFooter {
+  id                    Int       @id @default(autoincrement())
+  activeOnAllPages      Boolean   @default(false)
+  activeOnSpecificPages Boolean   @default(false)
+  specificPages         String[]
+  endValidityDate       DateTime? @db.Date
+  title                 String?
+  text                  String?
+  textButton            String?
+  buttonUrl             String?
+
+  @@schema("landingUi")
+}
+
 
 enum PostStatus {
   DRAFT

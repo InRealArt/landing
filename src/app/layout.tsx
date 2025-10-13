@@ -9,6 +9,7 @@ import GoogleTag from '@/components/common/GoogleTag'
 import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
+import StickyFooterManager from '@/components/common/StickyFooterManager'
 import UmamiAnalytics from '@/components/common/UmamiAnalytics'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
@@ -82,6 +83,8 @@ export default function RootLayout ({
                     <Toaster />
                     <CookieConsentBanner />
                     <NewsletterManager delayInSeconds={5} />
+                    {/* <StickyFooterDebug /> */}
+                    <StickyFooterManager />
                     {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
                     {/* <GlobalNavigationTest /> */}
                 </GoogleCaptchaWrapper>
