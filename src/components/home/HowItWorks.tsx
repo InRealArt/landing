@@ -10,17 +10,17 @@ export default function HowItWorks() {
     { 
       name: t('home.howItWorks.items.bridge.title'), 
       description: t('home.howItWorks.items.bridge.description'),
-      link: '/marketplace'
+      link: ''
     },
     { 
       name: t('home.howItWorks.items.token.title'), 
       description: t('home.howItWorks.items.token.description') ,
-      link: '/token'
+      link: ''
     },
     { 
       name: t('home.howItWorks.items.art.title'), 
       description: t('home.howItWorks.items.art.description') ,
-      link: '/usecase'
+      link: ''
     },
   ]
 
@@ -35,7 +35,6 @@ export default function HowItWorks() {
               {item.name}
             </h1>
             <label className="my-4 block">{item.description}</label>
-            {/* <Button text={t('buttons.readMore')} additionalClassName="mt-auto bg-purpleColor w-full" icon={<ArrowRight />} center link={item.link} /> */}
           </div>
         ))}
       </div>

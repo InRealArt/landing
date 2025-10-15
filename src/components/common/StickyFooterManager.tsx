@@ -77,7 +77,6 @@ function getCurrentPageFromPathname(pathname: string): string | undefined {
     '/': 'root',
     '/artists': 'artists',
     '/marketplace': 'marketplace',
-    '/token': 'token',
     '/usecase': 'usecase',
     '/usecase/leasing': 'usecaseLeasing',
     '/usecase/lending': 'usecaseLending',
