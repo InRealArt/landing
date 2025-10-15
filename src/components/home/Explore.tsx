@@ -110,7 +110,7 @@ export default function Explore() {
                   translationKey={item.descriptionKey}
                   allowHtml={true}
                 />
-                {item.buttons.first && <Button link={item.buttons.first.link} text={item.buttons.first.text} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center />}
+                {item.buttons.first && <Button link={item.buttons.first.link} text={item.buttons.first.text} additionalClassName="bg-purpleColor" icon={<ArrowRight />} center data-umami-event={item.buttons.first.link.startsWith('/joinInRealArt') ? `explore-${item.buttons.first.link.replace('/', '')}-click` : undefined} />}
               </div>
             </div>
           )

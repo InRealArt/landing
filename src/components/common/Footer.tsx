@@ -121,6 +121,7 @@ const Footer = () => {
                   <Link
                     href={link.href}
                     className={`${link.href === '/joinInRealArt' ? 'text-purple-500 hover:text-purple-400' : 'text-grayText hover:text-textColor'} transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                    data-umami-event={link.href === '/joinInRealArt' ? 'joinInRealArt-footer-click' : undefined}
                   >
                     {t(link.label)}
                   </Link>

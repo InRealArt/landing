@@ -211,6 +211,7 @@ export default function ArtistsGrid() {
                 additionalClassName="bg-purpleColor text-white w-full justify-center hover:bg-purpleColor/90 transition-colors duration-200"
                 icon={<Calendar className="w-4 h-4" />}
                 iconBefore
+                data-umami-event="calendly-artists-grid-click"
               />
             </div>
           </div>

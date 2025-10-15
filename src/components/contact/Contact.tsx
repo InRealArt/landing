@@ -46,6 +46,7 @@ export default function Contact() {
                 link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
                 center
                 target="_blank"
+                data-umami-event="calendly-contact-page-click"
               />
             </div>
             

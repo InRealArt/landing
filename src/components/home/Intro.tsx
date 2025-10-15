@@ -36,6 +36,7 @@ const Intro = () => {
               center
               target="_blank"
               link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+              data-umami-event="calendly-home-hero-click"
             />
           </div>
         </div>

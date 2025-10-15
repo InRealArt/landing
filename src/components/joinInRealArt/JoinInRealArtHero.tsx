@@ -64,6 +64,7 @@ export default function JoinInRealArtHero() {
                   additionalClassName="bg-purpleColor w-fit"
                   icon={<Phone />}
                   iconBefore
+                  data-umami-event="calendly-join-hero-click"
                 />
               </div>
             </div>
@@ -89,6 +90,7 @@ export default function JoinInRealArtHero() {
                       additionalClassName="bg-purpleColor w-full justify-center text-xs sm:text-sm"
                       icon={<ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />}
                       link={personType.link}
+                      data-umami-event={`join-readmore-${personType.link.replace('/', '')}-click`}
                     />
                   </div>
                 ))}

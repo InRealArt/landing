@@ -39,6 +39,7 @@ export default function PersonTypeSelection() {
                 additionalClassName="bg-purpleColor w-full justify-center mt-auto" 
                 icon={<ArrowRight />} 
                 link={personType.link}
+                data-umami-event={`join-readmore-${personType.link.replace('/', '')}-click`}
               />
             </div>
           ))}

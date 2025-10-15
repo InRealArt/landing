@@ -85,6 +85,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             href="/joinInRealArt"
             className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-purpleColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
+            data-umami-event="joinInRealArt-mobile-menu-click"
           >
             {t('nav.joinInRealArt')}
           </Link>          
@@ -99,6 +100,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             target='_blank'
             iconBefore
             link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+            data-umami-event="calendly-mobile-click"
           />
         </div>
       </div>

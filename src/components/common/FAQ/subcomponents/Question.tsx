@@ -39,6 +39,7 @@ const Question = ({ question, answer }: QuestionProps) => {
           additionalClassName="bg-purpleColor w-fit"
           icon={<Phone />}
           iconBefore
+          data-umami-event="calendly-faq-click"
         />
       </div>
     </div>

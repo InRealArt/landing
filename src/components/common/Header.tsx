@@ -41,13 +41,13 @@ const Header = () => {
           <li className="whitespace-nowrap"><Link href="/usecase">{t('nav.usecase')}</Link></li>
 
             <li className="whitespace-nowrap"><Link href="/blog" className="text-purpleColor">Blog</Link></li>
-            <li className="whitespace-nowrap"><Link href="/joinInRealArt" className="text-purpleColor">{t('nav.joinInRealArt')}</Link></li>
+            <li className="whitespace-nowrap"><Link href="/joinInRealArt" className="text-purpleColor" data-umami-event="joinInRealArt-menu-click">{t('nav.joinInRealArt')}</Link></li>
           
         </ul>
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
           <LanguageSwitcher />
-          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" />
+          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" data-umami-event="calendly-header-click" />
           <button
             className="text-textColor p-2 lg:hidden"
             onClick={toggleMobileMenu}

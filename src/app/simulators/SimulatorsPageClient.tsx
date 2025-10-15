@@ -104,6 +104,7 @@ export default function SimulatorsPageClient() {
             href="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
             target="_blank"
             className="inline-flex border bg-purpleColor text-white p-4 gap-4 rounded-xl items-center justify-center hover:bg-purpleColor/90 transition-colors"
+            data-umami-event="calendly-simulators-page-click"
           >
             <span className='unbounded font-semibold text-sm'>{t('simulators.scheduleMeeting')}</span>
           </Link>
