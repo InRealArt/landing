@@ -5,6 +5,7 @@ import { Mail, Calendar } from 'lucide-react';
 import OptimizedSVG from '@/components/common/OptimizedSVG';
 import Link from 'next/link';
 import Button from '../common/Button';
+import { EXTERNAL_URLS } from '@/constants/constants';
 
 export default function Contact() {
   const { t } = useLanguageStore();
@@ -43,7 +44,7 @@ export default function Contact() {
               <Button
                 text={t('contact.scheduleMeeting')}
                 additionalClassName="bg-purpleColor w-full"
-                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                link={EXTERNAL_URLS.CALENDLY_MEETING}
                 center
                 target="_blank"
                 data-umami-event="calendly-contact-page-click"

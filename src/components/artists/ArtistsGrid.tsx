@@ -7,6 +7,7 @@ import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import Button from '@/components/common/Button'
 import { Calendar } from 'lucide-react'
+import { EXTERNAL_URLS } from '@/constants/constants'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -206,7 +207,7 @@ export default function ArtistsGrid() {
             <div className="p-4">
               <Button
                 text={t('artists.joinCard.cta')}
-                link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                link={EXTERNAL_URLS.CALENDLY_MEETING}
                 target="_blank"
                 additionalClassName="bg-purpleColor text-white w-full justify-center hover:bg-purpleColor/90 transition-colors duration-200"
                 icon={<Calendar className="w-4 h-4" />}

@@ -5,6 +5,7 @@ import OptimizedContentImage from "@/components/common/OptimizedContentImage"
 import { useTheme } from '@/contexts/ThemeContext'
 import Button from '@/components/common/Button'
 import { Phone } from 'lucide-react'
+import { EXTERNAL_URLS } from '@/constants/constants'
 
 export default function DescriptionsBlock() {
   const { theme } = useTheme()
@@ -48,7 +49,7 @@ export default function DescriptionsBlock() {
                   </p>
                   <Button
                     text="Prendre RDV"
-                    link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                    link={EXTERNAL_URLS.CALENDLY_MEETING}
                     target="_blank"
                     additionalClassName="bg-purpleColor w-fit"
                     icon={<Phone />}
@@ -78,7 +79,7 @@ export default function DescriptionsBlock() {
                   </p>
                   <Button
                     text="Prendre RDV"
-                    link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                    link={EXTERNAL_URLS.CALENDLY_MEETING}
                     target="_blank"
                     additionalClassName="bg-purpleColor w-fit"
                     icon={<Phone />}

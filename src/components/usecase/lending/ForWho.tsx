@@ -4,6 +4,7 @@ import { useLanguageStore } from '@/store/languageStore';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { Phone } from 'lucide-react';
+import { EXTERNAL_URLS } from '@/constants/constants';
 
 export default function ForWho() {
   const { t } = useLanguageStore();
@@ -60,7 +61,7 @@ export default function ForWho() {
               icon={<Phone />} 
               center 
               target='_blank' 
-              link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" 
+              link={EXTERNAL_URLS.CALENDLY_MEETING} 
               data-umami-event="calendly-lending-forwho-click"
             />
           </div>

@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react"
 import Button from "@/components/common/Button"
 import { useTheme } from '@/contexts/ThemeContext'
 import { Phone } from 'lucide-react'
+import { EXTERNAL_URLS } from '@/constants/constants'
 
 export default function JoinInRealArtHero() {
   const { t } = useLanguageStore()
@@ -59,7 +60,7 @@ export default function JoinInRealArtHero() {
                 </p>
                 <Button
                   text={t('buttons.joinUs')}
-                  link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+                  link={EXTERNAL_URLS.CALENDLY_MEETING}
                   target="_blank"
                   additionalClassName="bg-purpleColor w-fit"
                   icon={<Phone />}

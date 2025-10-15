@@ -5,6 +5,7 @@ import LeadGenerator, { LeadIconType } from "../common/LeadGenerator";
 import { useLanguageStore } from '@/store/languageStore';
 import HeroArtistSlider from './HeroArtistSlider';
 import { useTheme } from '@/contexts/ThemeContext';
+import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Intro = () => {
   const { t } = useLanguageStore();
@@ -35,7 +36,7 @@ const Intro = () => {
               additionalClassName="bg-purpleColor"
               center
               target="_blank"
-              link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+              link={EXTERNAL_URLS.CALENDLY_MEETING}
               data-umami-event="calendly-home-hero-click"
             />
           </div>

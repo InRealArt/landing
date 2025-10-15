@@ -10,6 +10,7 @@ import { useLanguageStore } from '@/store/languageStore';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
 import { useTheme } from '@/contexts/ThemeContext';
+import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Header = () => {
   const { t } = useLanguageStore()
@@ -47,7 +48,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
           <LanguageSwitcher />
-          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes" data-umami-event="calendly-header-click" />
+          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link={EXTERNAL_URLS.CALENDLY_MEETING} data-umami-event="calendly-header-click" />
           <button
             className="text-textColor p-2 lg:hidden"
             onClick={toggleMobileMenu}

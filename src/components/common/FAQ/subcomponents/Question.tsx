@@ -3,6 +3,7 @@ import { Plus, Phone } from 'lucide-react';
 import React, { useState } from 'react';
 import { useLanguageStore } from '@/store/languageStore';
 import Button from '@/components/common/Button';
+import { EXTERNAL_URLS } from '@/constants/constants';
 
 interface QuestionProps {
   question: string;
@@ -19,7 +20,7 @@ const Question = ({ question, answer }: QuestionProps) => {
 
   const handleCalendlyClick = () => {
     // Rediriger vers Calendly
-    window.open('https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes', '_blank');
+    window.open(EXTERNAL_URLS.CALENDLY_MEETING, '_blank');
   }
 
   return (

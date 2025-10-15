@@ -6,6 +6,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import { ArrowRight, Phone, X } from 'lucide-react'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
+import { EXTERNAL_URLS } from '@/constants/constants'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -99,7 +100,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             center
             target='_blank'
             iconBefore
-            link="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+            link={EXTERNAL_URLS.CALENDLY_MEETING}
             data-umami-event="calendly-mobile-click"
           />
         </div>

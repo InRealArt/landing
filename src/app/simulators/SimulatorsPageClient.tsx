@@ -3,6 +3,7 @@
 import { useLanguageStore } from '@/store/languageStore'
 import Link from 'next/link'
 import { salons } from '@/utils/artSalonCalculations'
+import { EXTERNAL_URLS } from '@/constants/constants'
 
 export default function SimulatorsPageClient() {
   const { t } = useLanguageStore()
@@ -101,7 +102,7 @@ export default function SimulatorsPageClient() {
         {/* Back to Home */}
         <div className="text-center">
           <Link
-            href="https://calendly.com/teaminrealart/plus-de-visibilite-plus-de-ventes"
+            href={EXTERNAL_URLS.CALENDLY_MEETING}
             target="_blank"
             className="inline-flex border bg-purpleColor text-white p-4 gap-4 rounded-xl items-center justify-center hover:bg-purpleColor/90 transition-colors"
             data-umami-event="calendly-simulators-page-click"
