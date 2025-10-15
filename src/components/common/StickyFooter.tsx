@@ -76,27 +76,28 @@ export default function StickyFooter({
         ${isClosing ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'}
       `}
     >
+      {/* Bouton de fermeture - Positionné en haut à droite, en dehors du contenu */}
+      <button
+        onClick={handleClose}
+        className="
+          absolute top-4 right-4
+          p-2 rounded-full
+          bg-slate-800/80 hover:bg-slate-700
+          border border-slate-600
+          transition-all duration-200
+          focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-900
+          z-20
+          group
+        "
+        aria-label="Fermer le sticky footer"
+      >
+        <X className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+      </button>
+
       <div className="container mx-auto px-6 py-8">
         <div className="relative">
-              {/* Bouton de fermeture - Positionné en haut à droite */}
-              <button
-                onClick={handleClose}
-                className="
-                  absolute top-2 right-2
-                  p-2 rounded-full
-                  hover:bg-slate-700 hover:bg-opacity-50
-                  transition-all duration-200
-                  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-900
-                  z-10
-                  group
-                "
-                aria-label="Fermer le sticky footer"
-              >
-                <X className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-              </button>
-
           {/* Contenu principal - Layout vertical */}
-          <div className="flex flex-col items-center text-center space-y-6 pr-12">
+          <div className="flex flex-col items-center text-center space-y-6">
             {/* Titre */}
             {title && (
               <h3 className="text-2xl font-bold leading-tight text-white">
