@@ -298,10 +298,10 @@ export default function GameRegistration({ game }: GameRegistrationProps) {
               transition={{ delay: 0.2 }}
               className="font-semibold text-lg mb-6 text-center"
             >
-              {language === 'en' ? 'Terms & Conditions' : 'Termes et Conditions'}
+              {t.termsAndConditions?.title ?? (language === 'en' ? 'Terms & Conditions' : 'Termes et Conditions')}
             </motion.h3>
             <ul className="space-y-4 text-sm text-textColor/80">
-              {game.termsAndConditions[language].map((term, index) => (
+              {(t.termsAndConditions?.items ?? []).map((term, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}

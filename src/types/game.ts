@@ -35,7 +35,6 @@ export interface GamePage {
   howToParticipate: Record<GameLang, {
     steps: string[];
   }>;
-  termsAndConditions: Record<GameLang, string[]>;
   theme?: {
     primary: string;
     secondary: string;

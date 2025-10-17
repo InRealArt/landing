@@ -32,6 +32,18 @@ export const gameTranslations = {
         newsletterRequired: 'You must accept newsletter registration to participate',
         submitError: 'An error occurred. Please try again.'
       }
+    },
+    termsAndConditions: {
+      title: 'Terms & Conditions',
+      items: [
+        'Open exclusively to residents of metropolitan France',
+        'No purchase necessary to enter or win',
+        'You must fill out the form and subscribe to the newsletter',
+        'Contest open to participants aged 18 and above',
+        'One entry per person',
+        'Winner will be selected randomly from all valid entries',
+        'Prize cannot be exchanged for cash value'
+      ]
     }
   },
   fr: {
@@ -67,6 +79,18 @@ export const gameTranslations = {
         newsletterRequired: 'Vous devez accepter l\'inscription à la newsletter pour participer',
         submitError: 'Une erreur est survenue. Veuillez réessayer.'
       }
+    },
+    termsAndConditions: {
+      title: 'Termes et Conditions',
+      items: [
+        'Réservé aux résidents de la France métropolitaine',
+        'Aucun achat nécessaire pour participer ou gagner',
+        "Il faut remplir le formulaire et s'inscrire à la newsletter",
+        'Concours ouvert aux participants de 18 ans et plus',
+        'Une participation par personne',
+        'Le gagnant sera sélectionné au hasard parmi toutes les participations valides',
+        "Le prix ne peut être échangé contre sa valeur en espèces"
+      ]
     }
   }
 } as const;
