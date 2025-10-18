@@ -147,12 +147,12 @@ export default function FeaturedPost() {
               <span>{formatDate(featuredPost.createdAt)}</span>
               <span>•</span>
               <span>{formatReadTime(featuredPost.estimatedReadTime)}</span>
-              {featuredPost.viewsCount > 0 && (
+              {/* {featuredPost.viewsCount > 0 && (
                 <>
                   <span>•</span>
                   <span>{featuredPost.viewsCount} {t('blog.views')}</span>
                 </>
-              )}
+              )} */}
             </div>
 
             <h3 className="text-2xl font-bold mb-3 line-clamp-2 md:line-clamp-none">{featuredPost.title}</h3>
