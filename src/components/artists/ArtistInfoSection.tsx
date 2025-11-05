@@ -27,8 +27,8 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
               </p>
             )}
             
-            {/* Nom de l'artiste */}
-            <h2 className="text-3xl lg:text-4xl font-bold text-textColor bricolage-grotesque font-serif">
+            {/* Citation de l'artiste */}
+            <h2 className="text-3xl lg:text-3xl font-bold text-textColor bricolage-grotesque font-serif">
               {getTranslatedField(artist.id, 'intro', artist.intro || '') || artist.intro}
             </h2>
             
