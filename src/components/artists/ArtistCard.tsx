@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
   name: string
@@ -16,10 +17,17 @@ export default function ArtistCard ({ name, role = '', countryName, imageUrl, sl
   return (
     <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10">
       <Link href={`/artists/${slug}`} className="block">
-        <div
-          className="h-64 w-full bg-top bg-cover"
-          style={{ backgroundImage: `url(${imageUrl})` }}
-        />
+        <div className="relative h-80 w-full overflow-hidden md:h-64">
+          <Image
+            src={imageUrl}
+            alt={name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-contain md:object-cover"
+            style={{ objectPosition: 'center top' }}
+            quality={85}
+          />
+        </div>
       </Link>
       <div className="p-4">
         {countryName ? (
