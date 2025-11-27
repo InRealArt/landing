@@ -128,7 +128,7 @@ export default function ArtistsGrid() {
             </button>
 
             {isOpen && (
-              <div className="absolute z-20 mt-2 w-48 sm:w-56 rounded-2xl bg-cardBackground p-2 shadow-xl ring-1 ring-borderColor border border-borderColor right-0 sm:right-auto">
+              <div className="absolute z-20 mt-2 w-48 sm:w-56 rounded-2xl bg-cardBackground p-2 shadow-xl ring-1 ring-borderColor border border-borderColor left-0 sm:right-auto">
                 <button
                   className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium text-sm ${params.nationality === ''
                       ? 'bg-purpleColor/20 text-purpleColor'
