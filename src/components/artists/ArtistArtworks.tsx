@@ -36,7 +36,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
       <div className="mb-12">
         <div className="border-t border-white/20 mb-6"></div>
         <h2 className='text-2xl lg:text-6xl bricolage-grotesque font-medium text-center mb-6'>
-          {t('artistPage.discover')} {artistName}
+          {t('artistPage.discover')} <span className="whitespace-nowrap">{artistName}</span>
         </h2>
         <div className="border-t border-white/20"></div>
       </div>
