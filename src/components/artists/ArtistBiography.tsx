@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import { useArtistStore } from '@/store/useArtistStore'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 
@@ -80,7 +79,6 @@ function BiographySection({ header, text, isExpanded, onToggle, maxLength = 300,
 
 export default function ArtistBiography({ artist }: ArtistBiographyProps) {
   const { t, language } = useLanguageStore()
-  const { getTranslatedField } = useArtistStore()
   const [randomImage, setRandomImage] = useState<string>('')
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
 
@@ -121,8 +119,8 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
     const headerKey = `biographyHeader${sectionNumber}` as keyof typeof artist
     const textKey = `biographyText${sectionNumber}` as keyof typeof artist
     
-    const header = getTranslatedField(artist.id, headerKey, (artist[headerKey] as string) || '') || (artist[headerKey] as string) || ''
-    const text = getTranslatedField(artist.id, textKey, (artist[textKey] as string) || '') || (artist[textKey] as string) || ''
+    const header = (artist[headerKey] as string) || ''
+    const text = (artist[textKey] as string) || ''
     
     return { header, text }
   }

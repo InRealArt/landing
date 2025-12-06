@@ -2,9 +2,15 @@
 
 import dynamic from 'next/dynamic'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
+import { ArtistData } from '@/actions/artistActions'
+import { ArtWork } from '@/types/types'
+// Note: We don't strictly need to import the props interface if we trust inference, but explicit is better
+// import { ArtistPageClientProps } from './ArtistPageClient' 
 
 interface Props {
   slug: string
+  initialArtist: ArtistData
+  initialArtworks: ArtWork[]
 }
 
 // Charger le composant client de manière dynamique avec SSR désactivé
@@ -13,6 +19,6 @@ const ArtistPageClient = dynamic(() => import('./ArtistPageClient'), {
   loading: () => <ArtistPageSkeleton />
 })
 
-export default function ArtistPageClientWrapper({ slug }: Props) {
-  return <ArtistPageClient slug={slug} />
+export default function ArtistPageClientWrapper({ slug, initialArtist, initialArtworks }: Props) {
+  return <ArtistPageClient slug={slug} initialArtist={initialArtist} initialArtworks={initialArtworks} />
 }

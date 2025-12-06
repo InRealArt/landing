@@ -1,15 +1,15 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore'
-import { useArtistStore, ArtistData } from '@/store/useArtistStore'
+import { ArtistData } from '@/store/useArtistStore'
+import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 
 interface ArtistInfoSectionProps {
   artist: ArtistData
 }
 
 export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
-  const { t, language } = useLanguageStore()
-  const { getTranslatedField } = useArtistStore()
+  const { t } = useLanguageStore()
 
   return (
     <section className="pt-32 pb-16">
@@ -29,7 +29,7 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             
             {/* Citation de l'artiste */}
             <h2 className="text-2xl lg:text-3xl font-bold text-textColor bricolage-grotesque font-serif">
-              {getTranslatedField(artist.id, 'intro', artist.intro || '') || artist.intro}
+              {formatTextWithLineBreaksJSX(artist.intro)}
             </h2>
             
             {/* Bouton Suivre l'artiste */}
@@ -39,9 +39,9 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
             </button> */}
             
             {/* Description de l'artiste */}
-            <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
-              {getTranslatedField(artist.id, 'description', artist.description || '') || artist.description || t('artists.profile.certifiedArtist').replace('{name}', artist.name)}
-            </p>
+            <div className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
+              {formatTextWithLineBreaksJSX(artist.description || t('artists.profile.certifiedArtist').replace('{name}', artist.name))}
+            </div>
             
             {/* Tags de médium */}
             {artist.mediumTags && artist.mediumTags.length > 0 && (
@@ -57,23 +57,6 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
               </div>
             )}
           </div>
-          
-          {/* Colonne centrale - Citation */}
-          {/* <div className="space-y-6">
-            {/* Citation principale */}
-            {/* {(getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader) && (
-              <blockquote className="text-2xl lg:text-3xl text-textColor font-medium leading-relaxed bricolage-grotesque font-serif">
-                « {getTranslatedField(artist.id, 'quoteHeader', artist.quoteHeader || '') || artist.quoteHeader} »
-              </blockquote>
-            )} */}
-            
-            {/* Texte descriptif */}
-            {/* {(getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText) && (
-              <p className="text-textColor text-sm leading-relaxed bricolage-grotesque font-serif">
-                {getTranslatedField(artist.id, 'quoteText', artist.quoteText || '') || artist.quoteText}
-              </p>
-            )} */}
-          {/* </div> */} 
           
           {/* Colonne droite - Photo de l'artiste */}
           <div className="flex justify-center lg:justify-end">

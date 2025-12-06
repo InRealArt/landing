@@ -1,7 +1,10 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { generateDynamicMetadata, generatePersonJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
-import ArtistPageAsync from './ArtistPageAsync'
+import { generateDynamicMetadata } from '@/utils/metadata'
+import { getArtistBySlug } from '@/actions/artistActions'
+import { getPresaleArtworksByArtistId } from '@/actions/presaleArtworkActions'
+import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
+import ArtistPageClientWrapper from './ArtistPageClientWrapper'
 
 type ParamsType = Promise<{ slug: string }>
 
@@ -13,14 +16,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
 
   try {
-    // In a real app, you would fetch artist data here
-    // For now, we'll create generic metadata
-    const artistName = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    const artist = await getArtistBySlug(slug)
+    
+    if (!artist) {
+      return {
+        title: 'Artiste non trouvé | InRealArt',
+        description: 'Cet artiste n\'existe pas ou n\'est plus disponible.'
+      }
+    }
+
+    const artistName = artist.name ? `${artist.name} ${artist.surname}` : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
     
     return generateDynamicMetadata({
       title: `${artistName} - Artiste`,
-      description: `Découvrez l'univers artistique de ${artistName}. Explorez ses œuvres uniques et son style distinctif sur InRealArt.`,
-      keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie'],
+      description: artist.intro || artist.description || `Découvrez l'univers artistique de ${artistName}. Explorez ses œuvres uniques et son style distinctif sur InRealArt.`,
+      keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie', ...(artist.mediumTags || [])],
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
     }, 'profile')
   } catch (error) {
@@ -34,6 +44,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params
+  
+  const artist = await getArtistBySlug(slug)
+  
+  if (!artist) {
+    notFound()
+  }
 
-  return <ArtistPageAsync slug={slug} />
-} 
+  const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
+  const artworks = rawArtworks.map(transformPresaleArtworkToArtwork)
+
+  return <ArtistPageClientWrapper 
+    slug={slug} 
+    initialArtist={artist} 
+    initialArtworks={artworks} 
+  />
+}
