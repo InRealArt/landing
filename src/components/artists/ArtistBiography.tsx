@@ -39,7 +39,7 @@ function BiographySection({ header, text, isExpanded, onToggle, maxLength = 300,
       {/* Header avec ligne décorative */}
       <div className="flex items-center gap-4 mb-6">
         <div className="flex-1 h-px bg-gradient-to-r from-purpleColor/30 to-transparent"></div>
-        <h3 className="text-xl lg:text-2xl font-bold text-textColor bricolage-grotesque font-serif whitespace-nowrap px-4">
+        <h3 className="text-xl lg:text-2xl font-bold text-textColor bricolage-grotesque font-serif px-4">
           {header}
         </h3>
         <div className="flex-1 h-px bg-gradient-to-l from-purpleColor/30 to-transparent"></div>
