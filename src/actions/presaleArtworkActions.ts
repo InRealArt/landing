@@ -133,7 +133,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 }
             },
             orderBy: {
-                order: 'asc'
+                displayOrder: 'asc'
             }
         })
 

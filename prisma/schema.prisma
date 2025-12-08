@@ -249,6 +249,7 @@ model PresaleArtwork {
   name                 String
   description          String?
   order                Int?
+  displayOrder Int? // Ordre d'affichage sur le site web
   artistId             Int
   width                Int? //In centimeters
   height               Int? //In centimeters
@@ -259,6 +260,7 @@ model PresaleArtwork {
   emailPresaleArtworks EmailPresaleArtwork[]
 
   @@index([artistId])
+  @@index([displayOrder])
   @@schema("landing")
 }
 
