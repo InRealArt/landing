@@ -27,6 +27,15 @@ export interface PresaleArtworkData {
 export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
     try {
         const presaleArtworks = await prisma.presaleArtwork.findMany({
+            where: {
+                artist: {
+                    LandingArtist: {
+                        some: {
+                            artistsPage: true
+                        }
+                    }
+                }
+            },
             select: {
                 id: true,
                 name: true,
