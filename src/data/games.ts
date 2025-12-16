@@ -51,34 +51,34 @@ export const games: GamePage[] = [
     }
   },
   {
-    slug: 'senechal-boudoir',
+    slug: 'pontecorvo-plaine-contemplative',
     active: true,
-    brevoListIdFr: 39,
-    brevoListIdEn: 38,
-    startDate: '2025-10-01',
-    endDate: '2025-10-31',
+    brevoListIdFr: 46,
+    brevoListIdEn: 47,
+    startDate: '2025-12-18',
+    endDate: '2026-01-05',
     artwork: {
-      name: 'Boudoir',
-      value: 880,
-      dimensions: '21 x 26 cm',
+      name: 'Plaine contemplative',
+      value: 900,
+      dimensions: '14 x 24 cm',
       medium: {
-        fr: 'Huile, Collage sur Toile',
-        en: 'Oil, Collage on Canvas'
+        fr: 'Huile sur toile encadrée',
+        en: 'Oil on Canvas'
       },
-      image: '/images/games/senechal/artwork.webp'
+      image: '/images/games/alain/artwork1.webp'
     },
     artist: {
-      name: 'Catherine Sénéchal',
-      image: '/images/games/senechal/artist.webp',
+      name: 'Alain Pontecorvo',
+      image: '/images/games/alain/artist.webp',
       bio: {
-        en: 'Catherine brings intimate spaces to life through masterful technique and attention to detail.',
-        fr: 'Catherine donne vie aux espaces intimes grâce à une technique magistrale et une attention aux détails.'
+        en: 'Alain brings intimate spaces to life through masterful technique and attention to detail.',
+        fr: 'Alain donne vie aux espaces intimes grâce à une technique magistrale et une attention aux détails.'
       }
     },
-    mockup: '/images/games/senechal/mockup.webp',
+    mockup: '/images/games/alain/mockup-1.webp',
     title: {
-      en: 'CONTEST: Try to win a painting by artist Catherine Sénéchal worth €880: Boudoir',
-      fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Catherine Sénéchal d\'une valeur de 880€ : Boudoir'
+      en: 'CONTEST: Try to win a painting by artist Alain Pontecorvo worth €900: Plaine contemplative',
+      fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Alain Pontecorvo d\'une valeur de 900€ : Plaine contemplative'
     },
     description: {
       en: 'This is a very rare opportunity to acquire, for free, a unique painting to enhance your interior and impress your guests. Don\'t miss your chance!',
@@ -88,13 +88,13 @@ export const games: GamePage[] = [
       en: {
         steps: [
           'Fill out the participation form below and accept to be registered on the newsletter',
-          'The winner will be announced on November 3rd, 2025'
+          'The winner will be announced on January 5, 2026'
         ]
       },
       fr: {
         steps: [
           'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
-          'Le gagnant sera annoncé le 3 novembre 2025'
+          'Le gagnant sera annoncé le 5 janvier 2026'
         ]
       }
     }
