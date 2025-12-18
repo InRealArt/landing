@@ -121,9 +121,7 @@ export default function GameArtist({ game }: GameArtistProps) {
           <div className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold">{game.artist.name}</h3>
             {game.artist.bio && (
-              <p className="text-lg leading-relaxed text-textColor/80">
-                {game.artist.bio[language]}
-              </p>
+              <p className="text-lg leading-relaxed text-textColor/80" dangerouslySetInnerHTML={{ __html: game.artist.bio[language] }} />
             )}
             
             {/* Social Links */}
