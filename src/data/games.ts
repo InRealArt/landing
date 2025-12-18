@@ -51,6 +51,55 @@ export const games: GamePage[] = [
     }
   },
   {
+    slug: 'senechal-boudoir',
+    active: true,
+    brevoListIdFr: 39,
+    brevoListIdEn: 38,
+    startDate: '2025-10-01',
+    endDate: '2025-10-31',
+    artwork: {
+      name: 'Boudoir',
+      value: 880,
+      dimensions: '21 x 26 cm',
+      medium: {
+        fr: 'Huile, Collage sur Toile',
+        en: 'Oil, Collage on Canvas'
+      },
+      image: '/images/games/senechal/artwork.webp'
+    },
+    artist: {
+      name: 'Catherine Sénéchal',
+      image: '/images/games/senechal/artist.webp',
+      bio: {
+        en: 'Catherine brings intimate spaces to life through masterful technique and attention to detail.',
+        fr: 'Catherine donne vie aux espaces intimes grâce à une technique magistrale et une attention aux détails.'
+      }
+    },
+    mockup: '/images/games/senechal/mockup.webp',
+    title: {
+      en: 'CONTEST: Try to win a painting by artist Catherine Sénéchal worth €880: Boudoir',
+      fr: 'JEU CONCOURS : tentez de remporter une toile de l\'artiste Catherine Sénéchal d\'une valeur de 880€ : Boudoir'
+    },
+    description: {
+      en: 'This is a very rare opportunity to acquire, for free, a unique painting to enhance your interior and impress your guests. Don\'t miss your chance!',
+      fr: 'C\'est une occasion très rare de pouvoir acquérir, gratuitement, une toile unique pour sublimer votre intérieur et épater vos invités. Ne manquez pas votre chance !'
+    },
+    howToParticipate: {
+      en: {
+        steps: [
+          'Fill out the participation form below and accept to be registered on the newsletter',
+          'The winner will be announced on November 3rd, 2025'
+        ]
+      },
+      fr: {
+        steps: [
+          'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
+          'Le gagnant sera annoncé le 3 novembre 2025'
+        ]
+      }
+    }
+  },
+  {
     slug: 'pontecorvo-plaine-contemplative',
     active: true,
     brevoListIdFr: 46,
