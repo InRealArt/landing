@@ -136,7 +136,8 @@ export default function Presale() {
     name: artwork.name,
     price: artwork.price,
     order: artwork.order,
-    artistName: artwork.artistName
+    artistName: artwork.artistName,
+    isSold: artwork.isSold || false
   }))
 
   if (isLoading) {

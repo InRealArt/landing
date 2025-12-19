@@ -14,6 +14,7 @@ export interface PresaleArtworkData {
     artistId: number
     width: number | null
     height: number | null
+    isSold: boolean
     artist: {
         name: string
         surname: string
@@ -47,6 +48,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 artistId: true,
                 width: true,
                 height: true,
+                isSold: true,
                 artist: {
                     select: {
                         name: true,
@@ -134,6 +136,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 artistId: true,
                 width: true,
                 height: true,
+                isSold: true,
                 artist: {
                     select: {
                         name: true,

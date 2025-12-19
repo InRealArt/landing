@@ -50,7 +50,8 @@ export function transformPresaleArtworkToArtwork(artwork: PresaleArtworkData): A
         noBorder: false,
         desactivate: false,
         width: artwork.width,
-        height: artwork.height
+        height: artwork.height,
+        isSold: artwork.isSold
     }
 }
 

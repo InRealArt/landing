@@ -16,6 +16,7 @@ interface ArtistArtworksProps {
     image: {
       src: string;
     };
+    isSold?: boolean;
   }>;
 }
 

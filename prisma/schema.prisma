@@ -143,7 +143,6 @@ model DetailedFaqPageItem {
   @@schema("landing")
 }
 
-
 model ArtistCategory {
   id               Int                    @id @default(autoincrement())
   name             String
@@ -151,43 +150,42 @@ model ArtistCategory {
   description      String?
   order            Int?
   artistCategories ArtistCategoryArtist[]
-  
 
   @@schema("public")
 }
 
 model Artist {
-  id                 Int              @id @default(autoincrement())
-  name               String
-  surname            String
-  pseudo             String           @unique
-  description        String           @unique
-  publicKey          String           @unique
-  imageUrl           String           @unique
-  isGallery          Boolean          @default(false)
-  backgroundImage    String?
-  slug               String?          @unique
-  birthYear          Int?
-  featuredArtwork    String?
-  countryCode        String?
-  websiteUrl         String?
-  facebookUrl        String?
-  instagramUrl       String?
-  twitterUrl         String?
-  linkedinUrl        String?
-  LandingArtist      LandingArtist[]
-  PresaleArtworks    PresaleArtwork[]
-  Country            Country?         @relation(fields: [countryCode], references: [code])
+  id              Int              @id @default(autoincrement())
+  name            String
+  surname         String
+  pseudo          String           @unique
+  description     String           @unique
+  publicKey       String           @unique
+  imageUrl        String           @unique
+  isGallery       Boolean          @default(false)
+  backgroundImage String?
+  slug            String?          @unique
+  birthYear       Int?
+  featuredArtwork String?
+  countryCode     String?
+  websiteUrl      String?
+  facebookUrl     String?
+  instagramUrl    String?
+  twitterUrl      String?
+  linkedinUrl     String?
+  LandingArtist   LandingArtist[]
+  PresaleArtworks PresaleArtwork[]
+  Country         Country?         @relation(fields: [countryCode], references: [code])
 
   @@schema("public")
 }
 
 model ArtistCategoryArtist {
-  id         Int             @id @default(autoincrement())
-  landingArtistId   Int
-  categoryId Int
-  landingArtist     LandingArtist          @relation(fields: [landingArtistId], references: [id])
-  category   ArtistCategory  @relation(fields: [categoryId], references: [id])
+  id              Int            @id @default(autoincrement())
+  landingArtistId Int
+  categoryId      Int
+  landingArtist   LandingArtist  @relation(fields: [landingArtistId], references: [id])
+  category        ArtistCategory @relation(fields: [categoryId], references: [id])
 
   @@unique([landingArtistId, categoryId])
   @@map("ArtistCategoryArtist")
@@ -216,7 +214,7 @@ model LandingArtist {
   biographyText3     String?
   biographyHeader4   String?
   biographyText4     String?
-  imageArtistStudio  String? 
+  imageArtistStudio  String?
   artistCategories   ArtistCategoryArtist[]
   artist             Artist                 @relation(fields: [artistId], references: [id])
 
@@ -249,13 +247,15 @@ model PresaleArtwork {
   name                 String
   description          String?
   order                Int?
-  displayOrder Int? // Ordre d'affichage sur le site web
+  displayOrder         Int? // Ordre d'affichage sur le site web
   artistId             Int
   width                Int? //In centimeters
   height               Int? //In centimeters
   price                Int?
   imageUrl             String                @unique
   mockupUrls           Json                  @default("[]")
+  isSold               Boolean               @default(false)
+  createdAt            DateTime              @default(now())
   artist               Artist                @relation(fields: [artistId], references: [id])
   emailPresaleArtworks EmailPresaleArtwork[]
 
@@ -365,7 +365,6 @@ model StickyFooter {
 
   @@schema("landingUi")
 }
-
 
 enum PostStatus {
   DRAFT

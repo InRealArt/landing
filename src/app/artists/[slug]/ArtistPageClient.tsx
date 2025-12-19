@@ -70,7 +70,8 @@ export default function ArtistPageClient({ slug, initialArtist, initialArtworks 
           ? artwork.name 
           : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || t('common.noTitle'),
         price: artwork.price,
-        image: { src: artwork.image || '' }
+        image: { src: artwork.image || '' },
+        isSold: artwork.isSold || false
       }))
   }, [initialArtworks, language, t])
 

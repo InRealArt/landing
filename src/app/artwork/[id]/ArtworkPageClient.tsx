@@ -5,6 +5,7 @@ import Link from 'next/link'
 import OptimizedContentImage from '@/components/common/OptimizedContentImage'
 import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
 import ArtworkImageModal from '@/components/common/ArtworkImageModal'
+import SoldStatusBadge from '@/components/common/SoldStatusBadge'
 import { useLanguageStore } from '@/store/languageStore'
 import { useArtworksStore } from '@/store/useArtworksStore'
 import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
@@ -247,6 +248,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
               priority={true}
               onViewDetails={handleViewDetails}
             />
+            <SoldStatusBadge isSold={artwork.isSold || false} />
           </div>
 
           {/* Artwork details */}

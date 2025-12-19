@@ -8,6 +8,7 @@ export interface PresaleArtworkData {
     url: string
     artistName: string
     order: number | null
+    isSold?: boolean
 }
 
 interface PresaleArtworkState {
@@ -44,7 +45,8 @@ export const usePresaleArtworkStore = create<PresaleArtworkState>((set) => ({
                     price: artwork.price,
                     url: artwork.imageUrl,
                     artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
-                    order: artwork.order
+                    order: artwork.order,
+                    isSold: artwork.isSold
                 }
             })
 

@@ -16,6 +16,7 @@ export type ArtWork = {
     desactivate: boolean
     width?: number | null
     height?: number | null
+    isSold?: boolean
 }
 
 export type Lang = 'CN' | 'EN' | 'FR'
