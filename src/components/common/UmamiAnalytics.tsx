@@ -11,7 +11,8 @@ export default function UmamiAnalytics({ websiteId }: UmamiAnalyticsProps) {
     <Script
       src="https://cloud.umami.is/script.js"
       data-website-id={websiteId}
-      strategy="afterInteractive"
+      strategy="lazyOnload" // ✅ OPTIMISÉ: lazyOnload au lieu de afterInteractive
+      // Charge uniquement quand le browser est idle (après toutes les métriques critiques)
     />
   )
 }

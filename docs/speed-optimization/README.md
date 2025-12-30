@@ -37,17 +37,22 @@ Documentation complète de l'étape 1 :
 
 ---
 
-### 3. **LIGHTHOUSE-FIX.md**
+### 3. **ETAPE-2-SCRIPTS-COMPLETE.md**
 
-**🔧 Guide de correction des tests Lighthouse**
+**✅ Optimisation des Scripts Tiers (Terminée)**
 
-Documentation de la correction du problème preset "mobile" :
+Documentation complète de l'étape 2 :
 
-- Explication du problème et solution
-- Différences Mobile vs Desktop
-- Configuration correcte des tests
+- GTM et Umami passés en `lazyOnload` (au lieu de `afterInteractive`)
+- Script theme-init inliné (élimination d'une requête HTTP)
+- Réduction du TBT (Total Blocking Time)
+- Résultats attendus : **-20% à -30% Speed Index**
 
-### 4. **ETAPE-2-\*.md** (À venir)
+🚀 **Impact cumulatif (Étapes 1+2)** : **-40% à -50%**
+
+---
+
+### 4. **ETAPE-3-\*.md** (À venir)
 
 Documentation des prochaines étapes d'optimisation au fur et à mesure de leur implémentation.
 
@@ -93,7 +98,7 @@ npm run lighthouse:desktop
 | Étape | Description                | Impact Estimé | Status      |
 | ----- | -------------------------- | ------------- | ----------- |
 | **1** | Optimisation Fonts         | -15% à -25%   | ✅ Terminée |
-| **2** | Scripts Tiers (GTM, Umami) | -20% à -30%   | ⏳ À faire  |
+| **2** | Scripts Tiers (GTM, Umami) | -20% à -30%   | ✅ Terminée |
 | **3** | Images Hero/Above-fold     | -10% à -20%   | ⏳ À faire  |
 | **4** | Lazy Loading Composants    | -5% à -15%    | ⏳ À faire  |
 | **5** | CSS Critique               | -5% à -10%    | ⏳ À faire  |
@@ -140,14 +145,15 @@ Après chaque étape :
 | Date       | Action                                     | Auteur       |
 | ---------- | ------------------------------------------ | ------------ |
 | 2025-12-30 | Création structure documentation + Étape 1 | AI Assistant |
+| 2025-12-30 | Étape 2 complétée - Scripts tiers          | AI Assistant |
 
 ---
 
 ## 🎯 Prochaines Actions
 
-1. **Valider Étape 1** - Test Lighthouse sur fonts optimisées
-2. **Implémenter Étape 2** - Optimisation scripts tiers
-3. **Mesurer impact cumulatif** - Après chaque étape
+1. **Valider Étapes 1+2** - Test Lighthouse pour mesurer l'impact cumulatif
+2. **Implémenter Étape 3** - Images Hero avec priority
+3. **Mesurer impact progressif** - Comparer avant/après chaque étape
 
 ---
 

@@ -65,7 +65,23 @@ export default function RootLayout ({
   return (
     <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`}>
       <head>
-        <script src="/theme-init.js" async />
+        {/* ✅ OPTIMISÉ: Script inline au lieu de fichier externe
+            Évite une requête HTTP et s'exécute immédiatement (bloquant mais nécessaire pour éviter FOUC) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const savedTheme = localStorage.getItem('theme');
+                  const theme = savedTheme === 'dark' ? 'dark' : 'light';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`antialiased ${bricolageGrotesque.className}`}
