@@ -18,7 +18,55 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
+
+## 📚 Documentation
+
+### Performance Optimization
+
+Comprehensive documentation on Speed Index and performance optimization:
+
+- **📁 [docs/speed-optimization/](./docs/speed-optimization/)** - Complete performance optimization guide
+- **🚀 [Optimization Plan](./docs/speed-optimization/SPEED-INDEX-OPTIMIZATION-PLAN.md)** - 7-step progressive optimization strategy
+- **✅ [Step 1: Fonts](./docs/speed-optimization/ETAPE-1-FONTS-COMPLETE.md)** - Font optimization (completed)
+
+### Other Documentation
+
+- **📁 [docs/](./docs/)** - Additional technical documentation
+
+## 🧪 Testing & Performance
+
+### Lighthouse Performance Tests
+
+```bash
+# Run complete Lighthouse test (3 runs)
+npm run lighthouse
+
+# Test mobile performance
+npm run lighthouse:mobile
+
+# Test desktop performance
+npm run lighthouse:desktop
+
+# Analyze JavaScript bundle
+npm run analyze
+```
+
+### Development
+
+```bash
+# Development server with Turbopack
+npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm run start
+
+# Linting
+npm run lint
+```
 
 ## Learn More
 

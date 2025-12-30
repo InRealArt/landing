@@ -21,8 +21,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'bricolage': ['Bricolage Grotesque', 'sans-serif'],
-        'unbounded': ['Unbounded', 'sans-serif'],
+        'bricolage': ['var(--font-bricolage)', 'serif'],
+        'unbounded': ['var(--font-unbounded)', 'sans-serif'],
       },
       colors: {
         purpleColor: "var(--purple)",
@@ -71,7 +71,7 @@ export default {
       const newUtilities = {
         '.text-simulator': {
           'color': 'var(--text)',
-          'font-family': 'Unbounded, sans-serif',
+          'font-family': 'var(--font-unbounded), sans-serif',
           'width': '65%',
           'word-break': 'break-all'
         },
@@ -86,7 +86,7 @@ export default {
         '.hero-title': {
           'color': 'white',
           'text-shadow': '0 4px 6px rgba(0, 0, 0, 0.3)',
-          'font-family': 'Bricolage Grotesque, sans-serif',
+          'font-family': 'var(--font-bricolage), serif',
           'font-weight': '700'
         },
         '.hero-subtitle': {

@@ -16,6 +16,8 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
 // Import pour exposer debugGTM globalement
 import '@/utils/analyticsDebug'
+// Import des fonts optimisées
+import { unbounded, bricolageGrotesque } from '@/config/fonts'
 
 
 export const metadata: Metadata = {
@@ -61,12 +63,12 @@ export default function RootLayout ({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`}>
       <head>
         <script src="/theme-init.js" async />
       </head>
       <body
-        className={'antialiased'}
+        className={`antialiased ${bricolageGrotesque.className}`}
       >
         <GoogleTag GTM_ID={process.env.NEXT_PUBLIC_GTM_ID || "GTM-NBR8FBBP"} />
         <UmamiAnalytics websiteId="d103585b-b4cd-4953-b780-30a3c4dec14f" />

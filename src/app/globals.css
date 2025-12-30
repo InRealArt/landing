@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap');
+/* ✅ Fonts optimisées via next/font - Plus besoin de @import Google Fonts */
+/* Voir src/config/fonts.ts pour la configuration */
 
 @tailwind base;
 @tailwind components;
@@ -11,8 +12,8 @@
   --purple: #6052ff;
   --header-height: 90px;
   --footer-height: 300px;
-  --font-unbounded: 'Unbounded', sans-serif;
-  --font-bricolage: 'Bricolage Grotesque', serif;
+  /* Fonts optimisées - les variables CSS sont définies dans layout.tsx */
+  /* --font-unbounded et --font-bricolage sont injectées automatiquement */
 }
 
 /* Light mode variables */
@@ -49,22 +50,23 @@
   --background-grey: #111827;
 }
 
+/* Classes de fonts - utilisation des variables CSS optimisées */
 .bricolage-grotesque {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: var(--font-bricolage), serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: 'width' 100;
 }
 
 .unbounded {
-  font-family: 'Unbounded', serif;
+  font-family: var(--font-unbounded), sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
 p,
 span {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: var(--font-bricolage), serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: 'width' 100;
@@ -76,7 +78,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Unbounded', serif;
+  font-family: var(--font-unbounded), sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
