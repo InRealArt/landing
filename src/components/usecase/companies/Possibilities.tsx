@@ -11,25 +11,25 @@ export default function Possibilities() {
   const sections = [
     {
       id: 'customization',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist11.2.jpg?alt=media&token=19e3071b-b3ca-49a4-b9f3-62a3e20f43b7',
+      image: '/images/usecase/companies/usecase_companies_1.avif',
       title: t('companies.possibilities.sections.customization.title'),
       description: t('companies.possibilities.sections.customization.description')
     },
     {
       id: 'impact',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist3.2.jpg?alt=media&token=aafc16cf-d49e-4ec8-93f6-b07f878a79df',
+      image: '/images/usecase/companies/usecase_companies_2.avif',
       title: t('companies.possibilities.sections.impact.title'),
       description: t('companies.possibilities.sections.impact.description')
     },
     {
       id: 'art',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fm_peltzer_festinDesOmbres.webp?alt=media&token=f8bf1157-c709-4a16-bfa5-40384933f347',
+      image: '/images/usecase/companies/usecase_companies_3.avif',
       title: t('companies.possibilities.sections.art.title'),
       description: t('companies.possibilities.sections.art.description')
     },
     {
       id: 'events',
-      image: 'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fp_her_envol.webp?alt=media&token=d0dceccc-38af-43dd-8efe-acc43dda50ba',
+      image: '/images/usecase/companies/usecase_companies_5.avif',
       title: t('companies.possibilities.sections.events.title'),
       description: t('companies.possibilities.sections.events.description')
     }
@@ -87,7 +87,7 @@ export default function Possibilities() {
           {/* Image */}
           <div className="mb-8 overflow-hidden rounded-lg h-96">
             <OptimizedImage
-              src={'https://firebasestorage.googleapis.com/v0/b/inrealartlanding-3a094.appspot.com/o/presale%2FdropPanel%2Fartist4.3.jpg?alt=media&token=ef53865d-a675-4d70-88a8-a4b9660e494f'}
+              src="/images/usecase/companies/usecase_companies_4.avif"
               alt="Our Process"
               width={1200}
               height={400}
