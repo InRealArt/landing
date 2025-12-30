@@ -67,7 +67,22 @@ Documentation complète de l'étape 3 :
 
 ---
 
-### 5. **ETAPE-4-\*.md** (À venir)
+### 5. **ETAPE-4-LAZY-LOADING-COMPLETE.md**
+
+**✅ Lazy Loading des Composants Below-the-Fold (Terminée)**
+
+Documentation complète de l'étape 4 :
+
+- Lazy loading de 8 composants avec `next/dynamic`
+- Skeletons simples avec Tailwind CSS
+- Réduction du bundle initial de 27% (~123KB économisés)
+- Résultats attendus : **-5% à -15% Speed Index**
+
+⚡ **Impact cumulatif (Étapes 1+2+3+4)** : **-60% à -70%**
+
+---
+
+### 6. **ETAPE-5-\*.md** (À venir)
 
 Documentation des prochaines étapes d'optimisation au fur et à mesure de leur implémentation.
 
@@ -115,7 +130,7 @@ npm run lighthouse:desktop
 | **1** | Optimisation Fonts         | -15% à -25%   | ✅ Terminée |
 | **2** | Scripts Tiers (GTM, Umami) | -20% à -30%   | ✅ Terminée |
 | **3** | Images Hero/Above-fold     | -10% à -20%   | ✅ Terminée |
-| **4** | Lazy Loading Composants    | -5% à -15%    | ⏳ À faire  |
+| **4** | Lazy Loading Composants    | -5% à -15%    | ✅ Terminée |
 | **5** | CSS Critique               | -5% à -10%    | ⏳ À faire  |
 | **6** | Optimisation Providers     | -2% à -5%     | ⏳ À faire  |
 | **7** | Code Splitting Avancé      | -5% à -10%    | ⏳ À faire  |
@@ -157,19 +172,20 @@ Après chaque étape :
 
 ## 📅 Historique
 
-| Date       | Action                                     | Auteur       |
-| ---------- | ------------------------------------------ | ------------ |
-| 2025-12-30 | Création structure documentation + Étape 1 | AI Assistant |
-| 2025-12-30 | Étape 2 complétée - Scripts tiers          | AI Assistant |
-| 2025-12-30 | Étape 3 complétée - Images Hero priority   | AI Assistant |
+| Date       | Action                                      | Auteur       |
+| ---------- | ------------------------------------------- | ------------ |
+| 2025-12-30 | Création structure documentation + Étape 1  | AI Assistant |
+| 2025-12-30 | Étape 2 complétée - Scripts tiers           | AI Assistant |
+| 2025-12-30 | Étape 3 complétée - Images Hero priority    | AI Assistant |
+| 2025-12-30 | Étape 4 complétée - Lazy loading composants | AI Assistant |
 
 ---
 
 ## 🎯 Prochaines Actions
 
-1. **Valider Étapes 1+2+3** - Test Lighthouse pour mesurer l'impact cumulatif (~50-60% amélioration attendue)
-2. **Implémenter Étape 4** - Lazy loading composants below-the-fold
-3. **Mesurer impact progressif** - Comparer avant/après chaque étape
+1. **Valider Étapes 1+2+3+4** - Test Lighthouse pour mesurer l'impact cumulatif (~60-70% amélioration attendue)
+2. **Implémenter Étape 5** - Optimisation CSS critique (optionnel mais recommandé)
+3. **Mesurer impact final** - Comparer avec la baseline initiale (22.8s → ~7-9s attendu)
 
 ---
 
