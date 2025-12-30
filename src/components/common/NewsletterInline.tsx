@@ -59,7 +59,7 @@ export default function NewsletterInline() {
               {/* Image de fond (décalée) */}
               <div className="absolute top-0 right-[25%] lg:right-0 w-[80px] h-[120px] lg:w-[180px] lg:h-[220px] rounded-lg overflow-hidden shadow-xl z-10">
                 <OptimizedImage
-                  src="/images/newsletter/image_nl_2.jpg"
+                  src="/images/newsletter/image_nl_2.webp"
                   alt="Newsletter illustration 2"
                   width={180}
                   height={220}
@@ -70,7 +70,7 @@ export default function NewsletterInline() {
               {/* Image de premier plan */}
               <div className="absolute bottom-0 left-[20%] lg:left-0 w-[100px] h-[140px] lg:w-[200px] lg:h-[240px] rounded-lg overflow-hidden shadow-2xl z-20">
                 <OptimizedImage
-                  src="/images/newsletter/image_nl_1.jpg"
+                  src="/images/newsletter/image_nl_1.webp"
                   alt="Newsletter illustration 1"
                   width={200}
                   height={240}
