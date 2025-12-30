@@ -14,7 +14,7 @@ const Intro = () => {
   const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
   return (
     <OptimizedBackgroundImage
-      src="/images/home/hero/bg.png"
+      src="/images/home/hero/bg.webp"
       alt="Arrière-plan de la section d'introduction"
       width={1920}
       height={1080}

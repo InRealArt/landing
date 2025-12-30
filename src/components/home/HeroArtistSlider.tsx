@@ -22,25 +22,25 @@ interface Artist {
 const artists: Artist[] = [
   {
     id: 1,
-    image: '/images/home/hero/senechal.png',
+    image: '/images/home/hero/senechal.webp',
     nameKey: 'leadGenerator.defaultTitle1',
     citationKey: 'leadGenerator.defaultDescription1'
   },
   {
     id: 2,
-    image: '/images/home/hero/laville.png',
+    image: '/images/home/hero/laville.webp',
     nameKey: 'leadGenerator.defaultTitle2',
     citationKey: 'leadGenerator.defaultDescription2'
   },
   {
     id: 3,
-    image: '/images/home/hero/ronan.png',
+    image: '/images/home/hero/ronan.webp',
     nameKey: 'leadGenerator.defaultTitle3',
     citationKey: 'leadGenerator.defaultDescription3'
   },
   {
     id: 4,
-    image: '/images/home/hero/boyer.png',
+    image: '/images/home/hero/boyer.webp',
     nameKey: 'leadGenerator.defaultTitle4',
     citationKey: 'leadGenerator.defaultDescription4'
   }
