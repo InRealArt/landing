@@ -12,7 +12,7 @@ export default function Investment() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="relative rounded-lg">
             <OptimizedImage
-              src="/images/leasing-image-investment.jpg"
+              src="/images/leasing-image-investment.webp"
               alt={t('leasing.investment.title')}
               width={600}
               height={600}

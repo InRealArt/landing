@@ -3,7 +3,7 @@
 import TokenForm from '@/components/token/TokenForm';
 import PresaleFeatures from '@/components/presale/PresaleFeatures';
 import { useLanguageStore } from '@/store/languageStore';
-import marketplaceImage from "../../../public/images/intro-background.png";
+import marketplaceImage from "../../../public/images/intro-background.webp";
 export default function TokenHero() {
   const { t } = useLanguageStore();
 //relative z-10 container mx-auto px-4 pt-24 pb-16

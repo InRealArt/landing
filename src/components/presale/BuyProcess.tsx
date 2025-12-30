@@ -1,5 +1,5 @@
 'use client'
-import buyImage from "../../../public/images/presale/buy-1.png";
+import buyImage from "../../../public/images/presale/buy-1.webp";
 import { useState, useEffect } from "react";
 import Button from "../common/Button";
 import { useLanguageStore } from '@/store/languageStore';

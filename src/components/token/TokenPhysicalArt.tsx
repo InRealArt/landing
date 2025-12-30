@@ -52,7 +52,7 @@ export default function TokenPhysicalArt() {
         <div className="flex flex-col md:flex-row gap-6">
           <div className="relative w-full rounded-lg basis-3/5">
             <OptimizedImage
-              src="/images/physiqueart.png"
+              src="/images/physiqueart.webp"
               alt="Physical Art"
               className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
               width={1000}

@@ -39,7 +39,7 @@ export const salons: Record<string, SalonConfig> = {
   'artgeneve': {
     name: 'Artgenève',
     location: 'europe',
-    image: '/images/artgeneve.jpg',
+    image: '/images/artgeneve.webp',
     standard: {
       transportPerPerson: 150,
       hotelPerNight: 130,
@@ -59,7 +59,7 @@ export const salons: Record<string, SalonConfig> = {
     'salonAutomne': {
     name: "Salon d'automne",
     location: 'europe',
-    image: '/images/salonautomne.jpg',
+    image: '/images/salonautomne.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,
@@ -69,7 +69,7 @@ export const salons: Record<string, SalonConfig> = {
     'artParis': {
     name: 'Art Paris',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 130,
@@ -89,7 +89,7 @@ export const salons: Record<string, SalonConfig> = {
     'expo4art': {
     name: 'Expo4Art',
     location: 'europe',
-    image: '/images/expo4art.jpg',
+    image: '/images/expo4art.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 130,
@@ -99,7 +99,7 @@ export const salons: Record<string, SalonConfig> = {
     'fabParis': {
     name: 'FAB Paris',
     location: 'europe',
-    image: '/images/fabParis.jpg',
+    image: '/images/fabParis.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 130,
@@ -114,7 +114,7 @@ export const salons: Record<string, SalonConfig> = {
     'siacMarseille': {
     name: 'SIAC Marseille',
     location: 'europe',
-    image: '/images/siacMarseille.jpg',
+    image: '/images/siacMarseille.webp',
     standard: {
       transportPerPerson: 100,
       hotelPerNight: 120,
@@ -124,7 +124,7 @@ export const salons: Record<string, SalonConfig> = {
     'art-o-rama': {
     name: 'Art-o-rama',
     location: 'europe',
-    image: '/images/art-o-rama.jpg',
+    image: '/images/art-o-rama.webp',
     standard: {
       transportPerPerson: 100,
       hotelPerNight: 120,
@@ -134,7 +134,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fMarseille': {
     name: 'art3f Marseille',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 100,
       hotelPerNight: 120,
@@ -144,7 +144,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fMonaco': {
     name: 'art3f Monaco',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,
@@ -154,7 +154,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fParis': {
     name: 'art3f Paris',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,
@@ -164,7 +164,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fBarcelone': {
     name: 'art3f Barcelone',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 150,
       hotelPerNight: 130,
@@ -174,7 +174,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fLausanne': {
     name: 'art3f Lausanne',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 150,
       hotelPerNight: 130,
@@ -184,7 +184,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fBordeaux': {
     name: 'art3f Bordeaux',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,
@@ -194,7 +194,7 @@ export const salons: Record<string, SalonConfig> = {
     'art3fLyon': {
     name: 'art3f Lyon',
     location: 'europe',
-    image: '/images/art3f.jpg',
+    image: '/images/art3f.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,
@@ -204,7 +204,7 @@ export const salons: Record<string, SalonConfig> = {
     'artShopping': {
     name: 'art Shopping',
     location: 'europe',
-    image: '/images/artShopping.jpg',
+    image: '/images/artShopping.webp',
     standard: {
       transportPerPerson: 120,
       hotelPerNight: 120,

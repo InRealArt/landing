@@ -4,7 +4,7 @@ import OptimizedImage from "@/components/common/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
-import expertImage from "../../../../public/images/expert.png";
+import expertImage from "../../../../public/images/expert.webp";
 import { useState, useEffect } from 'react';
 
 export default function Expert() {
@@ -21,7 +21,7 @@ export default function Expert() {
     importDOMPurify();
   }, [t]);
 
-  return (
+  return (  
     <section id="contact-expert" className="w-full py-16">
       <div className="max-w-90 xl:max-w-screen-xl m-auto relative">
 

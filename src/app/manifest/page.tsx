@@ -88,7 +88,7 @@ export default function ManifestPage() {
           {/* Right: image */}
           <aside className="relative w-full overflow-hidden rounded-xl shadow-2xl h-[560px] md:sticky md:top-headerSize">
             <OptimizedImage
-              src="/images/art-salon-background.png"
+              src="/images/art-salon-background.webp"
               alt="InRealArt exhibition space"
               width={800}
               height={560}

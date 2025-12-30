@@ -29,7 +29,7 @@ export function seoPostToBlogPost(seoPost: SeoPost): BlogPost {
         title: seoPost.title,
         description: seoPost.excerpt || seoPost.metaDescription,
         tags,
-        imageUrl: seoPost.mainImageUrl || '/images/blog/default-blog-image.jpg',
+        imageUrl: seoPost.mainImageUrl || '/images/blog/default-blog-image.webp',
         content: {
             introduction: seoPost.excerpt || '',
             sections: [] // Le contenu détaillé sera géré séparément

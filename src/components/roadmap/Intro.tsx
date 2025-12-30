@@ -1,5 +1,5 @@
 'use client'
-import BG from "../../../public/images/presale/intro.png";
+import BG from "../../../public/images/presale/intro.webp";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
 import { useLanguageStore } from '@/store/languageStore';

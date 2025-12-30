@@ -1,6 +1,4 @@
 'use client'
-import Image from 'next/image'
-import Logo from '/icons/Logo.png';
 import Button from '../Button';
 import Question from './subcomponents/Question';
 import { titleClassName } from '@/utils/classes';

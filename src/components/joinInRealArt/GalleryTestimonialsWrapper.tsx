@@ -34,7 +34,7 @@ export default function GalleryTestimonialsWrapper() {
     {
       text: t('joinInRealArt.galleries.testimonials.gallery1.text'),
       classementIcac: "",
-      urlImageArtiste: artists.find(artist => artist.surname.toLowerCase().includes('leadouze'))?.imageUrl || '/images/team-member.png',
+      urlImageArtiste: artists.find(artist => artist.surname.toLowerCase().includes('leadouze'))?.imageUrl || '/images/team-member.webp',
       name: "Alexandre Leadouze, Galerie Leadouze, 16 avenue Matignon,   Paris",
     },
     {

@@ -65,7 +65,7 @@ export default function Explore() {
           allowHtml={true} 
         />
       </div>
-      <OptimizedImage className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/home/explore/bg.png`} alt='IRA-IMAGE' width={1440} height={250} priority={false} />
+      <OptimizedImage className="max-w-full md:max-w-screen-image m-auto w-full mt-6" src={`/images/home/explore/bg.webp`} alt='IRA-IMAGE' width={1440} height={250} priority={false} />
 
       <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col gap-4 ">
         {items.map((item, index) => {

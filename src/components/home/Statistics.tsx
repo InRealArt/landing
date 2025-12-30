@@ -1,5 +1,4 @@
 'use client'
-import BG from "../../../public/images/intro-background.png";
 import { useLanguageStore } from "@/store/languageStore";
 
 const Statistics = () => {

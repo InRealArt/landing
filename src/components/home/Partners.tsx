@@ -99,7 +99,7 @@ function Partners() {
           >
             <div className="relative h-32 md:h-40 w-full rounded-lg overflow-hidden mb-4">
               <Image
-                src={partner.photo || '/images/placeholder-gallery.png'}
+                src={partner.photo}
                 alt={partner.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"

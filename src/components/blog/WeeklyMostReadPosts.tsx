@@ -43,9 +43,9 @@ export default function WeeklyMostReadPosts() {
   
   // Weekly posts data
   const weeklyMostReadPosts: BlogPost[] = [
-    createArticle('2', 'artInvestmentStrategy', '/images/blog/art-investment-strategy.png', ['Art', 'Investment', 'Strategy'], t),
-    createArticle('3', 'artTokenization', '/images/blog/art-tokenization.png', ['Art', 'Blockchain', 'Tokenization'], t),
-    createArticle('4', 'beginnerArtInvestment', '/images/blog/beginner-art-investment.png', ['Art', 'Investment', 'Strategy'], t)
+    createArticle('2', 'artInvestmentStrategy', '/images/blog/art-investment-strategy.webp', ['Art', 'Investment', 'Strategy'], t),
+    createArticle('3', 'artTokenization', '/images/blog/art-tokenization.webp', ['Art', 'Blockchain', 'Tokenization'], t),
+    createArticle('4', 'beginnerArtInvestment', '/images/blog/beginner-art-investment.webp', ['Art', 'Investment', 'Strategy'], t)
   ];
 
   return (

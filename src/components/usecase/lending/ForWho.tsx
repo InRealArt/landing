@@ -68,7 +68,7 @@ export default function ForWho() {
           
           <div className="w-full md:w-1/2">
               <OptimizedImage 
-                src="/images/lending/aberwrach.png" 
+                src="/images/lending/aberwrach.webp" 
                 alt="Pour qui ?" 
                 className="w-full [&_img]:w-full [&_img]:h-auto"
                 width={500}

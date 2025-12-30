@@ -14,7 +14,7 @@ export default function Solutions() {
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="w-full md:w-1/2">
               <OptimizedImage 
-                src="/images/lending/leloluce.png" 
+                src="/images/lending/leloluce.webp" 
                 alt="Solutions sur mesures" 
                 className="w-full [&_img]:w-full [&_img]:h-auto"
                 width={500}

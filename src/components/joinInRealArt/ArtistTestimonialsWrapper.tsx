@@ -34,23 +34,23 @@ export default function ArtistTestimonialsWrapper() {
     {
       text: t('joinInRealArt.artists.testimonials.artist1.text'),
       classementIcac: "",
-      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('catherine'))?.imageUrl || '/images/team-member.png',
+      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('catherine'))?.imageUrl || '/images/team-member.webp',
       name: t('joinInRealArt.artists.testimonials.artist1.name'),
     },
     {
       text: t('joinInRealArt.artists.testimonials.artist2.text'),
       classementIcac: "",
-      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('monique'))?.imageUrl || '/images/team-member.png',
+      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('monique'))?.imageUrl || '/images/team-member.webp',
       name: t('joinInRealArt.artists.testimonials.artist2.name'),
     },
     {
       text: t('joinInRealArt.artists.testimonials.artist3.text'),
-      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('martin'))?.imageUrl || '/images/team-member.png',
+      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('martin'))?.imageUrl || '/images/team-member.webp',
       name: t('joinInRealArt.artists.testimonials.artist3.name'),
     },
     {
       text: t('joinInRealArt.artists.testimonials.artist4.text'),
-      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('jean-paul'))?.imageUrl || '/images/team-member.png',
+      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('jean-paul'))?.imageUrl || '/images/team-member.webp',
       name: t('joinInRealArt.artists.testimonials.artist4.name'),
     }
   ]
