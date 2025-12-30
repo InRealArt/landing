@@ -77,7 +77,7 @@ export default function HeroArtistSlider() {
         onSwiper={setSwiper}
         className="hero-artist-swiper h-[28rem] sm:h-96"
       >
-        {artists.map((artist) => (
+        {artists.map((artist, index) => (
           <SwiperSlide key={artist.id}>
             <div className="relative">
               {/* Artist Image */}
@@ -96,6 +96,8 @@ export default function HeroArtistSlider() {
                   alt={t(artist.nameKey)}
                   width={400}
                   height={500}
+                  priority={index === 0} // ✅ OPTIMISÉ: Priorité uniquement pour la première image visible
+                  sizes="(max-width: 768px) 100vw, 400px" // ✅ OPTIMISÉ: Sizes responsive
                 />
               </div>
 

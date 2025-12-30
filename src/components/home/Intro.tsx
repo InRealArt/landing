@@ -23,6 +23,7 @@ const Intro = () => {
       overlay
       overlayColor={overlayColor}
       overlayOpacity={0.6}
+      priority={true} // ✅ OPTIMISÉ: Image Hero critique (LCP element) - chargement prioritaire
     >
       <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8 lg:gap-12 py-headerSizeMobile md:py-headerSize">
         {/* Title Section */}

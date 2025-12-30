@@ -52,7 +52,22 @@ Documentation complète de l'étape 2 :
 
 ---
 
-### 4. **ETAPE-3-\*.md** (À venir)
+### 4. **ETAPE-3-IMAGES-COMPLETE.md**
+
+**✅ Optimisation des Images Hero/Above-the-Fold (Terminée)**
+
+Documentation complète de l'étape 3 :
+
+- Image Hero avec `priority={true}` (LCP element)
+- Support `placeholder="blur"` ajouté
+- Optimisation `sizes` responsive pour slider
+- Résultats attendus : **-10% à -20% Speed Index**
+
+🎯 **Impact cumulatif (Étapes 1+2+3)** : **-50% à -60%**
+
+---
+
+### 5. **ETAPE-4-\*.md** (À venir)
 
 Documentation des prochaines étapes d'optimisation au fur et à mesure de leur implémentation.
 
@@ -99,7 +114,7 @@ npm run lighthouse:desktop
 | ----- | -------------------------- | ------------- | ----------- |
 | **1** | Optimisation Fonts         | -15% à -25%   | ✅ Terminée |
 | **2** | Scripts Tiers (GTM, Umami) | -20% à -30%   | ✅ Terminée |
-| **3** | Images Hero/Above-fold     | -10% à -20%   | ⏳ À faire  |
+| **3** | Images Hero/Above-fold     | -10% à -20%   | ✅ Terminée |
 | **4** | Lazy Loading Composants    | -5% à -15%    | ⏳ À faire  |
 | **5** | CSS Critique               | -5% à -10%    | ⏳ À faire  |
 | **6** | Optimisation Providers     | -2% à -5%     | ⏳ À faire  |
@@ -146,13 +161,14 @@ Après chaque étape :
 | ---------- | ------------------------------------------ | ------------ |
 | 2025-12-30 | Création structure documentation + Étape 1 | AI Assistant |
 | 2025-12-30 | Étape 2 complétée - Scripts tiers          | AI Assistant |
+| 2025-12-30 | Étape 3 complétée - Images Hero priority   | AI Assistant |
 
 ---
 
 ## 🎯 Prochaines Actions
 
-1. **Valider Étapes 1+2** - Test Lighthouse pour mesurer l'impact cumulatif
-2. **Implémenter Étape 3** - Images Hero avec priority
+1. **Valider Étapes 1+2+3** - Test Lighthouse pour mesurer l'impact cumulatif (~50-60% amélioration attendue)
+2. **Implémenter Étape 4** - Lazy loading composants below-the-fold
 3. **Mesurer impact progressif** - Comparer avant/après chaque étape
 
 ---

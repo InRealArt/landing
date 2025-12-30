@@ -17,6 +17,8 @@ interface OptimizedBackgroundImageProps {
   overlayOpacity?: number
   priority?: boolean
   quality?: number
+  placeholder?: 'blur' | 'empty'
+  blurDataURL?: string
 }
 
 const OptimizedBackgroundImage = ({
@@ -33,6 +35,8 @@ const OptimizedBackgroundImage = ({
   overlayOpacity = 0.3,
   priority = false,
   quality: customQuality,
+  placeholder,
+  blurDataURL,
 }: OptimizedBackgroundImageProps) => {
   // Valeurs par défaut pour le hook d'optimisation
   const defaultWidth = width || 1920
@@ -66,6 +70,8 @@ const OptimizedBackgroundImage = ({
         style={{
           objectPosition: 'center',
         }}
+        {...(placeholder && { placeholder })}
+        {...(blurDataURL && { blurDataURL })}
       />
 
       {/* Overlay optionnel */}
