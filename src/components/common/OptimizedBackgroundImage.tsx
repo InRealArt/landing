@@ -16,6 +16,7 @@ interface OptimizedBackgroundImageProps {
   overlayColor?: string
   overlayOpacity?: number
   priority?: boolean
+  fetchPriority?: 'auto' | 'high' | 'low'
   quality?: number
   placeholder?: 'blur' | 'empty'
   blurDataURL?: string
@@ -34,6 +35,7 @@ const OptimizedBackgroundImage = ({
   overlayColor = 'rgba(0, 0, 0, 0.3)',
   overlayOpacity = 0.3,
   priority = false,
+  fetchPriority,
   quality: customQuality,
   placeholder,
   blurDataURL,
@@ -64,6 +66,7 @@ const OptimizedBackgroundImage = ({
         )}
         className="absolute inset-0 w-full h-full object-cover"
         priority={priority}
+        fetchPriority={fetchPriority || (priority ? 'high' : undefined)}
         quality={finalQuality}
         unoptimized={unoptimized}
         sizes="100vw"
