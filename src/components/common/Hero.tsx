@@ -14,6 +14,7 @@ interface HeroProps {
   className?: string
   contentAlignment?: 'center' | 'end' | 'start' | 'end-center' | 'start-center'
   contentContainerClassName?: string
+  priority?: boolean
 }
 
 export default function Hero({
@@ -25,7 +26,8 @@ export default function Hero({
   subtitleClassName = "text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed",
   className = "relative w-screen h-96 md:h-[550px] overflow-hidden ml-[calc(-50vw+50%)]",
   contentAlignment = 'center',
-  contentContainerClassName = "max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12"
+  contentContainerClassName = "max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12",
+  priority = false
 }: HeroProps) {
   const { theme } = useTheme()
   
@@ -37,6 +39,7 @@ export default function Hero({
         width={1920}
         height={1080}
         className="absolute inset-0 w-full h-full"
+        priority={priority}
       />
       
       {/* Dégradé du bas vers le background - plus transparent pour voir l'image */}

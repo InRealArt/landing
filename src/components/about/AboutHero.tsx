@@ -17,6 +17,7 @@ export default function AboutHero() {
       contentContainerClassName="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20"
       titleClassName="bricolage-grotesque text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-textColor mb-4 md:mb-6 leading-tight"
       subtitleClassName="text-base md:text-lg lg:text-xl text-textColor/90 max-w-2xl leading-relaxed"
+      priority={true}
     />
   )
 }
