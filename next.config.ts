@@ -38,6 +38,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Optimisation CSS : inline les CSS critiques pour réduire le blocage du rendu
+  // Cela élimine les requêtes bloquantes pour les CSS et améliore le Speed Index
+  experimental: {
+    inlineCss: true,
+  },
 };
 
 export default nextConfig;
