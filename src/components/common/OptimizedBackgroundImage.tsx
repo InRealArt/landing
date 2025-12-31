@@ -20,6 +20,7 @@ interface OptimizedBackgroundImageProps {
   quality?: number
   placeholder?: 'blur' | 'empty'
   blurDataURL?: string
+  sizes?: string
 }
 
 const OptimizedBackgroundImage = ({
@@ -39,6 +40,7 @@ const OptimizedBackgroundImage = ({
   quality: customQuality,
   placeholder,
   blurDataURL,
+  sizes,
 }: OptimizedBackgroundImageProps) => {
   // Valeurs par défaut pour le hook d'optimisation
   const defaultWidth = width || 1920
@@ -69,7 +71,7 @@ const OptimizedBackgroundImage = ({
         fetchPriority={fetchPriority || (priority ? 'high' : undefined)}
         quality={finalQuality}
         unoptimized={unoptimized}
-        sizes="100vw"
+        sizes={sizes || "100vw"}
         style={{
           objectPosition: 'center',
         }}

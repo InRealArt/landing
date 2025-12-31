@@ -29,6 +29,7 @@ export default function DescriptionsBlock() {
                     width={928}
                     height={1160}
                     className="w-3/4 h-auto object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 30vw, (max-width: 1536px) 400px, 400px"
                     isDecorative={false}
                   />
                   <div className={`absolute inset-0 border-2 rounded-xl pointer-events-none ${theme === 'light' ? 'border-gray-300' : 'border-white'}`}></div>
@@ -96,6 +97,7 @@ export default function DescriptionsBlock() {
                     width={774}
                     height={1161}
                     className="w-3/4 h-auto object-contain"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 30vw, (max-width: 1536px) 400px, 400px"
                     isDecorative={false}
                   />
                   <div className={`absolute inset-0 border-2 rounded-xl pointer-events-none ${theme === 'light' ? 'border-gray-300' : 'border-white'}`}></div>

@@ -41,6 +41,7 @@ export default function JoinInRealArtHero() {
       overlay={true}
       overlayColor={overlayColor}
       overlayOpacity={1}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, (max-width: 1536px) 1400px, 1400px"
     >
       {/* Contenu du hero */}
       <div className="inset-0 z-20 flex items-center pt-headerSize">
