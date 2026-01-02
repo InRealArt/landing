@@ -31,7 +31,7 @@ export default function Advantages() {
 
           <div className="w-full md:w-1/2">
               <OptimizedImage 
-                src="/images/lending/pigcoin.webp" 
+                src="/images/usecase/lending/pigcoin.webp" 
                 alt="Solutions sur mesures" 
                 className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
                 width={500}
