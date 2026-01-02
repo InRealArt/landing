@@ -6,7 +6,7 @@ import LanguageProvider from '@/components/providers/LanguageProvider'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
 import GoogleTag from '@/components/common/GoogleTag'
-import GoogleCaptchaWrapper from '@/components/captcha/googleCaptchaWrapper'
+import { RecaptchaProvider } from '@/contexts/RecaptchaContext'
 import CookieConsentBanner from '@/components/common/CookieConsent'
 import NewsletterManager from '@/components/common/NewsletterManager'
 import StickyFooterManager from '@/components/common/StickyFooterManager'
@@ -93,7 +93,7 @@ export default function RootLayout ({
           <NuqsAdapter>
             <ThemeProvider>
               <LanguageProvider>
-                <GoogleCaptchaWrapper>
+                <RecaptchaProvider>
                     <Header />
                     {children}
                     {/* <FAQ /> */}
@@ -105,7 +105,7 @@ export default function RootLayout ({
                     <StickyFooterManager />
                     {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
                     {/* <GlobalNavigationTest /> */}
-                </GoogleCaptchaWrapper>
+                </RecaptchaProvider>
               </LanguageProvider>
             </ThemeProvider>
           </NuqsAdapter>

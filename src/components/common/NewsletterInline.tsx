@@ -3,7 +3,7 @@
 import { Mail } from 'lucide-react'
 import { useState, useTransition } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { subscribeToNewsletter } from '@/actions/newsletterActions'
 import OptimizedImage from './OptimizedImage'
@@ -12,21 +12,21 @@ import Button from './Button'
 
 export default function NewsletterInline() {
   const { t } = useLanguageStore()
-  const { executeRecaptcha } = useGoogleReCaptcha()
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
 
   // Wrapper pour la server action compatible avec les bonnes pratiques
   const handleSubmit = async (formData: FormData) => {
-    if (!executeRecaptcha) {
-      toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
-      return
-    }
-
     startTransition(async () => {
       try {
-        // Générer le token reCAPTCHA
+        // Générer le token reCAPTCHA (charge automatiquement si nécessaire)
         const recaptchaToken = await executeRecaptcha('newsletter_subscribe')
+        
+        if (!recaptchaToken) {
+          toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
+          return
+        }
 
         // Ajouter le token au FormData
         formData.append('recaptchaToken', recaptchaToken)

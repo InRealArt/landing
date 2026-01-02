@@ -7,7 +7,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
 import Link from 'next/link'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
 import { salons } from '@/utils/artSalonCalculations'
 import { useTheme } from '@/contexts/ThemeContext'
@@ -47,7 +47,7 @@ const Footer = () => {
   const { t, language } = useLanguageStore()
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
-  const { executeRecaptcha } = useGoogleReCaptcha()
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const { theme } = useTheme()
   
   // États pour la modal de succès
@@ -56,15 +56,15 @@ const Footer = () => {
 
   // Wrapper pour la server action compatible avec les bonnes pratiques
   const handleSubmit = async (formData: FormData) => {
-    if (!executeRecaptcha) {
-      toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
-      return
-    }
-
     startTransition(async () => {
       try {
-        // Générer le token reCAPTCHA
+        // Générer le token reCAPTCHA (charge automatiquement si nécessaire)
         const recaptchaToken = await executeRecaptcha('newsletter_subscribe')
+        
+        if (!recaptchaToken) {
+          toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
+          return
+        }
 
         // Ajouter le token au FormData
         formData.append('recaptchaToken', recaptchaToken)

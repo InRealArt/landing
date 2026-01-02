@@ -11,7 +11,7 @@ import { useArtworksStore } from '@/store/useArtworksStore'
 import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
 import { submitPresaleEmail } from '@/actions/emailActions'
 import { toast } from 'sonner'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { validateEmail } from '@/utils/functions'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { Lang } from '@/types/types'
@@ -31,7 +31,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const { executeRecaptcha } = useGoogleReCaptcha()
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: false })
   const [sanitizedDescription, setSanitizedDescription] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

@@ -9,7 +9,7 @@ import BlockFaq from '@/components/common/BlockFaq';
 import Button from "@/components/common/Button";
 import { ArrowRight, Mail, Download } from "lucide-react";
 import FAQ from '@/components/common/FAQ/FAQ';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { downloadCatalog } from '@/actions/catalogActions'
 import CatalogSuccessModal from '@/components/common/SuccessModal'
@@ -29,7 +29,7 @@ export default function Presale() {
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const [showSuccessModal, setShowSuccessModal] = useState(false)
-  const { executeRecaptcha } = useGoogleReCaptcha()
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),
@@ -64,15 +64,15 @@ export default function Presale() {
 
   // Fonction de gestion du téléchargement du catalogue
   const handleCatalogDownload = async (formData: FormData) => {
-    if (!executeRecaptcha) {
-      toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
-      return
-    }
-
     startTransition(async () => {
       try {
-        // Générer le token reCAPTCHA
+        // Générer le token reCAPTCHA (charge automatiquement si nécessaire)
         const recaptchaToken = await executeRecaptcha('catalog_download')
+        
+        if (!recaptchaToken) {
+          toast.error('reCAPTCHA non disponible. Veuillez réessayer.')
+          return
+        }
 
         // Ajouter le token au FormData
         formData.append('recaptchaToken', recaptchaToken)
