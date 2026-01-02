@@ -19,7 +19,7 @@ export const salons: Record<string, SalonConfig> = {
   'artbasel-paris': {
     name: 'Art Basel Paris',
     location: 'france',
-    image: '/images/art-basel.jpeg',
+    image: '/images/art-basel.webp',
     standard: {
       transportPerPerson: 100,
       hotelPerNight: 120,
