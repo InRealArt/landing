@@ -23,6 +23,7 @@ const PresaleHero = () => {
       subtitleClassName={`mb-6 sm:mb-8 text-sm sm:text-base md:text-lg ${
         theme === 'light' ? 'text-gray-700' : 'text-white/90'
       }`}
+      priority={true}
     />
   )
 }
