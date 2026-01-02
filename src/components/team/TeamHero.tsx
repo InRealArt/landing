@@ -11,12 +11,13 @@ export default function TeamHero() {
   return (
     <section className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden">
       <OptimizedBackgroundImage
-        src="/images/team/hero_team.webp"
+        src="/images/team/hero_team.avif"
         alt={t('team.title')}
         width={1920}
         height={1080}
         className="absolute inset-0 w-full h-full"
         overlay={false}
+        priority={true}
       />
       
       {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
