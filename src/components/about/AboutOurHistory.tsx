@@ -19,8 +19,9 @@ export default function AboutOurHistory() {
             alt="Paysage montagneux aquarelle"
             fill={true}
             className="w-full aspect-square rounded-2xl"
-            quality={90}
+            quality={75}
             priority={false}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 661px"
           />
           
           {/* Image droite - Scène tropicale avec Cupidon */}
@@ -29,8 +30,9 @@ export default function AboutOurHistory() {
             alt="Scène tropicale avec Cupidon"
             fill={true}
             className="w-full aspect-square rounded-2xl"
-            quality={90}
+            quality={75}
             priority={false}
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 661px"
           />
         </div>
 
