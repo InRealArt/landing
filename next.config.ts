@@ -44,6 +44,29 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
   },
+
+  // Configuration SWC pour éviter les polyfills inutiles pour les navigateurs modernes
+  // Ces fonctionnalités sont supportées nativement par Chrome 111+, Edge 111+, Firefox 111+, Safari 16.4+
+  compiler: {
+    // Désactiver les transformations pour les fonctionnalités Baseline
+    // Cela évite d'inclure des polyfills pour Array.at, Object.fromEntries, etc.
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
+  // Configuration webpack pour optimiser le build
+  webpack: (config, { isServer, webpack }) => {
+    if (!isServer) {
+      // Optimiser les chunks pour réduire les polyfills
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+      }
+    }
+    return config
+  },
 };
 
 export default nextConfig;

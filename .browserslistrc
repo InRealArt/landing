@@ -1,0 +1,15 @@
+# Configuration Browserslist pour cibler uniquement les navigateurs modernes
+# Ces versions supportent nativement toutes les fonctionnalités Baseline
+# et n'ont pas besoin de polyfills pour Array.at, Object.fromEntries, etc.
+
+chrome >= 111
+edge >= 111
+firefox >= 111
+safari >= 16.4
+ios_saf >= 16.4
+
+# Exclure explicitement les anciens navigateurs
+not IE 11
+not dead
+not op_mini all
+
