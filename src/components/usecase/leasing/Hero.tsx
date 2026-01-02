@@ -14,12 +14,13 @@ export default function Hero() {
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
           <OptimizedBackgroundImage
-            src="/images/usecase/usecase_leasing.webp"
+            src="/images/usecase/usecase_leasing.avif"
             alt={t('leasing.hero.title')}
             width={1920}
             height={1080}
             className="w-full h-full"
             overlay={false}
+            priority={true}
           />
         </div>
       </div>
