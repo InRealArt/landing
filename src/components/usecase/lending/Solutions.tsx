@@ -14,11 +14,12 @@ export default function Solutions() {
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="w-full md:w-1/2">
               <OptimizedImage 
-                src="/images/usecase/lending/leloluce.webp" 
+                src="/images/usecase/lending/leloluce.avif" 
                 alt="Solutions sur mesures" 
                 className="w-full [&_img]:w-full [&_img]:h-auto"
                 width={500}
                 height={350}
+                priority={true}
               />
           </div>
           
