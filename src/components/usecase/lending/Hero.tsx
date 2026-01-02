@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-top [&_img]:scale-110">
           <OptimizedBackgroundImage
-            src="/images/usecase/usecase_lending.webp"
+            src="/images/usecase/lending/usecase_lending.webp"
             alt={t('lending.hero.title')}
             width={1920}
             height={1080}

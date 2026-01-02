@@ -34,8 +34,10 @@ export default function Advantages() {
                 src="/images/usecase/lending/pigcoin.webp" 
                 alt="Solutions sur mesures" 
                 className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
-                width={500}
-                height={260}
+                width={665}
+                height={665}
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 665px"
+                quality={75}
               />
           </div>
         </div>
