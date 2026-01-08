@@ -38,12 +38,6 @@ export default function ArtistTestimonialsWrapper() {
       name: t('joinInRealArt.artists.testimonials.artist1.name'),
     },
     {
-      text: t('joinInRealArt.artists.testimonials.artist2.text'),
-      classementIcac: "",
-      urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('monique'))?.imageUrl || '/images/team-member.webp',
-      name: t('joinInRealArt.artists.testimonials.artist2.name'),
-    },
-    {
       text: t('joinInRealArt.artists.testimonials.artist3.text'),
       urlImageArtiste: artists.find(artist => artist.name.toLowerCase().includes('martin'))?.imageUrl || '/images/team-member.webp',
       name: t('joinInRealArt.artists.testimonials.artist3.name'),

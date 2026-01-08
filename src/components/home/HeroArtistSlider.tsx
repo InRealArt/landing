@@ -27,12 +27,6 @@ const artists: Artist[] = [
     citationKey: 'leadGenerator.defaultDescription1'
   },
   {
-    id: 2,
-    image: '/images/home/hero/laville.webp',
-    nameKey: 'leadGenerator.defaultTitle2',
-    citationKey: 'leadGenerator.defaultDescription2'
-  },
-  {
     id: 3,
     image: '/images/home/hero/ronan.webp',
     nameKey: 'leadGenerator.defaultTitle3',
