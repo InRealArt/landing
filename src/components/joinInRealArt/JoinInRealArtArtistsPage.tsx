@@ -7,19 +7,19 @@ import HowToJoinUs from "@/components/common/HowToJoinUs";
 export default function JoinInRealArtArtistsPage() {
   const artistsOpportunities = [
     {
+      key: 'joinOurCommunity',
+      titleKey: 'joinInRealArt.artists.opportunities.joinOurCommunity.title',
+      descriptionKey: 'joinInRealArt.artists.opportunities.joinOurCommunity.description'
+    },
+    {
       key: 'support',
       titleKey: 'joinInRealArt.artists.opportunities.support.title',
       descriptionKey: 'joinInRealArt.artists.opportunities.support.description'
     },
     {
-      key: 'technology',
-      titleKey: 'joinInRealArt.artists.opportunities.technology.title',
-      descriptionKey: 'joinInRealArt.artists.opportunities.technology.description'
-    },
-    {
-      key: 'rights',
-      titleKey: 'joinInRealArt.artists.opportunities.rights.title',
-      descriptionKey: 'joinInRealArt.artists.opportunities.rights.description'
+      key: 'yoursuccess',
+      titleKey: 'joinInRealArt.artists.opportunities.yoursuccess.title',
+      descriptionKey: 'joinInRealArt.artists.opportunities.yoursuccess.description'
     }
   ];
 

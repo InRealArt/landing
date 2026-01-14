@@ -496,17 +496,17 @@
       "opportunities": {
         "title": "A World of Opportunities For You and Your Art",
         "button": "Become a Partner Artist",
+        "joinOurCommunity": {
+          "title": "Join our partner artist community",
+          "description": "A human and collective project that brings together artists and partners sharing the same vision, while remaining close to each of our talents."
+        },
         "support": {
           "title": "Personalized support",
-          "description": "IRA supports you at every stage of your artistic journey — from putting your works online to managing a sales portfolio. Benefit from personalized advice to maximize your visibility, enhance your work and expand your network in the art world."
+          "description": "IRA guides you at each step of your artistic journey: uploading your works, managing your portfolio, valorizing and promoting your work. <br><br> Benefit from personalized advice to increase your visibility, develop your network and boost your career in the world of art."
         },
-        "technology": {
-          "title": "Technology at the service of your success",
-          "description": "Access an innovative platform that revolutionizes the sale of artwork. Our marketplace integrating art and the use of Web3 technologies will allow you to reach a larger and more modern audience, secure and transparent, while reaching an international audience."
-        },
-        "rights": {
-          "title": "Sell, enhance and protect your copyrights",
-          "description": "Take full advantage of your work: our expertise allows you to secure and exploit your copyrights while generating new revenue."
+        "yoursuccess": {
+          "title": "A platform thought for your success",
+          "description": "Access a professional and secure space to present your works, manage your sales and reach a wider audience. <br><br>Our tool allows you to gain visibility, create new opportunities and remain master of your artistic universe."
         }
       },
       "testimonials": {

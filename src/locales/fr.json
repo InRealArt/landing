@@ -483,9 +483,14 @@
       }
     },
     "artists": {
+      "metadata": {
+        "title": "Rejoignez-nous en tant qu'Artiste - InRealArt",
+        "description": "Un Monde d'Opportunités pour Vous et Votre Art",
+        "keywords": "artiste InRealArt, tokeniser œuvres, vendre art, plateforme artistes, art numérique, blockchain art"
+      },
       "hero": {
         "title": "Vous êtes un artiste",
-        "subtitle": "Rejoignez InRealArt pour intégrer votre travail à notre catalogue, bénéficier d’une ligne éditoriale à forte valeur ajoutée, d’un kit de communication complet, et d’actions de promotion ciblée.<br><br> Nous organisons également des rencontres avec collectionneurs et entreprises ainsi que des événements dédiés pour valoriser vos œuvres et développer votre notoriété, avec un accès à notre marketplace en soutien.",
+        "subtitle": "Rejoignez InRealArt pour intégrer votre travail à notre catalogue, bénéficier d'une ligne éditoriale à forte valeur ajoutée, d'un kit de communication complet, et d'actions de promotion ciblée.<br><br> Nous organisons également des rencontres avec collectionneurs et entreprises ainsi que des événements dédiés pour valoriser vos œuvres et développer votre notoriété, avec un accès à notre marketplace en soutien.",
         "button": "Commencer dès maintenant"
       },
       "faq": {
@@ -495,17 +500,17 @@
       "opportunities": {
         "title": "Un Monde d'Opportunités Pour Vous et Votre Art",
         "button": "Devenez Artiste Partenaire",
+        "joinOurCommunity": {
+          "title": "Rejoignez notre communauté d’artistes partenaires",
+          "description": "Un projet humain et collectif qui réunit artistes et partenaires partageant la même vision, tout en restant proche de chacun de nos talents."
+        },
         "support": {
           "title": "Un accompagnement sur mesure",
-          "description": "IRA vous accompagne à chaque étape de votre parcours artistique — de la mise en ligne de vos œuvres à la gestion d'un portefeuille de ventes. Bénéficiez de conseils personnalisés pour maximiser votre visibilité, valoriser votre travail et étendre votre réseau dans le monde de l'art."
+          "description": "IRA vous guide à chaque étape de votre parcours artistique : mise en ligne de vos œuvres, gestion de votre portefeuille, valorisation et promotion de votre travail. <br><br>Profitez de conseils personnalisés pour accroître votre visibilité, développer votre réseau et booster votre carrière dans le monde de l’art."
         },
-        "technology": {
-          "title": "Une technologie au service de votre succès",
-          "description": "Accédez à une plateforme innovante qui révolutionne la vente d'œuvres d'art. Notre marketplace intégrant l'art et l'usage de technologies Web3 vous permettra de toucher un public plus large et plus moderne, sécurisée et transparente, tout en touchant un public international."
-        },
-        "rights": {
-          "title": "Vendez, valorisez et protégez vos droits d'auteur",
-          "description": "Tirez pleinement parti de votre travail : notre expertise vous permet de sécuriser et exploiter vos droits d'auteur tout en générant de nouveaux revenus."
+        "yoursuccess": {
+          "title": "Une plateforme pensée pour votre succès",
+          "description": "Accédez à un espace professionnel simple et sécurisé pour présenter vos œuvres, gérer vos ventes et toucher un public toujours plus large. <br><br>Notre outil vous permet de gagner en visibilité, de créer de nouvelles opportunités et de rester maître de votre univers artistique."
         }
       },
       "testimonials": {
