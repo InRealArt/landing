@@ -314,11 +314,11 @@
       "title": "Le catalogue InRealArt c'est :",
       "items": {
         "artists": {
-          "number": "15+",
+          "number": "35+",
           "label": "Artistes sélectionnés dans notre catalogue global"
         },
         "works": {
-          "number": "200+",
+          "number": "600+",
           "label": "Œuvres soigneusement choisies pour embellir votre collection"
         },
         "transactions": {
