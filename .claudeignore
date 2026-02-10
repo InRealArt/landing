@@ -1,0 +1,53 @@
+# Build outputs
+.next/
+out/
+build/
+coverage/
+
+# Dependencies (huge, not useful)
+node_modules/
+
+# Lock file (very large)
+package-lock.json
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# Git internals
+.git/
+
+# Editor / AI tool configs
+.history/
+.agent/
+.agents/
+.continue/
+.cursor/
+.qodo/
+
+# Lighthouse CI
+.lighthouseci/
+lighthouserc.json
+lighthouserc-mobile.json
+
+# Vercel
+.vercel/
+
+# Secrets & certs
+.env
+.env.*
+*.pem
+
+# Static binary/media assets (not source code)
+public/images/
+public/fonts/
+public/icons/
+public/files/
+
+# Large redundant docs
+README-IMAGE-OPTIMIZATION.md
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*

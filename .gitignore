@@ -43,3 +43,11 @@ next-env.d.ts
 
 # History
 .history
+
+# IDE / AI agents
+.agent/
+.agents/
+.claude/
+.continue/
+.cursor/
+CLAUDE.md

@@ -12,6 +12,21 @@ import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/ne
 import { salons } from '@/utils/artSalonCalculations'
 import { useTheme } from '@/contexts/ThemeContext'
 
+const atelierLinks = [
+  { label: 'Sandrine Hirson - artiste InRealArt', href: 'https://share.google/GewswgKB0Od9tyFEV' },
+  { label: 'Nadine LePrince - artiste InRealArt', href: 'https://share.google/7uieG9SlEVKaUTHvO' },
+  { label: 'Mr Hope - artiste InRealArt', href: 'https://share.google/ZwMEQTKtzRROGGeUF' },
+  { label: 'Monique Laville - artiste InRealArt', href: 'https://share.google/sYkUAhGdXAat97EVf' },
+  { label: 'Marie de Saint Germain - artiste InRealArt', href: 'https://share.google/7XwDxxwXSRlo3IfpQ' },
+  { label: 'Marianne Quinzin - artiste InRealArt', href: 'https://share.google/kYGzFfbZQ7NZdExgQ' },
+  { label: 'Marc Peltzer - artiste InRealArt', href: 'https://share.google/1A8fKvVlZ3lKXIrD7' },
+  { label: 'Jean-Paul Boyer - artiste InRealArt', href: 'https://share.google/374mb9VcmQvHSyppN' },
+  { label: 'François Poulat - artiste InRealArt', href: 'https://share.google/c0cqNa2fGo738bTei' },
+  { label: 'Franck Alagna - artiste InRealArt', href: 'https://share.google/7MeBYyD6SPH1P1I89' },
+  { label: 'Florence Autelin - Artiste InRealArt', href: 'https://share.google/C8KXeYSLAwtW0ya3Z' },
+  { label: 'Catherine Sénéchal - artiste InRealArt', href: 'https://share.google/DfFrXEYyGarxVUkUf' },
+  { label: 'Alves Antoine Junior - Artiste InRealArt', href: 'https://share.google/IzSfhbdnUDNx0e47K' },
+]
 
 // Type pour les liens de navigation
 type NavigationLink = {
@@ -91,14 +106,14 @@ const Footer = () => {
     <footer className="text-textColor py-12 mt-36 bg-linear-to-b from-[#1F1F1F] to-[##1f1f1f29]">
       <div className="container mx-auto px-4">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-          {/* // Pages - First Column */}
-
-          
-          <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.pages')}</h3>
-            <ul className="space-y-2">
+          {/* Pages - First Column */}
+          <div className="flex flex-col items-center">
+            {/* Heading spans full column width and stays centered */}
+            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.pages')}</h3>
+            {/* ul width is set by its widest item; text-left gives all items a shared left edge */}
+            <ul className="space-y-2 text-left">
               {firstColumnLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -113,9 +128,9 @@ const Footer = () => {
           </div>
 
           {/* Pages - Second Column */}
-          <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.resources')}</h3>
-            <ul className="space-y-2">
+          <div className="flex flex-col items-center">
+            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.resources')}</h3>
+            <ul className="space-y-2 text-left">
               {secondColumnLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -128,14 +143,12 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <div />
-
           </div>
 
           {/* Simulators Section - Combined */}
-          <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl font-bold mb-4 h-8 flex items-center justify-center">{t('footer.professionalsAndCompanies')}</h3>
-            <ul className="space-y-2">
+          <div className="flex flex-col items-center">
+            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.professionalsAndCompanies')}</h3>
+            <ul className="space-y-2 text-left">
               {/* Art Salon Simulators */}
               {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
                 <li key={slug}>
@@ -177,7 +190,24 @@ const Footer = () => {
             </ul>
           </div>
 
-
+          {/* Physical Workshops Column */}
+          <div className="flex flex-col items-center">
+            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">Les ateliers physiques InRealArt</h3>
+            <ul className="space-y-2 text-left">
+              {atelierLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-grayText hover:text-textColor transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
         </div>
         
