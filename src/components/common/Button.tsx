@@ -13,6 +13,7 @@ type Props = {
   iconBefore?: boolean;
   download?: boolean;
   target?: string;
+  'data-umami-event'?: string;
 };
 
 const Button = ({
@@ -26,13 +27,14 @@ const Button = ({
   type = "button",
   download = false,
   iconBefore = false,
-  target = '_self'
+  target = '_self',
+  ...rest
 }: Props) => {
   const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} ${additionalClassName?.includes('bg-purpleColor') ? 'text-white' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`;
 
   if (link)
     return (
-      <Link className={className} href={link} onClick={action} download={download} target={target}>
+      <Link className={className} href={link} onClick={action} download={download} target={target} {...rest}>
         {iconBefore && icon}
         <span className='unbounded font-semibold text-sm'>{text}</span>
         {!iconBefore && icon}
@@ -45,6 +47,7 @@ const Button = ({
       className={className}
       type={type}
       onClick={action}
+      {...rest}
     >
       {iconBefore && icon}
       <span className='unbounded font-semibold text-sm'>{text}</span>
