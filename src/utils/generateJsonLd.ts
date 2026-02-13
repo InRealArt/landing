@@ -1,4 +1,6 @@
 import { SeoPost } from '@/store/useSeoPostStore'
+import { ArtistData } from '@/actions/artistActions'
+import { ArtWork } from '@/types/types'
 
 interface JsonLdOptions {
     baseUrl?: string
@@ -259,6 +261,174 @@ export function generatePostJsonLd(post: SeoPost): string {
     }
 
     return generateArticleJsonLd(post)
+}
+
+/**
+ * Génère le JSON-LD Schema Person enrichi pour une page artiste (point 3 du template SEO)
+ */
+export function generateArtistPersonJsonLd(
+    artist: ArtistData,
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+): string {
+    const artistName = `${artist.name} ${artist.surname}`
+    const artistUrl = `${baseUrl}/artists/${artist.slug}`
+
+    const personData: Record<string, unknown> = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: artistName,
+        url: artistUrl,
+        worksFor: {
+            '@type': 'Organization',
+            name: 'InRealArt',
+            url: baseUrl
+        }
+    }
+
+    if (artist.pseudo) {
+        personData.alternateName = artist.pseudo
+    }
+
+    if (artist.artworkStyle) {
+        personData.jobTitle = artist.artworkStyle
+    }
+
+    if (artist.intro || artist.description) {
+        personData.description = (artist.intro || artist.description || '').replace(/<[^>]*>/g, '').slice(0, 200)
+    }
+
+    if (artist.imageUrl) {
+        personData.image = artist.imageUrl
+    }
+
+    if (artist.birthYear) {
+        personData.birthDate = String(artist.birthYear)
+    }
+
+    if (artist.countryName || artist.countryCode) {
+        personData.nationality = {
+            '@type': 'Country',
+            name: artist.countryName || artist.countryCode
+        }
+    }
+
+    if (artist.mediumTags && artist.mediumTags.length > 0) {
+        personData.knowsAbout = artist.mediumTags
+        personData.hasOccupation = {
+            '@type': 'Occupation',
+            name: artist.artworkStyle || 'Artiste',
+            occupationalCategory: 'Arts visuels'
+        }
+    }
+
+    return JSON.stringify(personData)
+}
+
+/**
+ * Génère le JSON-LD Schema VisualArtwork pour les œuvres d'un artiste (point 3 du template SEO)
+ */
+export function generateArtistVisualArtworksJsonLd(
+    artworks: ArtWork[],
+    artistName: string,
+    artistSlug: string,
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+): string {
+    const artistUrl = `${baseUrl}/artists/${artistSlug}`
+
+    const items = artworks.slice(0, 10).map(artwork => {
+        const name = artwork.name.FR || artwork.name.EN || Object.values(artwork.name)[0] || ''
+        const item: Record<string, unknown> = {
+            '@context': 'https://schema.org',
+            '@type': 'VisualArtwork',
+            name,
+            creator: {
+                '@type': 'Person',
+                name: artistName,
+                url: artistUrl
+            }
+        }
+
+        if (artwork.image) {
+            item.image = {
+                '@type': 'ImageObject',
+                url: artwork.image
+            }
+        }
+
+        if (artwork.width) {
+            item.width = {
+                '@type': 'QuantitativeValue',
+                value: artwork.width,
+                unitCode: 'CMT'
+            }
+        }
+
+        if (artwork.height) {
+            item.height = {
+                '@type': 'QuantitativeValue',
+                value: artwork.height,
+                unitCode: 'CMT'
+            }
+        }
+
+        if (artwork.price && !artwork.isSold) {
+            item.offers = {
+                '@type': 'Offer',
+                price: artwork.price,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                seller: {
+                    '@type': 'Organization',
+                    name: 'InRealArt'
+                }
+            }
+        }
+
+        return item
+    })
+
+    if (items.length === 0) return ''
+
+    if (items.length === 1) return JSON.stringify(items[0])
+
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': items
+    })
+}
+
+/**
+ * Génère le JSON-LD BreadcrumbList pour une page artiste (point 3 du template SEO)
+ */
+export function generateArtistBreadcrumbJsonLd(
+    artistName: string,
+    artistSlug: string,
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+): string {
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Accueil',
+                item: baseUrl
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Artistes',
+                item: `${baseUrl}/artists`
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: artistName,
+                item: `${baseUrl}/artists/${artistSlug}`
+            }
+        ]
+    })
 }
 
 /**

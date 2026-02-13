@@ -8,7 +8,6 @@ import ArtistBiography from '@/components/artists/ArtistBiography'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtWork, Lang } from '@/types/types'
-import { generatePersonJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { ArtistData } from '@/actions/artistActions'
 
 export interface ArtistPageClientProps {
@@ -17,7 +16,7 @@ export interface ArtistPageClientProps {
   initialArtworks: ArtWork[]
 }
 
-export default function ArtistPageClient({ slug, initialArtist, initialArtworks }: ArtistPageClientProps) {
+export default function ArtistPageClient({ slug: _slug, initialArtist, initialArtworks }: ArtistPageClientProps) {
   const { language, t } = useLanguageStore()
 
   // Transform initialArtist to the format expected by components (StoreArtistData-like)
@@ -81,29 +80,6 @@ export default function ArtistPageClient({ slug, initialArtist, initialArtworks 
 
   return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ 
-            __html: generatePersonJsonLd(
-              artist.name,
-              t('common.artistType'),
-              artist.description,
-              artist.photo,
-              `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
-            )
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ 
-            __html: generateBreadcrumbJsonLd([
-              { name: t('nav.home'), url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
-              { name: t('nav.artists'), url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists` },
-              { name: artist.name }
-            ])
-          }}
-        />
-        
         <ArtistProfileHero artist={artist} />
         
         {/* Section d'informations de l'artiste */}
