@@ -297,6 +297,7 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
             icon={isCalculating ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : <Calculator className="w-5 h-5" />}
             center
             iconBefore
+            data-umami-event="loa-simulator-calculate-click"
           />
         </div>
       </form>
