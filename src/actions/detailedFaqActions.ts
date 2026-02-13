@@ -197,7 +197,7 @@ export async function getDetailedFaqPageData(pageName: string): Promise<Detailed
         const translationsByItem: Record<number, Record<string, Record<string, string>>> = {}
 
         allTranslations.forEach(t => {
-            if (t.entityId === null || t.field === null) return
+            if (t.entityId === null || t.field === null || t.value == null) return
 
             if (!translationsByItem[t.entityId]) {
                 translationsByItem[t.entityId] = {}

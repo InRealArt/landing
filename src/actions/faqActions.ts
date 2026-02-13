@@ -23,7 +23,10 @@ export async function getFaqs(): Promise<FaqData[]> {
             }
         })
 
-        return faqs
+        return faqs.map(faq => ({
+            ...faq,
+            order: faq.order ?? 0
+        }))
     } catch (error) {
         console.error('Erreur lors de la récupération des FAQs:', error)
         throw new Error('Impossible de récupérer les FAQs')

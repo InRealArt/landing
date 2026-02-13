@@ -46,7 +46,7 @@ export async function getArtistCategories(): Promise<ArtistCategory[]> {
             }
 
             translations.forEach(t => {
-                if (t.field === 'name' || t.field === 'description') {
+                if ((t.field === 'name' || t.field === 'description') && t.value != null) {
                     const field = t.field as 'name' | 'description'
                     formattedTranslations[field][t.language.code] = t.value
                 }
@@ -105,7 +105,7 @@ export async function getArtistCategoryBySlug(slug: string): Promise<ArtistCateg
         }
 
         translations.forEach(t => {
-            if (t.field === 'name' || t.field === 'description') {
+            if ((t.field === 'name' || t.field === 'description') && t.value != null) {
                 const field = t.field as 'name' | 'description'
                 formattedTranslations[field][t.language.code] = t.value
             }
