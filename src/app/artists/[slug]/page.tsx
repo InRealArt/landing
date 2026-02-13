@@ -32,9 +32,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const artistName = artist.name ? `${artist.name} ${artist.surname}` : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
 
+    const specialty = artist.artworkStyle || (artist.mediumTags?.[0] ? `Artiste ${artist.mediumTags[0]}` : 'Artiste')
+    const nationality = artist.countryName ? ` ${artist.countryName}` : ''
+    const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
+    const artworkCount = rawArtworks.length
+
+    const titleTag = `${artistName} - ${specialty} | Bio, Œuvres & Cote | InRealArt`
+    const metaDescription = `Découvrez ${artistName}, ${specialty.toLowerCase()}${nationality}. Biographie, ${artworkCount > 0 ? `${artworkCount}+ ` : ''}œuvres originales, expositions 2026. Achat LOA disponible sur InRealArt.`
+
     return generateDynamicMetadata({
-      title: `${artistName} - Artiste`,
-      description: artist.intro || artist.description || `Découvrez l'univers artistique de ${artistName}. Explorez ses œuvres uniques et son style distinctif sur InRealArt.`,
+      title: titleTag,
+      description: metaDescription,
       keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie', ...(artist.mediumTags || [])],
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
     }, 'profile')
