@@ -225,7 +225,9 @@
     "profile": {
       "bornIn": "Né(e) en",
       "followArtist": "Suivre l'artiste",
-      "certifiedArtist": "L'artiste {name} fait partie de nos artistes certifiés garantissant son sérieux et engagement pour Inrealart"
+      "certifiedArtist": "L'artiste {name} fait partie de nos artistes certifiés garantissant son sérieux et engagement pour Inrealart",
+      "readInterview": "Lire l'interview de {name}",
+      "visitArtitude": "Voir l'atelier physique InRealArt de {name}"
     },
     "notFound": {
       "title": "Catégorie d'artistes non trouvée",

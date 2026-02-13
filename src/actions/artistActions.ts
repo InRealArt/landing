@@ -32,6 +32,8 @@ export interface ArtistData {
     biographyHeader4?: string | null
     biographyText4?: string | null
     imageArtistStudio?: string | null
+    interviewUrl?: string | null
+    artitudeUrl?: string | null
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -341,6 +343,12 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
                 biographyHeader4: true,
                 biographyText4: true,
                 imageArtistStudio: true,
+                seo: {
+                    select: {
+                        interviewUrl: true,
+                        artitudeUrl: true
+                    }
+                },
                 artist: {
                     select: {
                         name: true,
@@ -445,6 +453,8 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
             biographyHeader4: landingArtist.biographyHeader4 ?? null,
             biographyText4: landingArtist.biographyText4 ?? null,
             imageArtistStudio: landingArtist.imageArtistStudio ?? null,
+            interviewUrl: landingArtist.seo?.interviewUrl ?? null,
+            artitudeUrl: landingArtist.seo?.artitudeUrl ?? null,
             translations
         }
     } catch (error) {

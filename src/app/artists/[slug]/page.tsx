@@ -93,6 +93,8 @@ export default async function ArtistPage({ params }: Props) {
         slug={slug}
         initialArtist={artist}
         initialArtworks={artworks}
+        interviewUrl={artist.interviewUrl}
+        artitudeUrl={artist.artitudeUrl}
       />
     </>
   )

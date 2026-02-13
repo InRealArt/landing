@@ -6,9 +6,11 @@ import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 
 interface ArtistInfoSectionProps {
   artist: ArtistData
+  interviewUrl?: string | null
+  artitudeUrl?: string | null
 }
 
-export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
+export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }: ArtistInfoSectionProps) {
   const { t } = useLanguageStore()
 
   return (
@@ -54,6 +56,34 @@ export default function ArtistInfoSection({ artist }: ArtistInfoSectionProps) {
                     {tag}
                   </span>
                 ))}
+              </div>
+            )}
+
+            {/* CTAs interview & atelier Artitude */}
+            {(interviewUrl || artitudeUrl) && (
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                {interviewUrl && (
+                  <a
+                    href={interviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-7 py-3.5 bg-textColor text-backgroundColor bricolage-grotesque font-serif text-sm font-semibold rounded-full hover:opacity-85 transition-opacity duration-200"
+                  >
+                    {t('artists.profile.readInterview').replace('{name}', artist.name)}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </a>
+                )}
+                {artitudeUrl && (
+                  <a
+                    href={artitudeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-7 py-3.5 bg-textColor text-backgroundColor bricolage-grotesque font-serif text-sm font-semibold rounded-full hover:opacity-85 transition-opacity duration-200"
+                  >
+                    {t('artists.profile.visitArtitude').replace('{name}', artist.name)}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </a>
+                )}
               </div>
             )}
           </div>

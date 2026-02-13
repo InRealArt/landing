@@ -11,6 +11,8 @@ interface Props {
   slug: string
   initialArtist: ArtistData
   initialArtworks: ArtWork[]
+  interviewUrl?: string | null
+  artitudeUrl?: string | null
 }
 
 // Charger le composant client de manière dynamique avec SSR désactivé
@@ -19,6 +21,6 @@ const ArtistPageClient = dynamic(() => import('./ArtistPageClient'), {
   loading: () => <ArtistPageSkeleton />
 })
 
-export default function ArtistPageClientWrapper({ slug, initialArtist, initialArtworks }: Props) {
-  return <ArtistPageClient slug={slug} initialArtist={initialArtist} initialArtworks={initialArtworks} />
+export default function ArtistPageClientWrapper({ slug, initialArtist, initialArtworks, interviewUrl, artitudeUrl }: Props) {
+  return <ArtistPageClient slug={slug} initialArtist={initialArtist} initialArtworks={initialArtworks} interviewUrl={interviewUrl} artitudeUrl={artitudeUrl} />
 }

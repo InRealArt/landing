@@ -14,9 +14,11 @@ export interface ArtistPageClientProps {
   slug: string
   initialArtist: ArtistData
   initialArtworks: ArtWork[]
+  interviewUrl?: string | null
+  artitudeUrl?: string | null
 }
 
-export default function ArtistPageClient({ slug: _slug, initialArtist, initialArtworks }: ArtistPageClientProps) {
+export default function ArtistPageClient({ slug: _slug, initialArtist, initialArtworks, interviewUrl, artitudeUrl }: ArtistPageClientProps) {
   const { language, t } = useLanguageStore()
 
   // Transform initialArtist to the format expected by components (StoreArtistData-like)
@@ -83,14 +85,14 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
         <ArtistProfileHero artist={artist} />
         
         {/* Section d'informations de l'artiste */}
-        <ArtistInfoSection artist={artist} />
-        
+        <ArtistInfoSection artist={artist} interviewUrl={interviewUrl} artitudeUrl={artitudeUrl} />
+
         <section className="relative max-w-90 xl:max-w-screen-xl m-auto">
           {formattedArtworks.length > 0 && (
             <ArtistArtworks artistName={artist.name} artworks={formattedArtworks} />
           )}
         </section>
-        
+
         {/* Section biographie de l'artiste */}
         <ArtistBiography artist={artist} />
       </>
