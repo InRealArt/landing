@@ -107,9 +107,9 @@ export const games: GamePage[] = [
     startDate: '2026-02-26',
     endDate: '2026-03-07',
     artwork: {
-      name: 'NOM_DE_L_OEUVRE',
+      name: 'Dessin',
       value: 500,
-      dimensions: '100 x 100 cm',
+      dimensions: '40 x 32 cm',
       medium: {
         fr: 'Dessin',
         en: 'Drawing'
