@@ -107,12 +107,12 @@ export const games: GamePage[] = [
     startDate: '2026-02-26',
     endDate: '2026-03-07',
     artwork: {
-      name: 'Dessin',
+      name: 'Mr.Hope Heart',
       value: 500,
       dimensions: '40 x 32 cm',
       medium: {
-        fr: 'Dessin',
-        en: 'Drawing'
+        fr: 'Acrylique sur Canson - Signé et daté au dos',
+        en: 'Acrylic on Canson - Signed and dated on the back'
       },
       image: '/images/games/mrHope/dessin_mr_hope_1.webp'
     },
@@ -143,7 +143,7 @@ export const games: GamePage[] = [
       fr: {
         steps: [
           'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
-          'Le gagnant sera annoncé le 16 mars 2026'
+          'Le gagnant sera annoncé le 8 mars 2026'
         ]
       }
     }
