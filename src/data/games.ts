@@ -3,7 +3,7 @@ import { GamePage } from '@/types/game';
 export const games: GamePage[] = [
   {
     slug: 'monique-letang-aux-glycines',
-    active: true,
+    active: false,
     brevoListIdFr: 41,
     brevoListIdEn: 40,
     startDate: '2025-10-01',
@@ -52,7 +52,7 @@ export const games: GamePage[] = [
   },
   {
     slug: 'senechal-boudoir',
-    active: true,
+    active: false,
     brevoListIdFr: 39,
     brevoListIdEn: 38,
     startDate: '2025-10-01',
@@ -100,8 +100,57 @@ export const games: GamePage[] = [
     }
   },
   {
-    slug: 'pontecorvo-plaine-contemplative',
+    slug: 'mr-hope-drawing',
     active: true,
+    brevoListIdFr: 61,
+    brevoListIdEn: 60,
+    startDate: '2026-02-26',
+    endDate: '2026-03-07',
+    artwork: {
+      name: 'NOM_DE_L_OEUVRE',
+      value: 500,
+      dimensions: '100 x 100 cm',
+      medium: {
+        fr: 'Dessin',
+        en: 'Drawing'
+      },
+      image: '/images/games/mrHope/dessin_mr_hope_1.webp'
+    },
+    artist: {
+      name: 'Mr Hope',
+      image: '/images/games/mrHope/mr_hope.webp',
+      bio: {
+        en: "Mr Hope is a rising French self-taught artist who has made hope the very heart of his creative expression — transforming his favorite word into a full artistic identity. <br /> <br /> His work naturally blends Doodle Art, Pop Art and Street Art into a singular visual language, expressed across a wide range of media: drawing, canvas, wood, sculpture, ceramics and more. Each piece is an open invitation to believe, to share, and to keep hoping. <br /> <br /> MR.HOPE exhibits in galleries across France and internationally, carrying his universal message wherever his art travels.",
+        fr: "Mr Hope est un artiste français autodidacte en pleine ascension, qui a fait de l\'espoir le cœur même de son expression créative — transformant son mot préféré en une identité artistique à part entière. <br /> <br /> Son travail mêle naturellement Doodle Art, Pop Art et Street Art dans un langage visuel singulier, exprimé à travers une grande variété de supports : dessin, toile, bois, sculpture, céramique et bien plus encore. Chaque œuvre est une invitation ouverte à croire, à partager et à continuer d\'espérer. <br /> <br /> MR.HOPE expose dans des galeries en France et à l\'international, portant son message universel partout où son art voyage."
+      }
+    },
+    mockup: '/images/games/mrHope/dessin_mr_hope_2.webp',
+    title: {
+      en: 'CONTEST: Try to win a drawing by artist Mr Hope worth €500',
+      fr: 'JEU CONCOURS : tentez de remporter un dessin de l\'artiste Mr Hope d\'une valeur de 500€'
+    },
+    description: {
+      en: 'This is a very rare opportunity to acquire, for free, a unique work to enhance your interior and impress your guests. Don\'t miss your chance!',
+      fr: 'C\'est une occasion très rare de pouvoir acquérir, gratuitement, une œuvre unique pour sublimer votre intérieur et épater vos invités. Ne manquez pas votre chance !'
+    },
+    howToParticipate: {
+      en: {
+        steps: [
+          'Fill out the participation form below and accept to be registered on the newsletter',
+          'The winner will be announced on March 16, 2026'
+        ]
+      },
+      fr: {
+        steps: [
+          'Remplissez le formulaire de participation ci-dessous et acceptez de vous inscrire à la newsletter',
+          'Le gagnant sera annoncé le 16 mars 2026'
+        ]
+      }
+    }
+  },
+  {
+    slug: 'pontecorvo-plaine-contemplative',
+    active: false,
     brevoListIdFr: 46,
     brevoListIdEn: 47,
     startDate: '2025-12-18',
