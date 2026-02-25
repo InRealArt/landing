@@ -116,6 +116,64 @@
   padding: 0;
 }
 
+/* Styles des tableaux d'article */
+#blog-content-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+#blog-content-container table td,
+#blog-content-container table th {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* En-tête de tableau (première ligne) */
+#blog-content-container table tbody tr:first-child td,
+#blog-content-container table thead tr:first-child td,
+#blog-content-container table thead tr:first-child th {
+  background-color: #111827; /* gris très foncé lisible en light */
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Alternance des lignes pour une meilleure lisibilité */
+#blog-content-container table tbody tr:nth-child(even):not(:first-child) td {
+  background-color: var(--background-grey);
+}
+
+/* Ajustements spécifiques dark mode pour un rendu plus doux en gris */
+[data-theme='dark'] #blog-content-container table {
+  background-color: #020617;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+[data-theme='dark'] #blog-content-container table td,
+[data-theme='dark'] #blog-content-container table th {
+  border-color: rgba(148, 163, 184, 0.35); /* gris slate */
+}
+
+[data-theme='dark'] #blog-content-container table tbody tr:first-child td,
+[data-theme='dark'] #blog-content-container table thead tr:first-child td,
+[data-theme='dark'] #blog-content-container table thead tr:first-child th {
+  background-color: #27272f; /* beau gris neutre pour l'en-tête */
+}
+
+[data-theme='dark'] #blog-content-container table tbody tr:nth-child(even):not(:first-child) td {
+  background-color: #18181b; /* gris très sombre alterné */
+}
+
+/* Supprimer les marges internes des paragraphes dans les cellules */
+#blog-content-container table td p,
+#blog-content-container table th p {
+  margin: 0;
+}
+
 /* Media queries pour la responsivité du titre principal */
 @media (max-width: 768px) {
   #blog-content-container article header h1 {
