@@ -108,7 +108,7 @@ export const games: GamePage[] = [
     endDate: '2026-03-07',
     artwork: {
       name: 'Mr.Hope Heart',
-      value: 500,
+      value: 100,
       dimensions: '40 x 32 cm',
       medium: {
         fr: 'Acrylique sur Canson - Signé et daté au dos',
