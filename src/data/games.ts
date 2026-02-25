@@ -126,8 +126,8 @@ export const games: GamePage[] = [
     },
     mockup: '/images/games/mrHope/dessin_mr_hope_2.webp',
     title: {
-      en: 'CONTEST: Try to win a drawing by artist Mr Hope worth €500',
-      fr: 'JEU CONCOURS : tentez de remporter un dessin de l\'artiste Mr Hope d\'une valeur de 500€'
+      en: 'CONTEST: Try to win a drawing by artist Mr Hope worth €100',
+      fr: 'JEU CONCOURS : tentez de remporter un dessin de l\'artiste Mr Hope d\'une valeur de 100€'
     },
     description: {
       en: 'This is a very rare opportunity to acquire, for free, a unique work to enhance your interior and impress your guests. Don\'t miss your chance!',
