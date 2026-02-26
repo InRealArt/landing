@@ -11,16 +11,17 @@ import { getPostBySlug } from '@/actions/seoPostActions'
 import './style.css'
 interface PostDetailProps {
   slug: string
+  initialPost?: SeoPost | null
 }
 
-export default function PostDetail({ slug }: PostDetailProps) {
+export default function PostDetail({ slug, initialPost }: PostDetailProps) {
   const { language, t } = useLanguageStore()
-  const { 
-    currentPost, 
-    isLoadingPost, 
-    postError, 
-    fetchPostBySlug, 
-    incrementPostViews, 
+  const {
+    currentPost,
+    isLoadingPost,
+    postError,
+    fetchPostBySlug,
+    incrementPostViews,
     clearCurrentPost,
     relatedPosts,
     isLoadingRelated,
@@ -50,6 +51,9 @@ export default function PostDetail({ slug }: PostDetailProps) {
       setTranslatedPost(null)
     }
   }, [slug, language, fetchPostBySlug, clearCurrentPost, clearRelatedPosts])
+
+  // Use initialPost for rendering when the store hasn't loaded yet (SSR hydration)
+  const displayPost = currentPost ?? initialPost ?? null
 
   // Rechercher un post traduit si le post n'est pas trouvé dans la langue courante
   useEffect(() => {
@@ -129,8 +133,8 @@ export default function PostDetail({ slug }: PostDetailProps) {
     }).format(new Date(date))
   }
 
-  // Loading state
-  if (isLoadingPost) {
+  // Loading state: only show spinner if we have no initial data to display
+  if (isLoadingPost && !displayPost) {
     return (
       <div className="pt-8 mb-16 px-5 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center min-h-[50vh]">
@@ -156,7 +160,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
   }
 
   // Post not found
-  if (!currentPost) {
+  if (!displayPost) {
     // Si on est en train de chercher une traduction, afficher le loading
     if (isSearchingTranslation) {
       return (
@@ -205,15 +209,15 @@ export default function PostDetail({ slug }: PostDetailProps) {
   }
 
   // Utiliser le HTML généré ou le contenu de base
-  const htmlContent = currentPost.generatedArticleHtml || currentPost.content
-  
+  const htmlContent = displayPost.generatedArticleHtml || displayPost.content
+
   return (
     <>
       {/* Injection du JSON-LD depuis la base de données */}
-      {currentPost.jsonLd && (
+      {displayPost.jsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: currentPost.jsonLd }}
+          dangerouslySetInnerHTML={{ __html: displayPost.jsonLd }}
         />
       )}
 
@@ -240,7 +244,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": currentPost.title
+                "name": displayPost.title
               }
             ]
           })
@@ -250,7 +254,7 @@ export default function PostDetail({ slug }: PostDetailProps) {
       <div className="pt-8 pb-16 min-h-screen">
         <div className="max-w-3xl mx-auto px-4">
           {/* Breadcrumb navigation */}
-          <BlogBreadcrumb postTitle={currentPost.title} className="mb-8" />
+          <BlogBreadcrumb postTitle={displayPost.title} className="mb-8" />
 
           {/* Contenu HTML de l'article dans un conteneur isolé */}
           <div

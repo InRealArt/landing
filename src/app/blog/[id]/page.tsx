@@ -100,9 +100,12 @@ export default async function BlogPostPage({ params }: Props) {
     )
   }
 
+  // Fetch the post server-side (French first, then English fallback) for SSR/SEO
+  const initialPost = await getPostBySlug(slug, 'fr') ?? await getPostBySlug(slug, 'en')
+
   return (
     <main className="min-h-screen pt-headerSize text-textColor">
-      <PostDetail slug={slug} />
+      <PostDetail slug={slug} initialPost={initialPost} />
     </main>
   )
 } 
