@@ -23,8 +23,8 @@ import { unbounded, bricolageGrotesque } from '@/config/fonts'
 export const metadata: Metadata = {
   metadataBase: new URL("https://inrealart.com/"),
   title: {
-    default: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
-    template: "%s | In Real Art",
+    default: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
+    template: "%s | InRealArt",
   },
   description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique. Pour artistes, collectionneurs et mécènes.",
   icons: {
@@ -52,31 +52,31 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
+    title: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
     url: 'https://inrealart.com/',
-    siteName: 'In Real Art',
+    siteName: 'InRealArt',
     locale: 'fr_FR',
     images: [
       {
         url: ogImage.src,
         width: ogImage.width,
         height: ogImage.height,
-        alt: "In Real Art — Catalyseur d'Art",
+        alt: "InRealArt — Catalyseur d'Art",
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
+    title: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
     images: [
       {
         url: ogImage.src,
         width: ogImage.width,
         height: ogImage.height,
-        alt: "In Real Art — Catalyseur d'Art",
+        alt: "InRealArt — Catalyseur d'Art",
       },
     ],
   },

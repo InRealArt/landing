@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!post) {
       return {
-        title: 'Article non trouvé | In Real Art',
+        title: 'Article non trouvé | InRealArt',
         description: 'Cet article n\'existe pas ou a été supprimé.'
       }
     }
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const articleUrl = `${baseUrl}/blog/${slug}`
 
     return {
-      title: `${post.title} | In Real Art`,
+      title: `${post.title} | InRealArt`,
       description: post.metaDescription,
       keywords: Array.isArray(post.metaKeywords) ? post.metaKeywords.join(', ') : post.metaKeywords,
       authors: [{ name: post.author, url: post.authorLink || undefined }],
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch (error) {
     console.error('Erreur lors de la génération des métadonnées:', error)
     return {
-      title: 'Erreur | In Real Art',
+      title: 'Erreur | InRealArt',
       description: 'Une erreur est survenue lors du chargement de l\'article.'
     }
   }

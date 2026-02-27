@@ -3,7 +3,7 @@ import { generateStaticMetadata } from '@/utils/metadata'
 import PresaleClient from './PresaleClient'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: 'Présale — Œuvres d\'Art en Exclusivité | In Real Art',
+  title: 'Présale — Œuvres d\'Art en Exclusivité | InRealArt',
   description: "Découvrez et acquérez des œuvres d'art en exclusivité sur In Real Art. Achat direct auprès d'artistes sélectionnés avec option location-vente (LOA).",
   keywords: ['présale art', 'œuvres en exclusivité', 'achat art contemporain', 'location-vente art', 'art original'],
   canonical: 'https://inrealart.com/presale',
