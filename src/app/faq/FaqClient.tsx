@@ -6,7 +6,6 @@ import TabFilter from "@/components/common/annexe/TabFilter";
 import ContentGrid from "@/components/common/annexe/ContentGrid";
 import { useLanguageStore } from '@/store/languageStore';
 import { useDetailedFaqStore } from "@/store/useDetailedFaqStore";
-import { generateFAQJsonLd } from '@/utils/metadata'
 
 export default function FaqClient() {
   const { t, language } = useLanguageStore();
@@ -25,25 +24,12 @@ export default function FaqClient() {
     }
   }, [faqTabs, activeTab]);
   
-  const filteredItems = faqItems.filter(item => 
+  const filteredItems = faqItems.filter(item =>
     item.categories?.includes(activeTab)
   );
 
-  // Prepare FAQ data for JSON-LD
-  const faqData = filteredItems.map(item => ({
-    question: item.question,
-    answer: item.answer
-  }));
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
-          __html: generateFAQJsonLd(faqData)
-        }}
-      />
-      
       <div className="min-h-screen">
         <Header 
           title={t('faq.page.title')}

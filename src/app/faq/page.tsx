@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import { generateStaticMetadata } from '@/utils/metadata'
+import { generateStaticMetadata, generateFAQJsonLd } from '@/utils/metadata'
+import { getTranslatedDetailedFaq } from '@/actions/detailedFaqActions'
 import FaqClient from './FaqClient'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -9,6 +10,17 @@ export const metadata: Metadata = generateStaticMetadata({
   canonical: 'https://inrealart.com/faq',
 })
 
-export default function FaqPage() {
-  return <FaqClient />
+export default async function FaqPage() {
+  const faqItems = await getTranslatedDetailedFaq('fr').catch(() => [])
+  const faqData = faqItems.map(item => ({ question: item.title, answer: item.content }))
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateFAQJsonLd(faqData) }}
+      />
+      <FaqClient />
+    </>
+  )
 }
