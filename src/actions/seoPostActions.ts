@@ -530,4 +530,67 @@ export async function getPostsByCategory(
             category: null
         }
     }
-} 
+}
+
+export async function getPostsMentioningArtist(
+    artistName: string,
+    artistSurname: string,
+    languageId: number,
+    limit: number = 4
+): Promise<SeoPost[]> {
+    try {
+        const fullName = `${artistName} ${artistSurname}`
+        const posts = await prisma.seoPost.findMany({
+            where: {
+                status: 'PUBLISHED',
+                languageId,
+                OR: [
+                    { title: { contains: fullName, mode: 'insensitive' } },
+                    { title: { contains: artistSurname, mode: 'insensitive' } },
+                    { metaKeywords: { hasSome: [fullName, artistName, artistSurname] } },
+                    { listTags: { hasSome: [fullName, artistName, artistSurname] } },
+                    { metaDescription: { contains: fullName, mode: 'insensitive' } },
+                ],
+            },
+            include: {
+                category: {
+                    select: { id: true, name: true, color: true },
+                },
+            },
+            orderBy: { createdAt: 'desc' },
+            take: limit,
+        })
+
+        return posts.map(post => ({
+            id: post.id,
+            languageId: post.languageId,
+            originalPostId: post.originalPostId,
+            title: post.title,
+            mainImageUrl: post.mainImageUrl,
+            mainImageAlt: post.mainImageAlt,
+            metaDescription: post.metaDescription,
+            metaKeywords: post.metaKeywords,
+            content: post.content,
+            slug: post.slug,
+            excerpt: post.excerpt,
+            author: post.author,
+            authorLink: post.authorLink,
+            viewsCount: post.viewsCount,
+            estimatedReadTime: post.estimatedReadTime,
+            createdAt: post.createdAt,
+            updatedAt: post.updatedAt,
+            pinned: post.pinned,
+            listTags: post.listTags,
+            generatedArticleHtml: post.generatedArticleHtml,
+            jsonLd: post.jsonLd,
+            category: {
+                id: post.category.id,
+                name: post.category.name,
+                color: post.category.color,
+            },
+        }))
+    } catch (error) {
+        console.error('Error fetching posts mentioning artist:', error)
+        return []
+    }
+}

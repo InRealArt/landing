@@ -605,6 +605,30 @@ export async function getArtistById(artistId: number): Promise<ArtistData | null
     }
 }
 
+export async function getArtistsMentionedInPost(
+    postTitle: string,
+    postMetaKeywords: string[],
+    postListTags: string[],
+    postMetaDescription: string
+): Promise<ArtistData[]> {
+    try {
+        const searchText = [postTitle, ...postMetaKeywords, ...postListTags, postMetaDescription]
+            .join(' ')
+            .toLowerCase()
+
+        const allArtists = await getArtists()
+
+        return allArtists.filter(artist => {
+            const fullName = `${artist.name} ${artist.surname}`.toLowerCase()
+            const surname = artist.surname.toLowerCase()
+            return searchText.includes(fullName) || (surname.length > 3 && searchText.includes(surname))
+        })
+    } catch (error) {
+        console.error('Error finding artists mentioned in post:', error)
+        return []
+    }
+}
+
 export async function getArtistsByCategory(categorySlug: string): Promise<ArtistData[]> {
     try {
         // Décoder l'URL et récupérer la catégorie par son nom (en attendant la migration pour le slug)

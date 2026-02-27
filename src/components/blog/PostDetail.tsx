@@ -8,6 +8,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import { useSeoPostStore } from '@/store/useSeoPostStore'
 import { SeoPost } from '@/store/useSeoPostStore'
 import { getPostBySlug } from '@/actions/seoPostActions'
+import PostRelatedArtists from '@/components/blog/PostRelatedArtists'
 import './style.css'
 interface PostDetailProps {
   slug: string
@@ -299,12 +300,21 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
 
           {/* Retour au blog */}
           <div className="mt-12 text-center">
-            <Button 
+            <Button
               text={t('blog.backToBlog')}
               additionalClassName="mt-6 justify-center bg-purpleColor"
               link="/blog"
             />
           </div>
+
+          {displayPost && (
+            <PostRelatedArtists
+              postTitle={displayPost.title}
+              postMetaKeywords={displayPost.metaKeywords}
+              postListTags={displayPost.listTags}
+              postMetaDescription={displayPost.metaDescription}
+            />
+          )}
 
           {/* Articles similaires */}
           {relatedPosts.length > 0 && (

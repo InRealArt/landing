@@ -5,6 +5,7 @@ import ArtistProfileHero from '@/components/artists/ArtistProfileHero'
 import ArtistArtworks from '@/components/artists/ArtistArtworks'
 import ArtistInfoSection from '@/components/artists/ArtistInfoSection'
 import ArtistBiography from '@/components/artists/ArtistBiography'
+import ArtistRelatedPosts from '@/components/artists/ArtistRelatedPosts'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtWork, Lang } from '@/types/types'
@@ -95,6 +96,8 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
 
         {/* Section biographie de l'artiste */}
         <ArtistBiography artist={artist} />
+
+        <ArtistRelatedPosts artistName={initialArtist.name} artistSurname={initialArtist.surname} />
       </>
   )
 }
