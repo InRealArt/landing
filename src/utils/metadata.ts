@@ -207,14 +207,45 @@ export function generateOrganizationJsonLd(): string {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE_NAME,
+    alternateName: 'InRealArt',
     description: SITE_DESCRIPTION,
     url: BASE_URL,
+    foundingDate: '2023',
     logo: {
       '@type': 'ImageObject',
       url: `${BASE_URL}/icons/Logo.png`,
       width: 101,
       height: 32
     },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Paris',
+      addressCountry: 'FR'
+    },
+    areaServed: ['FR', 'BE', 'CH', 'LU'],
+    knowsAbout: [
+      'art tokenization',
+      'art leasing',
+      'contemporary art',
+      'art investment',
+      'art marketplace',
+      'LOA artistique',
+      'patrimoine culturel'
+    ],
+    founder: [
+      {
+        '@type': 'Person',
+        name: 'Timothée Roy'
+      },
+      {
+        '@type': 'Person',
+        name: 'Maxime Girard'
+      },
+      {
+        '@type': 'Person',
+        name: 'Gilles Bruno'
+      }
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'teaminrealart@gmail.com',
