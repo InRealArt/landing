@@ -380,6 +380,33 @@ export function generateCollectionJsonLd(
 }
 
 /**
+ * Generate JSON-LD structured data for a DefinedTermSet (glossary)
+ */
+export function generateDefinedTermSetJsonLd(
+  name: string,
+  description: string,
+  url: string,
+  terms: { title: string; content: string; categories?: string[] }[]
+): string {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name,
+    description,
+    url,
+    hasDefinedTerm: terms.map(term => ({
+      '@type': 'DefinedTerm',
+      name: term.title,
+      description: term.content,
+      inDefinedTermSet: url,
+      termCode: term.categories?.[0] || undefined,
+    }))
+  }
+
+  return JSON.stringify(data)
+}
+
+/**
  * Generate breadcrumb JSON-LD
  */
 export function generateBreadcrumbJsonLd(
