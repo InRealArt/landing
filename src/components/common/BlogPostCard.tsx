@@ -26,13 +26,19 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
   const color = theme === 'light' ? 'black' : 'white';
   return (
-    <Link href={`/blog/${post.id}`} className="bg-cardBackground rounded-lg overflow-hidden border border-white-800">
+    <Link
+      href={`/blog/${post.id}`}
+      className="group block bg-cardBackground rounded-lg overflow-hidden border border-white/10
+        transition-all duration-300 ease-out
+        hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:border-white/20
+        active:translate-y-0 active:scale-[0.98] active:shadow-none active:duration-75"
+    >
       <div className="relative h-[300px] overflow-hidden">
-        <Image 
-          src={post.imageUrl} 
+        <Image
+          src={post.imageUrl}
           alt={post.title}
           fill
-          className="object-contain"
+          className="object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
@@ -44,15 +50,15 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             </span>
           ))}
         </div>
-        
+
         <div className="flex items-center gap-2 text-sm text-[#4F4F4F] mb-3">
           <span>{post.date}</span>
           <span>•</span>
           <span>{post.readTime}</span>
         </div>
-        
+
         <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
-        
+
         <p className="text-sm line-clamp-4">{post.description}</p>
       </div>
     </Link>

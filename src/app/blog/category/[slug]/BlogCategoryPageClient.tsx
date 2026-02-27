@@ -158,28 +158,27 @@ export default function BlogCategoryPageClient({
               </p>
             ) : (
               posts.map((post) => (
-                <div
+                <Link
                   key={post.id}
-                  className="bg-cardBackground rounded-lg overflow-hidden border border-borderColor"
+                  href={`/blog/${post.slug}`}
+                  className="group block bg-cardBackground rounded-lg overflow-hidden border border-borderColor
+                    transition-all duration-300 ease-out
+                    hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:border-white/20
+                    active:translate-y-0 active:scale-[0.98] active:shadow-none active:duration-75"
                 >
                   {post.mainImageUrl && (
-                    <div className="aspect-video relative">
+                    <div className="aspect-video relative overflow-hidden">
                       <Image
                         src={post.mainImageUrl}
                         alt={post.mainImageAlt ?? post.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
                       />
                     </div>
                   )}
                   <div className="p-6">
-                    <h2 className="text-xl font-semibold mb-2">
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="hover:text-purpleColor"
-                      >
-                        {post.title}
-                      </Link>
+                    <h2 className="text-xl font-semibold mb-2 group-hover:text-purpleColor transition-colors duration-200">
+                      {post.title}
                     </h2>
                     <p className="text-grayText mb-4">{post.excerpt}</p>
                     <div className="flex justify-between items-center text-sm text-grayText">
@@ -189,7 +188,7 @@ export default function BlogCategoryPageClient({
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))
             )}
           </div>

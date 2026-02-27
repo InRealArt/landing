@@ -154,7 +154,7 @@ export async function getRelatedPosts(
     categoryId: number,
     currentPostId: number,
     languageId: number,
-    limit: number = 3
+    limit: number = 6
 ): Promise<SeoPost[]> {
     try {
         const posts = await prisma.seoPost.findMany({

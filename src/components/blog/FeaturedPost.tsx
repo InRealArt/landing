@@ -119,13 +119,16 @@ export default function FeaturedPost() {
         <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-textColor items-stretch">
-          <Link 
-            href={`/blog/${featuredPost.slug}`} 
-            className="relative h-[440px] cursor-pointer rounded-lg transition-transform hover:scale-[1.02] duration-300 bg-[#1d1c1c]"
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            className="group relative h-[440px] cursor-pointer rounded-lg bg-[#1d1c1c] overflow-hidden
+              transition-all duration-300 ease-out
+              hover:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:scale-[1.02]
+              active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
           >
             {featuredPost.mainImageUrl ? (
               <OptimizedImage
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-contain [&_img]:rounded-lg"
+                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-contain [&_img]:rounded-lg [&_img]:transition-transform [&_img]:duration-500 [&_img]:ease-out group-hover:[&_img]:scale-105 group-active:[&_img]:scale-100"
                 src={featuredPost.mainImageUrl}
                 alt={featuredPost.mainImageAlt || featuredPost.title}
                 width={600}
@@ -139,9 +142,12 @@ export default function FeaturedPost() {
             )}
           </Link>
 
-          <Link 
-            href={`/blog/${featuredPost.slug}`} 
-            className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer hover:bg-backgroundGrey transition-colors duration-300 h-full"
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer h-full
+              transition-all duration-300 ease-out
+              hover:bg-backgroundGrey hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]
+              active:bg-backgroundGrey active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
           >
             <div className="flex items-center gap-2 text-sm mb-3 text-grayText">
               <span>{formatDate(featuredPost.createdAt)}</span>

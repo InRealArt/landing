@@ -308,53 +308,92 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
 
           {/* Articles similaires */}
           {relatedPosts.length > 0 && (
-            <div className="mt-16 pt-12 border-t border-gray-200">
-              <h2 className="text-2xl font-bold mb-8">
+            <div className="mt-16 pt-12 border-t border-borderColor">
+              <h2 className="text-xl font-medium italic mb-8 text-textColor">
                 {t('blog.relatedPosts')}
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedPosts.map((relatedPost) => (
-                  <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`}>
-                    <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow bg-backgroundColor">
-                      <div className="aspect-video bg-gray-200 relative">
-                        {relatedPost.mainImageUrl ? (
-                          <img
-                            src={relatedPost.mainImageUrl}
-                            alt={relatedPost.mainImageAlt || relatedPost.title}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-r from-gray-200 to-gray-300">
-                            <span className="text-gray-600">{t('blog.noImage')}</span>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="p-4">
-                        <h3 className="text-lg font-bold mb-2 hover:text-blue-600 text-gray-900 line-clamp-2">
-                          {relatedPost.title}
-                        </h3>
-
-                        {relatedPost.excerpt && (
-                          <p className="text-gray-600 text-sm line-clamp-2">
-                            {relatedPost.excerpt}
-                          </p>
-                        )}
-
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mt-3">
-                          <span>{formatDate(relatedPost.createdAt)}</span>
-                          {relatedPost.estimatedReadTime && (
-                            <>
-                              <span>•</span>
-                              <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')}</span>
-                            </>
+              <div className="relative w-screen left-1/2 -translate-x-1/2 px-4">
+                <div className="max-w-5xl mx-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {relatedPosts.map((relatedPost) => (
+                      <Link
+                        key={relatedPost.id}
+                        href={`/blog/${relatedPost.slug}`}
+                        className="group block bg-cardBackground rounded-2xl overflow-hidden
+                          border border-borderColor
+                          transition-all duration-300 ease-out
+                          hover:-translate-y-1.5
+                          hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)]
+                          hover:border-purpleColor/30
+                          active:translate-y-0 active:shadow-none active:duration-75"
+                      >
+                        {/* Image zone */}
+                        <div className="relative aspect-video overflow-hidden bg-backgroundGrey">
+                          {relatedPost.mainImageUrl ? (
+                            <img
+                              src={relatedPost.mainImageUrl}
+                              alt={relatedPost.mainImageAlt || relatedPost.title}
+                              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gradientFrom to-gradientTo">
+                              <span className="text-grayText text-sm">{t('blog.noImage')}</span>
+                            </div>
                           )}
+
+                          {/* Category badge overlaid on image */}
+                          <div className="absolute top-3 left-3">
+                            <span
+                              className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white shadow-md tracking-wide"
+                              style={{ backgroundColor: relatedPost.category.color || '#6052ff' }}
+                            >
+                              {relatedPost.category.name}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+
+                        {/* Card body */}
+                        <div className="p-5 flex flex-col gap-2">
+                          <h3 className="text-sm font-bold leading-snug text-textColor line-clamp-2 group-hover:text-purpleColor transition-colors duration-200">
+                            {relatedPost.title}
+                          </h3>
+
+                          {relatedPost.excerpt && (
+                            <p className="text-xs text-grayText line-clamp-2 leading-relaxed">
+                              {relatedPost.excerpt}
+                            </p>
+                          )}
+
+                          {/* Meta: read time + date */}
+                          <div className="flex items-center gap-2 text-xs text-grayText mt-auto pt-2">
+                            {relatedPost.estimatedReadTime && (
+                              <>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="w-3.5 h-3.5 flex-shrink-0 opacity-60"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  aria-hidden="true"
+                                >
+                                  <circle cx="12" cy="12" r="10" />
+                                  <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                                <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')}</span>
+                                <span className="opacity-40">·</span>
+                              </>
+                            )}
+                            <span>{formatDate(relatedPost.createdAt)}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           )}
