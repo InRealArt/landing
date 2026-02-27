@@ -30,9 +30,9 @@ export default function JoinIraOpportunities({
   return (
     <section className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-20">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 lg:mb-0 lg:max-w-2xl">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 lg:mb-0 lg:max-w-2xl">
           {t(titleKey)}
-        </h1>
+        </h2>
         <Button 
           text={t(buttonTextKey)} 
           additionalClassName="bg-purpleColor w-fit" 

@@ -54,10 +54,10 @@ export default function Explore() {
   return (
     <section className="w-full mt-36">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
-        <h1 className="text-lg lg:text-xl bricolage-grotesque flex gap-4 ">
+        <p className="text-lg lg:text-xl bricolage-grotesque flex gap-4 ">
           <OptimizedImage src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width={33} height={33} priority={true} />
           <TranslatedText translationKey="home.explore.title" />
-        </h1>
+        </p>
         <TranslatedText 
           translationKey="home.explore.subtitle" 
           as="label" 
@@ -89,10 +89,10 @@ export default function Explore() {
                   <div className="relative">
                     {/* Zone de surbrillance derrière le titre */}
                     <div className="absolute inset-0 bg-gray-500/30 backdrop-blur-sm rounded-lg -m-2"></div>
-                    <TranslatedText 
-                      as="h1" 
-                      className="relative text-xl lg:text-3xl bricolage-grotesque font-bold text-white drop-shadow-lg" 
-                      translationKey={item.titleKey} 
+                    <TranslatedText
+                      as="h3"
+                      className="relative text-xl lg:text-3xl bricolage-grotesque font-bold text-white drop-shadow-lg"
+                      translationKey={item.titleKey}
                       allowHtml={true}
                     />
                   </div>

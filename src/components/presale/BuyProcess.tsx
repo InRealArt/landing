@@ -70,13 +70,13 @@ const BuyProcess = () => {
   return (
     <section className="relative max-w-90 xl:max-w-screen-2xl m-auto" >
       <div className="text-center">
-        <h1 className="text-2xl md:text-4xl font-bold mt-10">{t('presale.buyProcess.title')}</h1>
+        <h2 className="text-2xl md:text-4xl font-bold mt-10">{t('presale.buyProcess.title')}</h2>
         <label>{t('presale.buyProcess.subtitle')}</label>
       </div>
       <div className="relative mt-8">
         <div className="m-auto w-full h-auto relative ">
           <img src={item.image.src} alt="buy" className="w-full h-auto" />
-          <h1 className="unbounded absolute text-[8px] leading-[0.9] lg:text-xl top-0 left-0">{t('presale.buyProcess.step')} {item.step}</h1>
+          <p className="unbounded absolute text-[8px] leading-[0.9] lg:text-xl top-0 left-0">{t('presale.buyProcess.step')} {item.step}</p>
           <h3 className="unbounded absolute bottom-0 left-0 text-xs md:text-2xl lg:text-3xl xl:text-5xl max-w-65" dangerouslySetInnerHTML={{ __html: sanitizedName }} />
           <div className="unbounded absolute bottom-2 right-2 w-30 bg-backgroundColor p-4 rounded-lg hidden lg:block">
             <p className="text-[11px] text-textColor" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />

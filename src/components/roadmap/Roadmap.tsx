@@ -25,7 +25,7 @@ const Roadmap = ({items}: {items: RoadmapItem[]}) => {
     <section className="m-auto  max-w-90 xl:max-w-screen-lg w-full relative">
       {items.map((item, index) => {
         return <div className="flex items-center justify-around mt-20 gap-[70px] lg:gap-[200px]" key={item.title}>
-          <h1 className="text-2xl md:text-5xl bricolage-grotesque mb-8 w-1/2 text-right" dangerouslySetInnerHTML={{ __html: sanitizedTitles[index] || '' }} />
+          <h3 className="text-2xl md:text-5xl bricolage-grotesque mb-8 w-1/2 text-right" dangerouslySetInnerHTML={{ __html: sanitizedTitles[index] || '' }} />
           <ul className="w-1/2">
             {item.description.map((desc: string, index: number) => (
               <li key={index} className="flex-1 bricolage-grotesque text-xs md:text-lg flex items-center gap-4 mb-4 leading-[1]">
