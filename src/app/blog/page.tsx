@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { generateStaticMetadata } from '@/utils/metadata'
+import { generateStaticMetadata, generateBlogJsonLd } from '@/utils/metadata'
 import BlogPageClient from './BlogPageClient'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -10,5 +10,13 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default function BlogPage() {
-  return <BlogPageClient />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateBlogJsonLd() }}
+      />
+      <BlogPageClient />
+    </>
+  )
 } 

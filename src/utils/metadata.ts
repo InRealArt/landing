@@ -447,6 +447,41 @@ export function generateArtGalleryJsonLd(): string {
 }
 
 /**
+ * Generate JSON-LD structured data for Blog listing page
+ */
+export function generateBlogJsonLd(): string {
+  const blogUrl = `${BASE_URL}/blog`
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `Blog InRealArt`,
+    description: "Tendances, interviews, analyses curatoriales et conseils pratiques sur l'art contemporain, la déficalisationn le leasing, la tokenisation et le marché de l'art.",
+    url: blogUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/icons/Logo.png`,
+      },
+    },
+    inLanguage: ['fr', 'en'],
+    about: [
+      { '@type': 'Thing', name: 'Art contemporain' },
+      { '@type': 'Thing', name: 'Tokenisation d\'art' },
+      { '@type': 'Thing', name: 'Marché de l\'art' },
+      { '@type': 'Thing', name: 'Défiscalisation' },
+      { '@type': 'Thing', name: 'Leasing' },
+      { '@type': 'Thing', name: 'Tokenisation' },
+      { '@type': 'Thing', name: 'LOA artistique' },
+    ],
+  }
+
+  return JSON.stringify(data)
+}
+
+/**
  * Generate breadcrumb JSON-LD
  */
 export function generateBreadcrumbJsonLd(
