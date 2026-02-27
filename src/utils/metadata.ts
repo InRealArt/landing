@@ -407,6 +407,46 @@ export function generateDefinedTermSetJsonLd(
 }
 
 /**
+ * Generate JSON-LD structured data for ArtGallery (homepage)
+ */
+export function generateArtGalleryJsonLd(): string {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'ArtGallery',
+    name: SITE_NAME,
+    alternateName: 'In Real Art',
+    description: SITE_DESCRIPTION,
+    url: BASE_URL,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Paris',
+      addressCountry: 'FR',
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+      ],
+      opens: '00:00',
+      closes: '23:59',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/inrealart/',
+      'https://www.instagram.com/inrealart/',
+      'https://twitter.com/inrealart',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Œuvres d\'art contemporain',
+      description: 'Sélection d\'œuvres originales disponibles à l\'achat, à la location et à l\'investissement',
+      url: `${BASE_URL}/marketplace`,
+    },
+  }
+
+  return JSON.stringify(data)
+}
+
+/**
  * Generate breadcrumb JSON-LD
  */
 export function generateBreadcrumbJsonLd(

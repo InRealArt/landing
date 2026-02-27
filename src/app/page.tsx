@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Intro from "@/components/home/Intro";
 import Statistics from "@/components/home/Statistics";
-import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, defaultMetadata } from '@/utils/metadata'
+import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
 // ✅ OPTIMISÉ: Lazy loading des composants below-the-fold
 // Impact: Réduit le bundle JavaScript initial de ~40-60%
@@ -48,6 +48,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateWebSiteJsonLd() }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateArtGalleryJsonLd() }}
       />
 
       <Intro />
