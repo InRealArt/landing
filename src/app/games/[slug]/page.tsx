@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { permanentRedirect, redirect } from 'next/navigation';
 import { games } from '@/data/games';
 import GameHero from '@/components/games/GameHero';
 import GameArtist from '@/components/games/GameArtist';
@@ -26,11 +26,11 @@ export default async function GamePage({ params }: Props) {
   const { slug } = await params;
   const game = games.find((g) => g.slug === slug);
 
-  if (!game || !game.active) {
-    notFound();
+  if (!game) {
+    permanentRedirect('/');
   }
 
-  if (isGameEnded(game.endDate)) {
+  if (!game.active || isGameEnded(game.endDate)) {
     redirect('/');
   }
 

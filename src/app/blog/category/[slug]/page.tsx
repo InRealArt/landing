@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
+import { getCategoryBySlug } from '@/actions/seoPostActions'
 import BlogCategoryPageClient from './BlogCategoryPageClient'
 
 type ParamsType = Promise<{ slug: string }>
@@ -33,6 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params
+
+  const category = await getCategoryBySlug(slug)
+  if (!category) {
+    permanentRedirect('/blog')
+  }
 
   return <BlogCategoryPageClient categorySlug={slug} />
 } 

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import { generateStaticMetadata } from '@/utils/metadata'
 import { salons } from '@/utils/artSalonCalculations'
 
@@ -40,7 +40,7 @@ export default async function ArtSalonLayout({ children, params }: ArtSalonLayou
   const salon = salons[slug]
   
   if (!salon) {
-    notFound()
+    permanentRedirect('/simulators')
   }
 
   return children

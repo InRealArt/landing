@@ -1,5 +1,10 @@
 {
   "title": "InRealArt",
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backToHome": "Retour à l'accueil"
+  },
   "nav": {
     "home": "Accueil",
     "marketplace": "Marketplace",

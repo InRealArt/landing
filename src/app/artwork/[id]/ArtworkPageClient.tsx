@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import OptimizedContentImage from '@/components/common/OptimizedContentImage'
 import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
 import ArtworkImageModal from '@/components/common/ArtworkImageModal'
@@ -23,6 +23,7 @@ interface Props {
 
 export default function ArtworkPageClient({ artworkId }: Props) {
   const { t, language } = useLanguageStore()
+  const router = useRouter()
   const { artworks, fetchArtworks, getArtworkBySlug, getArtworksByArtistId, getTranslatedField } = useArtworksStore()
   const [artwork, setArtwork] = useState<any>(null)
   const [artist, setArtist] = useState<ArtistData | null>(null)
@@ -50,15 +51,12 @@ export default function ArtworkPageClient({ artworkId }: Props) {
 
         // Get the artwork by slug
         const foundArtwork = getArtworkBySlug(artworkId)
-        console.log("foundArtwork", foundArtwork)
         if (foundArtwork) {
           setArtwork(foundArtwork)
           
           // Récupérer les données complètes de l'artiste par son ID
           if (foundArtwork.artistId) {
-            console.log("Loading artist with ID:", foundArtwork.artistId)
             const foundArtist = await getArtistById(foundArtwork.artistId)
-            console.log("foundArtist", foundArtist)
             if (foundArtist) {
               // Transformer les données pour correspondre à l'interface ArtistData du store
               const transformedArtist: ArtistData = {
@@ -114,6 +112,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
         }
       } catch (error) {
         console.error('Error loading artwork:', error)
+        router.replace('/presale')
       } finally {
         setLoading(false)
       }
@@ -122,7 +121,7 @@ export default function ArtworkPageClient({ artworkId }: Props) {
     if (mounted) {
       loadArtwork()
     }
-  }, [artworkId, artworks.length, fetchArtworks, getArtworkBySlug, getTranslatedField, mounted, language])
+  }, [artworkId, artworks.length, fetchArtworks, getArtworkBySlug, getTranslatedField, mounted, language, router])
 
   // Mettre à jour la description quand la langue change
   useEffect(() => {
@@ -164,16 +163,8 @@ export default function ArtworkPageClient({ artworkId }: Props) {
   }
 
   if (!artwork) {
-    return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-textColor mb-4">{t('artwork.notFound')}</h1>
-          <Link href="/artists" className="text-purpleColor hover:underline">
-            {t('artwork.backToArtists')}
-          </Link>
-        </div>
-      </div>
-    )
+    router.replace('/presale')
+    return null
   }
 
   const artworkName = typeof artwork.name === 'string' 

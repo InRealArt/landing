@@ -1,5 +1,10 @@
 {
   "title": "InRealArt",
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to home"
+  },
   "nav": {
     "home": "Home",
     "marketplace": "Marketplace",

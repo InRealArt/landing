@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, use } from 'react'
-import { notFound } from 'next/navigation'
 import OptimizedImage from '@/components/common/OptimizedImage'
 import ArtSalonForm from '@/components/art-salon-simulator/ArtSalonForm'
 import ArtSalonResults from '@/components/art-salon-simulator/ArtSalonResults'
@@ -20,11 +19,8 @@ interface ArtSalonSimulatorPageProps {
 export default function ArtSalonSimulatorPage({ params }: ArtSalonSimulatorPageProps) {
   const { slug } = use(params)
   
-  // Check if salon exists
-  const salon = salons[slug]
-  if (!salon) {
-    notFound()
-  }
+  // Layout server component already guards against invalid slugs with permanentRedirect
+  const salon = salons[slug]!
 
   const [results, setResults] = useState<{
     results: ArtSalonResultsType | null

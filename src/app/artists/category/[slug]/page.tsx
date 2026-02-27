@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import { Metadata } from 'next'
 import { getArtistCategoryBySlug, getArtistCategories } from '@/actions/artistCategoryActions'
 import { getArtistsByCategory } from '@/actions/artistActions'
@@ -54,7 +54,7 @@ export default async function ArtistCategoryPage({ params }: ArtistCategoryPageP
 
   // Vérifier si la catégorie existe
   if (!category) {
-    notFound()
+    permanentRedirect('/artists')
   }
 
   return (

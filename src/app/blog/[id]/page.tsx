@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
-import { getPostBySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
+import { getPostBySlug } from '@/actions/seoPostActions'
 
 type ParamsType = Promise<{ id: string }>
 
@@ -13,10 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id: slug } = await params
   
   try {
-    // Récupérer l'ID de la langue (par défaut français)    
-    const post =  await getPostBySlug(slug, 'fr')
-    console.log(post);
-    
+    const post = await getPostBySlug(slug, 'fr') ?? await getPostBySlug(slug, 'en')
+
     if (!post) {
       return {
         title: 'Article non trouvé | In Real Art',
@@ -90,18 +88,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { id: slug } = await params
 
-  if (!slug) {
-    return (
-      <main className="min-h-screen text-textColor pt-headerSize">
-        <div className="max-w-screen-lg mx-auto p-8">
-          <h1 className="text-3xl font-bold mb-8">Post not found</h1>
-        </div>
-      </main>
-    )
-  }
-
   // Fetch the post server-side (French first, then English fallback) for SSR/SEO
   const initialPost = await getPostBySlug(slug, 'fr') ?? await getPostBySlug(slug, 'en')
+
+  if (!initialPost) {
+    permanentRedirect('/blog')
+  }
 
   return (
     <main className="min-h-screen pt-headerSize text-textColor">

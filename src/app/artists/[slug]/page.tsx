@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import { getArtistBySlug } from '@/actions/artistActions'
 import { getPresaleArtworksByArtistId } from '@/actions/presaleArtworkActions'
@@ -61,7 +61,7 @@ export default async function ArtistPage({ params }: Props) {
   const artist = await getArtistBySlug(slug)
 
   if (!artist) {
-    notFound()
+    permanentRedirect('/artists')
   }
 
   const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
