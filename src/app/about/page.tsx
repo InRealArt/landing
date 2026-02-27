@@ -1,6 +1,13 @@
-'use client'
-
+import { Metadata } from 'next'
+import { generateStaticMetadata } from '@/utils/metadata'
 import AboutHero from '@/components/about/AboutHero'
+
+export const metadata: Metadata = generateStaticMetadata({
+  title: "À propos d'In Real Art — Mission, Histoire et Équipe",
+  description: "Découvrez In Real Art : notre mission pour rendre l'art accessible, humain et éthique. Notre histoire, nos engagements et l'équipe qui les porte.",
+  keywords: ['à propos', 'mission In Real Art', 'équipe artistique', 'éthique culturelle', 'plateforme curatoriale'],
+  canonical: 'https://inrealart.com/about',
+})
 import AboutOurCommitments from '@/components/about/AboutOurCommitments'
 import AboutOurHistory from '@/components/about/AboutOurHistory'
 import AboutTeam from '@/components/about/AboutTeam'

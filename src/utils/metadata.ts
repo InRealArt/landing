@@ -44,7 +44,11 @@ export function generateStaticMetadata(
     imageAlt = `${SITE_NAME} - ${title}`,
     noIndex = false,
     canonical,
-    alternateLanguages = {}
+    alternateLanguages = {
+      'x-default': canonical || BASE_URL,
+      'fr': canonical || BASE_URL,
+      'en': canonical || BASE_URL,
+    }
   } = pageData
 
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`
@@ -54,7 +58,7 @@ export function generateStaticMetadata(
     title: fullTitle,
     description,
     keywords: keywords?.join(', '),
-    
+
     // Basic meta tags
     robots: {
       index: !noIndex,

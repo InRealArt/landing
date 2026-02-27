@@ -119,6 +119,49 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
     }
 }
 
+export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkData | null> {
+    try {
+        const artwork = await prisma.presaleArtwork.findUnique({
+            where: { id },
+            select: {
+                id: true,
+                name: true,
+                description: true,
+                price: true,
+                order: true,
+                imageUrl: true,
+                mockupUrls: true,
+                artistId: true,
+                width: true,
+                height: true,
+                isSold: true,
+                artist: {
+                    select: {
+                        name: true,
+                        surname: true
+                    }
+                }
+            }
+        })
+
+        if (!artwork) return null
+
+        let mockupUrls = artwork.mockupUrls
+        if (mockupUrls) {
+            try {
+                if (typeof mockupUrls === 'string') mockupUrls = JSON.parse(mockupUrls)
+            } catch {
+                mockupUrls = []
+            }
+        }
+
+        return { ...artwork, mockupUrls, translations: { name: {}, description: {} } }
+    } catch (error) {
+        console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
+        return null
+    }
+}
+
 export async function getPresaleArtworksByArtistId(artistId: number): Promise<PresaleArtworkData[]> {
     try {
         const presaleArtworks = await prisma.presaleArtwork.findMany({

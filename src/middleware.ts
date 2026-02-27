@@ -62,10 +62,10 @@ const KNOWN_STATIC_ROUTES = new Set([
 
 // Known dynamic route prefixes with exactly one slug segment — always valid
 const DYNAMIC_PREFIXES = new Set([
-  '/artists/',
   '/artists/category/',
-  '/blog/',
+  '/artists/',
   '/blog/category/',
+  '/blog/',
   '/artwork/',
   '/games/',
   '/art-salon-simulator/',
@@ -97,7 +97,7 @@ export function middleware(request: NextRequest) {
   // Known dynamic prefixes: allow any single slug segment
   for (const prefix of DYNAMIC_PREFIXES) {
     if (pathname.startsWith(prefix)) {
-      const rest = pathname.slice(prefix.length)
+      const rest = pathname.slice(prefix.length).replace(/\/$/, '')
       // Allow one slug segment (no further slashes)
       if (rest.length > 0 && !rest.includes('/')) {
         return NextResponse.next()

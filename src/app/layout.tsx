@@ -21,8 +21,12 @@ import { unbounded, bricolageGrotesque } from '@/config/fonts'
 
 
 export const metadata: Metadata = {
-  title: "In Real Art",
-  description: "Landing page In Real Art, Catalyseur d'Art, culture et Patrimoine",
+  metadataBase: new URL("https://inrealart.com/"),
+  title: {
+    default: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
+    template: "%s | In Real Art",
+  },
+  description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique. Pour artistes, collectionneurs et mécènes.",
   icons: {
     icon: '/icons/favicon-32x32.png',
     shortcut: '/icons/favicon-16x16.png',
@@ -31,29 +35,50 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  metadataBase: new URL("https://inrealart.com/"),
+  alternates: {
+    canonical: 'https://inrealart.com/',
+    languages: {
+      'x-default': 'https://inrealart.com/',
+      'fr': 'https://inrealart.com/',
+      'en': 'https://inrealart.com/',
+    },
+  },
   openGraph: {
-    title: 'In Real Art',
-    description: 'Catalyseur d\'Art, culture et Patrimoine',
+    title: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
+    description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
     url: 'https://inrealart.com/',
+    siteName: 'In Real Art',
+    locale: 'fr_FR',
     images: [
       {
         url: ogImage.src,
         width: ogImage.width,
-        height: ogImage.height
+        height: ogImage.height,
+        alt: "In Real Art — Catalyseur d'Art",
       },
     ],
     type: 'website',
   },
   twitter: {
+    card: 'summary_large_image',
+    title: "In Real Art — Catalyseur d'Art, de la Culture et du Patrimoine",
+    description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
     images: [
       {
         url: ogImage.src,
         width: ogImage.width,
-        height: ogImage.height
+        height: ogImage.height,
+        alt: "In Real Art — Catalyseur d'Art",
       },
-    ]
+    ],
   },
 };
 
@@ -75,6 +100,8 @@ export default function RootLayout ({
                   const savedTheme = localStorage.getItem('theme');
                   const theme = savedTheme === 'dark' ? 'dark' : 'light';
                   document.documentElement.setAttribute('data-theme', theme);
+                  const savedLang = localStorage.getItem('language') || 'fr';
+                  document.documentElement.setAttribute('lang', savedLang);
                 } catch (e) {
                   document.documentElement.setAttribute('data-theme', 'light');
                 }

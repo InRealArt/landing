@@ -8,152 +8,196 @@ import { SeoPost } from '@/store/useSeoPostStore'
 import { getPostsByCategorySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
 import { generateCollectionJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 
-interface Props {
-  categorySlug: string
-}
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
 
 interface CategoryData {
   id: number
   name: string
   color: string | null
   url: string | null
-  description?: string
 }
 
-export default function BlogCategoryPageClient({ categorySlug }: Props) {
-  const { t, language } = useLanguageStore()
-  const [posts, setPosts] = useState<SeoPost[]>([])
-  const [category, setCategory] = useState<CategoryData | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+interface Props {
+  categorySlug: string
+  /** Server-rendered initial data for the default language (French). */
+  initialPosts: SeoPost[]
+  initialCategory: CategoryData
+}
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://inrealart.com'
+
+// ---------------------------------------------------------------------------
+// Component
+//
+// Rendering strategy:
+//   - First paint uses `initialPosts` / `initialCategory` provided by the
+//     Server Component parent — no loading state, no layout shift.
+//   - When the user switches language, a client-side re-fetch updates the
+//     posts and the translated category name.
+//   - `isRefetching` tracks the language-switch re-fetch without hiding the
+//     existing content (posts stay visible while the new language loads).
+// ---------------------------------------------------------------------------
+
+export default function BlogCategoryPageClient({
+  categorySlug,
+  initialPosts,
+  initialCategory,
+}: Props) {
+  const { language } = useLanguageStore()
+
+  const [posts, setPosts] = useState<SeoPost[]>(initialPosts)
+  const [category, setCategory] = useState<CategoryData>(initialCategory)
+  const [isRefetching, setIsRefetching] = useState(false)
+  const [fetchError, setFetchError] = useState<string | null>(null)
+
+  // Re-fetch only when the language changes.
+  // The initial French data was already provided by the server, so we skip
+  // the first mount when the language is 'fr' (no wasted round-trip).
   useEffect(() => {
-    const fetchCategoryPosts = async () => {
+    if (language === 'fr') {
+      // Restore initial server data if the user switches back to French.
+      setPosts(initialPosts)
+      setCategory(initialCategory)
+      setFetchError(null)
+      return
+    }
+
+    let cancelled = false
+
+    const refetchForLanguage = async () => {
+      setIsRefetching(true)
+      setFetchError(null)
+
       try {
-        setIsLoading(true)
-        setError(null)
-        
         const languageId = await getLanguageIdByCode(language)
         if (!languageId) {
-          throw new Error('Langue non trouvée')
+          throw new Error(`Langue inconnue : ${language}`)
         }
 
         const result = await getPostsByCategorySlug(categorySlug, languageId)
-        
-        if (!result.category) {
-          setError('Catégorie non trouvée')
-          return
-        }
 
-        setPosts(result.posts)
-        setCategory(result.category)
-      } catch (error) {
-        console.error('Erreur lors du chargement des posts de la catégorie:', error)
-        setError('Erreur lors du chargement des articles')
+        if (cancelled) return
+
+        if (result.category) {
+          setPosts(result.posts as SeoPost[])
+          setCategory(result.category)
+        }
+        // If the category has no translated posts for this language we keep
+        // the French content rather than showing an empty page.
+      } catch {
+        if (!cancelled) {
+          setFetchError('Erreur lors du chargement des articles')
+        }
       } finally {
-        setIsLoading(false)
+        if (!cancelled) {
+          setIsRefetching(false)
+        }
       }
     }
 
-    if (categorySlug) {
-      fetchCategoryPosts()
+    refetchForLanguage()
+
+    return () => {
+      cancelled = true
     }
-  }, [categorySlug, language])
+  }, [language, categorySlug, initialPosts, initialCategory])
 
-  if (isLoading) {
-    return (
-      <main className="min-h-screen pt-headerSize text-textColor">
-        <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
-          <div className="animate-pulse">
-            <div className="h-8 bg-backgroundGrey rounded w-64 mb-8"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, index) => (
-                <div key={index} className="h-64 bg-backgroundGrey rounded"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </main>
-    )
-  }
+  // JSON-LD is derived entirely from our own typed data — no user HTML involved.
+  const collectionLd = generateCollectionJsonLd(
+    `${category.name} - Blog InRealArt`,
+    `Articles de la catégorie ${category.name}`,
+    posts.map((post) => ({
+      name: post.title,
+      url: `${BASE_URL}/blog/${post.slug}`,
+    }))
+  )
 
-  if (error || !category) {
-    return (
-      <main className="min-h-screen pt-headerSize text-textColor">
-        <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">{error || 'Catégorie non trouvée'}</h1>
-            <Link href="/blog" className="text-purpleColor hover:underline">
-              Retour au blog
-            </Link>
-          </div>
-        </div>
-      </main>
-    )
-  }
+  const breadcrumbLd = generateBreadcrumbJsonLd([
+    { name: 'Accueil', url: BASE_URL },
+    { name: 'Blog', url: `${BASE_URL}/blog` },
+    { name: category.name },
+  ])
 
   return (
     <>
+      {/* eslint-disable-next-line react/no-danger */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
-          __html: generateCollectionJsonLd(
-            `${category.name} - Blog InRealArt`,
-            category.description || `Articles de la catégorie ${category.name}`,
-            posts.map(post => ({
-              name: post.title,
-              url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/blog/${post.slug}`
-            }))
-          )
-        }}
+        dangerouslySetInnerHTML={{ __html: collectionLd }}
       />
+      {/* eslint-disable-next-line react/no-danger */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
-          __html: generateBreadcrumbJsonLd([
-            { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
-            { name: 'Blog', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/blog` },
-            { name: category.name }
-          ])
-        }}
+        dangerouslySetInnerHTML={{ __html: breadcrumbLd }}
       />
-      
+
       <main className="min-h-screen pt-headerSize text-textColor">
         <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
+          {/* Category header */}
           <div className="mb-12">
             <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
-            {category.description && (
-              <p className="text-grayText text-lg">{category.description}</p>
+          </div>
+
+          {/* Inline error — displayed alongside existing content, not instead */}
+          {fetchError && (
+            <p className="text-sm text-red-500 mb-6">{fetchError}</p>
+          )}
+
+          {/* Post grid — dimmed while a language re-fetch is in progress */}
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-200 ${
+              isRefetching ? 'opacity-50' : 'opacity-100'
+            }`}
+          >
+            {posts.length === 0 ? (
+              <p className="col-span-full text-grayText">
+                Aucun article dans cette catégorie.
+              </p>
+            ) : (
+              posts.map((post) => (
+                <div
+                  key={post.id}
+                  className="bg-cardBackground rounded-lg overflow-hidden border border-borderColor"
+                >
+                  {post.mainImageUrl && (
+                    <div className="aspect-video relative">
+                      <Image
+                        src={post.mainImageUrl}
+                        alt={post.mainImageAlt ?? post.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h2 className="text-xl font-semibold mb-2">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="hover:text-purpleColor"
+                      >
+                        {post.title}
+                      </Link>
+                    </h2>
+                    <p className="text-grayText mb-4">{post.excerpt}</p>
+                    <div className="flex justify-between items-center text-sm text-grayText">
+                      <span>{post.author}</span>
+                      <span>
+                        {new Date(post.createdAt).toLocaleDateString('fr-FR')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <div key={post.id} className="bg-cardBackground rounded-lg overflow-hidden border border-borderColor">
-                {post.mainImageUrl && (
-                  <div className="aspect-video relative">
-                    <Image
-                      src={post.mainImageUrl}
-                      alt={post.mainImageAlt || post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-2">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-purpleColor">
-                      {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-grayText mb-4">{post.excerpt}</p>
-                  <div className="flex justify-between items-center text-sm text-grayText">
-                    <span>{post.author}</span>
-                    <span>{new Date(post.createdAt).toLocaleDateString('fr-FR')}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mt-12">
+            <Link href="/blog" className="text-purpleColor hover:underline">
+              &larr; Retour au blog
+            </Link>
           </div>
         </div>
       </main>

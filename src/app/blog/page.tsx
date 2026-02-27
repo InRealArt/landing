@@ -1,32 +1,14 @@
-'use client'
+import { Metadata } from 'next'
+import { generateStaticMetadata } from '@/utils/metadata'
+import BlogPageClient from './BlogPageClient'
 
-import Hero from '@/components/blog/Hero';
-import BlogCategories from '@/components/blog/BlogCategories';
-import FeaturedPost from '@/components/blog/FeaturedPost';
-import OthersPosts from '@/components/blog/OthersPosts';
-import { generateCollectionJsonLd } from '@/utils/metadata'
+export const metadata: Metadata = generateStaticMetadata({
+  title: 'Le Blog In Real Art — Art, Culture & Patrimoine en Mouvement',
+  description: "Tendances, interviews, analyses curatoriales et conseils pratiques. Le blog qui explore l'art vivant et ses enjeux contemporains.",
+  keywords: ['blog art', 'tendances artistiques', 'interviews d\'artistes', 'curation', 'marché de l\'art'],
+  canonical: 'https://inrealart.com/blog',
+})
 
 export default function BlogPage() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
-          __html: generateCollectionJsonLd(
-            'Blog InRealArt',
-            'Articles et actualités sur l\'art tokenisé, l\'investissement artistique et la blockchain',
-            [] // This would be populated with actual blog post data
-          )
-        }}
-      />
-      
-      <main className="min-h-screen pt-headerSizeMobile md:pt-headerSize text-textColor">
-        <Hero />
-        <BlogCategories />
-        <FeaturedPost />
-        {/* <WeeklyPosts /> */}
-        <OthersPosts />
-      </main>
-    </>
-  );
+  return <BlogPageClient />
 } 

@@ -40,11 +40,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const titleTag = `${artistName} - ${specialty} | Bio, Œuvres & Cote | InRealArt`
     const metaDescription = `Découvrez ${artistName}, ${specialty.toLowerCase()}${nationality}. Biographie, ${artworkCount > 0 ? `${artworkCount}+ ` : ''}œuvres originales, expositions 2026. Achat LOA disponible sur InRealArt.`
 
+    const canonical = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
     return generateDynamicMetadata({
       title: titleTag,
       description: metaDescription,
       keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie', ...(artist.mediumTags || [])],
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
+      canonical,
+      alternateLanguages: {
+        'x-default': canonical,
+        'fr': canonical,
+        'en': canonical,
+      },
     }, 'profile')
   } catch (error) {
     console.error('Error generating artist metadata:', error)
@@ -84,11 +90,12 @@ export default async function ArtistPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: artworksJsonLd }}
         />
       )}
-      {/* BreadcrumbJsonLd does not exist yet */}
-      {/* <script
+      {/* JSON-LD généré depuis des données internes (safe) */}
+      <script
         type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }}
-      /> */}
+      />
       <ArtistPageClientWrapper
         slug={slug}
         initialArtist={artist}
