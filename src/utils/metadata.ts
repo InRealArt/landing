@@ -241,11 +241,6 @@ export function generateWebSiteJsonLd(): string {
     name: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: BASE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${BASE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
-    }
   }
 
   return JSON.stringify(websiteData)
