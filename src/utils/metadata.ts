@@ -93,6 +93,7 @@ export function generateStaticMetadata(
     // Twitter Card
     twitter: {
       card: 'summary_large_image',
+      site: '@inrealart',
       title: fullTitle,
       description,
       images: [imageUrl]
@@ -184,6 +185,7 @@ export function generateDynamicMetadata(
     // Twitter Card
     twitter: {
       card: 'summary_large_image',
+      site: '@inrealart',
       title: fullTitle,
       description,
       images: [imageUrl]

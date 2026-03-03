@@ -69,6 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@inrealart',
     title: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
     images: [
