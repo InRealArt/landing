@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     languages: {
       'x-default': 'https://inrealart.com/',
       'fr': 'https://inrealart.com/',
-      'en': 'https://inrealart.com/',
     },
   },
   openGraph: {

@@ -47,7 +47,6 @@ export function generateStaticMetadata(
     alternateLanguages = {
       'x-default': canonical || BASE_URL,
       'fr': canonical || BASE_URL,
-      'en': canonical || BASE_URL,
     }
   } = pageData
 
