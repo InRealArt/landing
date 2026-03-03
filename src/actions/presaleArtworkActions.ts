@@ -2,6 +2,15 @@
 
 import { prisma } from '@/lib/prisma'
 import { organizeTranslations } from '@/utils/translations'
+const toSlug = (str: string) =>
+    str
+        .toLowerCase()
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
 
 export interface PresaleArtworkData {
     id: number
@@ -158,6 +167,49 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
         return { ...artwork, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
+        return null
+    }
+}
+
+export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtworkData | null> {
+    try {
+        const artworks = await prisma.presaleArtwork.findMany({
+            select: {
+                id: true,
+                name: true,
+                description: true,
+                price: true,
+                order: true,
+                imageUrl: true,
+                mockupUrls: true,
+                artistId: true,
+                width: true,
+                height: true,
+                isSold: true,
+                artist: {
+                    select: {
+                        name: true,
+                        surname: true
+                    }
+                }
+            }
+        })
+
+        const artwork = artworks.find(a => toSlug(a.name) === slug)
+        if (!artwork) return null
+
+        let mockupUrls = artwork.mockupUrls
+        if (mockupUrls) {
+            try {
+                if (typeof mockupUrls === 'string') mockupUrls = JSON.parse(mockupUrls)
+            } catch {
+                mockupUrls = []
+            }
+        }
+
+        return { ...artwork, mockupUrls, translations: { name: {}, description: {} } }
+    } catch (error) {
+        console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null
     }
 }

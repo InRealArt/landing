@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { generateDynamicMetadata } from '@/utils/metadata'
-import { getPresaleArtworkById } from '@/actions/presaleArtworkActions'
+import { getPresaleArtworkBySlug } from '@/actions/presaleArtworkActions'
 import ArtworkPageClient from './ArtworkPageClient'
 
 type ParamsType = Promise<{ id: string }>
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
 
   try {
-    const artwork = await getPresaleArtworkById(Number(id))
+    const artwork = await getPresaleArtworkBySlug(id)
 
     if (!artwork) {
       return {
