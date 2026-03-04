@@ -1,63 +1,17 @@
-'use client'
-import Image from "next/image";
-import TeamSlider from "./TeamSlider";
-import Button from "./Button";
-import { ArrowRight } from 'lucide-react';
-import { useTeamStore } from '@/store/useTeamStore';
-import { useEffect, useState, Suspense } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
-import SkeletonSlider from './SkeletonSlider';
+import { Suspense } from 'react'
+import { getTeamMembers } from '@/actions/teamActions'
+import TeamSkeleton from './TeamSkeleton'
+import TeamClientWrapper from './TeamClientWrapper'
+
+async function TeamContent() {
+  const members = await getTeamMembers()
+  return <TeamClientWrapper members={members} />
+}
 
 export default function Team() {
-  const { t, language } = useLanguageStore();
-  const { members, isLoading, fetchTeamMembers, getTranslatedMembers } = useTeamStore();
-  const [key, setKey] = useState(0);
-  
-  useEffect(() => {
-    if (members.length === 0) {
-      fetchTeamMembers();
-    }
-  }, [fetchTeamMembers, members.length]);
-  
-  // Mettre à jour les traductions lorsque la langue change
-  useEffect(() => {
-    if (members.length > 0) {
-      getTranslatedMembers();
-      setKey(prev => prev + 1);
-    }
-  }, [language, members.length, getTranslatedMembers]);
-  
-  // Adapter le format des membres du store pour qu'il corresponde à ce qu'attend le Slider
-  const formattedMembers = members.map(member => ({
-    name: member.name,
-    image: { src: member.photo },
-    role: member.role,
-    socials: []
-  }));
-  
-  // Force re-render when members are loaded
-  useEffect(() => {
-    if (members.length > 0 && !isLoading) {
-      setKey(prev => prev + 1);
-    }
-  }, [members, isLoading]);
-
   return (
-    <section className="mt-36 max-w-screen-2xl m-auto">
-      <div className="max-w-90 xl:max-w-screen-xl md:flex justify-between w-full m-auto items-center">
-        <h1 className="bricolage-grotesque text-4xl md:text-5xl">{t('home.team.title')}</h1>
-      </div>
-      
-      <Suspense fallback={<SkeletonSlider context="team" additionnalClassName="relative bg-gradient" />}>
-        {formattedMembers.length > 0 ? (
-          <TeamSlider 
-            key={key}
-            members={formattedMembers} 
-          />
-        ) : (
-          <SkeletonSlider context="team" additionnalClassName="relative bg-gradient" />
-        )}
-      </Suspense>
-    </section>
-  );
-} 
+    <Suspense fallback={<TeamSkeleton />}>
+      <TeamContent />
+    </Suspense>
+  )
+}

@@ -131,7 +131,7 @@ Swiper (~80 KB JS + CSS) est importé **statiquement** dans `HeroArtistSlider`, 
 
 ## P2 — Chantier majeur, impact le plus fort (1 jour)
 
-### 9. ArtworkSlider, Partners, Team, FAQ, StickyFooterManager — Waterfall DB client-side (-3 à -5s)
+### ~~9. ArtworkSlider, Partners, Team, FAQ, StickyFooterManager — Waterfall DB client-side (-3 à -5s)~~ ✅ DONE
 
 Ces composants font tous `useEffect → server action → Supabase` **après hydratation**. Chaque aller-retour = 500ms à 2s. C'est la cause principale des 7-8 secondes.
 

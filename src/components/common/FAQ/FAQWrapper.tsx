@@ -1,29 +1,39 @@
-'use client'
-import FAQ from './FAQ'
-import { useLanguageStore } from '@/store/languageStore'
+import { Suspense } from 'react'
+import { getFaqs } from '@/actions/faqActions'
+import FAQSkeleton from './FAQSkeleton'
+import FAQClient from './FAQClient'
 
 interface FAQWrapperProps {
-  titleKey?: string;
-  descriptionKey?: string;
-  titre?: string;
-  description?: string;
+  titleKey?: string
+  descriptionKey?: string
+  titre?: string
+  description?: string
 }
 
-const FAQWrapper = ({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) => {
-  const { t } = useLanguageStore()
-  
-  // Si des clés de traduction sont fournies, les utiliser
-  const finalTitle = titre || (titleKey ? t(titleKey) : undefined)
-  const finalDescription = description || (descriptionKey ? t(descriptionKey) : undefined)
-  
+async function FAQContent({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) {
+  // faqs are already sorted by order ASC from the server action
+  const faqs = await getFaqs()
+
   return (
-    <FAQ 
-      titre={finalTitle}
-      description={finalDescription}
+    <FAQClient
+      faqs={faqs}
       titleKey={titleKey}
       descriptionKey={descriptionKey}
+      titre={titre}
+      description={description}
     />
   )
 }
 
-export default FAQWrapper
+export default function FAQWrapper({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) {
+  return (
+    <Suspense fallback={<FAQSkeleton />}>
+      <FAQContent
+        titleKey={titleKey}
+        descriptionKey={descriptionKey}
+        titre={titre}
+        description={description}
+      />
+    </Suspense>
+  )
+}
