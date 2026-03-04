@@ -318,6 +318,10 @@
       "loadingError": "Error loading partner galleries",
       "noPartners": "No partner galleries available"
     },
+    "mediaPartners": {
+      "title": "Our Media Partners",
+      "description": "They talk about us and support us"
+    },
     "statistics": {
       "title": "The InRealArt catalog includes:",
       "items": {

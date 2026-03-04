@@ -317,6 +317,10 @@
       "loadingError": "Erreur lors du chargement des galeries partenaires",
       "noPartners": "Aucune galerie partenaire disponible"
     },
+    "mediaPartners": {
+      "title": "Nos Partenaires Médias",
+      "description": "Ils parlent de nous et nous soutiennent"
+    },
     "statistics": {
       "title": "Le catalogue InRealArt c'est :",
       "items": {

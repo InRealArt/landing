@@ -21,6 +21,9 @@ const ArtworkSlider = dynamic(() => import("@/components/home/ArtworkSlider"), {
 const Partners = dynamic(() => import("@/components/home/Partners"), {
   loading: () => <div className="w-full h-64 animate-pulse bg-cardBackground rounded-lg" />
 })
+const MediaPartners = dynamic(() => import("@/components/home/MediaPartners"), {
+  loading: () => <div className="w-full h-64 animate-pulse bg-cardBackground rounded-lg" />
+})
 const Team = dynamic(() => import("@/components/common/Team"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
@@ -62,6 +65,7 @@ export default function Home() {
         <ArtistSlider isGallery={false} />
         <ArtworkSlider />
         <Partners />
+        <MediaPartners />
       </div>
       <Team />
       {/* <HomeFaq /> */}
