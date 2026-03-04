@@ -63,7 +63,22 @@ export default {
       },
       borderColor: {
         purpleColor: "var(--purple)"
-      }
+      },
+      keyframes: {
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(40px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-right': {
+          from: { opacity: '0', transform: 'translateX(40px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up 0.8s ease-out 0.2s both',
+        'fade-up-delay': 'fade-up 0.8s ease-out 0.38s both',
+        'fade-right': 'fade-right 0.9s ease-out 0.38s both',
+      },
     },
   },
   plugins: [

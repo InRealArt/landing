@@ -53,7 +53,7 @@ Les 7-8 secondes proviennent de **trois causes qui s'accumulent séquentiellemen
 
 ## P1 — Fort impact, effort moyen (2-4h)
 
-### 6. `src/components/home/Intro.tsx` ligne 2 — framer-motion above-fold (-130 KB)
+### ~~6. `src/components/home/Intro.tsx` ligne 2 — framer-motion above-fold (-130 KB)~~ ✅ DONE
 
 framer-motion (~130 KB) est importé **statiquement** dans le composant above-fold. De plus, le H1 démarre à `opacity: 0` avec un delay de 0.2s + duration 0.8s = **~1s avant que le LCP puisse être enregistré**.
 
@@ -91,7 +91,7 @@ extend: {
 
 ---
 
-### 7. `src/store/languageStore.ts` lignes 3-4 — fr.json + en.json dans le bundle initial (-165 KB)
+### ~~7. `src/store/languageStore.ts` lignes 3-4 — fr.json + en.json dans le bundle initial (-165 KB)~~ ✅ DONE
 
 Les deux fichiers de traduction (169 KB + 165 KB = **334 KB**) sont des imports statiques inclus dans le bundle de **toutes les pages**, même si l'utilisateur ne change jamais de langue.
 

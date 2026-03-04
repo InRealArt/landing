@@ -1,14 +1,16 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import frTranslations from '@/locales/fr.json'
-import enTranslations from '@/locales/en.json'
 
 type Language = 'fr' | 'en'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TranslationMap = Record<string, any>
+
 interface LanguageState {
     language: Language
-    setLanguage: (language: Language) => void
-    translations: Record<Language, Record<string, any>>
+    setLanguage: (language: Language) => Promise<void>
+    translations: Record<Language, TranslationMap>
     t: (key: string) => string
     tHtml: (key: string) => string
 }
@@ -35,25 +37,51 @@ async function sanitizeHtml(content: string): Promise<string> {
 // On définit la langue par défaut côté serveur pour éviter les problèmes d'hydration
 const DEFAULT_LANGUAGE: Language = 'fr'
 
+// Cache pour éviter de recharger en.json plusieurs fois
+let enTranslationsCache: TranslationMap | null = null
+
+async function loadEnTranslations(): Promise<TranslationMap> {
+    if (enTranslationsCache) return enTranslationsCache
+    const mod = await import('@/locales/en.json')
+    enTranslationsCache = mod.default
+    return enTranslationsCache
+}
+
 export const useLanguageStore = create<LanguageState>()(
     persist(
         (set, get) => ({
             language: DEFAULT_LANGUAGE,
-            setLanguage: (language) => set({ language }),
+            setLanguage: async (language) => {
+                if (language === 'en') {
+                    const { translations } = get()
+                    // Charger en.json dynamiquement uniquement si pas encore chargé
+                    if (!translations.en || Object.keys(translations.en).length === 0) {
+                        const enTranslations = await loadEnTranslations()
+                        set({
+                            language,
+                            translations: { ...translations, en: enTranslations }
+                        })
+                    } else {
+                        set({ language })
+                    }
+                } else {
+                    set({ language })
+                }
+            },
             translations: {
                 fr: frTranslations,
-                en: enTranslations
+                en: {} // en.json chargé dynamiquement au premier setLanguage('en')
             },
             t: (key) => {
                 const { language, translations } = get()
                 const keys = key.split('.')
-                let current: any = translations[language]
+                let current: TranslationMap | string = translations[language]
 
                 for (const k of keys) {
                     if (!current || typeof current !== 'object' || !(k in current)) {
                         return key
                     }
-                    current = current[k]
+                    current = (current as TranslationMap)[k]
                 }
 
                 return typeof current === 'string' ? current : key
@@ -61,13 +89,13 @@ export const useLanguageStore = create<LanguageState>()(
             tHtml: (key) => {
                 const { language, translations } = get()
                 const keys = key.split('.')
-                let current: any = translations[language]
+                let current: TranslationMap | string = translations[language]
 
                 for (const k of keys) {
                     if (!current || typeof current !== 'object' || !(k in current)) {
                         return key
                     }
-                    current = current[k]
+                    current = (current as TranslationMap)[k]
                 }
 
                 if (typeof current === 'string') {
@@ -85,4 +113,4 @@ export const useLanguageStore = create<LanguageState>()(
             skipHydration: true
         }
     )
-) 
+)
