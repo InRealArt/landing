@@ -92,6 +92,12 @@ export default function RootLayout ({
   return (
     <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`} suppressHydrationWarning>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/home/hero/bg.webp"
+          type="image/webp"
+        />
         {/* ✅ OPTIMISÉ: Script inline au lieu de fichier externe
             Évite une requête HTTP et s'exécute immédiatement (bloquant mais nécessaire pour éviter FOUC) */}
         <script

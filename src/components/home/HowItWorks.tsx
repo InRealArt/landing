@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore';
+import { loadGsap } from '@/lib/gsap'
 
 export default function HowItWorks() {
   const t = useLanguageStore(state => state.t);
@@ -31,9 +32,7 @@ export default function HowItWorks() {
     let ctx: any
 
     const initAnimations = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
+      const { gsap, ScrollTrigger } = await loadGsap()
 
       ctx = gsap.context(() => {
         // Header fade-up

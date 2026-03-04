@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useLanguageStore } from "@/store/languageStore";
+import { loadGsap } from '@/lib/gsap'
 
 const Statistics = () => {
   const t = useLanguageStore(state => state.t);
@@ -31,9 +32,7 @@ const Statistics = () => {
     let ctx: any
 
     const initAnimations = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
+      const { gsap, ScrollTrigger } = await loadGsap()
 
       ctx = gsap.context(() => {
         // Title reveal

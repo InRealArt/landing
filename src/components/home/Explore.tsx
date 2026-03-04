@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { loadGsap } from '@/lib/gsap'
 import OptimizedImage from "@/components/common/OptimizedImage";
 import Button from "../common/Button";
 import TranslatedText from "@/components/common/TranslatedText";
@@ -60,9 +61,7 @@ export default function Explore() {
     let ctx: any
 
     const initAnimations = async () => {
-      const { gsap } = await import('gsap')
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
+      const { gsap, ScrollTrigger } = await loadGsap()
 
       ctx = gsap.context(() => {
         // Header reveal

@@ -180,7 +180,7 @@ Les composants étant lazy-importés dans `page.tsx`, leur Server Component asyn
 
 ## P3 — Optimisations techniques complémentaires
 
-### 10. `Statistics`, `HowItWorks`, `Explore` — GSAP initialisé 3 fois
+### ~~10. `Statistics`, `HowItWorks`, `Explore` — GSAP initialisé 3 fois~~ ✅ DONE
 
 Chacun fait `await import('gsap')` + `await import('gsap/ScrollTrigger')` + `gsap.registerPlugin(ScrollTrigger)`. Les 3 composants étant chargés en parallèle, les 3 promesses d'import sont déclenchées simultanément avant que le cache soit établi.
 
@@ -205,7 +205,7 @@ export function loadGsap() {
 
 ---
 
-### 11. `src/components/common/OptimizedImage.tsx` — Client Component inutile sur chaque image
+### ~~11. `src/components/common/OptimizedImage.tsx` — Client Component inutile sur chaque image~~ ✅ DONE
 
 Ce composant est `'use client'` avec deux `useState` (`imageSrc`, `isLoading`). Chaque image de la page passe par ce composant et démarre à `opacity: 0` jusqu'au `handleLoad`. Pour le logo header avec `priority={true}`, c'est contre-productif.
 
@@ -213,7 +213,7 @@ Ce composant est `'use client'` avec deux `useState` (`imageSrc`, `isLoading`). 
 
 ---
 
-### 12. `src/app/layout.tsx` — Ajouter `<link rel="preload">` pour l'image hero
+### ~~12. `src/app/layout.tsx` — Ajouter `<link rel="preload">` pour l'image hero~~ ✅ DONE
 
 `OptimizedBackgroundImage` étant un Client Component, Next.js ne peut pas émettre le preload automatiquement.
 

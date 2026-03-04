@@ -32,7 +32,7 @@ const OptimizedImage = ({
   ...props
 }: OptimizedImageProps) => {
   const [imageSrc, setImageSrc] = useState(src)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(priority ? false : true)
 
   // Déterminer si l'image doit être optimisée
   const shouldOptimize = () => {
