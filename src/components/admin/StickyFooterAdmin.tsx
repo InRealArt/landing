@@ -61,7 +61,7 @@ export default function StickyFooterAdmin() {
     try {
       const data = {
         ...formData,
-        endValidityDate: formData.endValidityDate ? new Date(formData.endValidityDate) : null,
+        endValidityDate: formData.endValidityDate || null,
         specificPages: formData.specificPages.filter(page => page.trim() !== '')
       }
 

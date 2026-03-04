@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 
 // Composant Skeleton pour l'état de chargement
 function PartnersSkeleton() {
-  const { t } = useLanguageStore()
+  const t = useLanguageStore(state => state.t)
   
   return (
     <section className="mt-12">
@@ -34,7 +34,7 @@ function PartnersSkeleton() {
 
 function Partners() {
   const { partners, isLoading, hasError, fetchPartners } = usePartnersStore()
-  const { t } = useLanguageStore()
+  const t = useLanguageStore(state => state.t)
   const router = useRouter()
 
   useEffect(() => {

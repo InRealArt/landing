@@ -1,16 +1,13 @@
 'use server'
 
-import { PrismaClient } from '@prisma/client'
-import { LandingPage } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '@/lib/prisma'
 
 export interface StickyFooterData {
     id: number
     activeOnAllPages: boolean
     activeOnSpecificPages: boolean
     specificPages: string[]
-    endValidityDate: Date | null
+    endValidityDate: string | null
     title: string | null
     text: string | null
     textButton: string | null
@@ -26,46 +23,34 @@ export async function getActiveStickyFooter(currentPage?: string): Promise<Stick
     try {
         const now = new Date()
 
-        // Récupère tous les sticky footers actifs (non expirés)
         const stickyFooters = await prisma.stickyFooter.findMany({
             where: {
                 OR: [
-                    { endValidityDate: null }, // Pas de date de fin
-                    { endValidityDate: { gte: now } } // Date de fin dans le futur
+                    { endValidityDate: null },
+                    { endValidityDate: { gte: now } }
                 ]
             },
-            orderBy: {
-                id: 'desc' // Prendre le plus récent en premier
-            }
+            orderBy: { id: 'desc' }
         })
 
-        if (stickyFooters.length === 0) {
-            return null
-        }
+        if (stickyFooters.length === 0) return null
 
-        // Cherche d'abord un sticky footer actif sur toutes les pages
-        const globalStickyFooter = stickyFooters.find(footer => footer.activeOnAllPages)
-        if (globalStickyFooter) {
-            return globalStickyFooter
-        }
+        const match =
+            stickyFooters.find(f => f.activeOnAllPages) ??
+            (currentPage
+                ? stickyFooters.find(f => f.activeOnSpecificPages && f.specificPages.includes(currentPage))
+                : undefined) ??
+            null
 
-        // Si une page spécifique est fournie, cherche un sticky footer pour cette page
-        if (currentPage) {
-            const pageSpecificStickyFooter = stickyFooters.find(footer =>
-                footer.activeOnSpecificPages &&
-                footer.specificPages.includes(currentPage)
-            )
-            if (pageSpecificStickyFooter) {
-                return pageSpecificStickyFooter
-            }
-        }
+        if (!match) return null
 
-        return null
+        return {
+            ...match,
+            endValidityDate: match.endValidityDate?.toISOString() ?? null,
+        }
     } catch (error) {
         console.error('Erreur lors de la récupération du sticky footer:', error)
         return null
-    } finally {
-        await prisma.$disconnect()
     }
 }
 
@@ -76,17 +61,16 @@ export async function getActiveStickyFooter(currentPage?: string): Promise<Stick
 export async function getAllStickyFooters(): Promise<StickyFooterData[]> {
     try {
         const stickyFooters = await prisma.stickyFooter.findMany({
-            orderBy: {
-                id: 'desc'
-            }
+            orderBy: { id: 'desc' }
         })
 
-        return stickyFooters
+        return stickyFooters.map(f => ({
+            ...f,
+            endValidityDate: f.endValidityDate?.toISOString() ?? null,
+        }))
     } catch (error) {
         console.error('Erreur lors de la récupération de tous les sticky footers:', error)
         return []
-    } finally {
-        await prisma.$disconnect()
     }
 }
 
@@ -102,7 +86,7 @@ export async function createStickyFooter(data: Omit<StickyFooterData, 'id'>): Pr
                 activeOnAllPages: data.activeOnAllPages,
                 activeOnSpecificPages: data.activeOnSpecificPages,
                 specificPages: data.specificPages,
-                endValidityDate: data.endValidityDate,
+                endValidityDate: data.endValidityDate ? new Date(data.endValidityDate) : null,
                 title: data.title,
                 text: data.text,
                 textButton: data.textButton,
@@ -110,12 +94,13 @@ export async function createStickyFooter(data: Omit<StickyFooterData, 'id'>): Pr
             }
         })
 
-        return stickyFooter
+        return {
+            ...stickyFooter,
+            endValidityDate: stickyFooter.endValidityDate?.toISOString() ?? null,
+        }
     } catch (error) {
         console.error('Erreur lors de la création du sticky footer:', error)
         return null
-    } finally {
-        await prisma.$disconnect()
     }
 }
 
@@ -133,7 +118,7 @@ export async function updateStickyFooter(id: number, data: Partial<Omit<StickyFo
                 activeOnAllPages: data.activeOnAllPages,
                 activeOnSpecificPages: data.activeOnSpecificPages,
                 specificPages: data.specificPages,
-                endValidityDate: data.endValidityDate,
+                endValidityDate: data.endValidityDate ? new Date(data.endValidityDate) : null,
                 title: data.title,
                 text: data.text,
                 textButton: data.textButton,
@@ -141,12 +126,13 @@ export async function updateStickyFooter(id: number, data: Partial<Omit<StickyFo
             }
         })
 
-        return stickyFooter
+        return {
+            ...stickyFooter,
+            endValidityDate: stickyFooter.endValidityDate?.toISOString() ?? null,
+        }
     } catch (error) {
         console.error('Erreur lors de la mise à jour du sticky footer:', error)
         return null
-    } finally {
-        await prisma.$disconnect()
     }
 }
 
@@ -165,7 +151,5 @@ export async function deleteStickyFooter(id: number): Promise<boolean> {
     } catch (error) {
         console.error('Erreur lors de la suppression du sticky footer:', error)
         return false
-    } finally {
-        await prisma.$disconnect()
     }
 }

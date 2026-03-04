@@ -76,8 +76,19 @@ function getRedirectTarget(pathname: string): string {
   return SEGMENT_REDIRECTS[firstSegment] ?? '/'
 }
 
+function nextWithPathname(request: NextRequest): NextResponse {
+  const response = NextResponse.next()
+  response.headers.set('x-pathname', request.nextUrl.pathname)
+  return response
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  // Pass through Server Actions (POST requests with Next-Action header)
+  if (request.method === 'POST' && request.headers.has('next-action')) {
+    return nextWithPathname(request)
+  }
 
   // Pass through Next.js internals, API routes, and static files
   if (
@@ -86,12 +97,12 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/images') ||
     pathname.includes('.')
   ) {
-    return NextResponse.next()
+    return nextWithPathname(request)
   }
 
   // Known static routes are always valid
   if (KNOWN_STATIC_ROUTES.has(pathname)) {
-    return NextResponse.next()
+    return nextWithPathname(request)
   }
 
   // Known dynamic prefixes: allow any single slug segment
@@ -100,7 +111,7 @@ export function middleware(request: NextRequest) {
       const rest = pathname.slice(prefix.length).replace(/\/$/, '')
       // Allow one slug segment (no further slashes)
       if (rest.length > 0 && !rest.includes('/')) {
-        return NextResponse.next()
+        return nextWithPathname(request)
       }
       // Deep unknown path under a known prefix → redirect to parent
       const url = request.nextUrl.clone()

@@ -42,7 +42,7 @@ const artists: Artist[] = [
 
 export default function HeroArtistSlider() {
   const { theme } = useTheme()
-  const { t } = useLanguageStore()
+  const t = useLanguageStore(state => state.t)
   const [swiper, setSwiper] = useState<any>(null) // eslint-disable-line @typescript-eslint/no-explicit-any
 
   const nextSlide = () => {

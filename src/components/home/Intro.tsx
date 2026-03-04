@@ -25,7 +25,7 @@ const fadeRight: Variants = {
 }
 
 const Intro = () => {
-  const { t } = useLanguageStore();
+  const t = useLanguageStore(state => state.t);
   const { theme } = useTheme();
 
   const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'

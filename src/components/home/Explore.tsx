@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguageStore } from '@/store/languageStore';
 
 export default function Explore() {
-  const { t } = useLanguageStore();
+  const t = useLanguageStore(state => state.t);
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -159,10 +159,10 @@ export default function Explore() {
   return (
     <section ref={sectionRef} className="w-full mt-36">
       <div ref={headerRef} className="max-w-90 xl:max-w-screen-xl m-auto">
-        <p className="text-lg lg:text-xl bricolage-grotesque flex gap-4 opacity-0">
+        <div className="text-lg lg:text-xl bricolage-grotesque flex gap-4 opacity-0">
           <OptimizedImage src={`/icons/Logo-purple.png`} alt='IRA-LOGO' width={33} height={33} priority={true} />
           <TranslatedText translationKey="home.explore.title" />
-        </p>
+        </div>
         <TranslatedText
           translationKey="home.explore.subtitle"
           as="label"

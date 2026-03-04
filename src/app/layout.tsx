@@ -14,8 +14,10 @@ import UmamiAnalytics from '@/components/common/UmamiAnalytics'
 import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
-// Import pour exposer debugGTM globalement
-import '@/utils/analyticsDebug'
+// Import pour exposer debugGTM globalement (dev uniquement)
+if (process.env.NODE_ENV === 'development') {
+  import('@/utils/analyticsDebug')
+}
 // Import des fonts optimisées
 import { unbounded, bricolageGrotesque } from '@/config/fonts'
 
@@ -88,7 +90,7 @@ export default function RootLayout ({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`}>
+    <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`} suppressHydrationWarning>
       <head>
         {/* ✅ OPTIMISÉ: Script inline au lieu de fichier externe
             Évite une requête HTTP et s'exécute immédiatement (bloquant mais nécessaire pour éviter FOUC) */}

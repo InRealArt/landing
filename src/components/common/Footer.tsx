@@ -59,7 +59,8 @@ const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6, 11)
 
 
 const Footer = () => {
-  const { t, language } = useLanguageStore()
+  const t = useLanguageStore(state => state.t)
+  const language = useLanguageStore(state => state.language)
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })

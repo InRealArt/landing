@@ -13,7 +13,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Header = () => {
-  const { t } = useLanguageStore()
+  const t = useLanguageStore(state => state.t)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
   const toggleMobileMenu = () => {

@@ -25,8 +25,6 @@ export const useImageOptimization = ({
     isBackground = false,
     isDecorative = false,
 }: ImageOptimizationConfig): OptimizedImageConfig => {
-    const [isLoaded, setIsLoaded] = useState(false)
-
     // Déterminer si l'image doit être optimisée
     const shouldOptimize = useMemo(() => {
         // Ne pas optimiser les SVG
@@ -86,13 +84,6 @@ export const useImageOptimization = ({
     const unoptimized = useMemo(() => {
         return !shouldOptimize
     }, [shouldOptimize])
-
-    // Gestion du chargement
-    useEffect(() => {
-        if (src) {
-            setIsLoaded(false)
-        }
-    }, [src])
 
     return {
         shouldOptimize,

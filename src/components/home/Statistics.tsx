@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import { useLanguageStore } from "@/store/languageStore";
 
 const Statistics = () => {
-  const { t } = useLanguageStore();
+  const t = useLanguageStore(state => state.t);
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)

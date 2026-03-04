@@ -92,8 +92,8 @@ export const debugGTM = () => {
 // Alias pour compatibilité
 export const debugAnalytics = debugGTM;
 
-// Exposer la fonction globalement pour le debug
-if (typeof window !== 'undefined') {
+// Exposer la fonction globalement pour le debug (dev uniquement)
+if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     (window as any).debugGTM = debugGTM;
     (window as any).debugAnalytics = debugAnalytics; // Alias pour compatibilité
 }
