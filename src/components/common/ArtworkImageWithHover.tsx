@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import OptimizedContentImage from './OptimizedContentImage'
 import LoadingSpinner from './LoadingSpinner'
+import FirebaseImageLoader from './FirebaseImageLoader'
+import { useFirebaseImage } from '@/hooks/useFirebaseImage'
 
 interface ArtworkImageWithHoverProps {
   src: string
@@ -26,15 +28,8 @@ export default function ArtworkImageWithHover({
 }: ArtworkImageWithHoverProps) {
   const { t } = useLanguageStore()
   const [isHovered, setIsHovered] = useState(false)
-  const [isImageLoading, setIsImageLoading] = useState(true)
-
-  const handleImageLoad = () => {
-    setIsImageLoading(false)
-  }
-
-  const handleImageError = () => {
-    setIsImageLoading(false)
-  }
+  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(src)
+  const isImageLoading = status === 'loading' || status === 'retrying'
 
   return (
     <div
@@ -45,13 +40,13 @@ export default function ArtworkImageWithHover({
       {/* Loader pendant le chargement de l'image principale */}
       {isImageLoading && (
         <div className="absolute inset-0 flex items-center justify-center z-10 bg-[#1A1A1A]">
-          <LoadingSpinner size="md" showText={false} />
+          {status === 'retrying' ? <FirebaseImageLoader /> : <LoadingSpinner size="md" showText={false} />}
         </div>
       )}
 
       {/* Image principale */}
       <OptimizedContentImage
-        src={src}
+        src={imgSrc}
         alt={alt}
         width={width}
         height={height}
@@ -60,8 +55,8 @@ export default function ArtworkImageWithHover({
         }`}
         priority={priority}
         isDecorative={false}
-        onLoad={handleImageLoad}
-        onError={handleImageError}
+        onLoad={onLoad}
+        onError={onError}
       />
 
       {/* Overlay avec bouton au survol */}

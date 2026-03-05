@@ -1,7 +1,11 @@
+'use client'
+
 import Link from "next/link";
 import { stringToSlug } from "@/utils/functions";
 import OptimizedContentImage from "../OptimizedContentImage";
 import FirebaseBackgroundImage from "../FirebaseBackgroundImage";
+import FirebaseImageLoader from "../FirebaseImageLoader";
+import { useFirebaseImage } from "@/hooks/useFirebaseImage";
 
 interface ArtworkCardProps {
   image: {
@@ -14,7 +18,8 @@ interface ArtworkCardProps {
 const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
   // Convert the name to a slug for the URL
   const slug = stringToSlug(name);
-  
+  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(image.src)
+
   return (
     <Link href={`/${type}/${slug}`} className="p-2 border rounded-lg bg-cardBackground block">
       {type === 'artist' ? (
@@ -24,13 +29,20 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
         />
       ) : (
         <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
+          {status === 'retrying' && (
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <FirebaseImageLoader />
+            </div>
+          )}
           <OptimizedContentImage
-            src={image.src}
+            src={imgSrc}
             alt={name}
             className="object-contain max-h-full max-w-full h-auto"
             width={320}
             height={320}
             priority={false}
+            onLoad={onLoad}
+            onError={onError}
           />
         </div>
       )}
