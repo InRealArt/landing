@@ -4,6 +4,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import Link from 'next/link'
 import { stringToSlug } from '@/utils/functions'
 import SoldStatusBadge from '@/components/common/SoldStatusBadge'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtworkCardOrderProps {
   image: {
@@ -34,12 +35,10 @@ const ArtworkCardOrder = ({
       {/* Image area — fixed height so grid rows stay aligned across portrait/landscape/square artworks */}
       <div className="relative w-full h-64 overflow-hidden bg-cardBackground">
         {/* Inner padding creates a gallery-frame effect; object-contain ensures full artwork is visible */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <FirebaseImage
           src={image.src}
           alt={name}
-          className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 ease-out group-hover:scale-105"
-          loading="lazy"
+          className="absolute inset-0 w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
         />
 
         {/* Hover overlay */}

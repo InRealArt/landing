@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { stringToSlug } from "@/utils/functions";
 import OptimizedContentImage from "../OptimizedContentImage";
+import FirebaseBackgroundImage from "../FirebaseBackgroundImage";
 
 interface ArtworkCardProps {
   image: {
@@ -17,8 +18,10 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
   return (
     <Link href={`/${type}/${slug}`} className="p-2 border rounded-lg bg-cardBackground block">
       {type === 'artist' ? (
-        <div className="bg-cover m-auto bg-no-repeat bg-top h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg" 
-          style={{ backgroundImage: `url('${image.src}')` }} />
+        <FirebaseBackgroundImage
+          src={image.src}
+          className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg"
+        />
       ) : (
         <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
           <OptimizedContentImage

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 type Props = {
   name: string
@@ -18,14 +18,10 @@ export default function ArtistCard ({ name, role = '', countryName, imageUrl, sl
     <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10">
       <Link href={`/artists/${slug}`} className="block">
         <div className="relative h-80 w-full overflow-hidden md:h-64">
-          <Image
+          <FirebaseImage
             src={imageUrl}
             alt={name}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain md:object-cover"
-            style={{ objectPosition: 'center top' }}
-            quality={85}
+            className="absolute inset-0 w-full h-full object-contain md:object-cover"
           />
         </div>
       </Link>

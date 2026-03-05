@@ -1,5 +1,6 @@
 'use client'
 import React, { useRef, useState } from 'react'
+import FirebaseBackgroundImage from '@/components/common/FirebaseBackgroundImage'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -56,7 +57,10 @@ export default function BioSlider({ items, title, hasArtistName, onSlideChange }
         {items.map(({intro, description, name, role, image}, index) => (
           <SwiperSlide key={index}>
             <div className='w-full rounded-lg h-full flex flex-col lg:flex-row bg-cardBackground'>
-              <div className='bg-cover bg-no-repeat bg-top h-96 lg:h-auto w-full lg:w-2/5 rounded-t-lg md:rounded-l-lg' style={{ backgroundImage: ` url('${image.src}')` }} />
+              <FirebaseBackgroundImage
+                src={image.src}
+                className="h-96 lg:h-auto w-full lg:w-2/5 rounded-t-lg md:rounded-l-lg"
+              />
               <div className='p-6 lg:px-20 lg:pt-20 lg:pb-6 flex-1 flex flex-col gap-6'>
                 {intro && <h1 className='font-bold text-base md:text-lg text-textColor'>&ldquo;{intro}&rdquo;</h1>}
                 <h2 className='text-xs font-medium md:text-base'>{description}</h2>
