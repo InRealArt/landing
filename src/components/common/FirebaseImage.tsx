@@ -7,6 +7,7 @@ interface FirebaseImageProps {
   src: string
   alt: string
   className?: string
+  imgClassName?: string
   loading?: 'lazy' | 'eager'
 }
 
@@ -14,6 +15,7 @@ export default function FirebaseImage({
   src,
   alt,
   className,
+  imgClassName,
   loading = 'lazy',
 }: FirebaseImageProps) {
   const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(src)
@@ -29,7 +31,7 @@ export default function FirebaseImage({
         loading={loading}
         onLoad={onLoad}
         onError={onError}
-        className="absolute inset-0 w-full h-full object-contain p-4 transition-opacity duration-500"
+        className={imgClassName ?? 'absolute inset-0 w-full h-full object-contain p-4 transition-opacity duration-500'}
         style={{ opacity: status === 'ready' ? 1 : 0 }}
       />
     </div>

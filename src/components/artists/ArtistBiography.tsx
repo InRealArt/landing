@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtistBiographyProps {
   artist: {
@@ -313,10 +314,12 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
                 {/* Image */}
                 <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-borderColor/50">
                   {randomImage && (
-                    <img
+                    <FirebaseImage
                       src={randomImage}
                       alt={`Atelier de ${artist.name}`}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="w-full h-full"
+                      imgClassName="absolute inset-0 w-full h-full object-cover transition-[transform,opacity] duration-700 group-hover:scale-[1.03]"
+                      loading="lazy"
                     />
                   )}
                   {/* Overlay dégradé bas */}
