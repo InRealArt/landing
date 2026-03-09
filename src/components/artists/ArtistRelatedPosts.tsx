@@ -158,7 +158,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
         </div>
 
         <h2 className="rp-title text-xl lg:text-2xl font-bold text-textColor unbounded">
-          {language === 'fr' ? 'Dans nos articles' : 'In our articles'}
+          {language === 'fr' ? 'Retrouvez nos articles de blog' : 'Discover our blog articles'}
         </h2>
 
         {/* Ligne décorative */}
