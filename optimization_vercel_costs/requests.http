@@ -1,0 +1,63 @@
+### Variables
+@baseUrl = http://localhost:3000
+@secret = {{$dotenv REVALIDATE_SECRET}}
+
+###
+# Revalidate — Home
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/"
+}
+
+###
+# Revalidate — Tous les articles de blog (page listing)
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/blog"
+}
+
+###
+# Revalidate — Article de blog (remplacer le-slug)
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/blog/le-slug-de-larticle"
+}
+
+###
+# Revalidate — Tous les artistes (page listing)
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/artists"
+}
+
+###
+# Revalidate — Page artiste (remplacer le-slug)
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/artists/le-slug-de-lartiste"
+}
+
+###
+# Revalidate — Page œuvre (remplacer le-slug)
+POST {{baseUrl}}/api/revalidate
+Content-Type: application/json
+
+{
+  "secret": "{{secret}}",
+  "path": "/artwork/le-slug-de-loeuvre"
+}

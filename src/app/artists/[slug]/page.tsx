@@ -3,6 +3,8 @@ import { permanentRedirect } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import { getArtistBySlug } from '@/actions/artistActions'
 import { getPresaleArtworksByArtistId } from '@/actions/presaleArtworkActions'
+
+export const revalidate = 1800 // régénère toutes les 30 min
 import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
 import {
   generateArtistPersonJsonLd,

@@ -3,6 +3,8 @@ import { generateDynamicMetadata } from '@/utils/metadata'
 import { getPresaleArtworkBySlug } from '@/actions/presaleArtworkActions'
 import ArtworkPageClient from './ArtworkPageClient'
 
+export const revalidate = 1800 // régénère toutes les 30 min
+
 type ParamsType = Promise<{ id: string }>
 
 interface Props {

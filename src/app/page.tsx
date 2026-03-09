@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+
+export const revalidate = 1800 // régénère toutes les 30 min
 import Intro from "@/components/home/Intro";
 import Statistics from "@/components/home/Statistics";
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'

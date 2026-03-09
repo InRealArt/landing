@@ -3,6 +3,8 @@ import { permanentRedirect } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
 import { getPostBySlug } from '@/actions/seoPostActions'
 
+export const revalidate = 1800 // régénère toutes les 30 min
+
 type ParamsType = Promise<{ id: string }>
 
 interface Props {
