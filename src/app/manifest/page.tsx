@@ -11,7 +11,10 @@ export const metadata: Metadata = generateStaticMetadata({
   keywords: [
     'manifeste InRealArt',
     'art responsable',
-    'tokenisation',
+    'IRA selection',
+    'IRA edition',
+    'IRA placement',
+    'IRA agance',
     'patrimoine',
     'culture',
     'impact',
