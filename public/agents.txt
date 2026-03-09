@@ -1,0 +1,190 @@
+# InRealArt — Agent Navigation Guide
+
+## GeneralInstructions
+
+- Site: InRealArt (https://inrealart.com)
+- Primary language: French. English available via language toggle in header.
+- The site is bilingual (fr/en) — language is managed client-side via localStorage.
+- Do NOT scrape personal user data. No user accounts are publicly exposed.
+- Respect rate limits. Do not crawl more than 1 request/second.
+- All API routes (/api/*) require reCAPTCHA v3 verification — do not attempt programmatic POST requests.
+
+---
+
+## PageStructure
+
+Main layout selectors:
+
+Header:
+  selector: "header, nav"
+  contains: [logo, main_navigation, language_toggle, theme_toggle]
+
+Main content:
+  selector: "main"
+  contains: [page_specific_content]
+
+Footer:
+  selector: "footer"
+  contains: [sitemap_links, social_links, newsletter_form, legal_links]
+
+Hero section (home):
+  selector: "section[data-section='intro'], .hero, [class*='intro']"
+
+Navigation menu:
+  selector: "nav a, header a"
+
+Language toggle:
+  selector: "[data-lang-toggle], button[aria-label*='lang'], button[aria-label*='FR'], button[aria-label*='EN']"
+
+---
+
+## Navigation
+
+### Main routes
+- Home: /
+- Marketplace: /marketplace
+- Artists: /artists
+- Presale: /presale
+- Blog: /blog
+- FAQ: /faq
+- Glossary: /glossary
+- Team: /team
+- About: /about
+- Manifest: /manifest
+- Roadmap: /roadmap
+- Contact: /contact
+- Academy: /academy
+
+### Use cases
+- Companies: /usecase/companies
+- LOA: /usecase/leasing
+- Lending: /usecase/lending
+- Fractional: /usecase/fractionate
+
+### Join InRealArt
+- Hub: /joinInRealArt
+- Artists: /joinInRealArt/artists
+- Galleries: /joinInRealArt/galleries
+
+### Simulators
+- Hub: /simulators
+- LOA: /loa-simulator
+- Heritage: /heritage-art-simulator
+- Art Salon: /art-salon-simulator
+
+### Legal
+- Terms: /terms
+- NFT Terms: /terms-nft
+- Legal/Privacy: /legal
+
+---
+
+## DataExtraction
+
+### Artist profiles
+Path: /artists
+Artist card selector: "[class*='artist-card'], [class*='ArtistCard'], article"
+Artist name: "h2, h3, [class*='name']"
+Artist category: "[class*='category'], [class*='tag']"
+Artist detail page: follow href from artist card
+
+### Artwork listings
+Path: /marketplace or /presale
+Artwork card selector: "[class*='artwork-card'], [class*='ArtworkCard'], article"
+Artwork title: "h2, h3"
+Artwork artist: "[class*='artist']"
+Artwork price: "[class*='price'], [class*='Price']"
+
+### Blog posts
+Path: /blog
+Post card selector: "article, [class*='blog-card'], [class*='BlogCard']"
+Post title: "h2, h3"
+Post date: "time, [class*='date']"
+Post slug: href attribute (pattern: /blog/{slug})
+Full post: follow href
+
+### FAQ items
+Path: /faq
+FAQ item selector: "[class*='faq'], details, [class*='accordion']"
+Question: "summary, [class*='question'], h3"
+Answer: "[class*='answer'], [class*='content'], p"
+
+### Team members
+Path: /team
+Member selector: "[class*='team-card'], [class*='TeamCard'], article"
+Member name: "h2, h3"
+Member role: "[class*='role'], [class*='title'], p"
+
+---
+
+## FormSubmission
+
+### Newsletter (footer)
+Selector: "footer form, [class*='newsletter'] form"
+Email field: "input[type='email'], input[name='email']"
+Submit: "button[type='submit']"
+Note: Protected by reCAPTCHA v3 (invisible)
+
+### Contact form
+Path: /contact
+Fields: name, email, subject, message
+Submit: "button[type='submit']"
+Note: Protected by reCAPTCHA v3
+
+### Simulator forms
+Path: /loa-simulator, /heritage-art-simulator, /art-salon-simulator
+Note: Interactive React forms. Results generate a PDF sent by email.
+Email field: "input[type='email']"
+Submit: "button[type='submit']"
+
+### Artist/Gallery application
+Path: /joinInRealArt/artists, /joinInRealArt/galleries
+Note: Contact forms for partnership requests.
+
+---
+
+## RateLimits
+
+- Recommended crawl delay: 1 second between requests
+- API endpoints: Not accessible programmatically (reCAPTCHA required)
+- Sitemap: https://inrealart.com/sitemap.xml (use for structured crawling)
+- Dynamic routes: /artists/{slug}, /blog/{slug} (check sitemap for valid slugs)
+
+---
+
+## RestrictedAreas
+
+- /api/* — All API routes (reCAPTCHA protected, no public access)
+- /faq/translated — Internal use only
+- User account data — No public user profiles
+- Admin panel — Not publicly accessible
+
+---
+
+## ContentFormats
+
+- Text: UTF-8, French primary (some sections bilingual)
+- Images: WebP optimized, served from Firebase Storage CDN
+- PDFs: Generated server-side, sent by email (not directly downloadable)
+- Data: JSON-LD structured data on all main pages (Organization, WebSite, ArtGallery, Article, FAQPage schemas)
+
+---
+
+## StructuredData
+
+JSON-LD schemas available on pages:
+- Home (/): Organization, WebSite, ArtGallery
+- Blog posts (/blog/{slug}): Article, BreadcrumbList
+- Artists (/artists/{slug}): Person, ArtGallery
+- FAQ (/faq): FAQPage
+- Marketplace (/marketplace): ItemList
+
+---
+
+## AdditionalFiles
+
+- llms.txt: https://inrealart.com/llms.txt (summary for LLMs)
+- llms-full.txt: https://inrealart.com/llms-full.txt (full documentation)
+- capabilities.txt: https://inrealart.com/capabilities.txt (business capabilities)
+- sitemap.xml: https://inrealart.com/sitemap.xml
+- robots.txt: https://inrealart.com/robots.txt

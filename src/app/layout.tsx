@@ -98,6 +98,11 @@ export default function RootLayout ({
           href="/images/home/hero/bg.webp"
           type="image/webp"
         />
+        {/* LLM & Agent indexing */}
+        <link rel="llms" href="/llms.txt" type="text/plain" />
+        <link rel="llms-full" href="/llms-full.txt" type="text/plain" />
+        <meta name="capabilities" content="/capabilities.txt" />
+        <meta name="agents" content="/agents.txt" />
         {/* ✅ OPTIMISÉ: Script inline au lieu de fichier externe
             Évite une requête HTTP et s'exécute immédiatement (bloquant mais nécessaire pour éviter FOUC) */}
         <script

@@ -1,0 +1,166 @@
+# InRealArt — Documentation complète pour agents LLM
+
+URL: https://inrealart.com/
+Type: Plateforme curatoriale d'art tokenisé
+Pays: France
+Langue principale: Français (English available)
+Contact: teaminrealart@gmail.com
+Réseau social: @inrealart
+
+---
+
+## Description complète
+
+InRealArt est une plateforme curatoriale française fondée à Paris. Elle a pour mission de rendre l'art, la culture et le patrimoine accessibles, humains et éthiques. La plateforme opère à l'intersection de l'art contemporain et de la technologie blockchain, en proposant la tokenisation d'œuvres d'art sous forme de NFTs.
+
+InRealArt s'adresse à trois profils principaux :
+- **Artistes** : référencer et valoriser leurs œuvres via la tokenisation
+- **Collectionneurs** : acquérir des œuvres rares via marketplace, LOA, ou fractionnement
+- **Entreprises et mécènes** : investir dans l'art avec des mécanismes de financement adaptés
+
+---
+
+## Pages et contenu
+
+### Accueil (/)
+Page principale présentant :
+- Hero section avec le positionnement de la plateforme
+- Statistiques clés du marché de l'art tokenisé
+- Section "Comment ça marche" (How It Works)
+- Carrousel d'artistes en vedette
+- Carrousel d'œuvres en vedette
+- Partenaires et partenaires médias
+- Présentation de l'équipe
+- FAQ synthétique
+- Inscription à la newsletter
+
+### Marketplace (/marketplace)
+Catalogue des œuvres d'art tokenisées disponibles à l'achat. Chaque œuvre dispose d'une fiche avec description, artiste, prix, et mécanisme d'acquisition.
+
+### Artistes (/artists)
+Annuaire des artistes référencés sur la plateforme. Filtrage par catégorie et nationalité. Chaque artiste dispose d'un profil détaillé avec biographie et portfolio.
+
+### Œuvres en prévente (/presale)
+Artworks sélectionnés disponibles avant leur tokenisation officielle. Permet aux collectionneurs d'acquérir des positions privilégiées.
+
+### Blog (/blog)
+Articles éditoriaux sur :
+- L'art contemporain et les artistes
+- La tokenisation et les NFTs artistiques
+- Les actualités InRealArt
+- Les tendances du marché de l'art
+
+### FAQ (/faq)
+Questions fréquemment posées organisées par thématiques :
+- Comprendre InRealArt et la tokenisation
+- Processus d'acquisition d'œuvres
+- Aspects juridiques et fiscaux
+- NFTs et technologie blockchain
+
+### Glossaire (/glossary)
+Définitions des termes techniques liés à l'art et à la blockchain :
+NFT, tokenisation, blockchain, smart contract, fractionnement, LOA, mécénat, etc.
+
+### À propos (/about)
+Histoire de la fondation d'InRealArt, valeurs, et vision à long terme.
+
+### Manifeste (/manifest)
+Texte fondateur d'InRealArt exposant la philosophie : rendre l'art accessible sans dénaturer sa valeur culturelle et humaine.
+
+### Équipe (/team)
+Présentation de l'équipe fondatrice avec biographies et rôles.
+
+### Roadmap (/roadmap)
+Feuille de route du projet avec jalons passés et futurs.
+
+### Academy (/academy)
+Ressources éducatives pour comprendre l'art tokenisé, la blockchain appliquée à l'art, et les mécanismes d'investissement.
+
+---
+
+## Cas d'usage détaillés
+
+### Entreprises (/usecase/companies)
+InRealArt propose aux entreprises :
+- Mécénat culturel via acquisition d'œuvres tokenisées
+- Défiscalisation liée au mécénat d'art (loi Aillagon)
+- Décoration de locaux avec œuvres certifiées
+- Avantages RSE et image de marque culturelle
+
+### Location avec Option d'Achat (/usecase/leasing)
+La LOA artistique permet :
+- Étaler le paiement d'une œuvre sur plusieurs mois
+- Bénéficier de l'œuvre dès le premier versement
+- Option d'achat définitif à terme
+- Accessible aux particuliers et entreprises
+
+### Prêt garanti par l'art (/usecase/lending)
+- Utiliser ses NFTs d'œuvres comme collatéral
+- Obtenir des liquidités sans vendre son patrimoine artistique
+- Mécanisme de DeFi appliqué à l'art
+
+### Fractionnement (/usecase/fractionate)
+- Co-propriété d'œuvres d'art de grande valeur
+- Investissement accessible dès de faibles montants
+- Liquidité via revente de fractions sur la marketplace
+
+---
+
+## Simulateurs gratuits
+
+### Simulateur LOA (/loa-simulator)
+Outil de calcul des mensualités pour l'acquisition d'une œuvre via location avec option d'achat. Génère un PDF récapitulatif envoyé par email. Paramètres : valeur de l'œuvre, durée, apport initial.
+
+### Simulateur patrimoine artistique (/heritage-art-simulator)
+Simulation d'investissement dans le patrimoine artistique. Calcule la valorisation potentielle sur plusieurs années. Génère un rapport PDF personnalisé.
+
+### Simulateur salon d'art (/art-salon-simulator)
+Calcul des frais de participation aux grands salons internationaux :
+- Art Basel (Bâle, Miami, Hong Kong)
+- ArtGenève
+- FIAC / Paris+ par Art Basel
+- Frieze
+
+---
+
+## Rejoindre InRealArt
+
+### Hub d'onboarding (/joinInRealArt)
+Point d'entrée unique pour tous les profils souhaitant rejoindre la plateforme.
+
+### Pour les artistes (/joinInRealArt/artists)
+- Processus de candidature et sélection curatoriale
+- Tokenisation des œuvres
+- Partage des revenus de vente
+- Visibilité internationale
+
+### Pour les galeries (/joinInRealArt/galleries)
+- Partenariat pour référencer le catalogue galerie
+- Co-marketing et visibilité
+- Accès aux outils de tokenisation
+
+---
+
+## Architecture technique (pour agents développeurs)
+
+- Framework: Next.js 15 (App Router) + React 19 + TypeScript
+- Base de données: PostgreSQL via Supabase + Prisma ORM
+- Stockage images: Firebase Storage
+- Email: Brevo (newsletter + transactionnel)
+- i18n: Zustand + JSON locales (fr/en)
+- Déploiement: Vercel
+- Analytics: Google Tag Manager + Umami
+- Sécurité formulaires: reCAPTCHA v3
+
+### Endpoints API publics (POST, reCAPTCHA requis)
+- POST /api/loa-simulator/send-pdf — Envoi du PDF simulateur LOA
+- POST /api/loa-simulator/preview-pdf — Prévisualisation PDF LOA
+- POST /api/heritage-art-simulator/send-pdf — Envoi PDF patrimoine
+- POST /api/art-salon-simulator/send-pdf — Envoi PDF salon d'art
+- POST /api/game-registration — Inscription jeu/concours
+
+### Ce qui n'est PAS accessible aux agents
+- /api/* (endpoints protégés par reCAPTCHA)
+- /faq/translated (usage interne)
+- Données personnelles utilisateurs
+- Contenus d'administration

@@ -1,0 +1,156 @@
+# InRealArt Capabilities
+
+## Présentation
+
+Name: InRealArt
+Domain: https://inrealart.com
+Type: Plateforme curatoriale d'art tokenisé
+Mission: Rendre l'art, la culture et le patrimoine accessibles, humains et éthiques via la tokenisation blockchain
+Location: Paris, France
+Language: Français (primary), English (available)
+Contact: teaminrealart@gmail.com
+
+---
+
+## Utilisateurs
+
+### Acteurs principaux
+
+- **Visiteur** — Toute personne découvrant la plateforme sans compte
+- **Artiste** — Créateur souhaitant référencer et tokeniser ses œuvres
+- **Collectionneur** — Acheteur d'œuvres tokenisées (particulier)
+- **Entreprise / Mécène** — Structure cherchant à investir dans l'art (B2B)
+- **Galerie / Partenaire** — Institution artistique partenaire
+
+---
+
+## Fonctionnalités par rôle
+
+### Visiteur (non authentifié)
+- browse_marketplace — Parcourir les œuvres disponibles
+- browse_artists — Consulter le catalogue d'artistes
+- browse_presale — Voir les œuvres en prévente
+- read_blog — Lire les articles de blog
+- read_faq — Accéder aux questions fréquentes
+- read_glossary — Consulter le glossaire art/blockchain
+- read_manifest — Lire le manifeste InRealArt
+- read_roadmap — Consulter la feuille de route
+- meet_team — Découvrir l'équipe
+- subscribe_newsletter — S'inscrire à la newsletter (email requis)
+- use_loa_simulator — Calculer ses mensualités LOA (aucun compte requis)
+- use_heritage_simulator — Simuler un investissement patrimoine
+- use_art_salon_simulator — Estimer les frais salon d'art
+- contact_team — Envoyer un message via formulaire
+- join_as_artist — Candidater pour référencer ses œuvres
+- join_as_gallery — Candidater comme galerie partenaire
+
+### Artiste
+- All Visiteur capabilities
+- submit_artwork — Soumettre une œuvre pour tokenisation
+- manage_profile — Gérer son profil artiste
+- view_artwork_stats — Voir les statistiques de vues/ventes
+- receive_sale_proceeds — Percevoir les revenus de vente
+
+### Collectionneur
+- All Visiteur capabilities
+- purchase_artwork — Acheter une œuvre tokenisée
+- acquire_via_loa — Acquérir via location avec option d'achat
+- acquire_via_lending — Utiliser l'art comme collatéral de prêt
+- acquire_fractional — Investir en co-propriété d'œuvre
+- manage_portfolio — Gérer son portefeuille d'œuvres
+
+### Entreprise / Mécène
+- All Visiteur capabilities
+- mecenat_acquisition — Acquérir des œuvres en mécénat d'entreprise
+- tax_optimization — Accéder aux avantages fiscaux (loi Aillagon)
+- b2b_contact — Accès à un interlocuteur dédié
+- bulk_acquisition — Acquisition de plusieurs œuvres
+
+### Galerie / Partenaire
+- All Visiteur capabilities
+- catalog_integration — Référencer le catalogue galerie
+- co_marketing — Bénéficier de visibilité co-brandée
+
+---
+
+## Services et capacités métier
+
+### 1. Tokenisation d'art
+Description: Transformation d'œuvres physiques ou numériques en NFTs certifiés
+Acteurs: Artistes, Galeries, InRealArt (curation)
+Processus:
+  1. Candidature artiste
+  2. Sélection curatoriale par l'équipe InRealArt
+  3. Documentation et authentification de l'œuvre
+  4. Création du NFT sur blockchain
+  5. Mise en vente sur marketplace
+
+### 2. Marketplace d'œuvres
+Description: Plateforme d'achat/vente d'œuvres tokenisées
+URL: https://inrealart.com/marketplace
+Modes d'acquisition:
+  - Achat direct (paiement comptant)
+  - Location avec Option d'Achat (LOA)
+  - Fractionnement (co-propriété)
+  - Prêt garanti (collatéral NFT)
+
+### 3. Simulateurs financiers
+Description: Outils de calcul gratuits pour projeter l'acquisition d'art
+
+LOA Simulator:
+  URL: https://inrealart.com/loa-simulator
+  Input: Valeur œuvre, durée (mois), apport initial
+  Output: Mensualités, coût total, rapport PDF (envoyé par email)
+
+Heritage Art Simulator:
+  URL: https://inrealart.com/heritage-art-simulator
+  Input: Budget d'investissement, horizon temporel
+  Output: Valorisation projetée, rapport PDF
+
+Art Salon Simulator:
+  URL: https://inrealart.com/art-salon-simulator
+  Input: Salon ciblé, surface stand, localisation
+  Output: Estimation des frais de participation, rapport PDF
+
+### 4. Onboarding partenaires
+Description: Processus d'intégration pour artistes et galeries
+URL: https://inrealart.com/joinInRealArt
+Délai moyen de traitement: Contact sous 48h ouvrées
+Formulaire: Renseignements + portfolio/catalogue
+
+### 5. Newsletter & communauté
+Description: Communication régulière sur l'actualité art/tokenisation
+Fréquence: Hebdomadaire
+Inscription: https://inrealart.com/ (footer)
+
+---
+
+## Authentification
+
+Status: Plateforme en cours de développement (marketplace et compte en cours)
+Accès actuel: Tout le contenu informatif est public
+Formulaires: Protégés par reCAPTCHA v3 (anti-spam)
+Newsletter: Double opt-in via Brevo
+
+Permissions actuelles:
+  Guest: [browse_marketplace, browse_artists, browse_presale, read_blog, read_faq, read_glossary, use_simulators, subscribe_newsletter, contact_team, join_as_artist, join_as_gallery]
+  Future_Buyer: [purchase_artwork, acquire_via_loa, manage_portfolio]
+  Future_Artist: [submit_artwork, manage_profile, view_stats]
+
+---
+
+## Ce que InRealArt N'EST PAS
+
+- Pas une place de marché d'art traditionnel (pas de vente aux enchères généraliste)
+- Pas une bourse de cryptomonnaies
+- Pas un service de gestion de patrimoine réglementé (CGP)
+- Pas une galerie physique
+
+---
+
+## Contraintes et limitations
+
+- Accès API: Protégé par reCAPTCHA v3, usage programmatique non autorisé
+- Données utilisateurs: Aucune donnée personnelle exposée publiquement
+- Zones restreintes: /api/, /faq/translated
+- Juridiction: Droit français applicable, RGPD conforme
