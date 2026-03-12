@@ -278,7 +278,9 @@
       }
     },
     "team": {
-      "title": "Découvrez les membres de l'équipe"
+      "title": "Découvrez les membres de l'équipe",
+      "heading": "Découvrez les membres de ",
+      "headingHighlight": "l'équipe"
     },
     "explore": {
       "title": "InRealArt pour les artistes",
@@ -1102,7 +1104,9 @@
       "button": "Appelez Catherine maintenant"
     },
     "possibilities": {
-      "title": "Découvrez l'ensemble des possibilités",
+      "sectionLabel": "Cas d'Utilisations",
+      "title": "Découvrez l'ensemble des ",
+      "titleHighlight": "possibilités",
       "sections": {
         "customization": {
           "title": "Commande / Œuvre sur mesure",

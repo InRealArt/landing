@@ -279,7 +279,9 @@
       }
     },
     "team": {
-      "title": "Discover the team members"
+      "title": "Discover the team members",
+      "heading": "Discover the ",
+      "headingHighlight": "team members"
     },
     "explore": {
       "title": "InRealArt for artists",
@@ -1096,7 +1098,9 @@
       "button": "Schedule with Catherine now"
     },
     "possibilities": {
-      "title": "Discover all possibilities",
+      "sectionLabel": "Use Cases",
+      "title": "Discover all ",
+      "titleHighlight": "possibilities",
       "sections": {
         "customization": {
           "title": "Commission / Custom Artwork",

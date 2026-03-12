@@ -60,9 +60,9 @@ export default function Possibilities() {
     <section className="w-full py-32 px-10 bg-canvas-white">
       <div className="max-w-screen-2xl m-auto">
         <div className="border-b border-border-light pb-12 mb-16">
-          <span className="section-number">Cas d'Utilisations</span>
+          <span className="section-number">{t('companies.possibilities.sectionLabel')}</span>
           <h1 className="text-6xl md:text-8xl serif text-ink-black mb-6">
-            Découvrez l'ensemble des <span className="italic text-gold-accent">possibilités</span>
+            {t('companies.possibilities.title')}<span className="italic text-gold-accent">{t('companies.possibilities.titleHighlight')}</span>
           </h1>
         </div>
 
