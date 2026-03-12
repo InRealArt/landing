@@ -1,16 +1,14 @@
 'use client'
 
-import OptimizedImage from '@/components/common/OptimizedImage'
-import OptimizedSVG from '@/components/common/OptimizedSVG'
 import SuccessModal from '@/components/common/SuccessModal'
 import { useLanguageStore } from '@/store/languageStore'
 import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
-import Link from 'next/link'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
 import { salons } from '@/utils/artSalonCalculations'
 import { useTheme } from '@/contexts/ThemeContext'
+import Link from 'next/link'
 
 const atelierLinks = [
   { label: 'Sandrine Hirson - artiste InRealArt', href: 'https://share.google/GewswgKB0Od9tyFEV' },
@@ -27,36 +25,6 @@ const atelierLinks = [
   { label: 'Catherine Sénéchal - artiste InRealArt', href: 'https://share.google/DfFrXEYyGarxVUkUf' },
   { label: 'Alves Antoine Junior - Artiste InRealArt', href: 'https://share.google/IzSfhbdnUDNx0e47K' },
 ]
-
-// Type pour les liens de navigation
-type NavigationLink = {
-  label: string
-  href: string
-  disabled?: boolean
-}
-
-const navigation = {
-  pages: [
-    { label: 'nav.aboutInRealArt', href: '/about' },
-    { label: 'nav.whitepaper', href: '/manifest' },
-    { label: 'nav.team', href: '/team' },
-    { label: 'nav.marketplace', href: '/marketplace' },
-    { label: 'nav.artists', href: '/artists' },
-    { label: 'nav.presale', href: '/presale' },
-
-    { label: 'nav.faq', href: '/faq' },
-    { label: 'nav.glossary', href: '/glossary' },
-    { label: 'nav.usecase', href: '/usecase' },
-    { label: 'nav.blog', href: '/blog' },
-    { label: 'nav.joinInRealArt', href: '/joinInRealArt' },
-    
-  ],
-}
-
-// Split links into two groups
-const firstColumnLinks: NavigationLink[] = navigation.pages.slice(0, 6)
-const secondColumnLinks: NavigationLink[] = navigation.pages.slice(6, 11)
-
 
 const Footer = () => {
   const t = useLanguageStore(state => state.t)
@@ -101,126 +69,83 @@ const Footer = () => {
     })
   }
 
-  const svgClass = theme === 'light' ? 'hover:opacity-80 transition-opacity invert' : 'hover:opacity-80 transition-opacity'
+  const svgClass = theme === 'light' ? 'hover:opacity-80 transition-opacity' : 'hover:opacity-80 transition-opacity'
 
   return (
-    <footer className="text-textColor py-12 mt-36 bg-linear-to-b from-[#1F1F1F] to-[##1f1f1f29]">
-      <div className="container mx-auto px-4">
+    <footer className="text-textColor pt-40 pb-20 px-10 bg-canvas-white border-t border-border-light">
+      <div className="max-w-screen-2xl mx-auto">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Logo */}
+        <div className="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left text-ink-black">InRealArt</div>
 
-          {/* Pages - First Column */}
-          <div className="flex flex-col items-center">
-            {/* Heading spans full column width and stays centered */}
-            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.pages')}</h3>
-            {/* ul width is set by its widest item; text-left gives all items a shared left edge */}
-            <ul className="space-y-2 text-left">
-              {firstColumnLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-grayText hover:text-textColor transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
-                  >
-                    {t(link.label)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+          
+          {/* Column 1: About */}
+          <div>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.about')}</h5>
+            <Link href="/about" className="footer-link">{t('nav.aboutInRealArt')}</Link>
+            <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
+            <Link href="/team" className="footer-link">{t('nav.team')}</Link>
+            <Link href="/joinInRealArt" className="footer-link" data-umami-event="joinInRealArt-footer-click">{t('nav.joinInRealArt')}</Link>
+            <Link href="/blog" className="footer-link font-medium mt-4">Blog</Link>
           </div>
 
-          {/* Pages - Second Column */}
-          <div className="flex flex-col items-center">
-            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.resources')}</h3>
-            <ul className="space-y-2 text-left">
-              {secondColumnLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`${link.href === '/joinInRealArt' ? 'text-purple-500 hover:text-purple-400' : 'text-grayText hover:text-textColor'} transition-colors ${link.disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
-                    data-umami-event={link.href === '/joinInRealArt' ? 'joinInRealArt-footer-click' : undefined}
-                  >
-                    {t(link.label)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Column 2: Marketplace */}
+          <div>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.marketplace')}</h5>
+            <Link href="/presale" className="footer-link font-semibold text-ink-black">{t('nav.artworks')}</Link>
+            <Link href="/artists" className="footer-link">{t('nav.artists')}</Link>
+            <Link href="/marketplace" className="footer-link">{t('nav.marketplace')}</Link>
+            <Link href="/faq" className="footer-link">{t('nav.faq')}</Link>
           </div>
 
-          {/* Simulators Section - Combined */}
-          <div className="flex flex-col items-center">
-            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">{t('footer.professionalsAndCompanies')}</h3>
-            <ul className="space-y-2 text-left">
-              {/* Art Salon Simulators */}
-              {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
-                <li key={slug}>
-                  <Link
-                    href={`/art-salon-simulator/${slug}`}
-                    className="text-grayText hover:text-textColor transition-colors"
-                  >
-                    {t('footer.artSalonSimulator')} {salon.name}
-                  </Link>
-                </li>
-              ))}
-              {/* LOA Simulator */}
-              <li>
-                <Link
-                  href="/loa-simulator"
-                  className="text-grayText hover:text-textColor transition-colors"
-                >
-                  {t('footer.loaSimulator')}
-                </Link>
-              </li>
-              {/* Heritage Art Simulator */}
-              <li>
-                <Link
-                  href="/heritage-art-simulator"
-                  className="text-grayText hover:text-textColor transition-colors"
-                >
-                  {t('footer.heritageArtSimulator')}
-                </Link>
-              </li>
-              {/* View All Simulators */}
-              <li>
-                <Link
-                  href="/simulators"
-                  className="text-grayText hover:text-textColor transition-colors font-medium"
-                >
-                  {t('footer.viewAllSimulators')} →
-                </Link>
-              </li>
-            </ul>
+          {/* Column 3: Expertise */}
+          <div>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.expertise')}</h5>
+            <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link>
+            <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
+            <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
           </div>
 
-          {/* Physical Workshops Column */}
-          <div className="flex flex-col items-center">
-            <h3 className="w-full text-xl font-bold mb-4 h-8 flex items-center justify-center text-center">Les ateliers physiques InRealArt</h3>
-            <ul className="space-y-2 text-left">
+          {/* Column 4: Simulators */}
+          <div>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.simulators')}</h5>
+            {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
+              <Link key={slug} href={`/art-salon-simulator/${slug}`} className="footer-link">
+                {salon.name}
+              </Link>
+            ))}
+            <Link href="/loa-simulator" className="footer-link">{t('footer.loaSimulator')}</Link>
+            <Link href="/heritage-art-simulator" className="footer-link">{t('footer.heritageArtSimulator')}</Link>
+            <Link href="/simulators" className="footer-link font-bold text-ink-black mt-2 italic">Voir tous les simulateurs →</Link>
+          </div>
+
+          {/* Column 5: Artists */}
+          <div>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.residents')}</h5>
+            <div className="h-48 overflow-y-auto pr-2 custom-scrollbar">
               {atelierLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-grayText hover:text-textColor transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="artist-list-item"
+                >
+                  {link.label.replace(' - artiste InRealArt', '').replace(' - Artiste InRealArt', '')}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
-
         </div>
-        
+
         {/* Newsletter */}
-        <div className="mt-12 flex flex-col items-center text-center">
+        <div className="mt-12 flex flex-col items-center text-center mb-24">
           <form
             action={handleSubmit}
             className="relative w-full md:w-80"
           >
-            {/* Champ caché pour la langue */}
             <input type="hidden" name="language" value={language} />
-            
             <input
               name="email"
               type="email"
@@ -228,81 +153,44 @@ const Footer = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('footer.newsletter.subscribe')}
               disabled={isPending}
-              className={`w-full bricolage-grotesque rounded-3xl font-semibold py-6 px-4 pr-16 outline-0 ${
-                theme === 'light' 
-                  ? 'bg-transparent border-2 border-black text-gray-800 placeholder-gray-500 focus:border-gray-800' 
-                  : 'bg-transparent border border-white'
+              className={`w-full montserrat rounded-none border-b-2 py-4 px-0 pr-16 outline-0 bg-transparent transition-colors ${
+                theme === 'light'
+                  ? 'border-ink-black text-ink-black placeholder-gray-400 focus:border-gold-accent'
+                  : 'border-white text-white placeholder-gray-500 focus:border-gold-accent'
               }`}
               required
             />
             <button
               type="submit"
-              className={`absolute right-2 top-1/2 -translate-y-1/2 bg-[#6052FF] text-textColor rounded-full w-12 h-12 flex items-center justify-center border border-white ${isPending ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#4F3EED] transition-colors'}`}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.25em] ${isPending ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-50 transition-opacity'} text-ink-black`}
               aria-label={t('footer.newsletter.subscribe')}
               disabled={isPending}
             >
-              {isPending ? (
-                <svg className="animate-spin h-5 w-5 text-textColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-              ) : (
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.0001 17.0001L19.0001 12.0001M19.0001 12.0001L13.0001 7.00012M19.0001 12.0001H5.00012"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              )}
+              {isPending ? '...' : 'OK'}
             </button>
           </form>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col items-center space-y-6">
-          {/* Social Media Icons - Centered */}
-          <div className="flex space-x-4">
-            <Link href="https://www.linkedin.com/company/inrealart/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <OptimizedSVG src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} className={svgClass} />
-            </Link>
-            <Link href="https://www.instagram.com/inrealartgallery/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <OptimizedSVG src="/icons/instagram.svg" alt="Instagram" width={24} height={24} className={svgClass} />
-            </Link>
-            <Link href="https://www.facebook.com/inrealart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <OptimizedSVG src="/icons/facebook.svg" alt="Facebook" width={16} height={16} className={svgClass} />
-            </Link>
-            <Link href="https://pinterest.com/teaminrealart/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-              <OptimizedSVG src="/icons/pinterest.svg" alt="Pinterest" width={24} height={24} className={svgClass} />
-            </Link>
+        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-border-light gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <p className="text-[9px] text-gray-400 uppercase tracking-widest italic">{t('footer.physicalWorkshops')}</p>
+            <p className="text-[9px] text-gray-400 uppercase tracking-widest">© {new Date().getFullYear()} — {t('footer.rights')}</p>
           </div>
-          
-          {/* Copyright and Legal Links */}
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-            <p className="text-grayText">
-              © {new Date().getFullYear()} InRealArt. {t('footer.rights')}
-            </p>
+          <div className="flex items-center gap-8">
+            <div className="flex space-x-6">
+              <a href="https://www.linkedin.com/company/inrealart/" target="_blank" rel="noopener noreferrer" className="text-[9px] text-gray-500 uppercase tracking-[0.3em] hover:text-ink-black">LinkedIn</a>
+              <a href="https://www.instagram.com/inrealartgallery/" target="_blank" rel="noopener noreferrer" className="text-[9px] text-gray-500 uppercase tracking-[0.3em] hover:text-ink-black">Instagram</a>
+            </div>
             <div className="flex space-x-4">
-              <Link href="/terms" className="text-grayText hover:text-textColor transition-colors">
-                {t('footer.terms')}
-              </Link>
-              <Link href="/legal" className="text-grayText hover:text-textColor transition-colors">
-                {t('footer.legal')}
-              </Link>
+              <Link href="/terms" className="text-[9px] text-gray-500 uppercase tracking-[0.3em] hover:text-ink-black">{t('footer.terms')}</Link>
+              <Link href="/legal" className="text-[9px] text-gray-500 uppercase tracking-[0.3em] hover:text-ink-black">{t('footer.legal')}</Link>
             </div>
           </div>
         </div>
 
-        {/* Notice reCAPTCHA conforme aux conditions Google */}
-        <div className="text-xs text-gray-500 text-center mt-4">
+        {/* Notice reCAPTCHA */}
+        <div className="text-xs text-gray-500 text-center mt-8">
           {t('footer.recaptcha.notice')} &nbsp;
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
             {t('footer.recaptcha.privacyPolicy')}
@@ -310,8 +198,7 @@ const Footer = () => {
           {t('footer.recaptcha.and')} &nbsp;
           <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
             {t('footer.recaptcha.termsOfService')}
-          </a> &nbsp;
-          {t('footer.recaptcha.googleApplies')}
+          </a>
         </div>
       </div>
       

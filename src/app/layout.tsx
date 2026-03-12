@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
   import('@/utils/analyticsDebug')
 }
 // Import des fonts optimisées
-import { unbounded, bricolageGrotesque } from '@/config/fonts'
+import { unbounded, bricolageGrotesque, cormorantGaramond, montserrat } from '@/config/fonts'
 
 
 export const metadata: Metadata = {
@@ -90,7 +90,7 @@ export default function RootLayout ({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="preload"

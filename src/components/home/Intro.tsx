@@ -8,10 +8,10 @@ import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Intro = () => {
   const t = useLanguageStore(state => state.t);
-  
+
   const { theme } = useTheme();
 
-  const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
+  const overlayColor = theme === 'light' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.3)'
 
   return (
     <OptimizedBackgroundImage
@@ -20,35 +20,33 @@ const Intro = () => {
       width={1920}
       height={1080}
       className="bg-cover m-auto bg-no-repeat bg-bottom w-full flex items-center justify-center md:mt-0 min-h-screen"
-      contentClassName="max-w-90 xl:max-w-screen-xl m-auto"
+      contentClassName="max-w-screen-2xl m-auto px-10"
       overlay
       overlayColor={overlayColor}
-      overlayOpacity={0.6}
+      overlayOpacity={0.4}
       priority={true}
     >
-      <div className="max-w-90 xl:max-w-screen-xl m-auto flex flex-col lg:flex-row items-center text-center lg:text-left gap-8 lg:gap-12 py-headerSizeMobile md:py-headerSize">
-        {/* Title Section */}
-        <div className="flex-1">
+      <div className="max-w-screen-2xl m-auto flex flex-col items-center text-center pt-48 pb-12">
+        {/* Title Section - Gallery Style */}
+        <div className="flex-1 max-w-4xl">
+          <span className="section-number text-white/70">{t('home.intro.subtitle')}</span>
           <h1
-            className="text-white text-4xl md:text-6xl bricolage-grotesque font-medium mb-6 w-full md:max-w-[80%] animate-fade-up"
+            className="text-white text-5xl md:text-7xl lg:text-8xl serif italic mb-8 leading-tight animate-fade-up"
           >
             {t('home.intro.title')}
           </h1>
-          <div className="mt-12 md:mt-4 animate-fade-up-delay">
-            <Button
-              text={t('buttons.contactUs')}
-              additionalClassName="bg-purpleColor"
-              center
-              target="_blank"
-              link={EXTERNAL_URLS.CALENDLY_MEETING}
+          <p className="text-white/80 text-[11px] uppercase tracking-[0.3em] mt-6 max-w-xl leading-relaxed mx-auto animate-fade-up-delay">
+            {t('home.intro.description')}
+          </p>
+          <div className="mt-12 animate-fade-up-delay">
+            <a
+              href="#explore"
+              className="btn-cta text-white border-white hover:bg-white hover:text-black"
               data-umami-event="calendly-home-hero-click"
-            />
+            >
+              {t('buttons.contactUs')}
+            </a>
           </div>
-        </div>
-
-        {/* Artist Slider Section */}
-        <div className="flex-1 w-full max-w-2xl animate-fade-right">
-          <HeroArtistSlider />
         </div>
       </div>
     </OptimizedBackgroundImage>

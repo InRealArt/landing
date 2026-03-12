@@ -16,13 +16,26 @@ export default {
     'text-4xl',
     'md:text-5xl',
     'font-bricolage',
-    'font-bold'
+    'font-bold',
+    'serif',
+    'italic',
+    'tracking-[0.7em]',
+    'tracking-[0.4em]',
+    'tracking-[0.3em]',
+    'tracking-[0.25em]',
+    'text-gold-accent',
+    'border-gold-accent',
+    'border-gold-accent/30',
+    'grayscale',
+    'group-hover:grayscale-0',
   ],
   theme: {
     extend: {
       fontFamily: {
         'bricolage': ['var(--font-bricolage)', 'serif'],
         'unbounded': ['var(--font-unbounded)', 'sans-serif'],
+        'cormorant': ['var(--font-cormorant)', 'serif'],
+        'montserrat': ['var(--font-montserrat)', 'sans-serif'],
       },
       colors: {
         purpleColor: "var(--purple)",
@@ -38,6 +51,12 @@ export default {
         gradientTo: "var(--gradient-to)",
         grayText: "var(--gray-text)",
         backgroundGrey: "var(--background-grey)",
+        // InRealArt Gallery Palette
+        'gold-accent': '#b89c72',
+        'canvas-white': '#ffffff',
+        'soft-gray': '#f8f8f8',
+        'border-light': '#eeeeee',
+        'ink-black': '#000000',
       },
       minHeight: {
         headerSize: "var(--header-height)",
@@ -113,6 +132,62 @@ export default {
         },
         '.hero-text-container-md': {
           'padding': '2rem'
+        },
+        // Gallery Style Utilities - InRealArt Design System
+        '.serif': {
+          'font-family': 'var(--font-cormorant), serif',
+          'font-weight': '300'
+        },
+        '.btn-cta': {
+          'padding': '0.9rem 1.8rem',
+          'border': '1px solid var(--ink-black)',
+          'font-size': '0.6rem',
+          'letter-spacing': '0.25em',
+          'text-transform': 'uppercase',
+          'transition': 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+          'display': 'inline-block',
+          'margin-top': '1.5rem',
+          'background': 'transparent',
+          'cursor': 'pointer'
+        },
+        '.btn-cta:hover': {
+          'background': 'var(--ink-black)',
+          'color': 'white'
+        },
+        '.section-number': {
+          'font-size': '0.6rem',
+          'letter-spacing': '0.5em',
+          'text-transform': 'uppercase',
+          'color': '#aaa',
+          'margin-bottom': '1.5rem',
+          'display': 'block'
+        },
+        '.footer-link': {
+          'font-size': '0.75rem',
+          'color': '#666',
+          'transition': 'color 0.3s, transform 0.3s',
+          'display': 'block',
+          'margin-bottom': '0.5rem'
+        },
+        '.footer-link:hover': {
+          'color': 'var(--ink-black)',
+          'transform': 'translateX(5px)'
+        },
+        '.artist-list-item': {
+          'font-size': '0.7rem',
+          'letter-spacing': '0.05em',
+          'color': '#777',
+          'margin-bottom': '0.3rem',
+          'display': 'block'
+        },
+        '.artist-list-item:hover': {
+          'color': '#b89c72'
+        },
+        '.artwork-image img': {
+          'transition': 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
+        },
+        '.artwork-container:hover .artwork-image img': {
+          'transform': 'scale(1.03)'
         }
       }
       addUtilities(newUtilities)

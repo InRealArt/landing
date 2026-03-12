@@ -1,7 +1,6 @@
 'use client'
 
 import OptimizedImage from './OptimizedImage'
-import Button from './Button';
 import { Phone, ArrowRight, Menu } from 'lucide-react';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -21,34 +20,56 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full h-16 md:h-headerSize bg-backgroundColor fixed top-0 z-50">
-      <div className='flex gap-20 mx-auto items-center justify-between max-w-7xl w-full px-4 sm:px-6 lg:px-8 h-full'>
-        <Link href="/">
-          <OptimizedImage
-            className={`${theme === 'light' ? 'invert' : ''}`}
-            src="/icons/Logo.png"
-            alt='IRA-LOGO'
-            width={101}
-            height={32}
-            priority={true}
-            quality={95}
-          />
+    <header className="w-full h-16 md:h-headerSize bg-canvas-white/95 backdrop-blur-md fixed top-0 z-50 border-b border-border-light">
+      <div className='flex gap-20 mx-auto items-center justify-between max-w-screen-2xl w-full px-10 h-full'>
+        <Link href="/" className="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer text-ink-black">
+          InRealArt
         </Link>
-        <ul className="gap-6 items-center hidden lg:flex bricolage-grotesque font-semibold">
-          <li className="whitespace-nowrap"><Link href="/about">{t('nav.aboutInRealArt')}</Link></li>
-          <li className="whitespace-nowrap"><Link href="/presale">{t('nav.artworks')}</Link></li>
-          <li className="whitespace-nowrap"><Link href="/artists">{t('nav.artists')}</Link></li>
-
-          <li className="whitespace-nowrap"><Link href="/usecase">{t('nav.usecase')}</Link></li>
-
-            <li className="whitespace-nowrap"><Link href="/blog" className="text-purpleColor">Blog</Link></li>
-            <li className="whitespace-nowrap"><Link href="/joinInRealArt" className="text-purpleColor" data-umami-event="joinInRealArt-menu-click">{t('nav.joinInRealArt')}</Link></li>
-          
+        
+        <ul className="flex items-center gap-8 hidden xl:flex">
+          <li className="whitespace-nowrap">
+            <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+              {t('nav.artists')}
+            </Link>
+          </li>
+          <li className="whitespace-nowrap">
+            <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+              {t('nav.artworks')}
+            </Link>
+          </li>
+          <li className="whitespace-nowrap">
+            <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+              {t('nav.usecase')}
+            </Link>
+          </li>
+          <li className="whitespace-nowrap">
+            <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+              Blog
+            </Link>
+          </li>
+          <li className="whitespace-nowrap">
+            <Link href="/about" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+              {t('nav.aboutInRealArt')}
+            </Link>
+          </li>
+          <li className="whitespace-nowrap">
+            <a
+              href={EXTERNAL_URLS.CALENDLY_MEETING}
+              className="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="calendly-header-click"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
-        <div className="flex items-center gap-4">
-          <ThemeSwitcher />
-          <LanguageSwitcher />
-          <Button text={t('buttons.contactUs')} iconBefore additionalClassName="bg-purpleColor hidden lg:flex whitespace-nowrap" icon={<Phone />} center target='_blank' link={EXTERNAL_URLS.CALENDLY_MEETING} data-umami-event="calendly-header-click" />
+
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
           <button
             className="text-textColor p-2 lg:hidden"
             onClick={toggleMobileMenu}

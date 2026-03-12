@@ -14,23 +14,35 @@
   --footer-height: 300px;
   /* Fonts optimisées - les variables CSS sont définies dans layout.tsx */
   /* --font-unbounded et --font-bricolage sont injectées automatiquement */
+  
+  /* InRealArt Gallery Palette - Light Theme (Default) */
+  --canvas-bg: #ffffff;
+  --gold-accent: #b89c72;
+  --ink-black: #000000;
+  --soft-gray: #f8f8f8;
+  --border-light: #eeeeee;
 }
 
-/* Light mode variables */
+/* Light mode variables - Gallery Style */
 [data-theme='light'] {
   --background: #ffffff;
-  --text: #1a1a1a;
-  --card: #f6f3ee;
+  --text: #000000;
+  --card: #fbfbfb;
   --purple: #6052ff;
   --gradient-start: rgba(255, 255, 255, 0.9);
   --gradient-end: rgba(255, 255, 255, 0);
-  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color: #eeeeee;
   --stroke-color: rgba(0, 0, 0, 0.3);
   --shadow-color: rgba(0, 0, 0, 0.08);
-  --gradient-from: #e5e7eb;
-  --gradient-to: #d1d5db;
-  --gray-text: #6b7280;
-  --background-grey: #f3f4f6;
+  --gradient-from: #f8f8f8;
+  --gradient-to: #eeeeee;
+  --gray-text: #666666;
+  --background-grey: #fbfbfb;
+  --canvas-bg: #ffffff;
+  --gold-accent: #b89c72;
+  --ink-black: #000000;
+  --soft-gray: #f8f8f8;
+  --border-light: #eeeeee;
 }
 
 /* Dark mode variables (explicit for consistency) */
@@ -64,12 +76,42 @@
   font-style: normal;
 }
 
+/* InRealArt Gallery Typography - Cormorant Garamond & Montserrat */
+.cormorant {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cormorant-italic {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+}
+
+/* Gallery-style headings with Cormorant Garamond */
+h1.serif,
+h2.serif,
+h3.serif,
+h4.serif,
+h5.serif,
+.serif {
+  font-family: var(--font-cormorant), serif !important;
+  font-weight: 300;
+}
+
 p,
 span {
-  font-family: var(--font-bricolage), serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: 'width' 100;
+  font-weight: 300;
 }
 
 h1,
@@ -78,9 +120,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-unbounded), sans-serif;
+  font-family: var(--font-cormorant), serif;
   font-optical-sizing: auto;
   font-style: normal;
+  font-weight: 300;
 }
 
 html {
@@ -101,11 +144,129 @@ html {
 body {
   color: var(--text);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   width: 100%;
   overflow-x: hidden;
   margin: 0;
-  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* InRealArt Gallery - Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* InRealArt Gallery - Artwork Hover Effects */
+.artwork-container {
+  transition: opacity 0.4s ease;
+}
+
+.artwork-container:hover {
+  opacity: 0.9;
+}
+
+.artwork-image {
+  background-color: #f9f9f9;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.artwork-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artwork-container:hover .artwork-image img {
+  transform: scale(1.03);
+}
+
+/* InRealArt Gallery - Button CTA Style */
+.btn-cta {
+  padding: 0.9rem 1.8rem;
+  border: 1px solid var(--ink-black);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.btn-cta:hover {
+  background: var(--ink-black);
+  color: white;
+}
+
+/* InRealArt Gallery - Footer Links */
+.footer-link {
+  font-size: 0.75rem;
+  color: #666;
+  transition: color 0.3s, transform 0.3s;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.footer-link:hover {
+  color: var(--ink-black);
+  transform: translateX(5px);
+}
+
+/* InRealArt Gallery - Artist List */
+.artist-list-item {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: #777;
+  margin-bottom: 0.3rem;
+  display: block;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.artist-list-item:hover {
+  color: #b89c72;
+}
+
+/* InRealArt Gallery - Section Number */
+.section-number {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  display: block;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Style personnalisé pour la liste du manifeste */
+.manifest-list {
+  color: #000000;
+}
+
+[data-theme='dark'] .manifest-list {
+  color: #ffffff;
 }
 
 .swiper-slide {

@@ -1,7 +1,7 @@
 /**
  * Configuration optimisée des fonts avec Next.js
  * Utilise next/font pour l'auto-hébergement et l'optimisation
- * 
+ *
  * Avantages:
  * - Pas de requête externe (privacy + performance)
  * - Preload automatique
@@ -12,6 +12,8 @@
 import { Unbounded } from 'next/font/google'
 import { Bricolage_Grotesque } from 'next/font/google'
 import { Inter } from 'next/font/google'
+import { Cormorant_Garamond } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
 /**
  * Unbounded - Pour les titres (h1, h2, h3, h4, h5, h6)
@@ -38,6 +40,35 @@ export const bricolageGrotesque = Bricolage_Grotesque({
     weight: ['200', '300', '400', '500', '600', '700', '800'],
     preload: true,
     fallback: ['serif'],
+    adjustFontFallback: true,
+})
+
+/**
+ * Cormorant Garamond - Pour les titres élégants de galerie (serif italic)
+ * InRealArt Gallery Design System - Primary serif for headings
+ */
+export const cormorantGaramond = Cormorant_Garamond({
+    subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'vietnamese'],
+    display: 'swap',
+    variable: '--font-cormorant',
+    weight: ['300', '400', '500', '600', '700'],
+    style: ['normal', 'italic'],
+    preload: true,
+    fallback: ['serif'],
+    adjustFontFallback: true,
+})
+
+/**
+ * Montserrat - Pour le corps de texte élégant (sans-serif light)
+ * InRealArt Gallery Design System - Primary sans-serif for body
+ */
+export const montserrat = Montserrat({
+    subsets: ['latin', 'cyrillic', 'cyrillic-ext', 'vietnamese'],
+    display: 'swap',
+    variable: '--font-montserrat',
+    weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+    preload: true,
+    fallback: ['sans-serif'],
     adjustFontFallback: true,
 })
 
