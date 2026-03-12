@@ -31,7 +31,7 @@ export default function AboutOurInvitation() {
           <div className="space-y-8 flex flex-col justify-center w-4/5 mx-auto">
             {/* Titre principal */}
             <div className="text-textColor">
-              <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <h2 className="text-5xl md:text-7xl serif italic leading-tight">
                 {t('about.ourInvitation.title')}
               </h2>
             </div>

@@ -57,11 +57,14 @@ export default function Possibilities() {
   ];
 
   return (
-    <section className="w-full  py-16">
-      <div className="max-w-90 xl:max-w-screen-xl m-auto">
-        <h1 className="text-3xl md:text-5xl bricolage-grotesque mb-10">
-          {t('companies.possibilities.title')}
-        </h1>
+    <section className="w-full py-32 px-10 bg-canvas-white">
+      <div className="max-w-screen-2xl m-auto">
+        <div className="border-b border-border-light pb-12 mb-16">
+          <span className="section-number">Cas d'Utilisations</span>
+          <h1 className="text-6xl md:text-8xl serif text-ink-black mb-6">
+            Découvrez l'ensemble des <span className="italic text-gold-accent">possibilités</span>
+          </h1>
+        </div>
 
         {/* Grid for sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">

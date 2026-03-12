@@ -23,9 +23,10 @@ export default function Hero() {
       
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-center justify-center">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full">
-          <h1 className="text-4xl leading-[1.3] md:leading-[1] md:text-6xl bricolage-grotesque text-left font-medium mb-4">
-            {t('marketplace.hero.title')}
+        <div className="max-w-screen-2xl mx-auto w-full px-10">
+          <span className="section-number">{t('marketplace.hero.subtitle')}</span>
+          <h1 className="text-6xl md:text-8xl serif mb-8">
+            {t('marketplace.hero.title')} <span className="italic text-gold-accent">{t('marketplace.hero.highlight')}</span>
           </h1>
           <div className="mt-12 md:mt-4">
             <Button

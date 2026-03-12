@@ -43,12 +43,13 @@ export default function ArtistCategoryPageClient({
         
         {/* Contenu du hero */}
         <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 text-center">
-            <h1 className="bricolage-grotesque text-4xl md:text-6xl lg:text-7xl font-bold text-textColor mb-6">
-              {displayCategory.name}
+          <div className="max-w-screen-2xl mx-auto px-10 text-center">
+            <span className="section-number text-white/70">Nos Artistes</span>
+            <h1 className="text-6xl md:text-8xl serif text-white mb-6">
+              <span className="italic text-gold-accent">{displayCategory.name}</span>
             </h1>
             {displayCategory.description && (
-              <p className="text-lg md:text-xl text-textColor/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-white/70 max-w-3xl mx-auto leading-relaxed">
                 {displayCategory.description}
               </p>
             )}

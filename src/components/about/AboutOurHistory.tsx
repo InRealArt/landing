@@ -39,7 +39,7 @@ export default function AboutOurHistory() {
         {/* Section du contenu textuel */}
         <div className="space-y-8">
           {/* Titre principal */}
-          <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-textColor leading-tight">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor">
             {t('about.ourHistory.title')}
           </h2>
 

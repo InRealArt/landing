@@ -16,6 +16,19 @@ type Props = {
   'data-umami-event'?: string;
 };
 
+// Boutons formulaires techniques : ne pas appliquer le style DA
+const FORM_BUTTON_MARKERS = ['py-4', 'text-lg', 'rounded-lg', 'disabled:'];
+
+const isCta = (
+  additionalClassName: string | undefined,
+  type: 'button' | 'submit' | 'reset',
+): boolean => {
+  if (!additionalClassName?.includes('bg-purpleColor')) return false;
+  // Les boutons de soumission ou réinitialisation de formulaire gardent leur style d'origine
+  if (type === 'submit' || type === 'reset') return false;
+  return !FORM_BUTTON_MARKERS.some((marker) => additionalClassName.includes(marker));
+};
+
 const Button = ({
   text,
   additionalClassName,
@@ -30,13 +43,26 @@ const Button = ({
   target = '_self',
   ...rest
 }: Props) => {
-  const className = ` ${additionalClassName ?? ''} ${center ? 'justify-center' : ''} ${additionalClassName?.includes('bg-purpleColor') ? 'text-white' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`;
+  const useCta = isCta(additionalClassName, type);
+
+  // Filtrer bg-purpleColor des classes additionnelles pour btn-cta (évite conflit couleur)
+  const extraClasses = useCta
+    ? (additionalClassName ?? '').replace('bg-purpleColor', '').trim()
+    : additionalClassName ?? '';
+
+  const className = useCta
+    ? `btn-cta ${extraClasses}`.trim()
+    : `${extraClasses} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`.trim();
+
+  const textClassName = useCta
+    ? 'text-[0.6rem] uppercase tracking-[0.25em]'
+    : 'unbounded font-semibold text-sm';
 
   if (link)
     return (
       <Link className={className} href={link} onClick={action} download={download} target={target} {...rest}>
         {iconBefore && icon}
-        <span className='unbounded font-semibold text-sm'>{text}</span>
+        <span className={textClassName}>{text}</span>
         {!iconBefore && icon}
       </Link>
     );
@@ -50,7 +76,7 @@ const Button = ({
       {...rest}
     >
       {iconBefore && icon}
-      <span className='unbounded font-semibold text-sm'>{text}</span>
+      <span className={textClassName}>{text}</span>
       {!iconBefore && icon}
     </button>
   );

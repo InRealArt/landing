@@ -23,7 +23,7 @@ export default function Advantages() {
   return (
     <section className="py-16 ">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-5xl bricolage-grotesque font-medium mb-4">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
           {t('leasing.advantages.title')}
         </h2>
         <p className="text-sm mb-8 max-w-lg">

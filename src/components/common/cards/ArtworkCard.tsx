@@ -20,15 +20,29 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
   const slug = stringToSlug(name);
   const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(image.src)
 
+  if (type === 'artist') {
+    return (
+      <Link href={`/artists/${slug}`} className="group block cursor-pointer">
+        {/* Artist Card - Gallery Style */}
+        <div className="aspect-[3/4] overflow-hidden mb-8 bg-soft-gray grayscale group-hover:grayscale-0 transition-all duration-1000">
+          <FirebaseBackgroundImage
+            src={image.src}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm uppercase tracking-[0.3em] font-medium text-ink-black">{name}</h4>
+          <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Artiste Résident</p>
+        </div>
+      </Link>
+    );
+  }
+
   return (
-    <Link href={`/${type}/${slug}`} className="p-2 border rounded-lg bg-cardBackground block">
-      {type === 'artist' ? (
-        <FirebaseBackgroundImage
-          src={image.src}
-          className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg"
-        />
-      ) : (
-        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] w-full rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
+    <Link href={`/artwork/${slug}`} className="block">
+      {/* Artwork Card - Gallery Style */}
+      <div className="artwork-image aspect-[4/5] mb-6">
+        <div className="relative h-full w-full overflow-hidden">
           {status === 'retrying' && (
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <FirebaseImageLoader />
@@ -37,16 +51,18 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
           <OptimizedContentImage
             src={imgSrc}
             alt={name}
-            className="object-contain max-h-full max-w-full h-auto"
-            width={320}
-            height={320}
+            className="object-cover w-full h-full"
+            width={400}
+            height={500}
             priority={false}
             onLoad={onLoad}
             onError={onError}
           />
         </div>
-      )}
-      <p className="mt-4 h-6 bricolage-grotesque overflow-hidden text-ellipsis whitespace-nowrap font-medium">{name}</p>
+      </div>
+      <div className="flex flex-col space-y-1">
+        <p className="mt-4 text-[11px] font-medium text-ink-black overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
+      </div>
     </Link>
   );
 }

@@ -10,7 +10,7 @@ export default function AcademySection1() {
     <section className="relative w-full py-16 md:py-24 bg-[rgb(19,19,19)]">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto">
         {/* Titre principal */}
-        <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl font-bold text-textColor text-left mb-12">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor text-left mb-12">
           {t('academy.section1.mainTitle')}
         </h2>
         

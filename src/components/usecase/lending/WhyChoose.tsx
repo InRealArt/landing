@@ -29,7 +29,7 @@ export default function WhyChoose() {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl bricolage-grotesque font-medium mb-12">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-12">
           {t('lending.whyChoose.title')}
         </h2>
         

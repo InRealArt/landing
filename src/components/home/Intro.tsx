@@ -31,7 +31,7 @@ const Intro = () => {
         <div className="flex-1 max-w-4xl">
           <span className="section-number text-white/70">{t('home.intro.subtitle')}</span>
           <h1
-            className="text-white text-5xl md:text-7xl lg:text-8xl serif italic mb-8 leading-tight animate-fade-up"
+            className="text-white text-6xl md:text-8xl serif italic mb-8 leading-tight animate-fade-up"
           >
             {t('home.intro.title')}
           </h1>

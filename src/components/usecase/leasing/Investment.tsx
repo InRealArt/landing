@@ -21,7 +21,7 @@ export default function Investment() {
             />
           </div>
           <div>
-            <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-6">
+            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-6">
               {t('leasing.investment.title')}
             </h2>
             <p className="text-sm text-grayText mb-6">

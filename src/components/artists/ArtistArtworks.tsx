@@ -197,7 +197,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
         </div>
 
         {/* Titre grand format */}
-        <h2 className="artworks-title text-3xl lg:text-5xl xl:text-6xl bricolage-grotesque font-bold text-center text-textColor leading-tight mb-6">
+        <h2 className="artworks-title text-5xl md:text-7xl serif italic leading-tight text-center text-textColor mb-6">
           {t('artistPage.discover')}{' '}
           <span className="whitespace-nowrap text-purpleColor">{artistName}</span>
         </h2>

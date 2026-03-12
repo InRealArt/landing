@@ -34,7 +34,7 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
 
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-20">
-      <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-10">{title}</h2>
+      <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-10">{title}</h2>
       
       <div className="relative">
         <Swiper

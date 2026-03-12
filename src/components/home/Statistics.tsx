@@ -111,7 +111,7 @@ const Statistics = () => {
 
   return (
     <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
-      <h2 ref={titleRef} className="text-4xl md:text-5xl bricolage-grotesque opacity-0">
+      <h2 ref={titleRef} className="text-5xl md:text-7xl serif italic leading-tight opacity-0">
         {t('home.statistics.title')}
       </h2>
       <div ref={cardsRef} className="flex flex-wrap gap-6 mt-10">

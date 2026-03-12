@@ -28,23 +28,18 @@ export default function AcademyHero() {
         }`} />      
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-end">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
+        <div className="max-w-screen-2xl mx-auto w-full px-10 pb-12 md:pb-16 lg:pb-20">
           <div className="max-w-4xl">
-            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6">
-              {t('academy.hero.title')}
+            <span className="section-number text-white/70">{t('academy.hero.subtitle')}</span>
+            <h1 className="text-6xl md:text-8xl serif text-white mb-6">
+              <span className="italic text-gold-accent">Académie</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-textColor/90 max-w-2xl leading-relaxed mb-8">
-              {t('academy.hero.subtitle')}
-            </p>
             
             {/* Boutons d'action */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-purpleColor border p-4 gap-4 rounded-xl items-center inline-flex hover:bg-purpleColor/90 transition-colors">
-                <span className='unbounded font-semibold text-sm text-textColor'>{t('academy.hero.button1')}</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              <a href="/simulators" className="btn-cta">
+                {t('academy.hero.button1')}
+              </a>
               
               <button className="border border-white text-textColor px-6 py-3 rounded-lg font-semibold hover:bg-backgroundColor hover:text-textColor transition-colors duration-200">
                 {t('academy.hero.button2')}

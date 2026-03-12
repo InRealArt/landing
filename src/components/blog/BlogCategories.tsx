@@ -81,7 +81,7 @@ export default function BlogCategories() {
   return (
     <section className="max-w-90 xl:max-w-screen-xl m-auto py-16">
       <div className="text-center">
-        <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-8">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8">
           {t('blog.categories.title')}
         </h2>
 

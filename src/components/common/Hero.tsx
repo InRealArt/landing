@@ -15,6 +15,7 @@ interface HeroProps {
   contentAlignment?: 'center' | 'end' | 'start' | 'end-center' | 'start-center'
   contentContainerClassName?: string
   priority?: boolean
+  renderCustomContent?: (title: string, subtitle: string) => React.ReactNode
 }
 
 export default function Hero({
@@ -27,10 +28,11 @@ export default function Hero({
   className = "relative w-screen h-96 md:h-[550px] overflow-hidden ml-[calc(-50vw+50%)]",
   contentAlignment = 'center',
   contentContainerClassName = "max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12",
-  priority = false
+  priority = false,
+  renderCustomContent
 }: HeroProps) {
   const { theme } = useTheme()
-  
+
   return (
     <section className={className}>
       <OptimizedBackgroundImage
@@ -41,7 +43,7 @@ export default function Hero({
         className="absolute inset-0 w-full h-full"
         priority={priority}
       />
-      
+
       {/* Dégradé du bas vers le background - plus transparent pour voir l'image */}
       <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'light'
           ? 'bg-gradient-to-t from-white/80 via-white/20 to-transparent'
@@ -55,12 +57,14 @@ export default function Hero({
         `items-${contentAlignment}`
       }`}>
         <div className={contentContainerClassName}>
-          <HeroText
-            title={title}
-            subtitle={subtitle}
-            titleClassName={titleClassName}
-            subtitleClassName={subtitleClassName}
-          />
+          {renderCustomContent ? renderCustomContent(title, subtitle) : (
+            <HeroText
+              title={title}
+              subtitle={subtitle}
+              titleClassName={titleClassName}
+              subtitleClassName={subtitleClassName}
+            />
+          )}
         </div>
       </div>
     </section>

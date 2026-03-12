@@ -134,11 +134,17 @@ export default function BlogCategoryPageClient({
         dangerouslySetInnerHTML={{ __html: breadcrumbLd }}
       />
 
-      <main className="min-h-screen pt-headerSize text-textColor">
-        <div className="max-w-90 xl:max-w-screen-xl m-auto py-16">
+      <main className="min-h-screen pt-headerSize text-textColor bg-canvas-white">
+        <div className="max-w-screen-2xl m-auto px-10 py-16">
           {/* Category header */}
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
+          <div className="mb-12 border-b border-border-light pb-12">
+            <span className="section-number">Blog</span>
+            <h1 className="text-6xl md:text-8xl serif text-ink-black mb-6"><span className="italic text-gold-accent">{category.name}</span></h1>
+            {(category as { description?: string }).description && (
+              <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 max-w-2xl leading-relaxed">
+                {(category as { description?: string }).description}
+              </p>
+            )}
           </div>
 
           {/* Inline error — displayed alongside existing content, not instead */}

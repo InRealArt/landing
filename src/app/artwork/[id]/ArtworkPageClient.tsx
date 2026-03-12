@@ -244,7 +244,10 @@ export default function ArtworkPageClient({ artworkId }: Props) {
           {/* Artwork details */}
           <div>
             <div className="flex justify-between items-start mb-6">
-              <h1 className="text-3xl font-bold text-textColor unbounded">{artworkName}</h1>
+              <div>
+                <span className="section-number">{t('artwork.collection')}</span>
+                <h1 className="text-6xl md:text-8xl serif"><span className="italic text-gold-accent">{artworkName}</span></h1>
+              </div>
             </div>
 
             <div className="mb-8">

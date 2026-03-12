@@ -26,7 +26,7 @@ export default function Benefits() {
 
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-20">
-      <h2 className="text-2xl md:text-4xl bricolage-grotesque font-medium mb-10">{t('fractionate.benefits.title')}</h2>
+      <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-10">{t('fractionate.benefits.title')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {benefits.map((benefit, index) => (
           <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20">

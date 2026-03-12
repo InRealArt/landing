@@ -32,7 +32,7 @@ export default function ForWho() {
         {/* ForWho content */}
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl bricolage-grotesque font-medium mb-4">
+            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
               {whyChooseTitle}
             </h2>
             <ul className="space-y-1">
@@ -43,7 +43,7 @@ export default function ForWho() {
                 </li>
               ))}
             </ul>
-            <h2 className="text-3xl md:text-4xl bricolage-grotesque font-medium mb-4 mt-12">
+            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4 mt-12">
               {forWhoTitle}
             </h2>
             <ul className="space-y-1">

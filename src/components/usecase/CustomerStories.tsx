@@ -57,7 +57,7 @@ export default function CustomerStories() {
 
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-32">
-      <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
+      <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
         {t('usecase.intro.title')}
       </h2>
       <p className="text-base md:text-lg text-grayText mb-10">

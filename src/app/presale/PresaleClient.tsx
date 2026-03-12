@@ -166,8 +166,16 @@ export default function PresaleClient() {
   return (
     <>
       <PresaleHero />
-      <div className="relative max-w-90 xl:max-w-screen-xl m-auto">
-        <h1 className="text-2xl md:text-4xl font-bold mt-10 mb-6">{t('presale.onDemand')}</h1>
+      <div className="relative max-w-screen-2xl m-auto px-10 mt-48">
+        <div className="border-b border-border-light pb-12 mb-16">
+          <span className="section-number">{t('presale.onDemand')}</span>
+          <h1 className="text-6xl md:text-8xl serif">
+            Œuvres <span className="italic text-gold-accent">Sélectionnées</span>
+          </h1>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 mt-6 max-w-xl leading-relaxed">
+            {t('presale.catalog.description')}
+          </p>
+        </div>
         
         {/* Filtres */}
         <div className="space-y-4 mb-6">

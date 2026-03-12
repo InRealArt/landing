@@ -71,19 +71,25 @@ export default function ArtistTestimonials({
   }
 
   return (
-    <section className={`w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-20 ${className}`}>
-      <div className="mb-12">
+    <section className={`w-full max-w-screen-2xl m-auto mt-36 mb-20 ${className}`}>
+      <div className="mb-12 border-b border-border-light pb-12">
         {title ? (
-          <h1 className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 text-center">
-            {title}
-          </h1>
+          <div className="text-center">
+            <span className="section-number">Témoignages</span>
+            <h1 className="text-6xl md:text-8xl serif text-ink-black mb-6">
+              <span className="italic text-gold-accent">{title}</span>
+            </h1>
+          </div>
         ) : (
-          <TranslatedText 
-            translationKey={titleKey}
-            as="h1"
-            className="text-4xl md:text-5xl lg:text-6xl bricolage-grotesque font-medium text-textColor mb-6 text-center"
-            allowHtml={true}
-          />
+          <div className="text-center">
+            <span className="section-number">Témoignages</span>
+            <TranslatedText
+              translationKey={titleKey}
+              as="h1"
+              className="text-6xl md:text-8xl serif text-ink-black mb-6"
+              allowHtml={true}
+            />
+          </div>
         )}
       </div>
       

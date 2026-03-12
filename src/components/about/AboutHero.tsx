@@ -5,7 +5,7 @@ import Hero from '@/components/common/Hero'
 
 export default function AboutHero() {
   const { t } = useLanguageStore()
-  
+
   return (
     <Hero
       backgroundImage="/images/hero_about.webp"
@@ -14,10 +14,16 @@ export default function AboutHero() {
       subtitle={t('about.hero.subtitle')}
       className="relative w-full h-[50vh] md:h-[55vh] lg:h-[60vh] overflow-hidden"
       contentAlignment="end"
-      contentContainerClassName="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20"
-      titleClassName="bricolage-grotesque text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-textColor mb-4 md:mb-6 leading-tight"
-      subtitleClassName="text-base md:text-lg lg:text-xl text-textColor/90 max-w-2xl leading-relaxed"
+      contentContainerClassName="max-w-screen-2xl mx-auto w-full px-10 pb-12 md:pb-16 lg:pb-20"
+      titleClassName="text-6xl md:text-8xl serif text-white mb-6"
+      subtitleClassName="section-number text-white/70"
       priority={true}
+      renderCustomContent={(_title, subtitle) => (
+        <div className="max-w-4xl">
+          <span className="section-number text-white/70">{subtitle}</span>
+          <h1 className="text-6xl md:text-8xl serif text-white mb-6">À <span className="italic text-gold-accent">propos</span></h1>
+        </div>
+      )}
     />
   )
 }

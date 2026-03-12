@@ -29,7 +29,7 @@ export default function ArtworksGallery({ artworks, artistName }: ArtworksGaller
 
   return (
     <section className="w-full mt-20">
-      <h2 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>
+      <h2 className='text-5xl md:text-7xl serif italic leading-tight mb-6'>
         {t('artistPage.discover')} <span className="whitespace-nowrap">{artistName}</span>
       </h2>
       <div className="flex flex-wrap gap-4">

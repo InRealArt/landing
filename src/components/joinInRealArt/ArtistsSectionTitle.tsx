@@ -6,7 +6,7 @@ export default function ArtistsSectionTitle() {
   const { t } = useLanguageStore();
 
   return (
-    <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3 text-textColor">
+    <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-3 text-textColor">
       {t('artists.title')}
     </h2>
   );

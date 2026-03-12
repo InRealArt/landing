@@ -24,7 +24,7 @@ export default function Solutions() {
           </div>
           
           <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl bricolage-grotesque font-medium mb-6">
+            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-6">
               {t('lending.solutions.title')}
             </h2>
             <p className="text-grayText mb-6">

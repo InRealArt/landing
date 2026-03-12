@@ -34,7 +34,7 @@ export default function TeamClient({ members }: TeamClientProps) {
   return (
     <section className="mt-36 max-w-screen-2xl m-auto">
       <div className="max-w-90 xl:max-w-screen-xl md:flex justify-between w-full m-auto items-center">
-        <h1 className="bricolage-grotesque text-4xl md:text-5xl">{t('home.team.title')}</h1>
+        <h1 className="text-6xl md:text-8xl serif">Découvrez les membres de <span className="italic text-gold-accent">l'équipe</span></h1>
       </div>
 
       {formattedMembers.length > 0 ? (

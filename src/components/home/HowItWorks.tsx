@@ -106,7 +106,7 @@ export default function HowItWorks() {
   return (
     <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
       <div ref={headerRef}>
-        <h2 className="text-3xl lg:text-5xl bricolage-grotesque text-center opacity-0">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-center opacity-0">
           {t('home.howItWorks.title')}
         </h2>
         <label className="mt-4 block text-center opacity-0">

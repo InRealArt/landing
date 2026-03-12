@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>InRealArt | Maison de Curation & Galerie Digitale</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+   <style>
+       :root {
+           --canvas-bg: #ffffff;
+           --gold-accent: #b89c72;
+           --ink-black: #000000;
+           --soft-gray: #f8f8f8;
+           --border-light: #eeeeee;
+       }
+       body {
+           font-family: 'Montserrat', sans-serif;
+           background-color: var(--canvas-bg);
+           color: var(--ink-black);
+           scroll-behavior: smooth;
+       }
+       h1, h2, h3, h4, h5, .serif {
+           font-family: 'Cormorant Garamond', serif;
+           font-weight: 300;
+       }
+       .section-number {
+           font-size: 0.6rem;
+           letter-spacing: 0.5em;
+           text-transform: uppercase;
+           color: #aaa;
+           margin-bottom: 1.5rem;
+           display: block;
+       }
+       .btn-cta {
+           padding: 0.9rem 1.8rem;
+           border: 1px solid var(--ink-black);
+           font-size: 0.6rem;
+           letter-spacing: 0.25em;
+           text-transform: uppercase;
+           transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+           display: inline-block;
+           margin-top: 1.5rem;
+           background: transparent;
+       }
+       .btn-cta:hover {
+           background: var(--ink-black);
+           color: white;
+       }
+       .artwork-container {
+           transition: opacity 0.4s ease;
+       }
+       .artwork-container:hover {
+           opacity: 0.9;
+       }
+       .artwork-image {
+           background-color: #f9f9f9;
+           overflow: hidden;
+           border: 1px solid var(--border-light);
+       }
+       .artwork-image img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+       }
+       .artwork-container:hover .artwork-image img {
+           transform: scale(1.03);
+       }
+       .footer-link {
+           font-size: 0.75rem;
+           color: #666;
+           transition: color 0.3s, transform 0.3s;
+           display: block;
+           margin-bottom: 0.5rem;
+       }
+       .footer-link:hover {
+           color: var(--ink-black);
+           transform: translateX(5px);
+       }
+       .artist-list-item {
+           font-size: 0.7rem;
+           letter-spacing: 0.05em;
+           color: #777;
+           margin-bottom: 0.3rem;
+           display: block;
+       }
+       .artist-list-item:hover {
+           color: var(--gold-accent);
+       }
+       .custom-scrollbar::-webkit-scrollbar {
+           width: 2px;
+       }
+       .custom-scrollbar::-webkit-scrollbar-track {
+           background: #f1f1f1;
+       }
+       .custom-scrollbar::-webkit-scrollbar-thumb {
+           background: #888;
+       }
+   </style>
+</head>
+<body class="antialiased">
+
+   <!-- Navigation -->
+   <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+       <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+      
+       <div class="hidden xl:flex space-x-8">
+           <a href="#artistes-block" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+           <a href="#expositions" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+           <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-nowrap">Cas d'utilisations</a>
+           <a href="#expertises" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+           <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-nowrap">À Propos</a>
+           <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Contact</a>
+           <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Store</a>
+       </div>
+
+       <div class="flex items-center space-x-8">
+           <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+           <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+           </div>
+       </div>
+   </nav>
+
+   <!-- EN-TÊTE OEUVRES -->
+   <section class="pt-48 pb-12 px-10">
+       <div class="max-w-screen-2xl mx-auto">
+           <div class="border-b border-gray-100 pb-12 mb-16">
+               <span class="section-number">Le Catalogue</span>
+               <h1 class="text-6xl md:text-8xl serif">Œuvres <span class="italic text-gold-accent">Sélectionnées</span></h1>
+               <p class="text-[11px] uppercase tracking-[0.3em] text-gray-400 mt-6 max-w-xl leading-relaxed">
+                   Une collection rigoureuse explorant la matière, la lumière et le geste contemporain. Chaque pièce est certifiée et sourcée directement auprès de nos artistes résidents.
+               </p>
+           </div>
+
+           <!-- GRILLE CLASSIQUE D'OEUVRES -->
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+              
+               <!-- Oeuvre 1 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800" alt="Espace Liminal n°4">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Sandrine Hirson</span>
+                       <h3 class="serif text-2xl italic">Espace Liminal n°4</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Huile sur toile, 120x150cm</p>
+                       <p class="text-[11px] font-medium mt-3">4 200 €</p>
+                   </div>
+               </div>
+
+               <!-- Oeuvre 2 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1515405848666-d3df0950571c?auto=format&fit=crop&q=80&w=800" alt="Stase Minérale">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Marc Peltzer</span>
+                       <h3 class="serif text-2xl italic">Stase Minérale</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Bronze et socle marbre</p>
+                       <p class="text-[11px] font-medium mt-3">Prix sur demande</p>
+                   </div>
+               </div>
+
+               <!-- Oeuvre 3 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800" alt="Matière Sombre">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Nadine LePrince</span>
+                       <h3 class="serif text-2xl italic">Matière Sombre</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Acrylique et fusain</p>
+                       <p class="text-[11px] font-medium mt-3">2 800 €</p>
+                   </div>
+               </div>
+
+               <!-- Oeuvre 4 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800" alt="Résonance">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Mr Hope</span>
+                       <h3 class="serif text-2xl italic">Résonance chromatique</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Technique mixte sur bois</p>
+                       <p class="text-[11px] font-medium mt-3">3 500 €</p>
+                   </div>
+               </div>
+
+               <!-- Oeuvre 5 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&q=80&w=800" alt="Curation Virtuelle">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Artiste Invité</span>
+                       <h3 class="serif text-2xl italic">Structure Alpha</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Art Digital, Édition 1/5</p>
+                       <p class="text-[11px] font-medium mt-3">1 200 €</p>
+                   </div>
+               </div>
+
+               <!-- Oeuvre 6 -->
+               <div class="artwork-container cursor-pointer">
+                   <div class="artwork-image aspect-[4/5] mb-6">
+                       <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=800" alt="Nuance d'Acier">
+                   </div>
+                   <div class="flex flex-col space-y-1">
+                       <span class="text-[9px] uppercase tracking-widest text-gold-accent font-medium">Jean-Paul Boyer</span>
+                       <h3 class="serif text-2xl italic">Nuance d'Acier</h3>
+                       <p class="text-[10px] text-gray-400 uppercase tracking-widest">Sculpture métal brossé</p>
+                       <p class="text-[11px] font-medium mt-3">5 900 €</p>
+                   </div>
+               </div>
+
+           </div>
+          
+           <div class="flex justify-center mt-32">
+               <a href="#" class="btn-cta">Consulter le catalogue complet</a>
+           </div>
+       </div>
+   </section>
+
+   <!-- EXPERTISES -->
+   <section id="expertises" class="py-32 px-10 bg-[#fbfbfb] border-y border-gray-100">
+       <div class="max-w-screen-2xl mx-auto">
+           <div class="grid lg:grid-cols-12 gap-10 mb-24">
+               <div class="lg:col-span-6">
+                   <span class="section-number">Expertises</span>
+                   <h2 class="text-5xl md:text-7xl serif italic leading-tight">Curation <br> Augmentée.</h2>
+               </div>
+           </div>
+
+           <div class="grid md:grid-cols-3 gap-20">
+               <div class="border-t border-gray-200 pt-12">
+                   <div class="flex items-center gap-4 mb-8">
+                       <span class="serif text-4xl italic text-gold-accent">01.</span>
+                       <h3 class="text-[10px] uppercase tracking-[0.4em] font-bold">IRA Édition</h3>
+                   </div>
+                   <h4 class="text-3xl serif mb-6 italic">Média & Agence</h4>
+                   <p class="text-[13px] text-gray-500 leading-loose mb-10 h-32">
+                       Accompagnement de trajectoires artistiques, ligne éditoriale forte et création de Kits Com premium pour propulser les créateurs sur la scène mondiale.
+                   </p>
+                   <a href="#" class="btn-cta">Nous rejoindre</a>
+               </div>
+
+               <div class="border-t border-gray-200 pt-12">
+                   <div class="flex items-center gap-4 mb-8">
+                       <span class="serif text-4xl italic text-gold-accent">02.</span>
+                       <h3 class="text-[10px] uppercase tracking-[0.4em] font-bold">IRA Sélection</h3>
+                   </div>
+                   <h4 class="text-3xl serif mb-6 italic">Marketplace Premium</h4>
+                   <p class="text-[13px] text-gray-500 leading-loose mb-10 h-32">
+                       Une curation rigoureuse pour collectionneurs exigeants. Accédez à des œuvres sélectionnées pour leur potentiel esthétique et leur valeur patrimoniale.
+                   </p>
+                   <a href="#" class="btn-cta">Pourquoi pas vous ?</a>
+               </div>
+
+               <div class="border-t border-gray-200 pt-12">
+                   <div class="flex items-center gap-4 mb-8">
+                       <span class="serif text-4xl italic text-gold-accent">03.</span>
+                       <h3 class="text-[10px] uppercase tracking-[0.4em] font-bold">IRA Placement</h3>
+                   </div>
+                   <h4 class="text-3xl serif mb-6 italic">Art & Finance</h4>
+                   <p class="text-[13px] text-gray-500 leading-loose mb-10 h-32">
+                       L'art comme outil stratégique. Solutions de leasing (LOA), optimisation fiscale et simulateurs de patrimoine pour les entreprises.
+                   </p>
+                   <a href="#" class="btn-cta">Nos simulateurs</a>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- ARTISTES RÉSIDENTS -->
+   <section id="artistes-block" class="py-32 px-10 bg-white">
+       <div class="max-w-screen-2xl mx-auto text-center mb-24">
+           <span class="section-number">Cercle Privé</span>
+           <h2 class="text-5xl md:text-7xl serif italic">Signatures.</h2>
+       </div>
+      
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-20 max-w-screen-2xl mx-auto">
+           <div class="group cursor-pointer">
+               <div class="aspect-[3/4] overflow-hidden mb-8 bg-gray-50 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                   <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+               </div>
+               <div class="text-center">
+                   <h4 class="text-sm uppercase tracking-[0.3em] font-medium">Sandrine Hirson</h4>
+                   <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Peinture Narrative</p>
+               </div>
+           </div>
+           <div class="group cursor-pointer">
+               <div class="aspect-[3/4] overflow-hidden mb-8 bg-gray-50 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                   <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+               </div>
+               <div class="text-center">
+                   <h4 class="text-sm uppercase tracking-[0.3em] font-medium">Mr Hope</h4>
+                   <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Pop-Contemporary</p>
+               </div>
+           </div>
+           <div class="group cursor-pointer">
+               <div class="aspect-[3/4] overflow-hidden mb-8 bg-gray-50 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                   <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+               </div>
+               <div class="text-center">
+                   <h4 class="text-sm uppercase tracking-[0.3em] font-medium">Nadine LePrince</h4>
+                   <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Expressionnisme</p>
+               </div>
+           </div>
+           <div class="group cursor-pointer">
+               <div class="aspect-[3/4] overflow-hidden mb-8 bg-gray-50 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                   <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+               </div>
+               <div class="text-center">
+                   <h4 class="text-sm uppercase tracking-[0.3em] font-medium">Marc Peltzer</h4>
+                   <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Sculpture Vive</p>
+               </div>
+           </div>
+       </div>
+       <div class="text-center mt-20">
+           <a href="#" class="text-[10px] border-b border-black pb-1 uppercase tracking-[0.3em] hover:opacity-50">Découvrir tous les artistes résident →</a>
+       </div>
+   </section>
+
+   <!-- TESTIMONIALS -->
+   <section class="py-40 px-10 bg-[#111] text-white">
+       <div class="max-w-4xl mx-auto text-center">
+           <span class="section-number !text-gray-500 italic">Échos de la Galerie</span>
+           <p class="serif text-4xl md:text-5xl italic leading-tight mt-12 mb-16">
+               "InRealArt n'est pas qu'une plateforme, c'est un partenaire stratégique qui comprend la dualité entre la poésie du geste et la réalité du marché."
+           </p>
+           <div class="flex flex-col items-center">
+               <div class="w-12 h-px bg-gold-accent mb-6"></div>
+               <p class="text-[11px] uppercase tracking-[0.4em] font-bold">Cabinet de Conseil Patrimonial</p>
+           </div>
+       </div>
+   </section>
+
+   <!-- FOOTER ULTRA-COMPLET -->
+   <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+       <div class="max-w-screen-2xl mx-auto">
+           <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+
+           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+               <!-- Colonne 1 : À Propos -->
+               <div>
+                   <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">InRealArt</h5>
+                   <a href="#" class="footer-link">À propos</a>
+                   <a href="#" class="footer-link">Manifeste</a>
+                   <a href="#" class="footer-link">Équipe</a>
+                   <a href="#" class="footer-link">Nous rejoindre</a>
+                   <a href="#" class="footer-link font-medium mt-4">Blog</a>
+               </div>
+
+               <!-- Colonne 2 : Marketplace -->
+               <div>
+                   <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Marketplace</h5>
+                   <a href="#" class="footer-link font-semibold">Store</a>
+                   <a href="#" class="footer-link">Artistes</a>
+                   <a href="#" class="footer-link">Œuvres</a>
+                   <a href="#" class="footer-link">Expositions</a>
+                   <a href="#" class="footer-link">FAQ</a>
+               </div>
+
+               <!-- Colonne 3 : Savoirs & Pro -->
+               <div>
+                   <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Expertises</h5>
+                   <a href="#" class="footer-link">Savoirs & Pratiques de l'Art</a>
+                   <a href="#" class="footer-link">Cas d'utilisation</a>
+                   <a href="#" class="footer-link">Glossaire</a>
+                   <a href="#" class="footer-link font-medium mt-4">Professionnels & Entreprises</a>
+               </div>
+
+               <!-- Colonne 4 : Simulateurs -->
+               <div>
+                   <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Simulateurs</h5>
+                   <a href="#" class="footer-link">Art Basel Paris</a>
+                   <a href="#" class="footer-link">Artgenève</a>
+                   <a href="#" class="footer-link">Simulateur LOA</a>
+                   <a href="#" class="footer-link">Patrimoine & Art</a>
+                   <a href="#" class="footer-link font-bold text-black mt-2 italic">Voir tous les simulateurs →</a>
+               </div>
+
+               <!-- Colonne 5 : Artistes -->
+               <div>
+                   <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Résidents</h5>
+                   <div class="h-48 overflow-y-auto pr-2 custom-scrollbar">
+                       <span class="artist-list-item">Sandrine Hirson</span>
+                       <span class="artist-list-item">Nadine LePrince</span>
+                       <span class="artist-list-item">Mr Hope</span>
+                       <span class="artist-list-item">Monique Laville</span>
+                       <span class="artist-list-item">Marie de Saint Germain</span>
+                       <span class="artist-list-item">Marianne Quinzin</span>
+                       <span class="artist-list-item">Marc Peltzer</span>
+                       <span class="artist-list-item">Jean-Paul Boyer</span>
+                       <span class="artist-list-item">François Poulat</span>
+                       <span class="artist-list-item">Franck Alagna</span>
+                       <span class="artist-list-item">Florence Autelin</span>
+                       <span class="artist-list-item">Catherine Sénéchal</span>
+                       <span class="artist-list-item">Alves Antoine Junior</span>
+                   </div>
+               </div>
+           </div>
+
+           <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+               <div class="flex space-x-12">
+                   <p class="text-[9px] text-gray-400 uppercase tracking-widest italic">Les ateliers physiques InRealArt</p>
+                   <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 — Tous droits réservés</p>
+               </div>
+               <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                   <a href="#" class="hover:text-black">Instagram</a>
+                   <a href="#" class="hover:text-black">LinkedIn</a>
+                   <a href="#" class="hover:text-black">Mentions</a>
+               </div>
+           </div>
+       </div>
+   </footer>
+
+</body>
+</html>

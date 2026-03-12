@@ -27,14 +27,12 @@ export default function TeamHero() {
         }`} />
       {/* Contenu du hero */}
       <div className="absolute inset-0 z-20 flex items-end h-full">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto w-full pb-12 md:pb-16 lg:pb-20">
+        <div className="max-w-screen-2xl mx-auto w-full px-10 pb-12 md:pb-16 lg:pb-20">
           <div className="max-w-4xl">
-            <h1 className="bricolage-grotesque text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-textColor mb-4 md:mb-6">
-              {t('team.hero.title')}
+            <span className="section-number text-white/70">{t('team.hero.subtitle')}</span>
+            <h1 className="text-6xl md:text-8xl serif text-white mb-6">
+              Notre <span className="italic text-gold-accent">équipe</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-textColor/90 max-w-2xl leading-relaxed">
-              {t('team.hero.subtitle')}
-            </p>
           </div>
         </div>
       </div>

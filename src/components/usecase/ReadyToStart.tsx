@@ -33,7 +33,7 @@ export default function ReadyToStart() {
 
   return (
     <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-32 mb-20">
-      <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-4">
+      <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
         {t('usecase.items.gallery.title')}
       </h2>
       <p className="text-base md:text-lg text-grayText mb-10">

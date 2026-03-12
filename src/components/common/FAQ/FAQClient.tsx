@@ -3,7 +3,6 @@
 import { useLanguageStore } from '@/store/languageStore'
 import Button from '@/components/common/Button'
 import Question from './subcomponents/Question'
-import { titleClassName } from '@/utils/classes'
 import { FaqData } from '@/actions/faqActions'
 
 interface FAQClientProps {
@@ -29,7 +28,7 @@ export default function FAQClient({
   return (
     <section className="w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl">
       <div className="w-full md:w-1/3">
-        <h1 className={titleClassName}>{faqTitle}</h1>
+        <h1 className="text-6xl md:text-8xl serif"><span className="italic text-gold-accent">{faqTitle}</span></h1>
         <p className="mt-8">{faqDescription}</p>
         <Button
           text={`${t('buttons.readMore')} ${t('nav.faq')}`}

@@ -20,7 +20,7 @@ export default function AcademySection3() {
               </p>
               
               {/* Titre principal */}
-              <h2 className="bricolage-grotesque text-3xl md:text-4xl lg:text-5xl font-bold text-textColor mb-6 leading-tight">
+              <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-6">
                 {t('academy.section3.mainTitle')}
               </h2>
               
@@ -30,11 +30,8 @@ export default function AcademySection3() {
               </p>
               
               {/* Bouton */}
-              <button className="bg-purpleColor border bg-backgroundColor p-4 gap-4 rounded-xl items-center inline-flex hover:bg-purpleColor/90 transition-colors">
-                <span className='unbounded font-semibold text-sm text-textColor'>{t('academy.section3.button')}</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              <button className="btn-cta" type="button">
+                {t('academy.section3.button')}
               </button>
             </div>
             

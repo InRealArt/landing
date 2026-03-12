@@ -63,7 +63,7 @@ export default function ArtistCategoriesSlider() {
     <section className="w-full mb-16 mt-24">
       <div className="max-w-90 xl:max-w-screen-xl m-auto">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="bricolage-grotesque text-3xl md:text-4xl text-textColor">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor">
             {t('artists.categories.title') || 'Catégories d\'artistes'}
           </h2>
           

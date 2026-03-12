@@ -51,7 +51,7 @@ export default function HowToJoinUs({
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium bricolage-grotesque text-textColor mb-6 md:mb-0">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-6 md:mb-0">
             {displayTitle}
           </h2>
           {useModal ? (

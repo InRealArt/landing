@@ -9,21 +9,22 @@ export default function SimulatorsPageClient() {
   const { t } = useLanguageStore()
 
   return (
-    <div className="min-h-screen bg-backgroundColor pt-headerSize">
-      <div className="max-w-6xl mx-auto px-4 py-16">
+    <div className="min-h-screen bg-canvas-white pt-headerSize">
+      <div className="max-w-screen-2xl mx-auto px-10 py-16">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl bricolage-grotesque font-bold mb-6 text-textColor">
-            {t('simulators.title')}
+        <div className="text-center mb-16 border-b border-border-light pb-12">
+          <span className="section-number">Outils Professionnels</span>
+          <h1 className="text-6xl md:text-8xl serif text-ink-black mb-6">
+            Tous les <span className="italic text-gold-accent">Simulateurs</span>
           </h1>
-          <p className="text-lg text-grayText max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 max-w-3xl mx-auto leading-relaxed">
             {t('simulators.description')}
           </p>
         </div>
 
         {/* Art Salon Simulators */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-textColor">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8 text-textColor">
             {t('footer.simulators')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -53,7 +54,7 @@ export default function SimulatorsPageClient() {
 
         {/* Other Simulators */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-textColor">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8 text-textColor">
             {t('simulators.otherSimulators')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,10 +105,10 @@ export default function SimulatorsPageClient() {
           <Link
             href={EXTERNAL_URLS.CALENDLY_MEETING}
             target="_blank"
-            className="inline-flex border bg-purpleColor text-white p-4 gap-4 rounded-xl items-center justify-center hover:bg-purpleColor/90 transition-colors"
+            className="btn-cta"
             data-umami-event="calendly-simulators-page-click"
           >
-            <span className='unbounded font-semibold text-sm'>{t('simulators.scheduleMeeting')}</span>
+            {t('simulators.scheduleMeeting')}
           </Link>
         </div>
       </div>

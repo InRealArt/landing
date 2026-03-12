@@ -14,7 +14,7 @@ export default function Prestige() {
       <div className="flex flex-col md:flex-row items-center gap-10">
         <div className="w-full md:w-1/2">
           <h3 className="text-lg md:text-xl bricolage-grotesque mb-2">{t('marketplace.prestige.subtitle')}</h3>
-          <h2 className="text-3xl md:text-5xl bricolage-grotesque font-medium mb-6">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-6">
             {t('marketplace.prestige.title')}
           </h2>
           <p className="text-sm md:text-base mb-8 text-grayText max-w-xl">

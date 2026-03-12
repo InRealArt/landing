@@ -70,7 +70,7 @@ const BuyProcess = () => {
   return (
     <section className="relative max-w-90 xl:max-w-screen-2xl m-auto" >
       <div className="text-center">
-        <h2 className="text-2xl md:text-4xl font-bold mt-10">{t('presale.buyProcess.title')}</h2>
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight mt-10">{t('presale.buyProcess.title')}</h2>
         <label>{t('presale.buyProcess.subtitle')}</label>
       </div>
       <div className="relative mt-8">

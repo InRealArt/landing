@@ -10,7 +10,7 @@ export default function ExpertSection() {
   return (
     <section className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 items-center mt-32">
       <div className="flex-1">
-        <h2 className="bricolage-grotesque text-3xl md:text-6xl mb-3">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-3">
           {t('artistPage.expert')}
         </h2>
         <p className="bricolage-grotesque text-base">
