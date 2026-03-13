@@ -3,42 +3,43 @@ import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { loadGsap } from '@/lib/gsap'
 
+const items = [
+  {
+    key: 'edition',
+    number: '01.',
+    subtitleKey: 'home.expertises.items.edition.subtitle',
+    titleKey: 'home.expertises.items.edition.title',
+    descriptionKey: 'home.expertises.items.edition.description',
+    ctaKey: 'home.expertises.items.edition.cta',
+    link: '/joinInRealArt/artists',
+  },
+  {
+    key: 'selection',
+    number: '02.',
+    subtitleKey: 'home.expertises.items.selection.subtitle',
+    titleKey: 'home.expertises.items.selection.title',
+    descriptionKey: 'home.expertises.items.selection.description',
+    ctaKey: 'home.expertises.items.selection.cta',
+    link: '/presale',
+  },
+  {
+    key: 'placement',
+    number: '03.',
+    subtitleKey: 'home.expertises.items.placement.subtitle',
+    titleKey: 'home.expertises.items.placement.title',
+    descriptionKey: 'home.expertises.items.placement.description',
+    ctaKey: 'home.expertises.items.placement.cta',
+    link: '/usecase',
+  },
+]
+
 export default function Expertises() {
   const t = useLanguageStore((state) => state.t)
-  const language = useLanguageStore((state) => state.language) // Subscribe to language changes to trigger re-renders
+  // Subscribe to language to trigger re-renders on language change
+  useLanguageStore((state) => state.language)
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
-
-  const items = [
-    {
-      key: 'edition',
-      number: '01.',
-      subtitle: t('home.expertises.items.edition.subtitle'),
-      title: t('home.expertises.items.edition.title'),
-      description: t('home.expertises.items.edition.description'),
-      cta: t('home.expertises.items.edition.cta'),
-      link: '/joinInRealArt/artists',
-    },
-    {
-      key: 'selection',
-      number: '02.',
-      subtitle: t('home.expertises.items.selection.subtitle'),
-      title: t('home.expertises.items.selection.title'),
-      description: t('home.expertises.items.selection.description'),
-      cta: t('home.expertises.items.selection.cta'),
-      link: '/presale',
-    },
-    {
-      key: 'placement',
-      number: '03.',
-      subtitle: t('home.expertises.items.placement.subtitle'),
-      title: t('home.expertises.items.placement.title'),
-      description: t('home.expertises.items.placement.description'),
-      cta: t('home.expertises.items.placement.cta'),
-      link: '/usecase',
-    },
-  ]
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -127,13 +128,13 @@ export default function Expertises() {
                   {item.number}
                 </span>
                 <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
-                  {item.subtitle}
+                  {t(item.subtitleKey)}
                 </h3>
               </div>
 
               {/* Title */}
               <h4 className="text-3xl serif mb-6 italic text-textColor" suppressHydrationWarning>
-                {item.title}
+                {t(item.titleKey)}
               </h4>
 
               {/* Gold rule */}
@@ -141,14 +142,12 @@ export default function Expertises() {
 
               {/* Description */}
               <p className="text-[13px] text-grayText leading-loose mb-10 h-32" suppressHydrationWarning>
-                {item.description}
+                {t(item.descriptionKey)}
               </p>
 
-              <div suppressHydrationWarning>
-                <a href={item.link} className="btn-cta">
-                  {item.cta}
-                </a>
-              </div>
+              <a href={item.link} className="btn-cta" suppressHydrationWarning>
+                {t(item.ctaKey)}
+              </a>
             </div>
           ))}
         </div>

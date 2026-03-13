@@ -59,13 +59,12 @@
     "expertise": "Expertises",
     "simulators": "Simulateurs",
     "residents": "Artistes Résidents",
-    "viewAllSimulators": "Voir tous les simulateurs →",
+    "viewAllSimulators": "Voir tous les simulateurs",
     "leasing": "Leasing d'entreprise",
     "professionalsAndCompanies": "Pour les professionnels et les entreprises",
     "loaSimulator": "Simulateur LOA",
     "heritageArtSimulator": "Simulateur Patrimoine & Art",
     "artSalonSimulator": "Simulateur de frais au salon",
-    "viewAllSimulators": "Voir tous les simulateurs",
     "newsletter": {
       "subscribe": "S'abonner à notre newsletter",
       "success": {
@@ -210,7 +209,10 @@
     "title": "Nos artistes",
     "hero": {
       "title": "Les artistes, l’épicentre d’InRealArt",
-      "subtitle": "Ici, chaque artiste incarne le cœur vibrant d’IRA. Présence mondiale, audace créative, excellence assumée. <br>Une sélection premium, pensée comme un lien de confiance. L’œuvre n’existe pas seule : elle vit dans un écosystème rare, où chaque détail compte, chaque regard est accueilli. <br>Entrer ici, c’est toucher l’art contemporain dans sa vérité la plus intime."
+      "subtitle": "Ici, chaque artiste incarne le cœur vibrant d’IRA. Présence mondiale, audace créative, excellence assumée. <br>Une sélection premium, pensée comme un lien de confiance. L’œuvre n’existe pas seule : elle vit dans un écosystème rare, où chaque détail compte, chaque regard est accueilli. <br>Entrer ici, c’est toucher l’art contemporain dans sa vérité la plus intime.",
+      "headingMain": "Artistes",
+      "headingAccent": "Sélectionnés",
+      "descriptor": "Une sélection exigeante d’artistes contemporains, présence mondiale, audace créative, excellence assumée."
     },
     "faq": {
       "title": "Questions fréquentes sur nos artistes",

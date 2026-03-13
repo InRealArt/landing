@@ -110,7 +110,10 @@ export const useLanguageStore = create<LanguageState>()(
         {
             name: 'language-storage',
             // Désactiver l'hydration côté serveur pour éviter les différences
-            skipHydration: true
+            skipHydration: true,
+            // Ne persister que la langue, jamais les traductions
+            // (les traductions viennent du bundle JS, pas de localStorage)
+            partialize: (state) => ({ language: state.language }),
         }
     )
 )

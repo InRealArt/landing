@@ -16,6 +16,15 @@ export default function LanguageProvider({ children }: LanguageProviderProps) {
     // Calling rehydrate() here (post-commit, inside useEffect) means React has
     // already finished its initial render pass — no hydration mismatch.
     useLanguageStore.persist.rehydrate()
+
+    // After rehydration, the persisted language may be 'en' but the en translations
+    // may not have been loaded yet (e.g. first visit, cleared localStorage, or old
+    // persisted state). Calling setLanguage ensures en.json is loaded if needed.
+    const { language, translations } = useLanguageStore.getState()
+    if (language === 'en' && (!translations.en || Object.keys(translations.en).length === 0)) {
+      useLanguageStore.getState().setLanguage('en')
+    }
+
     setIsHydrated(true)
   }, [])
 

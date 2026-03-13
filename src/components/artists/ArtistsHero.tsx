@@ -1,17 +1,26 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore'
-import Hero from "@/components/common/Hero"
 
 export default function ArtistsHero() {
   const { t } = useLanguageStore()
-  
+
   return (
-    <Hero
-      backgroundImage="/images/artists/hero_artists.webp"
-      alt={t('artists.title')}
-      title={t('artists.hero.title')}
-      subtitle={t('artists.hero.subtitle')}
-    />
+    <section className="pt-48 pb-12 px-4 sm:px-10 bg-backgroundColor">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="border-b border-borderColor pb-12 mb-0">
+          <span className="section-number">{t('artists.title')}</span>
+          <h1 className="text-6xl md:text-8xl serif font-light leading-tight">
+            {t('artists.hero.headingMain')}{' '}
+            <span className="italic text-gold-accent">
+              {t('artists.hero.headingAccent')}
+            </span>
+          </h1>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-6 max-w-xl leading-relaxed bricolage-grotesque">
+            {t('artists.hero.descriptor')}
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }

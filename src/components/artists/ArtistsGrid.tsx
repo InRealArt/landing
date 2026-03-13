@@ -5,8 +5,6 @@ import { useArtistStore } from '@/store/useArtistStore'
 import { useLanguageStore } from '@/store/languageStore'
 import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
-import Button from '@/components/common/Button'
-import { Calendar } from 'lucide-react'
 import { EXTERNAL_URLS } from '@/constants/constants'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
@@ -14,25 +12,26 @@ const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 export function ArtistsGridSkeleton() {
   const skeletons = Array.from({ length: PAGE_SIZE })
   return (
-    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="flex items-center justify-between mb-6">
-        <div className="h-9 w-40 rounded-full bg-backgroundColor/10 animate-pulse" />
-        <div className="h-5 w-32 rounded bg-backgroundColor/10 animate-pulse" />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {skeletons.map((_, i) => (
-          <div key={i} className="rounded-xl overflow-hidden bg-cardBackground border border-white/10">
-            <div className="h-52 md:h-64 w-full bg-backgroundColor/10 animate-pulse" />
-            <div className="p-4 space-y-2">
-              <div className="h-3 w-20 bg-backgroundColor/10 rounded animate-pulse" />
-              <div className="h-4 w-3/4 bg-backgroundColor/10 rounded animate-pulse" />
-              <div className="h-3 w-1/2 bg-backgroundColor/10 rounded animate-pulse" />
-              <div className="pt-2">
-                <div className="h-7 w-24 bg-backgroundColor/10 rounded-full animate-pulse" />
+    <section className="py-32 px-4 sm:px-10 bg-backgroundColor">
+      <div className="max-w-screen-xl mx-auto">
+        {/* Filter bar skeleton */}
+        <div className="flex items-end justify-between pb-6 mb-16 border-b border-borderColor">
+          <div className="h-4 w-32 bg-textColor/10 animate-pulse" />
+          <div className="h-3 w-24 bg-textColor/10 animate-pulse" />
+        </div>
+
+        {/* Grid skeleton — aspect-[3/4] cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+          {skeletons.map((_, i) => (
+            <div key={i}>
+              <div className="aspect-[3/4] w-full bg-textColor/10 animate-pulse mb-6" />
+              <div className="space-y-2 text-center">
+                <div className="h-3 w-3/4 mx-auto bg-textColor/10 animate-pulse" />
+                <div className="h-3 w-1/2 mx-auto bg-textColor/10 animate-pulse" />
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -45,30 +44,24 @@ export default function ArtistsGrid() {
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),
     nationality: parseAsString.withDefault(''),
-    q: parseAsString.withDefault('')
+    q: parseAsString.withDefault(''),
   })
 
-  // Les artistes sont chargés par la page parente
-
   const filtered = useMemo(() => {
-    // Filtre nationalité
     const byNation = params.nationality
       ? artists.filter(a => {
-        const code = params.nationality.toUpperCase()
-        return (
-          (a.countryCode || '').toUpperCase() === code ||
-          (a.countryName || '').toLowerCase() === params.nationality.toLowerCase()
-        )
-      })
+          const code = params.nationality.toUpperCase()
+          return (
+            (a.countryCode || '').toUpperCase() === code ||
+            (a.countryName || '').toLowerCase() === params.nationality.toLowerCase()
+          )
+        })
       : artists
 
-    // Filtre par nom (insensible à la casse)
     const query = params.q.trim().toLowerCase()
-    const byName = query
+    return query
       ? byNation.filter(a => a.name.toLowerCase().includes(query))
       : byNation
-
-    return byName
   }, [artists, params.nationality, params.q])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
@@ -88,7 +81,6 @@ export default function ArtistsGrid() {
     return Array.from(set, ([code, label]) => ({ code, label }))
   }, [artists])
 
-  // Dropdown état & gestion clic extérieur
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -111,131 +103,182 @@ export default function ArtistsGrid() {
   if (isLoading) return <ArtistsGridSkeleton />
 
   return (
-    <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="space-y-4 mb-6">
-        {/* Top row: Filter button and results count */}
-        <div className="flex items-center justify-between w-full">
-          <div ref={dropdownRef} className="relative inline-block">
-            <button
-              type="button"
-              onClick={() => setIsOpen(o => !o)}
-              className="inline-flex items-center gap-2 rounded-full bg-cardBackground text-textColor px-4 py-2 shadow-md hover:shadow-lg border border-borderColor transition-all duration-200 bricolage-grotesque font-medium text-sm"
-            >
-              <span className="truncate max-w-[140px] sm:max-w-none">{t('artists.nationality')}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 flex-shrink-0" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+    <section className="py-32 px-4 sm:px-10 bg-backgroundColor">
+      <div className="max-w-screen-xl mx-auto">
 
-            {isOpen && (
-              <div className="absolute z-20 mt-2 w-48 sm:w-56 rounded-2xl bg-cardBackground p-2 shadow-xl ring-1 ring-borderColor border border-borderColor left-0 sm:right-auto">
-                <button
-                  className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium text-sm ${params.nationality === ''
-                      ? 'bg-purpleColor/20 text-purpleColor'
-                      : 'text-textColor hover:bg-backgroundGrey'
+        {/* ── Controls bar ── */}
+        <div className="border-b border-borderColor pb-6 mb-16 flex flex-col sm:flex-row sm:items-end gap-6">
+
+          {/* Left cluster: filter + search */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:items-end flex-1">
+
+            {/* Nationality filter — borderless dropdown trigger */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setIsOpen(o => !o)}
+                aria-haspopup="listbox"
+                aria-expanded={isOpen}
+                className="inline-flex items-center gap-2 pb-1.5 border-b border-textColor/30 hover:border-textColor text-textColor transition-colors duration-200 montserrat text-[10px] uppercase tracking-[0.25em] focus:outline-none"
+              >
+                <span className="truncate max-w-[140px] sm:max-w-none">
+                  {params.nationality
+                    ? nationalities.find(n => n.code === params.nationality.toUpperCase())?.label ?? params.nationality
+                    : t('artists.nationality')}
+                </span>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 transition-transform duration-200"
+                  style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                >
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              {isOpen && (
+                <div
+                  role="listbox"
+                  className="absolute z-20 top-full mt-2 w-52 bg-cardBackground border border-borderColor shadow-xl py-2"
+                >
+                  <button
+                    role="option"
+                    aria-selected={params.nationality === ''}
+                    className={`w-full text-left px-4 py-2 montserrat text-[10px] uppercase tracking-[0.2em] transition-colors duration-150 ${
+                      params.nationality === ''
+                        ? 'text-gold-accent'
+                        : 'text-textColor hover:text-gold-accent'
                     }`}
-                  onClick={() => { setParams({ nationality: '', page: 1 }); setIsOpen(false) }}
-                >{t('artists.all')}</button>
-                <div className="max-h-48 sm:max-h-64 overflow-y-auto">
-                  {nationalities.map(n => (
-                    <button
-                      key={n.code}
-                      className={`w-full text-left px-3 py-2 rounded-lg transition-colors duration-200 bricolage-grotesque font-medium text-sm ${params.nationality.toUpperCase() === n.code
-                          ? 'bg-purpleColor/20 text-purpleColor'
-                          : 'text-textColor hover:bg-backgroundGrey'
+                    onClick={() => { setParams({ nationality: '', page: 1 }); setIsOpen(false) }}
+                  >
+                    {t('artists.all')}
+                  </button>
+                  <div className="max-h-56 overflow-y-auto">
+                    {nationalities.map(n => (
+                      <button
+                        key={n.code}
+                        role="option"
+                        aria-selected={params.nationality.toUpperCase() === n.code}
+                        className={`w-full text-left px-4 py-2 montserrat text-[10px] uppercase tracking-[0.2em] transition-colors duration-150 ${
+                          params.nationality.toUpperCase() === n.code
+                            ? 'text-gold-accent'
+                            : 'text-textColor hover:text-gold-accent'
                         }`}
-                      onClick={() => { setParams({ nationality: n.code, page: 1 }); setIsOpen(false) }}
-                    >{n.label}</button>
-                  ))}
+                        onClick={() => { setParams({ nationality: n.code, page: 1 }); setIsOpen(false) }}
+                      >
+                        {n.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-
-          <div className="text-grayText text-sm bricolage-grotesque font-medium">
-            {filtered.length} {t('artists.artistsFound')}
-          </div>
-        </div>
-
-        {/* Bottom row: Search bar */}
-        <div className="w-full">
-          <div className="inline-flex items-center gap-3 rounded-full bg-cardBackground text-textColor px-4 py-2 shadow-md border border-borderColor focus-within:ring-2 focus-within:ring-purpleColor focus-within:border-transparent transition-all duration-200 w-full max-w-md">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-grayText flex-shrink-0">
-              <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            <input
-              value={params.q}
-              onChange={e => setParams({ q: e.target.value, page: 1 })}
-              placeholder={t('artists.searchPlaceholder')}
-              className="bg-transparent outline-none text-sm placeholder-grayText text-textColor bricolage-grotesque font-medium flex-1 min-w-0"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {current.map(a => (
-          <ArtistCard
-            key={a.slug}
-            name={a.name}
-            role={a.role}
-            countryName={a.countryName}
-            imageUrl={a.photo}
-            slug={a.slug}
-            mediumTags={a.mediumTags}
-            showFollowButton={false}
-          />
-        ))}
-
-        {/* Carte "Vous ?" - seulement sur la première page */}
-        {page === 1 && (
-          <div className="rounded-xl overflow-hidden bg-cardBackground border border-white/10 hover:border-purpleColor/30 transition-all duration-300 group">
-            <div className="h-52 md:h-64 w-full bg-gradient-to-br from-purpleColor/10 to-purpleColor/5 flex items-center justify-center">
-              <div className="text-center p-6">
-                <div className="text-6xl md:text-7xl font-bold text-white mb-2 bricolage-grotesque">
-                  +
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-textColor mb-2 bricolage-grotesque">
-                  {t('artists.joinCard.title')}
-                </h3>
-                {/* <div className="w-16 h-16 mx-auto mb-4 bg-purpleColor/20 rounded-full flex items-center justify-center group-hover:bg-purpleColor/30 transition-colors duration-300">
-                  <Calendar className="w-8 h-8 text-purpleColor" />
-                </div> */}
-              </div>
+              )}
             </div>
-            <div className="p-4">
-              <Button
-                text={t('artists.joinCard.cta')}
-                link={EXTERNAL_URLS.CALENDLY_MEETING}
-                target="_blank"
-                additionalClassName="bg-purpleColor text-white w-full justify-center hover:bg-purpleColor/90 transition-colors duration-200"
-                icon={<Calendar className="w-4 h-4" />}
-                iconBefore
-                data-umami-event="calendly-artists-grid-click"
+
+            {/* Search bar — border-bottom style */}
+            <div className="relative flex items-center gap-2 pb-1.5 border-b border-textColor/30 focus-within:border-textColor transition-colors duration-200 flex-1 max-w-xs">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-grayText flex-shrink-0"
+              >
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+              </svg>
+              <input
+                value={params.q}
+                onChange={e => setParams({ q: e.target.value, page: 1 })}
+                placeholder={t('artists.searchPlaceholder')}
+                className="bg-transparent outline-none montserrat text-[10px] uppercase tracking-[0.2em] placeholder-grayText text-textColor flex-1 min-w-0"
               />
             </div>
           </div>
+
+          {/* Right: results count */}
+          <p className="section-number !mb-0 text-right shrink-0">
+            {filtered.length} {t('artists.artistsFound')}
+          </p>
+        </div>
+
+        {/* ── Artists grid ── */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+          {current.map(a => (
+            <ArtistCard
+              key={a.slug}
+              name={a.name}
+              role={a.role}
+              countryName={a.countryName}
+              imageUrl={a.photo}
+              slug={a.slug}
+              mediumTags={a.mediumTags}
+              showFollowButton={false}
+            />
+          ))}
+
+          {/* "Vous ?" join card — first page only */}
+          {page === 1 && (
+            <div className="group cursor-pointer">
+              <a
+                href={EXTERNAL_URLS.CALENDLY_MEETING}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="calendly-artists-grid-click"
+                className="block"
+              >
+                {/* Same aspect ratio as artist portraits */}
+                <div className="aspect-[3/4] overflow-hidden mb-6 border border-borderColor bg-backgroundGrey flex flex-col items-center justify-center gap-4 transition-colors duration-500 group-hover:border-gold-accent/50">
+                  <span className="text-6xl serif italic text-gold-accent font-light leading-none select-none">
+                    +
+                  </span>
+                  <h3 className="text-2xl serif italic font-light text-textColor text-center px-4">
+                    {t('artists.joinCard.title')}
+                  </h3>
+                </div>
+                <div className="text-center">
+                  <p className="text-[10px] text-grayText uppercase tracking-widest bricolage-grotesque">
+                    {t('artists.joinCard.description')}
+                  </p>
+                  <span className="btn-cta !mt-4">
+                    {t('artists.joinCard.cta')}
+                  </span>
+                </div>
+              </a>
+            </div>
+          )}
+        </div>
+
+        {/* ── Pagination ── */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-8 mt-24">
+            <button
+              disabled={page === 1}
+              onClick={() => setParams({ page: page - 1 })}
+              aria-label={t('artists.previous')}
+              className="montserrat text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-textColor/30 pb-1 hover:border-textColor transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              {t('artists.previous')}
+            </button>
+
+            <span className="section-number !mb-0">
+              {t('artists.page')} {page} / {totalPages}
+            </span>
+
+            <button
+              disabled={page === totalPages}
+              onClick={() => setParams({ page: page + 1 })}
+              aria-label={t('artists.next')}
+              className="montserrat text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-textColor/30 pb-1 hover:border-textColor transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              {t('artists.next')}
+            </button>
+          </div>
         )}
       </div>
-
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <button
-            disabled={page === 1}
-            onClick={() => setParams({ page: page - 1 })}
-            className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 disabled:opacity-40 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-colors duration-200 bricolage-grotesque font-medium"
-          >{t('artists.previous')}</button>
-          <div className="text-gray-600 dark:text-gray-400 px-4 bricolage-grotesque font-medium">{t('artists.page')} {page} / {totalPages}</div>
-          <button
-            disabled={page === totalPages}
-            onClick={() => setParams({ page: page + 1 })}
-            className="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 disabled:opacity-40 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition-colors duration-200 bricolage-grotesque font-medium"
-          >{t('artists.next')}</button>
-        </div>
-      )}
     </section>
   )
 }
-
-

@@ -82,7 +82,7 @@ const Footer = () => {
           
           {/* Column 1: About */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.about')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.about')}</h5>
             <Link href="/about" className="footer-link">{t('nav.aboutInRealArt')}</Link>
             <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
             <Link href="/team" className="footer-link">{t('nav.team')}</Link>
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Column 2: Marketplace */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.marketplace')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.marketplace')}</h5>
             <Link href="/presale" className="footer-link font-semibold text-ink-black">{t('nav.artworks')}</Link>
             <Link href="/artists" className="footer-link">{t('nav.artists')}</Link>
             <Link href="/marketplace" className="footer-link">{t('nav.marketplace')}</Link>
@@ -101,7 +101,7 @@ const Footer = () => {
 
           {/* Column 3: Expertise */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.expertise')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.expertise')}</h5>
             <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* Column 4: Simulators */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.simulators')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.simulators')}</h5>
             {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
               <Link key={slug} href={`/art-salon-simulator/${slug}`} className="footer-link">
                 {salon.name}
@@ -122,7 +122,7 @@ const Footer = () => {
 
           {/* Column 5: Artists */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black">{t('footer.residents')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.residents')}</h5>
             <div className="h-48 overflow-y-auto pr-2 custom-scrollbar">
               {atelierLinks.map((link) => (
                 <a

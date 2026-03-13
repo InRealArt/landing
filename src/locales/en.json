@@ -59,13 +59,12 @@
     "expertise": "Expertises",
     "simulators": "Simulators",
     "residents": "Resident Artists",
-    "viewAllSimulators": "View all simulators →",
+    "viewAllSimulators": "View all simulators",
     "leasing": "Corporate leasing",
     "professionalsAndCompanies": "For professionals and companies",
     "loaSimulator": "LOA Simulator",
     "heritageArtSimulator": "Heritage & Art Simulator",
     "artSalonSimulator": "Salon Fee Simulator",
-    "viewAllSimulators": "View all simulators",
     "newsletter": {
       "subscribe": "Subscribe to our newsletter",
       "success": {
@@ -210,7 +209,10 @@
     "title": "Our artists",
     "hero": {
       "title": "Artists, the epicenter of InRealArt",
-      "subtitle": "Here, each artist embodies the vibrant heart of IRA. Global presence, creative audacity, assumed excellence. <br>A premium selection, thought as a trust link. The work does not exist alone: it lives in a rare ecosystem, where each detail counts, each look is welcomed. <br>Entering here, it is touching contemporary art in its most intimate truth."
+      "subtitle": "Here, each artist embodies the vibrant heart of IRA. Global presence, creative audacity, assumed excellence. <br>A premium selection, thought as a trust link. The work does not exist alone: it lives in a rare ecosystem, where each detail counts, each look is welcomed. <br>Entering here, it is touching contemporary art in its most intimate truth.",
+      "headingMain": "Selected",
+      "headingAccent": "Artists",
+      "descriptor": "A rigorous selection of contemporary artists — global presence, creative boldness, uncompromising excellence."
     },
     "faq": {
       "title": "Frequently Asked Questions about our artists",
@@ -264,7 +266,6 @@
       "description": "Are you an artist, collector, entrepreneur or institution? Our FAQ answers all your questions and helps you better understand our project and what our marketplace can bring you.",
       "button": "View FAQ"
     },
-
     "howItWorks": {
       "title": "How does it work?",
       "subtitle": "",
