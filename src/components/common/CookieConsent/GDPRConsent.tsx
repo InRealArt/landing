@@ -402,7 +402,7 @@ const GDPRConsentBanner = () => {
                   </p>
                   {!state.preferences.analytics && (
                     <div className="text-[12px] text-gray-400 italic serif">
-                      Statistiques anonymes, pas d'amélioration personnalisée
+                      Statistiques anonymes, pas d&quot;amélioration personnalisée
                     </div>
                   )}
                 </div>
