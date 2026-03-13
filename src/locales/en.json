@@ -54,7 +54,12 @@
     "resources": "Art Knowledge & Practices",
     "aboutInRealArt": "About InRealArt",
     "contact": "Contact",
-    "simulators": "Trade shows",
+    "about": "InRealArt",
+    "marketplace": "Marketplace",
+    "expertise": "Expertises",
+    "simulators": "Simulators",
+    "residents": "Resident Artists",
+    "viewAllSimulators": "View all simulators →",
     "leasing": "Corporate leasing",
     "professionalsAndCompanies": "For professionals and companies",
     "loaSimulator": "LOA Simulator",
@@ -278,10 +283,36 @@
         }
       }
     },
+    "expertises": {
+      "eyebrow": "Expertises",
+      "title": "Augmented",
+      "titleAccent": "Curation.",
+      "items": {
+        "edition": {
+          "subtitle": "IRA Edition",
+          "title": "Media & Agency",
+          "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
+          "cta": "Join us"
+        },
+        "selection": {
+          "subtitle": "IRA Selection",
+          "title": "Premium Marketplace",
+          "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
+          "cta": "Why not you?"
+        },
+        "placement": {
+          "subtitle": "IRA Placement",
+          "title": "Art & Finance",
+          "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
+          "cta": "Our simulators"
+        }
+      }
+    },
     "team": {
       "title": "Discover the team members",
-      "heading": "Discover the ",
-      "headingHighlight": "team members"
+      "heading": "Our ",
+      "headingHighlight": "Team",
+      "subtitle": "The talents who embody the InRealArt vision."
     },
     "explore": {
       "title": "InRealArt for artists",
@@ -394,6 +425,31 @@
           "number": "03",
           "title": "Secure Tokenization",
           "description": "Because collecting is also investing, InRealArt facilitates access to different funding modes: direct purchase, installment payment, leasing or patronage. In parallel, we explore emerging technologies that will transform tomorrow's way of buying, sharing and transmitting art. Our ambition: offer flexible, durable and adapted solutions to the needs of collectors today as well as future generations."
+        }
+      }
+    },
+    "expertises": {
+      "eyebrow": "Expertises",
+      "title": "Augmented",
+      "titleAccent": "Curation.",
+      "items": {
+        "edition": {
+          "subtitle": "IRA Edition",
+          "title": "Media & Agency",
+          "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
+          "cta": "Join us"
+        },
+        "selection": {
+          "subtitle": "IRA Selection",
+          "title": "Premium Marketplace",
+          "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
+          "cta": "Why not you?"
+        },
+        "placement": {
+          "subtitle": "IRA Placement",
+          "title": "Art & Finance",
+          "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
+          "cta": "Our simulators"
         }
       }
     },
@@ -2138,13 +2194,16 @@
   },
   "newsletter": {
     "modal": {
-      "title": "Subscribe!",
+      "eyebrow": "The Letter",
+      "title": "Art at the heart of",
+      "titleAccent": "your everyday.",
       "subtitle": "We only talk about subjects that matter to you",
       "description": "Artist portraits, techniques, professional equipment and materials, art markets, etc...",
       "emailPlaceholder": "artistname@email.com",
       "subscribeButton": "I want to take advantage now",
       "subscribing": "Subscribing...",
       "notInterested": "I am not an art professional and therefore not interested",
+      "close": "Close",
       "emailRequired": "Please enter your email address",
       "emailInvalid": "Please enter a valid email address",
       "successMessage": "Thank you! You are now subscribed to our newsletter",

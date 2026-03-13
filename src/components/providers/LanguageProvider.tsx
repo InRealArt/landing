@@ -8,33 +8,30 @@ interface LanguageProviderProps {
 }
 
 export default function LanguageProvider({ children }: LanguageProviderProps) {
-  const { language, setLanguage } = useLanguageStore()
   const [isHydrated, setIsHydrated] = useState(false)
 
-  // Gérer l'hydration côté client
   useEffect(() => {
-    // Récupérer la langue depuis localStorage si disponible
-    const storedLanguage = localStorage.getItem('language-storage')
-    if (storedLanguage) {
-      try {
-        const parsedState = JSON.parse(storedLanguage)
-        if (parsedState.state && parsedState.state.language) {
-          setLanguage(parsedState.state.language)
-        }
-      } catch (e) {
-        console.error('Erreur lors de la récupération de la langue:', e)
-      }
-    }
-    
+    // Use Zustand's built-in rehydration instead of manual localStorage parsing.
+    // The store uses skipHydration: true, so this is the correct trigger point.
+    // Calling rehydrate() here (post-commit, inside useEffect) means React has
+    // already finished its initial render pass — no hydration mismatch.
+    useLanguageStore.persist.rehydrate()
     setIsHydrated(true)
-  }, [setLanguage])
+  }, [])
 
-  // Mettre à jour l'attribut lang de la balise html quand la langue change
   useEffect(() => {
-    if (document && isHydrated) {
-      document.documentElement.lang = language
-    }
-  }, [language, isHydrated])
+    if (!isHydrated) return
+
+    // Read language directly without subscribing the provider component to the
+    // store — this avoids unnecessary re-renders of LanguageProvider itself.
+    document.documentElement.lang = useLanguageStore.getState().language
+
+    // Keep the attribute in sync with future language changes.
+    const unsub = useLanguageStore.subscribe((state) => {
+      document.documentElement.lang = state.language
+    })
+    return unsub
+  }, [isHydrated])
 
   return <>{children}</>
 } 

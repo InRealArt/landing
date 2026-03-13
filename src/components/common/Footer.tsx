@@ -117,7 +117,7 @@ const Footer = () => {
             ))}
             <Link href="/loa-simulator" className="footer-link">{t('footer.loaSimulator')}</Link>
             <Link href="/heritage-art-simulator" className="footer-link">{t('footer.heritageArtSimulator')}</Link>
-            <Link href="/simulators" className="footer-link font-bold text-ink-black mt-2 italic">Voir tous les simulateurs →</Link>
+            <Link href="/simulators" className="footer-link font-bold text-ink-black mt-2 italic">{t('footer.viewAllSimulators')}</Link>
           </div>
 
           {/* Column 5: Artists */}

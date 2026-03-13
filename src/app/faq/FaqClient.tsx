@@ -41,7 +41,7 @@ export default function FaqClient() {
         <p className="section-number mb-6">
           {t('faq.page.title')}
         </p>
-        <h1 className="serif text-6xl md:text-8xl leading-none tracking-tight text-ink-black mb-10">
+        <h1 className="serif text-4xl md:text-5xl leading-none tracking-tight text-ink-black mb-10">
           Questions{' '}
           <em className="italic text-gold-accent not-italic">fréquentes</em>
         </h1>

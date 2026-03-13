@@ -48,7 +48,7 @@ export default function MediaPartners() {
   return (
     <section className="mt-12">
       <div className="text-center mb-8">
-        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4" suppressHydrationWarning>
           {t('home.mediaPartners.title')}
         </h2>
         {/* <p className="text-grayText text-lg">
@@ -62,7 +62,7 @@ export default function MediaPartners() {
             key={partner.name}
             className="p-4 border border-borderColor rounded-lg bg-cardBackground min-w-[160px] md:min-w-[200px] lg:min-w-[250px] flex-shrink-0 flex flex-col items-center justify-center"
           >
-            <div className="relative h-24 md:h-28 w-full rounded-lg overflow-hidden mb-4 bg-white flex items-center justify-center">
+            <div className="relative h-24 md:h-28 w-full rounded-lg overflow-hidden mb-4 bg-cardBackground flex items-center justify-center">
               <Image
                 src={partner.src}
                 alt={partner.alt}

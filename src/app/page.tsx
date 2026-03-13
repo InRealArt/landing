@@ -11,6 +11,9 @@ import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJson
 const HowItWorks = dynamic(() => import("@/components/home/HowItWorks"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
+const Expertises = dynamic(() => import("@/components/home/Expertises"), {
+  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+})
 const Explore = dynamic(() => import("@/components/home/Explore"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
@@ -62,6 +65,7 @@ export default function Home() {
       <Intro />
       <Statistics />
       <HowItWorks />
+      <Expertises />
       <Explore />
       <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider isGallery={false} />

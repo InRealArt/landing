@@ -52,7 +52,7 @@ const Button = ({
 
   const className = useCta
     ? `btn-cta ${extraClasses}`.trim()
-    : `${extraClasses} ${center ? 'justify-center' : ''} inline-flex border bg-backgroundColor p-4 gap-4 rounded-xl items-center`.trim();
+    : `${extraClasses} ${center ? 'justify-center' : ''} inline-flex border border-borderColor bg-backgroundColor p-4 gap-4 rounded-xl items-center`.trim();
 
   const textClassName = useCta
     ? 'text-[0.6rem] uppercase tracking-[0.25em]'
@@ -62,7 +62,7 @@ const Button = ({
     return (
       <Link className={className} href={link} onClick={action} download={download} target={target} {...rest}>
         {iconBefore && icon}
-        <span className={textClassName}>{text}</span>
+        <span className={textClassName} suppressHydrationWarning>{text}</span>
         {!iconBefore && icon}
       </Link>
     );
@@ -76,7 +76,7 @@ const Button = ({
       {...rest}
     >
       {iconBefore && icon}
-      <span className={textClassName}>{text}</span>
+      <span className={textClassName} suppressHydrationWarning>{text}</span>
       {!iconBefore && icon}
     </button>
   );

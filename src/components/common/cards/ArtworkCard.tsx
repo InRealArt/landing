@@ -31,8 +31,7 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
           />
         </div>
         <div className="text-center">
-          <h4 className="text-sm uppercase tracking-[0.3em] font-medium text-ink-black">{name}</h4>
-          <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 italic serif">Artiste Résident</p>
+          <h4 className="text-sm uppercase tracking-[0.3em] font-medium text-textColor">{name}</h4>
         </div>
       </Link>
     );
@@ -61,7 +60,7 @@ const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
         </div>
       </div>
       <div className="flex flex-col space-y-1">
-        <p className="mt-4 text-[11px] font-medium text-ink-black overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
+        <h3 className="serif text-2xl italic text-textColor overflow-hidden text-ellipsis">{name}</h3>
       </div>
     </Link>
   );

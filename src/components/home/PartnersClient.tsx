@@ -26,13 +26,13 @@ export default function PartnersClient({ partners }: PartnersClientProps) {
 
   if (partners.length === 0) {
     return (
-      <section className="mt-12">
+      <section className="mt-12 py-12 px-4">
         <div className="text-center">
-          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4">
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4" suppressHydrationWarning>
             {t('home.partners.title')}
           </h2>
           <div className="flex justify-center items-center p-8">
-            <p className="text-grayText">{t('home.partners.noPartners')}</p>
+            <p className="text-grayText" suppressHydrationWarning>{t('home.partners.noPartners')}</p>
           </div>
         </div>
       </section>
@@ -40,12 +40,12 @@ export default function PartnersClient({ partners }: PartnersClientProps) {
   }
 
   return (
-    <section className="mt-12">
+    <section className="mt-12 py-12 px-4">
       <div className="text-center mb-8">
-        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4">
+        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor mb-4" suppressHydrationWarning>
           {t('home.partners.title')}
         </h2>
-        <p className="text-grayText text-lg">
+        <p className="text-grayText text-lg" suppressHydrationWarning>
           {t('home.partners.description')}
         </p>
       </div>
@@ -55,7 +55,7 @@ export default function PartnersClient({ partners }: PartnersClientProps) {
           <div
             key={partner.id}
             onClick={() => handlePartnerClick(partner.slug)}
-            className="group cursor-pointer p-4 border rounded-lg bg-cardBackground min-w-[160px] md:min-w-[200px] lg:min-w-[250px] flex-shrink-0 hover:bg-cardBackground/80 transition-colors duration-300"
+            className="group cursor-pointer p-4 border rounded-lg bg-cardBackground border-borderColor min-w-[160px] md:min-w-[200px] lg:min-w-[250px] flex-shrink-0 hover:opacity-80 transition-opacity duration-300"
           >
             <div className="relative h-32 md:h-40 w-full rounded-lg overflow-hidden mb-4">
               <Image

@@ -136,8 +136,7 @@ const Statistics = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#f9f9f9] dark:bg-[#131313] py-24 lg:py-36"
-      style={{ borderTop: '1px solid', borderColor: 'var(--border-color, #eeeeee)' }}
+      className="w-full bg-backgroundGrey py-24 lg:py-36 border-t border-borderColor"
     >
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
 
@@ -145,11 +144,11 @@ const Statistics = () => {
         <div ref={headerRef} className="grid lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
           <div className="lg:col-span-7">
             {/* Eyebrow */}
-            <span className="header-reveal block text-[0.6rem] uppercase tracking-[0.5em] text-gray-400 dark:text-gray-500 mb-6 opacity-0">
+            <span className="header-reveal block text-[0.6rem] uppercase tracking-[0.5em] text-grayText mb-6 opacity-0" suppressHydrationWarning>
               {t('home.statistics.description')}
             </span>
             {/* Title */}
-            <h2 className="header-reveal bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-textColor opacity-0">
+            <h2 className="header-reveal bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-textColor opacity-0" suppressHydrationWarning>
               {t('home.statistics.title')}
             </h2>
           </div>
@@ -160,26 +159,27 @@ const Statistics = () => {
           {stats.map((stat) => (
             <div
               key={stat.key}
-              className="stat-card group border-t border-gray-200 dark:border-white/10 pt-10 pb-10 md:pb-12 md:pr-12 opacity-0"
+              className="stat-card group border-t border-borderColor pt-10 pb-10 md:pb-12 md:pr-12 opacity-0"
             >
               {/* Sequential index — gold, large, italic */}
-              <span className="bricolage-grotesque text-4xl italic font-light text-[#b89c72] mb-8 block leading-none">
+              <span className="bricolage-grotesque text-4xl italic font-light text-gold-accent mb-8 block leading-none">
                 {stat.index}
               </span>
 
               {/* Stat number — editorial scale, gold, light weight */}
               <p
-                className="stat-number bricolage-grotesque text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-none text-[#b89c72] mb-6"
+                className="stat-number bricolage-grotesque text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-none text-gold-accent mb-6"
                 data-raw={stat.number}
+                suppressHydrationWarning
               >
                 {stat.number}
               </p>
 
               {/* Gold rule — expands on hover */}
-              <div className="stat-rule w-8 h-px bg-[#b89c72] mb-5 transition-all duration-500 ease-out group-hover:w-16" />
+              <div className="stat-rule w-8 h-px bg-gold-accent mb-5 transition-all duration-500 ease-out group-hover:w-16" />
 
               {/* Label — small uppercase tracking */}
-              <p className="text-[11px] uppercase tracking-[0.4em] text-gray-500 dark:text-gray-400 leading-relaxed max-w-full">
+              <p className="text-[11px] uppercase tracking-[0.4em] text-grayText leading-relaxed max-w-full" suppressHydrationWarning>
                 {stat.label}
               </p>
             </div>

@@ -20,35 +20,35 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full h-16 md:h-headerSize bg-canvas-white/95 backdrop-blur-md fixed top-0 z-50 border-b border-border-light">
+    <header className="w-full h-16 md:h-headerSize bg-backgroundColor/95 backdrop-blur-md fixed top-0 z-50 border-b border-borderColor">
       <div className='flex gap-20 mx-auto items-center justify-between max-w-screen-2xl w-full px-10 h-full'>
-        <Link href="/" className="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer text-ink-black">
+        <Link href="/" className="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer text-textColor">
           InRealArt
         </Link>
         
         <ul className="flex items-center gap-8 hidden xl:flex">
           <li className="whitespace-nowrap">
-            <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+            <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
               {t('nav.artists')}
             </Link>
           </li>
           <li className="whitespace-nowrap">
-            <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+            <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
               {t('nav.artworks')}
             </Link>
           </li>
           <li className="whitespace-nowrap">
-            <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+            <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
               {t('nav.usecase')}
             </Link>
           </li>
           <li className="whitespace-nowrap">
-            <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+            <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
               Blog
             </Link>
           </li>
           <li className="whitespace-nowrap">
-            <Link href="/about" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-ink-black">
+            <Link href="/about" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
               {t('nav.aboutInRealArt')}
             </Link>
           </li>

@@ -104,29 +104,29 @@ export default function HowItWorks() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
+    <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36 mb-40">
       <div ref={headerRef}>
-        <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-center opacity-0">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-center opacity-0" suppressHydrationWarning>
           {t('home.howItWorks.title')}
         </h2>
-        <label className="mt-4 block text-center opacity-0">
+        <p className="mt-4 text-center opacity-0" suppressHydrationWarning>
           {t('home.howItWorks.subtitle')}
-        </label>
+        </p>
       </div>
       <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10" style={{ perspective: '1000px' }}>
         {items.map((item, index) => (
           <div
             key={index}
-            className="hiw-card relative p-4 lg:p-8 border rounded-lg bg-cardBackground flex flex-col overflow-hidden opacity-0"
+            className="hiw-card relative p-4 lg:p-8 border border-borderColor rounded-lg bg-cardBackground flex flex-col overflow-hidden opacity-0"
           >
             {/* Big step number in background */}
             <span className="hiw-step absolute -bottom-4 -right-2 text-[120px] font-bold unbounded leading-none select-none pointer-events-none opacity-0">
               {item.step}
             </span>
-            <h3 className="text-2xl lg:text-3xl unbounded overflow-hidden text-ellipsis relative z-10">
+            <h3 className="text-2xl lg:text-3xl unbounded overflow-hidden text-ellipsis relative z-10" suppressHydrationWarning>
               {item.name}
             </h3>
-            <label className="my-4 block relative z-10">{item.description}</label>
+            <p className="my-4 relative z-10" suppressHydrationWarning>{item.description}</p>
           </div>
         ))}
       </div>

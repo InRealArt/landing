@@ -59,7 +59,7 @@
   --gradient-from: #111827;
   --gradient-to: #1f2937;
   --gray-text: #9ca3af;
-  --background-grey: #111827;
+  --background-grey: #1a1a1a;
 }
 
 /* Classes de fonts - utilisation des variables CSS optimisées */
@@ -243,7 +243,130 @@ body {
   color: #b89c72;
 }
 
-/* InRealArt Gallery - Section Number */
+/* ─── Premium dark section — black in light mode, standard dark in dark mode ─── */
+/*
+ * Use .section-dark-premium on any section that should appear near-black in
+ * light mode but blend naturally with the standard dark background in dark mode.
+ * Child text helpers below handle colour overrides so CSS variable tokens that
+ * resolve to dark-on-dark in light mode are corrected.
+ */
+.section-dark-premium {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .section-dark-premium {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+/* Border that reads as white/10 on dark-premium sections in light mode.
+ * Works whether .section-dark-border is on the section-dark-premium element
+ * itself or on a descendant of it. */
+.section-dark-premium.section-dark-border,
+.section-dark-premium .section-dark-border {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .section-dark-premium.section-dark-border,
+[data-theme='dark'] .section-dark-premium .section-dark-border {
+  border-color: var(--border-color);
+}
+
+/* Text inside dark-premium: primary copy */
+.section-dark-premium .section-dark-text {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .section-dark-premium .section-dark-text {
+  color: var(--text);
+}
+
+/* Text inside dark-premium: muted/secondary copy */
+.section-dark-premium .section-dark-muted {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] .section-dark-premium .section-dark-muted {
+  color: var(--gray-text);
+}
+
+/* Card panels inside dark-premium sections */
+.section-dark-premium .section-dark-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .section-dark-premium .section-dark-card {
+  background-color: var(--card);
+  border-color: var(--border-color);
+}
+
+/* CTA button inside dark-premium sections — white border/fill */
+.section-dark-premium .btn-cta {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
+}
+
+.section-dark-premium .btn-cta:hover {
+  background-color: #ffffff;
+  color: #0f0f0f;
+}
+
+[data-theme='dark'] .section-dark-premium .btn-cta {
+  border-color: var(--ink-black);
+  color: var(--text);
+}
+
+[data-theme='dark'] .section-dark-premium .btn-cta:hover {
+  background-color: var(--ink-black);
+  color: #ffffff;
+}
+
+/* Input underline inside dark-premium */
+.section-dark-premium .section-dark-input-border {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .section-dark-premium .section-dark-input-border {
+  border-color: var(--border-color);
+}
+
+/* text-textColor and text-grayText inside dark-premium sections —
+ * In light mode these CSS-var tokens resolve to dark colours, which would be
+ * invisible on the near-black background. Override them to white/muted-white. */
+[data-theme='light'] .section-dark-premium .text-textColor {
+  color: #ffffff;
+}
+
+[data-theme='light'] .section-dark-premium .text-grayText {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Placeholder text inside inputs in dark-premium sections */
+[data-theme='light'] .section-dark-premium input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Card panels that fill flush with the dark-premium section background (no tint) */
+.section-dark-card-panel {
+  background-color: #0f0f0f;
+}
+
+[data-theme='dark'] .section-dark-card-panel {
+  background-color: var(--background);
+}
+
+/* Gap divider row between dark-premium cards — adapts to dark mode */
+.section-dark-premium .section-dark-gap-bg {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .section-dark-premium .section-dark-gap-bg {
+  background-color: var(--border-color);
+}
+
+/* ─── InRealArt Gallery - Section Number ─── */
 .section-number {
   font-size: 0.6rem;
   letter-spacing: 0.5em;

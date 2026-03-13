@@ -24,7 +24,7 @@ const Question = ({ question, answer }: QuestionProps) => {
   }
 
   return (
-    <div className="w-full py-6 pr-6 border-b flex flex-col cursor-pointer" onClick={toggleIsOpen}>
+    <div className="w-full py-6 pr-6 border-b border-borderColor flex flex-col cursor-pointer" onClick={toggleIsOpen}>
       <div className='flex justify-between items-center'>
         <h1 className="text-lg lg:text-xl unbounded">{question}</h1>
         <Plus className='shrink-0' />

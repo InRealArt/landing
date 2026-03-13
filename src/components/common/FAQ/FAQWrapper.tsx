@@ -10,25 +10,14 @@ interface FAQWrapperProps {
   description?: string
 }
 
-async function FAQContent({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) {
+export default async function FAQWrapper({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) {
   // faqs are already sorted by order ASC from the server action
   const faqs = await getFaqs()
 
   return (
-    <FAQClient
-      faqs={faqs}
-      titleKey={titleKey}
-      descriptionKey={descriptionKey}
-      titre={titre}
-      description={description}
-    />
-  )
-}
-
-export default function FAQWrapper({ titleKey, descriptionKey, titre, description }: FAQWrapperProps) {
-  return (
     <Suspense fallback={<FAQSkeleton />}>
-      <FAQContent
+      <FAQClient
+        faqs={faqs}
         titleKey={titleKey}
         descriptionKey={descriptionKey}
         titre={titre}

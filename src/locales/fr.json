@@ -54,7 +54,12 @@
     "resources": "Savoirs & Pratiques de l'Art",
     "aboutInRealArt": "À propos d'InRealArt",
     "contact": "Contact",
-    "simulators": "Salon professionnels",
+    "about": "InRealArt",
+    "marketplace": "Marketplace",
+    "expertise": "Expertises",
+    "simulators": "Simulateurs",
+    "residents": "Artistes Résidents",
+    "viewAllSimulators": "Voir tous les simulateurs →",
     "leasing": "Leasing d'entreprise",
     "professionalsAndCompanies": "Pour les professionnels et les entreprises",
     "loaSimulator": "Simulateur LOA",
@@ -277,10 +282,36 @@
         }
       }
     },
+    "expertises": {
+      "eyebrow": "Expertises",
+      "title": "Curation",
+      "titleAccent": "Augmentée.",
+      "items": {
+        "edition": {
+          "subtitle": "IRA Édition",
+          "title": "Média & Agence",
+          "description": "Accompagnement de trajectoires artistiques, ligne éditoriale forte et création de Kits Com premium pour propulser les créateurs sur la scène mondiale.",
+          "cta": "Nous rejoindre"
+        },
+        "selection": {
+          "subtitle": "IRA Sélection",
+          "title": "Marketplace Premium",
+          "description": "Une curation rigoureuse pour collectionneurs exigeants. Accédez à des œuvres sélectionnées pour leur potentiel esthétique et leur valeur patrimoniale.",
+          "cta": "Pourquoi pas vous ?"
+        },
+        "placement": {
+          "subtitle": "IRA Placement",
+          "title": "Art & Finance",
+          "description": "L'art comme outil stratégique. Solutions de leasing (LOA), optimisation fiscale et simulateurs de patrimoine pour les entreprises.",
+          "cta": "Nos simulateurs"
+        }
+      }
+    },
     "team": {
       "title": "Découvrez les membres de l'équipe",
-      "heading": "Découvrez les membres de ",
-      "headingHighlight": "l'équipe"
+      "heading": "Notre ",
+      "headingHighlight": "Équipe",
+      "subtitle": "Les talents qui incarnent la vision InRealArt."
     },
     "explore": {
       "title": "InRealArt pour les artistes",
@@ -1940,13 +1971,16 @@
   },
   "newsletter": {
     "modal": {
-      "title": "Abonnez-vous !",
+      "eyebrow": "La Lettre",
+      "title": "L'art au cœur de",
+      "titleAccent": "votre quotidien.",
       "subtitle": "Nous parlons uniquement des sujets qui vous tiennent à cœur",
       "description": "Portrait d'artistes, techniques, matériel et équipement professionnel, marchés de l'art etc...",
       "emailPlaceholder": "nomdelartiste@email.com",
       "subscribeButton": "J'en profite dès maintenant",
       "subscribing": "Abonnement en cours...",
       "notInterested": "Je ne suis pas un(e) professionnel(le) de l'art et ne suis donc pas intéressé(e)",
+      "close": "Fermer",
       "emailRequired": "Veuillez saisir votre adresse email",
       "emailInvalid": "Veuillez saisir une adresse email valide",
       "successMessage": "Merci ! Vous êtes maintenant abonné(e) à notre newsletter",

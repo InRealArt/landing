@@ -29,13 +29,14 @@ const Intro = () => {
       <div className="max-w-screen-2xl m-auto flex flex-col items-center text-center pt-48 pb-12 w-full">
         {/* Title Section - Gallery Style */}
         <div className="flex-1 w-full max-w-4xl">
-          <span className="section-number text-white/70">{t('home.intro.subtitle')}</span>
+          <span className="section-number text-white/70" suppressHydrationWarning>{t('home.intro.subtitle')}</span>
           <h1
             className="text-white text-4xl xs:text-5xl sm:text-6xl md:text-8xl serif italic mb-8 leading-tight animate-fade-up break-words"
+            suppressHydrationWarning
           >
             {t('home.intro.title')}
           </h1>
-          <p className="text-white/80 text-[11px] uppercase tracking-[0.3em] mt-6 max-w-xl leading-relaxed mx-auto animate-fade-up-delay">
+          <p className="text-white/80 text-[11px] uppercase tracking-[0.3em] mt-6 max-w-xl leading-relaxed mx-auto animate-fade-up-delay" suppressHydrationWarning>
             {t('home.intro.description')}
           </p>
           <div className="mt-12 animate-fade-up-delay">
@@ -43,6 +44,7 @@ const Intro = () => {
               href="#explore"
               className="btn-cta text-white border-white hover:bg-white hover:text-black"
               data-umami-event="calendly-home-hero-click"
+              suppressHydrationWarning
             >
               {t('buttons.contactUs')}
             </a>
