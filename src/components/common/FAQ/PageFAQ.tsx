@@ -2,12 +2,9 @@
 import { useEffect } from 'react'
 import { useDetailedFaqStore } from '@/store/useDetailedFaqStore'
 import { useLanguageStore } from '@/store/languageStore'
-import { useTheme } from '@/contexts/ThemeContext'
 import Question from './subcomponents/Question'
-import { titleClassName } from '@/utils/classes'
-import Button from '@/components/common/Button'
 import TranslatedText from '@/components/common/TranslatedText'
-import { ArrowRight } from 'lucide-react'
+import Button from '@/components/common/Button'
 
 interface PageFAQProps {
   pageName: string
@@ -16,27 +13,22 @@ interface PageFAQProps {
   className?: string
 }
 
-const PageFAQ = ({ 
-  pageName, 
-  titleKey = 'common.faq.title', 
+const PageFAQ = ({
+  pageName,
+  titleKey = 'common.faq.title',
   descriptionKey = 'common.faq.description',
   className = ''
 }: PageFAQProps) => {
   const { rawFaqData, isLoading, hasError, fetchDetailedFaqPageData, getTranslatedFaqItems } = useDetailedFaqStore()
   const { t, language } = useLanguageStore()
-  const { theme } = useTheme()
-  
+
   useEffect(() => {
-    // Récupérer les données brutes avec toutes les traductions
     fetchDetailedFaqPageData(pageName)
   }, [fetchDetailedFaqPageData, pageName])
-  
-  // Obtenir les items traduits dans la langue actuelle
+
   const translatedFaqItems = getTranslatedFaqItems()
-  
-  // Trier les items par ordre si disponible
+
   const sortedFaqItems = translatedFaqItems.sort((a, b) => {
-    // Si les items ont un ordre, les trier par ordre
     if ('order' in a && 'order' in b) {
       return (a as any).order - (b as any).order
     }
@@ -45,16 +37,16 @@ const PageFAQ = ({
 
   if (isLoading) {
     return (
-      <section className={`w-full m-auto mt-36 flex flex-col gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
-        <div className="animate-pulse">
-          <div className={`h-12 rounded w-1/3 mb-8 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
-          <div className={`h-4 rounded w-2/3 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
+      <section className={`w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
+        <div className="w-full md:w-1/3 animate-pulse">
+          <div className="h-12 w-3/4 bg-borderColor rounded mb-8" />
+          <div className="h-4 w-full bg-borderColor rounded mb-2" />
+          <div className="h-4 w-2/3 bg-borderColor rounded" />
         </div>
-        <div className="space-y-6">
+        <div className="h-full w-full md:w-2/3 space-y-0">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="animate-pulse">
-              <div className={`h-6 rounded w-full mb-4 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
-              <div className={`h-4 rounded w-3/4 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'}`}></div>
+            <div key={i} className="border-b border-borderColor py-6 animate-pulse">
+              <div className="h-5 w-3/4 bg-borderColor rounded" />
             </div>
           ))}
         </div>
@@ -76,18 +68,20 @@ const PageFAQ = ({
   }
 
   if (sortedFaqItems.length === 0) {
-    return null // Ne rien afficher s'il n'y a pas de FAQ
+    return null
   }
 
   return (
     <section className={`w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
-      <div className='w-full md:w-1/3'>
-        <TranslatedText
-          as="h2"
-          translationKey={titleKey}
-          className={titleClassName}
-          allowHtml={true}
-        />
+      <div className="w-full md:w-1/3">
+        <h2 className="text-6xl md:text-6xl serif">
+          <TranslatedText
+            as="span"
+            translationKey={titleKey}
+            className="italic text-gold-accent"
+            allowHtml={true}
+          />
+        </h2>
         <TranslatedText
           as="p"
           translationKey={descriptionKey}
@@ -96,17 +90,18 @@ const PageFAQ = ({
         />
         <Button
           text={t('buttons.viewGlobalFAQ')}
+          additionalClassName="bg-purpleColor mt-8"
           link="/faq"
-          additionalClassName="bg-purpleColor mt-6"
-          icon={<ArrowRight />}
         />
       </div>
-      <div className='h-full w-full md:w-2/3'>
+
+      {/* Right column — questions */}
+      <div className="h-full w-full md:w-2/3">
         {sortedFaqItems.map((item, index) => (
-          <Question 
-            key={`${item.title}-${index}`} 
-            question={item.title} 
-            answer={item.content} 
+          <Question
+            key={`${item.title}-${index}`}
+            question={item.title}
+            answer={item.content}
           />
         ))}
       </div>
