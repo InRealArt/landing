@@ -106,18 +106,18 @@ export default function HowItWorks() {
   return (
     <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
       <div ref={headerRef}>
-        <h2 className="text-5xl md:text-7xl serif italic leading-tight text-center opacity-0">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-center opacity-0">
           {t('home.howItWorks.title')}
         </h2>
         <label className="mt-4 block text-center opacity-0">
           {t('home.howItWorks.subtitle')}
         </label>
       </div>
-      <div ref={cardsRef} className="flex flex-col lg:flex-row flex-wrap gap-5 mt-10 justify-between" style={{ perspective: '1000px' }}>
+      <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10" style={{ perspective: '1000px' }}>
         {items.map((item, index) => (
           <div
             key={index}
-            className="hiw-card relative flex-1 p-4 lg:p-8 border rounded-lg bg-cardBackground flex flex-col min-w-0 lg:min-w-[380px] xl:min-w-[400px] lg:max-w-[32%] overflow-hidden opacity-0"
+            className="hiw-card relative p-4 lg:p-8 border rounded-lg bg-cardBackground flex flex-col overflow-hidden opacity-0"
           >
             {/* Big step number in background */}
             <span className="hiw-step absolute -bottom-4 -right-2 text-[120px] font-bold unbounded leading-none select-none pointer-events-none opacity-0">

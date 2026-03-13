@@ -56,11 +56,11 @@ export default function MediaPartners() {
         </p> */}
       </div>
 
-      <div className="flex gap-6 overflow-x-auto justify-center flex-wrap pb-4">
+      <div className="flex gap-6 justify-center flex-wrap pb-4">
         {MEDIA_PARTNERS.map((partner) => (
           <div
             key={partner.name}
-            className="p-4 border border-borderColor rounded-lg bg-cardBackground min-w-[200px] md:min-w-[250px] flex-shrink-0 flex flex-col items-center justify-center"
+            className="p-4 border border-borderColor rounded-lg bg-cardBackground min-w-[160px] md:min-w-[200px] lg:min-w-[250px] flex-shrink-0 flex flex-col items-center justify-center"
           >
             <div className="relative h-24 md:h-28 w-full rounded-lg overflow-hidden mb-4 bg-white flex items-center justify-center">
               <Image

@@ -19,19 +19,19 @@ const Intro = () => {
       alt="Arrière-plan de la section d'introduction"
       width={1920}
       height={1080}
-      className="bg-cover m-auto bg-no-repeat bg-bottom w-full flex items-center justify-center md:mt-0 min-h-screen"
-      contentClassName="max-w-screen-2xl m-auto px-10"
+      className="bg-cover m-auto bg-no-repeat bg-bottom w-full flex items-center justify-center md:mt-0 min-h-screen overflow-hidden"
+      contentClassName="max-w-screen-2xl m-auto px-4 sm:px-8 w-full"
       overlay
       overlayColor={overlayColor}
       overlayOpacity={0.4}
       priority={true}
     >
-      <div className="max-w-screen-2xl m-auto flex flex-col items-center text-center pt-48 pb-12">
+      <div className="max-w-screen-2xl m-auto flex flex-col items-center text-center pt-48 pb-12 w-full">
         {/* Title Section - Gallery Style */}
-        <div className="flex-1 max-w-4xl">
+        <div className="flex-1 w-full max-w-4xl">
           <span className="section-number text-white/70">{t('home.intro.subtitle')}</span>
           <h1
-            className="text-white text-6xl md:text-8xl serif italic mb-8 leading-tight animate-fade-up"
+            className="text-white text-4xl xs:text-5xl sm:text-6xl md:text-8xl serif italic mb-8 leading-tight animate-fade-up break-words"
           >
             {t('home.intro.title')}
           </h1>

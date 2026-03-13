@@ -84,7 +84,7 @@ const Slider = ({ context, items, isReverse, additionnalClassName, onItemClick }
         }}
         modules={[Autoplay, Pagination]}
         spaceBetween={10}
-        slidesPerView={2}
+        slidesPerView={1}
         speed={800}
         scrollbar={{ draggable: true }}
         initialSlide={Math.floor(items.length / 2)}
@@ -92,6 +92,9 @@ const Slider = ({ context, items, isReverse, additionnalClassName, onItemClick }
         centeredSlides
         loop={true}
         breakpoints={{
+          640: {
+            slidesPerView: 1,
+          },
           768: {
             slidesPerView: 2,
           },

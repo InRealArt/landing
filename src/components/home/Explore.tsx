@@ -109,7 +109,7 @@ export default function Explore() {
     <section ref={sectionRef} className="w-full bg-[#111] text-white py-28 lg:py-40">
 
       {/* Section header */}
-      <div ref={headerRef} className="max-w-90 xl:max-w-screen-xl mx-auto px-4 text-center mb-20 lg:mb-28">
+      <div ref={headerRef} className="max-w-90 xl:max-w-screen-xl mx-auto px-4 text-center mb-20 md:mb-24 lg:mb-28">
         {/* Small uppercase eyebrow */}
         <span className="block text-[0.6rem] uppercase tracking-[0.5em] text-gray-500 mb-10 opacity-0">
           <TranslatedText translationKey="home.explore.title" />
@@ -135,7 +135,7 @@ export default function Explore() {
             <div
               key={item.key}
               ref={(el) => { itemRefs.current[index] = el }}
-              className="opacity-0 bg-[#111] flex flex-col px-8 py-12 lg:px-10 lg:py-14 group"
+              className="opacity-0 bg-[#111] flex flex-col px-5 py-8 md:px-8 md:py-12 lg:px-10 lg:py-14 group"
             >
               {/* Gold number */}
               <span className="bricolage-grotesque text-[#b89c72] text-[0.6rem] uppercase tracking-[0.5em] mb-8 block">

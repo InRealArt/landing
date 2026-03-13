@@ -6,22 +6,25 @@ import { loadGsap } from '@/lib/gsap'
 const Statistics = () => {
   const t = useLanguageStore(state => state.t);
   const sectionRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
   const stats = [
     {
       key: 'artists',
+      index: '01.',
       number: t('home.statistics.items.artists.number'),
       label: t('home.statistics.items.artists.label')
     },
     {
       key: 'works',
+      index: '02.',
       number: t('home.statistics.items.works.number'),
       label: t('home.statistics.items.works.label')
     },
     {
       key: 'ranking',
+      index: '03.',
       number: t('home.statistics.items.ranking.number'),
       label: t('home.statistics.items.ranking.label')
     }
@@ -35,18 +38,20 @@ const Statistics = () => {
       const { gsap, ScrollTrigger } = await loadGsap()
 
       ctx = gsap.context(() => {
-        // Title reveal
-        if (titleRef.current) {
+        // Header reveal
+        if (headerRef.current) {
+          const headerChildren = headerRef.current.querySelectorAll('.header-reveal')
           gsap.fromTo(
-            titleRef.current,
-            { opacity: 0, y: 40 },
+            headerChildren,
+            { opacity: 0, y: 30 },
             {
               opacity: 1,
               y: 0,
               duration: 0.8,
               ease: 'power3.out',
+              stagger: 0.12,
               scrollTrigger: {
-                trigger: titleRef.current,
+                trigger: headerRef.current,
                 start: 'top 85%',
                 toggleActions: 'play none none none',
               },
@@ -59,7 +64,7 @@ const Statistics = () => {
           const cards = cardsRef.current.querySelectorAll('.stat-card')
           gsap.fromTo(
             cards,
-            { opacity: 0, y: 60, scale: 0.95 },
+            { opacity: 0, y: 60, scale: 0.98 },
             {
               opacity: 1,
               y: 0,
@@ -67,6 +72,25 @@ const Statistics = () => {
               duration: 0.7,
               ease: 'power2.out',
               stagger: 0.15,
+              scrollTrigger: {
+                trigger: cardsRef.current,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              },
+            }
+          )
+
+          // Gold rule width reveal — staggered after cards
+          const rules = cardsRef.current.querySelectorAll('.stat-rule')
+          gsap.fromTo(
+            rules,
+            { scaleX: 0, transformOrigin: 'left center' },
+            {
+              scaleX: 1,
+              duration: 0.6,
+              ease: 'power2.out',
+              stagger: 0.15,
+              delay: 0.3,
               scrollTrigger: {
                 trigger: cardsRef.current,
                 start: 'top 85%',
@@ -110,25 +134,61 @@ const Statistics = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">
-      <h2 ref={titleRef} className="text-5xl md:text-7xl serif italic leading-tight opacity-0">
-        {t('home.statistics.title')}
-      </h2>
-      <div ref={cardsRef} className="flex flex-wrap gap-6 mt-10">
-        {stats.map((stat) => (
-          <div key={stat.key} className="stat-card flex-1 min-w-[280px] p-6 lg:p-10 border rounded-lg bg-cardBackground opacity-0">
-            <p
-              className="stat-number text-4xl lg:text-6xl bricolage-grotesque font-semibold"
-              data-raw={stat.number}
-            >
-              {stat.number}
-            </p>
-            <label className="mt-4 block text-lg">{stat.label}</label>
+    <section
+      ref={sectionRef}
+      className="w-full bg-[#f9f9f9] dark:bg-[#131313] py-24 lg:py-36"
+      style={{ borderTop: '1px solid', borderColor: 'var(--border-color, #eeeeee)' }}
+    >
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
+
+        {/* Section header */}
+        <div ref={headerRef} className="grid lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
+          <div className="lg:col-span-7">
+            {/* Eyebrow */}
+            <span className="header-reveal block text-[0.6rem] uppercase tracking-[0.5em] text-gray-400 dark:text-gray-500 mb-6 opacity-0">
+              {t('home.statistics.description')}
+            </span>
+            {/* Title */}
+            <h2 className="header-reveal bricolage-grotesque text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-textColor opacity-0">
+              {t('home.statistics.title')}
+            </h2>
           </div>
-        ))}
+        </div>
+
+        {/* Stats grid */}
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3">
+          {stats.map((stat) => (
+            <div
+              key={stat.key}
+              className="stat-card group border-t border-gray-200 dark:border-white/10 pt-10 pb-10 md:pb-12 md:pr-12 opacity-0"
+            >
+              {/* Sequential index — gold, large, italic */}
+              <span className="bricolage-grotesque text-4xl italic font-light text-[#b89c72] mb-8 block leading-none">
+                {stat.index}
+              </span>
+
+              {/* Stat number — editorial scale, gold, light weight */}
+              <p
+                className="stat-number bricolage-grotesque text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-none text-[#b89c72] mb-6"
+                data-raw={stat.number}
+              >
+                {stat.number}
+              </p>
+
+              {/* Gold rule — expands on hover */}
+              <div className="stat-rule w-8 h-px bg-[#b89c72] mb-5 transition-all duration-500 ease-out group-hover:w-16" />
+
+              {/* Label — small uppercase tracking */}
+              <p className="text-[11px] uppercase tracking-[0.4em] text-gray-500 dark:text-gray-400 leading-relaxed max-w-full">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
-  );
+  )
 }
 
 export default Statistics;

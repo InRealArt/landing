@@ -50,12 +50,12 @@ export default function PartnersClient({ partners }: PartnersClientProps) {
         </p>
       </div>
 
-      <div className="flex gap-6 overflow-x-auto justify-center flex-wrap pb-4">
+      <div className="flex gap-6 justify-center flex-wrap pb-4">
         {partners.map((partner) => (
           <div
             key={partner.id}
             onClick={() => handlePartnerClick(partner.slug)}
-            className="group cursor-pointer p-4 border rounded-lg bg-cardBackground min-w-[200px] md:min-w-[250px] flex-shrink-0 hover:bg-cardBackground/80 transition-colors duration-300"
+            className="group cursor-pointer p-4 border rounded-lg bg-cardBackground min-w-[160px] md:min-w-[200px] lg:min-w-[250px] flex-shrink-0 hover:bg-cardBackground/80 transition-colors duration-300"
           >
             <div className="relative h-32 md:h-40 w-full rounded-lg overflow-hidden mb-4">
               <Image
@@ -63,7 +63,7 @@ export default function PartnersClient({ partners }: PartnersClientProps) {
                 alt={partner.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 200px, 250px"
+                sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 250px"
               />
             </div>
             <h3 className="text-textColor font-semibold text-lg mb-2 truncate">
