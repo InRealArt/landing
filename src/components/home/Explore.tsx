@@ -9,6 +9,7 @@ import { useLanguageStore } from '@/store/languageStore'
 
 export default function Explore() {
   const t = useLanguageStore((state) => state.t)
+  const language = useLanguageStore((state) => state.language) // Subscribe to language changes to trigger re-renders
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
