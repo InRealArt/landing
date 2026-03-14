@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtistData } from '@/store/useArtistStore'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtistInfoSectionProps {
   artist: ArtistData
@@ -278,10 +279,11 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
 
               {/* Image principale */}
               <div className="artist-img-main relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <FirebaseImage
                   src={artist.secondaryImageUrl || artist.photo}
                   alt={`Photo de ${artist.name}`}
-                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.02]"
+                  className="w-full"
+                  imgClassName="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.02] transition-opacity duration-500"
                 />
                 {/* Overlay subtil au hover */}
                 <div className="absolute inset-0 bg-purpleColor/0 group-hover:bg-purpleColor/5 transition-colors duration-500 pointer-events-none" />

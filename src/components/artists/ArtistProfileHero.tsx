@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtistProfileHeroProps {
   artist: {
@@ -159,10 +160,12 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
           <div className="relative">
             {/* Photo portrait avec ratio fixe */}
             <div ref={photoRef} className="relative overflow-hidden rounded-xl aspect-[3/4] opacity-0">
-              <img
+              <FirebaseImage
                 src={artist.photo}
                 alt={`Portrait de ${artist.name}`}
-                className="w-full h-full object-cover object-top"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-cover object-top transition-opacity duration-500"
+                loading="eager"
               />
 
               {/* Dégradé de fusion vers la droite (desktop) — fond sombre */}

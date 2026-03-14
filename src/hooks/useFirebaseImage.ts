@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 
-const MAX_RETRIES = 4
-const BASE_DELAY_MS = 800
+const MAX_RETRIES = 8
+const BASE_DELAY_MS = 500
 
 export type ImageStatus = 'loading' | 'retrying' | 'ready' | 'error'
 
@@ -44,6 +44,24 @@ export function useFirebaseImage(rawSrc: string): UseFirebaseImageReturn {
   const retryCount = useRef(0)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  // Reset quand la source change + annule tout timer en cours
+  useEffect(() => {
+    setSrc(cleanSrc)
+    setStatus('loading')
+    retryCount.current = 0
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+      timerRef.current = null
+    }
+  }, [cleanSrc])
+
+  // Cleanup au unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
+
   const onLoad = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current)
     setStatus('ready')
@@ -58,7 +76,9 @@ export function useFirebaseImage(rawSrc: string): UseFirebaseImageReturn {
     retryCount.current += 1
     setStatus('retrying')
 
-    const delay = BASE_DELAY_MS * Math.pow(2, retryCount.current - 1)
+    const exponential = BASE_DELAY_MS * Math.pow(2, retryCount.current - 1)
+    const jitter = Math.random() * 300
+    const delay = Math.min(exponential + jitter, 15_000)
     timerRef.current = setTimeout(() => {
       setSrc(withCacheBuster(cleanSrc, retryCount.current))
     }, delay)
