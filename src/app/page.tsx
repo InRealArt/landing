@@ -40,6 +40,9 @@ const CatalogSection = dynamic(() => import('@/components/home/CatalogSection'),
 const NewsletterInline = dynamic(() => import("@/components/common/NewsletterInline"), {
   loading: () => <div className="w-full h-64 animate-pulse bg-cardBackground rounded-lg" />
 })
+const ResidentArtists = dynamic(() => import("@/components/home/ResidentArtistsWrapper"), {
+  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+})
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
@@ -66,24 +69,25 @@ export default function Home() {
 
       <Intro />
       <CatalogSection />
-      <Statistics />
-      <HowItWorks />
+      {/* <Statistics /> */}
+      {/* <HowItWorks /> */}
       <Expertises />
+      <ResidentArtists />
       <Explore />
-      <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
+      {/* <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider isGallery={false} />
         <ArtworkSlider />
         <Partners />
         <MediaPartners />
-      </div>
-      <Team />
+      </div> */}
+      {/* <Team /> */}
       {/* <HomeFaq /> */}
-      <Suspense fallback={<div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />}>
+      {/* <Suspense fallback={<div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />}>
         <FAQWrapper
           titleKey="home.faq.title"
           descriptionKey="home.faq.description"
         />
-      </Suspense>
+      </Suspense> */}
       <NewsletterInline />
 
     </>

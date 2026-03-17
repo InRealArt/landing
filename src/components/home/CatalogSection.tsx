@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { getPresaleArtworks } from '@/actions/presaleArtworkActions'
+import { prisma } from '@/lib/prisma'
 import CatalogSectionClient from './CatalogSectionClient'
 
 export interface CatalogArtworkItem {
@@ -14,19 +14,38 @@ export interface CatalogArtworkItem {
 }
 
 async function CatalogSectionContent() {
-  const artworks = await getPresaleArtworks()
+  const artworks = await prisma.presaleArtwork.findMany({
+    where: {
+      isTopArtwork: true,
+    },
+    select: {
+      id: true,
+      name: true,
+      imageUrl: true,
+      price: true,
+      isSold: true,
+      width: true,
+      height: true,
+      order: true,
+      artist: {
+        select: {
+          name: true,
+          surname: true,
+        },
+      },
+    },
+    orderBy: {
+      order: 'asc',
+    },
+  })
 
-  const pool = artworks.length > 6
-    ? [...artworks].sort(() => 0.5 - Math.random()).slice(0, 6)
-    : artworks
-
-  const items: CatalogArtworkItem[] = pool.map(a => ({
+  const items: CatalogArtworkItem[] = artworks.map(a => ({
     id: a.id,
     name: a.name,
     imageUrl: a.imageUrl,
     price: a.price,
     isSold: a.isSold,
-    artistName: `${a.artist.name} ${a.artist.surname}`,
+    artistName: `${a.artist.name ?? ''} ${a.artist.surname ?? ''}`.trim(),
     width: a.width,
     height: a.height,
   }))

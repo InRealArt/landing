@@ -8,7 +8,7 @@ datasource db {
     provider  = "postgresql"
     url       = env("DATABASE_URL")
     directUrl = env("DIRECT_URL")
-    schemas   = ["auth", "public", "landing", "marketplace", "blockchain", "landingUi", "backoffice", "statistics"]
+    schemas   = ["auth", "public", "landing", "marketplace", "blockchain", "landingUi", "backoffice", "statistics", "landingUgc"]
 }
 
 // Orders in the Marketplace
@@ -459,9 +459,9 @@ model ArtistCategory {
 // Données intrinsèques à l'artiste
 model Artist {
     id                 Int                     @id @default(autoincrement())
-    name               String
-    surname            String
-    pseudo             String                  @unique
+    name               String?
+    surname            String?
+    pseudo             String?                  @unique
     description        String                  @unique
     publicKey          String                  @unique
     imageUrl           String                  @unique
@@ -520,6 +520,7 @@ model LandingArtist {
     imageUrl            String                 @unique
     secondaryImageUrl   String?
     artistId            Int
+    isTopArtist         Boolean                @default(false)
     //Champs pour le descriptif détaillé de l'artiste sur la landing
     mediumTags          String[]               @default([])
     quoteFromInRealArt  String?
@@ -537,7 +538,7 @@ model LandingArtist {
     artistCategories    ArtistCategoryArtist[]
     artist              Artist                 @relation(fields: [artistId], references: [id], onDelete: Cascade)
     physicalCollections PhysicalCollection[]
-
+    ugcArtistProfile    LandingUgcArtistProfile?
     @@index([artistId])
     @@schema("landing")
 }
@@ -1285,6 +1286,7 @@ model PresaleArtwork {
     imageUrl             String                 @unique
     mockupUrls           Json                   @default("[]")
     isSold               Boolean                @default(false)
+    isTopArtwork         Boolean                @default(false)
     createdAt            DateTime               @default(now())
     artist               Artist                 @relation(fields: [artistId], references: [id])
     landingArtistKeyWorks LandingArtistKeyWork[]
@@ -1689,4 +1691,89 @@ model PhysicalArtworkViewStat {
     @@index([artworkId, year, month], name: "idx_artworkViewStats_artworkId_year_month")
     @@map("PhysicalArtworkViewStat")
     @@schema("statistics")
+}
+
+// *****  SCHEMA LANDING UGC ******
+
+// Sélection d'artistes mis en avant dans la section "Top Artists" de la landing
+// Géré par le backoffice — liste premium ordonnée
+model LandingUgcTopArtists {
+    id              Int           @id @default(autoincrement())
+    landingUgcArtistProfileId Int?
+    landingUgcArtistProfile   LandingUgcArtistProfile? @relation(fields: [landingUgcArtistProfileId], references: [id], onDelete: Cascade)
+    order           Int      @default(0) // Ordre d'affichage dans la liste premium
+    
+    @@unique([order])
+    @@schema("landingUgc")
+}
+
+//Fiche artiste Landing Ugc : peut être un artiste du catalogue IRA ou pas
+model LandingUgcArtistProfile {
+    id              Int           @id @default(autoincrement())
+    landingArtistId Int?          @unique
+    landingArtist   LandingArtist? @relation(fields: [landingArtistId], references: [id], onDelete: Cascade)
+    name            String?
+    surname         String?
+    pseudo          String?
+    profileImageUrl String?
+    title           String?
+    description     String?
+    presentation    String?
+    tags            String[] @default([]) // Tags de l'artiste
+    mediaUrls        String[] @default([]) // URL des médias
+    topArtists       LandingUgcTopArtists[]
+    socialMetrics    LandingUgcArtistSocialMetrics?
+    @@schema("landingUgc")
+}
+
+enum SocialNetwork {
+    INSTAGRAM
+    TIKTOK
+    YOUTUBE
+    FACEBOOK
+    TWITTER_X
+    LINKEDIN
+    PINTEREST
+    SNAPCHAT
+    TWITCH
+    REDDIT
+    DISCORD
+    TELEGRAM
+    WHATSAPP
+    THREADS
+    BEHANCE
+    DEVIANTART
+    ARTSTATION
+
+    @@schema("landingUgc")
+}
+
+// Métriques sociales agrégées de l'artiste — données saisies manuellement ou via scraping
+// Permet une vision synthétique de la présence et de l'influence de l'artiste en ligne
+model LandingUgcArtistSocialMetrics {
+    id                        Int                     @id @default(autoincrement())
+    landingUgcArtistProfileId Int                     @unique
+    landingUgcArtistProfile   LandingUgcArtistProfile @relation(fields: [landingUgcArtistProfileId], references: [id], onDelete: Cascade)
+
+    // Audience totale : somme des followers/abonnés sur tous les réseaux sociaux
+    // (Instagram + Twitter/X + TikTok + Facebook + Twitch + YouTube + autres)
+    totalAudience             Int?
+
+    // Engagement moyen global : moyenne des interactions par publication sur toutes les plateformes
+    // (likes + commentaires + partages + réactions) / nombre de publications
+    averageEngagement         Int?
+
+    // Consommation totale : somme cumulée des vues, streams et téléchargements sur toutes les sources
+    // (vues YouTube + streams Twitch + lectures TikTok + etc.)
+    // BigInt car peut dépasser 2 milliards pour les artistes viraux
+    totalConsumption          BigInt?
+
+    // Réseaux sociaux sur lesquels l'artiste est présent
+    socialNetworks            SocialNetwork[]
+
+    // Date de la dernière mise à jour des métriques (pour indiquer la fraîcheur des données)
+    updatedAt                 DateTime @updatedAt
+
+    @@index([landingUgcArtistProfileId])
+    @@schema("landingUgc")
 }
