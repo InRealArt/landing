@@ -168,7 +168,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
             }
         }
 
-        return { ...artwork, mockupUrls, translations: { name: {}, description: {} } }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
         return null
@@ -211,7 +211,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             }
         }
 
-        return { ...artwork, mockupUrls, translations: { name: {}, description: {} } }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null
@@ -294,6 +294,10 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
 
             return {
                 ...artwork,
+                artist: {
+                    name: artwork.artist.name ?? '',
+                    surname: artwork.artist.surname ?? '',
+                },
                 mockupUrls,
                 translations
             }
