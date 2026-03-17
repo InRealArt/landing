@@ -116,6 +116,10 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
 
             return {
                 ...artwork,
+                artist: {
+                    name: artwork.artist.name ?? '',
+                    surname: artwork.artist.surname ?? '',
+                },
                 mockupUrls,
                 translations
             }
