@@ -1,8 +1,10 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
 export const revalidate = 1800 // régénère toutes les 30 min
 import Intro from "@/components/home/Intro";
+import FAQWrapper from '@/components/common/FAQ/FAQWrapper';
 import Statistics from "@/components/home/Statistics";
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
@@ -32,8 +34,8 @@ const MediaPartners = dynamic(() => import("@/components/home/MediaPartnersWrapp
 const Team = dynamic(() => import("@/components/common/Team"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
-const FAQWrapper = dynamic(() => import('@/components/common/FAQ/FAQWrapper'), {
-  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+const CatalogSection = dynamic(() => import('@/components/home/CatalogSection'), {
+  loading: () => <div className="w-full h-[800px] animate-pulse bg-cardBackground rounded-lg" />
 })
 const NewsletterInline = dynamic(() => import("@/components/common/NewsletterInline"), {
   loading: () => <div className="w-full h-64 animate-pulse bg-cardBackground rounded-lg" />
@@ -63,6 +65,7 @@ export default function Home() {
       />
 
       <Intro />
+      <CatalogSection />
       <Statistics />
       <HowItWorks />
       <Expertises />
@@ -75,10 +78,12 @@ export default function Home() {
       </div>
       <Team />
       {/* <HomeFaq /> */}
-      <FAQWrapper 
-        titleKey="home.faq.title" 
-        descriptionKey="home.faq.description" 
-      />
+      <Suspense fallback={<div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />}>
+        <FAQWrapper
+          titleKey="home.faq.title"
+          descriptionKey="home.faq.description"
+        />
+      </Suspense>
       <NewsletterInline />
 
     </>

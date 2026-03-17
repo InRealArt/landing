@@ -261,6 +261,13 @@
       "title": "De l'atelier à l'héritage : catalyseur d'art, de culture et de sens.",
       "subtitle": ""
     },
+    "catalog": {
+      "sectionNumber": "Le Catalogue",
+      "title": "Œuvres",
+      "titleAccent": "Sélectionnées",
+      "description": "Une collection rigoureuse explorant la matière, la lumière et le geste contemporain. Chaque pièce est certifiée et sourcée directement auprès de nos artistes résidents.",
+      "cta": "Consulter le catalogue complet"
+    },
     "faq": {
       "title": "Questions fréquemment posées sur InRealArt",
       "description": "Vous êtes artiste, collectionneur, entrepreneur ou institution ? Notre FAQ répond à toutes vos questions et vous aide à mieux comprendre notre projet et ce que notre marketplace peut vous apporter.",
