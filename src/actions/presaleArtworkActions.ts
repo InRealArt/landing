@@ -177,7 +177,13 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
 
 export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtworkData | null> {
     try {
-        const artworks = await prisma.presaleArtwork.findMany({
+        // Scan minimal : récupérer seulement id + name pour trouver la correspondance du slug
+        const names = await prisma.presaleArtwork.findMany({ select: { id: true, name: true } })
+        const match = names.find(a => toSlug(a.name) === slug)
+        if (!match) return null
+
+        const artwork = await prisma.presaleArtwork.findFirst({
+            where: { id: match.id },
             select: {
                 id: true,
                 name: true,
@@ -199,7 +205,6 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             }
         })
 
-        const artwork = artworks.find(a => toSlug(a.name) === slug)
         if (!artwork) return null
 
         let mockupUrls = artwork.mockupUrls
@@ -211,7 +216,18 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             }
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations: { name: {}, description: {} } }
+        const allTranslations = await prisma.translation.findMany({
+            where: { entityType: 'PresaleArtwork', entityId: artwork.id },
+            include: { language: true }
+        })
+        const translationsByEntity = organizeTranslations(allTranslations)
+        const artworkKey = `PresaleArtwork-${artwork.id}`
+        const translations = {
+            name: translationsByEntity[artworkKey]?.name || {},
+            description: translationsByEntity[artworkKey]?.description || {}
+        }
+
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null

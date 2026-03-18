@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { getPostsMentioningArtist, getLanguageIdByCode } from '@/actions/seoPostActions'
 import { useLanguageStore } from '@/store/languageStore'
-import { SeoPost } from '@/store/useSeoPostStore'
+import { SeoPost } from '@/types/seoPost'
 
 interface Props {
   artistName: string

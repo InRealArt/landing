@@ -12,29 +12,28 @@ interface Category {
   url: string | null
 }
 
-export default function BlogCategories() {
+interface Props {
+  initialCategories: Category[]
+}
+
+export default function BlogCategories({ initialCategories }: Props) {
   const { t, language } = useLanguageStore()
-  const [categories, setCategories] = useState<Category[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [categories, setCategories] = useState<Category[]>(initialCategories)
+  const [loadedLang, setLoadedLang] = useState<string | null>(null)
   const [showLeftFade, setShowLeftFade] = useState(false)
   const [showRightFade, setShowRightFade] = useState(true)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        setIsLoading(true)
-        const categoriesData = await getCategoriesWithTranslations(language)
-        setCategories(categoriesData)
-      } catch (error) {
-        console.error('Erreur lors du chargement des catégories:', error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
+    if (!language || language === loadedLang) return
 
-    fetchCategories()
-  }, [language])
+    getCategoriesWithTranslations(language)
+      .then(data => {
+        setCategories(data)
+        setLoadedLang(language)
+      })
+      .catch(err => console.error('Erreur lors du chargement des catégories:', err))
+  }, [language, loadedLang])
 
   const handleScroll = () => {
     const el = scrollRef.current
@@ -46,33 +45,8 @@ export default function BlogCategories() {
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
-    // Init fade state once categories are loaded
     setShowRightFade(el.scrollWidth > el.clientWidth)
   }, [categories])
-
-  if (isLoading) {
-    return (
-      <section className="max-w-90 xl:max-w-screen-xl m-auto py-16">
-        <div className="text-center">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-700 rounded w-64 mx-auto mb-8"></div>
-            {/* Mobile skeleton: single row */}
-            <div className="flex md:hidden gap-3 px-5 overflow-hidden">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="h-10 bg-gray-700 rounded-full shrink-0 w-28"></div>
-              ))}
-            </div>
-            {/* Desktop skeleton: wrap */}
-            <div className="hidden md:flex flex-wrap justify-center gap-4">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-12 bg-gray-700 rounded-full w-32"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
 
   if (categories.length === 0) {
     return null
@@ -87,11 +61,9 @@ export default function BlogCategories() {
 
         {/* ── Mobile: horizontal scroll rail ── */}
         <div className="relative md:hidden">
-          {/* Left fade */}
           {showLeftFade && (
             <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-r from-[var(--background,#0d0d0d)] to-transparent" />
           )}
-          {/* Right fade */}
           {showRightFade && (
             <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 z-10 bg-gradient-to-l from-[var(--background,#0d0d0d)] to-transparent" />
           )}
@@ -136,4 +108,4 @@ export default function BlogCategories() {
       </div>
     </section>
   )
-} 
+}

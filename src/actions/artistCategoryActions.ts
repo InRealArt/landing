@@ -28,18 +28,20 @@ export async function getArtistCategories(): Promise<ArtistCategory[]> {
             }
         })
 
-        // Récupérer et agréger les traductions par catégorie
-        const categoriesWithTranslations = await Promise.all(categories.map(async (category) => {
-            const translations = await prisma.translation.findMany({
-                where: {
-                    entityType: 'ArtistCategory',
-                    entityId: category.id
-                },
-                include: {
-                    language: true
-                }
-            })
+        // Récupérer toutes les traductions en une seule requête
+        const categoryIds = categories.map(c => c.id)
+        const allTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'ArtistCategory',
+                entityId: { in: categoryIds }
+            },
+            include: {
+                language: true
+            }
+        })
 
+        const categoriesWithTranslations = categories.map(category => {
+            const translations = allTranslations.filter(t => t.entityId === category.id)
             const formattedTranslations: { name: Record<string, string>, description: Record<string, string> } = {
                 name: {},
                 description: {}
@@ -56,7 +58,7 @@ export async function getArtistCategories(): Promise<ArtistCategory[]> {
                 ...category,
                 translations: formattedTranslations
             }
-        }))
+        })
 
         return categoriesWithTranslations
     } catch (error) {

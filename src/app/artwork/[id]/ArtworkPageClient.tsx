@@ -1,310 +1,166 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import OptimizedContentImage from '@/components/common/OptimizedContentImage'
+import { useEffect, useState, useMemo } from 'react'
 import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
 import ArtworkImageModal from '@/components/common/ArtworkImageModal'
 import SoldStatusBadge from '@/components/common/SoldStatusBadge'
 import { useLanguageStore } from '@/store/languageStore'
-import { useArtworksStore } from '@/store/useArtworksStore'
-import { getArtistById, ArtistData as PrismaArtistData } from '@/actions/artistActions'
-import { toast } from 'sonner'
-import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
-import { validateEmail } from '@/utils/functions'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
-import { Lang } from '@/types/types'
 import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
-import { ArtistData } from '@/store/useArtistStore'
+import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
+import type { TransformedArtistData } from '@/types/artist'
 
 interface Props {
-  artworkId: string
+  artwork: PresaleArtworkData
+  artist: TransformedArtistData | null
+  relatedArtworks: PresaleArtworkData[]
 }
 
-export default function ArtworkPageClient({ artworkId }: Props) {
+export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: Props) {
   const { t, language } = useLanguageStore()
-  const router = useRouter()
-  const { artworks, fetchArtworks, getArtworkBySlug, getArtworksByArtistId, getTranslatedField } = useArtworksStore()
-  const [artwork, setArtwork] = useState<any>(null)
-  const [artist, setArtist] = useState<ArtistData | null>(null)
-  const [artistArtworks, setArtistArtworks] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
-  const [mounted, setMounted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: false })
-  const [sanitizedDescription, setSanitizedDescription] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [sanitizedDescription, setSanitizedDescription] = useState('')
 
-  // Use mounted state to prevent hydration mismatch
+  const lang = language.toLowerCase()
+
+  // Resolve translated fields from embedded translations — no re-fetch on language switch
+  const artworkName = artwork.translations?.name?.[lang] || artwork.name
+  const rawDescription = artwork.translations?.description?.[lang] || artwork.description || ''
+
+  // DOMPurify sanitization — client-only, cancellable, re-runs when language changes
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    if (!rawDescription) { setSanitizedDescription(''); return }
+    let cancelled = false
+    import('dompurify').then(({ default: DOMPurify }) => {
+      if (!cancelled) setSanitizedDescription(DOMPurify.sanitize(rawDescription))
+    })
+    return () => { cancelled = true }
+  }, [rawDescription])
 
-  useEffect(() => {
-    const loadArtwork = async () => {
-      try {
-        // Fetch artworks if not already loaded
-        if (artworks.length === 0) {
-          await fetchArtworks()
-        }
-
-        // Get the artwork by slug
-        const foundArtwork = getArtworkBySlug(artworkId)
-        if (foundArtwork) {
-          setArtwork(foundArtwork)
-          
-          // Récupérer les données complètes de l'artiste par son ID
-          if (foundArtwork.artistId) {
-            const foundArtist = await getArtistById(foundArtwork.artistId)
-            if (foundArtist) {
-              // Transformer les données pour correspondre à l'interface ArtistData du store
-              const transformedArtist: ArtistData = {
-                id: foundArtist.id,
-                artistId: foundArtist.artistId,
-                name: `${foundArtist.name} ${foundArtist.surname}`,
-                photo: foundArtist.imageUrl,
-                role: foundArtist.artworkStyle || 'Artiste',
-                intro: foundArtist.intro || '',
-                description: foundArtist.description || '',
-                secondaryImageUrl: foundArtist.secondaryImageUrl || '',
-                slug: foundArtist.slug,
-                countryCode: foundArtist.countryCode,
-                countryName: foundArtist.countryName,
-                mediumTags: foundArtist.mediumTags || [],
-                birthYear: foundArtist.birthYear,
-                biographyHeader1: foundArtist.biographyHeader1,
-                biographyText1: foundArtist.biographyText1,
-                biographyHeader2: foundArtist.biographyHeader2,
-                biographyText2: foundArtist.biographyText2,
-                biographyHeader3: foundArtist.biographyHeader3,
-                biographyText3: foundArtist.biographyText3,
-                biographyHeader4: foundArtist.biographyHeader4,
-                biographyText4: foundArtist.biographyText4,
-                artworkImages: foundArtist.artworkImages ? JSON.parse(JSON.stringify(foundArtist.artworkImages)) : []
-              }
-              setArtist(transformedArtist)
-
-              // Récupérer les artworks de l'artiste pour le carousel
-              try {
-                const artworks = await getArtworksByArtistId(foundArtist.artistId)
-                setArtistArtworks(artworks)
-              } catch (error) {
-                console.error('Error loading artist artworks:', error)
-                setArtistArtworks([])
-              }
-            }
-          }
-          
-          // Sanitize description when artwork is loaded - use dynamic translation
-          const defaultDescription = typeof foundArtwork.description === 'string' 
-            ? foundArtwork.description 
-            : foundArtwork.description?.FR || ''
-          const descriptionText = getTranslatedField(parseInt(foundArtwork.id), 'description', defaultDescription)
-          
-          if (descriptionText) {
-            const importDOMPurify = async () => {
-              const DOMPurify = (await import('dompurify')).default;
-              setSanitizedDescription(DOMPurify.sanitize(descriptionText));
-            };
-            importDOMPurify();
-          }
-        }
-      } catch (error) {
-        console.error('Error loading artwork:', error)
-        router.replace('/presale')
-      } finally {
-        setLoading(false)
-      }
+  const artworkImages = useMemo(() => {
+    const images: string[] = [artwork.imageUrl]
+    if (Array.isArray(artwork.mockupUrls)) {
+      const extras = artwork.mockupUrls
+        .map((m: any) => (typeof m === 'object' && m !== null ? m.url : m))
+        .filter(Boolean) as string[]
+      images.push(...extras)
     }
-
-    if (mounted) {
-      loadArtwork()
-    }
-  }, [artworkId, artworks.length, fetchArtworks, getArtworkBySlug, getTranslatedField, mounted, language, router])
-
-  // Mettre à jour la description quand la langue change
-  useEffect(() => {
-    if (artwork) {
-      const defaultDescription = typeof artwork.description === 'string' 
-        ? artwork.description 
-        : artwork.description?.FR || ''
-      const descriptionText = getTranslatedField(parseInt(artwork.id), 'description', defaultDescription)
-      
-      if (descriptionText) {
-        const importDOMPurify = async () => {
-          const DOMPurify = (await import('dompurify')).default;
-          setSanitizedDescription(DOMPurify.sanitize(descriptionText));
-        };
-        importDOMPurify();
-      }
-    }
-  }, [artwork, getTranslatedField, language])
-
-  // Show a loading state until the component is mounted
-  if (!mounted) {
-    return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purpleColor"></div>
-        </div>
-      </div>
-    )
-  }
-
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purpleColor"></div>
-        </div>
-      </div>
-    )
-  }
-
-  if (!artwork) {
-    router.replace('/presale')
-    return null
-  }
-
-  const artworkName = typeof artwork.name === 'string' 
-    ? artwork.name 
-    : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || 'Sans titre'
-
-  const artworkDescription = typeof artwork.description === 'string'
-    ? artwork.description
-    : artwork.description[language as Lang] || artwork.description.FR || Object.values(artwork.description)[0] || ''
-
-  // Préparer les images pour le carousel (image principale + images secondaires)
-  const getArtworkImages = () => {
-    const images = [artwork.url] // Image principale
-    
-    // Ajouter les images secondaires si elles existent
-    if (artwork.mockups && Array.isArray(artwork.mockups) && artwork.mockups.length > 0) {
-      images.push(...artwork.mockups)
-    }
-    
     return images
-  }
+  }, [artwork.imageUrl, artwork.mockupUrls])
 
-  const handleViewDetails = () => {
-    setCurrentImageIndex(0)
-    setIsModalOpen(true)
-  }
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-  }
-
-  const handleImageIndexChange = (index: number) => {
-    setCurrentImageIndex(index)
-  }
+  const artistFullName = `${artwork.artist.name} ${artwork.artist.surname}`
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
           __html: generateCreativeWorkJsonLd(
             artworkName,
-            sanitizedDescription || artworkDescription || 'Œuvre d\'art unique',
-            artwork.url,
-            artwork.artistName,
-            artwork.dateCreated,
-            artwork.medium,
-            artwork.width && artwork.height ? `${artwork.width} x ${artwork.height} cm` : undefined
-          )
+            sanitizedDescription || rawDescription || "Oeuvre d'art unique",
+            artwork.imageUrl,
+            artistFullName,
+            undefined,
+            undefined,
+            artwork.width && artwork.height
+              ? `${artwork.width} x ${artwork.height} cm`
+              : undefined,
+          ),
         }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ 
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
           __html: generateBreadcrumbJsonLd([
             { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
-            { name: 'Œuvres', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artworks` },
-            { name: artworkName }
-          ])
+            { name: 'Oeuvres', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artworks` },
+            { name: artworkName },
+          ]),
         }}
       />
-      
+
       <div className="container mx-auto px-4 py-8 pt-headerSize">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Artwork image avec bouton de survol */}
           <div className="relative rounded-lg overflow-hidden min-h-[400px] border border-borderColor shadow-lg hover:shadow-xl transition-all duration-300 hover:border-purpleColor/30">
             <ArtworkImageWithHover
-              src={artwork.url}
+              src={artwork.imageUrl}
               alt={artworkName}
               className="w-full h-full"
               priority={true}
-              onViewDetails={handleViewDetails}
+              onViewDetails={() => { setCurrentImageIndex(0); setIsModalOpen(true) }}
             />
-            <SoldStatusBadge isSold={artwork.isSold || false} />
+            <SoldStatusBadge isSold={artwork.isSold} />
           </div>
 
-          {/* Artwork details */}
           <div>
             <div className="flex justify-between items-start mb-6">
               <div>
                 <span className="section-number">{t('artwork.collection')}</span>
-                <h1 className="text-6xl md:text-8xl serif"><span className="italic text-gold-accent">{artworkName}</span></h1>
+                <h1 className="text-6xl md:text-8xl serif">
+                  <span className="italic text-gold-accent">{artworkName}</span>
+                </h1>
               </div>
             </div>
 
             <div className="mb-8">
-              <p className="text-grayText mb-2">{t('artwork.by')} <span className="text-textColor">{artwork.artistName}</span></p>
-              <p className="text-grayText mb-2">{t('artwork.dimensions')}: <span className="text-textColor">
-                {artwork.width && artwork.height 
-                  ? `${artwork.width} x ${artwork.height} cm` 
-                  : 'N/A'
-                }
-              </span></p>
-              <p className="text-grayText mb-2">{t('artwork.price')}: <span className="text-textColor font-semibold">
-                {artwork.price ? `${artwork.price.toLocaleString()} €` : t('artwork.onDemand')}
-              </span></p>
+              <p className="text-grayText mb-2">
+                {t('artwork.by')} <span className="text-textColor">{artistFullName}</span>
+              </p>
+              <p className="text-grayText mb-2">
+                {t('artwork.dimensions')}:{' '}
+                <span className="text-textColor">
+                  {artwork.width && artwork.height
+                    ? `${artwork.width} x ${artwork.height} cm`
+                    : 'N/A'}
+                </span>
+              </p>
+              <p className="text-grayText mb-2">
+                {t('artwork.price')}:{' '}
+                <span className="text-textColor font-semibold">
+                  {artwork.price ? `${artwork.price.toLocaleString()} €` : t('artwork.onDemand')}
+                </span>
+              </p>
             </div>
-
-            {/* Additional artwork details would go here */}
           </div>
         </div>
 
-        {/* Description section under the image */}
         <div className="mt-12">
           <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.aboutArtwork')}</h2>
-          <p className="text-grayText" dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }} />
+          <p
+            className="text-grayText"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }}
+          />
         </div>
       </div>
 
-      {/* Section d'informations sur l'artiste */}
       {artist && <ArtistInfoSection artist={artist} />}
 
-      {/* Carousel des artworks de l'artiste */}
-      {artist && artistArtworks.length > 0 && (
+      {artist && relatedArtworks.length > 0 && (
         <div className="container mx-auto px-4 py-8">
-          <ArtistArtworkCarousel 
+          <ArtistArtworkCarousel
             artistName={artist.name}
-            artworks={artistArtworks.map(artwork => ({
-              id: artwork.id.toString(),
-              name: typeof artwork.name === 'string' 
-                ? artwork.name 
-                : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || 'Sans titre',
-              price: artwork.price,
-              image: {
-                src: artwork.url
-              }
+            artworks={relatedArtworks.map(aw => ({
+              id: aw.id.toString(),
+              name: aw.translations?.name?.[lang] || aw.name,
+              price: aw.price,
+              image: { src: aw.imageUrl },
             }))}
           />
         </div>
       )}
 
-      {/* Modale de carousel d'images */}
       <ArtworkImageModal
         isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        images={getArtworkImages()}
+        onClose={() => setIsModalOpen(false)}
+        images={artworkImages}
         currentIndex={currentImageIndex}
-        onIndexChange={handleImageIndexChange}
+        onIndexChange={setCurrentImageIndex}
         artworkName={artworkName}
       />
     </>
   )
-} 
+}

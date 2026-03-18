@@ -46,27 +46,28 @@ export async function getTeamMembers(): Promise<TeamMemberData[]> {
             }
         })
 
-        // Récupérer les traductions pour chaque membre
-        const result = await Promise.all(teamMembers.map(async (member) => {
-            const translations = await prisma.translation.findMany({
-                where: {
-                    entityType: 'Team',
-                    entityId: member.id
-                },
-                include: {
-                    language: true
-                }
-            })
+        // Récupérer toutes les traductions en une seule requête
+        const memberIds = teamMembers.map(m => m.id)
+        const allTranslations = await prisma.translation.findMany({
+            where: {
+                entityType: 'Team',
+                entityId: { in: memberIds }
+            },
+            include: {
+                language: true
+            }
+        })
 
-            // Organiser les traductions par champ et par langue
-            const formattedTranslations = {
+        const result = teamMembers.map(member => {
+            const translations = allTranslations.filter(t => t.entityId === member.id)
+            const formattedTranslations: { role: Record<string, string>, description: Record<string, string>, intro: Record<string, string> } = {
                 role: {},
                 description: {},
                 intro: {}
             }
 
             translations.forEach(t => {
-                if (t.field === 'role' || t.field === 'description' || t.field === 'intro') {
+                if ((t.field === 'role' || t.field === 'description' || t.field === 'intro') && t.value != null) {
                     formattedTranslations[t.field as keyof typeof formattedTranslations] = {
                         ...formattedTranslations[t.field as keyof typeof formattedTranslations],
                         [t.language.code]: t.value
@@ -78,7 +79,7 @@ export async function getTeamMembers(): Promise<TeamMemberData[]> {
                 ...member,
                 translations: formattedTranslations
             }
-        }))
+        })
 
         return result
     } catch (error) {

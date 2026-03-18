@@ -1,4 +1,4 @@
-import { SeoPost } from '@/store/useSeoPostStore'
+import { SeoPost } from '@/types/seoPost'
 import { BlogPost } from '@/types/blog'
 
 /**

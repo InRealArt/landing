@@ -1,97 +1,58 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import BioSlider from '@/components/common/slider/BioSlider'
+import { useMemo, useState } from 'react'
 import TeamCard from '@/components/common/cards/TeamCard'
 import TeamModal from '@/components/team/TeamModal'
-import { useTeamStore } from '@/store/useTeamStore'
 import { useLanguageStore } from '@/store/languageStore'
+import { TeamMemberData } from '@/actions/teamActions'
 
 interface SocialLink {
   link: string
   icon: string
 }
 
-export default function TeamContent() {
-  const { members, isLoading, hasError, errorMessage, fetchTeamMembers, getTranslatedMembers } = useTeamStore()
+interface Props {
+  initialMembers: TeamMemberData[]
+}
+
+export default function TeamContent({ initialMembers }: Props) {
   const { t, language } = useLanguageStore()
   const [selectedMember, setSelectedMember] = useState<any>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  useEffect(() => {
-    fetchTeamMembers()
-  }, [fetchTeamMembers])
+  const lang = language.toLowerCase()
 
-  // Re-exécuter lorsque la langue change pour mettre à jour les traductions
-  useEffect(() => {
-      getTranslatedMembers()
-  }, [language])
+  // Resolve translations client-side — no re-fetch on language switch
+  const teamItems = useMemo(() =>
+    initialMembers.map(member => {
+      const role = member.translations?.role?.[lang] || member.role
+      const intro = member.translations?.intro?.[lang] || member.intro || ''
+      const description = member.translations?.description?.[lang] || member.description || ''
 
-  // Fonction pour ouvrir le modal avec un membre
-  const handleViewFullProfile = (member: any) => {
-    setSelectedMember(member)
-    setIsModalOpen(true)
-  }
+      const socials: SocialLink[] = []
+      if (member.linkedinUrl) socials.push({ link: member.linkedinUrl, icon: '/icons/linkedin.svg' })
+      if (member.instagramUrl) socials.push({ link: member.instagramUrl, icon: '/icons/instagram.svg' })
+      if (member.facebookUrl) socials.push({ link: member.facebookUrl, icon: '/icons/facebook.svg' })
+      if (member.githubUrl) socials.push({ link: member.githubUrl, icon: '/icons/github.svg' })
+      if (member.twitterUrl) socials.push({ link: member.twitterUrl, icon: '/icons/twitter.svg' })
+      if (member.websiteUrl) socials.push({ link: member.websiteUrl, icon: '/icons/globe.svg' })
 
-  // Fonction pour fermer le modal
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setSelectedMember(null)
-  }
+      return {
+        id: member.id,
+        socials,
+        image: { src: member.photoUrl1 || '' },
+        name: `${member.firstName} ${member.lastName}`,
+        role,
+        intro,
+        description,
+      }
+    }),
+    [initialMembers, lang]
+  )
 
-  if (isLoading) {
-    return <div className="text-center py-10">{t('common.loading')}</div>
-  }
-
-  if (hasError) {
-    return <div className="text-center py-10 text-red-500">
-      {t('common.error')}: {errorMessage || t('common.unknownError')}
-    </div>
-  }
-
-  if (!members || members.length === 0) {
+  if (teamItems.length === 0) {
     return <div className="text-center py-10">{t('team.noMembers')}</div>
   }
-
-  // Transformer les membres pour les adapter au format attendu par les composants
-  const teamItems = members.map(member => {
-    // Préparation des liens sociaux depuis les données
-    const socials: SocialLink[] = []
-    
-    // Ajouter les réseaux sociaux disponibles
-    if (member?.linkedinUrl) {
-      socials.push({ link: member.linkedinUrl, icon: '/icons/linkedin.svg' })
-    }
-    
-    if (member?.instagramUrl) {
-      socials.push({ link: member.instagramUrl, icon: '/icons/instagram.svg' })
-    }
-    
-    if (member?.facebookUrl) {
-      socials.push({ link: member.facebookUrl, icon: '/icons/facebook.svg' })
-    }
-    
-    if (member?.githubUrl) {
-      socials.push({ link: member.githubUrl, icon: '/icons/github.svg' })
-    }
-    
-    if (member?.twitterUrl) {
-      socials.push({ link: member.twitterUrl, icon: '/icons/twitter.svg' })
-    }
-    
-    if (member?.websiteUrl) {
-      socials.push({ link: member.websiteUrl, icon: '/icons/globe.svg' })
-    }
-    
-    return {
-      socials,
-      image: { src: member.photo },
-      name: member.name,
-      role: member.role,
-      intro: member.intro,
-      description: member.description
-    }
-  })
 
   return (
     <>
@@ -99,26 +60,25 @@ export default function TeamContent() {
         <div className="max-w-90 xl:max-w-screen-xl mx-auto">
           <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('team.meetTeam')}</h1>
           <div className="flex flex-wrap gap-4">
-            {teamItems.map((item) =>
-              <TeamCard 
-                key={item.name} 
-                {...item} 
-                additionalClassName="w-full lg:w-cardLarge" 
-                onViewMore={() => handleViewFullProfile(item)}
+            {teamItems.map(item => (
+              <TeamCard
+                key={item.name}
+                {...item}
+                additionalClassName="w-full lg:w-cardLarge"
+                onViewMore={() => { setSelectedMember(item); setIsModalOpen(true) }}
               />
-            )}
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Modal pour afficher le profil complet */}
       {selectedMember && (
         <TeamModal
           isOpen={isModalOpen}
-          onClose={handleCloseModal}
+          onClose={() => { setIsModalOpen(false); setSelectedMember(null) }}
           member={selectedMember}
         />
       )}
     </>
   )
-} 
+}

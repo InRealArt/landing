@@ -1,6 +1,11 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import { generateStaticMetadata } from '@/utils/metadata'
-import ArtistsPageClient from './ArtistsPageClient'
+import { getArtists } from '@/actions/artistActions'
+import ArtistsHero from '@/components/artists/ArtistsHero'
+import ArtistsGrid, { ArtistsGridSkeleton } from '@/components/artists/ArtistsGrid'
+
+export const revalidate = 1800
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Artistes InRealArt — Créateurs sélectionnés, histoires singulières',
@@ -9,6 +14,15 @@ export const metadata: Metadata = generateStaticMetadata({
   canonical: 'https://inrealart.com/artists',
 })
 
-export default function ArtistsPage() {
-  return <ArtistsPageClient />
+export default async function ArtistsPage() {
+  const artists = await getArtists(false)
+
+  return (
+    <>
+      <ArtistsHero />
+      <Suspense fallback={<ArtistsGridSkeleton />}>
+        <ArtistsGrid initialArtists={artists} />
+      </Suspense>
+    </>
+  )
 }

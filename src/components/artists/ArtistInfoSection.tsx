@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import { ArtistData } from '@/store/useArtistStore'
+import { TransformedArtistData } from '@/types/artist'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtistInfoSectionProps {
-  artist: ArtistData
+  artist: TransformedArtistData
   interviewUrl?: string | null
   artitudeUrl?: string | null
 }

@@ -23,24 +23,29 @@ export async function getActiveStickyFooter(currentPage?: string): Promise<Stick
     try {
         const now = new Date()
 
-        const stickyFooters = await prisma.stickyFooter.findMany({
-            where: {
-                OR: [
-                    { endValidityDate: null },
-                    { endValidityDate: { gte: now } }
-                ]
-            },
+        const validityFilter = {
+            OR: [
+                { endValidityDate: null },
+                { endValidityDate: { gte: now } }
+            ]
+        }
+
+        // Chercher d'abord un footer actif sur toutes les pages
+        const globalFooter = await prisma.stickyFooter.findFirst({
+            where: { ...validityFilter, activeOnAllPages: true },
             orderBy: { id: 'desc' }
         })
 
-        if (stickyFooters.length === 0) return null
-
-        const match =
-            stickyFooters.find(f => f.activeOnAllPages) ??
-            (currentPage
-                ? stickyFooters.find(f => f.activeOnSpecificPages && f.specificPages.includes(currentPage))
-                : undefined) ??
-            null
+        const match = globalFooter ?? (currentPage
+            ? await prisma.stickyFooter.findFirst({
+                where: {
+                    ...validityFilter,
+                    activeOnSpecificPages: true,
+                    specificPages: { has: currentPage }
+                },
+                orderBy: { id: 'desc' }
+            })
+            : null)
 
         if (!match) return null
 

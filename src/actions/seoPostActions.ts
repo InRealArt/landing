@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { SeoPost } from '@/store/useSeoPostStore'
+import { SeoPost } from '@/types/seoPost'
 
 export async function getFeaturedPost(languageId: number): Promise<SeoPost | null> {
     try {
@@ -55,7 +55,27 @@ export async function getPublishedPosts(
         const [posts, total] = await Promise.all([
             prisma.seoPost.findMany({
                 where: whereClause,
-                include: {
+                select: {
+                    id: true,
+                    languageId: true,
+                    originalPostId: true,
+                    title: true,
+                    slug: true,
+                    excerpt: true,
+                    metaDescription: true,
+                    metaKeywords: true,
+                    listTags: true,
+                    mainImageUrl: true,
+                    mainImageAlt: true,
+                    status: true,
+                    pinned: true,
+                    author: true,
+                    authorLink: true,
+                    viewsCount: true,
+                    estimatedReadTime: true,
+                    categoryId: true,
+                    createdAt: true,
+                    updatedAt: true,
                     category: {
                         select: {
                             id: true,
@@ -67,7 +87,7 @@ export async function getPublishedPosts(
                 orderBy: {
                     createdAt: 'desc'
                 },
-                // take: limit,
+                take: limit,
                 skip: offset
             }),
             prisma.seoPost.count({
@@ -75,7 +95,7 @@ export async function getPublishedPosts(
             })
         ])
         return {
-            posts: posts as SeoPost[],
+            posts: posts as unknown as SeoPost[],
             total
         }
     } catch (error) {

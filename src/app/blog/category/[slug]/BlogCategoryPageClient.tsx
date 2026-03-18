@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
-import { SeoPost } from '@/store/useSeoPostStore'
+import { SeoPost } from '@/types/seoPost'
 import { getPostsByCategorySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
 import { generateCollectionJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 

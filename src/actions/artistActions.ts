@@ -616,13 +616,84 @@ export async function getArtistsMentionedInPost(
             .join(' ')
             .toLowerCase()
 
-        const allArtists = await getArtists()
+        // Extract candidate names from search text to build targeted SQL filters
+        const words = searchText.split(/\s+/).filter(w => w.length > 3)
+        if (words.length === 0) return []
 
-        return allArtists.filter(artist => {
-            const fullName = `${artist.name} ${artist.surname}`.toLowerCase()
-            const surname = artist.surname.toLowerCase()
-            return searchText.includes(fullName) || (surname.length > 3 && searchText.includes(surname))
+        const candidates = await prisma.landingArtist.findMany({
+            where: {
+                artistsPage: true,
+                artist: {
+                    OR: words.map(word => ([
+                        { name: { contains: word, mode: 'insensitive' as const } },
+                        { surname: { contains: word, mode: 'insensitive' as const } }
+                    ])).flat()
+                }
+            },
+            select: {
+                id: true,
+                slug: true,
+                imageUrl: true,
+                secondaryImageUrl: true,
+                artworkStyle: true,
+                mediumTags: true,
+                artistId: true,
+                artist: {
+                    select: {
+                        name: true,
+                        surname: true,
+                        pseudo: true,
+                        backgroundImage: true,
+                        isGallery: true,
+                        countryCode: true,
+                        birthYear: true,
+                        Country: {
+                            select: {
+                                code: true,
+                                name: true
+                            }
+                        }
+                    }
+                }
+            }
         })
+
+        return candidates
+            .filter(la => {
+                const fullName = `${la.artist.name ?? ''} ${la.artist.surname ?? ''}`.toLowerCase()
+                const surname = (la.artist.surname ?? '').toLowerCase()
+                return searchText.includes(fullName) || (surname.length > 3 && searchText.includes(surname))
+            })
+            .map(la => ({
+                id: la.id,
+                slug: la.slug,
+                name: la.artist.name ?? '',
+                surname: la.artist.surname ?? '',
+                pseudo: la.artist.pseudo ?? '',
+                intro: null,
+                description: null,
+                artworkStyle: la.artworkStyle,
+                artistsPage: true,
+                imageUrl: la.imageUrl,
+                secondaryImageUrl: la.secondaryImageUrl,
+                backgroundImage: la.artist.backgroundImage ?? null,
+                artworkImages: null,
+                artistId: la.artistId,
+                countryCode: la.artist.countryCode ?? null,
+                countryName: la.artist.Country?.name ?? null,
+                mediumTags: (la.mediumTags as string[] | null) ?? [],
+                birthYear: la.artist.birthYear ?? null,
+                quoteFromInRealArt: null,
+                biographyHeader1: null,
+                biographyText1: null,
+                biographyHeader2: null,
+                biographyText2: null,
+                biographyHeader3: null,
+                biographyText3: null,
+                biographyHeader4: null,
+                biographyText4: null,
+                imageArtistStudio: null
+            }))
     } catch (error) {
         console.error('Error finding artists mentioned in post:', error)
         return []

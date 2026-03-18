@@ -4,53 +4,42 @@ import { useEffect, useCallback, useState } from 'react'
 import OptimizedImage from '@/components/common/OptimizedImage'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
-import { useSeoPostStore } from '@/store/useSeoPostStore'
-import { getCategoriesWithTranslations } from '@/actions/seoPostActions'
+import { getFeaturedPost, getLanguageIdByCode } from '@/actions/seoPostActions'
+import type { SeoPost } from '@/types/seoPost'
 
-interface TranslatedCategory {
-  id: number
-  name: string
-  color: string | null
-  url: string | null
+interface Props {
+  initialPost: SeoPost | null
 }
 
-export default function FeaturedPost() {
+export default function FeaturedPost({ initialPost }: Props) {
   const { language, t } = useLanguageStore()
-  const { featuredPost, isLoadingFeatured, featuredError, fetchFeaturedPost, currentLanguage } = useSeoPostStore()
-  const [translatedCategories, setTranslatedCategories] = useState<TranslatedCategory[]>([])
+  const [post, setPost] = useState<SeoPost | null>(initialPost)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [loadedLang, setLoadedLang] = useState<string | null>(null)
 
-  // Effet pour charger le post initial ou lors du changement de langue
   useEffect(() => {
-    if (language) {
-      console.log('language choisi', language)
-      // On appelle toujours fetchFeaturedPost, le store gère la logique interne
-      fetchFeaturedPost(language)
-    }
-  }, [language, fetchFeaturedPost])
+    if (!language || language === loadedLang) return
 
-  // Effet pour charger les traductions des catégories
-  useEffect(() => {
-    const fetchCategoryTranslations = async () => {
-      if (language) {
-        try {
-          const categories = await getCategoriesWithTranslations(language)
-          setTranslatedCategories(categories)
-        } catch (error) {
-          console.error('Erreur lors du chargement des traductions de catégories:', error)
-        }
-      }
-    }
+    setIsLoading(true)
+    setError(null)
 
-    fetchCategoryTranslations()
-  }, [language])
+    getLanguageIdByCode(language)
+      .then(langId => {
+        if (!langId) throw new Error(`Langue non trouvée: ${language}`)
+        return getFeaturedPost(langId)
+      })
+      .then(p => {
+        setPost(p)
+        setLoadedLang(language)
+      })
+      .catch(err => {
+        console.error('Erreur lors de la récupération du post épinglé:', err)
+        setError(err instanceof Error ? err.message : 'Erreur')
+      })
+      .finally(() => setIsLoading(false))
+  }, [language, loadedLang])
 
-  // Fonction pour obtenir le nom traduit de la catégorie
-  const getTranslatedCategoryName = useCallback((categoryId: number, defaultName: string) => {
-    const translatedCategory = translatedCategories.find(cat => cat.id === categoryId)
-    return translatedCategory?.name || defaultName
-  }, [translatedCategories])
-
-  // Fonction pour formater la date
   const formatDate = useCallback((date: Date) => {
     return new Intl.DateTimeFormat(language === 'fr' ? 'fr-FR' : 'en-US', {
       year: 'numeric',
@@ -59,13 +48,12 @@ export default function FeaturedPost() {
     }).format(new Date(date))
   }, [language])
 
-  // Fonction pour formater le temps de lecture
   const formatReadTime = useCallback((minutes: number | null) => {
     if (!minutes) return t('blog.readTime.unknown')
     return `${minutes} ${t('blog.readTime.minutes')}`
   }, [t])
 
-  if (isLoadingFeatured) {
+  if (isLoading) {
     return (
       <section className="mx-auto px-4 max-w-screen-xl">
         <div className="mb-16">
@@ -87,20 +75,20 @@ export default function FeaturedPost() {
     )
   }
 
-  if (featuredError) {
+  if (error) {
     return (
       <section className="mx-auto px-4 max-w-screen-xl">
         <div className="mb-16">
           <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
           <div className="p-8 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            {featuredError}
+            {error}
           </div>
         </div>
       </section>
     )
   }
 
-  if (!featuredPost) {
+  if (!post) {
     return (
       <section className="mx-auto px-4 max-w-screen-xl">
         <div className="mb-16">
@@ -120,17 +108,17 @@ export default function FeaturedPost() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-textColor items-stretch">
           <Link
-            href={`/blog/${featuredPost.slug}`}
+            href={`/blog/${post.slug}`}
             className="group relative h-[440px] cursor-pointer rounded-lg bg-[#1d1c1c] overflow-hidden
               transition-all duration-300 ease-out
               hover:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:scale-[1.02]
               active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
           >
-            {featuredPost.mainImageUrl ? (
+            {post.mainImageUrl ? (
               <OptimizedImage
                 className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-contain [&_img]:rounded-lg [&_img]:transition-transform [&_img]:duration-500 [&_img]:ease-out group-hover:[&_img]:scale-105 group-active:[&_img]:scale-100"
-                src={featuredPost.mainImageUrl}
-                alt={featuredPost.mainImageAlt || featuredPost.title}
+                src={post.mainImageUrl}
+                alt={post.mainImageAlt || post.title}
                 width={600}
                 height={440}
                 priority
@@ -143,36 +131,29 @@ export default function FeaturedPost() {
           </Link>
 
           <Link
-            href={`/blog/${featuredPost.slug}`}
+            href={`/blog/${post.slug}`}
             className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer h-full
               transition-all duration-300 ease-out
               hover:bg-backgroundGrey hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]
               active:bg-backgroundGrey active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
           >
             <div className="flex items-center gap-2 text-sm mb-3 text-grayText">
-              <span>{formatDate(featuredPost.createdAt)}</span>
+              <span>{formatDate(post.createdAt)}</span>
               <span>•</span>
-              <span>{formatReadTime(featuredPost.estimatedReadTime)}</span>
-              {/* {featuredPost.viewsCount > 0 && (
-                <>
-                  <span>•</span>
-                  <span>{featuredPost.viewsCount} {t('blog.views')}</span>
-                </>
-              )} */}
+              <span>{formatReadTime(post.estimatedReadTime)}</span>
             </div>
 
-            <h3 className="text-2xl font-bold mb-3 line-clamp-2 md:line-clamp-none">{featuredPost.title}</h3>
+            <h3 className="text-2xl font-bold mb-3 line-clamp-2 md:line-clamp-none">{post.title}</h3>
 
             <p className="mb-6 text-grayText line-clamp-4 md:line-clamp-none">
-              {featuredPost.excerpt || featuredPost.metaDescription}
+              {post.excerpt || post.metaDescription}
             </p>
 
             <div className="flex gap-2 mb-6">
-              {featuredPost.listTags.slice(0, 3).map((tag, index) => (
-                <span 
-                  key={index} 
+              {post.listTags.slice(0, 3).map((tag, index) => (
+                <span
+                  key={index}
                   className="px-4 py-1 border rounded-full text-sm text-textColor"
-
                 >
                   {tag}
                 </span>
@@ -181,7 +162,7 @@ export default function FeaturedPost() {
 
             <div className="flex items-center">
               <span className="text-sm text-grayText">
-                {t('blog.by')} {featuredPost.author}
+                {t('blog.by')} {post.author}
               </span>
             </div>
           </Link>
@@ -189,4 +170,4 @@ export default function FeaturedPost() {
       </div>
     </section>
   )
-} 
+}

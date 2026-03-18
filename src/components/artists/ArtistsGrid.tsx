@@ -1,13 +1,17 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useArtistStore } from '@/store/useArtistStore'
 import { useLanguageStore } from '@/store/languageStore'
+import { ArtistData } from '@/actions/artistActions'
 import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import { EXTERNAL_URLS } from '@/constants/constants'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
+
+interface Props {
+  initialArtists: ArtistData[]
+}
 
 export function ArtistsGridSkeleton() {
   const skeletons = Array.from({ length: PAGE_SIZE })
@@ -37,15 +41,28 @@ export function ArtistsGridSkeleton() {
   )
 }
 
-export default function ArtistsGrid() {
-  const { artists, isLoading } = useArtistStore()
-  const { t } = useLanguageStore()
+export default function ArtistsGrid({ initialArtists }: Props) {
+  const { t, language } = useLanguageStore()
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),
     nationality: parseAsString.withDefault(''),
     q: parseAsString.withDefault(''),
   })
+
+  // Resolve translations client-side — no re-fetch on language switch
+  const artists = useMemo(() =>
+    initialArtists.map(a => ({
+      slug: a.slug,
+      name: `${a.name} ${a.surname}`,
+      role: a.translations?.artworkStyle?.[language] || a.artworkStyle || 'Artiste',
+      photo: a.imageUrl,
+      countryCode: a.countryCode ?? null,
+      countryName: a.countryName ?? null,
+      mediumTags: (a.mediumTags as string[] | undefined) ?? [],
+    })),
+    [initialArtists, language]
+  )
 
   const filtered = useMemo(() => {
     const byNation = params.nationality
@@ -99,8 +116,6 @@ export default function ArtistsGrid() {
       document.removeEventListener('keydown', onKey)
     }
   }, [])
-
-  if (isLoading) return <ArtistsGridSkeleton />
 
   return (
     <section className="py-32 px-4 sm:px-10 bg-backgroundColor">

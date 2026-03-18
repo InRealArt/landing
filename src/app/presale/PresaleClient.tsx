@@ -6,7 +6,7 @@ import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import { Download } from "lucide-react";
-import FAQ from '@/components/common/FAQ/FAQ';
+import FAQWrapper from '@/components/common/FAQ/FAQWrapper';
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { downloadCatalog } from '@/actions/catalogActions'
@@ -357,7 +357,7 @@ export default function PresaleClient() {
 
       </div>
 
-      <FAQ titre={t('presale.faq.title')} description={t('presale.faq.description')} />
+      <FAQWrapper titre={t('presale.faq.title')} description={t('presale.faq.description')} />
 
       {/* Popup de succès */}
       <CatalogSuccessModal
