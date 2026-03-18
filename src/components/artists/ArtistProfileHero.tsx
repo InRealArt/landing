@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 
 interface ArtistProfileHeroProps {
   artist: {
     name: string
+    surname?: string
     role: string
     intro: string
     description: string
@@ -19,22 +19,18 @@ interface ArtistProfileHeroProps {
 }
 
 export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
-  const { t, language } = useLanguageStore()
-  const [backgroundImage, setBackgroundImage] = useState('')
+  const { language } = useLanguageStore()
 
   const containerRef = useRef<HTMLDivElement>(null)
-  const photoRef = useRef<HTMLDivElement>(null)
-  const tagsRef = useRef<HTMLDivElement>(null)
-  const roleRef = useRef<HTMLParagraphElement>(null)
+  const labelRef = useRef<HTMLSpanElement>(null)
   const nameRef = useRef<HTMLHeadingElement>(null)
-  const dividerRef = useRef<HTMLDivElement>(null)
-  const metaRef = useRef<HTMLParagraphElement>(null)
-  const badgeRef = useRef<HTMLDivElement>(null)
+  const specialtyRef = useRef<HTMLParagraphElement>(null)
+  const quoteRef = useRef<HTMLParagraphElement>(null)
 
-  useEffect(() => {
-    const randomImageNumber = Math.floor(Math.random() * 5) + 1
-    setBackgroundImage(`/images/artistProfile/artiste_profile_${randomImageNumber}.webp`)
-  }, [])
+  // Split "Prénom Nom" — surname is the last word, firstName is everything before
+  const nameParts = artist.name.trim().split(' ')
+  const firstName = nameParts.slice(0, -1).join(' ') || artist.name
+  const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : ''
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,220 +42,115 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
       ctx = gsap.context(() => {
         const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-        // 1. Photo portrait — fade-in depuis la gauche
-        if (photoRef.current) {
-          tl.fromTo(
-            photoRef.current,
-            { opacity: 0, x: -20 },
-            { opacity: 1, x: 0, duration: 0.9 }
-          )
+        if (labelRef.current) {
+          tl.fromTo(labelRef.current, { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.5 })
         }
 
-        // 2. Tags médium — fade-in depuis le haut avec stagger
-        if (tagsRef.current) {
-          const tags = tagsRef.current.children
-          if (tags.length > 0) {
-            tl.fromTo(
-              tags,
-              { opacity: 0, y: -10 },
-              { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
-              '+=0.2'
-            )
-          }
-        }
-
-        // 3. Role / Statut — fade-in depuis le bas
-        if (roleRef.current) {
-          tl.fromTo(
-            roleRef.current,
-            { opacity: 0, y: 15 },
-            { opacity: 1, y: 0, duration: 0.6 },
-            '-=0.3'
-          )
-        }
-
-        // 4 & 5. H1 — firstName puis lastName avec stagger
         if (nameRef.current) {
           const spans = nameRef.current.querySelectorAll('span')
-          if (spans.length > 0) {
-            tl.fromTo(
-              spans,
-              { opacity: 0, y: 30 },
-              { opacity: 1, y: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 },
-              '-=0.3'
-            )
-          }
-        }
-
-        // 6. Ligne décorative — scaleX depuis la gauche
-        if (dividerRef.current) {
           tl.fromTo(
-            dividerRef.current,
-            { opacity: 0, scaleX: 0 },
-            { opacity: 1, scaleX: 1, duration: 0.5, transformOrigin: 'left' },
+            spans,
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.9, ease: 'power4.out', stagger: 0.12 },
             '-=0.2'
           )
         }
 
-        // 7. Infos naissance/pays — fade-in depuis le bas
-        if (metaRef.current) {
+        if (specialtyRef.current) {
           tl.fromTo(
-            metaRef.current,
-            { opacity: 0, y: 10 },
-            { opacity: 1, y: 0, duration: 0.5 },
-            '-=0.2'
+            specialtyRef.current,
+            { opacity: 0, x: -12 },
+            { opacity: 1, x: 0, duration: 0.6 },
+            '-=0.4'
           )
         }
 
-        // 8. Badge InRealArt — fade-in avec rebond
-        if (badgeRef.current) {
+        if (quoteRef.current) {
           tl.fromTo(
-            badgeRef.current,
-            { opacity: 0, y: 12 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.4)' },
-            '-=0.3'
+            quoteRef.current,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8 },
+            '-=0.5'
           )
         }
       }, containerRef)
     }
 
     initAnimations()
-
     return () => ctx?.revert()
   }, [])
 
-  const nameParts = artist.name.split(' ')
-  const firstName = nameParts[0]
-  const lastName = nameParts.slice(1).join(' ')
-
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden bg-[#0c0c0c]">
+    <div
+      ref={containerRef}
+      className="w-full bg-backgroundColor border-b border-gray-100"
+      style={{ borderColor: '#eeeeee' }}
+    >
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
 
-      {/* Couche décorative : image de fond estompée — plein écran, derrière tout */}
-      {backgroundImage && (
-        <div className="absolute inset-0 opacity-15 scale-105">
-          <OptimizedBackgroundImage
-            src={backgroundImage}
-            alt=""
-            width={1920}
-            height={1080}
-            className="w-full h-full"
-            overlay={false}
-          />
-        </div>
-      )}
+          {/* Left — section label + large name + specialty */}
+          <div className="lg:col-span-7">
+            <span
+              ref={labelRef}
+              className="section-number opacity-0"
+            >
+              {language === 'fr' ? 'Artiste résident' : 'Resident Artist'}
+            </span>
 
-      {/* Contenu centré avec max-w — même convention que le reste du site */}
-      <div className="relative z-10 max-w-90 xl:max-w-screen-xl mx-auto px-4 py-16 lg:py-20">
-
-        {/* Split 50/50 : photo à gauche, texte à droite */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16">
-
-          {/* Colonne gauche — Portrait */}
-          <div className="relative">
-            {/* Photo portrait avec ratio fixe */}
-            <div ref={photoRef} className="relative overflow-hidden rounded-xl aspect-[3/4] opacity-0">
-              <img
-                src={artist.photo}
-                alt={`Portrait de ${artist.name}`}
-                className="w-full h-full object-cover object-top"
-              />
-
-              {/* Dégradé de fusion vers la droite (desktop) — fond sombre */}
-              <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-r from-transparent to-[#0c0c0c]" />
-
-              {/* Dégradé de fusion vers le bas (mobile) */}
-              <div className="lg:hidden absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0c0c0c] to-transparent" />
-            </div>
-
-            {/* Tags médium — glassmorphism flottants sur la photo */}
-            {artist.mediumTags && artist.mediumTags.length > 0 && (
-              <div
-                ref={tagsRef}
-                className="absolute top-4 left-4 flex flex-wrap gap-2"
-              >
-                {artist.mediumTags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-xs font-medium tracking-wide opacity-0"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Colonne droite — Informations artiste */}
-          <div className="relative flex flex-col justify-center pt-8 lg:pt-0">
-
-            {/* Ligne décorative verticale (desktop) — séparateur subtil */}
-            <div className="hidden lg:block absolute left-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent" />
-
-            <div className="lg:pl-4">
-
-              {/* Role / Statut */}
-              <p
-                ref={roleRef}
-                className="text-xs font-semibold uppercase tracking-[0.2em] text-purpleColor mb-5 bricolage-grotesque opacity-0"
-              >
-                {artist.role}
-              </p>
-
-              {/* Nom de l'artiste — h1 SEO */}
-              <h1 ref={nameRef} className="text-white leading-none mb-6">
-                <span className="block text-4xl lg:text-5xl xl:text-6xl font-bold unbounded opacity-0">
-                  {firstName}
-                </span>
-                {lastName && (
-                  <span className="block text-4xl lg:text-5xl xl:text-6xl font-bold unbounded text-white/80 opacity-0">
-                    {lastName}
-                  </span>
-                )}
-              </h1>
-
-              {/* Ligne décorative sous le nom */}
-              <div ref={dividerRef} className="flex items-center gap-3 mb-6 opacity-0">
-                <div className="h-px w-10 bg-purpleColor" />
-                <div className="h-px flex-1 max-w-[120px] bg-white/10" />
-              </div>
-
-              {/* Origine et année de naissance */}
-              {(artist.birthYear || artist.countryName) && (
-                <p
-                  ref={metaRef}
-                  className="text-white/50 text-sm bricolage-grotesque mb-5 tracking-wide opacity-0"
+            <h1
+              ref={nameRef}
+              className="leading-none mb-10"
+            >
+              <span className="block text-6xl md:text-8xl lg:text-9xl font-cormorant font-light text-textColor opacity-0">
+                {firstName}
+              </span>
+              {lastName && (
+                <span
+                  className="block text-6xl md:text-8xl lg:text-9xl font-cormorant font-light italic opacity-0"
+                  style={{ color: '#b89c72' }}
                 >
-                  {artist.birthYear && (
-                    <span>
-                      {t('artistPage.bornIn')} <span className="text-white/70">{artist.birthYear}</span>
-                    </span>
-                  )}
-                  {artist.birthYear && artist.countryName && (
-                    <span className="mx-2 opacity-40">—</span>
-                  )}
-                  {artist.countryName && (
-                    <span className="text-white/70">{artist.countryName}</span>
-                  )}
-                </p>
+                  {lastName}
+                </span>
               )}
+            </h1>
 
-              {/* Badge InRealArt */}
-              <div
-                ref={badgeRef}
-                className="inline-flex flex-col gap-1 px-4 py-3 bg-white/5 border border-purpleColor/30 rounded-xl backdrop-blur-sm opacity-0"
-              >
-                <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/80 bricolage-grotesque">
-                  <span className="text-purpleColor">✦</span>
-                  {language === 'fr' ? 'Artiste certifié InRealArt' : 'InRealArt Certified Artist'}
-                </span>
-                <span className="text-[10px] text-white/40 bricolage-grotesque tracking-wide">
-                  {language === 'fr' ? 'Œuvres authentifiées' : 'Authenticated artworks'}
-                </span>
-              </div>
-
-            </div>
+            <p
+              ref={specialtyRef}
+              className="text-[11px] uppercase tracking-[0.4em] text-gray-400 font-montserrat flex items-center gap-4 opacity-0"
+            >
+              <span className="w-8 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
+              {artist.role}
+              {artist.countryName && (
+                <>
+                  <span className="opacity-40" aria-hidden="true">—</span>
+                  <span>{artist.countryName}</span>
+                </>
+              )}
+              {artist.birthYear && (
+                <>
+                  <span className="opacity-40" aria-hidden="true">·</span>
+                  <span>
+                    {language === 'fr' ? 'Né(e) en' : 'Born in'}{' '}
+                    {artist.birthYear}
+                  </span>
+                </>
+              )}
+            </p>
           </div>
+
+          {/* Right — editorial intro quote */}
+          {artist.intro && (
+            <div className="lg:col-span-5 pb-2">
+              <p
+                ref={quoteRef}
+                className="text-xl lg:text-2xl font-cormorant italic font-light leading-relaxed text-gray-500 opacity-0"
+              >
+                &laquo;&nbsp;{artist.intro}&nbsp;&raquo;
+              </p>
+            </div>
+          )}
+
         </div>
       </div>
     </div>

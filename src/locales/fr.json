@@ -623,7 +623,17 @@
     "follow": "Suivre l'artiste",
     "notFound": "Artiste non trouvé",
     "artwork_singular": "œuvre",
-    "artwork_plural": "œuvres"
+    "artwork_plural": "œuvres",
+    "ctaLabel": "Acquisition & Curation",
+    "ctaTitle": "Intégrez une œuvre de",
+    "ctaTitleSuffix": "à votre collection",
+    "ctaCatalog": "Demander un catalogue privé",
+    "ctaContact": "Prendre rendez-vous",
+    "biographyLabel": "Parcours",
+    "biographyTitle": "Biographie & Démarche",
+    "artworksLabel": "Sélection",
+    "artworksTitle": "Œuvres disponibles",
+    "pagination": "Pagination"
   },
   "team": {
     "title": "Notre équipe",

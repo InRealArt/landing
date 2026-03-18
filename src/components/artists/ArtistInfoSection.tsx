@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtistData } from '@/store/useArtistStore'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
+import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface ArtistInfoSectionProps {
   artist: ArtistData
@@ -12,12 +13,11 @@ interface ArtistInfoSectionProps {
 }
 
 export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }: ArtistInfoSectionProps) {
-  const { t } = useLanguageStore()
+  const { t, language } = useLanguageStore()
 
   const sectionRef = useRef<HTMLElement>(null)
-  const separatorRef = useRef<HTMLDivElement>(null)
-  const leftColRef = useRef<HTMLDivElement>(null)
-  const rightColRef = useRef<HTMLDivElement>(null)
+  const photoColRef = useRef<HTMLDivElement>(null)
+  const textColRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,59 +30,18 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
 
       ctx = gsap.context(() => {
 
-        // — Séparateur décoratif haut de section
-        if (separatorRef.current) {
-          const lines = separatorRef.current.querySelectorAll('.sep-line')
-          const dots = separatorRef.current.querySelectorAll('.sep-dot')
+        // Photo column: slide in from left
+        if (photoColRef.current) {
           gsap.fromTo(
-            lines,
-            { scaleX: 0, opacity: 0 },
+            photoColRef.current,
+            { opacity: 0, x: -32 },
             {
-              scaleX: 1,
               opacity: 1,
-              duration: 0.8,
+              x: 0,
+              duration: 1,
               ease: 'power3.out',
-              stagger: 0.1,
-              transformOrigin: 'left',
               scrollTrigger: {
-                trigger: separatorRef.current,
-                start: 'top 88%',
-                once: true,
-              },
-            }
-          )
-          gsap.fromTo(
-            dots,
-            { scale: 0, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 0.4,
-              ease: 'back.out(2)',
-              stagger: 0.08,
-              scrollTrigger: {
-                trigger: separatorRef.current,
-                start: 'top 88%',
-                once: true,
-              },
-            }
-          )
-        }
-
-        // — Colonne gauche : fade + slide-up séquentiel sur les enfants directs
-        if (leftColRef.current) {
-          const children = leftColRef.current.querySelectorAll(':scope > *')
-          gsap.fromTo(
-            children,
-            { opacity: 0, y: 32 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.75,
-              ease: 'power3.out',
-              stagger: 0.12,
-              scrollTrigger: {
-                trigger: leftColRef.current,
+                trigger: photoColRef.current,
                 start: 'top 82%',
                 once: true,
               },
@@ -90,49 +49,25 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
           )
         }
 
-        // — Colonne droite : image + cadre décalé
-        if (rightColRef.current) {
-          const image = rightColRef.current.querySelector('.artist-img-main')
-          const frame = rightColRef.current.querySelector('.artist-img-frame')
-
-          if (frame) {
-            gsap.fromTo(
-              frame,
-              { opacity: 0, x: -8, y: -8 },
-              {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                duration: 0.9,
-                ease: 'power3.out',
-                scrollTrigger: {
-                  trigger: rightColRef.current,
-                  start: 'top 80%',
-                  once: true,
-                },
-              }
-            )
-          }
-
-          if (image) {
-            gsap.fromTo(
-              image,
-              { opacity: 0, x: 24, scale: 0.97 },
-              {
-                opacity: 1,
-                x: 0,
-                scale: 1,
-                duration: 1,
-                ease: 'power3.out',
-                delay: 0.1,
-                scrollTrigger: {
-                  trigger: rightColRef.current,
-                  start: 'top 80%',
-                  once: true,
-                },
-              }
-            )
-          }
+        // Text column: stagger children
+        if (textColRef.current) {
+          const children = textColRef.current.querySelectorAll(':scope > *')
+          gsap.fromTo(
+            children,
+            { opacity: 0, y: 28 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.75,
+              ease: 'power3.out',
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: textColRef.current,
+                start: 'top 82%',
+                once: true,
+              },
+            }
+          )
         }
 
       }, sectionRef)
@@ -142,100 +77,114 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
     return () => ctx?.revert()
   }, [])
 
+  const hasCta = interviewUrl || artitudeUrl
+
   return (
-    <section ref={sectionRef} className="relative pt-20 pb-20 lg:pt-28 lg:pb-28">
+    <section ref={sectionRef} className="py-24 lg:py-40 bg-backgroundColor">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
 
-      {/* Séparateur décoratif haut de section */}
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
-        <div ref={separatorRef} className="flex items-center gap-4 mb-16 lg:mb-20">
-          <div className="sep-line h-px flex-1 bg-borderColor origin-left" />
-          <div className="sep-dot w-1.5 h-1.5 rounded-full bg-purpleColor flex-shrink-0" />
-          <div className="sep-line h-px w-8 bg-purpleColor/50 flex-shrink-0 origin-left" />
-          <div className="sep-dot w-1.5 h-1.5 rounded-full bg-purpleColor/30 flex-shrink-0" />
-          <div className="sep-line h-px flex-1 bg-borderColor origin-left" />
-        </div>
-      </div>
+          {/* Left — portrait photo */}
+          <div ref={photoColRef} className="lg:col-span-5">
+            <div className="aspect-[3/4] bg-gray-100 overflow-hidden relative">
+              <FirebaseImage
+                src={artist.photo}
+                alt={`Portrait de ${artist.name}`}
+                className="w-full h-full"
+                imgClassName="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-[filter] duration-700"
+                loading="eager"
+              />
+            </div>
 
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
-          {/* Colonne gauche — Informations éditoriales */}
-          <div ref={leftColRef} className="space-y-8">
-
-            {/* Origine et année de naissance */}
+            {/* Meta below portrait */}
             {(artist.birthYear || artist.countryName) && (
-              <p className="text-grayText text-xs uppercase tracking-[0.18em] bricolage-grotesque font-medium">
+              <div className="mt-8 flex justify-between items-start">
                 {artist.birthYear && (
-                  <span>{t('artists.profile.bornIn')} {artist.birthYear}</span>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest font-semibold text-textColor font-montserrat">
+                      {language === 'fr' ? 'Née en' : 'Born'}
+                    </p>
+                    <p className="text-lg font-cormorant italic font-light text-gray-500 mt-1">
+                      {artist.birthYear}
+                    </p>
+                  </div>
                 )}
-                {artist.birthYear && artist.countryName && (
-                  <span className="mx-2 opacity-40">·</span>
+                {artist.countryName && (
+                  <div className="text-right">
+                    <p className="text-[10px] uppercase tracking-widest font-semibold text-textColor font-montserrat">
+                      {language === 'fr' ? 'Origine' : 'Origin'}
+                    </p>
+                    <p className="text-lg font-cormorant italic font-light text-gray-500 mt-1">
+                      {artist.countryName}
+                    </p>
+                  </div>
                 )}
-                {artist.countryName && <span>{artist.countryName}</span>}
-              </p>
+              </div>
             )}
 
-            {/* Citation éditoriale — grande typographie */}
-            <blockquote className="relative">
-              {/* Guillemet décoratif inline — reste dans le flux du blockquote */}
-              <span
-                className="block text-5xl font-bold text-purpleColor/15 unbounded leading-none select-none pointer-events-none -mb-3"
-                aria-hidden="true"
-              >
-                &ldquo;
-              </span>
-              <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-textColor bricolage-grotesque leading-tight">
-                {formatTextWithLineBreaksJSX(artist.intro)}
-              </h2>
-            </blockquote>
-
-            {/* Tags médium — pilules bordure purpleColor */}
+            {/* Medium tags */}
             {artist.mediumTags && artist.mediumTags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {artist.mediumTags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-4 py-1.5 border border-purpleColor/40 text-purpleColor rounded-full text-xs font-semibold tracking-wide bricolage-grotesque bg-purpleColor/5 hover:bg-purpleColor/10 transition-colors duration-200"
+                    className="px-3 py-1.5 border text-[10px] uppercase tracking-widest font-montserrat transition-colors duration-300 hover:bg-textColor hover:text-backgroundColor"
+                    style={{ borderColor: '#eeeeee', color: '#888888' }}
                   >
                     {tag}
                   </span>
                 ))}
               </div>
             )}
+          </div>
 
-            {/* Description */}
-            <div className="text-grayText text-sm lg:text-base leading-relaxed lg:leading-loose bricolage-grotesque space-y-4">
-              {formatTextWithLineBreaksJSX(
-                artist.description || t('artists.profile.certifiedArtist').replace('{name}', artist.name)
-              )}
+          {/* Right — editorial biography */}
+          <div
+            ref={textColRef}
+            className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center space-y-8"
+          >
+            <span className="block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat">
+              {language === 'fr' ? 'La Démarche' : 'The Approach'}
+            </span>
+
+            {/* Section h2 */}
+            <h2 className="text-4xl lg:text-5xl font-cormorant font-light text-textColor leading-tight">
+              {t('artistPage.whoIs')}
+              <span className="italic" style={{ color: '#b89c72' }}>
+                {artist.name}
+              </span>
+            </h2>
+
+            {/* Biography text */}
+            <div className="space-y-6 text-gray-500 leading-loose text-sm font-light font-montserrat">
+              {artist.description ? (
+                <div>
+                  {formatTextWithLineBreaksJSX(
+                    artist.description || t('artists.profile.certifiedArtist').replace('{name}', artist.name)
+                  )}
+                </div>
+              ) : null}
             </div>
 
-            {/* CTAs interview & artitude */}
-            {(interviewUrl || artitudeUrl) && (
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
+            {/* Italic quote from InRealArt */}
+            {artist.quoteFromInRealArt && (
+              <p className="text-xl font-cormorant italic font-light text-textColor leading-relaxed">
+                &ldquo;{artist.quoteFromInRealArt}&rdquo;
+              </p>
+            )}
+
+            {/* CTAs */}
+            {hasCta && (
+              <div className="pt-8 border-t flex flex-col sm:flex-row gap-4" style={{ borderColor: '#eeeeee' }}>
                 {interviewUrl && (
                   <a
                     href={interviewUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 px-6 py-3.5 border border-textColor/30 hover:border-textColor text-textColor rounded-full text-sm font-semibold bricolage-grotesque transition-all duration-250 hover:bg-textColor hover:text-backgroundColor"
+                    className="inline-block px-7 py-4 border text-[10px] uppercase tracking-[0.25em] font-montserrat transition-all duration-500 hover:bg-textColor hover:text-backgroundColor"
+                    style={{ borderColor: '#000000' }}
                   >
-                    <span>{t('artists.profile.readInterview').replace('{name}', artist.name)}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    >
-                      <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-                    </svg>
+                    {t('artists.profile.readInterview').replace('{name}', '')}
                   </a>
                 )}
                 {artitudeUrl && (
@@ -243,50 +192,22 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
                     href={artitudeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 px-6 py-3.5 border border-purpleColor/50 hover:border-purpleColor text-purpleColor rounded-full text-sm font-semibold bricolage-grotesque transition-all duration-250 hover:bg-purpleColor hover:text-white"
+                    className="inline-block px-7 py-4 border text-[10px] uppercase tracking-[0.25em] font-montserrat transition-all duration-500"
+                    style={{ borderColor: '#b89c72', color: '#b89c72' }}
+                    onMouseEnter={e => {
+                      ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#b89c72'
+                      ;(e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'
+                    }}
+                    onMouseLeave={e => {
+                      ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'
+                      ;(e.currentTarget as HTMLAnchorElement).style.color = '#b89c72'
+                    }}
                   >
-                    <span>{t('artists.profile.visitArtitude').replace('{name}', artist.name)}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    >
-                      <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-                    </svg>
+                    {t('artists.profile.visitArtitude').replace('{name}', '')}
                   </a>
                 )}
               </div>
             )}
-          </div>
-
-          {/* Colonne droite — Photo secondaire avec cadre artistique */}
-          <div ref={rightColRef} className="flex justify-center lg:justify-end">
-            <div className="relative group max-w-sm w-full">
-              {/* Cadre décoratif décalé */}
-              <div
-                className="artist-img-frame absolute inset-0 translate-x-4 translate-y-4 rounded-2xl border border-purpleColor/20 bg-purpleColor/5 pointer-events-none transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5"
-                aria-hidden="true"
-              />
-
-              {/* Image principale */}
-              <div className="artist-img-main relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={artist.secondaryImageUrl || artist.photo}
-                  alt={`Photo de ${artist.name}`}
-                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.02]"
-                />
-                {/* Overlay subtil au hover */}
-                <div className="absolute inset-0 bg-purpleColor/0 group-hover:bg-purpleColor/5 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </div>
           </div>
 
         </div>

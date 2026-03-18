@@ -640,7 +640,17 @@
     "follow": "Follow the artist",
     "notFound": "Artist not found",
     "artwork_singular": "artwork",
-    "artwork_plural": "artworks"
+    "artwork_plural": "artworks",
+    "ctaLabel": "Acquisition & Curation",
+    "ctaTitle": "Add a work by",
+    "ctaTitleSuffix": "to your collection",
+    "ctaCatalog": "Request a private catalogue",
+    "ctaContact": "Book an appointment",
+    "biographyLabel": "Career",
+    "biographyTitle": "Biography & Practice",
+    "artworksLabel": "Selection",
+    "artworksTitle": "Available works",
+    "pagination": "Pagination"
   },
   "team": {
     "title": "Our Team",

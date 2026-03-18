@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandrine Hirson | Artiste Résidente - InRealArt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 0.9rem 1.8rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: transparent;
+        }
+        .btn-cta:hover {
+            background: var(--ink-black);
+            color: white;
+        }
+        .artwork-image {
+            background-color: #f9f9f9;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .artwork-container:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        .sticky-profile {
+            position: sticky;
+            top: 150px;
+        }
+        .reveal-line {
+            height: 1px;
+            background: var(--border-light);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        .active-reveal .reveal-line {
+            width: 100%;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation (Identique à la DA) -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Store</a>
+        </div>
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER ARTISTE -->
+    <main class="pt-40">
+        <section class="px-10 max-w-screen-2xl mx-auto mb-32">
+            <div class="grid lg:grid-cols-12 gap-16 items-end">
+                <div class="lg:col-span-7">
+                    <span class="section-number">Artiste Résidente</span>
+                    <h1 class="text-7xl md:text-9xl serif leading-none">Sandrine <br><span class="italic text-gold-accent">Hirson</span></h1>
+                    <p class="text-[12px] uppercase tracking-[0.4em] text-gray-400 mt-12 flex items-center gap-4">
+                        <span class="w-8 h-px bg-gray-300"></span> Peinture Narrative & Abstraction Lyrique
+                    </p>
+                </div>
+                <div class="lg:col-span-5 pb-4">
+                    <p class="serif text-2xl italic leading-relaxed text-gray-600">
+                        "Ma peinture est une quête de silence, une tentative de figer l'écho d'une émotion avant qu'elle ne s'évapore dans le tumulte du réel."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIO & PHOTO SECTION -->
+        <section class="px-10 max-w-screen-2xl mx-auto mb-48">
+            <div class="grid lg:grid-cols-12 gap-20">
+                <div class="lg:col-span-5">
+                    <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" alt="Sandrine Hirson Portrait" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest font-bold">Localisation</p>
+                            <p class="serif italic text-lg text-gray-500">Atelier à Lyon, France</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] uppercase tracking-widest font-bold">Formation</p>
+                            <p class="serif italic text-lg text-gray-500">Beaux-Arts de Paris</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 lg:offset-1 flex flex-col justify-center">
+                    <span class="section-number">La Démarche</span>
+                    <h2 class="serif text-5xl mb-12">L'exploration des <span class="italic">limbes.</span></h2>
+                    <div class="space-y-8 text-gray-600 leading-loose text-sm font-light">
+                        <p>
+                            Depuis plus de quinze ans, Sandrine Hirson développe un langage visuel singulier où la matière picturale devient le support d'une narration intérieure. Ses œuvres, souvent de grands formats, invitent à une immersion dans des paysages abstraits mais étrangement familiers.
+                        </p>
+                        <p>
+                            Son travail sur la transparence et la superposition de glacis permet de créer une profondeur vibrante, presque organique. Chaque toile est le résultat d'un processus lent, une accumulation de strates qui témoigne du passage du temps et de la persistance de la mémoire.
+                        </p>
+                        <p class="italic serif text-xl text-black">
+                            "Travailler avec InRealArt me permet de préserver cette exigence du geste tout en ouvrant mon atelier sur de nouvelles perspectives technologiques et curatoriales."
+                        </p>
+                    </div>
+                    <div class="mt-16 pt-12 border-t border-gray-100">
+                        <a href="#" class="btn-cta">Télécharger le Portfolio (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OEUVRES DISPONIBLES -->
+        <section class="py-32 px-10 bg-[#fbfbfb] border-y border-gray-100">
+            <div class="max-w-screen-2xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div>
+                        <span class="section-number">Sélection</span>
+                        <h2 class="text-6xl serif italic">Œuvres disponibles.</h2>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="px-6 py-2 text-[9px] uppercase tracking-widest border border-black/10 bg-white">Toutes</button>
+                        <button class="px-6 py-2 text-[9px] uppercase tracking-widest border border-black/10 hover:bg-black hover:text-white transition-colors">Toiles</button>
+                        <button class="px-6 py-2 text-[9px] uppercase tracking-widest border border-black/10 hover:bg-black hover:text-white transition-colors">Dessins</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+                    <!-- Oeuvre 1 -->
+                    <div class="artwork-container group cursor-pointer">
+                        <div class="artwork-image aspect-[4/5] mb-8 relative">
+                            <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800" alt="Espace Liminal n°4">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <h3 class="serif text-3xl italic">Espace Liminal n°4</h3>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Huile sur toile, 120x150cm</p>
+                                <p class="text-[12px] font-medium italic">4 200 €</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oeuvre 2 -->
+                    <div class="artwork-container group cursor-pointer">
+                        <div class="artwork-image aspect-[4/5] mb-8 relative">
+                            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800" alt="Murmure d'Automne">
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <h3 class="serif text-3xl italic">Murmure d'Automne</h3>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Technique mixte, 80x100cm</p>
+                                <p class="text-[12px] font-medium italic">2 900 €</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oeuvre 3 -->
+                    <div class="artwork-container group cursor-pointer">
+                        <div class="artwork-image aspect-[4/5] mb-8 relative">
+                            <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&q=80&w=800" alt="L'Instant Suspendu">
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <h3 class="serif text-3xl italic">L'Instant Suspendu</h3>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <p class="text-[10px] text-gray-400 uppercase tracking-widest">Acrylique, 100x100cm</p>
+                                <p class="text-[12px] font-medium italic">3 500 €</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-24 text-center">
+                    <a href="#" class="btn-cta">Voir tout le catalogue de Sandrine</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPOSITIONS & CV (Style minimaliste) -->
+        <section class="py-48 px-10 max-w-screen-2xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-20">
+                <div class="lg:col-span-4">
+                    <div class="sticky-profile">
+                        <span class="section-number">Parcours</span>
+                        <h2 class="text-5xl serif italic mb-8">Expositions <br>& Distinctions.</h2>
+                        <p class="text-[11px] uppercase tracking-[0.3em] text-gray-400 leading-relaxed">
+                            Artiste reconnue par la critique, Sandrine Hirson participe régulièrement à des foires internationales et des résidences de création.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-16">
+                    <!-- Exp 1 -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-4">
+                            <span class="serif text-3xl italic">Résonances Intimes</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">2023</span>
+                        </div>
+                        <div class="h-px bg-gray-100 w-full group-hover:bg-gold-accent transition-colors duration-700"></div>
+                        <p class="mt-4 text-[11px] uppercase tracking-widest text-gray-500">Galerie InRealArt, Paris — Exposition Personnelle</p>
+                    </div>
+                    <!-- Exp 2 -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-4">
+                            <span class="serif text-3xl italic">Art Paris Art Fair</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">2022</span>
+                        </div>
+                        <div class="h-px bg-gray-100 w-full group-hover:bg-gold-accent transition-colors duration-700"></div>
+                        <p class="mt-4 text-[11px] uppercase tracking-widest text-gray-500">Grand Palais Éphémère, Paris — Sélection "Promesses"</p>
+                    </div>
+                    <!-- Exp 3 -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-4">
+                            <span class="serif text-3xl italic">Matières de l'Aube</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">2021</span>
+                        </div>
+                        <div class="h-px bg-gray-100 w-full group-hover:bg-gold-accent transition-colors duration-700"></div>
+                        <p class="mt-4 text-[11px] uppercase tracking-widest text-gray-500">Musée d'Art Contemporain de Lyon — Exposition Collective</p>
+                    </div>
+                    <!-- Exp 4 -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-4">
+                            <span class="serif text-3xl italic">Prix de la Fondation Taylor</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400">2019</span>
+                        </div>
+                        <div class="h-px bg-gray-100 w-full group-hover:bg-gold-accent transition-colors duration-700"></div>
+                        <p class="mt-4 text-[11px] uppercase tracking-widest text-gray-500">Lauréate — Section Peinture</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA CONTACT -->
+        <section class="py-40 px-10 bg-black text-white text-center">
+            <div class="max-w-4xl mx-auto">
+                <span class="section-number !text-gray-600 italic">Acquisition & Curation</span>
+                <h2 class="serif text-5xl md:text-7xl italic mt-10 mb-12 leading-tight">Envie d'intégrer une œuvre de Sandrine à votre collection ?</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-8 mt-16">
+                    <a href="#" class="btn-cta !border-white hover:!bg-white hover:!text-black">Demander un catalogue privé</a>
+                    <a href="#" class="btn-cta !border-gold-accent !text-gold-accent hover:!bg-gold-accent hover:!text-white">Prendre RDV à l'atelier</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Identique à la DA) -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24">InRealArt</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Artistes</h5>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Toutes les signatures</a>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Devenir résident</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Marketplace</h5>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Store</a>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Simulateur LOA</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">InRealArt</h5>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Manifeste</a>
+                    <a href="#" class="block text-[11px] text-gray-500 hover:text-black mb-3">Contact</a>
+                </div>
+                <div class="lg:col-span-2">
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Newsletter</h5>
+                    <div class="flex border-b border-black/20 pb-2">
+                        <input type="email" placeholder="votre@email.com" class="bg-transparent text-[11px] w-full outline-none">
+                        <button class="text-[10px] uppercase tracking-widest font-bold">S'inscrire</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between items-center pt-12 border-t border-gray-100">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 — InRealArt Studio</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
