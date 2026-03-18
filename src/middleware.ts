@@ -25,6 +25,7 @@ const SEGMENT_REDIRECTS: Record<string, string> = {
   terms: '/terms',
   roadmap: '/roadmap',
   manifest: '/manifest',
+  services: '/services',
 }
 
 // Known valid static routes — these are never redirected
@@ -58,6 +59,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/usecase/fractionate',
   '/usecase/leasing',
   '/usecase/lending',
+  '/services',
 ])
 
 // Known dynamic route prefixes with exactly one slug segment — always valid
