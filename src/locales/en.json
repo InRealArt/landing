@@ -466,6 +466,11 @@
         }
       }
     },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "What our",
+      "titleAccent": "artists say."
+    },
     "faq": {
       "title": "Frequently Asked Questions about the marketplace",
       "description": "Are you an artist or professional and want to sell your artworks? <br><br>Are you a collector or institution and want to discover, acquire or invest in contemporary art? <br><br>Our marketplace FAQ answers all your questions and guides you to make the most of our platform."

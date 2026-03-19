@@ -316,6 +316,11 @@
         }
       }
     },
+    "testimonials": {
+      "eyebrow": "Témoignages",
+      "title": "Ce que disent",
+      "titleAccent": "nos artistes."
+    },
     "team": {
       "title": "Découvrez les membres de l'équipe",
       "heading": "Notre ",
