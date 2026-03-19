@@ -1,7 +1,6 @@
 'use client'
 
 import Link from "next/link";
-import { useState } from "react";
 import { useLanguageStore } from "@/store/languageStore";
 import FirebaseImage from "@/components/common/FirebaseImage";
 
@@ -19,69 +18,79 @@ interface TeamCardProps {
   onViewMore?: () => void;
 }
 
-const TeamCard = ({ image, name, role, intro, description, socials, additionalClassName, isSlider, onViewMore: _onViewMore }: TeamCardProps) => {
+const TeamCard = ({
+  image,
+  name,
+  role,
+  intro,
+  socials,
+  additionalClassName,
+  isSlider,
+  onViewMore,
+}: TeamCardProps) => {
   const { t } = useLanguageStore()
-  const [isExpanded, setIsExpanded] = useState(false)
-
-  const truncateText = (text: string, maxLength: number = 120) => {
-    if (text.length <= maxLength) return text
-    return text.substring(0, maxLength) + '...'
-  }
-
-  const shouldShowMoreButton = description && description.length > 120
-  const displayDescription = shouldShowMoreButton && !isExpanded
-    ? truncateText(description, 120)
-    : description
 
   return (
-    <div className={`group cursor-pointer ${isSlider ? 'h-full' : 'h-auto'} ${additionalClassName ?? ''}`}>
-      {/* Image container — grayscale lifts to full color on hover */}
-      <div className={`overflow-hidden bg-cardBackground grayscale group-hover:grayscale-0 transition-all duration-1000 ${isSlider ? 'aspect-[3/4] max-h-[480px]' : 'aspect-[3/4]'}`}>
+    <div
+      className={`group cursor-pointer ${isSlider ? 'h-full' : 'h-auto'} ${additionalClassName ?? ''}`}
+      onClick={onViewMore}
+      role={onViewMore ? 'button' : undefined}
+      tabIndex={onViewMore ? 0 : undefined}
+      onKeyDown={onViewMore ? (e) => { if (e.key === 'Enter' || e.key === ' ') onViewMore() } : undefined}
+    >
+      {/* Portrait — grayscale lifts to full colour on hover */}
+      <div
+        className={`overflow-hidden bg-[#f8f8f8] grayscale group-hover:grayscale-0 transition-all duration-1000 ${
+          isSlider ? 'aspect-[3/4] max-h-[480px]' : 'aspect-[3/4]'
+        }`}
+      >
         <FirebaseImage
           src={image.src}
           alt={name}
           className="w-full h-full"
-          imgClassName="w-full h-full object-cover object-top"
+          imgClassName="w-full h-full object-cover object-top transition-transform duration-[1200ms] cubic-bezier(0.16,1,0.3,1) group-hover:scale-[1.03]"
           loading="lazy"
         />
       </div>
 
-      {/* Gold rule */}
-      <div className="flex justify-center mt-6">
-        <span className="w-8 h-px bg-[#b89c72] block" />
-      </div>
-
       {/* Identity block */}
-      <div className="text-center mt-4">
-        <p className="text-sm uppercase tracking-[0.3em] font-medium text-textColor">{name}</p>
-        <p className="text-[10px] text-grayText uppercase tracking-widest mt-2 italic bricolage-grotesque">{role}</p>
+      <div className="text-center mt-6">
+        {/* Gold rule */}
+        <span className="w-8 h-px bg-[#b89c72] block mx-auto mb-5" />
+
+        <p className="text-sm uppercase tracking-[0.3em] font-medium text-textColor montserrat">{name}</p>
+        <p className="text-[10px] text-grayText uppercase tracking-widest mt-2 italic serif">{role}</p>
 
         {intro && (
-          <p className="mt-3 text-[11px] text-grayText leading-loose">{intro}</p>
+          <p className="mt-4 text-[11px] text-grayText leading-loose montserrat line-clamp-3">{intro}</p>
         )}
 
-        {description && (
-          <div className="mt-3">
-            <p className="text-[11px] text-grayText leading-loose">{displayDescription}</p>
-            {shouldShowMoreButton && (
-              <button
-                onClick={() => setIsExpanded(prev => !prev)}
-                className="mt-2 text-[10px] uppercase tracking-[0.2em] text-gold-accent hover:opacity-70 transition-opacity"
-              >
-                {isExpanded ? t('team.viewLess') : t('team.viewMore')}
-              </button>
-            )}
-          </div>
+        {/* View more link */}
+        {onViewMore && (
+          <span className="mt-5 inline-block text-[9px] uppercase tracking-[0.35em] border-b border-textColor/40 pb-px text-textColor/70 hover:text-textColor hover:border-textColor transition-colors montserrat">
+            {t('team.viewMore')} →
+          </span>
         )}
       </div>
 
       {/* Social icons */}
       {socials.length > 0 && (
-        <div className="flex justify-center mt-4 gap-4">
+        <div className="flex justify-center mt-5 gap-4">
           {socials.map((social, index) => (
-            <Link key={index} href={social.link} target="_blank" rel="noopener noreferrer">
+            <Link
+              key={index}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              aria-label="social link"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={social.icon} alt="social" className="w-4 h-4 opacity-50 hover:opacity-100 transition-opacity" />
+              <img
+                src={social.icon}
+                alt="social"
+                className="w-4 h-4 opacity-40 hover:opacity-100 transition-opacity"
+              />
             </Link>
           ))}
         </div>

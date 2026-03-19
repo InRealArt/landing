@@ -19,7 +19,7 @@
     "usecase": "Use Case",
     "whitepaper": "Manifesto",
     "airdrop": "AirDrop/Testnet",
-    "blog": "Blog",
+    "blog": "Media",
     "leasing": "Leasing",
     "companies": "Companies",
     "lending": "Lending",
@@ -392,11 +392,18 @@
   },
   "marketplace": {
     "hero": {
+      "subtitle": "The Catalogue",
+      "titleLine1": "Selected",
+      "titleLine2": "Artworks.",
       "title": "Access an Exclusive Marketplace\nfor Art Collectors and\nPrestige Investors",
+      "description": "A rigorous collection exploring matter, light and the contemporary gesture. Each piece is certified and sourced directly from our resident artists.",
       "mainButton": "Marketplace soon available"
     },
     "benefits": {
-      "title": "Benefits",
+      "sectionLabel": "Our Commitments",
+      "title": "What sets us",
+      "titleAccent": "apart.",
+      "description": "Four founding pillars that define the InRealArt experience for discerning collectors.",
       "items": {
         "authenticity": {
           "title": "A rigorous selection",
@@ -417,12 +424,19 @@
       }
     },
     "prestige": {
+      "sectionLabel": "IRA Selection",
       "subtitle": "Unmatched Authenticity and Traceability",
-      "title": "InRealArt: A Trusted Market for\nPrestige Art",
-      "description": "InRealArt transforms the high-end art market by offering a marketplace where transparency, authenticity and exclusivity are at the heart of every transaction. Buy, sell, or invest in artworks with guaranteed provenance and uncompromising security."
+      "title": "A trusted",
+      "titleAccent": "marketplace.",
+      "description": "InRealArt transforms the high-end art market by offering a marketplace where transparency, authenticity and exclusivity are at the heart of every transaction. Buy, sell, or invest in artworks with guaranteed provenance and uncompromising security.",
+      "cta": "Explore artworks",
+      "ctaSecondary": "Our simulators",
+      "imageAlt": "Prestige Art — Luxury artwork collection"
     },
     "howItWorks": {
-      "title": "How it works",
+      "sectionLabel": "Expertises",
+      "title": "Augmented",
+      "titleAccent": "Curation.",
       "steps": {
         "selection": {
           "number": "01",
@@ -433,11 +447,6 @@
           "number": "02",
           "title": "Verification Process",
           "description": "Each artwork is accompanied by a complete and verified traceability. We collaborate directly with artists, galleries and experts to ensure the provenance, integrity and legitimacy of each piece. You thus have the certainty of acquiring an authentic work, protected from any uncertainty."
-        },
-        "tokenization": {
-          "number": "03",
-          "title": "Secure Tokenization",
-          "description": "Because collecting is also investing, InRealArt facilitates access to different funding modes: direct purchase, installment payment, leasing or patronage. In parallel, we explore emerging technologies that will transform tomorrow's way of buying, sharing and transmitting art. Our ambition: offer flexible, durable and adapted solutions to the needs of collectors today as well as future generations."
         }
       }
     },
@@ -661,7 +670,9 @@
     "title": "Our Team",
     "hero": {
       "title": "Our Team",
-      "subtitle": "Our team brings together complementary talents to build a human adventure that brings artists and investors closer together."
+      "subtitle": "Our team brings together complementary talents to build a human adventure that brings artists and investors closer together.",
+      "titleLine1": "Our",
+      "titleLine2": "Team"
     },
     "loading": "Loading...",
     "error": "An error occurred: ",
@@ -675,7 +686,10 @@
     "faq": {
       "title": "Frequently Asked Questions about the team",
       "description": "Find here the answers to the most common questions about the team."
-    }
+    },
+    "sectionLabel": "The Team",
+    "meetTeamLine1": "Meet",
+    "meetTeamLine2": "the entire team"
   },
   "faq": {
     "description": "We often have legitimate questions, so we've anticipated them! If you have another question, check out the FAQ page",

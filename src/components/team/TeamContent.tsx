@@ -11,13 +11,23 @@ interface SocialLink {
   icon: string
 }
 
+interface ResolvedMember {
+  id: number
+  socials: SocialLink[]
+  image: { src: string }
+  name: string
+  role: string
+  intro: string
+  description: string
+}
+
 interface Props {
   initialMembers: TeamMemberData[]
 }
 
 export default function TeamContent({ initialMembers }: Props) {
   const { t, language } = useLanguageStore()
-  const [selectedMember, setSelectedMember] = useState<any>(null)
+  const [selectedMember, setSelectedMember] = useState<ResolvedMember | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const lang = language.toLowerCase()
@@ -51,26 +61,42 @@ export default function TeamContent({ initialMembers }: Props) {
   )
 
   if (teamItems.length === 0) {
-    return <div className="text-center py-10">{t('team.noMembers')}</div>
+    return (
+      <div className="max-w-screen-2xl mx-auto px-10 py-32">
+        <p className="text-[11px] uppercase tracking-[0.3em] text-grayText">{t('team.noMembers')}</p>
+      </div>
+    )
   }
 
   return (
     <>
-      <div className="mt-20">
-        <div className="max-w-90 xl:max-w-screen-xl mx-auto">
-          <h1 className='text-2xl lg:text-6xl bricolage-grotesque font-medium mb-6'>{t('team.meetTeam')}</h1>
-          <div className="flex flex-wrap gap-4">
+      {/* Section header — editorial style from design charter */}
+      <section className="py-24 lg:py-32 px-10 bg-backgroundColor">
+        <div className="max-w-screen-2xl mx-auto">
+          {/* Section label + title block with border separator */}
+          <div className="border-b border-borderColor pb-14 mb-20">
+            <span className="section-number">{t('team.sectionLabel')}</span>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl serif">
+              {t('team.meetTeamLine1')}{' '}
+              <span className="italic text-gold-accent">{t('team.meetTeamLine2')}</span>
+            </h2>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-8 max-w-xl leading-relaxed">
+              {t('team.hero.subtitle')}
+            </p>
+          </div>
+
+          {/* Member grid — 2 cols mobile, 3 cols md, 4 cols xl */}
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-20">
             {teamItems.map(item => (
               <TeamCard
-                key={item.name}
+                key={item.id}
                 {...item}
-                additionalClassName="w-full lg:w-cardLarge"
                 onViewMore={() => { setSelectedMember(item); setIsModalOpen(true) }}
               />
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {selectedMember && (
         <TeamModal

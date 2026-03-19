@@ -1,12 +1,11 @@
 'use client'
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
+import React, { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import PresaleHero from "@/components/presale/PresaleHero";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
 import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import { Download } from "lucide-react";
-import FAQWrapper from '@/components/common/FAQ/FAQWrapper';
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { downloadCatalog } from '@/actions/catalogActions'
@@ -14,7 +13,7 @@ import CatalogSuccessModal from '@/components/common/SuccessModal'
 
 const PAGE_SIZE = 12 // 3 colonnes x 4 lignes
 
-export default function PresaleClient() {
+export default function PresaleClient({ children }: { children?: React.ReactNode }) {
   const { t, language } = useLanguageStore();
   const {
     artworks,
@@ -357,7 +356,7 @@ export default function PresaleClient() {
 
       </div>
 
-      <FAQWrapper titre={t('presale.faq.title')} description={t('presale.faq.description')} />
+      {children}
 
       {/* Popup de succès */}
       <CatalogSuccessModal

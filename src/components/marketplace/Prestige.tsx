@@ -1,46 +1,58 @@
 'use client'
 
-import { ArrowRight } from "lucide-react";
-import Button from "@/components/common/Button";
-import OptimizedImage from "@/components/common/OptimizedImage";
-import prestigeImage from "../../../public/images/marketplace/marketplace_prestige.webp";
-import { useLanguageStore } from '@/store/languageStore';
+import Link from 'next/link'
+import Image from 'next/image'
+import prestigeImage from '../../../public/images/marketplace/marketplace_prestige.webp'
+import { useLanguageStore } from '@/store/languageStore'
 
 export default function Prestige() {
-  const { t } = useLanguageStore();
+  const { t } = useLanguageStore()
 
   return (
-    <section className="relative max-w-90 xl:max-w-screen-xl m-auto mt-20">
-      <div className="flex flex-col md:flex-row items-center gap-10">
-        <div className="w-full md:w-1/2">
-          <h3 className="text-lg md:text-xl bricolage-grotesque mb-2">{t('marketplace.prestige.subtitle')}</h3>
-          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-6">
-            {t('marketplace.prestige.title')}
-          </h2>
-          <p className="text-sm md:text-base mb-8 text-grayText max-w-xl">
-            {t('marketplace.prestige.description')}
-          </p>
-          <Button
-            text={t('buttons.contactUs')}
-            additionalClassName="bg-purpleColor"
-            icon={<ArrowRight />}
-            link='/presale'
-          />
-        </div>
-        <div className="w-full md:w-1/2">
-          <OptimizedImage
-            src={prestigeImage.src}
-            alt="Art de Prestige - Collection d'œuvres d'art de luxe"
-            width={450}
-            height={300}
-            className="w-full h-auto object-cover rounded-lg"
-            priority={true}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+    <section className="py-32 px-10 bg-backgroundGrey border-y border-borderColor">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-x-20 gap-y-16 items-center">
+
+          {/* Left — text block */}
+          <div>
+            <span className="section-number">{t('marketplace.prestige.sectionLabel')}</span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl serif leading-tight mb-8">
+              {t('marketplace.prestige.title')}{' '}
+              <span className="italic text-gold-accent">{t('marketplace.prestige.titleAccent')}</span>
+            </h2>
+            <p className="text-[13px] text-grayText leading-loose max-w-lg mb-4">
+              {t('marketplace.prestige.description')}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/presale" className="btn-cta">
+                {t('marketplace.prestige.cta')}
+              </Link>
+              <Link href="/loa-simulator" className="btn-cta">
+                {t('marketplace.prestige.ctaSecondary')}
+              </Link>
+            </div>
+          </div>
+
+          {/* Right — portrait image with decorative frame offset */}
+          <div className="relative">
+            {/* Decorative offset frame behind the image */}
+            <div
+              className="absolute inset-0 border border-gold-accent/20 translate-x-4 translate-y-4 pointer-events-none"
+              aria-hidden="true"
+            />
+            <div className="relative aspect-[4/5] overflow-hidden bg-soft-gray border border-border-light">
+              <Image
+                src={prestigeImage.src}
+                alt={t('marketplace.prestige.imageAlt')}
+                fill
+                className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={false}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-} 
+  )
+}

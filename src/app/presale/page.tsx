@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import PresaleClient from './PresaleClient'
+import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Présale — Œuvres d\'Art en Exclusivité | InRealArt',
@@ -10,5 +11,9 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default function PresalePage() {
-  return <PresaleClient />
+  return (
+    <PresaleClient>
+      <FAQWrapper titleKey="presale.faq.title" descriptionKey="presale.faq.description" />
+    </PresaleClient>
+  )
 }

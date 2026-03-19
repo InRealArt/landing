@@ -19,7 +19,7 @@
     "usecase": "Cas d'utilisation",
     "whitepaper": "Manifeste",
     "airdrop": "AirDrop/Testnet",
-    "blog": "Blog",
+    "blog": "Médias",
     "leasing": "Leasing",
     "companies": "Entreprises",
     "lending": "Prêt",
@@ -397,11 +397,18 @@
   },
   "marketplace": {
     "hero": {
-      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d'Art et\nInvestisseurs de Prestige",
+      "subtitle": "Le Catalogue",
+      "titleLine1": "Œuvres",
+      "titleLine2": "Sélectionnées.",
+      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d’Art et\nInvestisseurs de Prestige",
+      "description": "Une collection rigoureuse explorant la matière, la lumière et le geste contemporain. Chaque pièce est certifiée et sourcée directement auprès de nos artistes résidents.",
       "mainButton": "Marketplace bientôt disponible"
     },
     "benefits": {
-      "title": "Bénéfices",
+      "sectionLabel": "Nos Engagements",
+      "title": "Ce qui nous",
+      "titleAccent": "distingue.",
+      "description": "Quatre piliers fondateurs qui définissent l’expérience InRealArt pour les collectionneurs d’exception.",
       "items": {
         "authenticity": {
           "title": "Une sélection exigeante",
@@ -422,27 +429,29 @@
       }
     },
     "prestige": {
+      "sectionLabel": "IRA Sélection",
       "subtitle": "Authenticité et Traçabilité Inégalées",
-      "title": "InRealArt : Un Marché de\nConfiance pour l'Art de\nPrestige",
-      "description": "InRealArt transforme le marché de l'art haut de gamme en offrant une marketplace où la transparence, l'authenticité et l'exclusivité sont au cœur de chaque transaction. Achetez, vendez, ou investissez dans des œuvres d'art avec une garantie de provenance et une sécurité sans compromis."
+      "title": "Un marché de",
+      "titleAccent": "confiance.",
+      "description": "InRealArt transforme le marché de l’art haut de gamme en offrant une marketplace où la transparence, l’authenticité et l’exclusivité sont au cœur de chaque transaction. Achetez, vendez, ou investissez dans des œuvres d’art avec une garantie de provenance et une sécurité sans compromis.",
+      "cta": "Explorer les œuvres",
+      "ctaSecondary": "Nos simulateurs",
+      "imageAlt": "Art de Prestige — Collection d’œuvres d’art de luxe"
     },
     "howItWorks": {
-      "title": "Comment ça fonctionne",
+      "sectionLabel": "Expertises",
+      "title": "Curation",
+      "titleAccent": "Augmentée.",
       "steps": {
         "selection": {
           "number": "01",
-          "title": "Sélection d'Œuvres Certifiées",
-          "description": "En partenariat avec des artistes et galeries de renommée mondiale, InRealArt propose une collection haut de gamme d'œuvres d'art. Celle-ci réunit des créations de grands noms de l'art contemporain, des talents émergents prometteurs ainsi que des œuvres de maîtres incontournables."
+          "title": "Sélection d’Œuvres Certifiées",
+          "description": "En partenariat avec des artistes et galeries de renommée mondiale, InRealArt propose une collection haut de gamme d’œuvres d’art. Celle-ci réunit des créations de grands noms de l’art contemporain, des talents émergents prometteurs ainsi que des œuvres de maîtres incontournables."
         },
         "verification": {
           "number": "02",
           "title": "Processus de Vérification",
           "description": "Chaque œuvre est accompagnée d’une traçabilité complète et vérifiée. Nous collaborons directement avec les artistes, galeries et experts afin d’assurer la provenance, l’intégrité et la légitimité de chaque pièce. Vous avez ainsi la certitude d’acquérir une œuvre authentique, protégée de toute incertitude."
-        },
-        "tokenization": {
-          "number": "03",
-          "title": "Tokenisation Sécurisée",
-          "description": "Parce que collectionner, c’est aussi investir, InRealArt facilite l’accès à différentes modalités de financement : acquisition directe, paiement échelonné, leasing ou mécénat. En parallèle, nous explorons les nouvelles technologies émergentes qui transformeront demain la manière d’acheter, de partager et de transmettre l’art. Notre ambition : offrir des solutions flexibles, durables et adaptées aux besoins des collectionneurs d’aujourd’hui comme à ceux des générations futures."
         }
       }
     },
@@ -644,7 +653,9 @@
     "title": "Notre équipe",
     "hero": {
       "title": "Notre équipe",
-      "subtitle": "Notre équipe réunit des talents complémentaires pour bâtir une aventure humaine qui rapproche les artistes et les investisseurs."
+      "subtitle": "Notre équipe réunit des talents complémentaires pour bâtir une aventure humaine qui rapproche les artistes et les investisseurs.",
+      "titleLine1": "Notre",
+      "titleLine2": "équipe"
     },
     "loading": "Chargement en cours...",
     "error": "Une erreur est survenue: ",
@@ -658,7 +669,10 @@
     "faq": {
       "title": "Questions fréquentes sur l'équipe",
       "description": "Trouvez ici les réponses aux questions les plus courantes sur l'équipe."
-    }
+    },
+    "sectionLabel": "L'équipe",
+    "meetTeamLine1": "Rencontrez",
+    "meetTeamLine2": "toute l'équipe"
   },
   "faq": {
     "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ",

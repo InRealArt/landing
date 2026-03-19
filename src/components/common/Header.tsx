@@ -44,7 +44,7 @@ const Header = () => {
           </li>
           <li className="whitespace-nowrap">
             <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              Blog
+              {t('nav.blog')}
             </Link>
           </li>
           <li className="whitespace-nowrap">
