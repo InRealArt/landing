@@ -9,41 +9,42 @@ interface HeaderProps {
   descriptionKey?: string;
 }
 
-export default function Header({ 
-  title, 
-  description, 
-  titleKey, 
-  descriptionKey 
+export default function Header({
+  title,
+  description,
+  titleKey,
+  descriptionKey
 }: HeaderProps) {
   return (
-    <section className="max-w-90 xl:max-w-screen-xl m-auto pt-headerSize">
-      {titleKey ? (
-        <TranslatedText
-          as="h1"
-          translationKey={titleKey}
-          className="text-5xl md:text-6xl bricolage-grotesque font-semibold mb-10"
-        />
-      ) : (
-        <h1 className="text-5xl md:text-6xl bricolage-grotesque font-semibold mb-10">{title}</h1>
-      )}
-      
-      <hr className="border-gray-700 mb-8" />
-      
-      {(description || descriptionKey) && (
-        <div className="mb-12">
-          {descriptionKey ? (
+    <section className="max-w-screen-2xl mx-auto px-10 pt-[calc(var(--header-height)+4rem)] pb-16">
+      <div className="border-b border-[var(--border-light)] pb-12">
+        <span className="section-number" data-anim="annexe-header-label">Lexique</span>
+        {titleKey ? (
+          <TranslatedText
+            as="h1"
+            translationKey={titleKey}
+            className="serif italic text-5xl md:text-7xl leading-tight mb-6"
+            data-anim="annexe-header-title"
+          />
+        ) : (
+          <h1 className="serif italic text-5xl md:text-7xl leading-tight mb-6" data-anim="annexe-header-title">{title}</h1>
+        )}
+
+        {(description || descriptionKey) && (
+          descriptionKey ? (
             <TranslatedText
               as="p"
               translationKey={descriptionKey}
-              className="text-base md:text-lg max-w-2xl inter leading-relaxed text-grayText"
+              className="text-[11px] text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl"
+              data-anim="annexe-header-desc"
             />
           ) : (
-            <p className="text-base md:text-lg max-w-2xl inter leading-relaxed text-grayText">
+            <p className="text-[11px] text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl" data-anim="annexe-header-desc">
               {description}
             </p>
-          )}
-        </div>
-      )}
+          )
+        )}
+      </div>
     </section>
   );
 } 

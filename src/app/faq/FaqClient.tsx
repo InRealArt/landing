@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import gsap from "gsap";
 import { useLanguageStore } from '@/store/languageStore';
 import { useDetailedFaqStore } from "@/store/useDetailedFaqStore";
+import FaqAnimations from "@/components/faq/FaqAnimations";
 
 export default function FaqClient() {
   const { t, language } = useLanguageStore();
@@ -33,19 +35,31 @@ export default function FaqClient() {
     setOpenIndex(null);
   }, [activeTab]);
 
+  // Re-animate rows on tab change
+  useEffect(() => {
+    if (!activeTab) return;
+    const rows = gsap.utils.toArray<HTMLElement>('[data-anim="faq-row"]');
+    if (!rows.length) return;
+    gsap.fromTo(rows,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'cubic-bezier(0.19, 1, 0.22, 1)', stagger: 0.05 }
+    );
+  }, [activeTab]);
+
   return (
     <div className="min-h-screen bg-canvas-white">
+      <FaqAnimations />
 
       {/* ── Hero ── */}
       <section className="max-w-screen-2xl mx-auto px-10 pt-headerSize pb-12 border-b border-border-light mb-16">
-        <p className="section-number mb-6">
+        <p className="section-number mb-6" data-anim="faq-hero-label">
           {t('faq.page.title')}
         </p>
-        <h1 className="serif text-4xl md:text-5xl leading-none tracking-tight text-ink-black mb-10">
+        <h1 className="serif text-4xl md:text-5xl leading-none tracking-tight text-ink-black mb-10" data-anim="faq-hero-title">
           Questions{' '}
           <em className="italic text-gold-accent not-italic">fréquentes</em>
         </h1>
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 max-w-md">
+        <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 max-w-md" data-anim="faq-hero-desc">
           {t('faq.page.description')}
         </p>
       </section>

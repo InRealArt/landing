@@ -9,17 +9,17 @@ interface TabFilterProps {
 
 export default function TabFilter({ activeTab, tabs, setActiveTab, className = "" }: TabFilterProps) {
   return (
-    <section className={`max-w-90 xl:max-w-screen-xl m-auto mb-12 ${className}`}>
-      <div className="flex flex-wrap gap-3 justify-end">
+    <section className={`max-w-screen-2xl mx-auto px-10 mb-16 ${className}`} data-anim="annexe-tabs">
+      <div className="flex flex-wrap gap-3">
         {tabs.map(tab => (
           <button
             key={tab}
-            className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeTab === tab
-                ? "bg-[#6358DC] text-white"
-                : "bg-cardBackground text-textColor border border-white/10 hover:border-white/30"
-            }`}
             onClick={() => setActiveTab(tab)}
+            className={`px-6 py-2 text-[10px] uppercase tracking-[0.3em] transition-all duration-300 border ${
+              activeTab === tab
+                ? "border-[var(--ink-black)] bg-[var(--ink-black)] text-white"
+                : "border-[var(--border-light)] text-[var(--gray-text)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)]"
+            }`}
           >
             {tab}
           </button>
