@@ -28,38 +28,39 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   return (
     <Link
       href={`/blog/${post.id}`}
-      className="group block bg-cardBackground rounded-lg overflow-hidden border border-white/10
-        transition-all duration-300 ease-out
-        hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:border-white/20
-        active:translate-y-0 active:scale-[0.98] active:shadow-none active:duration-75"
+      data-anim="blog-card"
+      className="group block bg-[var(--canvas-bg)] border border-[var(--border-light)] overflow-hidden hover:bg-[var(--soft-gray)] transition-colors duration-500"
     >
-      <div className="relative h-[300px] overflow-hidden">
+      <div className="h-[260px] overflow-hidden border-b border-[var(--border-light)]">
         <Image
           src={post.imageUrl}
           alt={post.title}
           fill
-          className="object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.slice(0, 4).map((tag, index) => (
-            <span key={index} className={`px-3 py-1 bg-transparent rounded-full text-xs text-${color} border border-${color}`}>
+            <span
+              key={index}
+              className="px-3 py-1 border border-[var(--border-light)] text-[9px] uppercase tracking-[0.15em] text-[var(--gray-text)] bg-transparent"
+            >
               {getTagName(tag)}
             </span>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 text-sm text-[#4F4F4F] mb-3">
+        <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">
           <span>{post.date}</span>
-          <span>•</span>
+          <span className="mx-2 text-[var(--gold-accent)]">—</span>
           <span>{post.readTime}</span>
         </div>
 
-        <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
+        <h3 className="serif italic text-xl leading-snug mb-3 text-[var(--ink-black)]">{post.title}</h3>
 
-        <p className="text-sm line-clamp-4">{post.description}</p>
+        <p className="text-[12px] text-[var(--gray-text)] leading-loose line-clamp-3">{post.description}</p>
       </div>
     </Link>
   );

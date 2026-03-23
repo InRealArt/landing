@@ -122,38 +122,47 @@ export default function NewsletterModal() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
 
-          {/* Left column — artwork images */}
-          <div className="relative bg-backgroundGrey border-b md:border-b-0 md:border-r border-borderColor overflow-hidden flex items-center justify-center min-h-[240px] md:min-h-0">
-            {/* Gold frame accent, offset */}
+          {/* Left column — coupole baroque */}
+          <div className="relative bg-black border-b md:border-b-0 md:border-r border-borderColor overflow-hidden min-h-[240px] md:min-h-0">
+
+            {/* Full-bleed image */}
+            <div className="absolute inset-0">
+              <OptimizedImage
+                src="/images/newsletter/newsletter.webp"
+                alt="Coupole baroque dorée — In Real Art"
+                width={600}
+                height={800}
+                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-center"
+              />
+            </div>
+
+            {/* Vignette — assombrit les bords, préserve le centre lumineux */}
             <div
-              className="absolute top-6 left-6 right-10 bottom-10 border border-gold-accent/25 pointer-events-none"
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)' }}
               aria-hidden="true"
             />
 
-            {/* Background artwork */}
-            <div className="artwork-container absolute top-4 right-4 md:right-6 w-[110px] h-[150px] md:w-[150px] md:h-[200px] artwork-image overflow-hidden z-10">
-              <OptimizedImage
-                src="/images/newsletter/image_nl_2.webp"
-                alt="Newsletter illustration 2"
-                width={150}
-                height={200}
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
-              />
-            </div>
+            {/* Gradient bas → haut pour fondre avec le bas de la colonne */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }}
+              aria-hidden="true"
+            />
 
-            {/* Foreground artwork */}
-            <div className="artwork-container absolute bottom-4 left-4 md:left-6 w-[130px] h-[175px] md:w-[175px] md:h-[230px] artwork-image overflow-hidden z-20 shadow-xl">
-              <OptimizedImage
-                src="/images/newsletter/image_nl_1.webp"
-                alt="Newsletter illustration 1"
-                width={175}
-                height={230}
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
-              />
-            </div>
+            {/* Cadre doré double — outer */}
+            <div
+              className="absolute inset-4 border border-gold-accent/20 pointer-events-none"
+              aria-hidden="true"
+            />
+            {/* Cadre doré double — inner, décalé */}
+            <div
+              className="absolute inset-7 border border-gold-accent/12 pointer-events-none"
+              aria-hidden="true"
+            />
 
-            {/* Vertical gold accent line */}
-            <div className="absolute left-0 top-1/4 bottom-1/4 w-px bg-gold-accent/40" aria-hidden="true" />
+            {/* Ligne verticale dorée — accent gauche */}
+            <div className="absolute left-4 top-1/4 bottom-1/4 w-px bg-gold-accent/50" aria-hidden="true" />
           </div>
 
           {/* Right column — copy + form */}

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
+import PostDetailAnimations from '@/components/blog/PostDetailAnimations'
 import { getPostBySlug } from '@/actions/seoPostActions'
 
 export const revalidate = 1800 // régénère toutes les 30 min
@@ -98,7 +99,8 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen pt-headerSize text-textColor">
+    <main className="min-h-screen pt-headerSize bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <PostDetailAnimations />
       <PostDetail slug={slug} initialPost={initialPost} />
     </main>
   )

@@ -54,7 +54,6 @@ export default function DescriptionsBlock() {
                     target="_blank"
                     additionalClassName="bg-purpleColor w-fit"
                     icon={<Phone />}
-                    iconBefore
                     data-umami-event="calendly-join-description-1-click"
                   />
                 </div>
@@ -84,7 +83,6 @@ export default function DescriptionsBlock() {
                     target="_blank"
                     additionalClassName="bg-purpleColor w-fit"
                     icon={<Phone />}
-                    iconBefore
                     data-umami-event="calendly-join-description-2-click"
                   />
                 </div>

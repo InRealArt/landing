@@ -341,15 +341,15 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
             <button
               type="submit"
               disabled={isPending}
-              className="btn-cta w-full flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="btn-cta !flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              <Download size={14} />
               <span className="text-[0.6rem] uppercase tracking-[0.25em]">
                 {isPending
                   ? t('presale.intro.form.downloadingButton')
                   : t('presale.intro.form.downloadButton')
                 }
               </span>
+              <Download size={14} />
             </button>
           </form>
         </div>

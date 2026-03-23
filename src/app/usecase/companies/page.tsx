@@ -3,6 +3,7 @@ import Hero from "@/components/usecase/companies/Hero";
 import Possibilities from "@/components/usecase/companies/Possibilities";
 import { generateStaticMetadata } from '@/utils/metadata'
 import CompaniesFAQ from '@/components/usecase/companies/CompaniesFAQ';
+import CompaniesAnimations from '@/components/usecase/companies/CompaniesAnimations';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Art & entreprise — Intégrer l\'Art au cœur de votre stratégie',
@@ -13,7 +14,8 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function CompaniesPage() {
   return (
-    <main className="min-h-screen text-textColor">
+    <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <CompaniesAnimations />
       <Hero />
       {/* <Expert /> */}
       <Possibilities />

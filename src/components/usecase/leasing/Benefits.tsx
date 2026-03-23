@@ -24,26 +24,30 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="py-16 ">
-      <div className="container mx-auto px-4">
-        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-12">
-          {t('leasing.benefits.title')}
-        </h2>
-        
-        <div className="space-y-8">
+    <section className="py-32 px-10 bg-[var(--soft-gray)]">
+      <div className="max-w-screen-2xl mx-auto">
+        <div data-anim="ben-title" className="border-b border-[var(--border-light)] pb-12 mb-16">
+          <span className="section-number">Bénéfices</span>
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight">
+            {t('leasing.benefits.title')}
+          </h2>
+        </div>
+
+        <div className="divide-y divide-[var(--border-light)]">
           {benefitsItems.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col md:flex-row gap-6 items-start md:items-center"
+              data-anim="ben-item"
+              className="flex flex-col md:flex-row gap-8 md:gap-16 items-start pt-12 pb-12"
             >
-              <div className="text-6xl bricolage-grotesque text-[#4F46E5] font-medium min-w-[60px] md:min-w-[80px] flex justify-center md:justify-start">
+              <div className="serif text-6xl italic text-[var(--gold-accent)] min-w-[80px]">
                 {item.id}
               </div>
               <div className="flex-1">
-                <h3 className="text-xl bricolage-grotesque font-medium mb-3">
+                <h3 className="serif italic text-2xl md:text-3xl mb-4">
                   {item.title}
                 </h3>
-                <p className="text-sm text-grayText">
+                <p className="text-[12px] leading-loose text-[var(--gray-text)]">
                   {item.description}
                 </p>
               </div>

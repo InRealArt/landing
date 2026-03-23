@@ -5,93 +5,122 @@
 }
 
 #blog-content-container a {
-  color: var(--purple) !important;
+  color: var(--ink-black) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  text-decoration: none !important;
+  transition: border-color 0.3s !important;
+}
+
+#blog-content-container a:hover {
+  border-bottom-color: var(--gold-accent) !important;
 }
 
 #blog-content-container {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: var(--text);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink-black);
+  font-size: 0.875rem;
 }
 
-/* Style pour le titre principal H1 */
+/* H1 — grand titre éditorial Cormorant */
 #blog-content-container article header h1 {
-  font-size: 2.25rem !important; /* text-4xl */
-  font-weight: 700 !important; /* font-bold */
-  margin-bottom: 1.5rem !important; /* mb-6 */
-  font-family: "Bricolage Grotesque", serif !important;
-  color: var(--text) !important;
+  font-size: 3rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  margin-bottom: 2rem !important;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif !important;
+  color: var(--ink-black) !important;
   line-height: 1.1 !important;
 }
 
-/* Style pour tous les H2 */
-#blog-content-container article h2 {
-  font-size: 1.5rem !important; /* text-2xl */
-  font-weight: 700 !important; /* font-bold */
-  margin-top: 2.5rem !important; /* mt-10 */
-  margin-bottom: 1rem !important; /* mb-4 */
-  font-family: "Bricolage Grotesque", serif !important;
-  color: var(--text) !important;
+/* H2 — sous-titres éditoriaux */
+#blog-content-container article h2,
+#blog-content-container h2 {
+  font-size: 1.75rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif !important;
+  color: var(--ink-black) !important;
   line-height: 1.2 !important;
 }
 
 #blog-content-container h3 {
-  font-size: 1.4em;
-  margin-top: 1.2em;
-  margin-bottom: 0.5em;
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  color: var(--ink-black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 #blog-content-container p {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  color: var(--ink-black);
 }
 
 #blog-content-container figure {
-  margin: 2em 0;
+  margin: 2.5em 0;
+  border: 1px solid var(--border-light);
 }
 
 #blog-content-container img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 #blog-content-container figcaption {
   text-align: center;
   font-style: italic;
-  margin-top: 0.5em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
   color: var(--gray-text);
+  border-top: 1px solid var(--border-light);
 }
 
 #blog-content-container .article-meta {
-  font-size: 0.9em;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   color: var(--gray-text);
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
 
 #blog-content-container .article-intro {
-  font-size: 1.1em;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.9;
   margin-bottom: 2em;
+  color: var(--gray-text);
+  border-left: 2px solid var(--gold-accent);
+  padding-left: 1.5rem;
 }
 
-/* Theme-aware styles - automatically handled by CSS variables */
-
-/* Additional theme-aware styles for better blog content */
-#blog-content-container h3,
 #blog-content-container h4,
 #blog-content-container h5,
 #blog-content-container h6 {
-  color: var(--text);
-  font-family: "Bricolage Grotesque", serif;
+  color: var(--ink-black);
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 #blog-content-container blockquote {
-  border-left: 4px solid var(--purple);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
+  border-left: 2px solid var(--gold-accent);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
   font-style: italic;
-  color: var(--gray-text);
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--ink-black);
+  background: var(--soft-gray);
 }
 
 #blog-content-container code {

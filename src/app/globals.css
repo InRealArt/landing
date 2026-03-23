@@ -458,16 +458,59 @@ html {
 
 /* Phone Input Styles */
 
+.phone-input-container.phone-input-container-simulator {
+  border: 1px solid var(--border-light);
+  background: var(--canvas-bg);
+  display: flex;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.phone-input-container.phone-input-container-simulator:focus-within {
+  border-color: var(--ink-black);
+}
+
 .phone-input-container.phone-input-container-simulator .PhoneInputInput {
-  @apply w-full border-r border-2 border-gray-700 rounded-lg px-4 py-3 bg-cardBackground focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded;
+  width: 100%;
+  border: none;
+  padding: 0.75rem 1rem;
+  background: var(--canvas-bg);
+  color: var(--ink-black);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  box-shadow: none;
+}
+
+.phone-input-container.phone-input-container-simulator .PhoneInputInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.phone-input-container.phone-input-container-simulator .PhoneInputInput::placeholder {
+  color: var(--gray-text);
 }
 
 .phone-input-container.phone-input-container-simulator .PhoneInputCountry {
-  @apply bg-cardBackground border-r border-2 border-gray-700 rounded-lg px-3;
+  background: var(--canvas-bg);
+  border-right: 1px solid var(--border-light);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
 }
 
 .phone-input-container.phone-input-container-simulator .PhoneInputCountrySelect {
-  @apply bg-cardBackground text-textColor;
+  background: var(--canvas-bg);
+  color: var(--ink-black);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 0.875rem;
+}
+
+.phone-input-container.phone-input-container-simulator .PhoneInputCountrySelect:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .phone-input-container .PhoneInputInput {

@@ -71,159 +71,128 @@ export default function SeoPostsCarousel({
   // Affichage du loading initial
   if (isInitialLoading) {
     return (
-      <section className={`mx-auto px-4 max-w-screen-xl ${className}`}>
-        <div>
-          {title && (
-            <h2 className="text-xl font-medium italic mb-8 flex items-center">
-              {title}
-            </h2>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[400px]">
-            {/* Skeleton loading */}
-            {Array.from({ length: postsPerPage }).map((_, index) => (
-              <div key={index} className="bg-cardBackground rounded-lg overflow-hidden border border-white-800 animate-pulse">
-                <div className="h-[240px] bg-gray-300"></div>
-                <div className="p-6">
-                  <div className="flex gap-2 mb-4">
-                    <div className="h-6 bg-gray-300 rounded-full w-16"></div>
-                    <div className="h-6 bg-gray-300 rounded-full w-20"></div>
-                  </div>
-                  <div className="h-4 bg-gray-300 rounded mb-3 w-24"></div>
-                  <div className="h-6 bg-gray-300 rounded mb-3"></div>
-                  <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+      <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
+        {title && <span className="section-number mb-12 block">{title}</span>}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)] min-h-[400px]">
+          {Array.from({ length: postsPerPage }).map((_, index) => (
+            <div key={index} className="bg-[var(--soft-gray)] animate-pulse">
+              <div className="h-[260px] bg-[var(--border-light)]" />
+              <div className="p-6">
+                <div className="flex gap-2 mb-4">
+                  <div className="h-5 bg-[var(--border-light)] w-16" />
+                  <div className="h-5 bg-[var(--border-light)] w-20" />
                 </div>
+                <div className="h-3 bg-[var(--border-light)] mb-3 w-24" />
+                <div className="h-5 bg-[var(--border-light)] mb-3" />
+                <div className="h-3 bg-[var(--border-light)] w-3/4" />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
     )
   }
 
-  // Affichage d'erreur
   if (error && isEmpty) {
     return (
-      <section className={`mx-auto px-4 max-w-screen-xl ${className}`}>
-        <div>
-          {title && (
-            <h2 className="text-xl font-medium italic mb-8 flex items-center">
-              {title}
-            </h2>
-          )}
-
-          <div className="text-center py-12">
-            <p className="text-red-500 mb-4">{error}</p>
-            <button
-              onClick={retry}
-              className="px-4 py-2 bg-blue-500 text-textColor rounded hover:bg-blue-600 transition-colors"
-            >
-              {t('common.retry')}
-            </button>
-          </div>
+      <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
+        {title && <span className="section-number mb-12 block">{title}</span>}
+        <div className="text-center py-12">
+          <p className="text-[12px] text-red-500 mb-6">{error}</p>
+          <button
+            onClick={retry}
+            className="btn-cta"
+          >
+            {t('common.retry')}
+          </button>
         </div>
       </section>
     )
   }
 
-  // Affichage quand aucun post n'est disponible
   if (isEmpty) {
     return (
-      <section className={`mx-auto px-4 max-w-screen-xl ${className}`}>
-        <div>
-          {title && (
-            <h2 className="text-xl font-medium italic mb-8 flex items-center">
-              {title}
-            </h2>
-          )}
-
-          <div className="text-center py-12">
-            <p className="text-gray-500">{t('blog.noPosts')}</p>
-          </div>
+      <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
+        {title && <span className="section-number mb-12 block">{title}</span>}
+        <div className="text-center py-12">
+          <p className="text-[12px] text-[var(--gray-text)] uppercase tracking-[0.2em]">{t('blog.noPosts')}</p>
         </div>
       </section>
     )
   }
 
-  // Les posts de la page courante
   const currentPosts = getCurrentPagePosts()
 
   return (
-    <section className={`mx-auto px-4 max-w-screen-xl ${className}`}>
-      <div>
-        {title && (
-          <h2 className="text-xl font-medium italic mb-8 flex items-center">
-            {title} {currentPage > 0 ? `(Page ${currentPage + 1})` : ''}
-          </h2>
-        )}
+    <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
+      {title && (
+        <span className="section-number mb-12 block">
+          {title}{currentPage > 0 ? ` — ${currentPage + 1}` : ''}
+        </span>
+      )}
 
-        <div
-          ref={carouselRef}
-          className="transition-opacity duration-200 ease-in-out min-h-[400px]"
-        >
-          {blogPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {currentPosts.map((post) => (
-                <BlogPostCard key={post.id} post={post} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16 bg-gray-50 rounded-lg">
-              <h3 className="text-xl mb-2">{t('blog.noArticles')}</h3>
-              <p className="text-gray-600 mb-4">
-                {t('blog.noArticlesDescription')}
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Navigation du carousel */}
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-12">
-            <nav className="flex items-center gap-1">
-              {/* Bouton page précédente */}
-              {currentPage > 0 && (
-                <button
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-backgroundColor border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
-                  disabled={isTransitioning}
-                >
-                  {t('blog.carousel.previous')}
-                </button>
-              )}
-
-              {/* Pagination numérotée */}
-              <div className="flex gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                      page === currentPage
-                        ? 'bg-indigo-600 text-textColor'
-                        : 'text-gray-700 bg-backgroundColor border border-gray-300 hover:bg-gray-50'
-                    } disabled:opacity-50`}
-                    disabled={isTransitioning || page === currentPage}
-                  >
-                    {page + 1}
-                  </button>
-                ))}
-              </div>
-
-              {/* Bouton page suivante */}
-              {currentPage < totalPages - 1 && (
-                <button
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  className="px-4 py-2 text-sm font-medium text-indigo-600 bg-backgroundColor border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 transition-colors"
-                  disabled={isTransitioning}
-                >
-                  {t('blog.carousel.next')}
-                </button>
-              )}
-            </nav>
+      <div
+        ref={carouselRef}
+        className="transition-opacity duration-200 ease-in-out min-h-[400px]"
+      >
+        {blogPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)]">
+            {currentPosts.map((post) => (
+              <BlogPostCard key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16 border border-[var(--border-light)]">
+            <h3 className="serif italic text-2xl mb-3">{t('blog.noArticles')}</h3>
+            <p className="text-[12px] text-[var(--gray-text)] uppercase tracking-[0.2em]">
+              {t('blog.noArticlesDescription')}
+            </p>
           </div>
         )}
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-16">
+          <nav className="flex items-center gap-1">
+            {currentPage > 0 && (
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
+                disabled={isTransitioning}
+              >
+                ← {t('blog.carousel.previous')}
+              </button>
+            )}
+
+            <div className="flex gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors disabled:opacity-30 ${
+                    page === currentPage
+                      ? 'border border-[var(--ink-black)] bg-[var(--ink-black)] text-white'
+                      : 'border border-[var(--border-light)] text-[var(--gray-text)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)]'
+                  }`}
+                  disabled={isTransitioning || page === currentPage}
+                >
+                  {page + 1}
+                </button>
+              ))}
+            </div>
+
+            {currentPage < totalPages - 1 && (
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
+                disabled={isTransitioning}
+              >
+                {t('blog.carousel.next')} →
+              </button>
+            )}
+          </nav>
+        </div>
+      )}
     </section>
   )
 } 

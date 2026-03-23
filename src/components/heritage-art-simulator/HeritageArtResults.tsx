@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
+import { Send } from 'lucide-react'
 import { toast } from 'sonner'
 import { useLanguageStore } from '@/store/languageStore'
 import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
@@ -87,10 +88,11 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
       legend: {
         position: 'bottom' as const,
         labels: {
-          color: '#ffffff',
-          padding: 20,
+          color: '#666666',
+          padding: 16,
           font: {
-            size: 12,
+            size: 11,
+            family: 'Montserrat',
           },
         },
       },
@@ -105,133 +107,101 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
   }
 
   return (
-    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-b-2xl lg:rounded-r-2xl lg:rounded-l-none text-textColor space-y-8">
-      <div className="text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold text-textColor mb-4 font-bricolage">
-          {t('heritageArtSimulator.results.title')}
-        </h2>
-        <p className="text-grayText text-lg">
+    <div className="space-y-6">
+      <div>
+        <span className="section-number block mb-2">{t('heritageArtSimulator.results.title')}</span>
+        <p className="text-[12px] text-[var(--gray-text)] leading-loose">
           {t('heritageArtSimulator.results.subtitle')}
         </p>
       </div>
 
       {/* Recommandation principale */}
-      <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-6 rounded-xl border border-purple-500/20">
-        <h3 className="text-xl font-semibold mb-4 text-center">
-          📊 {t('heritageArtSimulator.results.recommendation')}
-        </h3>
-        <div 
-          className="text-center text-lg leading-relaxed"
+      <div className="border-l-2 border-[var(--gold-accent)] pl-5 py-2">
+        <p className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">
+          {t('heritageArtSimulator.results.recommendation')}
+        </p>
+        <div
+          className="text-[13px] text-[var(--ink-black)] leading-loose"
           dangerouslySetInnerHTML={{ __html: results.recommendation.texte }}
         />
       </div>
 
       {/* Graphique */}
-      <div className="bg-gray-800/50 p-6 rounded-xl">
-        <h3 className="text-xl font-semibold mb-6 text-center">
+      <div className="border border-[var(--border-light)] p-5">
+        <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-5">
           {t('heritageArtSimulator.results.adjustedDistribution')}
         </h3>
-        <div className="relative h-80">
+        <div className="relative h-64">
           <Pie data={chartData} options={chartOptions} />
         </div>
       </div>
 
-      {/* Détails de la répartition */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Patrimoine actuel */}
-        <div className="bg-gray-800/50 p-6 rounded-xl">
-          <h3 className="text-lg font-semibold mb-4">
+      {/* Répartition actuelle vs recommandée */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[var(--border-light)]">
+        <div className="p-5 border-b md:border-b-0 md:border-r border-[var(--border-light)]">
+          <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
             {t('heritageArtSimulator.results.currentDistribution')}
           </h3>
-          <div className="space-y-3">
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.immobilier')}:</span>
-              <span className="font-semibold">{results.patrimoineActuel.immobilier}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.liquidites')}:</span>
-              <span className="font-semibold">{results.patrimoineActuel.liquidites}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.financier')}:</span>
-              <span className="font-semibold">{results.patrimoineActuel.financier}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.crypto')}:</span>
-              <span className="font-semibold">{results.patrimoineActuel.crypto}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.tangibles')}:</span>
-              <span className="font-semibold">{results.patrimoineActuel.tangibles}%</span>
-            </div>
+          <div className="divide-y divide-[var(--border-light)]">
+            {(['immobilier', 'liquidites', 'financier', 'crypto', 'tangibles'] as const).map(field => (
+              <div key={field} className="flex justify-between items-center py-2.5">
+                <span className="text-[11px] text-[var(--gray-text)]">{t(`heritageArtSimulator.form.${field}`)}</span>
+                <span className="text-[12px] text-[var(--ink-black)] font-medium">{results.patrimoineActuel[field]}%</span>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Répartition recommandée */}
-        <div className="bg-gray-800/50 p-6 rounded-xl">
-          <h3 className="text-lg font-semibold mb-4">
+        <div className="p-5">
+          <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
             {t('heritageArtSimulator.results.recommendedDistribution')}
           </h3>
-          <div className="space-y-3">
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.immobilier')}:</span>
-              <span className="font-semibold">{results.repartitionAjustee.immobilier}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.liquidites')}:</span>
-              <span className="font-semibold">{results.repartitionAjustee.liquidites}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.financier')}:</span>
-              <span className="font-semibold">{results.repartitionAjustee.financier}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.crypto')}:</span>
-              <span className="font-semibold">{results.repartitionAjustee.crypto}%</span>
-            </div>
-            <div className="flex justify-between">
-              <span>{t('heritageArtSimulator.form.tangibles')}:</span>
-              <span className="font-semibold">{results.repartitionAjustee.tangibles}%</span>
-            </div>
-            <div className="flex justify-between text-purple-400 font-bold border-t border-gray-600 pt-3">
-              <span>{t('heritageArtSimulator.results.artRecommended')}:</span>
-              <span>{results.repartitionAjustee.art}%</span>
+          <div className="divide-y divide-[var(--border-light)]">
+            {(['immobilier', 'liquidites', 'financier', 'crypto', 'tangibles'] as const).map(field => (
+              <div key={field} className="flex justify-between items-center py-2.5">
+                <span className="text-[11px] text-[var(--gray-text)]">{t(`heritageArtSimulator.form.${field}`)}</span>
+                <span className="text-[12px] text-[var(--ink-black)] font-medium">{results.repartitionAjustee[field]}%</span>
+              </div>
+            ))}
+            <div className="flex justify-between items-center py-2.5 bg-[var(--ink-black)] -mx-5 px-5 mt-1">
+              <span className="text-[11px] text-white/60 uppercase tracking-[0.15em]">{t('heritageArtSimulator.results.artRecommended')}</span>
+              <span className="serif italic text-xl text-[var(--gold-accent)]">{results.repartitionAjustee.art}%</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Informations sur le profil */}
-      <div className="bg-gray-800/50 p-6 rounded-xl">
-        <h3 className="text-lg font-semibold mb-4">
-          {t('heritageArtSimulator.results.profileSummary')}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex justify-between">
-            <span>{t('heritageArtSimulator.form.profil')}:</span>
-            <span className="font-semibold">{results.profil}</span>
+      {/* Profil */}
+      <div className="border border-[var(--border-light)]">
+        <div className="px-5 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
+          <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)]">
+            {t('heritageArtSimulator.results.profileSummary')}
+          </h3>
+        </div>
+        <div className="grid grid-cols-2 divide-x divide-[var(--border-light)]">
+          <div className="px-5 py-4">
+            <p className="text-[10px] text-[var(--gray-text)] mb-1">{t('heritageArtSimulator.form.profil')}</p>
+            <p className="text-[13px] text-[var(--ink-black)] font-medium">{results.profil}</p>
           </div>
-          <div className="flex justify-between">
-            <span>{t('heritageArtSimulator.form.objectif')}:</span>
-            <span className="font-semibold">{results.objectif}</span>
+          <div className="px-5 py-4">
+            <p className="text-[10px] text-[var(--gray-text)] mb-1">{t('heritageArtSimulator.form.objectif')}</p>
+            <p className="text-[13px] text-[var(--ink-black)] font-medium">{results.objectif}</p>
           </div>
         </div>
       </div>
 
-      {/* Boutons d'action */}
+      {/* Bouton PDF */}
       {formData && (
-        <Button
-          action={handleSendPDF}
-          disabled={isLoading}
-          additionalClassName={`w-full text-textColor font-medium py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 font-unbounded ${
-            isLoading 
-              ? 'bg-backgroundColor/10 cursor-not-allowed opacity-50' 
-              : 'bg-purple-600 hover:bg-purple-700'
-          }`}
-          text={isLoading ? t('heritageArtSimulator.results.sending') : t('heritageArtSimulator.results.sendPDF')}
-          icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> : <span>📧</span>}
-          center
-        />
+        <div className="pt-2 border-t border-[var(--border-light)]">
+          <Button
+            action={handleSendPDF}
+            disabled={isLoading}
+            additionalClassName={`w-full bg-purpleColor ${isLoading ? 'opacity-40 cursor-not-allowed' : ''}`}
+            text={isLoading ? t('heritageArtSimulator.results.sending') : t('heritageArtSimulator.results.sendPDF')}
+            icon={isLoading ? <div className="animate-spin h-4 w-4 border border-[var(--ink-black)] border-t-transparent" /> : <Send className="w-4 h-4" />}
+            center
+            iconBefore
+          />
+        </div>
       )}
     </div>
   )

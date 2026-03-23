@@ -9,39 +9,37 @@ export default function Advantages() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="py-20">
-
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          
-          <div className="md:w-1/2">
-            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-6">
+    <section className="py-32 px-10 bg-[var(--canvas-bg)] border-b border-[var(--border-light)]">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div data-anim="lending-adv-text">
+            <span className="section-number">Avantages</span>
+            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8">
               {t('lending.advantages.title')}
             </h2>
-            <p className="text-grayText mb-6">
+            <p className="text-[12px] text-[var(--gray-text)] leading-loose mb-10">
               {t('lending.advantages.description')}
             </p>
-            <Button 
-              text={t('lending.advantages.button')} 
-              additionalClassName="bg-purpleColor" 
-              icon={<ArrowRight />} 
-              link="/contact" 
+            <Button
+              text={t('lending.advantages.button')}
+              additionalClassName="bg-purpleColor"
+              icon={<ArrowRight size={12} />}
+              link="/contact"
             />
           </div>
-
-          <div className="w-full md:w-1/2">
-              <OptimizedImage 
-                src="/images/usecase/lending/pigcoin.webp" 
-                alt="Solutions sur mesures" 
-                className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
-                width={665}
-                height={665}
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 665px"
-                quality={75}
-              />
+          <div data-anim="lending-adv-img" className="border border-[var(--border-light)] overflow-hidden">
+            <OptimizedImage
+              src="/images/usecase/lending/pigcoin.webp"
+              alt="Solutions sur mesures"
+              className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-contain"
+              width={665}
+              height={665}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 665px"
+              quality={75}
+            />
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 } 

@@ -3,6 +3,7 @@ import Header from "@/components/usecase/Header";
 import CustomerStories from "@/components/usecase/CustomerStories";
 import ReadyToStart from "@/components/usecase/ReadyToStart";
 import UseCaseFAQ from "@/components/usecase/UseCaseFAQ";
+import UsecaseAnimations from "@/components/usecase/UsecaseAnimations";
 import { generateStaticMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -14,7 +15,8 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function UseCase() {
   return (
-    <main className="min-h-screen text-textColor">
+    <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <UsecaseAnimations />
       <Header />
       <UseCaseFAQ />
       {/* <CustomerStories /> */}

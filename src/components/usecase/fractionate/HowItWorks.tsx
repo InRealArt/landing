@@ -25,9 +25,11 @@ export default function HowItWorks() {
   ];
 
   return (
-    <StepsSwiper 
-      title={t('fractionate.howItWorks.title')} 
-      steps={steps} 
-    />
+    <div data-anim="fract-how">
+      <StepsSwiper
+        title={t('fractionate.howItWorks.title')}
+        steps={steps}
+      />
+    </div>
   );
 } 

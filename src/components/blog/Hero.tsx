@@ -7,19 +7,24 @@ export default function Hero() {
   const { t } = useLanguageStore();
   
   return (
-    <section className="mx-auto pb-10 px-4 max-w-screen-xl mt-4">
-      <TranslatedText
-        translationKey="blog.title"
-        as="h1"
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bricolage-grotesque leading-tight"
-        allowHtml={true}
-      />
-      <TranslatedText
-        translationKey="blog.subtitle"
-        as="p"
-        className="text-base sm:text-lg text-grayText mb-8 md:mb-12 max-w-3xl leading-relaxed"
-        allowHtml={true}
-      />
+    <section className="py-32 px-10 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
+      <span className="section-number">Le Journal</span>
+      <div data-anim="blog-hero-title">
+        <TranslatedText
+          translationKey="blog.title"
+          as="h1"
+          className="serif italic text-6xl md:text-8xl lg:text-[8rem] leading-none text-[var(--ink-black)]"
+          allowHtml={true}
+        />
+      </div>
+      <div data-anim="blog-hero-subtitle">
+        <TranslatedText
+          translationKey="blog.subtitle"
+          as="p"
+          className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] max-w-2xl leading-loose mt-6"
+          allowHtml={true}
+        />
+      </div>
     </section>
   );
 } 

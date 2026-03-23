@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
 import { useLanguageStore } from '@/store/languageStore';
 
+const CASE_NUMBERS = ['01.', '02.', '03.', '04.'];
+
 export default function Header() {
   const { t } = useLanguageStore();
 
@@ -33,11 +35,12 @@ export default function Header() {
   ];
 
   return (
-    <section className="relative w-full py-20 pt-headerSize overflow-hidden">
+    <section className="relative w-full overflow-hidden" style={{ minHeight: '100svh' }}>
+      {/* Background image */}
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-bottom">
           <OptimizedBackgroundImage
-            src="/images/usecase/hero_usecase.webp"
+            src="/images/usecase/hero_usecase.webp?v=2"
             alt={t('usecase.intro.title')}
             width={1920}
             height={1080}
@@ -46,46 +49,65 @@ export default function Header() {
           />
         </div>
       </div>
-      
-      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
 
-      {/* Contenu du header */}
-      <div className="relative z-20 max-w-90 xl:max-w-screen-xl m-auto">
-        <div className="text-center mb-16">
-          <TranslatedText
-            translationKey="usecase.intro.title"
-            as="h1"
-            className="text-4xl md:text-6xl bricolage-grotesque font-medium mb-4 text-white"
-            allowHtml={true}
-          />
-          <TranslatedText
-            translationKey="usecase.intro.subtitle"
-            as="p"
-            className="text-lg md:text-xl text-white/90"
-            allowHtml={true}
-          />
+      {/* Deep gradient overlay — nearly opaque at bottom for card legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 flex flex-col justify-end px-10 pb-20 pt-[calc(var(--header-height)+5rem)] max-w-screen-2xl mx-auto min-h-[inherit]" style={{ minHeight: '100svh' }}>
+
+        {/* Editorial header */}
+        <div className="mb-16 border-b border-white/20 pb-12">
+          <span className="section-number !text-white/40">
+            {t('usecase.intro.label') || 'Cas d\'usage'}
+          </span>
+          <div data-anim="hero-title">
+            <TranslatedText
+              translationKey="usecase.intro.title"
+              as="h1"
+              className="serif italic text-white text-5xl md:text-7xl lg:text-8xl leading-tight mb-6"
+              allowHtml={true}
+            />
+          </div>
+          <div data-anim="hero-subtitle">
+            <TranslatedText
+              translationKey="usecase.intro.subtitle"
+              as="p"
+              className="text-[11px] uppercase tracking-[0.3em] text-white/60 max-w-xl leading-relaxed"
+              allowHtml={true}
+            />
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* Case study cards — gallery grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
           {caseStudies.map((caseStudy, index) => (
-            <div key={index} className="bg-cardBackground rounded-lg p-8 border border-white/20 flex flex-col justify-between">
-              <TranslatedText
-                content={caseStudy.title}
-                as="h3"
-                className="text-xl bricolage-grotesque font-medium mb-6"
-                allowHtml={true}
-              />
-              <TranslatedText
-                content={caseStudy.description}
-                as="p"
-                className="text-sm text-grayText mb-6 bricolage-grotesque"
-                allowHtml={true}
-              />
-              <Button 
-                text={t('buttons.readMore')} 
-                additionalClassName="bg-purpleColor w-full justify-center mt-auto" 
-                icon={<ArrowRight />} 
+            <div
+              key={index}
+              data-anim="hero-card"
+              className="bg-white/5 backdrop-blur-sm border-0 p-8 flex flex-col justify-between group hover:bg-white/10 transition-colors duration-500"
+            >
+              <div>
+                <span className="serif text-3xl italic text-[#b89c72] block mb-4">
+                  {CASE_NUMBERS[index]}
+                </span>
+                <TranslatedText
+                  content={caseStudy.title}
+                  as="h3"
+                  className="serif italic text-white text-2xl leading-snug mb-4"
+                  allowHtml={true}
+                />
+                <TranslatedText
+                  content={caseStudy.description}
+                  as="p"
+                  className="text-[12px] text-white/50 leading-loose"
+                  allowHtml={true}
+                />
+              </div>
+              <Button
+                text={t('buttons.readMore')}
+                additionalClassName="bg-purpleColor mt-8 !border-white/40 !text-white hover:!bg-white hover:!text-black"
+                icon={<ArrowRight size={12} />}
                 link={caseStudy.link}
               />
             </div>

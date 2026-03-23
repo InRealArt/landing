@@ -95,22 +95,21 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
 
   if (isLoadingLang) {
     return (
-      <div className="pt-8 mb-16 px-5 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center justify-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-          <p className="text-xl mt-4">{t('common.loading')}</p>
+      <div className="px-10 py-32 max-w-screen-2xl mx-auto">
+        <div className="flex flex-col items-center justify-center min-h-[50vh] gap-8">
+          <span className="block w-px h-16 bg-[var(--border-light)] animate-pulse" />
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('common.loading')}</p>
         </div>
       </div>
     )
   }
 
-  // Post not found in this language
   if (!post && !isSearchingTranslation && !translatedPost) {
     return (
-      <div className="pt-8 mb-16 px-5 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center justify-center min-h-[50vh]">
-          <p className="text-xl mb-4">{t('blog.postNotFound')}</p>
-          <Link href="/blog" className="text-purpleColor hover:underline">
+      <div className="px-10 py-32 max-w-screen-2xl mx-auto">
+        <div className="flex flex-col items-center justify-center min-h-[50vh] gap-6 border border-[var(--border-light)] p-16">
+          <p className="serif italic text-3xl text-[var(--ink-black)]">{t('blog.postNotFound')}</p>
+          <Link href="/blog" className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
             {t('blog.backToBlog')}
           </Link>
         </div>
@@ -120,10 +119,10 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
 
   if (isSearchingTranslation) {
     return (
-      <div className="pt-8 mb-16 px-5 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center justify-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-          <p className="text-xl mt-4">{t('blog.searchingTranslation')}</p>
+      <div className="px-10 py-32 max-w-screen-2xl mx-auto">
+        <div className="flex flex-col items-center justify-center min-h-[50vh] gap-8">
+          <span className="block w-px h-16 bg-[var(--border-light)] animate-pulse" />
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.searchingTranslation')}</p>
         </div>
       </div>
     )
@@ -131,18 +130,18 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
 
   if (translatedPost && !post) {
     return (
-      <div className="pt-8 mb-16 px-5 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center justify-center min-h-[50vh]">
-          <p className="text-xl mb-4">{t('blog.postNotFoundInLanguage')}</p>
-          <p className="text-lg mb-6 text-gray-600">
+      <div className="px-10 py-32 max-w-screen-2xl mx-auto">
+        <div className="flex flex-col items-center justify-center min-h-[50vh] gap-6 border border-[var(--border-light)] p-16 text-center">
+          <p className="serif italic text-3xl text-[var(--ink-black)] mb-2">{t('blog.postNotFoundInLanguage')}</p>
+          <p className="text-[12px] text-[var(--gray-text)] leading-loose max-w-md">
             {t('blog.postAvailableInOtherLanguage')}
           </p>
           <Button
             text={t('blog.viewInCorrectLanguage')}
-            additionalClassName="mt-6 justify-center bg-purpleColor"
+            additionalClassName="bg-purpleColor mt-4"
             link={`/blog/${translatedPost.slug}`}
           />
-          <Link href="/blog" className="text-purpleColor hover:underline">
+          <Link href="/blog" className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
             {t('blog.backToBlog')}
           </Link>
         </div>
@@ -193,20 +192,21 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
         }}
       />
 
-      <div className="pt-8 pb-16 min-h-screen">
-        <div className="max-w-3xl mx-auto px-4">
-          <BlogBreadcrumb postTitle={displayPost.title} className="mb-8" />
+      <div className="pb-32 min-h-screen bg-[var(--canvas-bg)]">
+        <div className="max-w-3xl mx-auto px-10">
+          <BlogBreadcrumb postTitle={displayPost.title} className="mb-12 pt-10" />
 
           <div
+            data-anim="post-content"
             id="blog-content-container"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 pt-8 border-t border-[var(--border-light)]">
             <Button
               text={t('blog.backToBlog')}
-              additionalClassName="mt-6 justify-center bg-purpleColor"
+              additionalClassName="bg-purpleColor"
               link="/blog"
             />
           </div>
@@ -217,94 +217,60 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
             postListTags={displayPost.listTags}
             postMetaDescription={displayPost.metaDescription}
           />
+        </div>
 
-          {relatedPosts.length > 0 && (
-            <div className="mt-16 pt-12 border-t border-borderColor">
-              <h2 className="text-xl font-medium italic mb-8 text-textColor">
-                {t('blog.relatedPosts')}
-              </h2>
-
-              <div className="relative w-screen left-1/2 -translate-x-1/2 px-4">
-                <div className="max-w-5xl mx-auto">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {relatedPosts.map((relatedPost) => (
-                      <Link
-                        key={relatedPost.id}
-                        href={`/blog/${relatedPost.slug}`}
-                        className="group block bg-cardBackground rounded-2xl overflow-hidden
-                          border border-borderColor
-                          transition-all duration-300 ease-out
-                          hover:-translate-y-1.5
-                          hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)]
-                          hover:border-purpleColor/30
-                          active:translate-y-0 active:shadow-none active:duration-75"
-                      >
-                        <div className="relative aspect-video overflow-hidden bg-backgroundGrey">
-                          {relatedPost.mainImageUrl ? (
-                            <img
-                              src={relatedPost.mainImageUrl}
-                              alt={relatedPost.mainImageAlt || relatedPost.title}
-                              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gradientFrom to-gradientTo">
-                              <span className="text-grayText text-sm">{t('blog.noImage')}</span>
-                            </div>
-                          )}
-
-                          <div className="absolute top-3 left-3">
-                            <span
-                              className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white shadow-md tracking-wide"
-                              style={{ backgroundColor: relatedPost.category.color || '#6052ff' }}
-                            >
-                              {relatedPost.category.name}
-                            </span>
-                          </div>
+        {relatedPosts.length > 0 && (
+          <div className="mt-24 border-t border-[var(--border-light)]">
+            <div className="px-10 py-20 max-w-screen-2xl mx-auto">
+              <span className="section-number mb-12 block">{t('blog.relatedPosts')}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.map((relatedPost) => (
+                  <Link
+                    key={relatedPost.id}
+                    href={`/blog/${relatedPost.slug}`}
+                    data-anim="post-related-card"
+                    className="group block bg-[var(--canvas-bg)] overflow-hidden hover:bg-[var(--soft-gray)] transition-colors duration-500"
+                  >
+                    <div className="relative aspect-video overflow-hidden border-b border-[var(--border-light)]">
+                      {relatedPost.mainImageUrl ? (
+                        <img
+                          src={relatedPost.mainImageUrl}
+                          alt={relatedPost.mainImageAlt || relatedPost.title}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-[var(--soft-gray)]">
+                          <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
                         </div>
-
-                        <div className="p-5 flex flex-col gap-2">
-                          <h3 className="text-sm font-bold leading-snug text-textColor line-clamp-2 group-hover:text-purpleColor transition-colors duration-200">
-                            {relatedPost.title}
-                          </h3>
-
-                          {relatedPost.excerpt && (
-                            <p className="text-xs text-grayText line-clamp-2 leading-relaxed">
-                              {relatedPost.excerpt}
-                            </p>
-                          )}
-
-                          <div className="flex items-center gap-2 text-xs text-grayText mt-auto pt-2">
-                            {relatedPost.estimatedReadTime && (
-                              <>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="w-3.5 h-3.5 flex-shrink-0 opacity-60"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  aria-hidden="true"
-                                >
-                                  <circle cx="12" cy="12" r="10" />
-                                  <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')}</span>
-                                <span className="opacity-40">·</span>
-                              </>
-                            )}
-                            <span>{formatDate(relatedPost.createdAt)}</span>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                      )}
+                      <div className="absolute top-4 left-4">
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-white bg-[var(--ink-black)] px-3 py-1">
+                          {relatedPost.category.name}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="serif italic text-xl leading-snug text-[var(--ink-black)] line-clamp-2 mb-3 group-hover:text-[var(--gold-accent)] transition-colors duration-300">
+                        {relatedPost.title}
+                      </h3>
+                      {relatedPost.excerpt && (
+                        <p className="text-[12px] text-[var(--gray-text)] line-clamp-2 leading-loose mb-4">
+                          {relatedPost.excerpt}
+                        </p>
+                      )}
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)]">
+                        {relatedPost.estimatedReadTime && (
+                          <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')} <span className="text-[var(--gold-accent)] mx-2">—</span></span>
+                        )}
+                        <span>{formatDate(relatedPost.createdAt)}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </>
   )

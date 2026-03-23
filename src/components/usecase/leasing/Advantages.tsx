@@ -21,25 +21,32 @@ export default function Advantages() {
   ];
 
   return (
-    <section className="py-16 ">
-      <div className="container mx-auto px-4">
-        <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
-          {t('leasing.advantages.title')}
-        </h2>
-        <p className="text-sm mb-8 max-w-lg">
-          {t('leasing.advantages.subtitle')}
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-32 px-10 border-y border-[var(--border-light)] bg-[var(--canvas-bg)]">
+      <div className="max-w-screen-2xl mx-auto">
+        <div data-anim="adv-title" className="border-b border-[var(--border-light)] pb-12 mb-16">
+          <span className="section-number">Avantages</span>
+          <h2 className="text-5xl md:text-7xl serif italic leading-tight">
+            <span className="text-[var(--gold-accent)]">{t('leasing.advantages.title')}</span>
+          </h2>
+          <p className="text-[12px] text-[var(--gray-text)] leading-loose mt-6 max-w-lg uppercase tracking-[0.2em]">
+            {t('leasing.advantages.subtitle')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {advantagesItems.map((item, index) => (
             <div
               key={index}
-              className="p-6 rounded-lg bg-[#1D1C1C]"
+              data-anim="adv-card"
+              className="border-t border-[var(--border-light)] pt-10 bg-[var(--soft-gray)] border border-[var(--border-light)] p-10 flex flex-col"
             >
-              <h3 className="text-xl bricolage-grotesque font-medium mb-3 text-white dark:text-white">
+              <span className="serif text-3xl italic text-[var(--gold-accent)] block mb-6">
+                0{index + 1}.
+              </span>
+              <h3 className="serif italic text-2xl mb-4">
                 {item.title}
               </h3>
-              <p className="text-sm text-white dark:text-grayText">
+              <p className="text-[12px] text-[var(--gray-text)] leading-loose">
                 {item.description}
               </p>
             </div>

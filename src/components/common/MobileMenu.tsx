@@ -99,7 +99,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             icon={<Phone />}
             center
             target='_blank'
-            iconBefore
             link={EXTERNAL_URLS.CALENDLY_MEETING}
             data-umami-event="calendly-mobile-click"
           />

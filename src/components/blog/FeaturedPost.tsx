@@ -55,19 +55,18 @@ export default function FeaturedPost({ initialPost }: Props) {
 
   if (isLoading) {
     return (
-      <section className="mx-auto px-4 max-w-screen-xl">
-        <div className="mb-16">
-          <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="h-[440px] bg-backgroundGrey animate-pulse rounded-lg" />
-            <div className="p-8 bg-backgroundColor rounded-lg">
-              <div className="h-4 bg-backgroundGrey animate-pulse rounded mb-3" />
-              <div className="h-8 bg-backgroundGrey animate-pulse rounded mb-3" />
-              <div className="h-20 bg-backgroundGrey animate-pulse rounded mb-6" />
-              <div className="flex gap-2 mb-6">
-                <div className="h-6 w-16 bg-backgroundGrey animate-pulse rounded-full" />
-                <div className="h-6 w-20 bg-backgroundGrey animate-pulse rounded-full" />
-              </div>
+      <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
+        <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-0">
+          <div className="h-[520px] bg-[var(--soft-gray)] animate-pulse" />
+          <div className="p-10 bg-[var(--soft-gray)] border border-l-0 border-[var(--border-light)]">
+            <div className="h-3 bg-[var(--border-light)] animate-pulse mb-6 w-32" />
+            <div className="h-10 bg-[var(--border-light)] animate-pulse mb-4" />
+            <div className="h-10 bg-[var(--border-light)] animate-pulse mb-6 w-3/4" />
+            <div className="h-20 bg-[var(--border-light)] animate-pulse mb-6" />
+            <div className="flex gap-2 mb-6">
+              <div className="h-6 w-16 bg-[var(--border-light)] animate-pulse" />
+              <div className="h-6 w-20 bg-[var(--border-light)] animate-pulse" />
             </div>
           </div>
         </div>
@@ -77,96 +76,88 @@ export default function FeaturedPost({ initialPost }: Props) {
 
   if (error) {
     return (
-      <section className="mx-auto px-4 max-w-screen-xl">
-        <div className="mb-16">
-          <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
-          <div className="p-8 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            {error}
-          </div>
-        </div>
+      <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
+        <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
+        <div className="border border-red-200 p-8 text-red-700 text-[12px]">{error}</div>
       </section>
     )
   }
 
   if (!post) {
     return (
-      <section className="mx-auto px-4 max-w-screen-xl">
-        <div className="mb-16">
-          <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
-          <div className="p-8 bg-backgroundGrey border border-textColor/20 rounded-lg text-grayText">
-            {t('blog.noFeaturedPost')}
-          </div>
+      <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
+        <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
+        <div className="border border-[var(--border-light)] p-8 text-[12px] text-[var(--gray-text)]">
+          {t('blog.noFeaturedPost')}
         </div>
       </section>
     )
   }
 
   return (
-    <section className="mx-auto px-4 max-w-screen-xl">
-      <div className="mb-16">
-        <h2 className="text-xl font-medium italic mb-8">{t('blog.featuredPost')}</h2>
+    <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
+      <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-textColor items-stretch">
-          <Link
-            href={`/blog/${post.slug}`}
-            className="group relative h-[440px] cursor-pointer rounded-lg bg-[#1d1c1c] overflow-hidden
-              transition-all duration-300 ease-out
-              hover:shadow-[0_16px_48px_rgba(0,0,0,0.5)] hover:scale-[1.02]
-              active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
-          >
-            {post.mainImageUrl ? (
-              <OptimizedImage
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-contain [&_img]:rounded-lg [&_img]:transition-transform [&_img]:duration-500 [&_img]:ease-out group-hover:[&_img]:scale-105 group-active:[&_img]:scale-100"
-                src={post.mainImageUrl}
-                alt={post.mainImageAlt || post.title}
-                width={600}
-                height={440}
-                priority
-              />
-            ) : (
-              <div className="w-full h-full bg-backgroundGrey rounded-lg flex items-center justify-center">
-                <span className="text-grayText">{t('blog.noImage')}</span>
-              </div>
-            )}
-          </Link>
+      <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-0 items-stretch">
+        {/* Image */}
+        <Link
+          data-anim="blog-featured-img"
+          href={`/blog/${post.slug}`}
+          className="group overflow-hidden border border-[var(--border-light)] h-[520px] block"
+        >
+          {post.mainImageUrl ? (
+            <OptimizedImage
+              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-out group-hover:[&_img]:scale-[1.02]"
+              src={post.mainImageUrl}
+              alt={post.mainImageAlt || post.title}
+              width={600}
+              height={520}
+              priority
+            />
+          ) : (
+            <div className="w-full h-full bg-[var(--soft-gray)] flex items-center justify-center">
+              <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
+            </div>
+          )}
+        </Link>
 
-          <Link
-            href={`/blog/${post.slug}`}
-            className="relative p-8 flex flex-col justify-center rounded-lg bg-backgroundColor cursor-pointer h-full
-              transition-all duration-300 ease-out
-              hover:bg-backgroundGrey hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]
-              active:bg-backgroundGrey active:scale-[0.99] active:brightness-90 active:shadow-none active:duration-75"
-          >
-            <div className="flex items-center gap-2 text-sm mb-3 text-grayText">
+        {/* Text */}
+        <Link
+          data-anim="blog-featured-text"
+          href={`/blog/${post.slug}`}
+          className="p-10 border border-l-0 border-[var(--border-light)] flex flex-col justify-between bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] transition-colors duration-500"
+        >
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] mb-6">
               <span>{formatDate(post.createdAt)}</span>
-              <span>•</span>
+              <span className="mx-3 text-[var(--gold-accent)]">—</span>
               <span>{formatReadTime(post.estimatedReadTime)}</span>
             </div>
 
-            <h3 className="text-2xl font-bold mb-3 line-clamp-2 md:line-clamp-none">{post.title}</h3>
+            <h3 className="serif italic text-3xl md:text-4xl leading-tight mb-6 text-[var(--ink-black)]">
+              {post.title}
+            </h3>
 
-            <p className="mb-6 text-grayText line-clamp-4 md:line-clamp-none">
+            <p className="text-[12px] text-[var(--gray-text)] leading-loose mb-6">
               {post.excerpt || post.metaDescription}
             </p>
 
-            <div className="flex gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-6">
               {post.listTags.slice(0, 3).map((tag, index) => (
                 <span
                   key={index}
-                  className="px-4 py-1 border rounded-full text-sm text-textColor"
+                  className="px-3 py-1 border border-[var(--border-light)] text-[9px] uppercase tracking-[0.2em] text-[var(--gray-text)]"
                 >
                   {tag}
                 </span>
               ))}
             </div>
+          </div>
 
-            <div className="flex items-center">
-              <span className="text-sm text-grayText">
-                {t('blog.by')} {post.author}
-              </span>
-            </div>
-          </Link>
-        </div>
+          <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-t border-[var(--border-light)] pt-6">
+            {t('blog.by')} <span className="text-[var(--ink-black)]">{post.author}</span>
+          </div>
+        </Link>
       </div>
     </section>
   )

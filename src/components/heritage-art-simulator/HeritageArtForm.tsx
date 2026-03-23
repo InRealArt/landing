@@ -153,9 +153,10 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
   const totalPercentage = getTotalPercentage()
 
   return (
-    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
-        {t('heritageArtSimulator.form.title')}
+    <div className="bg-[var(--canvas-bg)] p-8 lg:p-10">
+      <span className="section-number block mb-4">{t('heritageArtSimulator.form.title')}</span>
+      <h1 className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
+        Simulateur Patrimoine & Art
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -163,7 +164,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Répartition du patrimoine */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-textColor mb-4">
+              <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
                 {t('heritageArtSimulator.form.repartitionTitle')}
               </h2>
 
@@ -236,13 +237,13 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
                 />
               </div>
 
-              <div className={`text-lg font-semibold ${totalPercentage === 100 ? 'text-green-400' : 'text-yellow-400'}`}>
+              <div className={`text-[11px] uppercase tracking-[0.2em] font-medium ${totalPercentage === 100 ? 'text-[var(--ink-black)]' : 'text-[var(--gold-accent)]'}`}>
                 {t('heritageArtSimulator.form.total')}: {totalPercentage}%
               </div>
 
               {errors.total && (
-                <div className="text-red-400 text-sm">
-                  ⚠️ {errors.total}
+                <div className="text-red-500 text-[11px]">
+                  {errors.total}
                 </div>
               )}
             </div>
@@ -277,9 +278,10 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
             <Button
               type="button"
               action={handleNextStep}
-              additionalClassName="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-4 px-8 rounded-full hover:from-purple-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+              additionalClassName="w-full bg-purpleColor"
               text={t('heritageArtSimulator.form.nextStep')}
-              icon={<span className="text-xl">→</span>}
+              icon={<span>→</span>}
+              center
             />
 
           </>
@@ -289,7 +291,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Informations personnelles */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-textColor mb-4">
+              <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
                 {t('heritageArtSimulator.form.personalInfo')}
               </h2>
 
@@ -348,23 +350,26 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
               <Button
                 type="button"
                 action={handlePreviousStep}
-                additionalClassName="bg-gray-600 text-white font-bold py-4 px-8 hover:bg-gray-700  gap-2"
+                additionalClassName="bg-purpleColor"
                 text={t('heritageArtSimulator.form.previousStep')}
+                center
               />
 
               <Button
                 type="submit"
                 disabled={isLoading}
-                additionalClassName="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold py-4 px-8 disabled:opacity-50 disabled:cursor-not-allowed"
-                icon={isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : <div />}
-                text={isLoading ? '' : t('heritageArtSimulator.form.calculateButton')}
+                additionalClassName={`bg-purpleColor ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                icon={isLoading ? <div className="animate-spin h-4 w-4 border border-[var(--ink-black)] border-t-transparent" /> : undefined}
+                text={isLoading ? t('heritageArtSimulator.form.calculateButton') : t('heritageArtSimulator.form.calculateButton')}
+                center
+                iconBefore
               />
             </div>
           </>
         )}
 
         {errors.general && (
-          <div className="text-red-400 text-sm text-center">
+          <div className="text-red-500 text-[11px] text-center">
             {errors.general}
           </div>
         )}

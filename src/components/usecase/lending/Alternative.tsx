@@ -18,10 +18,11 @@ export default function Alternative() {
   }, [t]);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-5xl mx-auto">
-          <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
+    <section className="py-32 px-10 bg-[var(--ink-black)]">
+      <div className="max-w-screen-2xl mx-auto">
+        <div data-anim="lending-alt-title" className="text-center max-w-5xl mx-auto">
+          <span className="section-number !text-white/30">Perspective</span>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl serif italic leading-tight text-white [&_span]:text-[var(--gold-accent)]" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
         </div>
       </div>
     </section>

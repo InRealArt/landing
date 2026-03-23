@@ -153,20 +153,16 @@ const Footer = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('footer.newsletter.subscribe')}
               disabled={isPending}
-              className={`w-full montserrat rounded-none border-b-2 py-4 px-0 pr-16 outline-0 bg-transparent transition-colors ${
-                theme === 'light'
-                  ? 'border-ink-black text-ink-black placeholder-gray-400 focus:border-gold-accent'
-                  : 'border-white text-white placeholder-gray-500 focus:border-gold-accent'
-              }`}
+              className="w-full montserrat rounded-none border-b border-[var(--border-light)] py-3 px-0 pr-16 outline-none bg-transparent text-[var(--ink-black)] placeholder-[var(--gray-text)] text-[12px] font-light focus:border-[var(--gold-accent)] transition-colors duration-300 disabled:opacity-50"
               required
             />
             <button
               type="submit"
-              className={`absolute right-0 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.25em] ${isPending ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-50 transition-opacity'} text-ink-black`}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 text-[9px] uppercase tracking-[0.3em] text-[var(--gray-text)] hover:text-[var(--ink-black)] transition-colors duration-300 ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
               aria-label={t('footer.newsletter.subscribe')}
               disabled={isPending}
             >
-              {isPending ? '...' : 'OK'}
+              {isPending ? '···' : 'OK'}
             </button>
           </form>
         </div>

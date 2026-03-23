@@ -37,18 +37,21 @@ const PageFAQ = ({
 
   if (isLoading) {
     return (
-      <section className={`w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
-        <div className="w-full md:w-1/3 animate-pulse">
-          <div className="h-12 w-3/4 bg-borderColor rounded mb-8" />
-          <div className="h-4 w-full bg-borderColor rounded mb-2" />
-          <div className="h-4 w-2/3 bg-borderColor rounded" />
-        </div>
-        <div className="h-full w-full md:w-2/3 space-y-0">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="border-b border-borderColor py-6 animate-pulse">
-              <div className="h-5 w-3/4 bg-borderColor rounded" />
-            </div>
-          ))}
+      <section className={`w-full py-32 px-10 max-w-screen-2xl mx-auto ${className}`}>
+        <div className="flex flex-col md:flex-row gap-20">
+          <div className="w-full md:w-1/3 animate-pulse">
+            <div className="h-3 w-24 bg-[var(--border-light)] mb-8" />
+            <div className="h-16 w-3/4 bg-[var(--border-light)] mb-6" />
+            <div className="h-3 w-full bg-[var(--border-light)] mb-2" />
+            <div className="h-3 w-2/3 bg-[var(--border-light)]" />
+          </div>
+          <div className="w-full md:w-2/3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="border-b border-[var(--border-light)] py-8 animate-pulse">
+                <div className="h-4 w-3/4 bg-[var(--border-light)]" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     )
@@ -56,7 +59,7 @@ const PageFAQ = ({
 
   if (hasError) {
     return (
-      <section className={`w-full m-auto mt-36 flex flex-col gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
+      <section className={`w-full py-32 px-10 max-w-screen-2xl mx-auto ${className}`}>
         <div className="text-red-500">
           <TranslatedText
             as="p"
@@ -72,38 +75,44 @@ const PageFAQ = ({
   }
 
   return (
-    <section className={`w-full m-auto mt-36 flex flex-col md:flex-row gap-16 max-w-90 xl:max-w-screen-xl ${className}`}>
-      <div className="w-full md:w-1/3">
-        <h2 className="text-6xl md:text-6xl serif">
+    <section className={`w-full py-32 px-10 max-w-screen-2xl mx-auto ${className}`}>
+      <div className="flex flex-col md:flex-row gap-20">
+
+        {/* Left column — title + CTA */}
+        <div className="w-full md:w-1/3 md:sticky md:top-32 self-start" data-anim="faq-left">
+          <span className="section-number">Questions</span>
+          <h2 className="serif text-5xl md:text-6xl leading-tight mb-8">
+            <TranslatedText
+              as="span"
+              translationKey={titleKey}
+              className="italic text-[var(--gold-accent)]"
+              allowHtml={true}
+            />
+          </h2>
           <TranslatedText
-            as="span"
-            translationKey={titleKey}
-            className="italic text-gold-accent"
+            as="p"
+            translationKey={descriptionKey}
+            className="text-[12px] text-[var(--gray-text)] leading-loose mb-8"
             allowHtml={true}
           />
-        </h2>
-        <TranslatedText
-          as="p"
-          translationKey={descriptionKey}
-          className="mt-8"
-          allowHtml={true}
-        />
-        <Button
-          text={t('buttons.viewGlobalFAQ')}
-          additionalClassName="bg-purpleColor mt-8"
-          link="/faq"
-        />
-      </div>
-
-      {/* Right column — questions */}
-      <div className="h-full w-full md:w-2/3">
-        {sortedFaqItems.map((item, index) => (
-          <Question
-            key={`${item.title}-${index}`}
-            question={item.title}
-            answer={item.content}
+          <Button
+            text={t('buttons.viewGlobalFAQ')}
+            additionalClassName="bg-purpleColor"
+            link="/faq"
           />
-        ))}
+        </div>
+
+        {/* Right column — questions */}
+        <div className="w-full md:w-2/3 border-t border-[var(--border-light)]">
+          {sortedFaqItems.map((item, index) => (
+            <Question
+              key={`${item.title}-${index}`}
+              question={item.title}
+              answer={item.content}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   )

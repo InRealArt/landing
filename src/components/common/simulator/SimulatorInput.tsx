@@ -43,12 +43,12 @@ export default function SimulatorInput({
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-grayText mb-2">
+        <label htmlFor={id} className="block text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-2">
           {label}
-          {required && <span className="text-red-400 ml-1">*</span>}
+          {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      
+
       {type === 'tel' ? (
         <PhoneInput
           international
@@ -71,7 +71,7 @@ export default function SimulatorInput({
           max={max}
           step={step}
           placeholder={placeholder}
-          className={`w-full px-4 py-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-backgroundGrey focus:border-purple-500 focus:outline-none text-textColor placeholder-gray-400 font-unbounded`}
+          className={`w-full px-4 py-3 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)] focus:border-[var(--ink-black)] focus:outline-none text-[var(--ink-black)] placeholder-[var(--gray-text)] font-montserrat text-sm transition-colors duration-200`}
         />
       )}
       

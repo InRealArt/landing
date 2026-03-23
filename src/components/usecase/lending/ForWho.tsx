@@ -27,54 +27,58 @@ export default function ForWho() {
   ];
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        {/* ForWho content */}
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4">
+    <section className="py-32 px-10 bg-[var(--canvas-bg)] border-t border-[var(--border-light)]">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+
+          {/* Text column */}
+          <div data-anim="lending-forwho-text">
+            <span className="section-number">Profils</span>
+            <h2 className="text-5xl md:text-6xl serif italic leading-tight mb-8 text-[var(--gold-accent)]">
               {whyChooseTitle}
             </h2>
-            <ul className="space-y-1">
+            <ul className="divide-y divide-[var(--border-light)] mb-14">
               {whyChooseItems.map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="mr-2">•</span>
-                  <p>{item}</p>
+                <li key={index} className="flex items-start gap-6 py-4">
+                  <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0">—</span>
+                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">{item}</p>
                 </li>
               ))}
             </ul>
-            <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-4 mt-12">
+
+            <h2 className="text-5xl md:text-6xl serif italic leading-tight mb-8">
               {forWhoTitle}
             </h2>
-            <ul className="space-y-1">
+            <ul className="divide-y divide-[var(--border-light)] mb-10">
               {forWhoItems.map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="mr-2">•</span>
-                  <p>{item}</p>
+                <li key={index} className="flex items-start gap-6 py-4">
+                  <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0">—</span>
+                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">{item}</p>
                 </li>
               ))}
             </ul>
-            <Button 
-              text={t('contact.scheduleMeeting')} 
-              iconBefore 
-              additionalClassName="bg-purpleColor mt-8" 
-              icon={<Phone />} 
-              center 
-              target='_blank' 
-              link={EXTERNAL_URLS.CALENDLY_MEETING} 
+
+            <Button
+              text={t('contact.scheduleMeeting')}
+              additionalClassName="bg-purpleColor"
+              icon={<Phone size={12} />}
+              target="_blank"
+              link={EXTERNAL_URLS.CALENDLY_MEETING}
               data-umami-event="calendly-lending-forwho-click"
             />
           </div>
-          
-          <div className="w-full md:w-1/2">
-              <OptimizedImage 
-                src="/images/usecase/lending/aberwrach.webp" 
-                alt="Pour qui ?" 
-                className="w-full [&_img]:w-full [&_img]:h-auto"
-                width={500}
-                height={530}
-              />
+
+          {/* Image column */}
+          <div data-anim="lending-forwho-img" className="border border-[var(--border-light)] overflow-hidden md:sticky md:top-32">
+            <OptimizedImage
+              src="/images/usecase/lending/aberwrach.webp"
+              alt="Pour qui ?"
+              className="w-full [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
+              width={500}
+              height={530}
+            />
           </div>
+
         </div>
       </div>
     </section>

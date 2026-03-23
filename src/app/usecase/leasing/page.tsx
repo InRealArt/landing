@@ -7,6 +7,7 @@ import SliderSection from "@/components/usecase/leasing/SliderSection";
 import LeasingFAQ from "@/components/usecase/leasing/LeasingFAQ";
 import { generateStaticMetadata } from '@/utils/metadata'
 import LeasingInfosServer from '@/components/common/LeasingInfosServer';
+import LeasingAnimations from '@/components/usecase/leasing/LeasingAnimations';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Leasing artistique — Louez des oeuvres avec sens et impact',
@@ -17,7 +18,8 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function LeasingPage() {
   return (
-    <main className="min-h-screen text-textColor">
+    <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <LeasingAnimations />
       <Hero />
       <Advantages />
       <Benefits />

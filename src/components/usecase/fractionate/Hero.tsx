@@ -9,11 +9,11 @@ export default function Hero() {
   const { t } = useLanguageStore();
 
   return (
-    <section className="relative w-full min-h-[550px] overflow-hidden">
+    <section className="relative w-full overflow-hidden" style={{ minHeight: '100svh' }}>
       <div className="absolute inset-0">
-        <div className="w-full h-full [&_img]:!object-center [&_img]:scale-110">
+        <div className="w-full h-full [&_img]:!object-center">
           <OptimizedBackgroundImage
-            src="/images/usecase/usecase_fractionate.webp"
+            src="/images/usecase/hero_usecase.webp?v=2"
             alt={t('fractionate.hero.title')}
             width={1920}
             height={1080}
@@ -22,25 +22,32 @@ export default function Hero() {
           />
         </div>
       </div>
-      
-      {/* Dégradé du bas vers le background RGB(19, 19, 19) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgb(19,19,19)] via-[rgb(19,19,19,0.8)] to-transparent z-10" />
-      
-      {/* Content Overlay */}
-      <div className="container mx-auto px-4 relative z-20 pt-headerSize pb-20 h-full flex items-center justify-center">
-        {/* Left Column - Title and Button */}
-        <div className="flex flex-col">
-          <h1 className="text-4xl md:text-5xl bricolage-grotesque font-medium mb-6 text-white">
-            {t('fractionate.hero.title')}
-          </h1>
-          <p className="text-lg text-white/90 mb-8">
-            {t('fractionate.hero.description')}
-          </p>
-          <div className="mt-auto">
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/90 z-10" />
+
+      {/* Content — bottom anchored */}
+      <div
+        className="relative z-20 flex flex-col justify-end px-10 pb-20 pt-[calc(var(--header-height)+5rem)] max-w-screen-2xl mx-auto"
+        style={{ minHeight: '100svh' }}
+      >
+        <div className="mb-16 border-b border-white/20 pb-12">
+          <span className="section-number !text-white/40">Fractionnement</span>
+          <div data-anim="fract-hero-title">
+            <h1 className="serif italic text-white text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
+              {t('fractionate.hero.title')}
+            </h1>
+          </div>
+          <div data-anim="fract-hero-desc">
+            <p className="text-[11px] text-white/60 leading-loose uppercase tracking-[0.2em] max-w-xl mb-8">
+              {t('fractionate.hero.description')}
+            </p>
+          </div>
+          <div data-anim="fract-hero-btn">
             <Button
               text={t('fractionate.hero.button')}
-              additionalClassName="bg-purpleColor"
-              icon={<ArrowRight />}
+              additionalClassName="bg-purpleColor !border-white/40 !text-white"
+              icon={<ArrowRight size={12} />}
               link="/contact"
             />
           </div>

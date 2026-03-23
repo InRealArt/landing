@@ -1,6 +1,5 @@
 'use client'
 
-import { CheckCircle, ArrowRight } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
 import { type ArtworkLeaseResults, formatCurrency } from '@/utils/artworkLeaseCalculations'
 
@@ -12,75 +11,46 @@ export default function LeaseResultsTab({ leaseResults }: LeaseResultsTabProps) 
   const { t } = useLanguageStore()
 
   return (
-    <div className="bg-backgroundColor/30 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
-      <h2 className="text-2xl font-bold text-textColor mb-6 font-bricolage">{t('loaSimulator.results.lease.title')}</h2>
-      
-      <div className="space-y-6">
-        {/* Paiements mensuels */}
-        <div className="bg-backgroundColor/10 rounded-xl p-4">
-          <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.lease.monthlyPayments')}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex justify-between items-center p-3 bg-backgroundColor/10 rounded-lg">
-              <span className="text-textColor/70 font-unbounded">{t('loaSimulator.results.lease.firstMonth')}</span>
-              <span className="text-textColor font-semibold text-lg font-unbounded">{formatCurrency(leaseResults.firstMonthRent)}</span>
-            </div>
-            
-            <div className="flex justify-between items-center p-3 bg-backgroundColor/10 rounded-lg">
-              <span className="text-textColor/70 font-unbounded">{t('loaSimulator.results.lease.followingMonths')}</span>
-              <span className="text-textColor font-semibold text-lg font-unbounded">{formatCurrency(leaseResults.monthlyRent)}</span>
-            </div>
+    <div className="space-y-4">
+      <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.lease.title')}</h2>
+
+      {/* Paiements mensuels */}
+      <div className="border border-[var(--border-light)]">
+        <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
+          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.monthlyPayments')}</h3>
+        </div>
+        <div className="divide-y divide-[var(--border-light)]">
+          <div className="flex justify-between items-center px-4 py-3">
+            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.firstMonth')}</span>
+            <span className="serif italic text-xl text-[var(--ink-black)]">{formatCurrency(leaseResults.firstMonthRent)}</span>
+          </div>
+          <div className="flex justify-between items-center px-4 py-3">
+            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.followingMonths')}</span>
+            <span className="serif italic text-xl text-[var(--ink-black)]">{formatCurrency(leaseResults.monthlyRent)}</span>
+          </div>
+          <div className="flex justify-between items-center px-4 py-3">
+            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.totalLeaseAmount')}</span>
+            <span className="text-[12px] text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.totalLeaseAmount)}</span>
           </div>
         </div>
+      </div>
 
-        {/* Détail financier */}
-        <div className="bg-backgroundColor/10 rounded-xl p-4">
-          <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.lease.financialDetails')}</h3>
-          <div className="space-y-3">
-            <div className="flex justify-between py-2 border-b border-white/20">
-              <span className="text-textColor/70 font-unbounded">{t('loaSimulator.results.lease.totalLeaseAmount')}</span>
-              <span className="text-textColor font-semibold font-unbounded">{formatCurrency(leaseResults.totalLeaseAmount)}</span>
-            </div>
+      {/* Économies fiscales */}
+      <div className="border border-[var(--border-light)]">
+        <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
+          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</h3>
+        </div>
+        <div className="divide-y divide-[var(--border-light)]">
+          <div className="flex justify-between items-center px-4 py-3">
+            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</span>
+            <span className="text-[12px] text-[var(--gold-accent)] font-medium">{formatCurrency(leaseResults.taxSavings)}</span>
+          </div>
+          <div className="flex justify-between items-center px-4 py-3 bg-[var(--ink-black)]">
+            <span className="text-[11px] text-white/60">{t('loaSimulator.results.lease.netCostAfterTax')}</span>
+            <span className="serif italic text-xl text-white">{formatCurrency(leaseResults.netCostAfterTax)}</span>
           </div>
         </div>
-
-        {/* Économies fiscales */}
-        <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-xl p-4 border border-green-500/30">
-          <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.lease.taxSavings')}</h3>
-          <div className="space-y-3">
-            <div className="flex justify-between py-2">
-              <span className="text-green-300 font-unbounded">{t('loaSimulator.results.lease.taxSavings')}</span>
-              <span className="text-green-300 font-bold text-lg font-unbounded">{formatCurrency(leaseResults.taxSavings)}</span>
-            </div>
-            
-            <div className="flex justify-between py-2 border-t border-green-500/30">
-              <span className="text-textColor/70 font-unbounded">{t('loaSimulator.results.lease.netCostAfterTax')}</span>
-              <span className="text-textColor font-bold text-lg font-unbounded">{formatCurrency(leaseResults.netCostAfterTax)}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Options en fin de bail */}
-        {/* <div className="bg-backgroundColor/10 rounded-xl p-4">
-          <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.lease.endOfLeaseOptions')}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3 p-3 bg-backgroundColor/10 rounded-lg">
-              <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-              <div>
-                <div className="text-textColor font-semibold font-unbounded">{t('loaSimulator.results.lease.returnArtwork')}</div>
-                <div className="text-textColor/70 text-sm font-unbounded">{t('loaSimulator.results.lease.returnDescription')}</div>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3 p-3 bg-backgroundColor/10 rounded-lg">
-              <ArrowRight className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
-              <div>
-                <div className="text-textColor font-semibold font-unbounded">{t('loaSimulator.results.lease.purchaseArtwork')}</div>
-                <div className="text-textColor/70 text-sm font-unbounded">{t('loaSimulator.results.lease.purchaseDescription')} {formatCurrency(leaseResults.purchaseOption)}</div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   )
-} 
+}

@@ -171,9 +171,10 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
   }
 
   return (
-    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
-        {t('loaSimulator.title')}
+    <div className="bg-[var(--canvas-bg)] p-8 lg:p-10">
+      <span className="section-number block mb-4">{t('loaSimulator.title')}</span>
+      <h1 className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
+        Simulateur LOA
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -272,17 +273,17 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         />
 
         {/* Explication des champs marqués d'un astérisque */}
-        <div className="bg-backgroundGrey border border-gray-700 rounded-lg p-4 space-y-2">
-          <h3 className="text-textColor font-semibold text-sm font-bricolage mb-2">{t('loaSimulator.form.infoBloc.title')}</h3>
-          <div className="space-y-2 text-grayText text-sm">
+        <div className="border border-[var(--border-light)] p-5 space-y-3">
+          <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">{t('loaSimulator.form.infoBloc.title')}</h3>
+          <div className="space-y-2 text-[12px] text-[var(--gray-text)] leading-loose">
             <div>
-              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
+              <span className="text-[var(--gold-accent)]">— {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
             </div>
             <div>
-              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.firstRentIncrease')} :</span> {t('loaSimulator.form.infoBloc.firstRentExplanation')}
+              <span className="text-[var(--gold-accent)]">— {t('loaSimulator.form.firstRentIncrease')} :</span> {t('loaSimulator.form.infoBloc.firstRentExplanation')}
             </div>
             <div>
-              <span className="text-purple-400 font-medium">• {t('loaSimulator.form.artworkValue')} :</span> {t('loaSimulator.form.infoBloc.artworkValueExplanation')}
+              <span className="text-[var(--gold-accent)]">— {t('loaSimulator.form.artworkValue')} :</span> {t('loaSimulator.form.infoBloc.artworkValueExplanation')}
             </div>
           </div>
         </div>
@@ -292,9 +293,9 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
           <Button
             type="submit"
             disabled={isCalculating}
-            additionalClassName="flex-1 bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed items-center justify-center"
+            additionalClassName={`flex-1 bg-purpleColor ${isCalculating ? 'opacity-50 cursor-not-allowed' : ''}`}
             text={isCalculating ? t('loaSimulator.form.calculating') : t('loaSimulator.form.calculate')}
-            icon={isCalculating ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : <Calculator className="w-5 h-5" />}
+            icon={isCalculating ? <div className="animate-spin h-4 w-4 border border-[var(--ink-black)] border-t-transparent" /> : <Calculator className="w-4 h-4" />}
             center
             iconBefore
             data-umami-event="loa-simulator-calculate-click"

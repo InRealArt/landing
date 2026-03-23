@@ -14,134 +14,103 @@ export default function ComparisonTab({ leaseResults, comparison }: ComparisonTa
   const isLeasingAdvantage = comparison.savings > 0
 
   return (
-    <div className="bg-backgroundColor/30 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
-      <h2 className="text-2xl font-bold text-textColor mb-6 font-bricolage">{t('loaSimulator.results.comparison.title')}</h2>
-      
-      <div className="space-y-6">
-        {/* Résumé de l'avantage */}
-        <div className={`rounded-xl p-4 border ${
-          isLeasingAdvantage 
-            ? 'bg-green-900/30 border-green-500/30' 
-            : 'bg-red-900/30 border-red-500/30'
-        }`}>
-          <div className="flex items-center gap-3 mb-2">
-            {isLeasingAdvantage ? (
-              <TrendingUp className="w-6 h-6 text-green-400" />
-            ) : (
-              <TrendingDown className="w-6 h-6 text-red-400" />
-            )}
-            <h3 className="text-lg font-semibold text-textColor font-bricolage">
-              {isLeasingAdvantage 
-                ? t('loaSimulator.results.comparison.leaseAdvantage')
-                : t('loaSimulator.results.comparison.purchaseAdvantage')
-              }
-            </h3>
-          </div>
-          
-          <p className="text-textColor font-unbounded">
-            {isLeasingAdvantage 
+    <div className="space-y-4">
+      <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.comparison.title')}</h2>
+
+      {/* Résumé de l'avantage */}
+      <div className={`border p-4 flex items-start gap-3 ${isLeasingAdvantage ? 'border-[var(--gold-accent)]/40 bg-[var(--soft-gray)]' : 'border-[var(--border-light)]'}`}>
+        {isLeasingAdvantage ? (
+          <TrendingUp className="w-4 h-4 text-[var(--gold-accent)] mt-0.5 flex-shrink-0" />
+        ) : (
+          <TrendingDown className="w-4 h-4 text-[var(--gray-text)] mt-0.5 flex-shrink-0" />
+        )}
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-black)] mb-1">
+            {isLeasingAdvantage
+              ? t('loaSimulator.results.comparison.leaseAdvantage')
+              : t('loaSimulator.results.comparison.purchaseAdvantage')
+            }
+          </p>
+          <p className="text-[12px] text-[var(--gray-text)]">
+            {isLeasingAdvantage
               ? t('loaSimulator.results.comparison.savingsWithLeasing').replace('{amount}', formatCurrency(Math.abs(comparison.savings)))
               : t('loaSimulator.results.comparison.savingsWithPurchase').replace('{amount}', formatCurrency(Math.abs(comparison.savings)))
             }
           </p>
-          
-          <p className="text-sm text-textColor/70 mt-1 font-unbounded">
+          <p className="text-[10px] text-[var(--gray-text)] mt-1">
             {Math.abs(comparison.savingsPercentage).toFixed(1)}% {t('loaSimulator.results.comparison.savingsPercentage')}
           </p>
         </div>
+      </div>
 
-        {/* Comparaison détaillée */}
-        <div className="bg-backgroundColor/10 rounded-xl p-4">
-          <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.comparison.detailedComparison')}</h3>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-white/20">
-                  <th className="text-left py-3 text-textColor/70 font-unbounded">{t('loaSimulator.results.comparison.criteria')}</th>
-                  <th className="text-right py-3 text-textColor/70 font-unbounded">{t('loaSimulator.results.comparison.leasingWithPurchase')}</th>
-                  <th className="text-right py-3 text-textColor/70 font-unbounded">{t('loaSimulator.results.comparison.directPurchase')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-white/20">
-                  <td className="py-3 text-textColor font-unbounded">{t('loaSimulator.results.comparison.costBeforeTax')}</td>
-                  <td className="py-3 text-right text-textColor font-unbounded">{formatCurrency(leaseResults.totalLeaseAmount)}</td>
-                  <td className="py-3 text-right text-textColor font-unbounded">{formatCurrency(comparison.purchasePrice)}</td>
-                </tr>
-                
-                <tr className="border-b border-white/20">
-                  <td className="py-3 text-green-300 font-unbounded">{t('loaSimulator.results.comparison.taxSavings')}</td>
-                  <td className="py-3 text-right text-green-300 font-unbounded">-{formatCurrency(leaseResults.taxSavings)}</td>
-                  <td className="py-3 text-right text-textColor/70 font-unbounded">€0.00</td>
-                </tr>
-                
-                <tr className="bg-backgroundColor/10">
-                  <td className="py-3 text-textColor font-semibold font-unbounded">{t('loaSimulator.results.comparison.finalNetCost')}</td>
-                  <td className="py-3 text-right text-textColor font-semibold font-unbounded">{formatCurrency(leaseResults.netCostAfterTax)}</td>
-                  <td className="py-3 text-right text-textColor font-semibold font-unbounded">{formatCurrency(comparison.purchasePrice)}</td>
-                </tr>
-                
-                <tr>
-                  <td className="py-3 text-textColor font-bold font-unbounded">{t('loaSimulator.results.comparison.difference')}</td>
-                  <td className="py-3 text-right font-bold font-unbounded" colSpan={2}>
-                    <span className={isLeasingAdvantage ? 'text-green-300' : 'text-red-300'}>
-                      {isLeasingAdvantage ? '-' : '+'}{formatCurrency(Math.abs(comparison.savings))}
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      {/* Tableau comparatif */}
+      <div className="border border-[var(--border-light)]">
+        <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
+          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.comparison.detailedComparison')}</h3>
         </div>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-[var(--border-light)]">
+                <th className="text-left px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.criteria')}</th>
+                <th className="text-right px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.leasingWithPurchase')}</th>
+                <th className="text-right px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.directPurchase')}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[var(--border-light)]">
+              <tr>
+                <td className="px-4 py-3 text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.comparison.costBeforeTax')}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--ink-black)]">{formatCurrency(leaseResults.totalLeaseAmount)}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--ink-black)]">{formatCurrency(comparison.purchasePrice)}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-[11px] text-[var(--gold-accent)]">{t('loaSimulator.results.comparison.taxSavings')}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--gold-accent)]">-{formatCurrency(leaseResults.taxSavings)}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--gray-text)]">€0.00</td>
+              </tr>
+              <tr className="bg-[var(--soft-gray)]">
+                <td className="px-4 py-3 text-[11px] text-[var(--ink-black)] font-medium">{t('loaSimulator.results.comparison.finalNetCost')}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.netCostAfterTax)}</td>
+                <td className="px-4 py-3 text-right text-[11px] text-[var(--ink-black)] font-medium">{formatCurrency(comparison.purchasePrice)}</td>
+              </tr>
+              <tr className="bg-[var(--ink-black)]">
+                <td className="px-4 py-3 text-[11px] text-white/60 uppercase tracking-[0.15em]">{t('loaSimulator.results.comparison.difference')}</td>
+                <td className="px-4 py-3 text-right" colSpan={2}>
+                  <span className={`serif italic text-xl ${isLeasingAdvantage ? 'text-[var(--gold-accent)]' : 'text-white'}`}>
+                    {isLeasingAdvantage ? '-' : '+'}{formatCurrency(Math.abs(comparison.savings))}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        {/* Avantages du leasing vs achat */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-backgroundColor/10 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.comparison.leasingAdvantages')}</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-green-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.leasingBenefits.taxDeductibility')}
+      {/* Avantages leasing vs achat */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="border border-[var(--border-light)] p-5">
+          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.comparison.leasingAdvantages')}</h3>
+          <ul className="space-y-2">
+            {['taxDeductibility', 'noCapitalImmobilization', 'flexibility', 'artworkRenewal'].map(key => (
+              <li key={key} className="flex items-start gap-2 text-[12px] text-[var(--gray-text)] leading-loose">
+                <span className="text-[var(--gold-accent)] mt-0.5">—</span>
+                {t(`loaSimulator.results.comparison.leasingBenefits.${key}` as any)}
               </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-green-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.leasingBenefits.noCapitalImmobilization')}
+            ))}
+          </ul>
+        </div>
+        <div className="border border-[var(--border-light)] p-5">
+          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.comparison.purchaseAdvantages')}</h3>
+          <ul className="space-y-2">
+            {['immediateOwnership', 'capitalGains', 'depreciation', 'noConstraints'].map(key => (
+              <li key={key} className="flex items-start gap-2 text-[12px] text-[var(--gray-text)] leading-loose">
+                <span className="text-[var(--ink-black)] mt-0.5">—</span>
+                {t(`loaSimulator.results.comparison.purchaseBenefits.${key}` as any)}
               </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-green-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.leasingBenefits.flexibility')}
-              </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-green-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.leasingBenefits.artworkRenewal')}
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-backgroundColor/10 rounded-xl p-4">
-            <h3 className="text-lg font-semibold text-textColor mb-4 font-bricolage">{t('loaSimulator.results.comparison.purchaseAdvantages')}</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-blue-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.purchaseBenefits.immediateOwnership')}
-              </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-blue-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.purchaseBenefits.capitalGains')}
-              </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-blue-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.purchaseBenefits.depreciation')}
-              </li>
-              <li className="flex items-start gap-2 text-textColor/90 font-unbounded">
-                <span className="text-blue-400 mt-1">•</span>
-                {t('loaSimulator.results.comparison.purchaseBenefits.noConstraints')}
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   )
-} 
+}

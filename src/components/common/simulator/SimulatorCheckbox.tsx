@@ -23,17 +23,17 @@ export default function SimulatorCheckbox({
 
   return (
     <div>
-      <div className={`p-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-backgroundGrey`}>
-        <label htmlFor={id} className="flex items-center cursor-pointer">
+      <div className={`p-4 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)]`}>
+        <label htmlFor={id} className="flex items-center cursor-pointer gap-3">
           <input
             type="checkbox"
             id={id}
             name={name}
             checked={checked}
             onChange={handleChange}
-            className="w-4 h-4 text-purple-600 bg-gray-700 border-gray-600 rounded focus:ring-purple-500 focus:ring-2"
+            className="w-3.5 h-3.5 accent-[var(--ink-black)] border-[var(--border-light)]"
           />
-          <span className="ml-3 text-textColor font-unbounded">{label}</span>
+          <span className="text-[11px] uppercase tracking-[0.15em] font-montserrat text-[var(--gray-text)]">{label}</span>
         </label>
       </div>
       {error && (

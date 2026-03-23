@@ -19,16 +19,16 @@ export default function TabNavigation<T extends string = string>({
   className = "" 
 }: TabNavigationProps<T>) {
   return (
-    <div className={`bg-backgroundColor/30 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden shadow-2xl ${className}`}>
+    <div className={`border border-[var(--border-light)] overflow-hidden ${className}`}>
       <div className="flex overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 py-3 px-4 text-sm font-medium transition-colors font-unbounded ${
+            className={`flex-1 py-3 px-4 text-[10px] uppercase tracking-[0.2em] font-montserrat transition-colors duration-300 ${
               activeTab === tab.id
-                ? 'bg-backgroundColor/20 text-textColor' 
-                : 'text-textColor/70 hover:text-textColor hover:bg-backgroundColor/10'
+                ? 'bg-[var(--ink-black)] text-white'
+                : 'text-[var(--gray-text)] hover:text-[var(--ink-black)] hover:bg-[var(--canvas-bg)]'
             }`}
           >
             {tab.label}

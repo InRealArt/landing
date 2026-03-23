@@ -2,65 +2,66 @@
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
-import Button from '@/components/common/Button'
 
 export default function AboutOurInvitation() {
   const { t } = useLanguageStore()
 
   return (
-    <section className="relative w-full py-16 md:py-24">
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto relative py-12">
-        {/* Fond gris rectangulaire qui englobe le contenu - positionné encore plus bas */}
-        <div className="absolute left-0 right-0 bottom-0 h-full md:h-1/2 bg-backgroundGrey transform translate-y-0 md:translate-y-8"></div>
-        
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 px-8">
-          
-          {/* Colonne gauche - Image de la femme avec marges */}
-          <div className="relative">
-            <OptimizedBackgroundImage
-              src="/images/about/about_section2_photo1.webp"
-              alt="Femme avec tenue artistique"
-              fill={true}
-              className="w-4/5 mx-auto aspect-[3/4] rounded-2xl"
-              quality={90}
-              priority={false}
+    <section className="bg-backgroundGrey border-y border-borderColor w-full py-24 lg:py-32">
+      <div className="max-w-screen-2xl mx-auto px-10">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+
+          {/* Image portrait — 5 colonnes, décalée artistiquement */}
+          <div className="lg:col-span-5 relative order-2 lg:order-1">
+            {/* Cadre décoratif doré décalé vers le bas-droite */}
+            <div
+              className="absolute border border-gold-accent/20"
+              style={{ top: '20px', left: '20px', right: '-20px', bottom: '-20px' }}
+              aria-hidden="true"
             />
-          </div>
-          
-          {/* Colonne droite - Contenu textuel avec marges */}
-          <div className="space-y-8 flex flex-col justify-center w-4/5 mx-auto">
-            {/* Titre principal */}
-            <div className="text-textColor">
-              <h2 className="text-5xl md:text-7xl serif italic leading-tight">
-                {t('about.ourInvitation.title')}
-              </h2>
-            </div>
-            
-            {/* Premier paragraphe */}
-            <div className="text-textColor/90 leading-relaxed">
-              <p className="text-lg">
-                {t('about.ourInvitation.description1')}
-              </p>
-            </div>
-            
-            {/* Deuxième paragraphe - sans fond distinctif */}
-            <div className="text-textColor/80 leading-relaxed">
-              <p className="text-base">
-                {t('about.ourInvitation.description2')}
-              </p>
-            </div>
-            
-            {/* Bouton manifest */}
-            <div className="pt-4">
-              <Button
-                text={t('buttons.readWhitepaper')}
-                additionalClassName="border border-white text-textColor rounded-full py-3 px-8"
-                center
-                link="/manifest"
+            <div className="relative">
+              <OptimizedBackgroundImage
+                src="/images/about/about_section2_photo1.webp"
+                alt="Invitation InRealArt"
+                fill={true}
+                className="w-full aspect-[3/4]"
+                quality={90}
+                priority={false}
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>
-          
+
+          {/* Contenu textuel — 7 colonnes */}
+          <div className="lg:col-span-7 space-y-10 order-1 lg:order-2">
+            <div>
+              <span className="section-number block mb-6">
+                INVITATION
+              </span>
+              <h2 className="text-6xl md:text-7xl xl:text-8xl serif italic leading-none text-textColor mb-8">
+                {t('about.ourInvitation.title')}
+              </h2>
+              <div className="w-12 h-px bg-gold-accent" />
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-[13px] text-grayText leading-loose montserrat">
+                {t('about.ourInvitation.description1')}
+              </p>
+              {t('about.ourInvitation.description2') && (
+                <p className="text-[13px] text-grayText leading-loose montserrat">
+                  {t('about.ourInvitation.description2')}
+                </p>
+              )}
+            </div>
+
+            <div className="pt-4">
+              <a href="/manifest" className="btn-cta">
+                {t('buttons.readWhitepaper')}
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

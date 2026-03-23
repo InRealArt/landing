@@ -16,7 +16,7 @@ type Props = {
   'data-umami-event'?: string;
 };
 
-// Boutons formulaires techniques : ne pas appliquer le style DA
+// Marqueurs de boutons techniques inline (gardent leur propre style)
 const FORM_BUTTON_MARKERS = ['py-4', 'text-lg', 'rounded-lg', 'disabled:'];
 
 const isCta = (
@@ -24,8 +24,7 @@ const isCta = (
   type: 'button' | 'submit' | 'reset',
 ): boolean => {
   if (!additionalClassName?.includes('bg-purpleColor')) return false;
-  // Les boutons de soumission ou réinitialisation de formulaire gardent leur style d'origine
-  if (type === 'submit' || type === 'reset') return false;
+  if (type === 'reset') return false;
   return !FORM_BUTTON_MARKERS.some((marker) => additionalClassName.includes(marker));
 };
 
@@ -51,7 +50,7 @@ const Button = ({
     : additionalClassName ?? '';
 
   const className = useCta
-    ? `btn-cta ${extraClasses}`.trim()
+    ? `btn-cta !inline-flex items-center gap-2 ${extraClasses}`.trim()
     : `${extraClasses} ${center ? 'justify-center' : ''} inline-flex border border-borderColor bg-backgroundColor p-4 gap-4 rounded-xl items-center`.trim();
 
   const textClassName = useCta

@@ -50,35 +50,52 @@ export default function NewsletterInline() {
       <div className="max-w-screen-xl mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Left column — artwork imagery */}
-          <div className="relative flex items-center justify-center h-[360px] lg:h-[480px]">
-            {/* Gold decorative frame offset behind */}
-            <div className="absolute top-6 left-6 w-[200px] h-[260px] lg:w-[260px] lg:h-[340px] border border-gold-accent/30" aria-hidden="true" />
+          {/* Left column — coupole baroque */}
+          <div className="relative h-[360px] lg:h-[480px] overflow-hidden bg-black">
 
-            {/* Background artwork — portrait orientation, offset top-right */}
-            <div className="artwork-container absolute top-0 right-4 lg:right-8 w-[160px] h-[220px] lg:w-[220px] lg:h-[300px] artwork-image overflow-hidden z-10">
+            {/* Full-bleed image — centrée sur la coupole */}
+            <div className="absolute inset-0">
               <OptimizedImage
-                src="/images/newsletter/image_nl_2.webp"
-                alt="Newsletter illustration 2"
-                width={220}
-                height={300}
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
+                src="/images/newsletter/newsletter.webp"
+                alt="Coupole baroque dorée — In Real Art"
+                width={800}
+                height={960}
+                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-center"
               />
             </div>
 
-            {/* Foreground artwork — portrait orientation, offset bottom-left */}
-            <div className="artwork-container absolute bottom-0 left-4 lg:left-8 w-[180px] h-[240px] lg:w-[240px] lg:h-[320px] artwork-image overflow-hidden z-20 shadow-2xl">
-              <OptimizedImage
-                src="/images/newsletter/image_nl_1.webp"
-                alt="Newsletter illustration 1"
-                width={240}
-                height={320}
-                className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
-              />
-            </div>
+            {/* Vignette radiale — assombrit les coins, révèle le vitrail central */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.60) 100%)' }}
+              aria-hidden="true"
+            />
 
-            {/* Gold accent line — vertical, leftmost edge */}
-            <div className="absolute left-0 top-1/4 bottom-1/4 w-px bg-gold-accent/40" aria-hidden="true" />
+            {/* Gradient bas — fondu vers le fond de section */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}
+              aria-hidden="true"
+            />
+
+            {/* Cadre doré — outer */}
+            <div
+              className="absolute inset-5 border border-gold-accent/25 pointer-events-none"
+              aria-hidden="true"
+            />
+            {/* Cadre doré — inner, décalé pour créer la profondeur */}
+            <div
+              className="absolute inset-9 border border-gold-accent/12 pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {/* Coin décoratif bas-gauche — ancre la composition */}
+            <div className="absolute bottom-5 left-5 w-10 h-px bg-gold-accent/60" aria-hidden="true" />
+            <div className="absolute bottom-5 left-5 w-px h-10 bg-gold-accent/60" aria-hidden="true" />
+
+            {/* Coin décoratif haut-droit */}
+            <div className="absolute top-5 right-5 w-10 h-px bg-gold-accent/60" aria-hidden="true" />
+            <div className="absolute top-5 right-5 w-px h-10 bg-gold-accent/60" aria-hidden="true" />
           </div>
 
           {/* Right column — copy + form */}

@@ -159,9 +159,10 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
   ];
 
   return (
-    <div className="bg-backgroundColor p-8 shadow-2xl border border-gray-800 rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-      <h1 className="text-2xl lg:text-4xl font-bold text-textColor mb-8 font-bricolage">
-        {t('footer.artSalonSimulator')} {salonName}
+    <div className="bg-[var(--canvas-bg)] p-8 lg:p-10">
+      <span className="section-number block mb-4">{t('footer.artSalonSimulator')}</span>
+      <h1 className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
+        {salonName}
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -284,10 +285,10 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
           <Button
             type="submit"
             text={t('artSalonSimulator.form.calculateButton')}
-            icon={<Calculator className="w-5 h-5" />}
+            icon={<Calculator className="w-4 h-4" />}
             iconBefore={true}
             center={true}
-            additionalClassName="flex-1 bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-600 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            additionalClassName="flex-1 bg-purpleColor"
           />
         </div>
       </form>

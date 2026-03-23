@@ -4,6 +4,7 @@ import Benefits from "@/components/usecase/fractionate/Benefits";
 import HowItWorks from "@/components/usecase/fractionate/HowItWorks";
 import { generateStaticMetadata } from '@/utils/metadata'
 import FractionateFAQ from '@/components/usecase/fractionate/FractionateFAQ';
+import FractionateAnimations from '@/components/usecase/fractionate/FractionateAnimations';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Fractionnement d\'oeuvres — Investissez à plusieurs dans l\'Art',
@@ -14,7 +15,8 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function FractionatePage() {
   return (
-    <main className="min-h-screen text-textColor">
+    <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <FractionateAnimations />
       <Hero />
       <Benefits />
       <HowItWorks />

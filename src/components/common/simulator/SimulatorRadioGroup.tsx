@@ -34,16 +34,16 @@ export default function SimulatorRadioGroup({
   return (
     <div>
       <fieldset>
-        <legend className="block text-sm font-medium text-grayText mb-3 font-unbounded">
+        <legend className="block text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-3">
           {label}
-          {required && <span className="text-red-400 ml-1">*</span>}
+          {required && <span className="text-red-500 ml-1">*</span>}
         </legend>
-        <div className={`${inline ? 'flex flex-wrap gap-4' : 'space-y-3'} p-4 rounded-lg border-2 ${error ? 'border-red-500' : 'border-gray-700'} bg-backgroundGrey`}>
+        <div className={`${inline ? 'flex flex-wrap gap-3' : 'space-y-3'} p-4 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)]`}>
           {options.map((option) => (
             <label
               key={option.value}
-              className={`flex items-center cursor-po${inline ? 'flex-shrink-0' : ''} ${
-                option.disabled ? 'opacity-50 cursor-not-allowed' : ''
+              className={`flex items-center cursor-pointer ${inline ? 'flex-shrink-0' : ''} ${
+                option.disabled ? 'opacity-40 cursor-not-allowed' : ''
               }`}
             >
               <input
@@ -53,9 +53,9 @@ export default function SimulatorRadioGroup({
                 checked={value === option.value}
                 onChange={handleChange}
                 disabled={option.disabled}
-                className="w-4 h-4 text-purple-600 bg-gray-700 border-gray-600 focus:ring-purple-500 focus:ring-2"
+                className="w-3.5 h-3.5 accent-[var(--ink-black)] border-[var(--border-light)]"
               />
-              <span className="ml-3 text-textColor font-unbounded">{option.label}</span>
+              <span className={`ml-3 text-[11px] uppercase tracking-[0.15em] font-montserrat transition-colors ${value === option.value ? 'text-[var(--ink-black)]' : 'text-[var(--gray-text)]'}`}>{option.label}</span>
             </label>
           ))}
         </div>

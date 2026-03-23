@@ -34,14 +34,17 @@ export default function LoaSimulatorPage() {
 
   // Default content for LOA simulator
   const defaultContent = (
-    <div className="flex-1 flex items-center justify-center p-8">
+    <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
       <OptimizedImage
         src={getRandomSimulatorImage()}
         alt="Simulateur LOA"
         width={500}
         height={500}
-        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:shadow-lg"
+        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
       />
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+        {t('loaSimulator.title')}
+      </p>
     </div>
   )
 

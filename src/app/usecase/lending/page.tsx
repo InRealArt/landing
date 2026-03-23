@@ -6,6 +6,7 @@ import Alternative from "@/components/usecase/lending/Alternative";
 import ForWho from "@/components/usecase/lending/ForWho";
 import { generateStaticMetadata } from '@/utils/metadata'
 import LendingFAQ from '@/components/usecase/lending/LendingFAQ';
+import LendingAnimations from '@/components/usecase/lending/LendingAnimations';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Financement par l\'Art — Prêt garanti, valeur symbolique',
@@ -16,7 +17,8 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function LendingPage() {
   return (
-    <main className="min-h-screen text-textColor">
+    <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">
+      <LendingAnimations />
       <Hero />
       <Advantages />
       <Solutions />

@@ -31,20 +31,17 @@ export default function HeritageArtSimulatorPage() {
 
   // Default content for Heritage Art simulator
   const defaultContent = (
-    <div className="flex-1 flex items-center justify-center p-8">
-      <div className="text-center space-y-6">
-        <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] mx-auto">
-          <div className="w-full h-full overflow-hidden rounded-lg shadow-lg">
-            <OptimizedImage
-              src={getRandomSimulatorImage()}
-              alt="Simulateur Art Patrimoine"
-              width={700}
-              height={700}
-              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:opacity-80"
-            />
-          </div>
-        </div>
-      </div>
+    <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
+      <OptimizedImage
+        src={getRandomSimulatorImage()}
+        alt="Simulateur Art Patrimoine"
+        width={700}
+        height={700}
+        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
+      />
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+        Patrimoine & Art
+      </p>
     </div>
   )
 

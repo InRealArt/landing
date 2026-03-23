@@ -76,48 +76,48 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
       {/* Tab Content */}
       <div className="flex-1">
         {activeTab === 'summary' && (
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Personal Info Card */}
-            <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-textColor mb-3 flex items-center gap-2">
-                <Users className="w-5 h-5" />
+            <div className="border border-[var(--border-light)] p-5">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+                <Users className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.personalInfo')}
               </h3>
-              <div className="space-y-2 text-purple-100">
-                <p><strong>{t('artSalonSimulator.results.labels.name')}</strong> {results.personalInfo.firstName} {results.personalInfo.lastName}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.email')}</strong> {results.personalInfo.email}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.phone')}</strong> {results.personalInfo.phone}</p>
+              <div className="space-y-1.5 text-[12px] text-[var(--ink-black)] leading-loose">
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.name')} </span>{results.personalInfo.firstName} {results.personalInfo.lastName}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.email')} </span>{results.personalInfo.email}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.phone')} </span>{results.personalInfo.phone}</p>
               </div>
             </div>
 
             {/* Exhibition Details Card */}
-            <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4">
-              <h3 className="text-lg font-semibold text-textColor mb-3 flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
+            <div className="border border-[var(--border-light)] p-5">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.salonDetails')}
               </h3>
-              <div className="space-y-2 text-purple-100">
-                <p><strong>{t('artSalonSimulator.results.labels.exhibition')}</strong> {results.salonDetails.name}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.formula')}</strong> {results.salonDetails.formula}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.duration')}</strong> {results.salonDetails.days} {t('artSalonSimulator.results.labels.days')}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.persons')}</strong> {results.salonDetails.persons}
-                  {results.salonDetails.professionalSupport && <span className="text-yellow-300"> (+1 pro)</span>}
+              <div className="space-y-1.5 text-[12px] text-[var(--ink-black)] leading-loose">
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.exhibition')} </span>{results.salonDetails.name}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.formula')} </span>{results.salonDetails.formula}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.duration')} </span>{results.salonDetails.days} {t('artSalonSimulator.results.labels.days')}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.persons')} </span>{results.salonDetails.persons}
+                  {results.salonDetails.professionalSupport && <span className="text-[var(--gold-accent)]"> (+1 pro)</span>}
                 </p>
-                <p><strong>{t('artSalonSimulator.results.labels.comfort')}</strong> {results.salonDetails.accommodationComfort}</p>
-                <p><strong>{t('artSalonSimulator.results.labels.proSupport')}</strong> {results.salonDetails.professionalSupport ? t('artSalonSimulator.results.labels.yes') : t('artSalonSimulator.results.labels.no')}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.comfort')} </span>{results.salonDetails.accommodationComfort}</p>
+                <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.proSupport')} </span>{results.salonDetails.professionalSupport ? t('artSalonSimulator.results.labels.yes') : t('artSalonSimulator.results.labels.no')}</p>
               </div>
             </div>
 
             {/* Total Cost */}
-            <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 text-center">
-              <h3 className="text-xl font-semibold text-textColor mb-2 flex items-center justify-center gap-2">
-                <Euro className="w-6 h-6" />
+            <div className="border border-[var(--ink-black)] bg-[var(--ink-black)] p-6 text-center">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-white/60 mb-3 flex items-center justify-center gap-2">
+                <Euro className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.totalCost')}
               </h3>
-              <p className="text-4xl font-bold text-textColor">
+              <p className="serif italic text-4xl text-white">
                 {formatPrice(results.breakdown.total)}
               </p>
-              <p className="text-purple-100 mt-2">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mt-3">
                 {results.totalPersons === 1
                   ? t('artSalonSimulator.results.labels.forPersons').replace('{count}', results.totalPersons.toString())
                   : t('artSalonSimulator.results.labels.forPersons_plural').replace('{count}', results.totalPersons.toString())
@@ -128,49 +128,47 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
         )}
 
         {activeTab === 'breakdown' && (
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-textColor mb-4 flex items-center gap-2">
-              <Euro className="w-5 h-5" />
+          <div className="space-y-0">
+            <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+              <Euro className="w-3.5 h-3.5" />
               {t('artSalonSimulator.results.breakdown.title')}
             </h3>
 
-            <div className="space-y-3">
-              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
-                <span className="text-purple-100">
+            <div className="divide-y divide-[var(--border-light)] border border-[var(--border-light)]">
+              <div className="px-5 py-4 flex justify-between items-center">
+                <span className="text-[12px] text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.transport').replace('{count}', results.totalPersons.toString())}
                 </span>
-                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.transport)}</span>
+                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.transport)}</span>
               </div>
 
-              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
-                <span className="text-purple-100">
+              <div className="px-5 py-4 flex justify-between items-center">
+                <span className="text-[12px] text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.accommodation')
                     .replace('{nights}', Math.max(0, results.salonDetails.days - 1).toString())
                     .replace('{persons}', results.totalPersons.toString())
                   }
                 </span>
-                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.accommodation)}</span>
+                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.accommodation)}</span>
               </div>
 
-              <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
-                <span className="text-purple-100">
+              <div className="px-5 py-4 flex justify-between items-center">
+                <span className="text-[12px] text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.pass').replace('{persons}', results.totalPersons.toString())}
                 </span>
-                <span className="text-textColor font-semibold">{formatPrice(results.breakdown.pass)}</span>
+                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.pass)}</span>
               </div>
 
               {results.breakdown.comfortSupplement > 0 && (
-                <div className="bg-backgroundColor bg-opacity-10 rounded-lg p-4 flex justify-between items-center">
-                  <span className="text-purple-100">{t('artSalonSimulator.results.breakdown.comfortSupplement')}</span>
-                  <span className="text-textColor font-semibold">{formatPrice(results.breakdown.comfortSupplement)}</span>
+                <div className="px-5 py-4 flex justify-between items-center">
+                  <span className="text-[12px] text-[var(--gray-text)]">{t('artSalonSimulator.results.breakdown.comfortSupplement')}</span>
+                  <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.comfortSupplement)}</span>
                 </div>
               )}
-            </div>
 
-            <div className="border-t border-purple-300 pt-4">
-              <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-4 flex justify-between items-center">
-                <span className="text-textColor font-bold text-lg">{t('artSalonSimulator.results.breakdown.total')}</span>
-                <span className="text-textColor font-bold text-2xl">{formatPrice(results.breakdown.total)}</span>
+              <div className="px-5 py-4 flex justify-between items-center bg-[var(--ink-black)]">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/70">{t('artSalonSimulator.results.breakdown.total')}</span>
+                <span className="serif italic text-2xl text-white">{formatPrice(results.breakdown.total)}</span>
               </div>
             </div>
           </div>
@@ -178,17 +176,14 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
       </div>
 
       {/* Send PDF Button */}
-      <div className="mt-8 pt-6 border-t border-purple-300">
+      <div className="mt-8 pt-6 border-t border-[var(--border-light)]">
         <Button
           action={handleSendPDF}
           disabled={isSendingPDF || !formData}
-          additionalClassName={`w-full py-3 px-4 rounded-lg transition-colors duration-200 ${!formData
-              ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-              : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-textColor hover:from-purple-600 hover:to-indigo-700'
-            } ${isSendingPDF ? 'opacity-50 cursor-not-allowed' : ''}`}
+          additionalClassName={`w-full ${!formData || isSendingPDF ? 'opacity-40 cursor-not-allowed' : ''} bg-purpleColor`}
           center
           text={isSendingPDF ? 'Envoi...' : t('artSalonSimulator.pdf.downloadButton')}
-          icon={isSendingPDF ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-purple-700" /> : <Send className="w-5 h-5" />}
+          icon={isSendingPDF ? <div className="animate-spin h-4 w-4 border border-[var(--ink-black)] border-t-transparent" /> : <Send className="w-4 h-4" />}
           iconBefore
         />
       </div>

@@ -12,7 +12,7 @@ export default function ResultSection({
   defaultContent 
 }: ResultSectionProps) {
   return (
-    <div className="bg-gradient-to-br from-purple-600 to-indigo-700 p-8 flex flex-col gap-4 rounded-b-2xl lg:rounded-r-2xl lg:rounded-b-none">
+    <div className="bg-[var(--soft-gray)] border-t border-[var(--border-light)] lg:border-t-0 lg:border-l p-8 flex flex-col gap-4">
       {hasResults ? children : defaultContent}
     </div>
   );

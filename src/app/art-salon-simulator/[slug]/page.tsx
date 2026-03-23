@@ -41,14 +41,17 @@ export default function ArtSalonSimulatorPage({ params }: ArtSalonSimulatorPageP
 
   // Default content for Art Salon simulator
   const defaultContent = (
-    <div className="flex-1 flex items-center justify-center p-8">
+    <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
       <OptimizedImage
         src={salon.image}
         alt={`${salon.name} background`}
         width={500}
         height={400}
-        className="[&_img]:rounded-lg [&_img]:shadow-lg [&_img]:opacity-80"
+        className="[&_img]:opacity-90 [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
       />
+      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+        {salon.name}
+      </p>
     </div>
   )
 
