@@ -1,86 +1,84 @@
 'use client'
 
-import OptimizedImage from './OptimizedImage'
-import { Phone, ArrowRight, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import { Fragment } from 'react';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useLanguageStore } from '@/store/languageStore';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
-import { useTheme } from '@/contexts/ThemeContext';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Header = () => {
   const t = useLanguageStore(state => state.t)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme } = useTheme();
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <header className="w-full h-16 md:h-headerSize bg-backgroundColor/95 backdrop-blur-md fixed top-0 z-50 border-b border-borderColor">
-      <div className='flex gap-20 mx-auto items-center justify-between max-w-screen-2xl w-full px-10 h-full'>
-        <Link href="/" className="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer text-textColor">
-          InRealArt
-        </Link>
-        
-        <ul className="flex items-center gap-8 hidden xl:flex">
-          <li className="whitespace-nowrap">
-            <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              {t('nav.artists')}
-            </Link>
-          </li>
-          <li className="whitespace-nowrap">
-            <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              {t('nav.artworks')}
-            </Link>
-          </li>
-          <li className="whitespace-nowrap">
-            <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              {t('nav.usecase')}
-            </Link>
-          </li>
-          <li className="whitespace-nowrap">
-            <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              {t('nav.blog')}
-            </Link>
-          </li>
-          <li className="whitespace-nowrap">
-            <Link href="/team" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-              {t('nav.aboutInRealArt')}
-            </Link>
-          </li>
-          <li className="whitespace-nowrap">
-            <a
-              href={EXTERNAL_URLS.CALENDLY_MEETING}
-              className="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-umami-event="calendly-header-click"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
+    <Fragment>
+      <header className="left-0 right-0 h-16 md:h-headerSize bg-backgroundColor/95 backdrop-blur-md fixed top-0 z-50 border-b border-borderColor">
+        <div className='flex gap-2 sm:gap-4 md:gap-6 lg:gap-20 mx-auto items-center justify-between max-w-screen-2xl w-full px-3 sm:px-6 lg:px-10 h-full min-w-0'>
+          <Link href="/" className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.3em] md:tracking-[0.5em] lg:tracking-[0.7em] font-light uppercase serif cursor-pointer text-textColor shrink min-w-0">
+            InRealArt
+          </Link>
 
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-4">
+          <ul className="hidden xl:flex items-center gap-8">
+            <li className="whitespace-nowrap">
+              <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.artists')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.artworks')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.usecase')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/blog" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.blog')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/team" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.aboutInRealArt')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <a
+                href={EXTERNAL_URLS.CALENDLY_MEETING}
+                className="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="calendly-header-click"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <LanguageSwitcher />
             <ThemeSwitcher />
+            <button
+              className="text-textColor p-2.5 xl:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              <Menu size={22} />
+            </button>
           </div>
-          <button
-            className="text-textColor p-2 lg:hidden"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            <Menu size={24} />
-          </button>
         </div>
-      </div>
+      </header>
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-    </header>
+    </Fragment>
   );
 }
 

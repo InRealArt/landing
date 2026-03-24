@@ -104,13 +104,13 @@ export default function ResidentArtists({ artists }: ResidentArtistsProps) {
           <span className="section-number" suppressHydrationWarning>
             {t('home.residentArtists.eyebrow')}
           </span>
-          <h2 className="text-5xl md:text-7xl serif italic text-textColor" suppressHydrationWarning>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic text-textColor break-words" suppressHydrationWarning>
             {t('home.residentArtists.title')}
           </h2>
         </div>
 
         {/* Artist Cards */}
-        <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-20">
+        <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-x-4 sm:gap-x-8 md:gap-x-12 gap-y-12 sm:gap-y-16 md:gap-y-20">
           {artists.map((artist) => (
             <Link
               key={artist.id}

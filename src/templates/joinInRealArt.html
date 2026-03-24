@@ -1,0 +1,213 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejoindre InRealArt | Partenariats & Écosystème</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: var(--ink-black);
+            color: white;
+            cursor: pointer;
+        }
+        .btn-cta:hover {
+            background: transparent;
+            color: var(--ink-black);
+        }
+        .join-card {
+            border: 1px solid var(--border-light);
+            padding: 4rem 3rem;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-col;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .join-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+        }
+        .image-container {
+            overflow: hidden;
+            background: var(--soft-gray);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .join-card:hover .image-container img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Journal</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Rejoindre</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Store</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pt-48 pb-32 px-10">
+        <div class="max-w-screen-2xl mx-auto text-center">
+            <span class="section-number">Faire partie de l'histoire</span>
+            <h1 class="text-6xl md:text-8xl serif leading-tight mb-8">Rejoindre <span class="italic text-gold-accent">InRealArt</span></h1>
+            <p class="text-[12px] uppercase tracking-[0.3em] text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Que vous soyez un créateur passionné, un collectionneur averti ou une entreprise visionnaire, découvrez comment intégrer notre écosystème dédié à l'excellence artistique.
+            </p>
+        </div>
+    </header>
+
+    <!-- GRID SELECTION -->
+    <section class="pb-40 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Card Artiste -->
+                <div class="join-card group">
+                    <div>
+                        <span class="text-gold-accent text-[9px] uppercase tracking-[0.4em] mb-8 block">Pour les créateurs</span>
+                        <div class="image-container aspect-[4/3] mb-10">
+                            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1000" alt="Artiste">
+                        </div>
+                        <h2 class="serif text-4xl mb-6">Devenir un <span class="italic">Artiste</span> du collectif</h2>
+                        <p class="text-[13px] text-gray-500 leading-relaxed font-light mb-12">
+                            Accédez à notre marketplace, profitez de notre force médiatique et collaborez avec des marques de prestige via notre agence de management.
+                        </p>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 inline-block self-start group-hover:text-gold-accent group-hover:border-gold-accent transition-all">Postuler →</a>
+                </div>
+
+                <!-- Card Collectionneur -->
+                <div class="join-card group bg-black text-white border-black">
+                    <div>
+                        <span class="text-gold-accent text-[9px] uppercase tracking-[0.4em] mb-8 block">Pour les passionnés</span>
+                        <div class="image-container aspect-[4/3] mb-10">
+                            <img src="https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&fit=crop&q=80&w=1000" alt="Collectionneur">
+                        </div>
+                        <h2 class="serif text-4xl mb-6">Devenir <span class="italic">Collectionneur</span> InRealArt</h2>
+                        <p class="text-[13px] text-gray-400 leading-relaxed font-light mb-12">
+                            Bénéficiez d'un accès privilégié aux avant-premières, de conseils en investissement et d'une gestion patrimoniale de vos acquisitions.
+                        </p>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-gold-accent text-gold-accent pb-1 inline-block self-start hover:text-white hover:border-white transition-all">Découvrir le cercle →</a>
+                </div>
+
+                <!-- Card Entreprise -->
+                <div class="join-card group">
+                    <div>
+                        <span class="text-gold-accent text-[9px] uppercase tracking-[0.4em] mb-8 block">Pour les structures</span>
+                        <div class="image-container aspect-[4/3] mb-10">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Entreprise">
+                        </div>
+                        <h2 class="serif text-4xl mb-6">Partenariats <span class="italic">Entreprises</span> & Leasing</h2>
+                        <p class="text-[13px] text-gray-500 leading-relaxed font-light mb-12">
+                            Transformez vos espaces, optimisez votre fiscalité grâce au leasing et affirmez votre identité de marque par l'art contemporain.
+                        </p>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 inline-block self-start group-hover:text-gold-accent group-hover:border-gold-accent transition-all">Consulter nos solutions →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER / CERCLE -->
+    <section class="py-40 bg-soft-gray px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="serif text-4xl md:text-5xl italic mb-12">Restez informé de nos prochaines sélections.</h3>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <input type="email" placeholder="VOTRE ADRESSE EMAIL" class="bg-transparent border-b border-black/20 py-4 px-2 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all md:w-80">
+                <button class="btn-cta">S'abonner à la gazette</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">InRealArt</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">À propos</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Manifeste</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Équipe</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Services</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Marketplace</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Leasing</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Agence</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Suivre</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Instagram</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 InRealArt — Curation & Accompagnement</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#" class="hover:text-black transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-black transition-colors">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

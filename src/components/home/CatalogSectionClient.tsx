@@ -34,7 +34,7 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
   const language = useLanguageStore((state) => state.language)
 
   return (
-    <section className="pt-48 pb-12 px-10">
+    <section className="pt-24 sm:pt-32 md:pt-48 pb-12 px-4 sm:px-6 lg:px-10">
       <div className="max-w-screen-2xl mx-auto">
 
         {/* Section header */}
@@ -42,7 +42,7 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
           <span className="section-number" suppressHydrationWarning>
             {t('home.catalog.sectionNumber')}
           </span>
-          <h2 className="text-6xl md:text-8xl serif" suppressHydrationWarning>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl serif break-words" suppressHydrationWarning>
             {t('home.catalog.title')}{' '}
             <span className="italic text-gold-accent">
               {t('home.catalog.titleAccent')}
@@ -57,7 +57,7 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
         </div>
 
         {/* Artwork grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 sm:gap-y-16 md:gap-y-24">
           {artworks.map(artwork => {
             const dimensions = formatDimensions(artwork.width, artwork.height)
             const priceLabel = formatPrice(artwork.price, artwork.isSold, language)

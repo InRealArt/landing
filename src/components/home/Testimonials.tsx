@@ -101,7 +101,7 @@ export default function Testimonials() {
             <span className="section-number" suppressHydrationWarning>
               {t('home.testimonials.eyebrow')}
             </span>
-            <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor" suppressHydrationWarning>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-textColor break-words" suppressHydrationWarning>
               {t('home.testimonials.title')}
               <br />
               <em className="not-italic text-gold-accent" suppressHydrationWarning>
@@ -140,18 +140,18 @@ export default function Testimonials() {
               <div className="w-8 h-px bg-gold-accent my-8" />
 
               {/* Artist identity */}
-              <figcaption className="flex items-center gap-4">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden flex-shrink-0 grayscale">
+              <figcaption className="flex items-center gap-4 min-w-0">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0 grayscale">
                   <Image
                     src={item.image}
                     alt=""
                     fill
-                    sizes="128px"
+                    sizes="(max-width: 640px) 64px, 80px"
                     className="object-cover object-top"
                   />
                 </div>
                 <cite
-                  className="not-italic text-[10px] uppercase tracking-[0.35em] font-bold text-textColor leading-snug"
+                  className="not-italic text-[10px] uppercase tracking-[0.35em] font-bold text-textColor leading-snug min-w-0 break-words"
                   suppressHydrationWarning
                 >
                   {t(item.nameKey)}

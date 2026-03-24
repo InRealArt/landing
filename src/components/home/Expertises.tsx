@@ -108,7 +108,7 @@ export default function Expertises() {
             <span className="section-number" suppressHydrationWarning>
               {t('home.expertises.eyebrow')}
             </span>
-            <h2 className="text-5xl md:text-7xl serif italic leading-tight text-textColor" suppressHydrationWarning>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-textColor break-words" suppressHydrationWarning>
               {t('home.expertises.title')}
               <br />
               <em className="not-italic text-gold-accent" suppressHydrationWarning>

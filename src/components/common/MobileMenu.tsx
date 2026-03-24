@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArrowRight, Phone, X } from 'lucide-react'
@@ -17,11 +17,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { t } = useLanguageStore()
   const pathname = usePathname()
 
+  const initialMount = useRef(true)
+
   // Close menu when navigating to a new page
   useEffect(() => {
-    if (isOpen) {
-      onClose()
+    if (initialMount.current) {
+      initialMount.current = false
+      return
     }
+    onClose()
   }, [pathname])
 
   // Prevent scrolling when menu is open
@@ -38,18 +42,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
 
   return (
-    <div className={`fixed inset-0 z-50  bg-opacity-80 flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed inset-0 z-50 bg-opacity-80 flex transition-opacity duration-300 ease-in-out overflow-hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none invisible'}`}>
       <div className={`bg-cardBackground min-h-[100vh] w-full max-w-[85%] p-6 flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex justify-end mb-8">
-          <button onClick={onClose} className="text-textColor p-2">
+          <button onClick={onClose} className="text-textColor p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center">
             <X size={24} />
           </button>
         </div>
 
         <nav className="flex flex-col gap-6 bricolage-grotesque font-semibold text-xl">
           <Link
-            href="/about"
-            className={`${pathname === '/about' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            href="/team"
+            className={`${pathname === '/team' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.aboutInRealArt')}
@@ -77,14 +81,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
           <Link
             href="/blog"
-            className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-purpleColor'} py-2 border-b border-textColor/10`}
+            className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.blog')}
           </Link>
           <Link
             href="/joinInRealArt"
-            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-purpleColor'} py-2 border-b border-textColor/10`}
+            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
             data-umami-event="joinInRealArt-mobile-menu-click"
           >
@@ -104,7 +108,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           />
         </div>
       </div>
-      <div className='max-w-[15%] w-full h-full' onClick={onClose} />
+      <div className='max-w-[15%] w-full h-full cursor-pointer' onClick={onClose} />
     </div>
   )
 } 

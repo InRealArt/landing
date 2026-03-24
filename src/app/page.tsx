@@ -77,7 +77,7 @@ export default function Home() {
       <Expertises />
       <Testimonials />
       <ResidentArtists />
-      <Explore />
+      {/* <Explore /> */}
       {/* <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider isGallery={false} />
         <ArtworkSlider />

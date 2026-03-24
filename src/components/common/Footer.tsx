@@ -72,17 +72,17 @@ const Footer = () => {
   const svgClass = theme === 'light' ? 'hover:opacity-80 transition-opacity' : 'hover:opacity-80 transition-opacity'
 
   return (
-    <footer className="text-textColor pt-40 pb-20 px-10 bg-canvas-white border-t border-border-light">
+    <footer className="text-textColor pt-24 sm:pt-32 lg:pt-40 pb-20 px-4 sm:px-6 lg:px-10 bg-canvas-white border-t border-border-light">
       <div className="max-w-screen-2xl mx-auto">
         
         {/* Logo */}
-        <div className="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left text-ink-black">InRealArt</div>
+        <div className="text-2xl sm:text-3xl md:text-4xl tracking-[0.4em] sm:tracking-[0.6em] md:tracking-[0.8em] uppercase serif font-light mb-16 md:mb-24 text-center md:text-left text-ink-black">InRealArt</div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
           
           {/* Column 1: About */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.about')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.about')}</h5>
             <Link href="/about" className="footer-link">{t('nav.aboutInRealArt')}</Link>
             <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
             <Link href="/team" className="footer-link">{t('nav.team')}</Link>
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Column 2: Marketplace */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.marketplace')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.marketplace')}</h5>
             <Link href="/presale" className="footer-link font-semibold text-ink-black">{t('nav.artworks')}</Link>
             <Link href="/artists" className="footer-link">{t('nav.artists')}</Link>
             <Link href="/marketplace" className="footer-link">{t('nav.marketplace')}</Link>
@@ -101,7 +101,7 @@ const Footer = () => {
 
           {/* Column 3: Expertise */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.expertise')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.expertise')}</h5>
             <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* Column 4: Simulators */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.simulators')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.simulators')}</h5>
             {Object.entries(salons).slice(0, 2).map(([slug, salon]) => (
               <Link key={slug} href={`/art-salon-simulator/${slug}`} className="footer-link">
                 {salon.name}
@@ -122,7 +122,7 @@ const Footer = () => {
 
           {/* Column 5: Artists */}
           <div>
-            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap text-ink-black" suppressHydrationWarning>{t('footer.residents')}</h5>
+            <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.residents')}</h5>
             <div className="h-48 overflow-y-auto pr-2 custom-scrollbar">
               {atelierLinks.map((link) => (
                 <a
@@ -173,7 +173,7 @@ const Footer = () => {
             <p className="text-[9px] text-gray-400 uppercase tracking-widest italic">{t('footer.physicalWorkshops')}</p>
             <p className="text-[9px] text-gray-400 uppercase tracking-widest">© {new Date().getFullYear()} — {t('footer.rights')}</p>
           </div>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-wrap items-center gap-6 justify-center md:justify-end">
             <div className="flex space-x-6">
               <a href="https://www.linkedin.com/company/inrealart/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 hover:text-ink-black transition-colors" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
