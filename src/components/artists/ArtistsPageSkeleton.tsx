@@ -1,133 +1,92 @@
 'use client'
 
-// Animation de skeleton personnalisée
-const shimmerAnimation = 'animate-shimmer'
-
-// Styles CSS pour l'animation shimmer personnalisée
+/*
+ * Shimmer vars are already injected by ArtistPageSkeleton when that skeleton
+ * is active. This file re-declares them so it can be used independently.
+ * The keyframe name `ira-shimmer` is shared — duplicate @keyframes declarations
+ * are harmless; the browser uses the last one parsed.
+ */
 const shimmerStyles = `
-  @keyframes shimmer {
-    0% {
-      background-position: -200px 0;
-    }
-    100% {
-      background-position: calc(200px + 100%) 0;
-    }
+  @keyframes ira-shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: calc(400px + 100%) 0; }
   }
-  
-  .animate-shimmer {
-    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
-    background-size: 200px 100%;
-    animation: shimmer 1.5s infinite;
+
+  .ira-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--shimmer-base)      25%,
+      var(--shimmer-highlight) 50%,
+      var(--shimmer-base)      75%
+    );
+    background-size: 400px 100%;
+    animation: ira-shimmer 1.6s ease-in-out infinite;
+  }
+
+  [data-theme='light'] {
+    --shimmer-base:      #eeeeee;
+    --shimmer-highlight: #f8f8f8;
+  }
+  [data-theme='dark'] {
+    --shimmer-base:      #252525;
+    --shimmer-highlight: #2e2e2e;
   }
 `
 
-// Composant de skeleton pour le hero des artistes
+// Skeleton for the artists list hero
 function ArtistsHeroSkeleton() {
   return (
-    <div className="relative h-[400px] lg:h-[500px] w-full overflow-hidden">
-      {/* Image de fond skeleton */}
-      <div className="absolute inset-0 bg-gray-700 animate-pulse" />
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-      
-      {/* Contenu skeleton */}
-      <div className="relative z-20 h-full flex items-center justify-center">
-        <div className="text-center px-4">
-          <div className={`h-12 w-96 bg-gray-600 rounded ${shimmerAnimation} mx-auto mb-4`} />
-          <div className={`h-6 w-80 bg-gray-600 rounded ${shimmerAnimation} mx-auto`} />
+    <section className="pt-48 pb-12 px-4 sm:px-10 bg-backgroundColor">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="border-b border-borderColor pb-12">
+          {/* section-number label */}
+          <div className="ira-shimmer h-3 w-24 rounded mb-6" />
+          {/* Heading */}
+          <div className="ira-shimmer h-16 md:h-24 w-3/4 rounded mb-4" />
+          {/* Descriptor */}
+          <div className="ira-shimmer h-3 w-96 max-w-full rounded mt-6" />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
-// Composant de skeleton pour la grille d'artistes
+// Skeleton for the artists grid section — mirrors ArtistsGrid layout
 function ArtistsGridSkeleton() {
+  const skeletons = Array.from({ length: 16 })
   return (
-    <section className="py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Titre skeleton */}
-        <div className="text-center mb-12">
-          <div className={`h-10 w-64 bg-gray-600 rounded ${shimmerAnimation} mx-auto mb-4`} />
-          <div className={`w-24 h-1 bg-gray-600 rounded-full mx-auto ${shimmerAnimation}`} />
+    <section className="py-32 px-4 sm:px-10 bg-backgroundColor">
+      <div className="max-w-screen-xl mx-auto">
+        {/* Controls bar */}
+        <div className="flex items-end justify-between pb-6 mb-16 border-b border-borderColor">
+          <div className="ira-shimmer h-4 w-32 rounded" />
+          <div className="ira-shimmer h-3 w-24 rounded" />
         </div>
-        
-        {/* Filtres skeleton */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <div className={`h-10 w-24 bg-gray-600 rounded-full ${shimmerAnimation}`} />
-          <div className={`h-10 w-32 bg-gray-600 rounded-full ${shimmerAnimation}`} />
-          <div className={`h-10 w-28 bg-gray-600 rounded-full ${shimmerAnimation}`} />
-          <div className={`h-10 w-36 bg-gray-600 rounded-full ${shimmerAnimation}`} />
-        </div>
-        
-        {/* Grille d'artistes skeleton */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {Array.from({ length: 12 }).map((_, index) => (
-            <div key={index} className="group">
-              {/* Image artiste skeleton */}
-              <div className={`w-full h-64 bg-gray-600 rounded-lg mb-4 ${shimmerAnimation}`} />
-              
-              {/* Informations skeleton */}
-              <div className="space-y-2">
-                <div className={`h-6 w-3/4 bg-gray-600 rounded ${shimmerAnimation}`} />
-                <div className={`h-4 w-1/2 bg-gray-600 rounded ${shimmerAnimation}`} />
-                <div className={`h-4 w-2/3 bg-gray-600 rounded ${shimmerAnimation}`} />
+
+        {/* Artist grid — aspect-[3/4] cards, same 4-col layout as real grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+          {skeletons.map((_, i) => (
+            <div key={i}>
+              <div className="ira-shimmer aspect-[3/4] w-full mb-6 border border-borderColor" />
+              <div className="space-y-2 text-center">
+                <div className="ira-shimmer h-3 w-3/4 mx-auto rounded" />
+                <div className="ira-shimmer h-3 w-1/2 mx-auto rounded" />
               </div>
             </div>
           ))}
         </div>
-        
-        {/* Pagination skeleton */}
-        <div className="flex justify-center mt-12">
-          <div className="flex space-x-2">
-            <div className={`h-10 w-10 bg-gray-600 rounded ${shimmerAnimation}`} />
-            <div className={`h-10 w-10 bg-gray-600 rounded ${shimmerAnimation}`} />
-            <div className={`h-10 w-10 bg-gray-600 rounded ${shimmerAnimation}`} />
-            <div className={`h-10 w-10 bg-gray-600 rounded ${shimmerAnimation}`} />
-            <div className={`h-10 w-10 bg-gray-600 rounded ${shimmerAnimation}`} />
-          </div>
-        </div>
       </div>
     </section>
   )
 }
 
-// Composant de skeleton pour le slider des catégories
-function CategoriesSliderSkeleton() {
-  return (
-    <section className="w-full mb-16 mt-24">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <div className={`h-8 w-64 bg-gray-600 rounded ${shimmerAnimation}`} />
-          <div className="flex items-center space-x-4">
-            <div className={`w-12 h-12 rounded-full bg-gray-600 ${shimmerAnimation}`} />
-            <div className={`w-12 h-12 rounded-full bg-gray-600 ${shimmerAnimation}`} />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className={`h-64 rounded-2xl bg-gray-600 ${shimmerAnimation}`} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Composant principal de skeleton pour la page des artistes
+// Main artists list page skeleton
 export default function ArtistsPageSkeleton() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: shimmerStyles }} />
       <div className="min-h-screen bg-backgroundColor">
-        {/* Hero section skeleton */}
         <ArtistsHeroSkeleton />
-        
-        {/* Slider des catégories skeleton */}
-        <CategoriesSliderSkeleton />
-        
-        {/* Grille d'artistes skeleton */}
         <ArtistsGridSkeleton />
       </div>
     </>

@@ -73,18 +73,19 @@ export default function SeoPostsCarousel({
     return (
       <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
         {title && <span className="section-number mb-12 block">{title}</span>}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)] min-h-[400px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[400px]">
           {Array.from({ length: postsPerPage }).map((_, index) => (
-            <div key={index} className="bg-[var(--soft-gray)] animate-pulse">
-              <div className="h-[260px] bg-[var(--border-light)]" />
-              <div className="p-6">
-                <div className="flex gap-2 mb-4">
-                  <div className="h-5 bg-[var(--border-light)] w-16" />
-                  <div className="h-5 bg-[var(--border-light)] w-20" />
+            <div key={index} className="bg-[var(--canvas-bg)] animate-pulse p-6">
+              <div className="flex gap-6">
+                <div className="w-1/3 shrink-0 bg-[var(--border-light)]" style={{ aspectRatio: '3/4' }} />
+                <div className="w-2/3 flex flex-col gap-3">
+                  <div className="h-4 bg-[var(--border-light)] w-full" />
+                  <div className="h-4 bg-[var(--border-light)] w-3/4" />
+                  <div className="h-2 bg-[var(--border-light)] w-16 mt-1" />
+                  <div className="h-2 bg-[var(--border-light)] w-full" />
+                  <div className="h-2 bg-[var(--border-light)] w-5/6" />
+                  <div className="h-2 bg-[var(--border-light)] w-4/6" />
                 </div>
-                <div className="h-3 bg-[var(--border-light)] mb-3 w-24" />
-                <div className="h-5 bg-[var(--border-light)] mb-3" />
-                <div className="h-3 bg-[var(--border-light)] w-3/4" />
               </div>
             </div>
           ))}
@@ -136,7 +137,7 @@ export default function SeoPostsCarousel({
         className="transition-opacity duration-200 ease-in-out min-h-[400px]"
       >
         {blogPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentPosts.map((post) => (
               <BlogPostCard key={post.id} post={post} />
             ))}

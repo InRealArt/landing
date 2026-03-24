@@ -552,6 +552,27 @@ export async function getPostsByCategory(
     }
 }
 
+export async function getPublishedPostsPaginated(
+    languageId: number,
+    page: number,
+    limit: number = 6,
+    excludePinned: boolean = true
+): Promise<{ posts: SeoPost[]; total: number; totalPages: number }> {
+    const offset = Math.max(0, (page - 1) * limit)
+    const { posts, total } = await getPublishedPosts(
+        languageId,
+        limit,
+        offset,
+        [],
+        excludePinned
+    )
+    return {
+        posts,
+        total,
+        totalPages: Math.ceil(total / limit),
+    }
+}
+
 export async function getPostsMentioningArtist(
     artistName: string,
     artistSurname: string,

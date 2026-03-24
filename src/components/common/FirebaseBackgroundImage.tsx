@@ -1,6 +1,6 @@
 'use client'
 
-import { useFirebaseImage } from '@/hooks/useFirebaseImage'
+import { useCloudStorageImage } from '@/hooks/useCloudStorageImage'
 import FirebaseImageLoader from './FirebaseImageLoader'
 import { CSSProperties, ReactNode } from 'react'
 
@@ -17,7 +17,7 @@ export default function FirebaseBackgroundImage({
   style,
   children,
 }: FirebaseBackgroundImageProps) {
-  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(src)
+  const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(src)
 
   return (
     <div className={`relative ${className ?? ''}`}>

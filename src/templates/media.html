@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InRealArt | Chroniques & Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-white: #fdfdfd;
+            --ink-black: #1a1a1a;
+            --gold-accent: #b89c72;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--paper-white);
+            color: var(--ink-black);
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .editorial-header {
+            border-bottom: 3px double var(--ink-black);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .expo-card {
+            border: 0.5px solid rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .expo-card:hover {
+            background-color: #f9f9f9;
+        }
+        .btn-mag {
+            border-bottom: 1.5px solid var(--ink-black);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-mag:hover {
+            color: var(--gold-accent);
+            border-color: var(--gold-accent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Style Gazette -->
+    <header class="py-6 px-6 md:px-12 editorial-header flex flex-col items-center sticky top-0 bg-white/90 backdrop-blur-sm z-50">
+        <div class="w-full flex justify-between items-center mb-4">
+            <span class="text-[9px] uppercase tracking-[0.2em] font-bold">Édition Hebdomadaire</span>
+            <div class="text-3xl md:text-4xl tracking-[0.3em] font-light uppercase serif text-center">InRealArt</div>
+            <span class="text-[9px] uppercase tracking-[0.2em] font-bold">14 Mars 2024</span>
+        </div>
+        <nav class="flex space-x-8 py-2">
+            <a href="#" class="text-[8px] uppercase tracking-widest font-semibold hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[8px] uppercase tracking-widest font-semibold hover:text-gold-accent transition-colors">Interviews</a>
+            <a href="#" class="text-[8px] uppercase tracking-widest font-semibold hover:text-gold-accent transition-colors">Services Vidéo</a>
+        </nav>
+    </header>
+
+    <main class="max-w-screen-xl mx-auto px-6 py-16">
+        
+        <!-- Section Expositions : Format Fiches descriptives (2x2) -->
+        <section class="mb-32">
+            <div class="flex items-baseline gap-4 mb-12 border-b border-black pb-4">
+                <h2 class="serif text-3xl italic">Dernières Expositions</h2>
+                <span class="text-[9px] uppercase tracking-widest text-gray-400">Archives de la Saison</span>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Fiche 1 -->
+                <div class="expo-card reveal active">
+                    <div class="flex gap-6">
+                        <div class="w-1/3 aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&q=80&w=400" alt="Lumières" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="serif text-xl font-bold mb-2">Lumières Éphémères</h3>
+                                <p class="text-[10px] uppercase text-gold-accent font-bold mb-4 tracking-tighter">Paris — Galerie Vivienne</p>
+                                <p class="text-xs text-gray-500 leading-relaxed line-clamp-4">Une exploration sensorielle de la réfraction lumineuse à travers des installations de verre suspendues. Une œuvre immersive qui redéfinit l'espace physique.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn-mag">Consulter le dossier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fiche 2 -->
+                <div class="expo-card reveal active" style="transition-delay: 0.1s;">
+                    <div class="flex gap-6">
+                        <div class="w-1/3 aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=400" alt="Structure" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="serif text-xl font-bold mb-2">Structure & Chaos</h3>
+                                <p class="text-[10px] uppercase text-gold-accent font-bold mb-4 tracking-tighter">Londres — Tate Modern</p>
+                                <p class="text-xs text-gray-500 leading-relaxed line-clamp-4">Dialogue entre la rigueur du béton brut et la fluidité des projections numériques. Une critique de l'urbanisme contemporain.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn-mag">Consulter le dossier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fiche 3 -->
+                <div class="expo-card reveal">
+                    <div class="flex gap-6">
+                        <div class="w-1/3 aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&q=80&w=400" alt="Metamorphosis" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="serif text-xl font-bold mb-2">Metamorphosis v1.0</h3>
+                                <p class="text-[10px] uppercase text-gold-accent font-bold mb-4 tracking-tighter">Digital — InRealArt Meta</p>
+                                <p class="text-xs text-gray-500 leading-relaxed line-clamp-4">Première rétrospective entièrement virtuelle présentant des sculptures génératives évoluant en temps réel selon les flux de données mondiaux.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn-mag">Consulter le dossier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fiche 4 -->
+                <div class="expo-card reveal" style="transition-delay: 0.1s;">
+                    <div class="flex gap-6">
+                        <div class="w-1/3 aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecea8f82?auto=format&fit=crop&q=80&w=400" alt="Pigment" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="serif text-xl font-bold mb-2">L'Âme du Pigment</h3>
+                                <p class="text-[10px] uppercase text-gold-accent font-bold mb-4 tracking-tighter">Berlin — Studio Kraft</p>
+                                <p class="text-xs text-gray-500 leading-relaxed line-clamp-4">Focus sur la matérialité de la peinture à l'huile. Une ode aux techniques de la Renaissance adaptées aux thématiques modernes.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn-mag">Consulter le dossier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grand Entretien Journalistique -->
+        <section class="grid lg:grid-cols-2 gap-16 items-center py-20 border-y border-black/10 reveal">
+            <div>
+                <span class="text-[9px] uppercase tracking-widest font-bold text-gray-400 mb-6 block">Le Grand Entretien</span>
+                <h2 class="serif text-5xl mb-8 italic">"L'art ne se regarde plus, il se vit."</h2>
+                <p class="text-sm text-gray-600 leading-relaxed mb-8 italic">
+                    Marc Levinson, fondateur du collectif Perspectives, nous livre une analyse sans concession sur la mutation du marché de l'art et l'importance de la documentation vidéo pour l'immortalité de l'œuvre.
+                </p>
+                <a href="#" class="btn-mag">Lire l'article complet</a>
+            </div>
+            <div class="bg-gray-100 aspect-video overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1200" alt="Interview Marc Levinson" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+            </div>
+        </section>
+
+        <!-- Section Service Bas de Page (Marian) -->
+        <section class="py-32 reveal">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-accent mb-6 block">Production & Captation Externe</span>
+                    <h2 class="serif text-5xl mb-8 leading-tight">Marian : Votre vision, <br>notre expertise média.</h2>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-10 max-w-xl">
+                        Vous n'appartenez pas à InRealArt mais vous souhaitez bénéficier de la même exigence visuelle pour vos projets ? 
+                        Que ce soit pour un vernissage, une interview d'artiste ou la couverture d'un événement culturel, **Marian** est à votre disposition.
+                    </p>
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start gap-4">
+                            <span class="text-gold-accent font-bold">01.</span>
+                            <p class="text-xs uppercase tracking-widest">Interviews de prestige et portraits d'artistes.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-gold-accent font-bold">02.</span>
+                            <p class="text-xs uppercase tracking-widest">Captation événementielle haute définition (4K/8K).</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-gold-accent font-bold">03.</span>
+                            <p class="text-xs uppercase tracking-widest">Montage éditorialisé pour réseaux sociaux et presse.</p>
+                        </div>
+                    </div>
+                    <a href="mailto:marian@inrealart.com" class="inline-block bg-black text-white text-[10px] uppercase tracking-[0.3em] py-5 px-12 hover:bg-gold-accent transition-colors">Contacter Marian</a>
+                </div>
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="w-full aspect-[4/5] overflow-hidden border border-black/5 p-2 bg-white shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Marian - Production Vidéo" class="w-full h-full object-cover grayscale">
+                    </div>
+                    <p class="text-[10px] uppercase font-bold mt-6 tracking-widest">Marian — Directrice de Production</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Gazette -->
+    <footer class="bg-white py-12 px-6 border-t border-black text-center">
+        <div class="text-2xl tracking-[0.5em] uppercase serif font-light mb-4">InRealArt</div>
+        <p class="text-[9px] text-gray-400 uppercase tracking-[0.2em] mb-8">Journalisme d'art & Solutions Médias</p>
+        <div class="flex justify-center space-x-8 text-[9px] uppercase tracking-widest text-gray-600">
+            <a href="#" class="hover:text-black">Instagram</a>
+            <a href="#" class="hover:text-black">LinkedIn</a>
+            <a href="#" class="hover:text-black">Contact</a>
+        </div>
+        <div class="mt-8 text-[8px] text-gray-300 uppercase tracking-widest italic">
+            © 2024 InRealArt — Édition Limitée
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

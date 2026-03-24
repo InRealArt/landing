@@ -1,19 +1,19 @@
 'use client'
 
 import { useState, useCallback, useRef } from 'react'
+import { firebaseUrlToR2 } from '@/lib/cloufare/r2/url'
 
 const MAX_RETRIES = 4
 const BASE_DELAY_MS = 800
 
 export type ImageStatus = 'loading' | 'retrying' | 'ready' | 'error'
 
-function stripFirebaseToken(src: string): string {
+function resolveImageSrc(src: string): string {
   if (!src) return src
   try {
     const url = new URL(src)
     if (url.hostname === 'firebasestorage.googleapis.com') {
-      url.searchParams.delete('token')
-      return url.toString()
+      return firebaseUrlToR2(src) ?? src
     }
   } catch {}
   return src
@@ -30,15 +30,15 @@ function withCacheBuster(src: string, attempt: number): string {
   }
 }
 
-interface UseFirebaseImageReturn {
+interface UseCloudStorageImageReturn {
   src: string
   status: ImageStatus
   onLoad: () => void
   onError: () => void
 }
 
-export function useFirebaseImage(rawSrc: string): UseFirebaseImageReturn {
-  const cleanSrc = stripFirebaseToken(rawSrc)
+export function useCloudStorageImage(rawSrc: string): UseCloudStorageImageReturn {
+  const cleanSrc = resolveImageSrc(rawSrc)
   const [src, setSrc] = useState(cleanSrc)
   const [status, setStatus] = useState<ImageStatus>('loading')
   const retryCount = useRef(0)

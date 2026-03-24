@@ -25,7 +25,7 @@ export default function ArtistCard({
   const medium = mediumTags.length > 0 ? mediumTags.join(' · ') : role
 
   return (
-    <div className="group cursor-pointer">
+    <div data-anim="artist-card" className="group cursor-pointer">
       <Link href={`/artists/${slug}`} className="block">
         {/* Portrait container — grayscale by default, color on hover */}
         <div className="aspect-[3/4] overflow-hidden mb-6 bg-backgroundGrey border border-borderColor grayscale group-hover:grayscale-0 transition-all duration-1000">

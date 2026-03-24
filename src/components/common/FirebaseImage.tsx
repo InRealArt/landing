@@ -1,6 +1,6 @@
 'use client'
 
-import { useFirebaseImage } from '@/hooks/useFirebaseImage'
+import { useCloudStorageImage } from '@/hooks/useCloudStorageImage'
 import FirebaseImageLoader from './FirebaseImageLoader'
 
 interface FirebaseImageProps {
@@ -18,7 +18,7 @@ export default function FirebaseImage({
   imgClassName,
   loading = 'lazy',
 }: FirebaseImageProps) {
-  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(src)
+  const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(src)
 
   return (
     <div className={`relative ${className ?? ''}`} style={{ isolation: 'isolate' }}>

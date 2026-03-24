@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe | InRealArt - Maison de Curation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.55rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 0.8rem 1.6rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: transparent;
+        }
+        .btn-cta:hover {
+            background: var(--ink-black);
+            color: white;
+        }
+
+        /* Portrait Miniature Style Galerie */
+        .member-container {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--soft-gray);
+            filter: grayscale(100%);
+            transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .member-card:hover .member-container {
+            filter: grayscale(0%);
+        }
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .member-card:hover .member-image {
+            transform: scale(1.08);
+        }
+
+        .footer-link {
+            font-size: 0.7rem;
+            color: #666;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .footer-link:hover {
+            color: var(--ink-black);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">À Propos</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-7 h-7 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-40 pb-16 px-10">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="border-b border-gray-100 pb-12 mb-20">
+                <span class="section-number">Collectif</span>
+                <h1 class="text-5xl md:text-7xl serif">Sept regards, <br><span class="italic text-gold-accent">une vision.</span></h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM GRID (7 membres) -->
+    <section class="pb-32 px-10">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
+                
+                <!-- Membre 1 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Julien Rochefort" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Fondateur</span>
+                    <h3 class="serif text-xl italic mt-1">Julien Rochefort</h3>
+                </div>
+
+                <!-- Membre 2 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Elena Valmont" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Curation</span>
+                    <h3 class="serif text-xl italic mt-1">Elena Valmont</h3>
+                </div>
+
+                <!-- Membre 3 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600" alt="Marc-Antoine Giraud" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Finance</span>
+                    <h3 class="serif text-xl italic mt-1">Marc-Antoine Giraud</h3>
+                </div>
+
+                <!-- Membre 4 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600" alt="Sophie de Villeneuve" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Expertise</span>
+                    <h3 class="serif text-xl italic mt-1">Sophie de Villeneuve</h3>
+                </div>
+
+                <!-- Membre 5 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600" alt="Thomas Meyer" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Technologie</span>
+                    <h3 class="serif text-xl italic mt-1">Thomas Meyer</h3>
+                </div>
+
+                <!-- Membre 6 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1598550874175-4d0fe4a2c90b?auto=format&fit=crop&q=80&w=600" alt="Clara Simonet" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Médias</span>
+                    <h3 class="serif text-xl italic mt-1">Clara Simonet</h3>
+                </div>
+
+                <!-- Membre 7 -->
+                <div class="member-card">
+                    <div class="member-container aspect-[3/4] mb-5">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600" alt="Victor Hugo-Leandri" class="member-image">
+                    </div>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gold-accent font-bold">Contenu</span>
+                    <h3 class="serif text-xl italic mt-1">Victor Hugo-Leandri</h3>
+                </div>
+
+                <!-- Case Vide / Recrutement -->
+                <div class="member-card flex flex-col items-center justify-center border border-dashed border-gray-200 aspect-[3/4] mb-5 group hover:border-black transition-colors cursor-pointer">
+                    <span class="serif text-3xl italic text-gray-300 group-hover:text-black">+</span>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gray-400 mt-2">Nous rejoindre</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHIE -->
+    <section class="py-24 px-10 bg-[#fbfbfb]">
+        <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="serif text-4xl italic mb-6">Un engagement <br>sur-mesure.</h2>
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-8">
+                    Notre équipe restreinte garantit une proximité rare avec nos artistes et nos collectionneurs. Chaque projet est porté par l'intelligence collective de nos sept pôles, assurant une expertise à la fois artistique, technique et patrimoniale.
+                </p>
+                <a href="#" class="btn-cta">Notre Manifeste</a>
+            </div>
+            <div class="h-px bg-gray-200 hidden md:block"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-10 border-t border-gray-100">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-xl tracking-[0.8em] uppercase serif font-light">InRealArt</div>
+            <div class="flex space-x-8 text-[9px] text-gray-400 uppercase tracking-[0.3em]">
+                <a href="#" class="hover:text-black">Instagram</a>
+                <a href="#" class="hover:text-black">LinkedIn</a>
+                <a href="#" class="hover:text-black">Contact</a>
+            </div>
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 — InRealArt.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

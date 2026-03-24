@@ -658,9 +658,9 @@
     "title": "Notre équipe",
     "hero": {
       "title": "Notre équipe",
-      "subtitle": "Notre équipe réunit des talents complémentaires pour bâtir une aventure humaine qui rapproche les artistes et les investisseurs.",
-      "titleLine1": "Notre",
-      "titleLine2": "équipe"
+      "subtitle": "Collectif",
+      "titleLine1": "Sept regards,",
+      "titleLine2": "une vision."
     },
     "loading": "Chargement en cours...",
     "error": "Une erreur est survenue: ",
@@ -677,7 +677,14 @@
     },
     "sectionLabel": "L'équipe",
     "meetTeamLine1": "Rencontrez",
-    "meetTeamLine2": "toute l'équipe"
+    "meetTeamLine2": "toute l'équipe",
+    "joinUs": "Nous rejoindre",
+    "philosophy": {
+      "title1": "Un engagement",
+      "title2": "sur-mesure.",
+      "description": "Notre équipe réunit des profils complémentaires — art, finance, technologie et curation — pour offrir une proximité rare avec nos artistes et nos collectionneurs. Chaque projet est porté par l'intelligence collective de nos pôles, assurant une expertise à la fois artistique, technique et patrimoniale.",
+      "cta": "Notre Manifeste"
+    }
   },
   "faq": {
     "description": "Bien souvent vous avez des questions légitime alors nous avons anticipé cela ! Et si vous avez une autre question consulter la page FAQ",
@@ -1470,6 +1477,7 @@
     "readMore": "Lire Plus",
     "noFeaturedPost": "Aucun article en vedette disponible",
     "noPosts": "Aucun article disponible",
+    "backToBlog": "Retour au blog",
     "noImage": "Aucune image disponible",
     "by": "Par",
     "views": "vues",

@@ -675,9 +675,9 @@
     "title": "Our Team",
     "hero": {
       "title": "Our Team",
-      "subtitle": "Our team brings together complementary talents to build a human adventure that brings artists and investors closer together.",
-      "titleLine1": "Our",
-      "titleLine2": "Team"
+      "subtitle": "Collective",
+      "titleLine1": "Seven visions,",
+      "titleLine2": "one direction."
     },
     "loading": "Loading...",
     "error": "An error occurred: ",
@@ -694,7 +694,14 @@
     },
     "sectionLabel": "The Team",
     "meetTeamLine1": "Meet",
-    "meetTeamLine2": "the entire team"
+    "meetTeamLine2": "the entire team",
+    "joinUs": "Join us",
+    "philosophy": {
+      "title1": "A bespoke",
+      "title2": "commitment.",
+      "description": "Our team brings together complementary profiles — art, finance, technology and curation — to offer rare proximity to our artists and collectors. Every project is carried by the collective intelligence of our divisions, ensuring both artistic, technical and heritage expertise.",
+      "cta": "Our Manifesto"
+    }
   },
   "faq": {
     "description": "We often have legitimate questions, so we've anticipated them! If you have another question, check out the FAQ page",
@@ -1488,6 +1495,7 @@
     "readMore": "Read More",
     "noFeaturedPost": "No featured post available",
     "noPosts": "No posts available",
+    "backToBlog": "Back to blog",
     "noImage": "No image available",
     "by": "By",
     "views": "views",

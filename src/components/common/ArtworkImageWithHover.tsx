@@ -5,7 +5,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import OptimizedContentImage from './OptimizedContentImage'
 import LoadingSpinner from './LoadingSpinner'
 import FirebaseImageLoader from './FirebaseImageLoader'
-import { useFirebaseImage } from '@/hooks/useFirebaseImage'
+import { useCloudStorageImage } from '@/hooks/useCloudStorageImage'
 
 interface ArtworkImageWithHoverProps {
   src: string
@@ -28,7 +28,7 @@ export default function ArtworkImageWithHover({
 }: ArtworkImageWithHoverProps) {
   const { t } = useLanguageStore()
   const [isHovered, setIsHovered] = useState(false)
-  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(src)
+  const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(src)
   const isImageLoading = status === 'loading' || status === 'retrying'
 
   return (

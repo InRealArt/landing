@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import FirebaseImage from '@/components/common/FirebaseImage'
 import { useLanguageStore } from '@/store/languageStore'
 import { SeoPost } from '@/types/seoPost'
 import { getPostsByCategorySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
@@ -46,7 +46,7 @@ export default function BlogCategoryPageClient({
   initialPosts,
   initialCategory,
 }: Props) {
-  const { language } = useLanguageStore()
+  const { language, t } = useLanguageStore()
 
   const [posts, setPosts] = useState<SeoPost[]>(initialPosts)
   const [category, setCategory] = useState<CategoryData>(initialCategory)
@@ -154,44 +154,57 @@ export default function BlogCategoryPageClient({
 
           {/* Post grid — dimmed while a language re-fetch is in progress */}
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-200 ${
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)] transition-opacity duration-200 ${
               isRefetching ? 'opacity-50' : 'opacity-100'
             }`}
           >
             {posts.length === 0 ? (
-              <p className="col-span-full text-grayText">
-                Aucun article dans cette catégorie.
+              <p className="col-span-full text-grayText bg-[var(--canvas-bg)] p-8">
+                {t('blog.noPosts')}
               </p>
             ) : (
               posts.map((post) => (
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
-                  className="group block bg-cardBackground rounded-lg overflow-hidden border border-borderColor
-                    transition-all duration-300 ease-out
-                    hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:border-white/20
-                    active:translate-y-0 active:scale-[0.98] active:shadow-none active:duration-75"
+                  className="group block border-0 p-6 bg-[var(--canvas-bg)] hover:bg-[var(--soft-gray)] transition-colors duration-500"
                 >
-                  {post.mainImageUrl && (
-                    <div className="aspect-video relative overflow-hidden">
-                      <Image
-                        src={post.mainImageUrl}
-                        alt={post.mainImageAlt ?? post.title}
-                        fill
-                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-active:scale-100"
-                      />
+                  <div className="flex gap-6">
+                    {/* Image portrait gauche */}
+                    <div className="w-1/3 shrink-0 relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
+                      {post.mainImageUrl ? (
+                        <FirebaseImage
+                          src={post.mainImageUrl}
+                          alt={post.mainImageAlt ?? post.title}
+                          className="w-full h-full"
+                          imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-[var(--card)]" />
+                      )}
                     </div>
-                  )}
-                  <div className="p-6">
-                    <h2 className="text-xl font-semibold mb-2 group-hover:text-purpleColor transition-colors duration-200">
-                      {post.title}
-                    </h2>
-                    <p className="text-grayText mb-4">{post.excerpt}</p>
-                    <div className="flex justify-between items-center text-sm text-grayText">
-                      <span>{post.author}</span>
-                      <span>
-                        {new Date(post.createdAt).toLocaleDateString('fr-FR')}
-                      </span>
+
+                    {/* Contenu droite */}
+                    <div className="w-2/3 flex flex-col justify-between">
+                      <div>
+                        <h2 className="unbounded text-base font-bold leading-snug mb-2 text-[var(--ink-black)]">
+                          {post.title}
+                        </h2>
+
+                        <p className="text-[10px] uppercase text-[#b89c72] font-bold mb-3 tracking-tighter">
+                          {post.category.name}
+                        </p>
+
+                        <p className="text-xs text-[var(--gray-text)] leading-relaxed line-clamp-4">
+                          {post.excerpt ?? post.metaDescription}
+                        </p>
+                      </div>
+
+                      <div className="mt-4">
+                        <span className="inline-block border-b border-[var(--ink-black)] text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--ink-black)] transition-colors duration-300 group-hover:text-[#b89c72] group-hover:border-[#b89c72]">
+                          {t('blog.readMore')}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -200,8 +213,11 @@ export default function BlogCategoryPageClient({
           </div>
 
           <div className="mt-12">
-            <Link href="/blog" className="text-purpleColor hover:underline">
-              &larr; Retour au blog
+            <Link
+              href="/blog"
+              className="inline-block text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--ink-black)] border-b border-[var(--ink-black)] hover:text-[#b89c72] hover:border-[#b89c72] transition-colors duration-300"
+            >
+              ← {t('blog.backToBlog')}
             </Link>
           </div>
         </div>

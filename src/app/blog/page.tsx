@@ -1,7 +1,12 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata, generateBlogJsonLd } from '@/utils/metadata'
 import BlogPageClient from './BlogPageClient'
-import { getFeaturedPost, getLanguageIdByCode, getCategoriesWithTranslations } from '@/actions/seoPostActions'
+import {
+  getFeaturedPost,
+  getLanguageIdByCode,
+  getCategoriesWithTranslations,
+  getPublishedPostsPaginated,
+} from '@/actions/seoPostActions'
 
 export const revalidate = 1800
 
@@ -12,13 +17,26 @@ export const metadata: Metadata = generateStaticMetadata({
   canonical: 'https://inrealart.com/blog',
 })
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>
+}) {
+  const resolvedSearchParams = await searchParams
+  const rawPage = parseInt(resolvedSearchParams.page ?? '1', 10)
+  const initialPage = isNaN(rawPage) || rawPage < 1 ? 1 : rawPage
+
   const [langId, initialCategories] = await Promise.all([
     getLanguageIdByCode('fr'),
     getCategoriesWithTranslations('fr'),
   ])
 
-  const initialFeaturedPost = langId ? await getFeaturedPost(langId) : null
+  const [initialFeaturedPost, paginatedResult] = await Promise.all([
+    langId ? getFeaturedPost(langId) : Promise.resolve(null),
+    langId
+      ? getPublishedPostsPaginated(langId, initialPage, 6, true)
+      : Promise.resolve({ posts: [], total: 0, totalPages: 0 }),
+  ])
 
   const jsonLd = generateBlogJsonLd()
 
@@ -32,6 +50,9 @@ export default async function BlogPage() {
       <BlogPageClient
         initialFeaturedPost={initialFeaturedPost}
         initialCategories={initialCategories}
+        initialPosts={paginatedResult.posts}
+        initialPage={initialPage}
+        totalPages={paginatedResult.totalPages}
       />
     </>
   )

@@ -5,7 +5,7 @@ import { stringToSlug } from "@/utils/functions";
 import OptimizedContentImage from "../OptimizedContentImage";
 import FirebaseBackgroundImage from "../FirebaseBackgroundImage";
 import FirebaseImageLoader from "../FirebaseImageLoader";
-import { useFirebaseImage } from "@/hooks/useFirebaseImage";
+import { useCloudStorageImage } from "@/hooks/useCloudStorageImage";
 
 interface ArtworkCardProps {
   image: {
@@ -18,7 +18,7 @@ interface ArtworkCardProps {
 const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
   // Convert the name to a slug for the URL
   const slug = stringToSlug(name);
-  const { src: imgSrc, status, onLoad, onError } = useFirebaseImage(image.src)
+  const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(image.src)
 
   if (type === 'artist') {
     return (

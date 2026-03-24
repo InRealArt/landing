@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Link from 'next/link'
 import TeamCard from '@/components/common/cards/TeamCard'
 import TeamModal from '@/components/team/TeamModal'
 import { useLanguageStore } from '@/store/languageStore'
@@ -70,23 +71,10 @@ export default function TeamContent({ initialMembers }: Props) {
 
   return (
     <>
-      {/* Section header — editorial style from design charter */}
-      <section className="py-24 lg:py-32 px-10 bg-backgroundColor">
-        <div className="max-w-screen-2xl mx-auto">
-          {/* Section label + title block with border separator */}
-          <div className="border-b border-borderColor pb-14 mb-20">
-            <span className="section-number">{t('team.sectionLabel')}</span>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl serif">
-              {t('team.meetTeamLine1')}{' '}
-              <span className="italic text-gold-accent">{t('team.meetTeamLine2')}</span>
-            </h2>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-8 max-w-xl leading-relaxed">
-              {t('team.hero.subtitle')}
-            </p>
-          </div>
-
-          {/* Member grid — 2 cols mobile, 3 cols md, 4 cols xl */}
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-20">
+      {/* Member grid */}
+      <section className="pb-32 px-10 bg-backgroundColor">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
             {teamItems.map(item => (
               <TeamCard
                 key={item.id}
@@ -94,7 +82,39 @@ export default function TeamContent({ initialMembers }: Props) {
                 onViewMore={() => { setSelectedMember(item); setIsModalOpen(true) }}
               />
             ))}
+
+            {/* Recruitment slot */}
+            <Link
+              href="/contact"
+              className="member-card group flex flex-col items-center justify-center border border-dashed border-borderColor hover:border-textColor aspect-[3/4] mb-5 transition-colors duration-500 cursor-pointer"
+            >
+              <span className="serif text-3xl italic text-grayText/30 group-hover:text-textColor transition-colors duration-500">+</span>
+              <span className="text-[8px] uppercase tracking-[0.3em] text-grayText/50 group-hover:text-textColor mt-2 montserrat transition-colors duration-500">
+                {t('team.joinUs')}
+              </span>
+            </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Philosophy section */}
+      <section className="py-24 px-10 bg-[var(--background-grey)]">
+        <div className="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="serif text-4xl italic mb-6 text-textColor">
+              {t('team.philosophy.title1')}<br />{t('team.philosophy.title2')}
+            </h2>
+            <p className="text-[13px] text-grayText leading-relaxed montserrat mb-8 max-w-md">
+              {t('team.philosophy.description')}
+            </p>
+            <Link
+              href="/about"
+              className="inline-block py-[0.8rem] px-[1.6rem] border border-textColor text-[0.6rem] uppercase tracking-[0.25em] montserrat bg-transparent hover:bg-textColor hover:text-backgroundColor transition-all duration-500 cubic-bezier(0.19,1,0.22,1)"
+            >
+              {t('team.philosophy.cta')}
+            </Link>
+          </div>
+          <div className="hidden md:block h-px bg-borderColor" />
         </div>
       </section>
 

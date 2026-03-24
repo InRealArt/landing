@@ -17,16 +17,29 @@ interface Category {
 interface Props {
   initialFeaturedPost: SeoPost | null
   initialCategories: Category[]
+  initialPosts: SeoPost[]
+  initialPage: number
+  totalPages: number
 }
 
-export default function BlogPageClient({ initialFeaturedPost, initialCategories }: Props) {
+export default function BlogPageClient({
+  initialFeaturedPost,
+  initialCategories,
+  initialPosts,
+  initialPage,
+  totalPages,
+}: Props) {
   return (
     <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)] pt-headerSize">
       <BlogAnimations />
       <Hero />
       <BlogCategories initialCategories={initialCategories} />
       <FeaturedPost initialPost={initialFeaturedPost} />
-      <OthersPosts />
+      <OthersPosts
+        initialPosts={initialPosts}
+        initialPage={initialPage}
+        totalPages={totalPages}
+      />
     </main>
   );
 }
