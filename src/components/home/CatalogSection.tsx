@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { prisma } from '@/lib/prisma'
+import { getTopArtworks } from '@/actions/presaleArtworkActions'
 import CatalogSectionClient from './CatalogSectionClient'
 
 export interface CatalogArtworkItem {
@@ -14,30 +14,7 @@ export interface CatalogArtworkItem {
 }
 
 async function CatalogSectionContent() {
-  const artworks = await prisma.presaleArtwork.findMany({
-    where: {
-      isTopArtwork: true,
-    },
-    select: {
-      id: true,
-      name: true,
-      imageUrl: true,
-      price: true,
-      isSold: true,
-      width: true,
-      height: true,
-      order: true,
-      artist: {
-        select: {
-          name: true,
-          surname: true,
-        },
-      },
-    },
-    orderBy: {
-      order: 'asc',
-    },
-  })
+  const artworks = await getTopArtworks()
 
   const items: CatalogArtworkItem[] = artworks.map(a => ({
     id: a.id,
@@ -45,7 +22,7 @@ async function CatalogSectionContent() {
     imageUrl: a.imageUrl,
     price: a.price,
     isSold: a.isSold,
-    artistName: `${a.artist.name ?? ''} ${a.artist.surname ?? ''}`.trim(),
+    artistName: `${a.artist.name} ${a.artist.surname}`.trim(),
     width: a.width,
     height: a.height,
   }))

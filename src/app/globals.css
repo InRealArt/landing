@@ -205,6 +205,22 @@ body {
   transform: scale(1.03);
 }
 
+/* InRealArt UseCase - Scenario card image zoom on hover */
+.usecase-scenario-card .usecase-scenario-image {
+  transition: box-shadow 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.usecase-scenario-card .usecase-scenario-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.usecase-scenario-card:hover .usecase-scenario-image img {
+  transform: scale(1.05);
+}
+
 /* InRealArt Gallery - Button CTA Style */
 .btn-cta {
   padding: 0.9rem 1.8rem;
@@ -223,6 +239,25 @@ body {
 .btn-cta:hover {
   background: var(--ink-black);
   color: white;
+}
+
+/* InRealArt Media - Action button (dark fill, gold on hover) */
+.btn-action {
+  background: var(--ink-black);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.btn-action:hover {
+  background: var(--gold-accent);
 }
 
 /* InRealArt Blog - Magazine CTA (expo-card style) */

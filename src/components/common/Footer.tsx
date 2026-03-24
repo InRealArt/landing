@@ -103,6 +103,7 @@ const Footer = () => {
           <div>
             <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.expertise')}</h5>
             {/* <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link> */}
+            <Link href="/service" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
           </div>

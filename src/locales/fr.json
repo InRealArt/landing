@@ -25,7 +25,8 @@
     "lending": "Prêt",
     "fractionate": "Fractionnement",
     "joinInRealArt": "Nous rejoindre",
-    "aboutInRealArt": "À propos"
+    "aboutInRealArt": "À propos",
+    "services": "Services"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -1050,8 +1051,12 @@
   },
   "usecase": {
     "intro": {
-      "title": "Cas d'Utilisation",
-      "subtitle": "Découvrez comment IRA transforme les performances grâce à des cas d'utilisations concrets, <br>pour les cadres dirigeants et les entreprises."
+      "label": "Applications concrètes",
+      "title": "L'Art comme Levier d'Identité.",
+      "titleBefore": "L'Art comme",
+      "titleAccent": "Levier",
+      "titleAfter": "d'Identité.",
+      "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces."
     },
     "items": {
       "fractionate": {
@@ -1124,6 +1129,66 @@
     "faq": {
       "title": "Questions fréquentes sur nos cas d'usage",
       "description": "Trouvez des réponses aux questions les plus courantes sur nos solutions d'art fractionné, de leasing, de mécénat et de diffusion d'œuvres."
+    },
+    "scenarios": {
+      "label": "Applications concrètes",
+      "title": "L'Art comme Levier d'Identité.",
+      "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces.",
+      "scenario1": {
+        "badge": "Scénario 01",
+        "title": "Hôtellerie de",
+        "titleItalic": "Prestige",
+        "description": "L'art est au cœur de l'expérience client. Nous créons des parcours artistiques cohérents avec l'histoire du lieu, augmentant la valeur perçue des chambres et des espaces communs.",
+        "pills": [
+          "Curation thématique",
+          "Rotation des œuvres",
+          "Vente directe aux clients"
+        ],
+        "cta": "Étude de cas détaillée →"
+      },
+      "scenario2": {
+        "badge": "Scénario 02",
+        "title": "Sièges Sociaux &",
+        "titleItalic": "Identité",
+        "description": "Affirmez vos valeurs d'entreprise à travers la création contemporaine. L'art favorise la créativité des équipes et renforce l'image de marque auprès de vos partenaires.",
+        "pills": [
+          "Optimisation fiscale (Leasing)",
+          "Marque Employeur",
+          "Bien-être au travail"
+        ],
+        "cta": "Consulter nos solutions leasing →"
+      },
+      "scenario3": {
+        "badge": "Scénario 03",
+        "title": "Immobilier &",
+        "titleItalic": "Résidentiel",
+        "description": "Accompagnement des promoteurs et architectes d'intérieur pour la décoration d'appartements témoins et d'espaces communs de standing.",
+        "pills": [
+          "Valorisation foncière",
+          "Curation sur-mesure",
+          "Artistes émergents"
+        ],
+        "cta": "Contactez un curateur →"
+      }
+    },
+    "impact": {
+      "stat1": {
+        "value": "+30%",
+        "label": "Valorisation perçue du patrimoine"
+      },
+      "stat2": {
+        "value": "100%",
+        "label": "Déduction fiscale via le leasing"
+      },
+      "stat3": {
+        "value": "50+",
+        "label": "Entreprises déjà partenaires"
+      }
+    },
+    "ctaFinal": {
+      "title": "Un projet spécifique en tête ?",
+      "subtitle": "Nos experts vous accompagnent de la sélection artistique au montage financier.",
+      "button": "Démarrer une consultation"
     }
   },
   "leasing": {
@@ -1515,8 +1580,8 @@
     "noImage": "Aucune image disponible",
     "by": "Par",
     "views": "vues",
+    "viewAllPosts": "Voir tous les articles",
     "loadMore": "Charger plus d'articles",
-    "backToBlog": "Retour au blog",
     "postNotFound": "Article non trouvé",
     "postNotFoundInLanguage": "Article non trouvé dans cette langue",
     "postAvailableInOtherLanguage": "Cet article est disponible dans une autre langue.",

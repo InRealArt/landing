@@ -11,7 +11,7 @@ export default function UsecaseAnimations() {
     const ease = 'cubic-bezier(0.19, 1, 0.22, 1)'
     const ctx = gsap.context(() => {
 
-      // ── Hero : titre + subtitle fade-up au chargement ──────────────────
+      // ── Hero : titre + subtitle + cards fade-up au chargement ─────────
       const heroTitle = document.querySelector('[data-anim="hero-title"]')
       const heroSubtitle = document.querySelector('[data-anim="hero-subtitle"]')
       const heroCards = document.querySelectorAll('[data-anim="hero-card"]')
@@ -31,18 +31,72 @@ export default function UsecaseAnimations() {
       if (heroCards.length) {
         gsap.fromTo(heroCards,
           { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1.0, ease, stagger: 0.12, delay: 0.9 }
+        )
+      }
+
+      // ── Scenario sections : image + text slide in ─────────────────────
+      document.querySelectorAll('[data-anim="scenario-section"]').forEach((section) => {
+        const children = section.querySelectorAll(':scope > div > *')
+        if (!children.length) return
+
+        gsap.fromTo(children,
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease,
+            stagger: 0.14,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        )
+      })
+
+      // ── Impact stats : stagger fade-up ───────────────────────────────
+      const impactStats = document.querySelectorAll('[data-anim="impact-stat"]')
+      if (impactStats.length) {
+        gsap.fromTo(impactStats,
+          { opacity: 0, y: 36 },
           {
             opacity: 1,
             y: 0,
             duration: 1.0,
             ease,
-            stagger: 0.12,
-            delay: 0.9,
+            stagger: 0.16,
+            scrollTrigger: {
+              trigger: document.querySelector('[data-anim="impact-section"]'),
+              start: 'top 80%',
+              once: true,
+            },
           }
         )
       }
 
-      // ── FAQ : colonne gauche slide depuis la gauche ─────────────────────
+      // ── CTA final : fade-up ───────────────────────────────────────────
+      const ctaFinal = document.querySelector('[data-anim="cta-final"]')
+      if (ctaFinal) {
+        gsap.fromTo(ctaFinal,
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease,
+            scrollTrigger: {
+              trigger: ctaFinal,
+              start: 'top 88%',
+              once: true,
+            },
+          }
+        )
+      }
+
+      // ── FAQ : colonne gauche slide depuis la gauche ───────────────────
       const faqLeft = document.querySelector('[data-anim="faq-left"]')
       if (faqLeft) {
         gsap.fromTo(faqLeft,
@@ -56,32 +110,29 @@ export default function UsecaseAnimations() {
               trigger: faqLeft,
               start: 'top 80%',
               once: true,
-            }
+            },
           }
         )
       }
 
-      // ── FAQ : questions stagger fade-up ────────────────────────────────
-      const faqQuestions = document.querySelectorAll('[data-anim="faq-question"]')
-      if (faqQuestions.length) {
-        faqQuestions.forEach((q, i) => {
-          gsap.fromTo(q,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.9,
-              ease,
-              scrollTrigger: {
-                trigger: q,
-                start: 'top 88%',
-                once: true,
-              },
-              delay: i * 0.04,
-            }
-          )
-        })
-      }
+      // ── FAQ : questions stagger fade-up ──────────────────────────────
+      document.querySelectorAll('[data-anim="faq-question"]').forEach((q, i) => {
+        gsap.fromTo(q,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease,
+            scrollTrigger: {
+              trigger: q,
+              start: 'top 88%',
+              once: true,
+            },
+            delay: i * 0.04,
+          }
+        )
+      })
 
     })
 

@@ -25,7 +25,8 @@
     "lending": "Lending",
     "fractionate": "Fractionate",
     "joinInRealArt": "Join Us",
-    "aboutInRealArt": "About"
+    "aboutInRealArt": "About",
+    "services": "Services"
   },
   "intro": {
     "title": "The Tokenization of Art accessible to all",
@@ -1068,8 +1069,12 @@
   },
   "usecase": {
     "intro": {
-      "title": "Use Cases",
-      "subtitle": "Discover how InRealArt transforms performances through concrete use cases for CEOs and businesses."
+      "label": "Concrete Applications",
+      "title": "Art as an Identity Lever.",
+      "titleBefore": "Art as an",
+      "titleAccent": "Identity Lever",
+      "titleAfter": ".",
+      "subtitle": "From real estate heritage valorisation to employer brand affirmation, discover how our curators transform your spaces."
     },
     "items": {
       "fractionate": {
@@ -1142,6 +1147,66 @@
     "faq": {
       "title": "Frequently Asked Questions about our use cases",
       "description": "Find answers to the most common questions about our fractional art, leasing, patronage, and artwork distribution solutions."
+    },
+    "scenarios": {
+      "label": "Concrete Applications",
+      "title": "Art as an Identity Lever.",
+      "subtitle": "From real estate heritage valuation to employer brand affirmation, discover how our curators transform your spaces.",
+      "scenario1": {
+        "badge": "Scenario 01",
+        "title": "Prestige",
+        "titleItalic": "Hospitality",
+        "description": "Art is at the heart of the client experience. We create artistic journeys that align with the history of the venue, increasing the perceived value of rooms and common areas.",
+        "pills": [
+          "Thematic curation",
+          "Artwork rotation",
+          "Direct sales to clients"
+        ],
+        "cta": "Detailed case study →"
+      },
+      "scenario2": {
+        "badge": "Scenario 02",
+        "title": "Corporate HQs &",
+        "titleItalic": "Identity",
+        "description": "Assert your corporate values through contemporary creation. Art fosters team creativity and strengthens brand image with your partners.",
+        "pills": [
+          "Tax optimization (Leasing)",
+          "Employer Brand",
+          "Workplace wellness"
+        ],
+        "cta": "Explore our leasing solutions →"
+      },
+      "scenario3": {
+        "badge": "Scenario 03",
+        "title": "Real Estate &",
+        "titleItalic": "Residential",
+        "description": "Support for developers and interior architects for the decoration of showcase apartments and upscale common areas.",
+        "pills": [
+          "Property valuation",
+          "Bespoke curation",
+          "Emerging artists"
+        ],
+        "cta": "Contact a curator →"
+      }
+    },
+    "impact": {
+      "stat1": {
+        "value": "+30%",
+        "label": "Perceived heritage valuation"
+      },
+      "stat2": {
+        "value": "100%",
+        "label": "Tax deduction via leasing"
+      },
+      "stat3": {
+        "value": "50+",
+        "label": "Partner companies"
+      }
+    },
+    "ctaFinal": {
+      "title": "A specific project in mind?",
+      "subtitle": "Our experts guide you from artwork selection to financial structuring.",
+      "button": "Start a consultation"
     }
   },
   "leasing": {
@@ -1533,8 +1598,8 @@
     "noImage": "No image available",
     "by": "By",
     "views": "views",
+    "viewAllPosts": "View all articles",
     "loadMore": "Load more articles",
-    "backToBlog": "Back to blog",
     "postNotFound": "Post not found",
     "postNotFoundInLanguage": "Post not found in this language",
     "postAvailableInOtherLanguage": "This post is available in another language.",

@@ -80,8 +80,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.usecase')}
           </Link>
           <Link
-            href="/blog"
-            className={`${pathname === '/blog' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            href="/media"
+            className={`${pathname === '/media' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.blog')}

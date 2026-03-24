@@ -48,6 +48,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/loa-simulator',
   '/manifest',
   '/marketplace',
+  '/media',
   '/presale',
   '/roadmap',
   '/simulators',
