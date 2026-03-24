@@ -476,8 +476,10 @@
   },
   "joinInRealArt": {
     "header": {
-      "title": "Rejoignez InRealArt",
-      "description": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. <br><br>InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. ",
+      "label": "Faire partie de l'histoire",
+      "title": "Rejoindre InRealArt",
+      "description": "Que vous soyez un créateur passionné, un collectionneur averti ou une entreprise visionnaire, découvrez comment intégrer notre écosystème dédié à l'excellence artistique.",
+      "descriptionOld": "Découvrez l'ensemble des ressources nécessaires pour propulser votre prochain projet créatif. <br><br>InRealArt est le partenaire idéal pour magnifier votre récit et lui donner une portée inédite. ",
       "title2": "Ce projet est avant tout le vôtre. ",
       "description2": "Conçu avec soin et réflexion pendant plus de deux ans, en collaboration avec des artistes de renom et des galeries prestigieuses, il vous offre un écosystème unique pour valoriser vos œuvres, développer votre visibilité et révéler pleinement votre potentiel.",
       "title3": "Pourquoi nous rejoindre ?",
@@ -490,6 +492,38 @@
         "title": "Vous êtes une galerie",
         "description": "InRealArt vous soutient dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom.<br><br>Que vous souhaitiez valoriser votre espace ou dénicher l'œuvre idéale pour un client, nous sommes à vos côtés pour concrétiser vos aspirations."
       }
+    },
+    "cards": {
+      "artists": {
+        "tag": "Pour les créateurs",
+        "title": "Devenir un",
+        "titleItalic": "Artiste",
+        "titleSuffix": "du collectif",
+        "description": "Rejoignez un collectif d'artistes sélectionnés pour leur singularité. InRealArt valorise votre travail, développe votre visibilité et vous accompagne dans la narration de votre histoire.",
+        "cta": "Postuler"
+      },
+      "collectors": {
+        "tag": "Pour les passionnés",
+        "title": "Devenir",
+        "titleItalic": "Collectionneur",
+        "titleSuffix": "InRealArt",
+        "description": "Accédez à une sélection d'œuvres d'exception, certifiées et tracées. Rejoignez un cercle privé de collectionneurs partageant la même exigence esthétique.",
+        "cta": "Découvrir le cercle"
+      },
+      "companies": {
+        "tag": "Pour les structures",
+        "title": "Partenariats",
+        "titleItalic": "Entreprises",
+        "titleSuffix": "& Leasing",
+        "description": "Intégrez l'art dans votre stratégie d'entreprise. Solutions de leasing, mécénat culturel et optimisation fiscale pour valoriser votre image et votre patrimoine.",
+        "cta": "Consulter nos solutions"
+      }
+    },
+    "newsletter": {
+      "title": "Restez informé de nos prochaines sélections.",
+      "placeholder": "Votre adresse email",
+      "cta": "S'abonner à la gazette",
+      "success": "Merci, vous êtes bien inscrit !"
     },
     "faq": {
       "title": "Questions fréquentes",

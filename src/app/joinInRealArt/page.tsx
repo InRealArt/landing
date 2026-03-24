@@ -1,6 +1,6 @@
 'use client'
 
-import { JoinInRealArtHero, DescriptionsBlock } from "@/components/joinInRealArt";
+import { JoinInRealArtHero, DescriptionsBlock, JoinNewsletterSection } from "@/components/joinInRealArt";
 import JoinInRealArtFAQ from "@/components/joinInRealArt/JoinInRealArtFAQ";
 
 export default function UseCase() {
@@ -11,6 +11,7 @@ export default function UseCase() {
       {/* <CustomerStories /> */}
       {/* <ReadyToStart /> */}
       <JoinInRealArtFAQ />
+      <JoinNewsletterSection />
     </>
   );
-} 
+}

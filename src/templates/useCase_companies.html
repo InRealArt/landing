@@ -1,0 +1,242 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art en Entreprise | InRealArt - Identité & Culture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: var(--ink-black);
+            color: white;
+            cursor: pointer;
+        }
+        .btn-cta:hover {
+            background: transparent;
+            color: var(--ink-black);
+        }
+        .advantage-box {
+            padding: 3rem;
+            background: var(--soft-gray);
+            border-top: 1px solid var(--border-light);
+            transition: all 0.5s ease;
+        }
+        .advantage-box:hover {
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border-top-color: var(--gold-accent);
+        }
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold-accent);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Journal</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Entreprises</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Store</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-48 pb-32 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="section-number">Culture d'Entreprise</span>
+                    <h1 class="text-6xl md:text-8xl serif leading-tight">L'Art comme vecteur d'<span class="italic text-gold-accent">Identité</span>.</h1>
+                    <p class="text-[12px] uppercase tracking-[0.3em] text-gray-400 mt-12 leading-relaxed max-w-lg">
+                        Transformez vos espaces de travail en lieux d'inspiration. InRealArt accompagne les entreprises dans l'affirmation de leurs valeurs par la création contemporaine.
+                    </p>
+                    <div class="mt-12">
+                        <a href="#contact" class="btn-cta">Incarner ma marque</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1500" alt="Hall d'entrée entreprise design" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 bg-white p-8 hidden lg:block border border-gray-100 shadow-xl max-w-xs">
+                        <p class="serif text-xl italic mb-2">"L'art au bureau réduit le stress de 17% et booste la productivité."</p>
+                        <p class="text-[8px] uppercase tracking-widest text-gray-400">Étude Qualité de Vie au Travail</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LES PILIERS -->
+    <section class="py-40 bg-black text-white px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="mb-24">
+                <span class="section-number !text-gray-600">Valeur ajoutée</span>
+                <h2 class="serif text-5xl md:text-7xl italic">L'Art au service de <br>votre stratégie.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">01</span>
+                    <h3 class="serif text-2xl mb-6">Marque Employeur</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Attirez et fidélisez les talents en offrant un cadre de travail stimulant et esthétique. L'art témoigne de l'ouverture d'esprit et de la modernité de votre management.
+                    </p>
+                </div>
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">02</span>
+                    <h3 class="serif text-2xl mb-6">Image de Marque</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Impressionnez vos partenaires et clients dès leur arrivée. Une collection d'art bien pensée souligne votre succès et votre engagement sociétal (RSE).
+                    </p>
+                </div>
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">03</span>
+                    <h3 class="serif text-2xl mb-6">Bien-être & Créativité</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Favorisez la pensée latérale et la cohésion d'équipe. L'art provoque le dialogue, inspire de nouvelles idées et améliore la qualité de vie au bureau.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="py-40 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-20">
+                <div class="lg:w-1/3">
+                    <span class="section-number">Nos Services B2B</span>
+                    <h2 class="serif text-5xl mb-8 italic">Une expertise <br>globale.</h2>
+                    <p class="text-[12px] uppercase tracking-[0.2em] text-gray-400 leading-loose">
+                        Nous ne vendons pas simplement des œuvres, nous concevons votre patrimoine artistique de demain.
+                    </p>
+                </div>
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100 border border-gray-100">
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Curation Identitaire</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Sélection d'œuvres qui résonnent avec vos métiers, votre histoire et votre vision stratégique.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Ingénierie Fiscale</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Solutions de leasing (LOA) permettant de déduire 100% des loyers de votre résultat imposable.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Ateliers & Médiation</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Organisation de rencontres avec les artistes pour engager vos collaborateurs dans la démarche.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Gestion de Collection</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Inventaire, assurance, maintenance et rotation régulière de vos œuvres pour un renouvellement constant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="py-40 bg-soft-gray px-10">
+        <div class="max-w-3xl mx-auto bg-white p-16 shadow-sm border border-gray-50">
+            <div class="text-center mb-16">
+                <h3 class="serif text-4xl italic mb-4">Donnez vie à vos murs</h3>
+                <p class="text-[9px] uppercase tracking-widest text-gray-400">Échangeons sur vos besoins en aménagement et identité.</p>
+            </div>
+            <form class="space-y-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <input type="text" placeholder="NOM DE L'ENTREPRISE" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                    <input type="text" placeholder="FONCTION" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                </div>
+                <input type="email" placeholder="EMAIL PROFESSIONNEL" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                <textarea placeholder="VOTRE PROJET (DÉCORATION, IDENTITÉ, RSE...)" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all h-32"></textarea>
+                <button type="submit" class="btn-cta w-full">Parler à un curateur</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">InRealArt</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">À propos</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Manifeste</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Cas d'usage</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Entreprises</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Hôtellerie</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Particuliers</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Légal</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Mentions Légales</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">RSE & Art</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 InRealArt — Intelligence Artistique pour l'Entreprise</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#" class="hover:text-black">Instagram</a>
+                    <a href="#" class="hover:text-black">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

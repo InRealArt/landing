@@ -1,0 +1,244 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cas d'Utilisation | InRealArt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: var(--ink-black);
+            color: white;
+            cursor: pointer;
+        }
+        .btn-cta:hover {
+            background: transparent;
+            color: var(--ink-black);
+        }
+        .usecase-image {
+            overflow: hidden;
+            background: var(--soft-gray);
+        }
+        .usecase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .usecase-card:hover .usecase-image img {
+            transform: scale(1.08);
+        }
+        .pill {
+            padding: 4px 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 50px;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Journal</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Galeries</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Cas d'usage</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pt-48 pb-32 px-10 border-b border-gray-50">
+        <div class="max-w-screen-2xl mx-auto text-center">
+            <span class="section-number">Applications concrètes</span>
+            <h1 class="text-6xl md:text-8xl serif leading-tight mb-8">L'Art comme <span class="italic text-gold-accent">Levier</span> d'Identité.</h1>
+            <p class="text-[12px] uppercase tracking-[0.3em] text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces.
+            </p>
+        </div>
+    </header>
+
+    <!-- USE CASES LIST -->
+    <main class="py-20">
+        
+        <!-- Case 1: Hôtellerie -->
+        <section class="py-24 px-10 usecase-card">
+            <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="usecase-image aspect-[16/11]">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=1500" alt="Hôtellerie de Luxe">
+                </div>
+                <div>
+                    <span class="text-gold-accent text-[10px] uppercase tracking-[0.4em] mb-6 block">Scénario 01</span>
+                    <h2 class="serif text-5xl md:text-6xl mb-8">Hôtellerie de <span class="italic">Prestige</span></h2>
+                    <p class="text-[14px] text-gray-600 font-light leading-relaxed mb-8">
+                        L'art est au cœur de l'expérience client. Nous créons des parcours artistiques cohérents avec l'histoire du lieu, augmentant la valeur perçue des chambres et des espaces communs.
+                    </p>
+                    <div class="mb-12">
+                        <span class="pill">Curation thématique</span>
+                        <span class="pill">Rotation des œuvres</span>
+                        <span class="pill">Vente directe aux clients</span>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 hover:text-gold-accent hover:border-gold-accent transition-all">Étude de cas détaillée →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case 2: Sièges Sociaux (Inverted) -->
+        <section class="py-24 px-10 bg-soft-gray usecase-card">
+            <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="lg:order-2">
+                    <div class="usecase-image aspect-[16/11]">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1500" alt="Bureaux Modernes">
+                    </div>
+                </div>
+                <div class="lg:order-1">
+                    <span class="text-gold-accent text-[10px] uppercase tracking-[0.4em] mb-6 block">Scénario 02</span>
+                    <h2 class="serif text-5xl md:text-6xl mb-8">Sièges Sociaux & <span class="italic">Identité</span></h2>
+                    <p class="text-[14px] text-gray-600 font-light leading-relaxed mb-8">
+                        Affirmez vos valeurs d'entreprise à travers la création contemporaine. L'art favorise la créativité des équipes et renforce l'image de marque auprès de vos partenaires.
+                    </p>
+                    <div class="mb-12">
+                        <span class="pill">Optimisation fiscale (Leasing)</span>
+                        <span class="pill">Marque Employeur</span>
+                        <span class="pill">Bien-être au travail</span>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 hover:text-gold-accent hover:border-gold-accent transition-all">Consulter nos solutions leasing →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case 3: Résidences de Luxe -->
+        <section class="py-24 px-10 usecase-card">
+            <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="usecase-image aspect-[16/11]">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1500" alt="Appartement de luxe">
+                </div>
+                <div>
+                    <span class="text-gold-accent text-[10px] uppercase tracking-[0.4em] mb-6 block">Scénario 03</span>
+                    <h2 class="serif text-5xl md:text-6xl mb-8">Immobilier & <span class="italic">Résidentiel</span></h2>
+                    <p class="text-[14px] text-gray-600 font-light leading-relaxed mb-8">
+                        Accompagnement des promoteurs et architectes d'intérieur pour la décoration d'appartements témoins et d'espaces communs de standing.
+                    </p>
+                    <div class="mb-12">
+                        <span class="pill">Valorisation foncière</span>
+                        <span class="pill">Curation sur-mesure</span>
+                        <span class="pill">Artistes émergents</span>
+                    </div>
+                    <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 hover:text-gold-accent hover:border-gold-accent transition-all">Contactez un curateur →</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION CHIFFRES / IMPACT -->
+    <section class="py-40 bg-black text-white px-10 text-center">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-24">
+            <div>
+                <span class="serif text-6xl text-gold-accent block mb-4">+30%</span>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Valorisation perçue du patrimoine</p>
+            </div>
+            <div>
+                <span class="serif text-6xl text-gold-accent block mb-4">100%</span>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Déduction fiscale via le leasing</p>
+            </div>
+            <div>
+                <span class="serif text-6xl text-gold-accent block mb-4">50+</span>
+                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Entreprises déjà partenaires</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-40 px-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="serif text-5xl italic mb-12">Un projet spécifique en tête ?</h3>
+            <p class="text-gray-500 mb-12 font-light">Nos experts vous accompagnent de la sélection artistique au montage financier.</p>
+            <button class="btn-cta">Démarrer une consultation</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">InRealArt</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">À propos</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">Manifeste</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Services</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">Leasing</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">Marketplace</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Suivre</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">Instagram</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black transition-colors">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 InRealArt — Intelligence Artistique</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#" class="hover:text-black transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-black transition-colors">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

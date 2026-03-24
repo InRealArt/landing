@@ -91,18 +91,18 @@ const Footer = () => {
           </div>
 
           {/* Column 2: Marketplace */}
-          <div>
+          {/* <div>
             <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.marketplace')}</h5>
             <Link href="/presale" className="footer-link font-semibold text-ink-black">{t('nav.artworks')}</Link>
             <Link href="/artists" className="footer-link">{t('nav.artists')}</Link>
             <Link href="/marketplace" className="footer-link">{t('nav.marketplace')}</Link>
             <Link href="/faq" className="footer-link">{t('nav.faq')}</Link>
-          </div>
+          </div> */}
 
           {/* Column 3: Expertise */}
           <div>
             <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-ink-black" suppressHydrationWarning>{t('footer.expertise')}</h5>
-            <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link>
+            {/* <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link> */}
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
           </div>

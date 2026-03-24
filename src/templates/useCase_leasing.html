@@ -1,0 +1,248 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leasing d'Art | InRealArt - Solutions Entreprises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .btn-cta {
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--ink-black);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            display: inline-block;
+            background: var(--ink-black);
+            color: white;
+            cursor: pointer;
+        }
+        .btn-cta:hover {
+            background: transparent;
+            color: var(--ink-black);
+        }
+        .advantage-box {
+            padding: 3rem;
+            background: var(--soft-gray);
+            border-top: 1px solid var(--border-light);
+            transition: all 0.5s ease;
+        }
+        .advantage-box:hover {
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border-top-color: var(--gold-accent);
+        }
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--gold-accent);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Journal</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Leasing</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Store</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="pt-48 pb-32 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="section-number">Ingénierie Financière & Art</span>
+                    <h1 class="text-6xl md:text-8xl serif leading-tight">L'Art devient un <span class="italic text-gold-accent">Investissement</span> fluide.</h1>
+                    <p class="text-[12px] uppercase tracking-[0.3em] text-gray-400 mt-12 leading-relaxed max-w-lg">
+                        Optimisez la fiscalité de votre entreprise tout en sublimant vos espaces de travail grâce à nos solutions de Location avec Option d'Achat (LOA).
+                    </p>
+                    <div class="mt-12">
+                        <a href="#simulateur" class="btn-cta">Simuler mon projet</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=1500" alt="Bureaux avec œuvres d'art" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 bg-white p-8 hidden lg:block border border-gray-100 shadow-xl max-w-xs">
+                        <p class="serif text-xl italic mb-2">"Une déductibilité totale des loyers."</p>
+                        <p class="text-[8px] uppercase tracking-widest text-gray-400">Expert-comptable partenaire InRealArt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LES AVANTAGES -->
+    <section class="py-40 bg-black text-white px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="mb-24">
+                <span class="section-number !text-gray-600">Levier de performance</span>
+                <h2 class="serif text-5xl md:text-7xl italic">Pourquoi choisir <br>le Leasing d'Art ?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">01</span>
+                    <h3 class="serif text-2xl mb-6">Fiscalité Optimisée</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Les loyers sont déductibles du résultat imposable au titre de la décoration des bureaux (Art. 39-1-1° du CGI). Réduisez votre IS tout en valorisant votre image.
+                    </p>
+                </div>
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">02</span>
+                    <h3 class="serif text-2xl mb-6">Trésorerie Préservée</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Étale l'investissement sur 13 à 48 mois. Conservez votre capacité d'autofinancement pour votre cœur de métier sans alourdir votre bilan.
+                    </p>
+                </div>
+                <div class="p-10 border border-gray-800 hover:border-gold-accent transition-colors">
+                    <span class="step-number">03</span>
+                    <h3 class="serif text-2xl mb-6">Option d'Achat</h3>
+                    <p class="text-[13px] text-gray-400 leading-relaxed font-light">
+                        Au terme du contrat, devenez propriétaire de l'œuvre pour une valeur résiduelle symbolique. Transférez l'œuvre vers votre patrimoine privé ou celui de la structure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESSUS -->
+    <section class="py-40 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-20">
+                <div class="lg:w-1/3">
+                    <span class="section-number">Méthodologie</span>
+                    <h2 class="serif text-5xl mb-8 italic">De la sélection <br>à l'installation.</h2>
+                    <p class="text-[12px] uppercase tracking-[0.2em] text-gray-400 leading-loose">
+                        Un accompagnement clé-en-main pour intégrer l'art dans votre stratégie d'entreprise sans contrainte administrative.
+                    </p>
+                </div>
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100 border border-gray-100">
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Curation</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Nos curateurs sélectionnent des œuvres en adéquation avec votre culture d'entreprise et vos espaces.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Simulation</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Élaboration d'un plan de financement sur-mesure validé par nos partenaires bancaires.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Logistique</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Transport spécialisé, assurance "clou à clou" et installation par nos techniciens d'art.</p>
+                    </div>
+                    <div class="advantage-box">
+                        <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Mise en valeur</h4>
+                        <p class="text-[13px] text-gray-500 font-light">Cartels explicatifs, vernissage interne et médiation pour engager vos collaborateurs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FORM -->
+    <section id="simulateur" class="py-40 bg-soft-gray px-10">
+        <div class="max-w-3xl mx-auto bg-white p-16 shadow-sm border border-gray-50">
+            <div class="text-center mb-16">
+                <h3 class="serif text-4xl italic mb-4">Demander une simulation</h3>
+                <p class="text-[9px] uppercase tracking-widest text-gray-400">Réponse sous 48h par un conseiller spécialisé.</p>
+            </div>
+            <form class="space-y-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <input type="text" placeholder="ENTREPRISE" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                    <input type="text" placeholder="SIRET" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <input type="email" placeholder="EMAIL PROFESSIONNEL" class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all">
+                    <select class="w-full border-b border-gray-200 py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent">
+                        <option>BUDGET ESTIMÉ</option>
+                        <option>5 000€ - 15 000€</option>
+                        <option>15 000€ - 50 000€</option>
+                        <option>50 000€ +</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-cta w-full">Obtenir mon étude personnalisée</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">InRealArt</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">À propos</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Manifeste</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Solutions</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Leasing B2B</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Curation</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4">Légal</h5>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">Fiscalité Art</a>
+                    <a href="#" class="footer-link block text-[11px] text-gray-500 mb-3 uppercase tracking-widest hover:text-black">CGV Leasing</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 InRealArt — Solutions Financement & Art</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#" class="hover:text-black">Mentions Légales</a>
+                    <a href="#" class="hover:text-black">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

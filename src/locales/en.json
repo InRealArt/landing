@@ -501,8 +501,10 @@
   },
   "joinInRealArt": {
     "header": {
+      "label": "Be part of the story",
       "title": "Join InRealArt",
-      "description": "Discover the full range of resources needed to propel your next creative project. <br><br>InRealArt is the ideal partner to amplify your story and give it a unique scope.",
+      "description": "Whether you are a passionate creator, an experienced collector or a visionary company, discover how to join our ecosystem dedicated to artistic excellence.",
+      "descriptionOld": "Discover the full range of resources needed to propel your next creative project. <br><br>InRealArt is the ideal partner to amplify your story and give it a unique scope.",
       "title2": "This project is above all yours.",
       "description2": "Carefully and thoughtfully designed over more than two years, in collaboration with renowned artists and prestigious galleries, it offers you a unique ecosystem to showcase your work, develop your visibility, and fully reveal your potential.",
       "title3": "Why join us?",
@@ -515,6 +517,38 @@
         "title": "You are a gallery",
         "description": "InRealArt supports you in realizing your most daring creative projects, in collaboration with renowned artists.<br><br>Whether you want to enhance your space or find the ideal work for a client, we are by your side to make your aspirations a reality."
       }
+    },
+    "cards": {
+      "artists": {
+        "tag": "For creators",
+        "title": "Become an",
+        "titleItalic": "Artist",
+        "titleSuffix": "of the collective",
+        "description": "Join a collective of artists selected for their singularity. InRealArt values your work, develops your visibility and accompanies you in the narration of your story.",
+        "cta": "Apply"
+      },
+      "collectors": {
+        "tag": "For enthusiasts",
+        "title": "Become a",
+        "titleItalic": "Collector",
+        "titleSuffix": "InRealArt",
+        "description": "Access a selection of exceptional, certified and traced artworks. Join a private circle of collectors sharing the same aesthetic standards.",
+        "cta": "Discover the circle"
+      },
+      "companies": {
+        "tag": "For organisations",
+        "title": "Partnerships",
+        "titleItalic": "Companies",
+        "titleSuffix": "& Leasing",
+        "description": "Integrate art into your business strategy. Leasing solutions, cultural patronage and tax optimisation to enhance your image and your assets.",
+        "cta": "Consult our solutions"
+      }
+    },
+    "newsletter": {
+      "title": "Stay informed about our upcoming selections.",
+      "placeholder": "Your email address",
+      "cta": "Subscribe to the gazette",
+      "success": "Thank you, you are now subscribed!"
     },
     "faq": {
       "title": "Frequently Asked Questions",
