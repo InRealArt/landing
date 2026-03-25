@@ -24,11 +24,11 @@ const Question = ({ question, answer }: QuestionProps) => {
       onClick={toggleIsOpen}
     >
       <div className="flex justify-between items-start gap-6">
-        <h3 className="serif italic text-xl lg:text-2xl font-light text-[var(--ink-black)] leading-snug flex-1 group-hover:text-[var(--gold-accent)] transition-colors duration-300">
+        <h3 className="serif italic text-xl lg:text-2xl font-light text-[var(--text)] leading-snug flex-1 group-hover:text-[var(--gold-accent)] transition-colors duration-300">
           {question}
         </h3>
         <span
-          className={`shrink-0 mt-1 text-[var(--ink-black)] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+          className={`shrink-0 mt-1 text-[var(--text)] transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`}
         >
           <Plus size={16} strokeWidth={1} />
         </span>
