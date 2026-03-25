@@ -1,10 +1,8 @@
-import JoinIraHero from "./JoinIraHero";
+import GalleriesHero from "./GalleriesHero";
 import JoinIraOpportunities from "./JoinIraOpportunities";
-import ArtistTestimonialsWrapper from "./GalleryTestimonialsWrapper";
-import ArtistsSection from "./ArtistsSection";
-import HowToJoinUs from "@/components/common/HowToJoinUs";
-import GalleriesSection from "./GalleriesSection";
 import GalleryTestimonialsWrapper from "./GalleryTestimonialsWrapper";
+import GalleriesContactSection from "./GalleriesContactSection";
+import HowToJoinUs from "@/components/common/HowToJoinUs";
 
 export default function JoinInRealArtGalleriesPage() {
   const galleriesOpportunities = [
@@ -22,11 +20,15 @@ export default function JoinInRealArtGalleriesPage() {
       key: 'rights',
       titleKey: 'joinInRealArt.galleries.opportunities.rights.title',
       descriptionKey: 'joinInRealArt.galleries.opportunities.rights.description'
+    },
+    {
+      key: 'brand',
+      titleKey: 'joinInRealArt.galleries.opportunities.brand.title',
+      descriptionKey: 'joinInRealArt.galleries.opportunities.brand.description'
     }
   ];
 
   const galleriesHowToJoinSteps = [
-
     {
       number: '01',
       title: 'joinInRealArt.galleries.howToJoin.steps.1.title',
@@ -42,37 +44,25 @@ export default function JoinInRealArtGalleriesPage() {
       title: 'joinInRealArt.galleries.howToJoin.steps.3.title',
       description: ''
     }
-  ]
+  ];
 
   return (
     <div className="min-h-screen text-textColor">
-      <JoinIraHero 
-        title="joinInRealArt.galleries.hero.title"
-        subtitle="joinInRealArt.galleries.hero.subtitle"
-        buttonText="joinInRealArt.galleries.hero.button"
-        buttonUrl="#howToJoinUs"
-      />
-      
-      <GalleryTestimonialsWrapper />
-      
-      <GalleriesSection />
-      
-      <JoinIraOpportunities 
+      <GalleriesHero />
+
+      <JoinIraOpportunities
         titleKey="joinInRealArt.galleries.opportunities.title"
         buttonTextKey="joinInRealArt.galleries.opportunities.button"
         opportunities={galleriesOpportunities}
         buttonUrl="#howToJoinUs"
+        darkBackground={true}
       />
-      
-      <HowToJoinUs 
-        title="joinInRealArt.galleries.howToJoin.title"
-        buttonText="joinInRealArt.galleries.howToJoin.button"
-        steps={galleriesHowToJoinSteps}
-        useModal={true}
-        modalTitleKey="joinInRealArt.galleries.contact.title"
-        modalMessageKey="joinInRealArt.galleries.contact.message"
-      />
-      
+
+      <GalleryTestimonialsWrapper />
+
+      <GalleriesContactSection />
+
+     
     </div>
   );
-} 
+}

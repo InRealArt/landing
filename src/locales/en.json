@@ -563,33 +563,43 @@
     "galleries": {
       "title": "Our Partner Galleries",
       "hero": {
-        "title": "You are a gallery",
-        "subtitle": "InRealArt accompanies you in the realization of your most daring creative projects, in collaboration with renowned artists.<br><br>Integrate your works into our catalog, benefit from joint marketing actions and access to our marketplace to reach a passionate clientele. We also help you bring collectors directly to your gallery, to valorize your exhibitions and facilitate the meeting with potential buyers. <br><br>Whether you want to highlight your space or offer the ideal work to a collector, we are by your side to make your ambitions a reality.",
-        "button": "Get started now"
+        "sectionLabel": "Strategic Alliance",
+        "title": "Amplify the voice of your <em>Artists</em>.",
+        "subtitle": "INREALART COLLABORATES WITH GALLERIES TO HYBRIDIZE NETWORKS, MULTIPLY B2B SALES OPPORTUNITIES AND OFFER UNPRECEDENTED MEDIA RESONANCE TO YOUR EXHIBITIONS.",
+        "button": "Become a partner gallery"
       },
       "opportunities": {
-        "title": "A New Channel for Your Sales and Your Visibility",
+        "title": "The ecosystem at the service of Galleries.",
         "button": "Become a Partner Gallery",
         "support": {
-          "title": "Diversify yourself",
-          "description": "Each partner gallery has a dedicated space to present and manage its works. You have full control over your collections, with a simple and intuitive interface to follow sales. This allows you to centralize the management of your works and benefit from a professional digital environment to optimize your sales."
+          "title": "01. Media Visibility",
+          "description": "Full editorial coverage of your openings and exhibitions. Artist portraits and newsletters dedicated to our qualified collector base."
         },
         "technology": {
-          "title": "Fractional sale for more flexibility",
-          "description": "With InRealArt, you can fractionalize the ownership of your paintings, allowing multiple investors to acquire parts of an artwork. This option allows for immediate revenue generation while maintaining the value of the artwork. For example, a gallery can fractionalize a highly sought-after work and sell it in parts, attracting investors while keeping the artwork in its collection. This frees up cash and simplifies inventory management without giving up the complete ownership of the piece."
+          "title": "02. B2B Marketplace Access",
+          "description": "Integrate your works into our sales platform. We connect your catalogue to the needs of businesses and interior decorators."
         },
         "rights": {
-          "title": "Reduced storage costs and optimized management",
-          "description": "By using InRealArt, you can sell your works without keeping them in stock, reducing associated storage costs. An artwork that could remain unused or stored can be activated and begin generating revenue immediately on our platform. This allows you to better manage your collections while reaching a global audience of investors ready to finance new acquisitions or exhibitions."
+          "title": "03. Leasing Solutions",
+          "description": "Facilitate acquisitions for your professional clients. We manage the leasing financial structure, enabling an immediate sale for the gallery."
+        },
+        "brand": {
+          "title": "04. Brand Collaborations",
+          "description": "Our agency identifies special projects (luxury hotels, corporate headquarters) where your artists can bring major artistic added value."
         }
       },
       "testimonials": {
-        "title": "They Transformed Their Gallery With IRA",
+        "title": "They trust us",
+        "sectionLabel": "Partner Voices",
         "gallery1": {
-          "text": "&quot;The partnership with InReal Art offers me a real opportunity: to expand my reach, open my gallery to a more diverse public, and value my artists thanks to today's technologies. It's a growth lever and a step towards a more accessible, more vibrant art market.&quot;"
+          "text": "InRealArt brought a digital and corporate dimension to our gallery that we could not have developed alone. Leasing has become a decisive selling point for our corporate clients, and the editorial coverage of our openings has expanded our collector network.",
+          "name": "Galerie Leadouze",
+          "role": "Galerie Leadouze, Paris"
         },
         "gallery2": {
-          "text": "&quot;This partnership enables me to develop my gallery in a coherent way: I maintain my high artistic standards while expanding my tools, my audiences and my opportunities. It's a way of bringing ArtThema into the present, while preparing for the future.&quot;"
+          "text": "The quality of InRealArt's editorial line is remarkable. Our artists have benefited from targeted visibility among a new network of institutional collectors, and leasing solutions have transformed our commercial approach.",
+          "name": "Catherine Meulemans",
+          "role": "Galerie Arthema, Brussels"
         }
       },
       "howToJoin": {
@@ -617,6 +627,24 @@
       "contact": {
         "title": "Join InRealArt",
         "message": "Contact us by email at "
+      },
+      "contactSection": {
+        "sectionLabel": "Professional Contact",
+        "title": "Initiate a Partnership",
+        "description": "We rigorously select our partner galleries to ensure artistic coherence and excellence of service.",
+        "points": {
+          "1": "Co-curation of events",
+          "2": "Catalogue digitalisation",
+          "3": "Investor network"
+        },
+        "form": {
+          "galleryName": "Gallery name",
+          "email": "Contact email",
+          "profile": "Profile and represented artists",
+          "submit": "Send a request",
+          "success": "Your request has been sent. We will contact you very shortly.",
+          "error": "An error occurred. Please try again or write to us directly."
+        }
       }
     },
     "artists": {

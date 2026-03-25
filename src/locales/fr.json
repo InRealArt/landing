@@ -538,33 +538,43 @@
     "galleries": {
       "title": "Nos Galeries partenaires",
       "hero": {
-        "title": "Vous êtes une galerie",
-        "subtitle": "InRealArt vous accompagne dans la réalisation de vos projets créatifs les plus audacieux, en collaboration avec des artistes de renom.<br><br>Intégrez vos œuvres à notre catalogue, bénéficiez d’actions de marketing conjoint et profitez de notre marketplace pour toucher une clientèle passionnée. Nous vous aidons également à faire venir des collectionneurs directement dans votre galerie, pour valoriser vos expositions et faciliter la rencontre avec des acheteurs potentiels. <br><br>Que vous souhaitiez mettre en lumière votre espace ou proposer l’œuvre idéale à un collectionneur, nous sommes à vos côtés pour concrétiser vos ambitions.",
-        "button": "Commencer dès maintenant"
+        "sectionLabel": "Alliance Stratégique",
+        "title": "Amplifiez la voix de vos <em>Artistes</em>.",
+        "subtitle": "INREALART COLLABORE AVEC LES GALERIES POUR HYBRIDER LES RÉSEAUX, MULTIPLIER LES OPPORTUNITÉS DE VENTE B2B ET OFFRIR UNE RÉSONANCE MÉDIATIQUE INÉDITE À VOS EXPOSITIONS.",
+        "button": "Devenir galerie partenaire"
       },
       "opportunities": {
-        "title": "Un Nouveau Canal pour Vos Ventes et Votre Visibilité ",
+        "title": "L'écosystème au service des Galeries.",
         "button": "Devenez Galerie Partenaire",
         "support": {
-          "title": "Diversifiez vous",
-          "description": "Chaque galerie partenaire dispose d'un espace dédié pour présenter et gérer ses œuvres. Vous avez un contrôle total sur vos collections, avec une interface simple et intuitive pour suivre les vente. Cela vous permet de centraliser la gestion de vos œuvres et de bénéficier d'un environnement numérique professionnel pour optimiser vos ventes."
+          "title": "01. Visibilité Média",
+          "description": "Couverture éditoriale complète de vos vernissages et expositions. Portraits d'artistes et newsletters dédiées à notre base de collectionneurs qualifiés."
         },
         "technology": {
-          "title": "Vente en fractionné pour plus de flexibilité",
-          "description": "Avec InRealArt, vous pouvez fractionner la propriété de vos toiles, permettant ainsi à plusieurs investisseurs d'acquérir des parts d'une œuvre. Cette option permet de générer des revenus immédiats tout en maintenant la valeur de l'œuvre. Par exemple, une galerie peut fractionner une œuvre prisée et la vendre sous forme de parts, attirant ainsi des investisseurs tout en laissant l'œuvre dans sa collection. Cela libère de la trésorerie et facilite la gestion des stocks sans renoncer à la propriété complète de la pièce."
+          "title": "02. Accès Marketplace B2B",
+          "description": "Intégrez vos œuvres à notre plateforme de vente. Nous connectons votre catalogue aux besoins des entreprises et décorateurs d'intérieur."
         },
         "rights": {
-          "title": "Réduction des coûts de stockage et gestion optimisée",
-          "description": "En utilisant InRealArt, vous pouvez mettre en vente vos œuvres sans les laisser en stock, réduisant ainsi les coûts associés au stockage physique. Une œuvre qui pourrait rester inutilisée ou entreposée peut être activée et commencer à générer des revenus instantanément sur notre plateforme. Cela vous permet de mieux gérer vos collections tout en atteignant un public mondial d'investisseurs prêts à financer de nouvelles acquisitions ou expositions."
+          "title": "03. Solutions de Leasing",
+          "description": "Facilitez les acquisitions de vos clients professionnels. Nous gérons le montage financier en leasing, permettant une vente immédiate pour la galerie."
+        },
+        "brand": {
+          "title": "04. Collaborations de Marque",
+          "description": "Notre agence identifie des projets spéciaux (hôtellerie de luxe, sièges sociaux) où vos artistes peuvent apporter une valeur ajoutée artistique majeure."
         }
       },
       "testimonials": {
-        "title": "Ils Ont Transformé Leur Galerie Avec IRA",
+        "title": "Ils nous font confiance",
+        "sectionLabel": "Paroles de Partenaires",
         "gallery1": {
-          "text": "&quot;Le partenariat avec InReal Art m'offre une réelle opportunité : celle d'élargir ma portée, d'ouvrir ma galerie à un public plus diversifié et de valoriser mes artistes grâce aux technologies d'aujourd'hui. C'est un levier de croissance concret et un pas vers un marché de l'art plus accessible, plus vivant.&quot;"
+          "text": "InRealArt a apporté une dimension digitale et corporate à notre galerie que nous n'aurions pas pu développer seuls. Le leasing est devenu un argument de vente décisif pour nos clients entreprises, et la couverture éditoriale de nos vernissages a élargi notre réseau de collectionneurs.",
+          "name": "Galerie Leadouze",
+          "role": "Galerie Leadouze, Paris"
         },
         "gallery2": {
-          "text": "&quot;Ce partenariat me permet de faire évoluer ma galerie avec cohérence : je garde mon exigence artistique tout en élargissant mes outils, mes publics et mes opportunités. C'est une manière d'inscrire ArtThema dans le présent, tout en préparant l'avenir.&quot;"
+          "text": "La qualité de la ligne éditoriale d'InRealArt est remarquable. Nos artistes ont bénéficié d'une visibilité ciblée auprès d'un nouveau réseau de collectionneurs institutionnels, et les solutions de leasing ont transformé notre approche commerciale.",
+          "name": "Catherine Meulemans",
+          "role": "Galerie Arthema, Bruxelles"
         }
       },
       "howToJoin": {
@@ -592,6 +602,24 @@
       "contact": {
         "title": "Rejoignez InRealArt",
         "message": "Contactez nous par email à "
+      },
+      "contactSection": {
+        "sectionLabel": "Contact Professionnel",
+        "title": "Initier un Partenariat",
+        "description": "Nous sélectionnons rigoureusement nos galeries partenaires afin de garantir une cohérence artistique et une excellence de service.",
+        "points": {
+          "1": "Co-curation d'évènements",
+          "2": "Digitalisation de catalogue",
+          "3": "Réseau d'investisseurs"
+        },
+        "form": {
+          "galleryName": "Nom de la galerie",
+          "email": "Email de contact",
+          "profile": "Profil et artistes représentés",
+          "submit": "Envoyer une demande",
+          "success": "Votre demande a été envoyée. Nous vous contacterons très prochainement.",
+          "error": "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement."
+        }
       }
     },
     "artists": {

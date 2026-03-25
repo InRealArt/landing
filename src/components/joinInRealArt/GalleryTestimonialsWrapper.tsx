@@ -4,25 +4,29 @@ import ArtistTestimonials from './ArtistTestimonials'
 export default async function GalleryTestimonialsWrapper() {
   const galleries = await getTestimonialGalleries()
 
+  const leadouzeImage = galleries.find(a => a.surname?.toLowerCase().includes('leadouze'))?.imageUrl
+  const arthemaImage = galleries.find(a => a.surname?.toLowerCase().includes('arthema'))?.imageUrl
+
   const testimonials = [
     {
-      text: 'joinInRealArt.galleries.testimonials.gallery1.text',
-      classementIcac: "",
-      urlImageArtiste: galleries.find(a => a.surname?.toLowerCase().includes('leadouze'))?.imageUrl || '/images/team-member.webp',
-      name: "Alexandre Leadouze, Galerie Leadouze, 16 avenue Matignon,   Paris",
+      textKey: 'joinInRealArt.galleries.testimonials.gallery1.text',
+      urlImageArtiste: leadouzeImage || '/images/team-member.webp',
+      name: 'Galerie Leadouze',
+      role: 'Galerie Leadouze, Paris',
     },
     {
-      text: 'joinInRealArt.galleries.testimonials.gallery2.text',
-      classementIcac: "",
-      urlImageArtiste: galleries.find(a => a.surname?.toLowerCase().includes('arthema'))?.imageUrl || '/images/catherine_meulemans.webp',
-      name: "Catherine Meulemans, Galerie ArtThema ",
-    }
+      textKey: 'joinInRealArt.galleries.testimonials.gallery2.text',
+      urlImageArtiste: arthemaImage || '/images/catherine_meulemans.webp',
+      name: 'Catherine Meulemans',
+      role: 'Galerie Arthema, Bruxelles',
+    },
   ]
 
   return (
     <ArtistTestimonials
       testimonials={testimonials}
       titleKey="joinInRealArt.galleries.testimonials.title"
+      sectionLabelKey="joinInRealArt.galleries.testimonials.sectionLabel"
     />
   )
 }
