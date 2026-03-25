@@ -27,34 +27,34 @@ const Header = () => {
 
           <ul className="hidden xl:flex items-center gap-8">
             <li className="whitespace-nowrap">
-              <Link href="/artists" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+              <Link href="/artists" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.artists')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/presale" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+              <Link href="/presale" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.artworks')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/usecase" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+              <Link href="/usecase" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.usecase')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/media" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+              <Link href="/media" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.blog')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="/team" className="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+              <Link href="/team" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.aboutInRealArt')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
               <a
                 href={EXTERNAL_URLS.CALENDLY_MEETING}
-                className="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
+                className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event="calendly-header-click"

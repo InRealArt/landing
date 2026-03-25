@@ -235,6 +235,13 @@
       "description": "Rejoignez notre communauté d'artistes exceptionnels",
       "cta": "Nous rejoindre"
     },
+    "mosaic": {
+      "prev": "Artistes précédents",
+      "next": "Artistes suivants"
+    },
+    "roster": {
+      "label": "Tous les artistes"
+    },
     "profile": {
       "bornIn": "Né(e) en",
       "followArtist": "Suivre l'artiste",

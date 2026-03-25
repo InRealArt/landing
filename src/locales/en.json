@@ -235,6 +235,13 @@
       "description": "Join our community of exceptional artists",
       "cta": "Join Us"
     },
+    "mosaic": {
+      "prev": "Previous artists",
+      "next": "Next artists"
+    },
+    "roster": {
+      "label": "All artists"
+    },
     "profile": {
       "bornIn": "Born in",
       "followArtist": "Follow artist",
