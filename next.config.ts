@@ -3,11 +3,18 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     // Configuration des patterns d'images distantes
-    remotePatterns: [{
-      protocol: 'https',
-      hostname: 'firebasestorage.googleapis.com',
-      pathname: '**',
-    }],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'event.inrealart.com',
+        pathname: '**',
+      },
+    ],
 
     // Formats d'image optimisés (réduire le nombre de transformations)
     formats: ['image/webp', 'image/avif'],
