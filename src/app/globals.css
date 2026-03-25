@@ -60,6 +60,7 @@
   --gradient-to: #1f2937;
   --gray-text: #9ca3af;
   --background-grey: #1a1a1a;
+  --canvas-bg: #131313;
 }
 
 /* Classes de fonts - utilisation des variables CSS optimisées */
