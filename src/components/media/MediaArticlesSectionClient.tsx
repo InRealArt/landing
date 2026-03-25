@@ -68,7 +68,7 @@ export default function MediaArticlesSectionClient({ initialPosts }: Props) {
       <div className="flex items-baseline gap-4 mb-8 md:mb-10">
         <h2
           className="serif text-2xl sm:text-3xl font-bold whitespace-nowrap"
-          style={{ color: 'var(--ink-black)' }}
+          style={{ color: 'var(--text)' }}
         >
           Articles &amp; Entretiens
         </h2>

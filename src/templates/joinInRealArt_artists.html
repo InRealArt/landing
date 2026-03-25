@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Artiste Résident | InRealArt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-bg: #ffffff; 
+            --gold-accent: #b89c72; 
+            --ink-black: #000000;
+            --soft-gray: #f8f8f8;
+            --border-light: #eeeeee;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--canvas-bg);
+            color: var(--ink-black);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+        }
+        .section-number {
+            font-size: 0.6rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .input-field {
+            width: 100%;
+            padding: 1rem 0;
+            border: none;
+            border-bottom: 1px solid #e2e2e2;
+            font-size: 0.85rem;
+            background: transparent;
+            outline: none;
+            transition: border-color 0.4s;
+        }
+        .input-field:focus {
+            border-bottom-color: var(--ink-black);
+        }
+        .btn-submit {
+            padding: 1.2rem 2.5rem;
+            background: var(--ink-black);
+            color: white;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            opacity: 0.8;
+            letter-spacing: 0.35em;
+        }
+        .step-card {
+            border-left: 1px solid var(--border-light);
+            padding-left: 2rem;
+            height: 100%;
+        }
+        .footer-link {
+            font-size: 0.75rem;
+            color: #666;
+            transition: color 0.3s, transform 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .footer-link:hover {
+            color: var(--ink-black);
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="text-2xl tracking-[0.7em] font-light uppercase serif cursor-pointer">InRealArt</div>
+        
+        <div class="hidden xl:flex space-x-8">
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Artistes</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Expositions</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-nowrap">Cas d'utilisations</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Médias</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-nowrap">À Propos</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors">Contact</a>
+            <a href="#" class="text-[9px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30">Store</a>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <span class="text-[9px] uppercase tracking-widest hidden sm:block">FR / EN</span>
+            <div class="w-8 h-8 flex items-center justify-center border border-black/10 rounded-full cursor-pointer hover:bg-black hover:text-white transition-all">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER CANDIDATURE -->
+    <section class="pt-48 pb-32 px-10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7">
+                    <span class="section-number">Join the movement</span>
+                    <h1 class="text-6xl md:text-8xl serif leading-tight">Portez votre art <br> <span class="italic text-gold-accent">plus loin.</span></h1>
+                    <p class="text-[12px] uppercase tracking-[0.3em] text-gray-400 mt-10 max-w-xl leading-loose">
+                        InRealArt n'est pas une simple galerie. C'est une maison de curation dédiée à l'ascension des créateurs. Nous sélectionnons des talents dont la démarche résonne avec l'excellence et l'authenticité.
+                    </p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="aspect-[4/5] bg-gray-50 overflow-hidden grayscale">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4ce18a802f?auto=format&fit=crop&q=80&w=800" alt="Atelier Artiste" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LES ENGAGEMENTS -->
+    <section class="py-32 px-10 bg-[#fbfbfb] border-y border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="step-card">
+                    <span class="serif text-3xl italic text-gold-accent mb-6 block">01. Visibilité</span>
+                    <h3 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-6">IRA Édition</h3>
+                    <p class="text-[13px] text-gray-500 leading-relaxed">
+                        Bénéficiez d'une ligne éditoriale dédiée, d'interviews exclusives et d'un kit de communication professionnel pour valoriser votre univers.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <span class="serif text-3xl italic text-gold-accent mb-6 block">02. Marché</span>
+                    <h3 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-6">IRA Sélection</h3>
+                    <p class="text-[13px] text-gray-500 leading-relaxed">
+                        Intégrez une marketplace premium fréquentée par des collectionneurs et des passionnés en quête de pièces de caractère.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <span class="serif text-3xl italic text-gold-accent mb-6 block">03. Stratégie</span>
+                    <h3 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-6">IRA Placement</h3>
+                    <p class="text-[13px] text-gray-500 leading-relaxed">
+                        Ouvrez votre art au monde de l'entreprise via le leasing (LOA) et des solutions de défiscalisation innovantes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE -->
+    <section class="py-32 px-10 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-24">
+                <span class="section-number">Candidature</span>
+                <h2 class="text-5xl md:text-6xl serif italic">Présentez votre travail</h2>
+            </div>
+
+            <form class="space-y-12">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <label class="text-[9px] uppercase tracking-widest text-gray-400">Prénom & Nom</label>
+                        <input type="text" class="input-field" placeholder="Ex: Jean-Marc Peltzer">
+                    </div>
+                    <div>
+                        <label class="text-[9px] uppercase tracking-widest text-gray-400">Email de contact</label>
+                        <input type="email" class="input-field" placeholder="artiste@exemple.com">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <label class="text-[9px] uppercase tracking-widest text-gray-400">Discipline</label>
+                        <select class="input-field appearance-none">
+                            <option>Peinture</option>
+                            <option>Sculpture</option>
+                            <option>Photographie</option>
+                            <option>Digital Art</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[9px] uppercase tracking-widest text-gray-400">Site Web / Portfolio (URL)</label>
+                        <input type="url" class="input-field" placeholder="https://votre-univers.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[9px] uppercase tracking-widest text-gray-400">Note d'intention (Démarche artistique)</label>
+                    <textarea class="input-field h-32 resize-none" placeholder="Décrivez brièvement votre univers et vos aspirations..."></textarea>
+                </div>
+
+                <div class="border-2 border-dashed border-gray-100 p-12 text-center group hover:border-gold-accent transition-colors cursor-pointer">
+                    <div class="mb-4 flex justify-center">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gray-300 group-hover:text-gold-accent"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Déposer un book ou des visuels (PDF, ZIP - Max 10Mo)</p>
+                </div>
+
+                <div class="text-center pt-10">
+                    <button type="submit" class="btn-submit">Envoyer ma candidature</button>
+                    <p class="text-[9px] text-gray-400 mt-6 uppercase tracking-widest">Temps de réponse moyen : 15 jours ouvrés</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-40 pb-20 px-10 bg-white border-t border-gray-100">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-4xl tracking-[0.8em] uppercase serif font-light mb-24 text-center md:text-left">InRealArt</div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-16 mb-32">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">InRealArt</h5>
+                    <a href="#" class="footer-link">À propos</a>
+                    <a href="#" class="footer-link">Manifeste</a>
+                    <a href="#" class="footer-link">Équipe</a>
+                    <a href="#" class="footer-link font-medium text-black">Candidature</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Marketplace</h5>
+                    <a href="#" class="footer-link font-semibold">Store</a>
+                    <a href="#" class="footer-link">Artistes</a>
+                    <a href="#" class="footer-link">Œuvres</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Expertises</h5>
+                    <a href="#" class="footer-link">Savoirs & Pratiques</a>
+                    <a href="#" class="footer-link">Cas d'utilisation</a>
+                    <a href="#" class="footer-link">Professionnels</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Simulateurs</h5>
+                    <a href="#" class="footer-link">Art Basel Paris</a>
+                    <a href="#" class="footer-link">Simulateur LOA</a>
+                    <a href="#" class="footer-link">Patrimoine & Art</a>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 border-b border-black/10 pb-4 text-nowrap">Réseaux</h5>
+                    <a href="#" class="footer-link">Instagram</a>
+                    <a href="#" class="footer-link">LinkedIn</a>
+                    <a href="#" class="footer-link">Newsletter</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 gap-8">
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">© 2024 — InRealArt Studio</p>
+                <div class="flex space-x-10 text-[9px] text-gray-500 uppercase tracking-[0.3em]">
+                    <a href="#" class="hover:text-black">Confidentialité</a>
+                    <a href="#" class="hover:text-black">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

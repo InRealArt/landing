@@ -92,7 +92,7 @@ export default function PostsGrid({
                 {/* Content — right two thirds */}
                 <div className="w-2/3 flex flex-col justify-between">
                   <div>
-                    <h3 className="unbounded text-base font-bold leading-snug mb-2 text-[var(--ink-black)]">
+                    <h3 className="unbounded text-base font-bold leading-snug mb-2 text-[var(--text)]">
                       {post.title}
                     </h3>
 
@@ -106,7 +106,7 @@ export default function PostsGrid({
                   </div>
 
                   <div className="mt-4">
-                    <span className="inline-block border-b border-[var(--ink-black)] text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--ink-black)] transition-colors duration-300 group-hover:text-[#b89c72] group-hover:border-[#b89c72]">
+                    <span className="inline-block border-b border-[var(--text)] text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--text)] transition-colors duration-300 group-hover:text-[#b89c72] group-hover:border-[#b89c72]">
                       {t('blog.readMore')}
                     </span>
                   </div>
@@ -125,7 +125,7 @@ export default function PostsGrid({
         <div className="flex justify-center mt-12">
           <Link
             href="/blog"
-            className="border border-[var(--ink-black)] text-[var(--ink-black)] px-8 py-3 text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[var(--ink-black)] hover:text-[var(--canvas-bg)] transition-colors duration-300"
+            className="border border-[var(--text)] text-[var(--text)] px-8 py-3 text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[var(--text)] hover:text-[var(--canvas-bg)] transition-colors duration-300"
           >
             {t('blog.viewAllPosts')}
           </Link>

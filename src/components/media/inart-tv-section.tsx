@@ -17,14 +17,14 @@ function JobCard({ icon, title, description, badge }: JobCardProps) {
       {/* Icon container */}
       <div
         className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
-        style={{ background: '#f0f4ff', color: '#0047FF' }}
+        style={{ background: 'var(--border-light)', color: '#0047FF' }}
       >
         {icon}
       </div>
 
       <h4
         className="font-bold text-base mb-3 montserrat"
-        style={{ color: 'var(--ink-black)' }}
+        style={{ color: 'var(--text)' }}
       >
         {title}
       </h4>
@@ -154,7 +154,7 @@ export default function InArtTvSection() {
           </span>
           <h2
             className="serif text-[clamp(1.75rem,4vw,2.5rem)] font-bold"
-            style={{ color: 'var(--ink-black)' }}
+            style={{ color: 'var(--text)' }}
           >
             Les Métiers de la Création
           </h2>
@@ -168,7 +168,7 @@ export default function InArtTvSection() {
       </div>
 
       {/* Hero image placeholder — fluid via aspect-ratio instead of fixed height */}
-      <div className="w-full aspect-video overflow-hidden mb-8 sm:mb-12 bg-gray-100" />
+      <div className="w-full aspect-video overflow-hidden mb-8 sm:mb-12" style={{ background: 'var(--border-light)' }} />
 
       {/* Job cards grid: 1 col mobile → 2 col tablet → 4 col desktop */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
