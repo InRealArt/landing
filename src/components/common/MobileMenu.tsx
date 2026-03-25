@@ -88,7 +88,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
           <Link
             href="/joinInRealArt"
-            className={`${pathname === '/joinInRealArt' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            className={`text-textColor py-2 border-b border-textColor/10`}
             onClick={onClose}
             data-umami-event="joinInRealArt-mobile-menu-click"
           >
