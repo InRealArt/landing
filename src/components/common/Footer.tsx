@@ -87,7 +87,6 @@ const Footer = () => {
             <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
             <Link href="/team" className="footer-link">{t('nav.team')}</Link>
             <Link href="/joinInRealArt" className="footer-link" data-umami-event="joinInRealArt-footer-click">{t('nav.joinInRealArt')}</Link>
-            <Link href="/blog" className="footer-link font-medium mt-4">Blog</Link>
           </div>
 
           {/* Column 2: Marketplace */}
@@ -105,7 +104,7 @@ const Footer = () => {
             {/* <Link href="/glossary" className="footer-link">{t('nav.glossary')}</Link> */}
             <Link href="/service" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
-            <Link href="/blog" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
+            <Link href="/media" className="footer-link font-medium mt-4">{t('nav.blog')}</Link>
           </div>
 
           {/* Column 4: Simulators */}

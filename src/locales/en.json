@@ -206,6 +206,14 @@
       "button": "Consult FAQ"
     }
   },
+  "exhibitions": {
+    "sliderAriaLabel": "Current exhibitions slider",
+    "prev": "Previous exhibition",
+    "next": "Next exhibition",
+    "pagination": "Dot navigation",
+    "slide": "Exhibition",
+    "moreInfo": "More info"
+  },
   "artists": {
     "title": "Our artists",
     "hero": {

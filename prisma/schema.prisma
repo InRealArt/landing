@@ -1,14 +1,13 @@
 generator client {
     provider        = "prisma-client-js"
     previewFeatures = ["multiSchema"]
-    binaryTargets   = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
     provider  = "postgresql"
     url       = env("DATABASE_URL")
     directUrl = env("DIRECT_URL")
-    schemas   = ["auth", "public", "landing", "marketplace", "blockchain", "landingUi", "backoffice", "statistics", "landingUgc"]
+    schemas   = ["auth", "public", "landing", "marketplace", "blockchain", "landingUi", "landingUgc", "backoffice", "statistics"]
 }
 
 // Orders in the Marketplace
@@ -539,6 +538,7 @@ model LandingArtist {
     artist              Artist                 @relation(fields: [artistId], references: [id], onDelete: Cascade)
     physicalCollections PhysicalCollection[]
     ugcArtistProfile    LandingUgcArtistProfile?
+    exhibitions         ExhibitionArtist[]
     @@index([artistId])
     @@schema("landing")
 }
@@ -1371,6 +1371,35 @@ model SeoPostTag {
     createdAt DateTime @default(now())
 
     @@id([postId, tagId])
+    @@schema("landing")
+}
+
+// Exposition physique ou événement auquel participent des artistes de la landing
+model Exhibition {
+    id        Int      @id @default(autoincrement())
+    name      String                          // Nom de l'exposition
+    startDate DateTime                        // Date de début
+    endDate   DateTime                        // Date de fin
+    address   String                          // Adresse de l'événement
+    imageUrl  String?                         // URL Cloudflare de l'image illustrant l'exposition
+    artists   ExhibitionArtist[]
+
+    @@schema("landing")
+}
+
+// Table de jointure pour la relation many-to-many Exhibition <-> LandingArtist
+model ExhibitionArtist {
+    id              Int      @id @default(autoincrement())
+    exhibitionId    Int
+    landingArtistId Int
+
+    exhibition    Exhibition    @relation(fields: [exhibitionId], references: [id], onDelete: Cascade)
+    landingArtist LandingArtist @relation(fields: [landingArtistId], references: [id], onDelete: Cascade)
+
+    @@unique([exhibitionId, landingArtistId])
+    @@index([exhibitionId])
+    @@index([landingArtistId])
+    @@map("ExhibitionArtist")
     @@schema("landing")
 }
 

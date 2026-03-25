@@ -637,3 +637,19 @@ body {
 .phone-input-container .PhoneInputCountrySelectArrow {
   @apply border-t-textColor opacity-70;
 }
+
+/* ─── ExhibitionSlider — slide transition animations ─── */
+@keyframes expo-slide-from-right {
+  from { opacity: 0; transform: translateX(4%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes expo-slide-from-left {
+  from { opacity: 0; transform: translateX(-4%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.expo-slide-enter-next {
+  animation: expo-slide-from-right 0.45s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.expo-slide-enter-prev {
+  animation: expo-slide-from-left 0.45s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}

@@ -150,15 +150,7 @@ export default function ArtistsGrid({ initialArtists }: Props) {
           {/* A–Z buckets */}
           {Array.from(alphaBuckets.entries()).map(([letter, group]) => (
             <div key={letter} className="border-b border-borderColor">
-              {/* Letter anchor row */}
-              <div className="grid grid-cols-[2rem_1fr] sm:grid-cols-[3rem_1fr] py-3 items-start">
-                <span
-                  className="text-[10px] uppercase tracking-[0.3em] text-grayText bricolage-grotesque pt-0.5 select-none"
-                  aria-hidden="true"
-                >
-                  {letter}
-                </span>
-
+              <div className="py-3">
                 {/* Names grid for this letter */}
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {group.map(artist => (
