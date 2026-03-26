@@ -54,9 +54,9 @@ export default {
         // InRealArt Gallery Palette
         'gold-accent': '#b89c72',
         'canvas-white': '#ffffff',
-        'soft-gray': '#f8f8f8',
-        'border-light': '#eeeeee',
-        'ink-black': '#000000',
+        'soft-gray': 'var(--soft-gray)',
+        'border-light': 'var(--border-light)',
+        'ink-black': 'var(--ink-black)',
       },
       minHeight: {
         headerSize: "var(--header-height)",
