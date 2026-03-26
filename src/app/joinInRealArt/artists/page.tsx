@@ -1,11 +1,5 @@
-import JoinInRealArtArtistsFAQ from "@/components/joinInRealArt/JoinInRealArtArtistsFAQ";
-import JoinInRealArtArtistsPage from "@/components/joinInRealArt/JoinInRealArtArtistsPage";
+import ArtistApplicationPage from "@/components/joinInRealArt/ArtistApplicationPage";
 
 export default function Page() {
-  return (
-    <>
-      <JoinInRealArtArtistsPage />
-      <JoinInRealArtArtistsFAQ />
-    </>
-  );
-} 
+  return <ArtistApplicationPage />;
+}

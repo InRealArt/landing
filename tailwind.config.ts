@@ -164,7 +164,7 @@ export default {
         },
         '.footer-link': {
           'font-size': '0.75rem',
-          'color': '#666',
+          'color': 'var(--gray-text)',
           'transition': 'color 0.3s, transform 0.3s',
           'display': 'block',
           'margin-bottom': '0.5rem'
@@ -176,12 +176,12 @@ export default {
         '.artist-list-item': {
           'font-size': '0.7rem',
           'letter-spacing': '0.05em',
-          'color': '#777',
+          'color': 'var(--gray-text)',
           'margin-bottom': '0.3rem',
           'display': 'block'
         },
         '.artist-list-item:hover': {
-          'color': '#b89c72'
+          'color': 'var(--gold-accent)'
         },
         '.artwork-image img': {
           'transition': 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)'

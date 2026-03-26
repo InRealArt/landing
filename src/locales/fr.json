@@ -704,6 +704,62 @@
             "description": ""
           }
         }
+      },
+      "application": {
+        "hero": {
+          "label": "Join the movement",
+          "titleLine1": "Portez votre art",
+          "titleAccent": "plus loin.",
+          "subtitle": "InRealArt n’est pas une simple galerie. C’est une maison de curation dédiée à l’ascension des créateurs. Nous sélectionnons des talents dont la démarche résonne avec l’excellence et l’authenticité.",
+          "imageAlt": "Atelier d’artiste"
+        },
+        "engagements": {
+          "1": {
+            "number": "01",
+            "category": "01. Visibilité",
+            "subtitle": "IRA Édition",
+            "description": "Bénéficiez d’une ligne éditoriale dédiée, d’interviews exclusives et d’un kit de communication professionnel pour valoriser votre univers."
+          },
+          "2": {
+            "number": "02",
+            "category": "02. Marché",
+            "subtitle": "IRA Sélection",
+            "description": "Intégrez une marketplace premium fréquentée par des collectionneurs et des passionés en quête de pièces de caractère."
+          },
+          "3": {
+            "number": "03",
+            "category": "03. Stratégie",
+            "subtitle": "IRA Placement",
+            "description": "Ouvrez votre art au monde de l’entreprise via le leasing (LOA) et des solutions de défiscalisation innovantes."
+          }
+        },
+        "form": {
+          "sectionLabel": "Candidature",
+          "title": "Présentez votre travail",
+          "fullName": "Prénom & Nom",
+          "fullNamePlaceholder": "Ex : Jean-Marc Peltzer",
+          "email": "Email de contact",
+          "emailPlaceholder": "artiste@exemple.com",
+          "discipline": "Discipline",
+          "disciplineDefault": "Sélectionner…",
+          "disciplineSearchPlaceholder": "Rechercher…",
+          "disciplines": {
+            "painting": "Peinture",
+            "sculpture": "Sculpture",
+            "photography": "Photographie",
+            "digital": "Digital Art",
+            "other": "Autre"
+          },
+          "portfolio": "Site Web / Portfolio (URL)",
+          "portfolioPlaceholder": "https://votre-univers.com",
+          "intention": "Note d’intention (Démarche artistique)",
+          "intentionPlaceholder": "Décrivez brièvement votre univers et vos aspirations…",
+          "uploadLabel": "Déposer un book ou des visuels (PDF, ZIP — Max 10 Mo)",
+          "submit": "Envoyer ma candidature",
+          "responseTime": "Temps de réponse moyen : 15 jours ouvrés",
+          "success": "Votre candidature a bien été envoyée. Nous vous répondrons sous 15 jours ouvrés.",
+          "error": "Une erreur est survenue. Veuillez réessayer ou nous contacter directement."
+        }
       }
     }
   },
@@ -730,7 +786,13 @@
     "biographyTitle": "Biographie & Démarche",
     "artworksLabel": "Sélection",
     "artworksTitle": "Œuvres disponibles",
-    "pagination": "Pagination"
+    "pagination": "Pagination",
+    "subnav": {
+      "description": "Description",
+      "artworks": "Œuvres",
+      "exhibitions": "Expositions",
+      "interview": "Interview"
+    }
   },
   "team": {
     "title": "Notre équipe",

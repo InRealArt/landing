@@ -7,6 +7,7 @@ import ArtistInfoSection from '@/components/artists/ArtistInfoSection'
 import ArtistBiography from '@/components/artists/ArtistBiography'
 import ArtistRelatedPosts from '@/components/artists/ArtistRelatedPosts'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
+import ArtistSubNav from '@/components/artists/ArtistSubNav'
 import { useLanguageStore } from '@/store/languageStore'
 import { ArtWork, Lang } from '@/types/types'
 import { ArtistData } from '@/actions/artistActions'
@@ -84,7 +85,16 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
   return (
       <>
         <ArtistProfileHero artist={artist} />
-        
+
+        {/* Sous-menu fixe de navigation — position:fixed, ne réserve plus de place dans le flux.
+            Le spacer ci-dessous compense la hauteur du sous-menu (≈56px) pour éviter que
+            la première section de contenu soit masquée par le sous-menu dès son apparition. */}
+        <ArtistSubNav
+          hasArtworks={formattedArtworks.length > 0}
+          hasExhibitions={!!(artist.biographyHeader1 || artist.biographyText1)}
+          hasInterview={!!interviewUrl}
+        />
+
         {/* Section d'informations de l'artiste */}
         <ArtistInfoSection artist={artist} interviewUrl={interviewUrl} artitudeUrl={artitudeUrl} />
 

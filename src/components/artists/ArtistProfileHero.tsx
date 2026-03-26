@@ -83,13 +83,17 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
   return (
     <div
       ref={containerRef}
-      className="w-full bg-backgroundColor border-b border-gray-100"
-      style={{ borderColor: '#eeeeee' }}
+      id="artist-hero"
+      className="w-full bg-backgroundColor border-b fixed left-0 right-0 top-16 md:top-[90px]"
+      style={{
+        zIndex: 39,
+        borderColor: 'var(--border-color)',
+      }}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 pt-6 pb-4 lg:pt-8 lg:pb-5">
+        <div className="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
 
-          {/* Left — section label + large name + specialty */}
+          {/* Left — section label + name + specialty */}
           <div className="lg:col-span-7">
             <span
               ref={labelRef}
@@ -100,14 +104,14 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
             <h1
               ref={nameRef}
-              className="leading-none mb-10"
+              className="leading-none mb-3"
             >
-              <span className="block text-6xl md:text-8xl lg:text-9xl font-cormorant font-light text-textColor opacity-0">
+              <span className="block text-3xl md:text-4xl lg:text-5xl font-cormorant font-light text-textColor opacity-0">
                 {firstName}
               </span>
               {lastName && (
                 <span
-                  className="block text-6xl md:text-8xl lg:text-9xl font-cormorant font-light italic opacity-0"
+                  className="block text-3xl md:text-4xl lg:text-5xl font-cormorant font-light italic opacity-0"
                   style={{ color: '#b89c72' }}
                 >
                   {lastName}
@@ -117,9 +121,9 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
             <p
               ref={specialtyRef}
-              className="text-[11px] uppercase tracking-[0.4em] text-gray-400 font-montserrat flex items-center gap-4 opacity-0"
+              className="text-[10px] uppercase tracking-[0.35em] text-gray-400 font-montserrat flex items-center gap-3 opacity-0"
             >
-              <span className="w-8 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
+              <span className="w-6 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
               {artist.role}
               {artist.countryName && (
                 <>
@@ -141,10 +145,10 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
           {/* Right — editorial intro quote */}
           {artist.intro && (
-            <div className="lg:col-span-5 pb-2">
+            <div className="lg:col-span-5 hidden lg:block">
               <p
                 ref={quoteRef}
-                className="text-xl lg:text-2xl font-cormorant italic font-light leading-relaxed text-gray-500 opacity-0"
+                className="text-base lg:text-lg font-cormorant italic font-light leading-relaxed text-gray-500 opacity-0"
               >
                 &laquo;&nbsp;{artist.intro}&nbsp;&raquo;
               </p>

@@ -721,6 +721,62 @@
             "title": "Benefit from our support, tools and marketplace features to maximize your sales"
           }
         }
+      },
+      "application": {
+        "hero": {
+          "label": "Join the movement",
+          "titleLine1": "Take your art",
+          "titleAccent": "further.",
+          "subtitle": "InRealArt is not just a gallery. It is a curation house dedicated to elevating creators. We select talents whose approach resonates with excellence and authenticity.",
+          "imageAlt": "Artist studio"
+        },
+        "engagements": {
+          "1": {
+            "number": "01",
+            "category": "01. Visibility",
+            "subtitle": "IRA Edition",
+            "description": "Benefit from a dedicated editorial line, exclusive interviews and a professional communication kit to showcase your universe."
+          },
+          "2": {
+            "number": "02",
+            "category": "02. Market",
+            "subtitle": "IRA Selection",
+            "description": "Join a premium marketplace visited by collectors and enthusiasts seeking works of character."
+          },
+          "3": {
+            "number": "03",
+            "category": "03. Strategy",
+            "subtitle": "IRA Placement",
+            "description": "Open your art to the corporate world through leasing (LOA) and innovative tax-optimisation solutions."
+          }
+        },
+        "form": {
+          "sectionLabel": "Application",
+          "title": "Present your work",
+          "fullName": "First & Last Name",
+          "fullNamePlaceholder": "e.g. Jean-Marc Peltzer",
+          "email": "Contact email",
+          "emailPlaceholder": "artist@example.com",
+          "discipline": "Discipline",
+          "disciplineDefault": "Select…",
+          "disciplineSearchPlaceholder": "Search…",
+          "disciplines": {
+            "painting": "Painting",
+            "sculpture": "Sculpture",
+            "photography": "Photography",
+            "digital": "Digital Art",
+            "other": "Other"
+          },
+          "portfolio": "Website / Portfolio (URL)",
+          "portfolioPlaceholder": "https://your-universe.com",
+          "intention": "Statement of intent (Artistic approach)",
+          "intentionPlaceholder": "Briefly describe your universe and aspirations…",
+          "uploadLabel": "Drop a portfolio or visuals (PDF, ZIP — Max 10 MB)",
+          "submit": "Submit my application",
+          "responseTime": "Average response time: 15 business days",
+          "success": "Your application has been sent. We will reply within 15 business days.",
+          "error": "An error occurred. Please try again or contact us directly."
+        }
       }
     }
   },
@@ -747,7 +803,13 @@
     "biographyTitle": "Biography & Practice",
     "artworksLabel": "Selection",
     "artworksTitle": "Available works",
-    "pagination": "Pagination"
+    "pagination": "Pagination",
+    "subnav": {
+      "description": "Description",
+      "artworks": "Artworks",
+      "exhibitions": "Exhibitions",
+      "interview": "Interview"
+    }
   },
   "team": {
     "title": "Our Team",

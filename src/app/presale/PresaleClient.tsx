@@ -127,6 +127,15 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
     return { paginatedArtworks, totalPages, page, startIndex }
   }, [filtered, params.page])
 
+  const scrollToGrid = () => {
+    const grid = document.querySelector('#presale-grid') as HTMLElement | null
+    if (!grid) return
+    const headerEl = document.querySelector('header')
+    const headerHeight = headerEl?.offsetHeight ?? 90
+    const top = grid.getBoundingClientRect().top + window.scrollY - headerHeight - 16
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+
   const artworkImages = paginatedArtworks.map(artwork => ({
     image: { src: artwork.url },
     name: artwork.name,
@@ -262,7 +271,7 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
         </div>
 
         {/* ── Artwork grid — 3 columns ────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+        <div id="presale-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
           {artworkImages.map((item, index) => (
             <ArtworkCard key={`${item.name}-${startIndex + index}`} {...item} />
           ))}
@@ -273,7 +282,7 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
           <div className="flex items-center justify-center gap-8 mt-24">
             <button
               disabled={page === 1}
-              onClick={() => setParams({ page: page - 1 })}
+              onClick={() => { setParams({ page: page - 1 }); scrollToGrid() }}
               className="text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {t('pagination.previous')}
@@ -285,7 +294,7 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
 
             <button
               disabled={page === totalPages}
-              onClick={() => setParams({ page: page + 1 })}
+              onClick={() => { setParams({ page: page + 1 }); scrollToGrid() }}
               className="text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {t('pagination.next')}

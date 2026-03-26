@@ -80,7 +80,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
   const hasCta = interviewUrl || artitudeUrl
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-40 bg-backgroundColor">
+    <section ref={sectionRef} id="artist-description" className="py-24 lg:py-40 bg-backgroundColor">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
 

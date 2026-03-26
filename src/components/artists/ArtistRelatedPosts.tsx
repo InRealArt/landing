@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import FirebaseImage from '@/components/common/FirebaseImage'
 import { getPostsMentioningArtist, getLanguageIdByCode } from '@/actions/seoPostActions'
 import { useLanguageStore } from '@/store/languageStore'
 import { SeoPost } from '@/types/seoPost'
@@ -55,7 +56,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
       ctx = gsap.context(() => {
         if (!headerRef.current) return
 
-        const bars = headerRef.current.querySelectorAll('.rp-bar')
+        const label = headerRef.current.querySelector('.rp-label')
         const title = headerRef.current.querySelector('.rp-title')
         const line = headerRef.current.querySelector('.rp-line')
 
@@ -67,11 +68,11 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
           },
         })
 
-        if (bars.length > 0) {
+        if (label) {
           tl.fromTo(
-            bars,
-            { scaleY: 0, opacity: 0 },
-            { scaleY: 1, opacity: 1, duration: 0.4, ease: 'power3.out', stagger: 0.08, transformOrigin: 'bottom' }
+            label,
+            { opacity: 0, y: 12 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
           )
         }
         if (title) {
@@ -147,112 +148,180 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
   if (!loading && posts.length === 0) return null
 
   return (
-    <section ref={sectionRef} className="w-full max-w-90 xl:max-w-screen-xl mx-auto mt-20 mb-16 px-4 xl:px-0">
+    <section
+      ref={sectionRef}
+      id="artist-related-posts"
+      className="py-24 lg:py-32 border-t"
+      style={{ borderColor: '#eeeeee' }}
+    >
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10">
 
-      {/* En-tête de section stylé */}
-      <div ref={headerRef} className="flex items-center gap-4 mb-10">
-        {/* Trait violet + point */}
-        <div className="flex items-center gap-1.5 flex-shrink-0">
-          <span className="rp-bar block w-1 h-7 rounded-full bg-purpleColor origin-bottom" aria-hidden="true" />
-          <span className="rp-bar block w-1 h-4 rounded-full bg-purpleColor/40 origin-bottom" aria-hidden="true" />
+        {/* Section header */}
+        <div ref={headerRef} className="flex items-end gap-10 mb-16">
+          <div>
+            <span className="rp-label block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat mb-4">
+              {language === 'fr' ? 'À lire aussi' : 'Further reading'}
+            </span>
+            <h2 className="rp-title text-4xl lg:text-5xl font-cormorant font-light text-textColor leading-tight">
+              {language === 'fr' ? (
+                <>Nos articles sur{' '}<span className="italic" style={{ color: '#b89c72' }}>{artistName}</span></>
+              ) : (
+                <>Articles about{' '}<span className="italic" style={{ color: '#b89c72' }}>{artistName}</span></>
+              )}
+            </h2>
+          </div>
+
+          <div
+            className="rp-line flex-1 h-px hidden lg:block origin-left"
+            style={{ backgroundColor: '#eeeeee' }}
+            aria-hidden="true"
+          />
         </div>
 
-        <h2 className="rp-title text-xl lg:text-2xl font-bold text-textColor unbounded">
-          {language === 'fr' ? 'Retrouvez nos articles de blog' : 'Discover our blog articles'}
-        </h2>
-
-        {/* Ligne décorative */}
-        <div className="rp-line flex-1 h-px bg-borderColor hidden sm:block origin-left" />
-      </div>
-
-      {loading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="rounded-2xl bg-cardBackground border border-borderColor overflow-hidden animate-pulse">
-              <div className="aspect-video bg-backgroundGrey" />
-              <div className="p-4 space-y-2.5">
-                <div className="h-2.5 bg-backgroundGrey rounded-full w-3/4" />
-                <div className="h-2.5 bg-backgroundGrey rounded-full w-full" />
-                <div className="h-2.5 bg-backgroundGrey rounded-full w-1/2" />
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {posts.map(post => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.slug}`}
-              className="rp-card group flex flex-col bg-cardBackground rounded-2xl overflow-hidden
-                border border-borderColor
-                transition-all duration-300 ease-out
-                hover:-translate-y-1.5
-                hover:shadow-[0_16px_40px_rgba(96,82,255,0.15)]
-                hover:border-purpleColor/40"
-            >
-              {/* Image */}
-              <div className="relative aspect-video overflow-hidden bg-backgroundGrey flex-shrink-0">
-                {post.mainImageUrl ? (
-                  <img
-                    src={post.mainImageUrl}
-                    alt={post.mainImageAlt || post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        {/* Loading skeleton */}
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div
+                  className="w-full mb-5"
+                  style={{ aspectRatio: '3/4', backgroundColor: 'var(--soft-gray)' }}
+                />
+                <div className="space-y-3">
+                  <div
+                    className="h-2 rounded-full w-1/3"
+                    style={{ backgroundColor: 'var(--soft-gray)' }}
                   />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-grayText text-xs opacity-50">
-                      {language === 'fr' ? "Pas d'image" : 'No image'}
+                  <div
+                    className="h-3 rounded-full w-full"
+                    style={{ backgroundColor: 'var(--soft-gray)' }}
+                  />
+                  <div
+                    className="h-3 rounded-full w-4/5"
+                    style={{ backgroundColor: 'var(--soft-gray)' }}
+                  />
+                  <div
+                    className="h-3 rounded-full w-2/3"
+                    style={{ backgroundColor: 'var(--soft-gray)' }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Article grid */
+          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {posts.map(post => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className="rp-card group block"
+              >
+                {/* Portrait image — aspect 3/4, editorial gallery feel */}
+                <div
+                  className="relative w-full overflow-hidden mb-5"
+                  style={{ aspectRatio: '3/4', backgroundColor: 'var(--soft-gray)' }}
+                >
+                  {post.mainImageUrl ? (
+                    <FirebaseImage
+                      src={post.mainImageUrl}
+                      alt={post.mainImageAlt || post.title}
+                      className="absolute inset-0 w-full h-full"
+                      imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span
+                        className="text-[10px] uppercase tracking-widest font-montserrat opacity-40"
+                        style={{ color: 'var(--gray-text)' }}
+                      >
+                        {language === 'fr' ? 'Sans image' : 'No image'}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Category badge — gold outline, no background fill */}
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className="inline-block px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-montserrat font-semibold"
+                      style={{
+                        backgroundColor: 'var(--canvas-bg)',
+                        color: '#b89c72',
+                        border: '1px solid #b89c72',
+                      }}
+                    >
+                      {post.category.name}
                     </span>
                   </div>
-                )}
+                </div>
 
-                {/* Overlay au hover */}
-                <div
-                  className="absolute inset-0 bg-purpleColor/0 group-hover:bg-purpleColor/5 transition-colors duration-300 pointer-events-none"
-                  aria-hidden="true"
-                />
-
-                {/* Badge catégorie */}
-                <div className="absolute top-2.5 left-2.5">
-                  <span
-                    className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold text-white tracking-wide shadow-sm"
-                    style={{ backgroundColor: post.category.color || '#6052ff' }}
+                {/* Text content */}
+                <div className="space-y-3">
+                  <h3
+                    className="unbounded text-sm font-bold leading-snug transition-colors duration-300"
+                    style={{ color: 'var(--text)' }}
+                    onMouseEnter={e => {
+                      ;(e.currentTarget as HTMLHeadingElement).style.color = '#b89c72'
+                    }}
+                    onMouseLeave={e => {
+                      ;(e.currentTarget as HTMLHeadingElement).style.color = 'var(--text)'
+                    }}
                   >
-                    {post.category.name}
-                  </span>
-                </div>
-              </div>
+                    {post.title}
+                  </h3>
 
-              {/* Contenu texte */}
-              <div className="flex flex-col gap-2 p-4 flex-1">
-                <h3 className="text-sm font-bold leading-snug text-textColor line-clamp-2 group-hover:text-purpleColor transition-colors duration-200 bricolage-grotesque">
-                  {post.title}
-                </h3>
-                {post.excerpt && (
-                  <p className="text-xs text-grayText line-clamp-2 leading-relaxed bricolage-grotesque">
-                    {post.excerpt}
-                  </p>
-                )}
-                <div className="flex items-center gap-2 text-xs text-grayText mt-auto pt-3 border-t border-borderColor/60">
-                  {post.estimatedReadTime && (
-                    <>
-                      <span className="bricolage-grotesque">{post.estimatedReadTime} min</span>
-                      <span className="opacity-30" aria-hidden="true">·</span>
-                    </>
+                  {post.excerpt && (
+                    <p
+                      className="text-xs leading-relaxed line-clamp-2 font-montserrat"
+                      style={{ color: 'var(--gray-text)' }}
+                    >
+                      {post.excerpt}
+                    </p>
                   )}
-                  <span className="bricolage-grotesque">
-                    {new Intl.DateTimeFormat(language === 'fr' ? 'fr-FR' : 'en-US', {
-                      month: 'short',
-                      year: 'numeric',
-                    }).format(new Date(post.createdAt))}
-                  </span>
+
+                  {/* Meta row + read link */}
+                  <div
+                    className="flex items-center justify-between pt-4 border-t"
+                    style={{ borderColor: '#eeeeee' }}
+                  >
+                    <span
+                      className="text-[10px] uppercase tracking-[0.12em] font-montserrat"
+                      style={{ color: 'var(--gray-text)' }}
+                    >
+                      {new Intl.DateTimeFormat(language === 'fr' ? 'fr-FR' : 'en-US', {
+                        month: 'short',
+                        year: 'numeric',
+                      }).format(new Date(post.createdAt))}
+                      {post.estimatedReadTime && (
+                        <> &middot; {post.estimatedReadTime}&nbsp;min</>
+                      )}
+                    </span>
+
+                    {/* Read link — border-b transitions to gold on hover */}
+                    <span
+                      className="inline-block border-b text-[9px] uppercase tracking-[0.15em] font-semibold font-montserrat transition-colors duration-300 flex-shrink-0 ml-2"
+                      style={{ borderColor: 'var(--text)', color: 'var(--text)' }}
+                      onMouseEnter={e => {
+                        const el = e.currentTarget as HTMLSpanElement
+                        el.style.color = '#b89c72'
+                        el.style.borderColor = '#b89c72'
+                      }}
+                      onMouseLeave={e => {
+                        const el = e.currentTarget as HTMLSpanElement
+                        el.style.color = 'var(--text)'
+                        el.style.borderColor = 'var(--text)'
+                      }}
+                    >
+                      {language === 'fr' ? 'Lire' : 'Read'}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+              </Link>
+            ))}
+          </div>
+        )}
+
+      </div>
     </section>
   )
 }

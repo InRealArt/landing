@@ -223,6 +223,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
       {hasContent && (
         <section
           ref={sectionRef}
+          id="artist-exhibitions"
           className="py-24 lg:py-48 bg-backgroundColor border-t"
           style={{ borderColor: '#eeeeee' }}
         >

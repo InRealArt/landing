@@ -160,6 +160,15 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
     }
   }, [page])
 
+  const scrollToSection = () => {
+    const section = document.getElementById('artist-artworks')
+    if (!section) return
+    const headerEl = document.querySelector('header')
+    const headerHeight = headerEl?.offsetHeight ?? 90
+    const top = section.getBoundingClientRect().top + window.scrollY - headerHeight - 16
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+
   const filters = [
     { key: 'all' as const, label: t('artists.all') || 'Toutes' },
     { key: 'available' as const, label: t('artists.profile.available') || 'Disponibles' },
@@ -169,8 +178,9 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
   return (
     <div
       ref={sectionRef}
+      id="artist-artworks"
       className="py-20 lg:py-32 border-t border-b"
-      style={{ backgroundColor: '#fbfbfb', borderColor: '#eeeeee' }}
+      style={{ backgroundColor: 'var(--background-grey)', borderColor: 'var(--border-color)' }}
     >
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-10">
 
@@ -180,14 +190,14 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
           className="flex flex-col md:flex-row justify-between items-end mb-16 lg:mb-24 gap-8"
         >
           <div>
-            <span className="block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat mb-4">
+            <span className="block text-[10px] uppercase tracking-[0.5em] text-grayText font-montserrat mb-4">
               {t('artistPage.artworksLabel')}
             </span>
             <h2 className="text-5xl lg:text-6xl font-cormorant font-light italic text-textColor leading-tight">
               {t('artistPage.artworksTitle')}
             </h2>
             {artworks.length > 0 && (
-              <p className="mt-3 text-[11px] uppercase tracking-widest text-gray-400 font-montserrat">
+              <p className="mt-3 text-[11px] uppercase tracking-widest text-grayText font-montserrat">
                 {artworks.length}{' '}
                 {artworks.length > 1
                   ? t('artistPage.artwork_plural')
@@ -209,8 +219,8 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
                 className="px-5 py-2.5 text-[9px] uppercase tracking-widest font-montserrat border transition-colors duration-300"
                 style={
                   activeFilter === filter.key
-                    ? { borderColor: '#000000', backgroundColor: '#000000', color: '#ffffff' }
-                    : { borderColor: '#e5e7eb', backgroundColor: '#ffffff', color: '#374151' }
+                    ? { borderColor: 'var(--text)', backgroundColor: 'var(--text)', color: 'var(--background)' }
+                    : { borderColor: 'var(--border-color)', backgroundColor: 'var(--background)', color: 'var(--text)' }
                 }
               >
                 {filter.label}
@@ -243,10 +253,10 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
             {/* Previous */}
             <button
               disabled={page === 1}
-              onClick={() => setParams({ page: page - 1 })}
+              onClick={() => { setParams({ page: page - 1 }); scrollToSection() }}
               aria-label={t('pagination.previous') || 'Page précédente'}
-              className="flex items-center justify-center w-9 h-9 border text-gray-400 disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 hover:border-black hover:text-black"
-              style={{ borderColor: '#e5e7eb' }}
+              className="flex items-center justify-center w-9 h-9 border text-grayText disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 hover:border-textColor hover:text-textColor"
+              style={{ borderColor: 'var(--border-color)' }}
             >
               <svg
                 width="12"
@@ -269,7 +279,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
                 p === '...' ? (
                   <span
                     key={`ellipsis-${idx}`}
-                    className="w-9 h-9 flex items-center justify-center text-gray-400 text-sm select-none font-montserrat"
+                    className="w-9 h-9 flex items-center justify-center text-grayText text-sm select-none font-montserrat"
                     aria-hidden="true"
                   >
                     &hellip;
@@ -277,14 +287,14 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
                 ) : (
                   <button
                     key={p}
-                    onClick={() => setParams({ page: p as number })}
+                    onClick={() => { setParams({ page: p as number }); scrollToSection() }}
                     aria-label={`Page ${p}`}
                     aria-current={p === page ? 'page' : undefined}
                     className="w-9 h-9 flex items-center justify-center text-sm font-montserrat border transition-colors duration-200"
                     style={
                       p === page
-                        ? { backgroundColor: '#000000', color: '#ffffff', borderColor: '#000000' }
-                        : { backgroundColor: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }
+                        ? { backgroundColor: 'var(--text)', color: 'var(--background)', borderColor: 'var(--text)' }
+                        : { backgroundColor: 'transparent', color: 'var(--gray-text)', borderColor: 'var(--border-color)' }
                     }
                   >
                     {p}
@@ -296,10 +306,10 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
             {/* Next */}
             <button
               disabled={page === totalPages}
-              onClick={() => setParams({ page: page + 1 })}
+              onClick={() => { setParams({ page: page + 1 }); scrollToSection() }}
               aria-label={t('pagination.next') || 'Page suivante'}
-              className="flex items-center justify-center w-9 h-9 border text-gray-400 disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 hover:border-black hover:text-black"
-              style={{ borderColor: '#e5e7eb' }}
+              className="flex items-center justify-center w-9 h-9 border text-grayText disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 hover:border-textColor hover:text-textColor"
+              style={{ borderColor: 'var(--border-color)' }}
             >
               <svg
                 width="12"
