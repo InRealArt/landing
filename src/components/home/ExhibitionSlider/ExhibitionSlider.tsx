@@ -26,8 +26,57 @@ function formatArtistNames(exhibition: ExhibitionData): string {
     .join(', ')
 }
 
-// Hauteur par défaut appliquée avant que l'image soit mesurée et entre deux slides
+// Hauteur par défaut affichée pendant la phase de mesure initiale
 const DEFAULT_HEIGHT = 'clamp(400px, 72vh, 860px)'
+
+// ---------------------------------------------------------------------------
+// Image measurement utilities
+// ---------------------------------------------------------------------------
+
+interface ImageDimensions {
+  width: number
+  height: number
+}
+
+/**
+ * Charge une image et retourne ses dimensions naturelles.
+ * Résout à null si l'URL est null ou si le chargement échoue.
+ */
+function measureImage(url: string): Promise<ImageDimensions | null> {
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.onload = () => resolve({ width: img.naturalWidth, height: img.naturalHeight })
+    img.onerror = () => resolve(null)
+    img.src = url
+  })
+}
+
+/**
+ * Charge toutes les images en parallèle et retourne la hauteur du conteneur
+ * correspondant à la plus petite image, en px, clamped entre 320 et 920.
+ *
+ * Stratégie : pour chaque image on calcule la hauteur qu'elle occuperait si
+ * elle remplissait la largeur du conteneur (ratio-préservé). La hauteur retenue
+ * est le minimum de toutes ces hauteurs calculées — ce qui force le conteneur
+ * à la taille de l'image la plus contraignante (la plus basse en ratio H/W).
+ */
+async function computeMinContainerHeight(
+  urls: (string | null)[],
+  containerWidth: number,
+): Promise<number> {
+  const validUrls = urls.filter((u): u is string => Boolean(u))
+  if (validUrls.length === 0) return 500
+
+  const results = await Promise.all(validUrls.map(measureImage))
+  const dimensions = results.filter((d): d is ImageDimensions => d !== null)
+
+  if (dimensions.length === 0) return 500
+
+  const heights = dimensions.map((d) => (d.height / d.width) * containerWidth)
+  const minHeight = Math.min(...heights)
+
+  return Math.max(320, Math.min(minHeight, 920))
+}
 
 // ---------------------------------------------------------------------------
 // Sub-components
@@ -37,24 +86,9 @@ interface SlideImageProps {
   imageUrl: string | null
   name: string
   priority: boolean
-  onImageLoaded: (height: number) => void
 }
 
-function SlideImage({ imageUrl, name, priority, onImageLoaded }: SlideImageProps) {
-  const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget
-    const { naturalWidth, naturalHeight } = img
-    if (naturalWidth && naturalHeight) {
-      const ratio = naturalHeight / naturalWidth
-      // Mesure la largeur réelle du conteneur parent (la <section> arrondie)
-      const containerWidth = img.parentElement?.clientWidth ?? window.innerWidth
-      const computedHeight = containerWidth * ratio
-      // Clamper pour éviter des hauteurs absurdes sur des images très hautes ou très larges
-      const clampedHeight = Math.max(320, Math.min(computedHeight, 920))
-      onImageLoaded(clampedHeight)
-    }
-  }
-
+function SlideImage({ imageUrl, name, priority }: SlideImageProps) {
   if (!imageUrl) {
     return <div className="absolute inset-0 bg-backgroundGrey" aria-hidden="true" />
   }
@@ -69,7 +103,6 @@ function SlideImage({ imageUrl, name, priority, onImageLoaded }: SlideImageProps
       fetchPriority={priority ? 'high' : 'auto'}
       decoding={priority ? 'sync' : 'async'}
       loading={priority ? 'eager' : 'lazy'}
-      onLoad={handleLoad}
       className="absolute inset-0 w-full h-full object-cover"
     />
   )
@@ -153,6 +186,8 @@ export function ExhibitionSliderSkeleton() {
 // ---------------------------------------------------------------------------
 
 const AUTOPLAY_MS = 5000
+// Durée du crossfade en ms — doit correspondre à la valeur CSS ci-dessous
+const CROSSFADE_MS = 700
 
 interface ExhibitionSliderProps {
   exhibitions: ExhibitionData[]
@@ -163,37 +198,48 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
 
   const [current, setCurrent] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
-  const [animClass, setAnimClass] = useState('')
 
-  // Hauteur adaptative : string pour alterner entre clamp() et une valeur px mesurée
-  const [containerHeight, setContainerHeight] = useState<string>(DEFAULT_HEIGHT)
+  // containerHeight est null pendant la phase de mesure initiale,
+  // puis fixé en px pour toute la durée de vie du composant.
+  const [containerHeight, setContainerHeight] = useState<number | null>(null)
 
-  const isAnimatingRef = useRef(false)
+  const sectionRef = useRef<HTMLElement>(null)
+  const isTransitioningRef = useRef(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const total = exhibitions.length
 
+  // Au montage : pré-charger toutes les images, mesurer leurs dimensions naturelles,
+  // retenir la hauteur correspondant à la plus petite image (ratio le plus bas).
+  useEffect(() => {
+    const urls = exhibitions.map((e) => e.imageUrl)
+    const containerWidth = sectionRef.current?.clientWidth ?? window.innerWidth
+
+    computeMinContainerHeight(urls, containerWidth).then((height) => {
+      setContainerHeight(height)
+    })
+    // On ne veut exécuter ce calcul qu'une seule fois au montage.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const goTo = useCallback(
-    (index: number, dir: 'next' | 'prev') => {
-      if (isAnimatingRef.current || total === 0) return
-      isAnimatingRef.current = true
-      // Réinitialiser à la hauteur par défaut avant que la nouvelle image se charge
-      setContainerHeight(DEFAULT_HEIGHT)
-      setAnimClass(dir === 'next' ? 'expo-slide-enter-next' : 'expo-slide-enter-prev')
+    (index: number) => {
+      if (isTransitioningRef.current || total === 0 || index === current) return
+      isTransitioningRef.current = true
       setCurrent(index)
       setTimeout(() => {
-        isAnimatingRef.current = false
-      }, 450)
+        isTransitioningRef.current = false
+      }, CROSSFADE_MS)
     },
-    [total]
+    [current, total]
   )
 
   const goNext = useCallback(() => {
-    goTo((current + 1) % total, 'next')
+    goTo((current + 1) % total)
   }, [current, goTo, total])
 
   const goPrev = useCallback(() => {
-    goTo((current - 1 + total) % total, 'prev')
+    goTo((current - 1 + total) % total)
   }, [current, goTo, total])
 
   // Autoplay
@@ -221,58 +267,74 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
   const artistNames = formatArtistNames(expo)
   const dateRange = formatDateRange(expo.startDate, expo.endDate, language)
 
-  const handleImageLoaded = (height: number) => {
-    setContainerHeight(`${height}px`)
-  }
+  // Pendant la mesure initiale on utilise DEFAULT_HEIGHT ; une fois mesuré, on fixe en px.
+  const resolvedHeight = containerHeight !== null ? `${containerHeight}px` : DEFAULT_HEIGHT
 
   return (
     // Wrapper extérieur : apporte les marges horizontales et le padding vertical
     <div className="px-6 sm:px-12 lg:px-24 xl:px-32 pt-headerSize pb-6">
       <section
+        ref={sectionRef}
         className="relative w-full overflow-hidden"
-        style={{
-          height: containerHeight,
-          transition: 'height 0.4s cubic-bezier(0.19, 1, 0.22, 1)',
-        }}
+        style={{ height: resolvedHeight }}
         aria-label={t('exhibitions.sliderAriaLabel')}
         aria-roledescription="carousel"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Slide image layer — keyed on current so it remounts on change */}
+        {/*
+          Crossfade layer stack — toutes les slides sont montées simultanément,
+          empilées en absolute inset-0. Seule la slide active a opacity:1.
+          La transition opacity de 700ms garantit un fondu enchaîné sans flash.
+          Le z-index actif est légèrement supérieur pour que le texte (z-10)
+          reste toujours au-dessus de la slide sortante.
+        */}
+        {exhibitions.map((exhibition, idx) => {
+          const isActive = idx === current
+          return (
+            <div
+              key={exhibition.id}
+              aria-hidden={!isActive}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                opacity: isActive ? 1 : 0,
+                zIndex: isActive ? 1 : 0,
+                transition: `opacity ${CROSSFADE_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+                willChange: 'opacity',
+              }}
+            >
+              <SlideImage
+                imageUrl={exhibition.imageUrl}
+                name={exhibition.name}
+                priority={idx === 0}
+              />
+            </div>
+          )
+        })}
+
+        {/* Gradients — au-dessus de toutes les slides (z-2), sous le texte (z-10) */}
+        {/* Bottom gradient for text legibility — couvre ~95% de la hauteur */}
         <div
-          key={expo.id}
-          className={`absolute inset-0 ${animClass}`}
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          <SlideImage
-            imageUrl={expo.imageUrl}
-            name={expo.name}
-            priority={current === 0}
-            onImageLoaded={handleImageLoaded}
-          />
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background:
+              'linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.92) 18%, rgba(0,0,0,0.78) 38%, rgba(0,0,0,0.50) 58%, rgba(0,0,0,0.20) 78%, rgba(0,0,0,0.04) 92%, transparent 100%)',
+          }}
+          aria-hidden="true"
+        />
 
-          {/* Bottom gradient for text legibility */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.32) 45%, transparent 70%)',
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Top gradient so arrows are readable */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 25%)',
-            }}
-            aria-hidden="true"
-          />
-        </div>
+        {/* Top gradient so arrows are readable */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 25%)',
+          }}
+          aria-hidden="true"
+        />
 
         {/* Navigation arrows */}
         {total > 1 && (
@@ -282,48 +344,42 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
           </>
         )}
 
-        {/* Bottom overlay bar — text left, dots+counter right */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-end justify-between px-8 md:px-14 pb-10 md:pb-14 gap-8">
+        {/* Bottom overlay — texte pleine largeur, dots en dessous */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col px-10 md:px-16 pb-10 md:pb-14 gap-y-6 md:gap-y-8">
 
-          {/* ── Text block — bottom left ── */}
-          <div className="flex flex-col gap-2 max-w-lg lg:max-w-2xl min-w-0">
+          {/* ── Text block — full width ── */}
+          <div className="flex flex-col gap-y-3 w-full">
 
             {/* Location line */}
-            <span className="inline-flex items-center self-start gap-2 text-white/65 text-[10px] uppercase tracking-[0.25em]">
-              <span
-                className="block w-4 h-px shrink-0"
-                style={{ backgroundColor: 'var(--gold-accent)' }}
-                aria-hidden="true"
-              />
-              <span className="truncate">{expo.address}</span>
+            <span
+              className="inline-flex items-center self-start gap-2 text-white/70 text-[10px] uppercase tracking-[0.35em]"
+            >
+              <span>{expo.address}</span>
             </span>
 
-            {/* Artist names — headline */}
+            {/* Exhibition name — élément dominant, pleine largeur */}
+            <p
+              className="unbounded text-white uppercase font-black leading-[0.82] tracking-tight w-full"
+              style={{ fontSize: 'clamp(2.5rem, 8vw, 5.5rem)' }}
+              suppressHydrationWarning
+            >
+              {expo.name}
+            </p>
+
+            {/* Artist names — sous le nom de l'exposition */}
             {artistNames && (
               <h2
-                className="unbounded text-white uppercase font-bold leading-none tracking-tight"
-                style={{ fontSize: 'clamp(1.4rem, 3.8vw, 3.25rem)' }}
+                className="unbounded text-white/85 uppercase font-medium tracking-[0.18em]"
+                style={{ fontSize: 'clamp(0.45rem, 0.7vw, 0.6rem)' }}
                 suppressHydrationWarning
               >
                 {artistNames}
               </h2>
             )}
 
-            {/* Exhibition name */}
-            <p
-              className="text-white/75 italic"
-              style={{
-                fontFamily: 'var(--font-bricolage), serif',
-                fontSize: 'clamp(0.875rem, 1.4vw, 1.1rem)',
-              }}
-              suppressHydrationWarning
-            >
-              {expo.name}
-            </p>
-
             {/* Dates */}
             <p
-              className="text-white/50 text-[10px] uppercase tracking-[0.2em] mt-0.5"
+              className="text-white/50 text-[10px] uppercase tracking-[0.3em]"
               suppressHydrationWarning
             >
               {dateRange}
@@ -331,15 +387,8 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
 
           </div>
 
-          {/* ── Dots + counter — bottom right ── */}
-          <div className="flex flex-col items-end gap-3 shrink-0 pb-1">
-            {/* Numeric counter */}
-            <span className="unbounded text-white/40 text-xs tabular-nums" aria-hidden="true">
-              <span className="text-white/90">{String(current + 1).padStart(2, '0')}</span>
-              {' / '}
-              {String(total).padStart(2, '0')}
-            </span>
-
+          {/* ── Dots + counter — ligne séparée sous le texte ── */}
+          <div className="flex items-center gap-4">
             {/* Dot pagination */}
             {total > 1 && (
               <div
@@ -354,7 +403,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
                     role="tab"
                     aria-selected={idx === current}
                     aria-label={`${t('exhibitions.slide')} ${idx + 1}`}
-                    onClick={() => goTo(idx, idx > current ? 'next' : 'prev')}
+                    onClick={() => goTo(idx)}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-full"
                     style={{
                       display: 'block',
@@ -370,7 +419,23 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
                 ))}
               </div>
             )}
+
+            {/* Numeric counter */}
+            <span className="unbounded text-white/40 text-xs tabular-nums" aria-hidden="true">
+              <span className="text-white/90">{String(current + 1).padStart(2, '0')}</span>
+              {' / '}
+              {String(total).padStart(2, '0')}
+            </span>
           </div>
+        </div>
+
+        {/* Live region pour l'accessibilité — annonce les changements de slide */}
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        >
+          {expo.name}
         </div>
       </section>
     </div>
