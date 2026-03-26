@@ -103,6 +103,7 @@ const Footer = () => {
             <Link href="/team" className="footer-link">{t('nav.aboutInRealArt')}</Link>
             <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
             <Link href="/joinInRealArt" className="footer-link" data-umami-event="joinInRealArt-footer-click">{t('nav.joinInRealArt')}</Link>
+            <Link href="/blog" className="footer-link">Blog</Link>
           </div>
 
           {/* Colonne : Expertise */}

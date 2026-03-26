@@ -71,7 +71,7 @@ export default function MarianSection() {
             style={{ border: '8px solid var(--canvas-bg)' }}
           >
             <Image
-              src="/images/media/media.avif"
+              src="/images/media/Marian.webp"
               alt="Marian Production"
               fill
               className="object-cover grayscale"

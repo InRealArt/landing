@@ -7,6 +7,7 @@ import { BlogBreadcrumb } from '@/components/common/Breadcrumb'
 import { useLanguageStore } from '@/store/languageStore'
 import { getPostBySlug, getLanguageIdByCode, getRelatedPosts, findTranslatedPost, incrementPostViews } from '@/actions/seoPostActions'
 import type { SeoPost } from '@/types/seoPost'
+import FirebaseImage from '@/components/common/FirebaseImage'
 import PostRelatedArtists from '@/components/blog/PostRelatedArtists'
 import './style.css'
 
@@ -196,6 +197,41 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
         <div className="max-w-3xl mx-auto px-10">
           <BlogBreadcrumb postTitle={displayPost.title} className="mb-12 pt-10" />
 
+          {/* Post Header Section */}
+          <div className="mb-12" data-anim="post-header">
+            <h1 className="serif italic text-4xl sm:text-5xl md:text-6xl text-[var(--ink-black)] leading-tight mb-8">
+              {displayPost.title}
+            </h1>
+            
+            {/* <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] mb-12">
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-px bg-[var(--gold-accent)]" />
+                {displayPost.author}
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-px bg-[var(--gold-accent)]" />
+                {formatDate(displayPost.createdAt)}
+              </span>
+              {displayPost.estimatedReadTime && (
+                <span className="flex items-center gap-2">
+                  <span className="w-4 h-px bg-[var(--gold-accent)]" />
+                  {displayPost.estimatedReadTime} {t('blog.readTime.minutes')}
+                </span>
+              )}
+            </div> */}
+
+            {displayPost.mainImageUrl && (
+              <div className="relative aspect-video mb-16 overflow-hidden border border-[var(--border-light)] group">
+                <FirebaseImage 
+                  src={displayPost.mainImageUrl} 
+                  alt={displayPost.mainImageAlt || displayPost.title}
+                  className="w-full h-full"
+                  imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 scale-[1.02] group-hover:scale-100"
+                />
+              </div>
+            )}
+          </div>
+
           <div
             data-anim="post-content"
             id="blog-content-container"
@@ -229,14 +265,15 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                     key={relatedPost.id}
                     href={`/blog/${relatedPost.slug}`}
                     data-anim="post-related-card"
-                    className="group block bg-[var(--canvas-bg)] overflow-hidden hover:bg-[var(--soft-gray)] transition-colors duration-500"
+                    className="group flex flex-col bg-[var(--canvas-bg)] border border-[var(--border-light)] overflow-hidden hover:bg-[var(--soft-gray)] transition-all duration-500 h-full"
                   >
-                    <div className="relative aspect-video overflow-hidden border-b border-[var(--border-light)]">
+                    <div className="relative aspect-video overflow-hidden shrink-0">
                       {relatedPost.mainImageUrl ? (
-                        <img
+                        <FirebaseImage
                           src={relatedPost.mainImageUrl}
                           alt={relatedPost.mainImageAlt || relatedPost.title}
-                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                          className="w-full h-full"
+                          imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.05]"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-[var(--soft-gray)]">
@@ -249,20 +286,20 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="serif italic text-xl leading-snug text-[var(--ink-black)] line-clamp-2 mb-3 group-hover:text-[var(--gold-accent)] transition-colors duration-300">
+                    <div className="p-8 flex flex-col flex-grow">
+                      <h3 className="serif text-xl leading-snug text-[var(--ink-black)] line-clamp-2 mb-4 group-hover:text-[var(--gold-accent)] transition-colors duration-300 flex-grow">
                         {relatedPost.title}
                       </h3>
                       {relatedPost.excerpt && (
-                        <p className="text-[12px] text-[var(--gray-text)] line-clamp-2 leading-loose mb-4">
+                        <p className="text-[12px] text-[var(--gray-text)] line-clamp-2 leading-relaxed mb-6">
                           {relatedPost.excerpt}
                         </p>
                       )}
-                      <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)]">
-                        {relatedPost.estimatedReadTime && (
-                          <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')} <span className="text-[var(--gold-accent)] mx-2">—</span></span>
-                        )}
+                      <div className="mt-auto pt-4 border-t border-[var(--border-light)] text-[9px] uppercase tracking-[0.25em] text-[var(--gray-text)] flex justify-between items-center">
                         <span>{formatDate(relatedPost.createdAt)}</span>
+                        {relatedPost.estimatedReadTime && (
+                          <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')}</span>
+                        )}
                       </div>
                     </div>
                   </Link>

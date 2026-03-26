@@ -22,7 +22,7 @@ export default function FirebaseImage({
 
   return (
     <div className={`relative ${className ?? ''}`} style={{ isolation: 'isolate' }}>
-      {status === 'retrying' && <FirebaseImageLoader />}
+      {(status === 'loading' || status === 'retrying') && <FirebaseImageLoader />}
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

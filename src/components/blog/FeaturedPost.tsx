@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useCallback, useState } from 'react'
-import OptimizedImage from '@/components/common/OptimizedImage'
+import FirebaseImage from '@/components/common/FirebaseImage'
 import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import { getFeaturedPost, getLanguageIdByCode } from '@/actions/seoPostActions'
@@ -106,13 +106,11 @@ export default function FeaturedPost({ initialPost }: Props) {
           className="group overflow-hidden border border-[var(--border-light)] h-[520px] block"
         >
           {post.mainImageUrl ? (
-            <OptimizedImage
-              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-out group-hover:[&_img]:scale-[1.02]"
+            <FirebaseImage
+              className="w-full h-full"
+              imgClassName="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02] grayscale group-hover:grayscale-0"
               src={post.mainImageUrl}
               alt={post.mainImageAlt || post.title}
-              width={600}
-              height={520}
-              priority
             />
           ) : (
             <div className="w-full h-full bg-[var(--soft-gray)] flex items-center justify-center">

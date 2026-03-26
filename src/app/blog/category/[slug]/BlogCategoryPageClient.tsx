@@ -154,7 +154,7 @@ export default function BlogCategoryPageClient({
 
           {/* Post grid — dimmed while a language re-fetch is in progress */}
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border-light)] transition-opacity duration-200 ${
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-200 ${
               isRefetching ? 'opacity-50' : 'opacity-100'
             }`}
           >
@@ -167,44 +167,46 @@ export default function BlogCategoryPageClient({
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
-                  className="group block border-0 p-6 bg-[var(--canvas-bg)] hover:bg-[var(--soft-gray)] transition-colors duration-500"
+                  className="group flex flex-col bg-[var(--canvas-bg)] border border-border-light hover:bg-[var(--soft-gray)] transition-all duration-500 overflow-hidden h-full"
                 >
-                  <div className="flex gap-6">
-                    {/* Image portrait gauche */}
-                    <div className="w-1/3 shrink-0 relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
-                      {post.mainImageUrl ? (
-                        <FirebaseImage
-                          src={post.mainImageUrl}
-                          alt={post.mainImageAlt ?? post.title}
-                          className="w-full h-full"
-                          imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-[var(--card)]" />
-                      )}
+                  {/* Image — Top */}
+                  <div
+                    className="w-full relative overflow-hidden shrink-0"
+                    style={{ aspectRatio: '16/9' }}
+                  >
+                    {post.mainImageUrl ? (
+                      <FirebaseImage
+                        src={post.mainImageUrl}
+                        alt={post.mainImageAlt ?? post.title}
+                        className="w-full h-full"
+                        imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[var(--soft-gray)]" />
+                    )}
+                  </div>
+
+                  {/* Content — Bottom */}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="h-px w-6 bg-gold-accent" />
+                      <p className="text-[10px] uppercase text-gold-accent font-bold tracking-[0.2em]">
+                        {post.category.name}
+                      </p>
                     </div>
 
-                    {/* Contenu droite */}
-                    <div className="w-2/3 flex flex-col justify-between">
-                      <div>
-                        <h2 className="unbounded text-base font-bold leading-snug mb-2 text-[var(--ink-black)]">
-                          {post.title}
-                        </h2>
+                    <h2 className="serif text-xl md:text-2xl font-medium leading-tight mb-4 text-[var(--ink-black)] group-hover:text-gold-accent transition-colors duration-300 line-clamp-2 flex-grow">
+                      {post.title}
+                    </h2>
 
-                        <p className="text-[10px] uppercase text-[#b89c72] font-bold mb-3 tracking-tighter">
-                          {post.category.name}
-                        </p>
+                    <p className="text-[13px] text-[var(--gray-text)] leading-relaxed line-clamp-3 mb-8">
+                      {post.excerpt ?? post.metaDescription}
+                    </p>
 
-                        <p className="text-xs text-[var(--gray-text)] leading-relaxed line-clamp-4">
-                          {post.excerpt ?? post.metaDescription}
-                        </p>
-                      </div>
-
-                      <div className="mt-4">
-                        <span className="inline-block border-b border-[var(--ink-black)] text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--ink-black)] transition-colors duration-300 group-hover:text-[#b89c72] group-hover:border-[#b89c72]">
-                          {t('blog.readMore')}
-                        </span>
-                      </div>
+                    <div className="mt-auto pt-4">
+                      <span className="inline-block border-b border-[var(--ink-black)] text-[10px] uppercase tracking-[0.3em] font-semibold text-[var(--ink-black)] transition-all duration-500 group-hover:text-gold-accent group-hover:border-gold-accent">
+                        {t('blog.readTime.minutes') ? t('blog.readMore') : 'Lire la suite'}
+                      </span>
                     </div>
                   </div>
                 </Link>
