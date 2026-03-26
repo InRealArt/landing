@@ -37,7 +37,7 @@ export default function MediaArticlesSectionClient({ initialPosts }: Props) {
         const langId = await getLanguageIdByCode(language)
         if (!langId) throw new Error(`Langue inconnue : ${language}`)
 
-        const result = await getPublishedPostsPaginated(langId, 1, PREVIEW_LIMIT, true)
+        const result = await getPublishedPostsPaginated(langId, 1, PREVIEW_LIMIT, true, 1)
 
         if (cancelled) return
 

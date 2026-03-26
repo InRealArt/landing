@@ -19,15 +19,13 @@ interface PostsGridProps {
 
 function PostCardSkeleton() {
   return (
-    <div className="animate-pulse">
-      <div className="flex gap-6">
-        <div className="w-1/3 shrink-0 bg-[var(--soft-gray)]" style={{ aspectRatio: '3/4' }} />
-        <div className="w-2/3 flex flex-col gap-3 pt-2">
-          <div className="h-4 bg-[var(--soft-gray)] rounded w-3/4" />
-          <div className="h-3 bg-[var(--soft-gray)] rounded w-1/4" />
-          <div className="h-3 bg-[var(--soft-gray)] rounded w-full" />
-          <div className="h-3 bg-[var(--soft-gray)] rounded w-5/6" />
-        </div>
+    <div className="flex flex-col bg-[var(--canvas-bg)] border border-borderColor overflow-hidden h-full">
+      <div className="w-full bg-[var(--soft-gray)] animate-pulse" style={{ aspectRatio: '16/9' }} />
+      <div className="p-8 flex flex-col gap-4">
+        <div className="h-3 bg-[var(--soft-gray)] rounded w-1/4 animate-pulse" />
+        <div className="h-8 bg-[var(--soft-gray)] rounded w-3/4 animate-pulse" />
+        <div className="h-4 bg-[var(--soft-gray)] rounded w-full animate-pulse" />
+        <div className="h-4 bg-[var(--soft-gray)] rounded w-full animate-pulse" />
       </div>
     </div>
   )
@@ -69,47 +67,46 @@ export default function PostsGrid({
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
-              className="group block p-6 bg-[var(--canvas-bg)] hover:bg-[var(--soft-gray)] transition-colors duration-500"
+              className="group flex flex-col bg-[var(--canvas-bg)] border border-borderColor hover:bg-[var(--soft-gray)] transition-all duration-500 overflow-hidden h-full"
             >
-              <div className="flex gap-6">
-                {/* Portrait image — left third */}
-                <div
-                  className="w-1/3 shrink-0 relative overflow-hidden"
-                  style={{ aspectRatio: '3/4' }}
-                >
-                  {post.mainImageUrl ? (
-                    <FirebaseImage
-                      src={post.mainImageUrl}
-                      alt={post.mainImageAlt ?? post.title}
-                      className="w-full h-full"
-                      imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-[var(--soft-gray)]" />
-                  )}
+              {/* Image — Top */}
+              <div
+                className="w-full relative overflow-hidden shrink-0"
+                style={{ aspectRatio: '16/9' }}
+              >
+                {post.mainImageUrl ? (
+                  <FirebaseImage
+                    src={post.mainImageUrl}
+                    alt={post.mainImageAlt ?? post.title}
+                    className="w-full h-full"
+                    imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.05]"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[var(--soft-gray)]" />
+                )}
+              </div>
+
+              {/* Content — Bottom */}
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-px w-6 bg-gold-accent" />
+                  <p className="text-[10px] uppercase text-gold-accent font-bold tracking-[0.2em]">
+                    {post.category.name}
+                  </p>
                 </div>
 
-                {/* Content — right two thirds */}
-                <div className="w-2/3 flex flex-col justify-between">
-                  <div>
-                    <h3 className="unbounded text-base font-bold leading-snug mb-2 text-[var(--text)]">
-                      {post.title}
-                    </h3>
+                <h3 className="serif text-xl md:text-2xl font-medium leading-tight mb-4 text-[var(--text)] group-hover:text-gold-accent transition-colors duration-300 line-clamp-2 flex-grow">
+                  {post.title}
+                </h3>
 
-                    <p className="text-[10px] uppercase text-gold-accent font-bold mb-3 tracking-tighter">
-                      {post.category.name}
-                    </p>
+                <p className="text-[13px] text-[var(--gray-text)] leading-relaxed line-clamp-3 mb-8">
+                  {post.excerpt ?? post.metaDescription}
+                </p>
 
-                    <p className="text-xs text-[var(--gray-text)] leading-relaxed line-clamp-4">
-                      {post.excerpt ?? post.metaDescription}
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <span className="inline-block border-b border-[var(--text)] text-[0.7rem] uppercase tracking-[0.15em] font-semibold text-[var(--text)] transition-colors duration-300 group-hover:text-[#b89c72] group-hover:border-[#b89c72]">
-                      {t('blog.readMore')}
-                    </span>
-                  </div>
+                <div className="mt-auto pt-4">
+                  <span className="inline-block border-b border-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-semibold text-[var(--text)] transition-all duration-500 group-hover:text-gold-accent group-hover:border-gold-accent">
+                    {t('blog.readMore')}
+                  </span>
                 </div>
               </div>
             </Link>

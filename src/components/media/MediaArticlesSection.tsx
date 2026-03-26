@@ -7,7 +7,7 @@ export default async function MediaArticlesSection() {
   const langId = await getLanguageIdByCode('fr')
 
   const initialPosts = langId
-    ? (await getPublishedPostsPaginated(langId, 1, PREVIEW_LIMIT, true)).posts
+    ? (await getPublishedPostsPaginated(langId, 1, PREVIEW_LIMIT, true, 1)).posts
     : []
 
   return <MediaArticlesSectionClient initialPosts={initialPosts} />

@@ -253,7 +253,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* ── FORMULAIRE ───────────────────────────────────────────────────── */}
-      <section id="etude-sur-mesure" className="py-40 bg-[var(--soft-gray)] px-6 lg:px-10">
+      {/* <section id="etude-sur-mesure" className="py-40 bg-[var(--soft-gray)] px-6 lg:px-10">
         <div className="max-w-3xl mx-auto bg-[var(--canvas-bg)] p-12 lg:p-20 shadow-sm border border-[var(--border-light)]">
 
           <div className="text-center mb-16">
@@ -352,7 +352,7 @@ export default function ImmobilierPage() {
             </button>
           </form>
         </div>
-      </section>
+      </section> */}
 
       {/* ── CTA RETOUR ───────────────────────────────────────────────────── */}
       <section className="py-24 px-6 lg:px-10 border-t border-[var(--border-light)] bg-[var(--canvas-bg)]">

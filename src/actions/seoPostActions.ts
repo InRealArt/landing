@@ -38,13 +38,15 @@ export async function getPublishedPosts(
     limit: number = 10,
     offset: number = 0,
     excludeIds: number[] = [],
-    excludePinned: boolean = false
+    excludePinned: boolean = false,
+    categoryId?: number
 ): Promise<{ posts: SeoPost[], total: number }> {
     try {
         const whereClause = {
             status: 'PUBLISHED' as const,
             languageId: languageId,
             ...(excludePinned && { pinned: false }),
+            ...(categoryId && { categoryId: categoryId }),
             ...(excludeIds.length > 0 && {
                 id: {
                     notIn: excludeIds
@@ -556,7 +558,8 @@ export async function getPublishedPostsPaginated(
     languageId: number,
     page: number,
     limit: number = 6,
-    excludePinned: boolean = true
+    excludePinned: boolean = true,
+    categoryId?: number
 ): Promise<{ posts: SeoPost[]; total: number; totalPages: number }> {
     const offset = Math.max(0, (page - 1) * limit)
     const { posts, total } = await getPublishedPosts(
@@ -564,7 +567,8 @@ export async function getPublishedPostsPaginated(
         limit,
         offset,
         [],
-        excludePinned
+        excludePinned,
+        categoryId
     )
     return {
         posts,
