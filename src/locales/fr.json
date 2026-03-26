@@ -105,7 +105,11 @@
       "bridges": "Construire des ponts entre culture, entreprises et mécénat pour créer de l'impact durable.",
       "traceability": "Assurer la traçabilité, l'authenticité et la documentation des œuvres afin de renforcer la confiance de tous les acteurs."
     },
-    "signature": "Au service de l'art"
+    "signature": "Au service de l'art",
+    "sectionTitle": "Art, culture & patrimoine",
+    "sectionLabel": "Notre engagement",
+    "engagementsLabel": "Engagements",
+    "heroLabel": "Manifeste — In Real Art"
   },
   "buttons": {
     "readMore": "En savoir plus",

@@ -100,9 +100,8 @@ const Footer = () => {
             >
               {t('footer.about')}
             </h5>
-            <Link href="/about" className="footer-link">{t('nav.aboutInRealArt')}</Link>
+            <Link href="/team" className="footer-link">{t('nav.aboutInRealArt')}</Link>
             <Link href="/manifest" className="footer-link">{t('nav.whitepaper')}</Link>
-            <Link href="/team" className="footer-link">{t('nav.team')}</Link>
             <Link href="/joinInRealArt" className="footer-link" data-umami-event="joinInRealArt-footer-click">{t('nav.joinInRealArt')}</Link>
           </div>
 
@@ -118,7 +117,7 @@ const Footer = () => {
             >
               {t('footer.expertise')}
             </h5>
-            <Link href="/service" className="footer-link">{t('nav.services')}</Link>
+            <Link href="/services" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/media" className="footer-link">{t('nav.blog')}</Link>
           </div>

@@ -59,6 +59,8 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/usecase/companies',
   '/usecase/fractionate',
   '/usecase/leasing',
+  '/usecase/leasing/hotelPrestige',
+  '/usecase/leasing/immobilier',
   '/usecase/lending',
   '/services',
 ])

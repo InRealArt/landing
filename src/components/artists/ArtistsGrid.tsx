@@ -51,7 +51,7 @@ export function ArtistsGridSkeleton() {
       <section className="py-24 px-4 sm:px-10 bg-backgroundGrey border-y border-borderColor">
         <div className="max-w-screen-xl mx-auto">
           <div className="h-3 w-40 bg-textColor/10 animate-pulse mb-16" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
             {listRows.map((_, i) => (
               <div key={i} className="py-3 border-b border-borderColor">
                 <div
@@ -105,22 +105,6 @@ export default function ArtistsGrid({ initialArtists }: Props) {
     [artists, language],
   )
 
-  /*
-   * Group into alphabetical buckets.
-   * The bucket key is the first letter of the sort key (surname or pseudo).
-   * Artists with no sort key fall into '#'.
-   */
-  const alphaBuckets = useMemo(() => {
-    const buckets = new Map<string, typeof sortedArtists>()
-    for (const a of sortedArtists) {
-      const key = sortKey(a)
-      const letter = key.length > 0 ? key[0].toUpperCase() : '#'
-      if (!buckets.has(letter)) buckets.set(letter, [])
-      buckets.get(letter)!.push(a)
-    }
-    return buckets
-  }, [sortedArtists])
-
   return (
     <>
       {/* ── Section 1: Featured mosaic (top artists only) ── */}
@@ -142,48 +126,40 @@ export default function ArtistsGrid({ initialArtists }: Props) {
         <div className="max-w-screen-xl mx-auto">
 
           {/* Section header */}
-          <div className="flex items-baseline justify-between border-b border-borderColor pb-8 mb-0">
+          <div className="flex items-baseline justify-between pb-12 mb-12 border-b border-borderColor">
             <span className="section-number !mb-0 font-bold">{t('artists.roster.label')}</span>
-            <span className="section-number !mb-0">{artists.length}</span>
           </div>
 
-          {/* A–Z buckets */}
-          {Array.from(alphaBuckets.entries()).map(([letter, group]) => (
-            <div key={letter} className="border-b border-borderColor">
-              <div className="py-3">
-                {/* Names grid for this letter */}
-                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {group.map(artist => (
-                    <li key={artist.slug}>
-                      <Link
-                        href={`/artists/${artist.slug}`}
-                        className="group flex items-center py-0.5 pr-4 text-textColor hover:text-gold-accent transition-colors duration-200 focus-visible:outline-none focus-visible:text-gold-accent"
-                      >
-                        <span className="text-sm uppercase tracking-[0.2em] bricolage-grotesque leading-snug font-bold">
-                          {artist.fullName}
-                        </span>
-                        {/* Subtle arrow — appears on hover */}
-                        <svg
-                          width="10"
-                          height="10"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                          className="ml-2 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0 text-gold-accent"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+          {/* Flat alphabetical list — two equal columns */}
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+            {sortedArtists.map(artist => (
+              <li key={artist.slug}>
+                <Link
+                  href={`/artists/${artist.slug}`}
+                  className="group flex items-center py-2.5 pr-4 text-textColor hover:text-gold-accent transition-colors duration-200 focus-visible:outline-none focus-visible:text-gold-accent"
+                >
+                  <span className="text-sm uppercase tracking-[0.2em] bricolage-grotesque leading-snug font-bold">
+                    {artist.fullName}
+                  </span>
+                  {/* Subtle arrow — appears on hover */}
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className="ml-2 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0 text-gold-accent"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

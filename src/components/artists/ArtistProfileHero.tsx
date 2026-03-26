@@ -47,7 +47,9 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
         }
 
         if (nameRef.current) {
-          const spans = nameRef.current.querySelectorAll('span')
+          // Target only the semantically meaningful name spans, not the
+          // duplicate hidden/visible pair used for the mobile inline layout.
+          const spans = nameRef.current.querySelectorAll('[data-anim-name]')
           tl.fromTo(
             spans,
             { opacity: 0, y: 40 },
@@ -90,40 +92,50 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
         borderColor: 'var(--border-color)',
       }}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 pt-6 pb-4 lg:pt-8 lg:pb-5">
-        <div className="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+      <div className="max-w-screen-2xl mx-auto px-4 lg:px-10 pt-3 pb-2 lg:pt-8 lg:pb-5">
+        <div className="grid lg:grid-cols-12 gap-2 lg:gap-8 items-center">
 
           {/* Left — section label + name + specialty */}
           <div className="lg:col-span-7">
             <span
               ref={labelRef}
-              className="section-number opacity-0"
+              className="section-number opacity-0 hidden lg:block"
             >
               {language === 'fr' ? 'Artiste résident' : 'Resident Artist'}
             </span>
 
             <h1
               ref={nameRef}
-              className="leading-none mb-3"
+              className="leading-none mb-1 lg:mb-3"
             >
-              <span className="block text-3xl md:text-4xl lg:text-5xl font-cormorant font-light text-textColor opacity-0">
+              {/* On mobile: inline so first + last name sit on one line.
+                  On desktop: block to restore the stacked two-line layout.
+                  GSAP targets [data-anim-name] — all three spans are included so
+                  neither the mobile nor desktop lastName span is left at opacity:0. */}
+              <span data-anim-name className="inline lg:block text-2xl lg:text-5xl font-cormorant font-light text-textColor opacity-0">
                 {firstName}
               </span>
               {lastName && (
-                <span
-                  className="block text-3xl md:text-4xl lg:text-5xl font-cormorant font-light italic opacity-0"
-                  style={{ color: '#b89c72' }}
-                >
-                  {lastName}
-                </span>
+                <>
+                  <span data-anim-name className="inline lg:hidden text-2xl font-cormorant font-light opacity-0" style={{ color: '#b89c72' }}>
+                    {' '}{lastName}
+                  </span>
+                  <span
+                    data-anim-name
+                    className="hidden lg:block text-5xl font-cormorant font-light italic opacity-0"
+                    style={{ color: '#b89c72' }}
+                  >
+                    {lastName}
+                  </span>
+                </>
               )}
             </h1>
 
             <p
               ref={specialtyRef}
-              className="text-[10px] uppercase tracking-[0.35em] text-gray-400 font-montserrat flex items-center gap-3 opacity-0"
+              className="text-[9px] lg:text-[10px] uppercase tracking-[0.3em] lg:tracking-[0.35em] text-gray-400 font-montserrat flex items-center gap-2 lg:gap-3 opacity-0"
             >
-              <span className="w-6 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
+              <span className="w-4 lg:w-6 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
               {artist.role}
               {artist.countryName && (
                 <>
@@ -133,8 +145,8 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
               )}
               {artist.birthYear && (
                 <>
-                  <span className="opacity-40" aria-hidden="true">·</span>
-                  <span>
+                  <span className="opacity-40 hidden sm:inline" aria-hidden="true">·</span>
+                  <span className="hidden sm:inline">
                     {language === 'fr' ? 'Né(e) en' : 'Born in'}{' '}
                     {artist.birthYear}
                   </span>
