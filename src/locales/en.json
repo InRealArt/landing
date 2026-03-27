@@ -216,7 +216,9 @@
     "next": "Next exhibition",
     "pagination": "Dot navigation",
     "slide": "Exhibition",
-    "moreInfo": "More info"
+    "moreInfo": "More info",
+    "sectionTitle": "Latest Exhibitions",
+    "readMore": "View details"
   },
   "artists": {
     "title": "Our artists",
