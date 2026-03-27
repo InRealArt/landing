@@ -34,18 +34,6 @@ export default function DescriptionsBlock() {
       featured: false,
     },
     {
-      tag: t('joinInRealArt.cards.collectors.tag'),
-      titleBefore: t('joinInRealArt.cards.collectors.title') + ' ',
-      titleItalic: t('joinInRealArt.cards.collectors.titleItalic'),
-      titleAfter: ' ' + t('joinInRealArt.cards.collectors.titleSuffix'),
-      description: t('joinInRealArt.cards.collectors.description'),
-      cta: t('joinInRealArt.cards.collectors.cta'),
-      image: '/images/joinInRealArt/joinInRealArt_desc2.webp',
-      imageAlt: t('joinInRealArt.cards.collectors.titleItalic'),
-      link: '#',
-      featured: true,
-    },
-    {
       tag: 'Partenariat galeries',
       titleBefore: 'Vous êtes une ',
       titleItalic: 'galerie',
@@ -63,7 +51,7 @@ export default function DescriptionsBlock() {
   return (
     <section className="pb-16 md:pb-24 lg:pb-40 px-4 sm:px-6 lg:px-10">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {cards.map((card) => (
             <JoinCard key={card.link + card.tag} card={card} />
           ))}

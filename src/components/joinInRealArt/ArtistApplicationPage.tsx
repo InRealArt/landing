@@ -1,9 +1,14 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 import Combobox from '@/components/ui/Combobox'
+
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
+  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+})
 
 interface FormState {
   fullName: string
@@ -187,6 +192,9 @@ export default function ArtistApplicationPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── TÉMOIGNAGES ─── */}
+      <Testimonials />
 
       {/* ─── FORMULAIRE DE CANDIDATURE ─── */}
       <section id="candidature" className="py-28 lg:py-32 px-6 sm:px-10 bg-backgroundColor">
