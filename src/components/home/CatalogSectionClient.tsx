@@ -42,9 +42,9 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
           <span className="section-number" suppressHydrationWarning>
             {t('home.catalog.sectionNumber')}
           </span>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl serif break-words" suppressHydrationWarning>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl serif italic break-words" suppressHydrationWarning>
             {t('home.catalog.title')}{' '}
-            <span className="italic text-gold-accent">
+            <span className="not-italic text-gold-accent">
               {t('home.catalog.titleAccent')}
             </span>
           </h2>

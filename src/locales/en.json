@@ -1271,7 +1271,8 @@
           "Artwork rotation",
           "Direct sales to clients"
         ],
-        "cta": "Detailed case study →"
+        "cta": "Detailed case study →",
+        "ctaSecondary": "Leasing Simulator"
       },
       "scenario2": {
         "badge": "Scenario 02",
@@ -1283,7 +1284,8 @@
           "Employer Brand",
           "Workplace wellness"
         ],
-        "cta": "Explore our leasing solutions →"
+        "cta": "Explore our leasing solutions →",
+        "ctaSecondary": "Leasing Simulator"
       },
       "scenario3": {
         "badge": "Scenario 03",
@@ -1295,7 +1297,8 @@
           "Bespoke curation",
           "Emerging artists"
         ],
-        "cta": "Contact a curator →"
+        "cta": "Contact a curator →",
+        "ctaSecondary": "Leasing Simulator"
       }
     },
     "impact": {

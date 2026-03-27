@@ -1244,7 +1244,7 @@
       "title": "L'Art comme Levier d'Identité.",
       "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces.",
       "scenario1": {
-        "badge": "Scénario 01",
+        "badge": "Scénario 02",
         "title": "Hôtellerie de",
         "titleItalic": "Prestige",
         "description": "L'art est au cœur de l'expérience client. Nous créons des parcours artistiques cohérents avec l'histoire du lieu, augmentant la valeur perçue des chambres et des espaces communs.",
@@ -1253,10 +1253,11 @@
           "Rotation des œuvres",
           "Vente directe aux clients"
         ],
-        "cta": "Étude de cas détaillée →"
+        "cta": "Étude de cas détaillée →",
+        "ctaSecondary": "Simulateur LOA"
       },
       "scenario2": {
-        "badge": "Scénario 02",
+        "badge": "Scénario 01",
         "title": "Sièges Sociaux &",
         "titleItalic": "Identité",
         "description": "Affirmez vos valeurs d'entreprise à travers la création contemporaine. L'art favorise la créativité des équipes et renforce l'image de marque auprès de vos partenaires.",
@@ -1265,7 +1266,8 @@
           "Marque Employeur",
           "Bien-être au travail"
         ],
-        "cta": "Consulter nos solutions leasing →"
+        "cta": "Consulter nos solutions leasing →",
+        "ctaSecondary": "Simulateur LOA"
       },
       "scenario3": {
         "badge": "Scénario 03",
@@ -1277,7 +1279,8 @@
           "Curation sur-mesure",
           "Artistes émergents"
         ],
-        "cta": "Contactez un curateur →"
+        "cta": "Contactez un curateur →",
+        "ctaSecondary": "Simulateur LOA"
       }
     },
     "impact": {

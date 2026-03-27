@@ -10,6 +10,7 @@ interface Scenario {
   description: string
   pills: string[]
   cta: string
+  ctaSecondary: string
   ctaHref: string
   imageSrc: string
   imageAlt: string
@@ -32,6 +33,7 @@ export default function UseCaseScenarios() {
         t('usecase.scenarios.scenario2.pills.2'),
       ],
       cta: t('usecase.scenarios.scenario2.cta'),
+      ctaSecondary: t('usecase.scenarios.scenario2.ctaSecondary'),
       ctaHref: '/usecase/leasing',
       imageSrc: '/images/usecase/usecase2.avif',
       imageAlt: t('usecase.scenarios.scenario2.titleItalic'),
@@ -49,6 +51,7 @@ export default function UseCaseScenarios() {
         t('usecase.scenarios.scenario1.pills.2'),
       ],
       cta: t('usecase.scenarios.scenario1.cta'),
+      ctaSecondary: t('usecase.scenarios.scenario1.ctaSecondary'),
       ctaHref: '/usecase/leasing/hotelPrestige',
       imageSrc: '/images/usecase/usecase1.avif',
       imageAlt: t('usecase.scenarios.scenario1.titleItalic'),
@@ -66,6 +69,7 @@ export default function UseCaseScenarios() {
         t('usecase.scenarios.scenario3.pills.2'),
       ],
       cta: t('usecase.scenarios.scenario3.cta'),
+      ctaSecondary: t('usecase.scenarios.scenario3.ctaSecondary'),
       ctaHref: '/usecase/leasing/immobilier',
       imageSrc: '/images/usecase/usecase3.avif',
       imageAlt: t('usecase.scenarios.scenario3.titleItalic'),
@@ -133,9 +137,14 @@ export default function UseCaseScenarios() {
                 ))}
               </div>
 
-              <a href={scenario.ctaHref} className="btn-mag self-start">
-                {scenario.cta}
-              </a>
+              <div className="flex flex-col gap-4">
+                <a href={scenario.ctaHref} className="btn-mag self-start">
+                  {scenario.cta}
+                </a>
+                <a href="/simulators/loa" className="btn-mag self-start" style={{ color: 'var(--gold-accent)', borderColor: 'var(--gold-accent)' }}>
+                  {scenario.ctaSecondary}
+                </a>
+              </div>
             </div>
           </div>
         </section>
