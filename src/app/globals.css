@@ -242,7 +242,7 @@ body {
 
 .btn-cta:hover {
   background: var(--ink-black);
-  color: white;
+  color: var(--background);
 }
 
 /* InRealArt Media - Action button (dark fill, gold on hover) */
@@ -387,7 +387,7 @@ body {
 
 [data-theme='dark'] .section-dark-premium .btn-cta:hover {
   background-color: var(--ink-black);
-  color: #ffffff;
+  color: var(--background);
 }
 
 /* Input underline inside dark-premium */

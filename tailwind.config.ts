@@ -152,7 +152,7 @@ export default {
         },
         '.btn-cta:hover': {
           'background': 'var(--ink-black)',
-          'color': 'white'
+          'color': 'var(--background)'
         },
         '.section-number': {
           'font-size': '0.6rem',
