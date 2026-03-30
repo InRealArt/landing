@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: 'event.inrealart.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '**',
+      },
     ],
 
     // Formats d'image optimisés (réduire le nombre de transformations)

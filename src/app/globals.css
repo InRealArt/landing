@@ -444,6 +444,36 @@ body {
   font-family: var(--font-montserrat), sans-serif;
 }
 
+/* ─── InRealArt Gallery - Step Number (Leasing) ─── */
+.step-number {
+  font-family: var(--font-cormorant), serif;
+  font-size: 3rem;
+  color: var(--gold-accent);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1;
+}
+
+/* ─── InRealArt Gallery - Advantage Box (Leasing Process) ─── */
+.advantage-box {
+  padding: 3rem;
+  background: var(--soft-gray);
+  border-top: 1px solid var(--border-light);
+  transition: all 0.5s ease;
+}
+
+.advantage-box:hover {
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  border-top-color: var(--gold-accent);
+}
+
+[data-theme='dark'] .advantage-box:hover {
+  background: var(--background);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 /* Style personnalisé pour la liste du manifeste */
 .manifest-list {
   color: #000000;
