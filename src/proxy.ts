@@ -87,7 +87,7 @@ function nextWithPathname(request: NextRequest): NextResponse {
   return response
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Pass through Server Actions (POST requests with Next-Action header)

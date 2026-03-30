@@ -62,18 +62,6 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // Configuration webpack pour optimiser le build
-  webpack: (config, { isServer, webpack }) => {
-    if (!isServer) {
-      // Optimiser les chunks pour réduire les polyfills
-      config.optimization = {
-        ...config.optimization,
-        moduleIds: 'deterministic',
-        runtimeChunk: 'single',
-      }
-    }
-    return config
-  },
 };
 
 export default nextConfig;

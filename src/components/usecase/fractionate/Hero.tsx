@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <div className="w-full h-full [&_img]:!object-center">
           <OptimizedBackgroundImage
-            src="/images/usecase/hero_usecase.webp?v=2"
+            src="/images/usecase/hero_usecase.webp"
             alt={t('fractionate.hero.title')}
             width={1920}
             height={1080}
