@@ -1,6 +1,6 @@
 generator client {
     provider = "prisma-client"
-    output   = "../src/generated/prisma/"
+    output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -1379,8 +1379,10 @@ model Exhibition {
     startDate DateTime                        // Date de début
     endDate   DateTime                        // Date de fin
     address   String                          // Adresse de l'événement
-    imageUrl  String?                         // URL Cloudflare de l'image illustrant l'exposition
-    artists   ExhibitionArtist[]
+    imageUrl     String?                         // URL Cloudflare de l'image illustrant l'exposition
+    description  String?                         // Description de l'exposition
+    linkToEvent  String?                         // Lien vers l'événement externe
+    artists      ExhibitionArtist[]
 
     @@schema("landing")
 }

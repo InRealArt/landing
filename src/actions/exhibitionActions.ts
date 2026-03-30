@@ -17,7 +17,16 @@ export interface ExhibitionData {
   endDate: string
   address: string
   imageUrl: string | null
+  linkToEvent: string | null
   artists: ExhibitionArtistData[]
+}
+
+export interface ExpoData {
+  title: string
+  location: string
+  date: string
+  imageUrl: string
+  href: string
 }
 
 /**
@@ -35,6 +44,7 @@ export async function getExhibitions(): Promise<ExhibitionData[]> {
         endDate: true,
         address: true,
         imageUrl: true,
+        linkToEvent: true,
         artists: {
           select: {
             landingArtist: {
@@ -62,6 +72,7 @@ export async function getExhibitions(): Promise<ExhibitionData[]> {
       endDate: expo.endDate.toISOString(),
       address: expo.address,
       imageUrl: expo.imageUrl ?? null,
+      linkToEvent: expo.linkToEvent ?? null,
       artists: expo.artists.map((ea) => ({
         id: ea.landingArtist.id,
         slug: ea.landingArtist.slug,

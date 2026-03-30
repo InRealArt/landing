@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
-import type { ExpoData } from '@/actions/expoActions'
+import type { ExpoData } from '@/actions/exhibitionActions'
 
 // ---------------------------------------------------------------------------
 // Constants
