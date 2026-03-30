@@ -1,3 +1,2 @@
-export { usePresaleArtworkStore } from './usePresaleArtworkStore'
 export { useSeoPostStore } from './useSeoPostStore'
 // ... autres exports existants ...

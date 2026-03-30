@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import PresaleClient from './PresaleClient'
 import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
+import { getKeyWorksArtworks } from '@/actions/presaleArtworkActions'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Présale — Œuvres d\'Art en Exclusivité | InRealArt',
@@ -10,9 +11,11 @@ export const metadata: Metadata = generateStaticMetadata({
   canonical: 'https://inrealart.com/presale',
 })
 
-export default function PresalePage() {
+export default async function PresalePage() {
+  const artworks = await getKeyWorksArtworks()
+
   return (
-    <PresaleClient>
+    <PresaleClient initialArtworks={artworks}>
       <FAQWrapper titleKey="presale.faq.title" descriptionKey="presale.faq.description" />
     </PresaleClient>
   )

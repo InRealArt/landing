@@ -2,7 +2,6 @@
 import React, { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import PresaleHero from "@/components/presale/PresaleHero";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
-import { usePresaleArtworkStore } from '@/store/usePresaleArtworkStore'
 import { useLanguageStore } from '@/store/languageStore';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import { Download } from "lucide-react";
@@ -10,17 +9,12 @@ import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { downloadCatalog } from '@/actions/catalogActions'
 import CatalogSuccessModal from '@/components/common/SuccessModal'
+import { PresaleArtworkData } from '@/actions/presaleArtworkActions';
 
 const PAGE_SIZE = 12 // 3 colonnes x 4 lignes
 
-export default function PresaleClient({ children }: { children?: React.ReactNode }) {
+export default function PresaleClient({ children, initialArtworks }: { children?: React.ReactNode, initialArtworks: PresaleArtworkData[] }) {
   const { t, language } = useLanguageStore();
-  const {
-    artworks,
-    fetchPresaleArtworks,
-    isLoading,
-    hasError
-  } = usePresaleArtworkStore()
 
   // États pour le formulaire de téléchargement du catalogue
   const [email, setEmail] = useState('')
@@ -37,10 +31,6 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
   // État pour le dropdown
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    fetchPresaleArtworks()
-  }, [fetchPresaleArtworks])
 
   // Gestion du clic extérieur pour fermer le dropdown
   useEffect(() => {
@@ -95,26 +85,29 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
   const filtered = useMemo(() => {
     // Filtre par artiste
     const byArtist = params.artist
-      ? artworks.filter(artwork => artwork.artistName.toLowerCase().includes(params.artist.toLowerCase()))
-      : artworks
+      ? initialArtworks.filter(artwork => {
+          const artistFullName = `${artwork.artist.name} ${artwork.artist.surname}`.toLowerCase();
+          return artistFullName.includes(params.artist.toLowerCase());
+        })
+      : initialArtworks
 
     // Filtre par recherche (nom d'artiste ou nom d'œuvre)
     const query = params.q.trim().toLowerCase()
     const bySearch = query
-      ? byArtist.filter(artwork =>
-          artwork.name.toLowerCase().includes(query) ||
-          artwork.artistName.toLowerCase().includes(query)
-        )
+      ? byArtist.filter(artwork => {
+          const artistFullName = `${artwork.artist.name} ${artwork.artist.surname}`.toLowerCase();
+          return artwork.name.toLowerCase().includes(query) || artistFullName.includes(query);
+        })
       : byArtist
 
     return bySearch
-  }, [artworks, params.artist, params.q])
+  }, [initialArtworks, params.artist, params.q])
 
   // Liste unique des artistes pour le dropdown
   const artists = useMemo(() => {
-    const uniqueArtists = Array.from(new Set(artworks.map(artwork => artwork.artistName)))
+    const uniqueArtists = Array.from(new Set(initialArtworks.map(artwork => `${artwork.artist.name} ${artwork.artist.surname}`)))
     return uniqueArtists.sort()
-  }, [artworks])
+  }, [initialArtworks])
 
   // Calculs de pagination avec filtrage
   const { paginatedArtworks, totalPages, page, startIndex } = useMemo(() => {
@@ -137,35 +130,13 @@ export default function PresaleClient({ children }: { children?: React.ReactNode
   }
 
   const artworkImages = paginatedArtworks.map(artwork => ({
-    image: { src: artwork.url },
+    image: { src: artwork.imageUrl },
     name: artwork.name,
     price: artwork.price,
     order: artwork.order,
-    artistName: artwork.artistName,
+    artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
     isSold: artwork.isSold || false
   }))
-
-  if (isLoading) {
-    return (
-      <>
-        <PresaleHero />
-        <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center text-textColor/60 section-number">
-          {t('team.loading')}
-        </div>
-      </>
-    )
-  }
-
-  if (hasError) {
-    return (
-      <>
-        <PresaleHero />
-        <div className="relative max-w-90 xl:max-w-screen-xl m-auto mt-10 text-center text-textColor/60 section-number">
-          {t('team.error')}
-        </div>
-      </>
-    )
-  }
 
 
   return (
