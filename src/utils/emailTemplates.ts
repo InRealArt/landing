@@ -563,7 +563,7 @@ export const createGameRegistrationAdminTemplate = (name: string, email: string,
 };
 
 export async function sendEmailViaBrevo(to: string, subject: string, htmlContent: string, attachments?: any[]) {
-    const brevoApiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY
+    const brevoApiKey = process.env.BREVO_API_KEY
 
     if (!brevoApiKey) {
         throw new Error('BREVO_API_KEY not configured')
