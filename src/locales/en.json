@@ -2938,5 +2938,256 @@
     "defaultCta3": "Get started now",
     "defaultCta4": "Get started now",
     "trustIndicator": "Recommended"
+  },
+  "hotelPrestige": {
+    "metadata": {
+      "title": "Art & Luxury Hotels — InRealArt",
+      "description": "InRealArt supports luxury hotels in creating bespoke artistic universes. Art leasing, confidential curation, expert installation."
+    },
+    "hero": {
+      "sectionNumber": "Luxury Hotels & Contemporary Creation",
+      "title": "Art as the",
+      "titleEmphasis": "signature",
+      "titleSuffix": "of excellence.",
+      "description": "In the most prestigious establishments, nothing is left to chance. Art does not come to dress a place — it reveals its soul. We accompany luxury hotels in the creation of veritable artistic universes, designed as a natural extension of their identity.",
+      "cta": "Initiate a conversation",
+      "imageAlt": "Lobby of a luxury hotel with artworks",
+      "quote": "Nothing is visible, everything is felt.",
+      "quoteAuthor": "InRealArt — Curation Philosophy"
+    },
+    "advantages": {
+      "sectionNumber": "An experience that leaves a lasting impression",
+      "title": "A living",
+      "titleSuffix": "aesthetic.",
+      "cards": {
+        "stay": {
+          "number": "01",
+          "title": "Extended stay",
+          "description": "Art-enriched environments transform perception and attachment. Up to +12% average stay duration — each artwork becomes an emotional anchor point."
+        },
+        "aesthetics": {
+          "number": "02",
+          "title": "Evolving aesthetics",
+          "description": "Leasing places your establishment in a subtle and continuous cultural dynamic: rotation of artworks through the seasons, dialogues between architecture, design and contemporary creation."
+        },
+        "commitment": {
+          "number": "03",
+          "title": "Discreet, essential commitment",
+          "description": "Support for living artists, contribution to a sustainable cultural ecosystem. A responsible approach, in line with contemporary luxury expectations."
+        }
+      }
+    },
+    "process": {
+      "sectionNumber": "An orchestration without compromise",
+      "title": "Every detail,",
+      "titleSuffix": "considered.",
+      "description": "Every project is thought out in its smallest details — nothing is visible, everything is felt.",
+      "steps": {
+        "curation": {
+          "title": "Confidential Curation",
+          "description": "Confidential and bespoke curation, in harmony with your establishment's DNA: lobby, suites, dining areas, spa."
+        },
+        "financing": {
+          "title": "LOA Financing",
+          "description": "Leasing plan from 13 to 48 months, fully tax-deductible. No capitalization on the balance sheet, preserved cash flow."
+        },
+        "installation": {
+          "title": "Expert Installation",
+          "description": "Expert installation, in perfect harmony with your spaces. Secure transport, professional hanging, scenographic lighting."
+        },
+        "renewal": {
+          "title": "Fluid renewal",
+          "description": "Attentive monitoring and fluid renewal of collections. Your spaces evolve with the seasons and your clientele."
+        }
+      }
+    },
+    "stats": {
+      "sectionNumber": "Market data",
+      "imageAlt": "Art collection in a luxury hotel",
+      "items": {
+        "stay": {
+          "value": "+12%",
+          "label": "average stay duration in hotels with an art collection"
+        },
+        "satisfaction": {
+          "value": "+18%",
+          "label": "satisfaction and recommendation recorded by our partner establishments"
+        },
+        "tax": {
+          "value": "100%",
+          "label": "of rents deductible from taxable income (CGI Art. 39-1-1°)"
+        }
+      }
+    },
+    "form": {
+      "sectionNumber": "Initiate a conversation",
+      "title": "Turn your hotel into a work of art",
+      "subtitle": "Beyond the stay, an intimate, silent, unforgettable cultural experience.",
+      "fields": {
+        "hotelName": {
+          "label": "Establishment name",
+          "placeholder": "ESTABLISHMENT"
+        },
+        "rooms": {
+          "label": "Number of rooms",
+          "placeholder": "NUMBER OF ROOMS",
+          "options": {
+            "less50": "< 50 rooms",
+            "50to200": "50 – 200 rooms",
+            "more200": "200+ rooms"
+          }
+        },
+        "email": {
+          "label": "Professional email",
+          "placeholder": "PROFESSIONAL EMAIL"
+        },
+        "budget": {
+          "label": "Estimated budget",
+          "placeholder": "ESTIMATED BUDGET",
+          "options": {
+            "5kto15k": "€5,000 – €15,000",
+            "15kto50k": "€15,000 – €50,000",
+            "more50k": "€50,000 +"
+          }
+        }
+      },
+      "submit": "Initiate a conversation",
+      "formAriaLabel": "Personalized study request form"
+    },
+    "backLink": {
+      "sectionNumber": "Other solutions",
+      "description": "Discover all our artistic leasing solutions.",
+      "cta": "Explore leasing"
+    }
+  },
+  "immobilier": {
+    "metadata": {
+      "title": "Art Leasing for Luxury Real Estate — InRealArt",
+      "description": "Accelerate sales of your real estate programs with contemporary art. Art leasing for lobbies, common areas, shared spaces. Bespoke curation, rapid installation."
+    },
+    "hero": {
+      "sectionNumber": "Luxury Real Estate & Contemporary Art",
+      "title": "Accelerate",
+      "titleEmphasis": "emotional",
+      "titleSuffix": "projection.",
+      "description": "A space inhabited by art becomes immediately tangible and desirable. Our artistic leasing solutions transform your common areas into genuine commercial assets.",
+      "cta": "Discuss your program",
+      "imageAlt": "Common area of a real estate program with artworks",
+      "quote": "Art helps your future buyers see themselves already at home.",
+      "quoteAuthor": "InRealArt — Architecture & Real Estate"
+    },
+    "advantages": {
+      "sectionNumber": "A direct lever for commercial performance",
+      "title": "Why art",
+      "titleSuffix": "transforms your sales.",
+      "cards": {
+        "projection": {
+          "number": "01",
+          "title": "Emotional Projection",
+          "description": "A space inhabited by art becomes immediately tangible and desirable. Up to +20% emotional projection during visits — your future buyers see themselves already at home."
+        },
+        "acceleration": {
+          "number": "02",
+          "title": "Commercial Acceleration",
+          "description": "Artistically enhanced programs record accelerated sales on model units. Reduced decision cycles and better memorization of the presented property."
+        },
+        "differentiation": {
+          "number": "03",
+          "title": "Strong Differentiation",
+          "description": "Perceived valorization of the property and common areas. A powerful lever against comparable properties — because an apartment staged with exigency is not visited, it is felt."
+        }
+      }
+    },
+    "process": {
+      "sectionNumber": "A flexible and integrated solution",
+      "title": "Spaces",
+      "titleSuffix": "that embody.",
+      "description": "Lobbies, circulation areas, shared spaces — so many strategic places to assert your signature. Every detail is considered.",
+      "steps": {
+        "curation": {
+          "title": "Architectural Curation",
+          "description": "Bespoke curation, in line with your architectural choices. Aesthetic identity consistent with your program, high-end residential experience from the entrance."
+        },
+        "deployment": {
+          "title": "Rapid Deployment",
+          "description": "Quick installation for your commercial deadlines. Possible rotation according to program phases — no capitalized investment."
+        },
+        "commitment": {
+          "title": "Cultural Commitment",
+          "description": "Support for artistic creation, responsible approach through artwork mutualization. Contribution to a more cultural and inspiring living environment."
+        },
+        "revelation": {
+          "title": "Place Revelation",
+          "description": "Art does not finalize a place — it reveals it. And sometimes, it triggers a decision. Your spaces become memorable."
+        }
+      }
+    },
+    "stats": {
+      "sectionNumber": "Market data",
+      "imageAlt": "Art collection in a luxury real estate program",
+      "items": {
+        "projection": {
+          "value": "+20%",
+          "label": "emotional projection during visits in programs with an art collection"
+        },
+        "acceleration": {
+          "value": "+15%",
+          "label": "average sales acceleration on artificialized model units"
+        },
+        "tax": {
+          "value": "100%",
+          "label": "of rents deductible from taxable income (CGI Art. 39-1-1°)"
+        }
+      }
+    },
+    "backLink": {
+      "sectionNumber": "Other solutions",
+      "description": "Discover all our artistic leasing solutions.",
+      "cta": "Explore leasing"
+    }
+  },
+  "inartTvSection": {
+    "header": {
+      "label": "In-Art TV",
+      "title": "Creative Professions",
+      "cta": "Submit your TV request"
+    },
+    "jobCards": {
+      "director": {
+        "title": "Video Director",
+        "description": "Direct the invisible and sublimate the artistic gesture.",
+        "badge": "Image"
+      },
+      "soundEngineer": {
+        "title": "Sound Engineer",
+        "description": "Sculpt the sound universe for total immersion.",
+        "badge": "Audio"
+      },
+      "scenographer": {
+        "title": "TV Scenographer",
+        "description": "Design innovative and hybrid broadcast spaces.",
+        "badge": "Space"
+      },
+      "artDirector": {
+        "title": "Art Director",
+        "description": "Ensure visual coherence of every produced format.",
+        "badge": "Vision"
+      }
+    }
+  },
+  "validationErrors": {
+    "galleryName": {
+      "min": "Gallery name must contain at least 2 characters"
+    },
+    "email": {
+      "invalid": "Invalid email address"
+    },
+    "profile": {
+      "min": "Please describe your profile and represented artists"
+    },
+    "generic": {
+      "invalidData": "Invalid data",
+      "internalError": "Internal error"
+    }
   }
 }

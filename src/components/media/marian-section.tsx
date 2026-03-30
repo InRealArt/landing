@@ -64,7 +64,7 @@ export default function MarianSection() {
           </ul>
 
           <a
-            href="mailto:marian@inrealart.com"
+            href="mailto:teaminrealart@gmail.com"
             className="btn-action inline-flex items-center min-h-[44px]"
           >
             {t('media.marian.cta')}

@@ -1,11 +1,16 @@
+'use client'
+
+import { useLanguageStore } from '@/store/languageStore'
+import TranslatedText from '@/components/common/TranslatedText'
+
 interface JobCardProps {
   icon: React.ReactNode
-  title: string
-  description: string
-  badge: string
+  titleKey: string
+  descriptionKey: string
+  badgeKey: string
 }
 
-function JobCard({ icon, title, description, badge }: JobCardProps) {
+function JobCard({ icon, titleKey, descriptionKey, badgeKey }: JobCardProps) {
   return (
     <div
       className="rounded-xl p-5 sm:p-8 border transition-transform duration-300 hover:-translate-y-1"
@@ -26,21 +31,21 @@ function JobCard({ icon, title, description, badge }: JobCardProps) {
         className="font-bold text-base mb-3 montserrat"
         style={{ color: 'var(--text)' }}
       >
-        {title}
+        <TranslatedText translationKey={titleKey} />
       </h4>
 
       <p
         className="text-sm leading-relaxed mb-4 montserrat"
         style={{ color: 'var(--gray-text)' }}
       >
-        {description}
+        <TranslatedText translationKey={descriptionKey} />
       </p>
 
       <span
         className="text-[9px] font-bold uppercase tracking-widest montserrat"
         style={{ color: '#0047FF' }}
       >
-        {badge}
+        <TranslatedText translationKey={badgeKey} />
       </span>
     </div>
   )
@@ -48,9 +53,9 @@ function JobCard({ icon, title, description, badge }: JobCardProps) {
 
 const JOB_CARDS: JobCardProps[] = [
   {
-    title: 'Réalisateur Vidéo',
-    description: "Mettre en scène l\u2019invisible et sublimer le geste artistique.",
-    badge: 'Image',
+    titleKey: 'inartTvSection.jobCards.director.title',
+    descriptionKey: 'inartTvSection.jobCards.director.description',
+    badgeKey: 'inartTvSection.jobCards.director.badge',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -70,9 +75,9 @@ const JOB_CARDS: JobCardProps[] = [
     ),
   },
   {
-    title: 'Ingénieur du Son',
-    description: "Sculpter l\u2019univers sonore pour une immersion totale.",
-    badge: 'Audio',
+    titleKey: 'inartTvSection.jobCards.soundEngineer.title',
+    descriptionKey: 'inartTvSection.jobCards.soundEngineer.description',
+    badgeKey: 'inartTvSection.jobCards.soundEngineer.badge',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +99,9 @@ const JOB_CARDS: JobCardProps[] = [
     ),
   },
   {
-    title: 'Scénographe TV',
-    description: 'Concevoir des espaces de diffusion innovants et hybrides.',
-    badge: 'Espace',
+    titleKey: 'inartTvSection.jobCards.scenographer.title',
+    descriptionKey: 'inartTvSection.jobCards.scenographer.description',
+    badgeKey: 'inartTvSection.jobCards.scenographer.badge',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -117,9 +122,9 @@ const JOB_CARDS: JobCardProps[] = [
     ),
   },
   {
-    title: 'Dir. Artistique',
-    description: 'Garantir la cohérence visuelle de chaque format produit.',
-    badge: 'Vision',
+    titleKey: 'inartTvSection.jobCards.artDirector.title',
+    descriptionKey: 'inartTvSection.jobCards.artDirector.description',
+    badgeKey: 'inartTvSection.jobCards.artDirector.badge',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -150,20 +155,20 @@ export default function InArtTvSection() {
             className="text-[10px] font-bold uppercase tracking-[0.4em] block mb-2 montserrat"
             style={{ color: '#aaa' }}
           >
-            In-Art TV
+            <TranslatedText translationKey="inartTvSection.header.label" />
           </span>
           <h2
             className="serif text-[clamp(1.75rem,4vw,2.5rem)] font-bold"
             style={{ color: 'var(--text)' }}
           >
-            Les Métiers de la Création
+            <TranslatedText translationKey="inartTvSection.header.title" />
           </h2>
         </div>
         <a
           href="mailto:teaminrealart@gmail.com"
           className="btn-action inline-flex items-center min-h-[44px] self-start sm:self-auto"
         >
-          Faire votre demande TV
+          <TranslatedText translationKey="inartTvSection.header.cta" />
         </a>
       </div>
 
@@ -172,8 +177,8 @@ export default function InArtTvSection() {
 
       {/* Job cards grid: 1 col mobile → 2 col tablet → 4 col desktop */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        {JOB_CARDS.map((card) => (
-          <JobCard key={card.title} {...card} />
+        {JOB_CARDS.map((card, index) => (
+          <JobCard key={index} {...card} />
         ))}
       </div>
     </section>

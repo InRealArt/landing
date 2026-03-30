@@ -1,40 +1,116 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
+import { z } from 'zod'
 
-interface FormState {
-  galleryName: string
-  email: string
-  profile: string
-}
+// ─── Zod schema ──────────────────────────────────────────────────────────────
+
+const galleryContactSchema = z.object({
+  galleryName: z.string().min(2),
+  email: z.string().email(),
+  profile: z.string().min(10),
+})
+
+type FormState = z.infer<typeof galleryContactSchema>
+type FormErrors = Partial<Record<keyof FormState, string>>
 
 export default function GalleriesContactSection() {
   const { t } = useLanguageStore()
-  const [form, setForm] = useState<FormState>({ galleryName: '', email: '', profile: '' })
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const fp = 'joinInRealArt.galleries.contactSection.form'
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  // ─── Form state ────────────────────────────────────────────────────────────
+  const [form, setForm] = useState<FormState>({ galleryName: '', email: '', profile: '' })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  // touched: marks individual fields as dirty (after blur or after a failed submit)
+  const [touched, setTouched] = useState<Record<keyof FormState, boolean>>({
+    galleryName: false,
+    email: false,
+    profile: false,
+  })
+
+  // inline errors from Zod validation
+  const [errors, setErrors] = useState<FormErrors>({})
+
+  // ─── Field helpers ─────────────────────────────────────────────────────────
+  const onChange = useCallback(
+    (key: keyof FormState) =>
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setForm((prev) => ({ ...prev, [key]: e.target.value }))
+        // Clear error when user starts typing
+        if (errors[key]) {
+          setErrors((prev) => ({ ...prev, [key]: undefined }))
+        }
+      },
+    [errors]
+  )
+
+  const onBlur = useCallback(
+    (key: keyof FormState) => () =>
+      setTouched((prev) => ({ ...prev, [key]: true })),
+    []
+  )
+
+  // ─── Validate form ─────────────────────────────────────────────────────────
+  const validateForm = (): boolean => {
+    const result = galleryContactSchema.safeParse(form)
+    if (!result.success) {
+      const fieldErrors: FormErrors = {}
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as keyof FormState
+        if (!fieldErrors[field]) {
+          // Map Zod errors to translatable keys
+          const errorKey = err.code === 'invalid_string' && err.validation === 'email'
+            ? 'validationErrors.email.invalid'
+            : err.code === 'too_small'
+              ? field === 'galleryName'
+                ? 'validationErrors.galleryName.min'
+                : field === 'profile'
+                  ? 'validationErrors.profile.min'
+                  : 'validationErrors.generic.invalidData'
+              : 'validationErrors.generic.invalidData'
+          fieldErrors[field] = t(errorKey)
+        }
+      })
+      setErrors(fieldErrors)
+      // Mark all fields as touched
+      setTouched({
+        galleryName: true,
+        email: true,
+        profile: true,
+      })
+      return false
+    }
+    return true
   }
 
+  // ─── Submit ─────────────────────────────────────────────────────────────────
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
+
+    if (!validateForm()) {
+      return
+    }
+
+    setStatus('submitting')
+    setErrorMessage('')
 
     try {
-      const subject = encodeURIComponent(`Demande de partenariat galerie — ${form.galleryName}`)
-      const body = encodeURIComponent(
-        `Galerie : ${form.galleryName}\nEmail : ${form.email}\n\nProfil et artistes représentés :\n${form.profile}`
-      )
-      window.location.href = `mailto:teaminrealart@gmail.com?subject=${subject}&body=${body}`
+      const res = await fetch('/api/gallery-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('server error')
       setStatus('success')
       setForm({ galleryName: '', email: '', profile: '' })
+      setTouched({ galleryName: false, email: false, profile: false })
+      setErrors({})
     } catch {
       setStatus('error')
-    } finally {
-      setIsSubmitting(false)
+      setErrorMessage(t(`${fp}.error`))
     }
   }
 
@@ -85,12 +161,17 @@ export default function GalleriesContactSection() {
                 id="galleryName"
                 name="galleryName"
                 type="text"
-                required
                 value={form.galleryName}
-                onChange={handleChange}
+                onChange={onChange('galleryName')}
+                onBlur={onBlur('galleryName')}
                 placeholder={t('joinInRealArt.galleries.contactSection.form.galleryName')}
-                className={inputClass}
+                className={`${inputClass} ${errors.galleryName && touched.galleryName ? 'border-red-500' : ''}`}
               />
+              {errors.galleryName && touched.galleryName && (
+                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                  {errors.galleryName}
+                </p>
+              )}
             </div>
 
             <div>
@@ -101,12 +182,17 @@ export default function GalleriesContactSection() {
                 id="email"
                 name="email"
                 type="email"
-                required
                 value={form.email}
-                onChange={handleChange}
+                onChange={onChange('email')}
+                onBlur={onBlur('email')}
                 placeholder={t('joinInRealArt.galleries.contactSection.form.email')}
-                className={inputClass}
+                className={`${inputClass} ${errors.email && touched.email ? 'border-red-500' : ''}`}
               />
+              {errors.email && touched.email && (
+                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -118,32 +204,38 @@ export default function GalleriesContactSection() {
                 name="profile"
                 rows={4}
                 value={form.profile}
-                onChange={handleChange}
+                onChange={onChange('profile')}
+                onBlur={onBlur('profile')}
                 placeholder={t('joinInRealArt.galleries.contactSection.form.profile')}
-                className={`${inputClass} resize-none`}
+                className={`${inputClass} resize-none ${errors.profile && touched.profile ? 'border-red-500' : ''}`}
               />
+              {errors.profile && touched.profile && (
+                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                  {errors.profile}
+                </p>
+              )}
             </div>
 
             {status === 'success' && (
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#b89c72]">
-                {t('joinInRealArt.galleries.contactSection.form.success')}
+                {t(`${fp}.success`)}
               </p>
             )}
             {status === 'error' && (
               <p className="text-[11px] uppercase tracking-[0.2em] text-red-500">
-                {t('joinInRealArt.galleries.contactSection.form.error')}
+                {errorMessage || t(`${fp}.error`)}
               </p>
             )}
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={status === 'submitting'}
               className="btn-cta w-full disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="text-[0.6rem] uppercase tracking-[0.25em]">
-                {isSubmitting
+                {status === 'submitting'
                   ? t('common.submitting')
-                  : t('joinInRealArt.galleries.contactSection.form.submit')}
+                  : t(`${fp}.submit`)}
               </span>
             </button>
           </form>
