@@ -11,7 +11,7 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Équipe",
-    "ico": "Token IRA",
+    "ico": "Token InRealArt",
     "glossary": "Glossaire",
     "artists": "Artistes",
     "presale": "Oeuvres",
@@ -319,19 +319,19 @@
       "titleAccent": "Augmentée.",
       "items": {
         "edition": {
-          "subtitle": "IRA Édition",
+          "subtitle": "InRealArt Édition",
           "title": "Média & Agence",
           "description": "Accompagnement de trajectoires artistiques, ligne éditoriale forte et création de Kits Com premium pour propulser les créateurs sur la scène mondiale.",
           "cta": "Nous rejoindre"
         },
         "selection": {
-          "subtitle": "IRA Sélection",
+          "subtitle": "InRealArt Sélection",
           "title": "Marketplace Premium",
           "description": "Une curation rigoureuse pour collectionneurs exigeants. Accédez à des œuvres sélectionnées pour leur potentiel esthétique et leur valeur patrimoniale.",
           "cta": "Pourquoi pas vous ?"
         },
         "placement": {
-          "subtitle": "IRA Placement",
+          "subtitle": "InRealArt Placement",
           "title": "Art & Finance",
           "description": "L'art comme outil stratégique. Solutions de leasing (LOA), optimisation fiscale et simulateurs de patrimoine pour les entreprises.",
           "cta": "Nos simulateurs"
@@ -451,7 +451,7 @@
       }
     },
     "prestige": {
-      "sectionLabel": "IRA Sélection",
+      "sectionLabel": "InRealArt Sélection",
       "subtitle": "Authenticité et Traçabilité Inégalées",
       "title": "Un marché de",
       "titleAccent": "confiance.",
@@ -667,7 +667,7 @@
         },
         "support": {
           "title": "Un accompagnement sur mesure",
-          "description": "IRA vous guide à chaque étape de votre parcours artistique : mise en ligne de vos œuvres, gestion de votre portefeuille, valorisation et promotion de votre travail. <br><br>Profitez de conseils personnalisés pour accroître votre visibilité, développer votre réseau et booster votre carrière dans le monde de l’art."
+          "description": "InRealArt vous guide à chaque étape de votre parcours artistique : mise en ligne de vos œuvres, gestion de votre portefeuille, valorisation et promotion de votre travail. <br><br>Profitez de conseils personnalisés pour accroître votre visibilité, développer votre réseau et booster votre carrière dans le monde de l’art."
         },
         "yoursuccess": {
           "title": "Une plateforme pensée pour votre succès",
@@ -675,7 +675,7 @@
         }
       },
       "testimonials": {
-        "title": "Ils Ont Transformé Leur Art Avec IRA",
+        "title": "Ils Ont Transformé Leur Art Avec InRealArt",
         "artist1": {
           "name": "Catherine Sénéchal - Peintre",
           "text": "J'ai enfin pu exposer mon travail sur les réseaux sociaux et dans les salons d'art ! Les supports fournis sont clairs, professionnels et super faciles à utiliser. Ma visibilité a explosé, je recommande vivement !"
@@ -723,19 +723,19 @@
           "1": {
             "number": "01",
             "category": "01. Visibilité",
-            "subtitle": "IRA Édition",
+            "subtitle": "InRealArt Édition",
             "description": "Bénéficiez d’une ligne éditoriale dédiée, d’interviews exclusives et d’un kit de communication professionnel pour valoriser votre univers."
           },
           "2": {
             "number": "02",
             "category": "02. Marché",
-            "subtitle": "IRA Sélection",
+            "subtitle": "InRealArt Sélection",
             "description": "Intégrez une marketplace premium fréquentée par des collectionneurs et des passionés en quête de pièces de caractère."
           },
           "3": {
             "number": "03",
             "category": "03. Stratégie",
-            "subtitle": "IRA Placement",
+            "subtitle": "InRealArt Placement",
             "description": "Ouvrez votre art au monde de l’entreprise via le leasing (LOA) et des solutions de défiscalisation innovantes."
           }
         },
@@ -891,7 +891,7 @@
         "description": {
           "0": "Lancement de la Curation des Galeries Communautaires : Les membres de la DAO auront la possibilité de voter pour sélectionner les galeries mises en avant, selon leurs préférences artistiques. Un système de gouvernance décentralisée devrait être mis en place à ce moment.",
           "1": "Marketing et Partenariats Stratégiques : Consolider des partenariats avec des institutions artistiques, des galeries, et d'autres projets RWA pour étendre l'audience et l'écosystème.",
-          "2": "Lancement des Galeries Physiques IRA : Implémentation de galeries physiques en complément de la plateforme numérique, avec des œuvres d'art tokenisées disponibles en tant qu'investissements dans des espaces physiques."
+          "2": "Lancement des Galeries Physiques InRealArt : Implémentation de galeries physiques en complément de la plateforme numérique, avec des œuvres d'art tokenisées disponibles en tant qu'investissements dans des espaces physiques."
         }
       }
     }
@@ -1001,7 +1001,7 @@
         "crowdsale": "Crowdsale",
         "hardCap": "Hard cap"
       },
-      "title": "Prévente exclusive $IRA !",
+      "title": "Prévente exclusive $InRealArt !",
       "subtitle": "Vous avez été sélectionné pour participer à cette prévente exclusive grâce à notre programme éducatif. Accès anticipé avec allocation garantie avant le lancement public.",
       "features": [
         "Spécialement organisé pour les nouveaux investisseurs via notre programme éducatif",
@@ -1014,11 +1014,11 @@
         "benefits": {
           "hardDrawn": {
             "title": "Utilité liée à l'art",
-            "description": "Utilisez $IRA pour acheter/vendre NFTs & art physique avec des frais réduits et des prix exclusifs. Un système de notation intégré identifie les artistes de haut niveau et les vendeurs fiables."
+            "description": "Utilisez $InRealArt pour acheter/vendre NFTs & art physique avec des frais réduits et des prix exclusifs. Un système de notation intégré identifie les artistes de haut niveau et les vendeurs fiables."
           },
           "exceptional": {
             "title": "Gouvernance DAO",
-            "description": "Votez sur les décisions clés comme les artistes en vedette, les mises à jour de la plateforme et l'allocation des fonds. Les stakers avec $IRA verrouillé gagnent un pouvoir de vote renforcé et une influence."
+            "description": "Votez sur les décisions clés comme les artistes en vedette, les mises à jour de la plateforme et l'allocation des fonds. Les stakers avec $InRealArt verrouillé gagnent un pouvoir de vote renforcé et une influence."
           },
           "donations": {
             "title": "Récompenses de staking",
@@ -1026,7 +1026,7 @@
           },
           "royalties": {
             "title": "Galerie réelle",
-            "description": "$IRA est utilisé par des galeries partenaires, une partie des paiements en fiat est convertie pour soutenir le token. Les stakers bénéficient de privilèges comme le dépôt gratuit, des remises sur l'assurance et des invitations VIP."
+            "description": "$InRealArt est utilisé par des galeries partenaires, une partie des paiements en fiat est convertie pour soutenir le token. Les stakers bénéficient de privilèges comme le dépôt gratuit, des remises sur l'assurance et des invitations VIP."
           }
         }
       },
@@ -1042,7 +1042,7 @@
           "description": "Pour les cryptomonnaies : transférez le montant souhaité à notre adresse de portefeuille officielle. Pour la monnaie traditionnelle : suivez le processus de paiement sécurisé via notre passerelle intégrée. Vérifiez attentivement les détails avant de confirmer votre transaction."
         },
         "step3": {
-          "title": "Recevez vos tokens $IRA",
+          "title": "Recevez vos tokens $InRealArt",
           "description": "Une fois votre paiement validé, vos tokens seront automatiquement envoyés à votre portefeuille crypto (pour les paiements en crypto) ou réservés dans un portefeuille créé pour vous (pour les paiements en monnaie traditionnelle). Vous recevrez une confirmation par email avec tous les détails de votre achat.",
           "additionalInfo": "En suivant ces étapes, vous rejoignez facilement notre écosystème InRealArt. Notre support sera disponible pour vous accompagner tout au long du processus d'achat."
         },
@@ -1185,7 +1185,7 @@
         }
       },
       "companies": {
-        "title": "Ira Projet d'art d'entreprises",
+        "title": "InRealArt Projet d'art d'entreprises",
         "description": "L'art au service de votre communication et de votre marque ! Captez l'attention et renforcez vos messages grâce à l'art !InRealArt conçoit des expositions et projets artistiques adaptés à tous les budgets, valorisant votre marque employeur et votre stratégie RSE. Avec des œuvres personnalisées ou en rotation, l'art devient un levier puissant pour une communication innovante et engageante.",
         "features": [
           "Exposition mondiale de vos œuvres",
@@ -1199,7 +1199,7 @@
         }
       },
       "leasing": {
-        "title": "IRA Leasing pour les Entreprises",
+        "title": "InRealArt Leasing pour les Entreprises",
         "description": "La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.",
         "features": [
           "Opportunités d'investissement dans l'art",
@@ -1307,7 +1307,7 @@
   },
   "leasing": {
     "hero": {
-      "title": "IRA Art Leasing <br/> Entreprises",
+      "title": "InRealArt Art Leasing <br/> Entreprises",
       "button": "Contactez-nous",
       "description": {
         "p1": "La location avec option d'achat (LOA), ou Art Leasing, permet aux entreprises de louer une œuvre d'art ou du mobilier pour leurs espaces professionnels.",
@@ -1386,7 +1386,7 @@
   },
   "companies": {
     "hero": {
-      "title": "Ira Projet d'art d'entreprises",
+      "title": "InRealArt Projet d'art d'entreprises",
       "button": "Contactez-nous",
       "description": {
         "p1": "L'art au service de votre communication et de votre marque ! Captez l'attention et renforcez vos messages grâce à l'art !",
@@ -1833,6 +1833,19 @@
       }
     }
   },
+  "media": {
+    "marian": {
+      "eyebrow": "Service Production",
+      "title": "Marian : Production Vidéo & Interviews",
+      "description": "Que ce soit pour un événement ou une interview, {marian} est disponible pour toutes vos demandes de création audiovisuelle externes à InRealArt.",
+      "services": {
+        "interviews": "Interviews d’artistes premium",
+        "aftermovies": "Aftermovies d’événements culturels"
+      },
+      "cta": "Faire votre demande à Marian",
+      "imageAlt": "Marian Production"
+    }
+  },
   "artwork": {
     "backToMarketplace": "Retour à la Marketplace",
     "notFound": "Œuvre non trouvée",
@@ -1916,7 +1929,7 @@
     },
     "copyright": {
       "title": "Droit de Cession des Droits d'Auteur",
-      "content": "InRealArt propose diverses options pour l'acquisition de droits d'auteur étendus, incluant mais non limités à la reproduction, l'exposition et la commercialisation de l'œuvre. Les détails de ces droits et les conditions de leur acquisition seront clairement indiqués dans l'offre d'achat du NFT. Lorsque l'offre choisie par l'acheteur le prévoit, les droits d'auteur sur l'œuvre lui sont cédés pour la durée fixée dans l'offre. Dans le cas où l'offre choisie ne prévoit pas une telle cession, les droits d'auteur restent la propriété du créateur de l'œuvre. Cela signifie que l'Acheteur ne peut pas reproduire, exposer publiquement, vendre ou utiliser l'œuvre à des fins commerciales sans le consentement explicite du titulaire des droits d'auteur. À l'expiration de la durée prévue pour la cession des droits d'auteur, l'IRA en reprend la pleine propriété, à moins que l'Acheteur n'ait bénéficié d'une extension ou d'un renouvellement des droits d'auteur."
+      "content": "InRealArt propose diverses options pour l'acquisition de droits d'auteur étendus, incluant mais non limités à la reproduction, l'exposition et la commercialisation de l'œuvre. Les détails de ces droits et les conditions de leur acquisition seront clairement indiqués dans l'offre d'achat du NFT. Lorsque l'offre choisie par l'acheteur le prévoit, les droits d'auteur sur l'œuvre lui sont cédés pour la durée fixée dans l'offre. Dans le cas où l'offre choisie ne prévoit pas une telle cession, les droits d'auteur restent la propriété du créateur de l'œuvre. Cela signifie que l'Acheteur ne peut pas reproduire, exposer publiquement, vendre ou utiliser l'œuvre à des fins commerciales sans le consentement explicite du titulaire des droits d'auteur. À l'expiration de la durée prévue pour la cession des droits d'auteur, l'InRealArt en reprend la pleine propriété, à moins que l'Acheteur n'ait bénéficié d'une extension ou d'un renouvellement des droits d'auteur."
     },
     "gallery": {
       "title": "Possibilité de Dépôt en Galerie",

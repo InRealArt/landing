@@ -11,7 +11,7 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Team",
-    "ico": "Token IRA",
+    "ico": "Token InRealArt",
     "glossary": "Glossary",
     "artists": "Artists",
     "presale": "Artworks",
@@ -224,7 +224,7 @@
     "title": "Our artists",
     "hero": {
       "title": "Artists, the epicenter of InRealArt",
-      "subtitle": "Here, each artist embodies the vibrant heart of IRA. Global presence, creative audacity, assumed excellence. <br>A premium selection, thought as a trust link. The work does not exist alone: it lives in a rare ecosystem, where each detail counts, each look is welcomed. <br>Entering here, it is touching contemporary art in its most intimate truth.",
+      "subtitle": "Here, each artist embodies the vibrant heart of InRealArt. Global presence, creative audacity, assumed excellence. <br>A premium selection, thought as a trust link. The work does not exist alone: it lives in a rare ecosystem, where each detail counts, each look is welcomed. <br>Entering here, it is touching contemporary art in its most intimate truth.",
       "headingMain": "Selected",
       "headingAccent": "Artists",
       "descriptor": "A rigorous selection of contemporary artists — global presence, creative boldness, uncompromising excellence."
@@ -319,19 +319,19 @@
       "titleAccent": "Curation.",
       "items": {
         "edition": {
-          "subtitle": "IRA Edition",
+          "subtitle": "InRealArt Edition",
           "title": "Media & Agency",
           "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
           "cta": "Join us"
         },
         "selection": {
-          "subtitle": "IRA Selection",
+          "subtitle": "InRealArt Selection",
           "title": "Premium Marketplace",
           "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
           "cta": "Why not you?"
         },
         "placement": {
-          "subtitle": "IRA Placement",
+          "subtitle": "InRealArt Placement",
           "title": "Art & Finance",
           "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
           "cta": "Our simulators"
@@ -446,7 +446,7 @@
       }
     },
     "prestige": {
-      "sectionLabel": "IRA Selection",
+      "sectionLabel": "InRealArt Selection",
       "subtitle": "Unmatched Authenticity and Traceability",
       "title": "A trusted",
       "titleAccent": "marketplace.",
@@ -478,19 +478,19 @@
       "titleAccent": "Curation.",
       "items": {
         "edition": {
-          "subtitle": "IRA Edition",
+          "subtitle": "InRealArt Edition",
           "title": "Media & Agency",
           "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
           "cta": "Join us"
         },
         "selection": {
-          "subtitle": "IRA Selection",
+          "subtitle": "InRealArt Selection",
           "title": "Premium Marketplace",
           "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
           "cta": "Why not you?"
         },
         "placement": {
-          "subtitle": "IRA Placement",
+          "subtitle": "InRealArt Placement",
           "title": "Art & Finance",
           "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
           "cta": "Our simulators"
@@ -687,7 +687,7 @@
         },
         "support": {
           "title": "Personalized support",
-          "description": "IRA guides you at each step of your artistic journey: uploading your works, managing your portfolio, valorizing and promoting your work. <br><br> Benefit from personalized advice to increase your visibility, develop your network and boost your career in the world of art."
+          "description": "InRealArt guides you at each step of your artistic journey: uploading your works, managing your portfolio, valorizing and promoting your work. <br><br> Benefit from personalized advice to increase your visibility, develop your network and boost your career in the world of art."
         },
         "yoursuccess": {
           "title": "A platform thought for your success",
@@ -695,7 +695,7 @@
         }
       },
       "testimonials": {
-        "title": "They Transformed Their Art With IRA",
+        "title": "They Transformed Their Art With InRealArt",
         "artist1": {
           "name": "Catherine Sénéchal - Painter",
           "text": "I was finally able to showcase my work on social media and at art fairs! The provided materials are clear, professional and super easy to use. My visibility has exploded, I highly recommend it!"
@@ -740,19 +740,19 @@
           "1": {
             "number": "01",
             "category": "01. Visibility",
-            "subtitle": "IRA Edition",
+            "subtitle": "InRealArt Edition",
             "description": "Benefit from a dedicated editorial line, exclusive interviews and a professional communication kit to showcase your universe."
           },
           "2": {
             "number": "02",
             "category": "02. Market",
-            "subtitle": "IRA Selection",
+            "subtitle": "InRealArt Selection",
             "description": "Join a premium marketplace visited by collectors and enthusiasts seeking works of character."
           },
           "3": {
             "number": "03",
             "category": "03. Strategy",
-            "subtitle": "IRA Placement",
+            "subtitle": "InRealArt Placement",
             "description": "Open your art to the corporate world through leasing (LOA) and innovative tax-optimisation solutions."
           }
         },
@@ -908,7 +908,7 @@
         "description": {
           "0": "Launch of Community Gallery Curation: DAO members will have the opportunity to vote to select featured galleries based on their artistic preferences. A decentralized governance system should be implemented at this time.",
           "1": "Strategic Marketing and Partnerships: Consolidate partnerships with art institutions, galleries, and other RWA projects to expand audience and ecosystem.",
-          "2": "Launch of IRA Physical Galleries: Implementation of physical galleries to complement the digital platform, with tokenized artworks available as investments in physical spaces."
+          "2": "Launch of InRealArt Physical Galleries: Implementation of physical galleries to complement the digital platform, with tokenized artworks available as investments in physical spaces."
         }
       }
     }
@@ -1018,7 +1018,7 @@
         "crowdsale": "Crowdsale",
         "hardCap": "Hard cap"
       },
-      "title": "$IRA Exclusive Presale!",
+      "title": "$InRealArt Exclusive Presale!",
       "subtitle": "You've been selected to participate in this exclusive presale through our educational program. Early access with guaranteed allocation before public launch.",
       "features": [
         "Specially curated for new investors through educational outreach",
@@ -1031,11 +1031,11 @@
         "benefits": {
           "hardDrawn": {
             "title": "Art Utility",
-            "description": "Use $IRA to buy/sell NFTs & physical art with reduced fees and exclusive pricing. A built-in rating system helps identify top artists and trusted sellers."
+            "description": "Use $InRealArt to buy/sell NFTs & physical art with reduced fees and exclusive pricing. A built-in rating system helps identify top artists and trusted sellers."
           },
           "exceptional": {
             "title": "DAO Gouvernance",
-            "description": "Vote on key decisions like featured artists, platform upgrades, and fund allocation. Stakers with locked $IRA earn enhanced voting power and influence."
+            "description": "Vote on key decisions like featured artists, platform upgrades, and fund allocation. Stakers with locked $InRealArt earn enhanced voting power and influence."
           },
           "donations": {
             "title": "Staking rewards",
@@ -1043,7 +1043,7 @@
           },
           "royalties": {
             "title": "Real World Gallery",
-            "description": "$IRA is used partner galleries, part of fiat payments is converted to support the token. Stakers gain perks like free custody, insurance discounts, and VIP invites."
+            "description": "$InRealArt is used partner galleries, part of fiat payments is converted to support the token. Stakers gain perks like free custody, insurance discounts, and VIP invites."
           }
         }
       },
@@ -1060,7 +1060,7 @@
           "copyAddress": "Copy address"
         },
         "step3": {
-          "title": "Receiving $IRA Tokens",
+          "title": "Receiving $InRealArt Tokens",
           "description": "Once your payment has been validated, your tokens will be automatically sent to your crypto wallet (for crypto payments) or reserved in a wallet created for you (for traditional currency payments). You'll receive an email confirmation with all the details of your purchase.",
           "additionalInfo": "By following these steps, you can easily participate in our ecosystem and begin your journey with InRealArt. We're excited to welcome you aboard and look forward to seeing the impact your participation will have on our community!"
         },
@@ -1325,7 +1325,7 @@
   },
   "leasing": {
     "hero": {
-      "title": "IRA Art Leasing for <br /> Businesses",
+      "title": "InRealArt Art Leasing for <br /> Businesses",
       "button": "Contact us",
       "description": {
         "p1": "Leasing with a purchase option (LOA), or Art Leasing, allows businesses to rent artwork or furniture for their professional spaces.",
@@ -1843,6 +1843,19 @@
       }
     }
   },
+  "media": {
+    "marian": {
+      "eyebrow": "Production Service",
+      "title": "Marian: Video Production & Interviews",
+      "description": "Whether for an event or an interview, {marian} is available for all your audiovisual creation requests external to InRealArt.",
+      "services": {
+        "interviews": "Premium artist interviews",
+        "aftermovies": "Cultural event aftermovies"
+      },
+      "cta": "Submit your request to Marian",
+      "imageAlt": "Marian Production"
+    }
+  },
   "artwork": {
     "backToMarketplace": "Back to Marketplace",
     "notFound": "Artwork not found",
@@ -1926,7 +1939,7 @@
     },
     "copyright": {
       "title": "Copyright Assignment Right",
-      "content": "InRealArt offers various options for the acquisition of extended copyright rights, including but not limited to reproduction, exhibition, and marketing of the artwork. The details of these rights and the conditions of their acquisition will be clearly indicated in the NFT purchase offer. When the offer chosen by the buyer provides for it, the copyright rights on the artwork are assigned to him for the duration set in the offer. In case the chosen offer does not provide for such an assignment, the copyright rights remain the property of the artwork's creator. This means that the Buyer cannot reproduce, publicly display, sell, or use the artwork for commercial purposes without the explicit consent of the copyright holder. Upon the expiry of the duration provided for the assignment of copyright rights, the IRA regains full ownership, unless the Buyer has benefited from an extension or renewal of copyright rights."
+      "content": "InRealArt offers various options for the acquisition of extended copyright rights, including but not limited to reproduction, exhibition, and marketing of the artwork. The details of these rights and the conditions of their acquisition will be clearly indicated in the NFT purchase offer. When the offer chosen by the buyer provides for it, the copyright rights on the artwork are assigned to him for the duration set in the offer. In case the chosen offer does not provide for such an assignment, the copyright rights remain the property of the artwork's creator. This means that the Buyer cannot reproduce, publicly display, sell, or use the artwork for commercial purposes without the explicit consent of the copyright holder. Upon the expiry of the duration provided for the assignment of copyright rights, the InRealArt regains full ownership, unless the Buyer has benefited from an extension or renewal of copyright rights."
     },
     "gallery": {
       "title": "Possibility of Gallery Deposit",

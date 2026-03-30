@@ -225,6 +225,89 @@ export async function getDetailedFaqPageData(pageName: string): Promise<Detailed
     }
 }
 
+// Interface pour les données complètes de la FAQ globale
+export interface GlobalDetailedFaqData {
+    headers: {
+        id: number
+        name: string
+        translations: Record<string, string>
+    }[]
+    items: {
+        id: number
+        question: string
+        answer: string
+        detailedFaqId: number
+        translations: {
+            question: Record<string, string>
+            answer: Record<string, string>
+        }
+    }[]
+}
+
+// Nouvelle fonction pour récupérer toutes les données de la FAQ globale avec toutes les traductions
+export async function getGlobalDetailedFaqData(): Promise<GlobalDetailedFaqData> {
+    try {
+        // 1. Récupérer tous les headers et tous les items
+        const [headers, items] = await Promise.all([
+            prisma.detailedFaqHeader.findMany({
+                orderBy: { id: 'asc' }
+            }),
+            prisma.detailedFaqItem.findMany()
+        ])
+
+        // 2. Récupérer toutes les traductions pour les headers et les items
+        const [headerTranslations, itemTranslations] = await Promise.all([
+            prisma.translation.findMany({
+                where: { entityType: 'DetailedFaqHeader' },
+                include: { language: true }
+            }),
+            prisma.translation.findMany({
+                where: { entityType: 'DetailedFaqItem' },
+                include: { language: true }
+            })
+        ])
+
+        // 3. Organiser les traductions des headers
+        const headerTranslationsMap: Record<number, Record<string, string>> = {}
+        headerTranslations.forEach(t => {
+            if (t.entityId === null || t.value === null) return
+            if (!headerTranslationsMap[t.entityId]) headerTranslationsMap[t.entityId] = {}
+            headerTranslationsMap[t.entityId][t.language.code] = t.value
+        })
+
+        // 4. Organiser les traductions des items
+        const itemTranslationsMap: Record<number, Record<string, Record<string, string>>> = {}
+        itemTranslations.forEach(t => {
+            if (t.entityId === null || t.field === null || t.value === null) return
+            if (!itemTranslationsMap[t.entityId]) itemTranslationsMap[t.entityId] = {}
+            if (!itemTranslationsMap[t.entityId][t.field]) itemTranslationsMap[t.entityId][t.field] = {}
+            itemTranslationsMap[t.entityId][t.field][t.language.code] = t.value
+        })
+
+        // 5. Construire le résultat final
+        return {
+            headers: headers.map(h => ({
+                id: h.id,
+                name: h.name,
+                translations: headerTranslationsMap[h.id] || {}
+            })),
+            items: items.map(i => ({
+                id: i.id,
+                question: i.question,
+                answer: i.answer,
+                detailedFaqId: i.detailedFaqId,
+                translations: {
+                    question: itemTranslationsMap[i.id]?.question || {},
+                    answer: itemTranslationsMap[i.id]?.answer || {}
+                }
+            }))
+        }
+    } catch (error) {
+        console.error('Erreur lors de la récupération des données globales de FAQ:', error)
+        throw new Error('Impossible de récupérer les données globales de FAQ')
+    }
+}
+
 // Nouvelle fonction pour récupérer les FAQ détaillées par page spécifique
 export async function getTranslatedDetailedFaqByPage(pageName: string, languageCode: string = 'fr'): Promise<TranslatedFaqItem[]> {
     try {

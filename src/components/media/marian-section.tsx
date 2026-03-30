@@ -1,11 +1,18 @@
-import Image from 'next/image'
+'use client'
 
-const SERVICES = [
-  'Interviews d\u2019artistes premium',
-  'Aftermovies d\u2019événements culturels',
-]
+import Image from 'next/image'
+import { useLanguageStore } from '@/store/languageStore'
 
 export default function MarianSection() {
+  const { t } = useLanguageStore()
+
+  const SERVICES = [
+    t('media.marian.services.interviews'),
+    t('media.marian.services.aftermovies'),
+  ]
+
+  const descriptionParts = t('media.marian.description').split('{marian}')
+
   return (
     <section
       className="mb-16 md:mb-24 lg:mb-32 py-10 sm:py-14 lg:py-16 px-4 sm:px-8 lg:px-12 border"
@@ -21,23 +28,23 @@ export default function MarianSection() {
             className="text-[10px] font-bold uppercase tracking-[0.3em] mb-4 sm:mb-6 block montserrat"
             style={{ color: 'var(--gold-accent)' }}
           >
-            Service Production
+            {t('media.marian.eyebrow')}
           </span>
 
           <h2
             className="serif text-[clamp(1.75rem,4vw,2.5rem)] mb-4 sm:mb-6"
             style={{ color: 'var(--text)' }}
           >
-            Marian&nbsp;: Production Vidéo &amp; Interviews
+            {t('media.marian.title')}
           </h2>
 
           <p
             className="text-sm mb-6 sm:mb-8 leading-relaxed montserrat"
             style={{ color: 'var(--gray-text)' }}
           >
-            Que ce soit pour un événement ou une interview,{' '}
-            <strong style={{ color: 'var(--text)' }}>Marian</strong> est disponible pour
-            toutes vos demandes de création audiovisuelle externes à InRealArt.
+            {descriptionParts[0]}
+            <strong style={{ color: 'var(--text)' }}>Marian</strong>
+            {descriptionParts[1]}
           </p>
 
           <ul className="text-[11px] uppercase tracking-widest space-y-4 mb-8 sm:mb-10 montserrat">
@@ -60,7 +67,7 @@ export default function MarianSection() {
             href="mailto:marian@inrealart.com"
             className="btn-action inline-flex items-center min-h-[44px]"
           >
-            Faire votre demande à Marian
+            {t('media.marian.cta')}
           </a>
         </div>
 
@@ -72,7 +79,7 @@ export default function MarianSection() {
           >
             <Image
               src="/images/media/Marian.webp"
-              alt="Marian Production"
+              alt={t('media.marian.imageAlt')}
               fill
               className="object-cover grayscale"
               sizes="(max-width: 1024px) 0px, 50vw"
@@ -83,3 +90,4 @@ export default function MarianSection() {
     </section>
   )
 }
+

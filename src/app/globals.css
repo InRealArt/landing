@@ -248,7 +248,7 @@ body {
 /* InRealArt Media - Action button (dark fill, gold on hover) */
 .btn-action {
   background: var(--ink-black);
-  color: #ffffff;
+  color: var(--canvas-bg);
   padding: 1rem 2rem;
   font-size: 0.7rem;
   text-transform: uppercase;

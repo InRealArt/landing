@@ -1,4 +1,3 @@
-'use client'
 import PageFAQ from '@/components/common/FAQ/PageFAQ'
 
 const RoadmapFAQ = () => {

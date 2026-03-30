@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata, generateFAQJsonLd } from '@/utils/metadata'
-import { getTranslatedDetailedFaq } from '@/actions/detailedFaqActions'
+import { getGlobalDetailedFaqData } from '@/actions/detailedFaqActions'
 import FaqClient from './FaqClient'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -11,8 +11,13 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default async function FaqPage() {
-  const faqItems = await getTranslatedDetailedFaq('fr').catch(() => [])
-  const faqData = faqItems.map(item => ({ question: item.title, answer: item.content }))
+  const globalFaqData = await getGlobalDetailedFaqData()
+  
+  // Pour le JSON-LD, on utilise les données par défaut (fr)
+  const faqData = globalFaqData.items.map(item => ({ 
+    question: item.translations.question?.fr || item.question, 
+    answer: item.translations.answer?.fr || item.answer 
+  }))
 
   return (
     <>
@@ -20,7 +25,7 @@ export default async function FaqPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateFAQJsonLd(faqData) }}
       />
-      <FaqClient />
+      <FaqClient initialData={globalFaqData} />
     </>
   )
 }
