@@ -1806,3 +1806,47 @@ model LandingUgcArtistSocialMetrics {
     @@index([landingUgcArtistProfileId])
     @@schema("landingUgc")
 }
+
+// Réponses au formulaire Google de candidature artiste InRealArt
+// Source : https://docs.google.com/forms/d/1RxKNtLG2XZ7BB2CpzGI4yJZCjSJ3cSXwOHQKgwVC4gA
+model ArtistApplicationForm {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Section 1 : Informations personnelles
+    fullName      String // Nom complet
+    artistName    String? // Nom d'artiste (si différent)
+    email         String // Adresse email
+    phone         String // Numéro de téléphone
+    portfolioLinks String // Liens site web, portfolio, réseaux sociaux
+
+    // Section 2 : Présentation artistique
+    careerDescription  String // Événements significatifs (formation, expos, collaborations)
+    stylesAndMediums   String // Styles et médiums utilisés
+    artisticMessage    String // Message ou thème principal de l'œuvre
+
+    // Section 3 : Informations sur les œuvres
+    hasPhysicalWorks        Boolean // Œuvres physiques disponibles à la vente
+    physicalWorksCount      String? // Nombre d'œuvres disponibles si oui
+    canProduceWorks         String? // Capacité à produire si non
+    worksProducedPerYear    String? // Production annuelle moyenne
+    worksSoldLastYear       String? // Œuvres vendues sur 12 derniers mois
+    averageSellingPrice     String? // Prix de vente moyen par œuvre
+    annualRevenue           String? // Chiffre d'affaires annuel issu des ventes
+    worksSoldAnnually       String? // Nombre d'œuvres vendues par an
+    seasonalPatterns        String? // Saisonnalité des ventes
+    directVsGalleryPercent  String? // Part vente directe vs galeries
+    salesChannels           String? // Canaux de vente utilisés
+    marketplacePresence     String? // Présence sur marketplaces
+    newsletterSubscribers   String? // Nombre d'abonnés newsletter
+    socialMediaFollowers    String? // Nombre d'abonnés réseaux sociaux
+    websiteUniqueVisitors   String? // Visiteurs uniques site web
+
+    // Section 4 : Aspects juridiques et droits
+    hasLegalRestrictions    Boolean // Restrictions légales ou contractuelles sur les œuvres
+    willingToPromote        Boolean // Prêt à promouvoir le projet sur ses réseaux
+
+    @@index([email])
+    @@schema("landing")
+}
