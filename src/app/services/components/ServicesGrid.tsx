@@ -20,6 +20,53 @@ interface ServicesGridProps {
       eyebrow: string
       title: string
     }
+    categories: {
+      artists: {
+        number: string
+        label: string
+      }
+      corporate: {
+        number: string
+        label: string
+      }
+    }
+    items: {
+      careerAudit: {
+        title: string
+        description: string
+        price: string
+        priceUnit: string
+        cta: string
+      }
+      coaching: {
+        title: string
+        description: string
+        price: string
+        priceUnit: string
+        cta: string
+      }
+      pressKit: {
+        title: string
+        description: string
+        price: string
+        priceUnit: string
+        cta: string
+      }
+      sourcing: {
+        title: string
+        description: string
+        price: string
+        priceUnit: string
+        cta: string
+      }
+      taxOptimization: {
+        title: string
+        description: string
+        price: string
+        priceUnit: string
+        cta: string
+      }
+    }
   }
 }
 
