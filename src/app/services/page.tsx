@@ -4,6 +4,7 @@ import { unstable_cache } from 'next/cache'
 import { generateStaticMetadata } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import type { TeamMemberData } from '@/actions/teamActions'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import ExpertsSection from './components/ExpertsSection'
 import ServicesGrid from './components/ServicesGrid'
 import TestimonialSection from './components/TestimonialSection'
@@ -50,7 +51,10 @@ const getServiceExperts = unstable_cache(
         websiteUrl: true,
       },
     })
-    return members
+    return members.map(m => ({
+      ...m,
+      photoUrl1: getImageUrl(m.photoUrl1) ?? undefined
+    })) as TeamMemberData[]
   },
   ['service-experts'],
   { revalidate: 3600, tags: ['team'] }

@@ -261,7 +261,9 @@
       "followArtist": "Suivre l'artiste",
       "certifiedArtist": "L'artiste {name} fait partie de nos artistes certifiés garantissant son sérieux et engagement pour Inrealart",
       "readInterview": "Lire l'interview de {name}",
-      "visitArtitude": "Voir l'atelier physique InRealArt de {name}"
+      "visitArtitude": "Voir l'atelier physique InRealArt de {name}",
+      "available": "Disponibles",
+      "sold": "Vendues"
     },
     "notFound": {
       "title": "Catégorie d'artistes non trouvée",

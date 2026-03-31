@@ -3,6 +3,8 @@
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useLanguageStore } from '@/store/languageStore'
 import TranslatedText from '@/components/common/TranslatedText'
+import FirebaseImage from '@/components/common/FirebaseImage'
+import { TeamMemberData } from '@/actions/teamActions'
 
 const TEAM_PARAGRAPHS = [
   {
@@ -19,8 +21,29 @@ const TEAM_PARAGRAPHS = [
   },
 ] as const
 
-export default function AboutTeam() {
-  const { t } = useLanguageStore()
+interface Props {
+  members: TeamMemberData[]
+}
+
+export default function AboutTeam({ members }: Props) {
+  const { t, language } = useLanguageStore()
+
+  const lang = language.toLowerCase()
+
+  // Filtrer pour afficher uniquement Timothée Roy, Maxime Girard et Gilles Bruno
+  const targetLastNames = ['Roy', 'Girard', 'Bruno']
+  const teamMembers = members
+    .filter(member => targetLastNames.includes(member.lastName))
+    .sort((a, b) => {
+      const order = { Roy: 0, Girard: 1, Bruno: 2 }
+      return (order[a.lastName as keyof typeof order] ?? 99) - (order[b.lastName as keyof typeof order] ?? 99)
+    })
+    .map(member => ({
+      id: member.id,
+      name: `${member.firstName} ${member.lastName}`,
+      role: member.translations?.role?.[lang] || member.role,
+      photoUrl: member.photoUrl1 || '',
+    }))
 
   return (
     <section className="bg-backgroundColor w-full py-24 lg:py-32">
@@ -48,25 +71,40 @@ export default function AboutTeam() {
           </div>
         </div>
 
-        {/* Image équipe pleine largeur avec gradient overlay */}
-        <div className="relative mb-20 overflow-hidden">
-          <OptimizedBackgroundImage
-            src="/images/about/about_team_photo1.webp"
-            alt="Équipe InRealArt"
-            fill={true}
-            className="w-full aspect-[21/9] lg:aspect-[3/1]"
-            quality={90}
-            priority={false}
-            sizes="100vw"
-          />
-          {/* Gradient éditorial bas */}
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-backgroundColor/60 via-transparent to-transparent"
-            aria-hidden="true"
-          />
+        {/* Grille des 3 photos des membres de l'équipe */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {teamMembers.map((member) => (
+            <div
+              key={member.id}
+              className="group"
+            >
+              {/* Photo avec effet grayscale */}
+              <div
+                className="relative overflow-hidden bg-[#f8f8f8] mb-5 aspect-[3/4]"
+                style={{
+                  filter: 'grayscale(100%)',
+                  transition: 'filter 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                <FirebaseImage
+                  src={member.photoUrl}
+                  alt={member.name}
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Rôle et nom */}
+              <span className="text-[8px] uppercase tracking-[0.3em] text-[#b89c72] font-bold montserrat block">
+                {member.role}
+              </span>
+              <h3 className="serif text-xl italic mt-1 text-textColor">{member.name}</h3>
+            </div>
+          ))}
         </div>
 
-        {/* Grille des 3 membres — style expertise cards */}
+        {/* Grille des 3 paragraphes — style expertise cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {TEAM_PARAGRAPHS.map(({ titleKey, descKey }) => (
             <div

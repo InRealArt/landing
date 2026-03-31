@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import AboutHero from '@/components/about/AboutHero'
+import { getTeamMembers } from '@/actions/teamActions'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: "À propos d'InRealArt — Mission, Histoire et Équipe",
@@ -14,25 +15,27 @@ import AboutTeam from '@/components/about/AboutTeam'
 import AboutOurInvitation from '@/components/about/AboutOurInvitation'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const members = await getTeamMembers()
+
   return (
     <>
       {/* Hero Section avec image hero_about.webp */}
       <AboutHero />
-      
-      
+
+
       {/* Section 3 : grille des 4 textes avec icônes */}
       <AboutOurHistory />
-      
+
       {/* Section 4 : équipe professionnelle */}
-      <AboutTeam />
-      
+      <AboutTeam members={members} />
+
       {/* Section 1 : contenu avec mise en page en deux colonnes */}
       <AboutOurCommitments />
 
       {/* Section 2 : image de femme à gauche, contenu à droite */}
       <AboutOurInvitation />
-      
+
 
       {/* Section 5 : newsletter */}
       <NewsletterInline />

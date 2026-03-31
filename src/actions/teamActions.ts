@@ -1,13 +1,14 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 export interface TeamMemberData {
     id: number
     firstName: string
     lastName: string
     role: string
-    photoUrl1: string | null
+    photoUrl1: string | undefined
     description: string | null
     intro: string | null
     linkedinUrl: string | null
@@ -81,7 +82,10 @@ export async function getTeamMembers(): Promise<TeamMemberData[]> {
             }
         })
 
-        return result
+        return result.map(member => ({
+            ...member,
+            photoUrl1: getImageUrl(member.photoUrl1) ?? undefined
+        })) as TeamMemberData[]
     } catch (error) {
         console.error('Erreur lors de la récupération des membres de l\'équipe:', error)
         throw new Error('Impossible de récupérer les membres de l\'équipe')

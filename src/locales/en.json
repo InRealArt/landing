@@ -261,7 +261,9 @@
       "followArtist": "Follow artist",
       "certifiedArtist": "Artist {name} is part of our certified artists guaranteeing their seriousness and commitment to Inrealart",
       "readInterview": "Read {name}'s interview",
-      "visitArtitude": "Visit {name}'s InRealArt physical studio"
+      "visitArtitude": "Visit {name}'s InRealArt physical studio",
+      "available": "Available",
+      "sold": "Sold"
     },
     "notFound": {
       "title": "Artist category not found",
