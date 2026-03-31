@@ -1231,10 +1231,10 @@
   "usecase": {
     "intro": {
       "label": "Applications concrètes",
-      "title": "L'Art comme Levier d'Identité.",
-      "titleBefore": "L'Art comme",
-      "titleAccent": "Levier",
-      "titleAfter": "d'Identité.",
+      "title": "Valoriser votre entreprise et votre patrimoine",
+      "titleBefore": "Valoriser ",
+      "titleAccent": "votre entreprise et ",
+      "titleAfter": "votre patrimoine",
       "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces."
     },
     "items": {
@@ -1370,7 +1370,7 @@
     "ctaFinal": {
       "title": "Un projet spécifique en tête ?",
       "subtitle": "Nos experts vous accompagnent de la sélection artistique au montage financier.",
-      "button": "Démarrer une consultation"
+      "button": "Rdv gratuit avec un curateur"
     }
   },
   "leasing": {

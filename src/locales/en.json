@@ -1249,10 +1249,10 @@
   "usecase": {
     "intro": {
       "label": "Concrete Applications",
-      "title": "Art as an Identity Lever.",
-      "titleBefore": "Art as an",
-      "titleAccent": "Identity Lever",
-      "titleAfter": ".",
+      "title": "Enhance the value of your business and your assets",
+      "titleBefore": "Enhance the value of ",
+      "titleAccent": "your business ",
+      "titleAfter": "and your assets",
       "subtitle": "From real estate heritage valorisation to employer brand affirmation, discover how our curators transform your spaces."
     },
     "items": {
@@ -1388,7 +1388,7 @@
     "ctaFinal": {
       "title": "A specific project in mind?",
       "subtitle": "Our experts guide you from artwork selection to financial structuring.",
-      "button": "Start a consultation"
+      "button": "Free appointment with a curator"
     }
   },
   "leasing": {
