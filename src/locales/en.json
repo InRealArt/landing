@@ -477,23 +477,29 @@
       "title": "Augmented",
       "titleAccent": "Curation.",
       "items": {
-        "edition": {
-          "subtitle": "InRealArt Edition",
-          "title": "Media & Agency",
-          "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
-          "cta": "Join us"
+        "media": {
+          "subtitle": "INREALART MÉDIA",
+          "title": "Contemporary Art Agency & Media",
+          "description": "We support artists in building their visibility and credibility.\n\nMonographs, visual content, art direction:\nwe create powerful narratives that enhance artworks.\n\nIdeal for artists, galleries and institutions",
+          "cta": "DEVELOP MY IMAGE AND VISIBILITY"
         },
-        "selection": {
-          "subtitle": "InRealArt Selection",
-          "title": "Premium Marketplace",
-          "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
-          "cta": "Why not you?"
+        "curate": {
+          "subtitle": "INREALART CURATE",
+          "title": "Exclusive & High-End Contemporary Art Marketplace",
+          "description": "Discover a selection of artworks chosen for their aesthetic quality and enhancement potential.\n\nEach artwork is:\n\nselected by experts\ncontextualized\nready to join a demanding collection\n\nBuy contemporary art with confidence",
+          "cta": "VIEW ARTWORKS"
         },
-        "placement": {
-          "subtitle": "InRealArt Placement",
-          "title": "Art & Finance",
-          "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
-          "cta": "Our simulators"
+        "capital": {
+          "subtitle": "INREALART CAPITAL",
+          "title": "Art Investment & Leasing",
+          "description": "Transform art into a strategic asset.\n\nWe offer solutions to:\n\ninvest in contemporary art\noptimize taxation\nenhance your professional spaces\n\nA tailored approach for companies and executives",
+          "cta": "SIMULATE MY INVESTMENT"
+        },
+        "studio": {
+          "subtitle": "INREALART STUDIO",
+          "title": "Artistic Agency & Collaborations",
+          "description": "We connect artists, brands and institutions.\n\nContent production, campaigns, collaborations:\nwe create artistic projects with high cultural and marketing value.\n\nActivate art as an image lever",
+          "cta": "LAUNCH A PROJECT"
         }
       }
     },
@@ -1365,16 +1371,16 @@
     },
     "impact": {
       "stat1": {
-        "value": "+30%",
-        "label": "Perceived heritage valuation"
+        "value": "+63%",
+        "label": "improvement in space perception"
       },
       "stat2": {
-        "value": "100%",
-        "label": "Tax deduction via leasing"
+        "value": "+50%",
+        "label": "time spent in the premises"
       },
       "stat3": {
-        "value": "50+",
-        "label": "Partner companies"
+        "value": "+30%",
+        "label": "footfall / attractiveness"
       }
     },
     "ctaFinal": {
@@ -1914,6 +1920,109 @@
       },
       "cta": "Submit your request to Marian",
       "imageAlt": "Marian Production"
+    }
+  },
+  "services": {
+    "metadata": {
+      "title": "Expertises & Consulting — High-Level Artistic Support",
+      "description": "Consulting, career coaching and artistic heritage management. Our experts combine marketing vision, curatorial expertise and asset management to build sustainable trajectories.",
+      "keywords": ["art consulting", "artist coaching", "artistic heritage management", "career audit", "art advisor", "artist agent"]
+    },
+    "hero": {
+      "eyebrow": "Strategic Support",
+      "title": "Intelligence",
+      "titleAccent": "at the Service of Art.",
+      "description": "High-level consulting, career coaching and artistic heritage management. Our experts combine marketing vision, curatorial expertise and asset management to build sustainable trajectories."
+    },
+    "experts": {
+      "maxime": {
+        "specialty": "Marketing & Growth",
+        "fallbackRole": "Chief Marketing Officer",
+        "intro": "Specialist in brand positioning within the luxury sector. Maxime transforms artistic identity into a powerful narrative asset capable of conquering international markets."
+      },
+      "ania": {
+        "specialty": "Curation & Expertise",
+        "fallbackRole": "Art Advisor",
+        "intro": "Collection acquisition and enhancement consulting. Ania deciphers emerging trends to secure your investments and enhance your spaces."
+      },
+      "timothee": {
+        "specialty": "Management & Agenting",
+        "fallbackRole": "Artist Agent",
+        "intro": "The pivot between studio and gallery. Timothée manages careers, negotiates contracts and ensures institutional visibility for InRealArt talents."
+      }
+    },
+    "catalog": {
+      "eyebrow": "Services Catalogue",
+      "title": "Consulting & Pricing"
+    },
+    "categories": {
+      "artists": {
+        "number": "01.",
+        "label": "Artist Solutions"
+      },
+      "corporate": {
+        "number": "02.",
+        "label": "Corporate & Private Solutions"
+      }
+    },
+    "items": {
+      "careerAudit": {
+        "title": "Career Audit & Positioning",
+        "description": "Analysis of your production, definition of your USP (Unique Selling Proposition) and pricing strategy. (By Maxime Girard)",
+        "price": "€850",
+        "priceUnit": "/ Audit",
+        "cta": "Book"
+      },
+      "coaching": {
+        "title": "\"Out of the Shadows\" Coaching",
+        "description": "3-month support: networking, gallery pitching and digital presence. (By Timothée Roy)",
+        "price": "€2,400",
+        "priceUnit": "/ Quarter",
+        "cta": "Apply"
+      },
+      "pressKit": {
+        "title": "Press Kit & Curatorial Kit",
+        "description": "Writing your manifesto, biography and digital catalog raisonné. (IRA Team)",
+        "price": "€1,200",
+        "priceUnit": "/ Project",
+        "cta": "Order"
+      },
+      "sourcing": {
+        "title": "Custom Artwork Sourcing",
+        "description": "Exclusive search for pieces for an interior or headquarters according to budget. (By Ania Chrusciany)",
+        "price": "On Quote",
+        "priceUnit": "/ 10% Fees",
+        "cta": "Contact"
+      },
+      "taxOptimization": {
+        "title": "Tax Optimization & Art Leasing",
+        "description": "Preparation of lease files with purchase option (LOA) for companies. (IRA Team)",
+        "price": "Free",
+        "priceUnit": "/ (if purchase)",
+        "cta": "Simulate"
+      }
+    },
+    "testimonial": {
+      "eyebrow": "Testimonials",
+      "quote": "Thanks to Maxime's audit and Timothée's network, my ranking increased by 40% in one year. Their vision goes far beyond that of a traditional gallery.",
+      "author": "Jean-Paul Boyer",
+      "role": "Resident Artist"
+    },
+    "contact": {
+      "title": "Ready to elevate your",
+      "titleAccent": "artistic heritage?",
+      "description": "Response within 48h by one of our experts.",
+      "successMessage": "Your request has been submitted.",
+      "namePlaceholder": "YOUR NAME",
+      "nameLabel": "Your name",
+      "expertLabel": "Choose an expert",
+      "expertSelect": "CHOOSE AN EXPERT",
+      "expertOptions": {
+        "maxime": "MAXIME GIRARD (Marketing)",
+        "ania": "ANIA CHRUSCIANY (Art Advisor)",
+        "timothee": "TIMOTHÉE ROY (Agent)"
+      },
+      "submitButton": "Send request"
     }
   },
   "artwork": {

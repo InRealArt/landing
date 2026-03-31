@@ -7,15 +7,15 @@ export default function UseCaseImpact() {
 
   const stats = [
     {
-      value: t('usecase.impact.stat1.value'),
+      value: '+63%',
       label: t('usecase.impact.stat1.label'),
     },
     {
-      value: t('usecase.impact.stat2.value'),
+      value: '+50%',
       label: t('usecase.impact.stat2.label'),
     },
     {
-      value: t('usecase.impact.stat3.value'),
+      value: '+30%',
       label: t('usecase.impact.stat3.label'),
     },
   ]
@@ -23,8 +23,7 @@ export default function UseCaseImpact() {
   return (
     <section
       data-anim="impact-section"
-      className="py-28 lg:py-40 px-4 sm:px-6 lg:px-10 text-center"
-      style={{ background: 'var(--ink-black)' }}
+      className="section-dark-premium py-28 lg:py-40 px-4 sm:px-6 lg:px-10 text-center"
     >
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
         {stats.map((stat, index) => (
@@ -36,8 +35,7 @@ export default function UseCaseImpact() {
               {stat.value}
             </span>
             <p
-              className="text-[10px] uppercase tracking-[0.3em] montserrat leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.5)' }}
+              className="text-[10px] uppercase tracking-[0.3em] montserrat leading-relaxed section-dark-muted"
             >
               {stat.label}
             </p>

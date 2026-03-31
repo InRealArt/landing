@@ -4,56 +4,38 @@ import FirebaseImage from '@/components/common/FirebaseImage'
 import { TeamMemberData } from '@/actions/teamActions'
 
 interface ExpertMeta {
-  firstName: string
-  lastName: string
   specialty: string
   fallbackRole: string
   intro: string
 }
 
-const EXPERT_META: ExpertMeta[] = [
-  {
-    firstName: 'Maxime',
-    lastName: 'Girard',
-    specialty: 'Marketing & Growth',
-    fallbackRole: 'Chief Marketing Officer',
-    intro:
-      "Spécialiste du positionnement de marque dans le luxe. Maxime transforme l'identité artistique en un actif narratif puissant capable de conquérir les marchés internationaux.",
-  },
-  {
-    firstName: 'Ania',
-    lastName: 'Chrusciany',
-    specialty: 'Curation & Expertise',
-    fallbackRole: 'Art Advisor',
-    intro:
-      "Conseil en acquisition et valorisation de collections. Ania décrypte les courants émergents pour sécuriser vos investissements et sublimer vos espaces.",
-  },
-  {
-    firstName: 'Timothée',
-    lastName: 'Roy',
-    specialty: 'Management & Agenting',
-    fallbackRole: "Agent d'Artiste",
-    intro:
-      "Le pivot entre l'atelier et la galerie. Timothée gère les carrières, négocie les contrats et assure la visibilité institutionnelle des talents InRealArt.",
-  },
-]
-
 interface ExpertsSectionProps {
   experts: TeamMemberData[]
+  translations: {
+    maxime: ExpertMeta
+    ania: ExpertMeta
+    timothee: ExpertMeta
+  }
 }
 
-export default function ExpertsSection({ experts }: ExpertsSectionProps) {
+export default function ExpertsSection({ experts, translations }: ExpertsSectionProps) {
+  const EXPERT_META: Array<{ firstName: string; lastName: string; meta: ExpertMeta }> = [
+    { firstName: 'Maxime', lastName: 'Girard', meta: translations.maxime },
+    { firstName: 'Ania', lastName: 'Chrusciany', meta: translations.ania },
+    { firstName: 'Timothée', lastName: 'Roy', meta: translations.timothee },
+  ]
+
   return (
     <section className="py-24 px-10 bg-cardBackground">
       <div className="max-w-screen-2xl mx-auto">
         <div className="grid md:grid-cols-3 gap-16">
-          {EXPERT_META.map((meta) => {
+          {EXPERT_META.map(({ firstName, lastName, meta }) => {
             const member = experts.find(
               (e) =>
-                e.firstName.toLowerCase() === meta.firstName.toLowerCase() &&
-                e.lastName.toLowerCase() === meta.lastName.toLowerCase()
+                e.firstName.toLowerCase() === firstName.toLowerCase() &&
+                e.lastName.toLowerCase() === lastName.toLowerCase()
             )
-            const fullName = `${meta.firstName} ${meta.lastName}`
+            const fullName = `${firstName} ${lastName}`
             const role = member?.role || meta.fallbackRole
             const photoUrl = member?.photoUrl1 ?? null
 
@@ -82,7 +64,7 @@ export default function ExpertsSection({ experts }: ExpertsSectionProps) {
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
                       <span className="serif text-6xl font-light select-none text-gold-accent opacity-40">
-                        {meta.firstName[0]}{meta.lastName[0]}
+                        {firstName[0]}{lastName[0]}
                       </span>
                     </div>
                   )}

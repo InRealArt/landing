@@ -14,72 +14,130 @@ interface ServiceCategory {
   items: ServiceItem[]
 }
 
-const SERVICES: ServiceCategory[] = [
-  {
-    number: '01.',
-    label: 'Solutions Artistes',
-    items: [
-      {
-        title: 'Audit de Carrière & Positionnement',
-        description:
-          "Analyse de votre production, définition de votre USP (Unique Selling Proposition) et stratégie de prix. (Par Maxime Girard)",
-        price: '850 €',
-        priceUnit: '/ Audit',
-        cta: 'Réserver',
-      },
-      {
-        title: 'Coaching "Sortir de l\'Ombre"',
-        description:
-          "Accompagnement sur 3 mois : réseau, pitch aux galeries et présence digitale. (Par Timothée Roy)",
-        price: '2 400 €',
-        priceUnit: '/ Trimestre',
-        cta: 'Postuler',
-      },
-      {
-        title: 'Dossier de Presse & Kit Curatorial',
-        description:
-          "Rédaction de votre manifeste, biographie et catalogue raisonné digital. (Équipe IRA)",
-        price: '1 200 €',
-        priceUnit: '/ Projet',
-        cta: 'Commander',
-      },
-    ],
-  },
-  {
-    number: '02.',
-    label: 'Solutions Corporate & Privées',
-    items: [
-      {
-        title: 'Sourcing d\'Œuvres Sur-Mesure',
-        description:
-          "Recherche exclusive de pièces pour un intérieur ou un siège social selon budget. (Par Ania Chrusciany)",
-        price: 'Sur Devis',
-        priceUnit: '/ Honoraires 10%',
-        cta: 'Contacter',
-      },
-      {
-        title: 'Optimisation Fiscale & Leasing Art',
-        description:
-          "Montage de dossiers de location avec option d'achat (LOA) pour entreprises. (Équipe IRA)",
-        price: 'Offert',
-        priceUnit: '/ (si achat)',
-        cta: 'Simuler',
-      },
-    ],
-  },
-]
+interface ServicesGridProps {
+  translations: {
+    catalog: {
+      eyebrow: string
+      title: string
+    }
+  }
+}
 
-export default function ServicesGrid() {
+export default function ServicesGrid({ translations }: ServicesGridProps) {
+  const SERVICES: ServiceCategory[] = [
+    {
+      number: '01',
+      label: 'DIGITAL',
+      items: [
+        {
+          title: 'Mise en place Portfolio',
+          description: 'Sélection, retouche légère et mise en page de 15-20 œuvres (PDF Pro).',
+          price: '180',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Création de Site Web',
+          description: 'Site vitrine (5 pages) + Nom de domaine + Formation prise en main.',
+          price: '450 – 900',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Maintenance Site',
+          description: 'Mise à jour technique et ajout de nouvelles œuvres (trimestriel).',
+          price: '30',
+          priceUnit: '€ / mois HT',
+          cta: 'Commander',
+        },
+      ],
+    },
+    {
+      number: '02',
+      label: 'CONSEIL',
+      items: [
+        {
+          title: 'Coaching Marketing',
+          description: '1h de visio : définir sa cible, ses tarifs et son pitch de vente.',
+          price: '120',
+          priceUnit: '€ / heure HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Audit Réseaux Sociaux',
+          description: "Analyse de l'existant (link/ig) + Plan d'action de 10 idées de posts.",
+          price: '150',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+      ],
+    },
+    {
+      number: '03',
+      label: 'MÉDIA',
+      items: [
+        {
+          title: 'Interview Exclusive',
+          description: 'Interview écrite ou filmée publiée sur votre espace Média/Blog.',
+          price: '250',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Annonce Exposition',
+          description: 'Article dédié "Agenda" sur votre site média avec lien vers l\'artiste.',
+          price: '80',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Relais Newsletter',
+          description: 'Un encart dédié dans la newsletter envoyée aux collectionneurs.',
+          price: '120',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Post Sponsorisé',
+          description: 'Publication dédiée sur vos réseaux sociaux (Instagram / Facebook).',
+          price: '100',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+      ],
+    },
+    {
+      number: '04',
+      label: 'CONTENU',
+      items: [
+        {
+          title: 'Rédaction de Bio',
+          description: "Écriture de la biographie et du 'Artist Statement' (300 mots).",
+          price: '150',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+        {
+          title: 'Communiqué de Presse',
+          description: 'Rédaction du document pro pour envoyer aux journalistes art.',
+          price: '200',
+          priceUnit: '€ HT',
+          cta: 'Commander',
+        },
+      ],
+    },
+  ]
+
   return (
     <section className="py-32 px-10 bg-backgroundColor">
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="text-center mb-24">
           <span className="block text-[10px] uppercase tracking-[0.5em] mb-4 montserrat text-grayText">
-            Catalogue des Services
+            {translations.catalog.eyebrow}
           </span>
           <h2 className="serif text-5xl italic text-textColor">
-            Consulting &amp; Tarification
+            {translations.catalog.title}
           </h2>
         </div>
 

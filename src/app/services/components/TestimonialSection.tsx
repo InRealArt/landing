@@ -1,4 +1,13 @@
-export default function TestimonialSection() {
+interface TestimonialSectionProps {
+  translations: {
+    eyebrow: string
+    quote: string
+    author: string
+    role: string
+  }
+}
+
+export default function TestimonialSection({ translations }: TestimonialSectionProps) {
   return (
     <section
       className="py-40 px-10 overflow-hidden relative"
@@ -23,13 +32,12 @@ export default function TestimonialSection() {
           className="block text-[10px] uppercase tracking-[0.5em] italic mb-12 montserrat"
           style={{ color: '#666' }}
         >
-          Témoignages
+          {translations.eyebrow}
         </span>
 
         <blockquote>
           <p className="serif text-3xl md:text-5xl italic leading-tight mb-12">
-            &ldquo;Grâce à l&apos;audit de Maxime et au réseau de Timothée, ma cote a progressé
-            de 40% en un an. Leur vision dépasse largement celle d&apos;une galerie classique.&rdquo;
+            &ldquo;{translations.quote}&rdquo;
           </p>
 
           <footer className="flex flex-col items-center">
@@ -39,13 +47,13 @@ export default function TestimonialSection() {
               aria-hidden="true"
             />
             <p className="text-[11px] uppercase tracking-[0.4em] font-bold montserrat">
-              Jean-Paul Boyer
+              {translations.author}
             </p>
             <p
               className="text-[9px] uppercase tracking-widest mt-1 montserrat"
               style={{ color: '#555' }}
             >
-              Artiste Résident
+              {translations.role}
             </p>
           </footer>
         </blockquote>

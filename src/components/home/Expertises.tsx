@@ -5,31 +5,40 @@ import { loadGsap } from '@/lib/gsap'
 
 const items = [
   {
-    key: 'edition',
+    key: 'media',
     number: '01.',
-    subtitleKey: 'home.expertises.items.edition.subtitle',
-    titleKey: 'home.expertises.items.edition.title',
-    descriptionKey: 'home.expertises.items.edition.description',
-    ctaKey: 'home.expertises.items.edition.cta',
-    link: '/joinInRealArt/artists',
+    subtitleKey: 'home.expertises.items.media.subtitle',
+    titleKey: 'home.expertises.items.media.title',
+    descriptionKey: 'home.expertises.items.media.description',
+    ctaKey: 'home.expertises.items.media.cta',
+    link: '/media',
   },
   {
-    key: 'selection',
+    key: 'curate',
     number: '02.',
-    subtitleKey: 'home.expertises.items.selection.subtitle',
-    titleKey: 'home.expertises.items.selection.title',
-    descriptionKey: 'home.expertises.items.selection.description',
-    ctaKey: 'home.expertises.items.selection.cta',
+    subtitleKey: 'home.expertises.items.curate.subtitle',
+    titleKey: 'home.expertises.items.curate.title',
+    descriptionKey: 'home.expertises.items.curate.description',
+    ctaKey: 'home.expertises.items.curate.cta',
     link: '/presale',
   },
   {
-    key: 'placement',
+    key: 'capital',
     number: '03.',
-    subtitleKey: 'home.expertises.items.placement.subtitle',
-    titleKey: 'home.expertises.items.placement.title',
-    descriptionKey: 'home.expertises.items.placement.description',
-    ctaKey: 'home.expertises.items.placement.cta',
-    link: '/usecase',
+    subtitleKey: 'home.expertises.items.capital.subtitle',
+    titleKey: 'home.expertises.items.capital.title',
+    descriptionKey: 'home.expertises.items.capital.description',
+    ctaKey: 'home.expertises.items.capital.cta',
+    link: '/simulators/loa',
+  },
+  {
+    key: 'studio',
+    number: '04.',
+    subtitleKey: 'home.expertises.items.studio.subtitle',
+    titleKey: 'home.expertises.items.studio.title',
+    descriptionKey: 'home.expertises.items.studio.description',
+    ctaKey: 'home.expertises.items.studio.cta',
+    link: '/media',
   },
 ]
 
@@ -119,7 +128,7 @@ export default function Expertises() {
         </div>
 
         {/* Cards */}
-        <div ref={cardsRef} className="grid md:grid-cols-3 gap-12 lg:gap-20">
+        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {items.map((item) => (
             <div key={item.key} className="expertise-card border-t border-borderColor pt-12 opacity-0">
               {/* Number + subtitle row */}
@@ -141,7 +150,7 @@ export default function Expertises() {
               <div className="w-8 h-px bg-gold-accent mb-6" />
 
               {/* Description */}
-              <p className="text-[13px] text-grayText leading-loose mb-10 h-32" suppressHydrationWarning>
+              <p className="text-[13px] text-grayText leading-loose mb-10" suppressHydrationWarning>
                 {t(item.descriptionKey)}
               </p>
 

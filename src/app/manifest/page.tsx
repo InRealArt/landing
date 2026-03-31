@@ -36,7 +36,7 @@ export default function ManifestPage() {
       {/* ─── Hero ─── */}
       <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
         <OptimizedBackgroundImage
-          src="/images/art-salon-background.webp"
+          src="/images/fabParis.webp"
           alt="InRealArt exhibition space"
           fill
           priority
@@ -211,7 +211,7 @@ export default function ManifestPage() {
 
             <div className="relative">
               <OptimizedImage
-                src="/images/manifest/signature_ira.webp"
+                src="/images/manifest/signature_ira_gold.webp"
                 alt="Signature manuscrite Team InRealArt"
                 width={500}
                 height={140}

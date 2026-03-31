@@ -33,11 +33,12 @@ export default function MediaPage() {
         {/* 2. Articles & Entretiens — vrais articles du blog, max 6 */}
         <MediaArticlesSection />
 
-        {/* 3. Marian — Production Vidéo */}
+        {/* 3. In-Art TV — Les Métiers de la Création */}
+        <InArtTvSection />
+
+        {/* 4. Marian — Production Vidéo */}
         <MarianSection />
 
-        {/* 4. In-Art TV — Les Métiers de la Création */}
-        <InArtTvSection />
       </main>
     </>
   )

@@ -318,23 +318,29 @@
       "title": "Curation",
       "titleAccent": "Augmentée.",
       "items": {
-        "edition": {
-          "subtitle": "InRealArt Édition",
-          "title": "Média & Agence",
-          "description": "Accompagnement de trajectoires artistiques, ligne éditoriale forte et création de Kits Com premium pour propulser les créateurs sur la scène mondiale.",
-          "cta": "Nous rejoindre"
+        "media": {
+          "subtitle": "INREALART MÉDIA",
+          "title": "Agence & média d'art contemporain",
+          "description": "Nous accompagnons les artistes dans la construction de leur visibilité et de leur crédibilité.\n\nMonographies, contenus visuels, direction artistique :\nnous créons des récits puissants qui valorisent les œuvres.\n\nIdéal pour artistes, galeries et institutions",
+          "cta": "DÉVELOPPER MON IMAGE ET MA VISIBILITÉ"
         },
-        "selection": {
-          "subtitle": "InRealArt Sélection",
-          "title": "Marketplace Premium",
-          "description": "Une curation rigoureuse pour collectionneurs exigeants. Accédez à des œuvres sélectionnées pour leur potentiel esthétique et leur valeur patrimoniale.",
-          "cta": "Pourquoi pas vous ?"
+        "curate": {
+          "subtitle": "INREALART CURATE",
+          "title": "Marketplace d'art contemporain exclusive & haut de gamme",
+          "description": "Découvrez une sélection d'œuvres choisies pour leur qualité esthétique et potentiel de valorisation.\n\nChaque œuvre est :\n\nsélectionnée par des experts\ncontextualisée\nprête à intégrer une collection exigeante\n\nAcheter une œuvre d'art en toute confiance",
+          "cta": "VOIR LES ŒUVRES"
         },
-        "placement": {
-          "subtitle": "InRealArt Placement",
-          "title": "Art & Finance",
-          "description": "L'art comme outil stratégique. Solutions de leasing (LOA), optimisation fiscale et simulateurs de patrimoine pour les entreprises.",
-          "cta": "Nos simulateurs"
+        "capital": {
+          "subtitle": "INREALART CAPITAL",
+          "title": "Investissement & leasing d'art",
+          "description": "Transformez l'art en actif stratégique.\n\nNous proposons des solutions pour :\n\ninvestir dans l'art contemporain\noptimiser la fiscalité\nvaloriser vos espaces professionnels\n\nUne approche sur mesure pour entreprises et dirigeants",
+          "cta": "SIMULER MON INVESTISSEMENT"
+        },
+        "studio": {
+          "subtitle": "INREALART STUDIO",
+          "title": "Agence artistique & collaborations",
+          "description": "Nous connectons artistes, marques et institutions.\n\nProduction de contenus, campagnes, collaborations :\nnous créons des projets artistiques à forte valeur culturelle et marketing.\n\nActiver l'art comme levier d'image",
+          "cta": "LANCER UN PROJET"
         }
       }
     },
@@ -568,20 +574,20 @@
         "title": "L'écosystème au service des Galeries.",
         "button": "Devenez Galerie Partenaire",
         "support": {
-          "title": "01. Visibilité Média",
-          "description": "Couverture éditoriale complète de vos vernissages et expositions. Portraits d'artistes et newsletters dédiées à notre base de collectionneurs qualifiés."
+          "title": "Gagnez en visibilité grâce à une médiatisation ciblée",
+          "description": "Rejoindre InRealArt, c'est intégrer un écosystème qui met en avant votre galerie et vos artistes auprès d'une audience qualifiée. Nous valorisons vos œuvres à travers des campagnes éditoriales, des mises en avant et des activations qui renforcent votre notoriété et votre positionnement sur le marché."
         },
         "technology": {
-          "title": "02. Accès Marketplace B2B",
-          "description": "Intégrez vos œuvres à notre plateforme de vente. Nous connectons votre catalogue aux besoins des entreprises et décorateurs d'intérieur."
+          "title": "Accélérez votre développement avec un marketing dédié",
+          "description": "Bénéficiez d'une stratégie marketing pensée pour le secteur artistique : acquisition de nouveaux collectionneurs, animation de votre catalogue et mise en lumière de vos temps forts (expositions, nouvelles œuvres, artistes). Notre objectif : générer de la demande et soutenir concrètement vos ventes."
         },
         "rights": {
-          "title": "03. Solutions de Leasing",
-          "description": "Facilitez les acquisitions de vos clients professionnels. Nous gérons le montage financier en leasing, permettant une vente immédiate pour la galerie."
+          "title": "Intégrez une marketplace premium avec accompagnement sur mesure",
+          "description": "InRealArt vous donne accès à une plateforme sélective, conçue pour valoriser des œuvres de qualité dans un environnement haut de gamme. Vous êtes accompagné à chaque étape : onboarding, mise en ligne, optimisation de vos contenus et suivi des performances. Un véritable partenaire pour structurer et développer votre activité."
         },
         "brand": {
-          "title": "04. Collaborations de Marque",
-          "description": "Notre agence identifie des projets spéciaux (hôtellerie de luxe, sièges sociaux) où vos artistes peuvent apporter une valeur ajoutée artistique majeure."
+          "title": "Rejoignez InRealArt et donnez une nouvelle dimension à votre galerie",
+          "description": ""
         }
       },
       "testimonials": {
@@ -1347,16 +1353,16 @@
     },
     "impact": {
       "stat1": {
-        "value": "+30%",
-        "label": "Valorisation perçue du patrimoine"
+        "value": "+63%",
+        "label": "d'amélioration de la perception des espaces"
       },
       "stat2": {
-        "value": "100%",
-        "label": "Déduction fiscale via le leasing"
+        "value": "+50%",
+        "label": "de temps passé dans les lieux"
       },
       "stat3": {
-        "value": "50+",
-        "label": "Entreprises déjà partenaires"
+        "value": "+30%",
+        "label": "de fréquentation / attractivité"
       }
     },
     "ctaFinal": {
@@ -1899,11 +1905,114 @@
       "title": "Marian : Production Vidéo & Interviews",
       "description": "Que ce soit pour un événement ou une interview, {marian} est disponible pour toutes vos demandes de création audiovisuelle externes à InRealArt.",
       "services": {
-        "interviews": "Interviews d’artistes premium",
-        "aftermovies": "Aftermovies d’événements culturels"
+        "interviews": "Interviews d'artistes premium",
+        "aftermovies": "Aftermovies d'événements culturels"
       },
       "cta": "Faire votre demande à Marian",
       "imageAlt": "Marian Production"
+    }
+  },
+  "services": {
+    "metadata": {
+      "title": "Expertises & Consulting — Accompagnement artistique de haut niveau",
+      "description": "Consulting, coaching de carrière et gestion de patrimoine artistique. Nos experts fusionnent vision marketing, expertise curatoriale et gestion d'actifs pour bâtir des trajectoires pérennes.",
+      "keywords": ["consulting art", "coaching artiste", "gestion patrimoine artistique", "audit de carrière", "art advisor", "agent artiste"]
+    },
+    "hero": {
+      "eyebrow": "Accompagnement Stratégique",
+      "title": "L'Intelligence",
+      "titleAccent": "au service de l'Art.",
+      "description": "Consulting de haut niveau, coaching de carrière et gestion de patrimoine artistique. Nos experts fusionnent vision marketing, expertise curatoriale et gestion d'actifs pour bâtir des trajectoires pérennes."
+    },
+    "experts": {
+      "maxime": {
+        "specialty": "Marketing & Growth",
+        "fallbackRole": "Chief Marketing Officer",
+        "intro": "Spécialiste du positionnement de marque dans le luxe. Maxime transforme l'identité artistique en un actif narratif puissant capable de conquérir les marchés internationaux."
+      },
+      "ania": {
+        "specialty": "Curation & Expertise",
+        "fallbackRole": "Art Advisor",
+        "intro": "Conseil en acquisition et valorisation de collections. Ania décrypte les courants émergents pour sécuriser vos investissements et sublimer vos espaces."
+      },
+      "timothee": {
+        "specialty": "Management & Agenting",
+        "fallbackRole": "Agent d'Artiste",
+        "intro": "Le pivot entre l'atelier et la galerie. Timothée gère les carrières, négocie les contrats et assure la visibilité institutionnelle des talents InRealArt."
+      }
+    },
+    "catalog": {
+      "eyebrow": "Catalogue des Services",
+      "title": "Consulting & Tarification"
+    },
+    "categories": {
+      "artists": {
+        "number": "01.",
+        "label": "Solutions Artistes"
+      },
+      "corporate": {
+        "number": "02.",
+        "label": "Solutions Corporate & Privées"
+      }
+    },
+    "items": {
+      "careerAudit": {
+        "title": "Audit de Carrière & Positionnement",
+        "description": "Analyse de votre production, définition de votre USP (Unique Selling Proposition) et stratégie de prix. (Par Maxime Girard)",
+        "price": "850 €",
+        "priceUnit": "/ Audit",
+        "cta": "Réserver"
+      },
+      "coaching": {
+        "title": "Coaching \"Sortir de l'Ombre\"",
+        "description": "Accompagnement sur 3 mois : réseau, pitch aux galeries et présence digitale. (Par Timothée Roy)",
+        "price": "2 400 €",
+        "priceUnit": "/ Trimestre",
+        "cta": "Postuler"
+      },
+      "pressKit": {
+        "title": "Dossier de Presse & Kit Curatorial",
+        "description": "Rédaction de votre manifeste, biographie et catalogue raisonné digital. (Équipe IRA)",
+        "price": "1 200 €",
+        "priceUnit": "/ Projet",
+        "cta": "Commander"
+      },
+      "sourcing": {
+        "title": "Sourcing d'Œuvres Sur-Mesure",
+        "description": "Recherche exclusive de pièces pour un intérieur ou un siège social selon budget. (Par Ania Chrusciany)",
+        "price": "Sur Devis",
+        "priceUnit": "/ Honoraires 10%",
+        "cta": "Contacter"
+      },
+      "taxOptimization": {
+        "title": "Optimisation Fiscale & Leasing Art",
+        "description": "Montage de dossiers de location avec option d'achat (LOA) pour entreprises. (Équipe IRA)",
+        "price": "Offert",
+        "priceUnit": "/ (si achat)",
+        "cta": "Simuler"
+      }
+    },
+    "testimonial": {
+      "eyebrow": "Témoignages",
+      "quote": "Grâce à l'audit de Maxime et au réseau de Timothée, ma cote a progressé de 40% en un an. Leur vision dépasse largement celle d'une galerie classique.",
+      "author": "Jean-Paul Boyer",
+      "role": "Artiste Résident"
+    },
+    "contact": {
+      "title": "Prêt à élever votre",
+      "titleAccent": "patrimoine artistique ?",
+      "description": "Réponse sous 48h par l'un de nos experts.",
+      "successMessage": "Votre demande a été transmise.",
+      "namePlaceholder": "VOTRE NOM",
+      "nameLabel": "Votre nom",
+      "expertLabel": "Choisir un expert",
+      "expertSelect": "CHOISIR UN EXPERT",
+      "expertOptions": {
+        "maxime": "MAXIME GIRARD (Marketing)",
+        "ania": "ANIA CHRUSCIANY (Art Advisor)",
+        "timothee": "TIMOTHÉE ROY (Agent)"
+      },
+      "submitButton": "Envoyer la demande"
     }
   },
   "artwork": {

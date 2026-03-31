@@ -104,11 +104,14 @@ export default function Contact() {
   }
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="w-full bg-backgroundGrey border-y border-borderColor py-28 lg:py-40 md:mt-0 mt-headerSize"
+      className="w-full bg-gradient-to-b from-soft-gray to-backgroundGrey border-y border-borderColor py-28 lg:py-40 md:mt-0 mt-headerSize relative overflow-hidden"
     >
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
+      {/* Subtle decorative element */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-gold-accent/20 to-transparent" />
+      
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 relative z-10">
         
         {/* Header */}
         <div ref={headerRef} className="grid lg:grid-cols-12 gap-10 mb-24">
@@ -127,9 +130,9 @@ export default function Contact() {
 
         {/* Cards */}
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-12 lg:gap-20">
-          
+
           {/* Calendly */}
-          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col">
+          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col group hover:border-gold-accent/40 transition-colors duration-500">
             <div className="flex items-center gap-4 mb-8">
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 01.
@@ -138,19 +141,19 @@ export default function Contact() {
                 {t('contact.calendly')}
               </h3>
             </div>
-            
-            <div className="bg-backgroundColor rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor">
+
+            <div className="bg-gradient-to-br from-soft-gray to-backgroundGrey rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor group-hover:border-gold-accent/30 transition-colors duration-500">
               <Calendar size={24} className="text-textColor" />
             </div>
-            
-            <div className="w-8 h-px bg-gold-accent mb-6" />
-            
+
+            <div className="w-8 h-px bg-gradient-to-r from-gold-accent to-transparent mb-6" />
+
             <p className="text-[13px] text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
               {t('contact.calendlyDescription')}
             </p>
-            
+
             <div>
-              <Link 
+              <Link
                 href={EXTERNAL_URLS.CALENDLY_MEETING}
                 target="_blank"
                 className="btn-cta"
@@ -163,7 +166,7 @@ export default function Contact() {
           </div>
 
           {/* Email */}
-          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col">
+          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col group hover:border-gold-accent/40 transition-colors duration-500">
             <div className="flex items-center gap-4 mb-8">
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 02.
@@ -172,19 +175,19 @@ export default function Contact() {
                 {t('contact.email')}
               </h3>
             </div>
-            
-            <div className="bg-backgroundColor rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor">
+
+            <div className="bg-gradient-to-br from-soft-gray to-backgroundGrey rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor group-hover:border-gold-accent/30 transition-colors duration-500">
               <Mail size={24} className="text-textColor" />
             </div>
-            
-            <div className="w-8 h-px bg-gold-accent mb-6" />
-            
+
+            <div className="w-8 h-px bg-gradient-to-r from-gold-accent to-transparent mb-6" />
+
             <p className="text-[13px] text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
               {contactInfo.email}
             </p>
-            
+
             <div>
-              <Link 
+              <Link
                 href={`mailto:${contactInfo.email}`}
                 className="btn-cta"
                 suppressHydrationWarning
@@ -195,7 +198,7 @@ export default function Contact() {
           </div>
 
           {/* Social */}
-          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col">
+          <div className="expertise-card border-t border-borderColor pt-12 opacity-0 flex flex-col group hover:border-gold-accent/40 transition-colors duration-500">
             <div className="flex items-center gap-4 mb-8">
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 03.
@@ -204,34 +207,33 @@ export default function Contact() {
                 {t('contact.social')}
               </h3>
             </div>
-            
-            <div className="bg-backgroundColor rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor">
+
+            <div className="bg-gradient-to-br from-soft-gray to-backgroundGrey rounded-full w-14 h-14 flex items-center justify-center mb-6 border border-borderColor group-hover:border-gold-accent/30 transition-colors duration-500">
               <LinkedInIcon size={24} className="text-textColor" />
             </div>
-            
-            <div className="w-8 h-px bg-gold-accent mb-6" />
-            
+
+            <div className="w-8 h-px bg-gradient-to-r from-gold-accent to-transparent mb-6" />
+
             <div className="flex gap-6 mb-10 flex-grow items-start pt-2">
               {contactInfo.social.map((platform) => {
                 const Icon = platform.icon
                 return (
-                  <Link 
-                    key={platform.name} 
-                    href={platform.url} 
-                    target="_blank" 
+                  <Link
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
                     rel="noopener noreferrer"
                     aria-label={platform.name}
-                    className="hover:scale-110 transition-transform duration-300"
+                    className="hover:scale-110 transition-transform duration-300 hover:text-gold-accent text-textColor"
                   >
-                    <Icon 
+                    <Icon
                       size={22}
-                      className="text-textColor" 
                     />
                   </Link>
                 )
               })}
             </div>
-            
+
             <p className="text-[10px] uppercase tracking-[0.2em] text-grayText" suppressHydrationWarning>
               {t('contact.followUs')}
             </p>

@@ -2,7 +2,26 @@
 
 import { useState, FormEvent } from 'react'
 
-export default function ContactForm() {
+interface ContactFormProps {
+  translations: {
+    title: string
+    titleAccent: string
+    description: string
+    successMessage: string
+    namePlaceholder: string
+    nameLabel: string
+    expertLabel: string
+    expertSelect: string
+    expertOptions: {
+      maxime: string
+      ania: string
+      timothee: string
+    }
+    submitButton: string
+  }
+}
+
+export default function ContactForm({ translations }: ContactFormProps) {
   const [name, setName] = useState('')
   const [expert, setExpert] = useState('')
   const [submitted, setSubmitted] = useState(false)
@@ -21,27 +40,27 @@ export default function ContactForm() {
     <section className="py-32 px-10 bg-backgroundColor">
       <div className="max-w-screen-md mx-auto text-center p-12 md:p-20 border border-borderColor">
         <h2 className="serif text-4xl mb-8 text-textColor">
-          Prêt à élever votre <br />
-          <span className="italic">patrimoine artistique ?</span>
+          {translations.title} <br />
+          <span className="italic">{translations.titleAccent}</span>
         </h2>
         <p className="text-[12px] mb-12 uppercase tracking-widest montserrat text-grayText">
-          Réponse sous 48h par l&apos;un de nos experts.
+          {translations.description}
         </p>
 
         {submitted ? (
           <p className="text-[13px] montserrat text-gold-accent">
-            Votre demande a été transmise.
+            {translations.successMessage}
           </p>
         ) : (
           <form className="space-y-6" onSubmit={handleSubmit} noValidate>
             <div>
               <label htmlFor="services-name" className="sr-only">
-                Votre nom
+                {translations.nameLabel}
               </label>
               <input
                 id="services-name"
                 type="text"
-                placeholder="VOTRE NOM"
+                placeholder={translations.namePlaceholder}
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -58,7 +77,7 @@ export default function ContactForm() {
 
             <div>
               <label htmlFor="services-expert" className="sr-only">
-                Choisir un expert
+                {translations.expertLabel}
               </label>
               <select
                 id="services-expert"
@@ -77,10 +96,10 @@ export default function ContactForm() {
                   ;(e.currentTarget as HTMLSelectElement).style.borderBottomColor = ''
                 }}
               >
-                <option value="">CHOISIR UN EXPERT</option>
-                <option value="Maxime Girard">MAXIME GIRARD (Marketing)</option>
-                <option value="Ania Chrusciany">ANIA CHRUSCIANY (Art Advisor)</option>
-                <option value="Timothée Roy">TIMOTHÉE ROY (Agent)</option>
+                <option value="">{translations.expertSelect}</option>
+                <option value="Maxime Girard">{translations.expertOptions.maxime}</option>
+                <option value="Ania Chrusciany">{translations.expertOptions.ania}</option>
+                <option value="Timothée Roy">{translations.expertOptions.timothee}</option>
               </select>
             </div>
 
@@ -102,7 +121,7 @@ export default function ContactForm() {
                 el.style.color = ''
               }}
             >
-              Envoyer la demande
+              {translations.submitButton}
             </button>
           </form>
         )}
