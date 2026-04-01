@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getArtistBySlug } from '@/actions/artistActions'
-import { getPresaleArtworksByArtistId } from '@/actions/presaleArtworkActions'
-import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
+import { getKeyWorksByArtistId } from '@/actions/presaleArtworkActions'
 import ArtistPageClientWrapper from './ArtistPageClientWrapper'
 
 interface Props {
@@ -15,12 +14,11 @@ export default async function ArtistPageAsync({ slug }: Props) {
     notFound()
   }
 
-  const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
-  const artworks = rawArtworks.map(transformPresaleArtworkToArtwork)
+  const artworks = await getKeyWorksByArtistId(artist.artistId)
 
-  return <ArtistPageClientWrapper 
-    slug={slug} 
-    initialArtist={artist} 
-    initialArtworks={artworks} 
+  return <ArtistPageClientWrapper
+    slug={slug}
+    initialArtist={artist}
+    initialArtworks={artworks}
   />
 }

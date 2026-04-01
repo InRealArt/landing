@@ -3259,30 +3259,30 @@
   },
   "inartTvSection": {
     "header": {
-      "label": "In-Art TV",
+      "label": "InRealArt TV",
       "title": "Creative Professions",
       "cta": "Submit your TV request"
     },
     "jobCards": {
       "director": {
-        "title": "Video Director",
-        "description": "Direct the invisible and sublimate the artistic gesture.",
-        "badge": "Image"
+        "title": "Premium Video Portrait",
+        "description": "Tell your story through an immersive and emotional film.",
+        "badge": "STORY"
       },
       "soundEngineer": {
-        "title": "Sound Engineer",
-        "description": "Sculpt the sound universe for total immersion.",
-        "badge": "Audio"
+        "title": "TV & Digital Visibility",
+        "description": "Broadcast your image on a TV channel + social networks.",
+        "badge": "VISIBILITY"
       },
       "scenographer": {
-        "title": "TV Scenographer",
-        "description": "Design innovative and hybrid broadcast spaces.",
-        "badge": "Space"
+        "title": "Notoriety Accelerator",
+        "description": "Strengthen your credibility with your clients and partners.",
+        "badge": "IMPACT"
       },
       "artDirector": {
-        "title": "Art Director",
-        "description": "Ensure visual coherence of every produced format.",
-        "badge": "Vision"
+        "title": "Multi-Format Content",
+        "description": "Leverage capsules optimized for all your networks.",
+        "badge": "AMPLIFICATION"
       }
     }
   },

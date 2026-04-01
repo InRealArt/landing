@@ -133,87 +133,96 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
 }
 
 /**
+ * Private helper — fetches key works from LandingArtistKeyWork, optionally
+ * filtered to a specific artist, and resolves translations.
+ */
+async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
+    const keyWorks = await prisma.landingArtistKeyWork.findMany({
+        where: artistId !== undefined
+            ? { presaleArtwork: { artistId } }
+            : undefined,
+        include: {
+            presaleArtwork: {
+                select: {
+                    id: true,
+                    name: true,
+                    description: true,
+                    price: true,
+                    order: true,
+                    imageUrl: true,
+                    mockupUrls: true,
+                    artistId: true,
+                    width: true,
+                    height: true,
+                    isSold: true,
+                    artist: {
+                        select: {
+                            name: true,
+                            surname: true
+                        }
+                    }
+                }
+            }
+        },
+        orderBy: {
+            order: 'asc'
+        }
+    })
+
+    if (keyWorks.length === 0) {
+        return []
+    }
+
+    const presaleArtworks = keyWorks.map(kw => kw.presaleArtwork)
+    const artworkIds = presaleArtworks.map(artwork => artwork.id)
+
+    const allTranslations = await prisma.translation.findMany({
+        where: {
+            entityType: 'PresaleArtwork',
+            entityId: { in: artworkIds }
+        },
+        include: {
+            language: true
+        }
+    })
+
+    const translationsByEntity = organizeTranslations(allTranslations)
+
+    return presaleArtworks.map(artwork => {
+        const artworkKey = `PresaleArtwork-${artwork.id}`
+        const translations = {
+            name: translationsByEntity[artworkKey]?.name || {},
+            description: translationsByEntity[artworkKey]?.description || {}
+        }
+
+        let mockupUrls = artwork.mockupUrls
+        if (mockupUrls) {
+            try {
+                if (typeof mockupUrls === 'string') mockupUrls = JSON.parse(mockupUrls)
+            } catch {
+                mockupUrls = []
+            }
+        }
+
+        return {
+            ...artwork,
+            artist: {
+                name: artwork.artist.name ?? '',
+                surname: artwork.artist.surname ?? '',
+            },
+            mockupUrls,
+            translations
+        }
+    })
+}
+
+/**
  * Récupère les oeuvres phares (Key Works) sélectionnées pour la landing.
  * Ces oeuvres sont définies dans la table LandingArtistKeyWork.
  */
 export async function getKeyWorksArtworks(): Promise<PresaleArtworkData[]> {
     try {
-        const keyWorks = await prisma.landingArtistKeyWork.findMany({
-            include: {
-                presaleArtwork: {
-                    select: {
-                        id: true,
-                        name: true,
-                        description: true,
-                        price: true,
-                        order: true,
-                        imageUrl: true,
-                        mockupUrls: true,
-                        artistId: true,
-                        width: true,
-                        height: true,
-                        isSold: true,
-                        artist: {
-                            select: {
-                                name: true,
-                                surname: true
-                            }
-                        }
-                    }
-                }
-            },
-            orderBy: {
-                order: 'asc'
-            }
-        })
-
-        if (keyWorks.length === 0) {
-            return []
-        }
-
-        // Extraire les presaleArtworks des keyWorks
-        const presaleArtworks = keyWorks.map(kw => kw.presaleArtwork)
-        const artworkIds = presaleArtworks.map(artwork => artwork.id)
-
-        // Récupérer les traductions
-        const allTranslations = await prisma.translation.findMany({
-            where: {
-                entityType: 'PresaleArtwork',
-                entityId: { in: artworkIds }
-            },
-            include: {
-                language: true
-            }
-        })
-
-        const translationsByEntity = organizeTranslations(allTranslations)
-
-        return presaleArtworks.map(artwork => {
-            const artworkKey = `PresaleArtwork-${artwork.id}`
-            const translations = {
-                name: translationsByEntity[artworkKey]?.name || {},
-                description: translationsByEntity[artworkKey]?.description || {}
-            }
-
-            let mockupUrls = artwork.mockupUrls
-            if (mockupUrls) {
-                try {
-                    if (typeof mockupUrls === 'string') mockupUrls = JSON.parse(mockupUrls)
-                } catch {
-                    mockupUrls = []
-                }
-            }
-
-            return {
-                ...artwork,
-                artist: {
-                    name: artwork.artist.name ?? '',
-                    surname: artwork.artist.surname ?? '',
-                },
-                mockupUrls,
-                translations
-            }
-        })
+        return await fetchKeyWorks()
     } catch (error) {
         console.error('Erreur lors de la récupération des key works:', error)
         return []
@@ -456,5 +465,14 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
     } catch (error) {
         console.error(`Erreur lors de la récupération des presale artworks pour l'artiste ${artistId}:`, error)
         throw new Error(`Impossible de récupérer les presale artworks pour l'artiste ${artistId}`)
+    }
+}
+
+export async function getKeyWorksByArtistId(artistId: number): Promise<PresaleArtworkData[]> {
+    try {
+        return await fetchKeyWorks(artistId)
+    } catch (error) {
+        console.error(`Erreur lors de la récupération des key works pour l'artiste ${artistId}:`, error)
+        return []
     }
 }

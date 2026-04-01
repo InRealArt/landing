@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 import TranslatedText from '@/components/common/TranslatedText'
 
@@ -57,6 +58,7 @@ const JOB_CARDS: JobCardProps[] = [
     descriptionKey: 'inartTvSection.jobCards.director.description',
     badgeKey: 'inartTvSection.jobCards.director.badge',
     icon: (
+      // Clapperboard — Portrait Vidéo Premium
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -69,8 +71,10 @@ const JOB_CARDS: JobCardProps[] = [
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <path d="M23 7l-7 5 7 5V7z" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        <path d="M4 11v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8H4z" />
+        <path d="M4 11V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4H4z" />
+        <line x1="12" y1="5" x2="12" y2="11" />
+        <polyline points="4 7 8 5 12 7 16 5 20 7" />
       </svg>
     ),
   },
@@ -79,6 +83,7 @@ const JOB_CARDS: JobCardProps[] = [
     descriptionKey: 'inartTvSection.jobCards.soundEngineer.description',
     badgeKey: 'inartTvSection.jobCards.soundEngineer.badge',
     icon: (
+      // Monitor/TV — Visibilité TV & Digitale
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -91,10 +96,9 @@ const JOB_CARDS: JobCardProps[] = [
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-        <line x1="12" y1="19" x2="12" y2="23" />
-        <line x1="8" y1="23" x2="16" y2="23" />
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
   },
@@ -103,6 +107,7 @@ const JOB_CARDS: JobCardProps[] = [
     descriptionKey: 'inartTvSection.jobCards.scenographer.description',
     badgeKey: 'inartTvSection.jobCards.scenographer.badge',
     icon: (
+      // Zap/Lightning — Accélérateur de Notoriété
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -115,9 +120,7 @@ const JOB_CARDS: JobCardProps[] = [
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18" />
-        <path d="M9 21V9" />
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
   },
@@ -126,6 +129,7 @@ const JOB_CARDS: JobCardProps[] = [
     descriptionKey: 'inartTvSection.jobCards.artDirector.description',
     badgeKey: 'inartTvSection.jobCards.artDirector.badge',
     icon: (
+      // Smartphone — Contenus Multi-Formats
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -138,14 +142,14 @@ const JOB_CARDS: JobCardProps[] = [
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94" />
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
       </svg>
     ),
   },
 ]
 
-export default function InArtTvSection() {
+export default function InRealArtTvSection() {
   return (
     <section className="mb-12 sm:mb-16 lg:mb-20">
       {/* Header */}
@@ -172,8 +176,20 @@ export default function InArtTvSection() {
         </a>
       </div>
 
-      {/* Hero image placeholder — fluid via aspect-ratio instead of fixed height */}
-      <div className="w-full aspect-video overflow-hidden mb-8 sm:mb-12" style={{ background: 'var(--border-light)' }} />
+      {/* TV images grid 2×2 */}
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-12">
+        {[1, 2, 3, 4].map((n) => (
+          <div key={n} className="relative w-full aspect-video overflow-hidden rounded-lg">
+            <Image
+              src={`/images/media/tv/InRealArt_TV_${n}.webp`}
+              alt={`InReal Art TV ${n}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 40vw"
+            />
+          </div>
+        ))}
+      </div>
 
       {/* Job cards grid: 1 col mobile → 2 col tablet → 4 col desktop */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

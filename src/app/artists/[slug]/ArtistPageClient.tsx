@@ -9,13 +9,15 @@ import ArtistRelatedPosts from '@/components/artists/ArtistRelatedPosts'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import ArtistSubNav from '@/components/artists/ArtistSubNav'
 import { useLanguageStore } from '@/store/languageStore'
-import { ArtWork, Lang } from '@/types/types'
+import { Lang } from '@/types/types'
 import { ArtistData } from '@/actions/artistActions'
+import { PresaleArtworkData } from '@/actions/presaleArtworkActions'
+import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
 
 export interface ArtistPageClientProps {
   slug: string
   initialArtist: ArtistData
-  initialArtworks: ArtWork[]
+  initialArtworks: PresaleArtworkData[]
   interviewUrl?: string | null
   artitudeUrl?: string | null
 }
@@ -67,11 +69,9 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
 
   // Optimisation : useMemo pour la fonction de formatage
   const formattedArtworks = useMemo(() => {
-      return initialArtworks.map(artwork => ({
+      return initialArtworks.map(transformPresaleArtworkToArtwork).map(artwork => ({
         id: artwork.id,
-        name: typeof artwork.name === 'string' 
-          ? artwork.name 
-          : artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || t('common.noTitle'),
+        name: artwork.name[language as Lang] || artwork.name.FR || Object.values(artwork.name)[0] || t('common.noTitle'),
         price: artwork.price,
         image: { src: artwork.image || '' },
         isSold: artwork.isSold || false

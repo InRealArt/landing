@@ -3032,30 +3032,30 @@
   },
   "inartTvSection": {
     "header": {
-      "label": "In-Art TV",
+      "label": "InRealArt TV",
       "title": "Les Métiers de la Création",
       "cta": "Faire votre demande TV"
     },
     "jobCards": {
       "director": {
-        "title": "Réalisateur Vidéo",
-        "description": "Mettre en scène l'invisible et sublimer le geste artistique.",
-        "badge": "Image"
+        "title": "Portrait Vidéo Premium",
+        "description": "Racontez votre histoire à travers un film immersif et émotionnel.",
+        "badge": "STORY"
       },
       "soundEngineer": {
-        "title": "Ingénieur du Son",
-        "description": "Sculpter l'univers sonore pour une immersion totale.",
-        "badge": "Audio"
+        "title": "Visibilité TV & Digitale",
+        "description": "Diffusez votre image sur une chaîne TV + réseaux sociaux.",
+        "badge": "VISIBILITÉ"
       },
       "scenographer": {
-        "title": "Scénographe TV",
-        "description": "Concevoir des espaces de diffusion innovants et hybrides.",
-        "badge": "Espace"
+        "title": "Accélérateur de Notoriété",
+        "description": "Renforcez votre crédibilité auprès de vos clients et partenaires.",
+        "badge": "IMPACT"
       },
       "artDirector": {
-        "title": "Dir. Artistique",
-        "description": "Garantir la cohérence visuelle de chaque format produit.",
-        "badge": "Vision"
+        "title": "Contenus Multi-Formats",
+        "description": "Exploitez des capsules optimisées pour tous vos réseaux.",
+        "badge": "AMPLIFICATION"
       }
     }
   },

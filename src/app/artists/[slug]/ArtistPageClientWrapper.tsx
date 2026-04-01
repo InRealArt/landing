@@ -3,14 +3,12 @@
 import dynamic from 'next/dynamic'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import { ArtistData } from '@/actions/artistActions'
-import { ArtWork } from '@/types/types'
-// Note: We don't strictly need to import the props interface if we trust inference, but explicit is better
-// import { ArtistPageClientProps } from './ArtistPageClient' 
+import { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 
 interface Props {
   slug: string
   initialArtist: ArtistData
-  initialArtworks: ArtWork[]
+  initialArtworks: PresaleArtworkData[]
   interviewUrl?: string | null
   artitudeUrl?: string | null
 }

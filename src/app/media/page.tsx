@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
-import MediaPageHeader from '@/components/media/media-page-header'
-import ExpoSection from '@/components/media/expo-section'
+import MediaPageHeader from '@/components/media/MediaPageHeader'
+import ExpoSection from '@/components/media/ExpoSection'
 import MediaArticlesSection from '@/components/media/MediaArticlesSection'
-import MarianSection from '@/components/media/marian-section'
-import InArtTvSection from '@/components/media/inart-tv-section'
+import MarianSection from '@/components/media/MarianSection'
+import InRealArtTvSection from '@/components/media/InRealArtTvSection'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: "Espace Média & Création — InRealArt",
@@ -33,8 +33,8 @@ export default function MediaPage() {
         {/* 2. Articles & Entretiens — vrais articles du blog, max 6 */}
         <MediaArticlesSection />
 
-        {/* 3. In-Art TV — Les Métiers de la Création */}
-        <InArtTvSection />
+        {/* 3. InRealArt TV — Les Métiers de la Création */}
+        <InRealArtTvSection />
 
         {/* 4. Marian — Production Vidéo */}
         <MarianSection />

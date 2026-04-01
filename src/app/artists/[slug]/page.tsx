@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import { getArtistBySlug } from '@/actions/artistActions'
-import { getPresaleArtworksByArtistId } from '@/actions/presaleArtworkActions'
+import { getKeyWorksByArtistId } from '@/actions/presaleArtworkActions'
+import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
 
 export const revalidate = 1800 // régénère toutes les 30 min
-import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
 import {
   generateArtistPersonJsonLd,
   generateArtistVisualArtworksJsonLd,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const specialty = artist.artworkStyle || (artist.mediumTags?.[0] ? `Artiste ${artist.mediumTags[0]}` : 'Artiste')
     const nationality = artist.countryName ? ` ${artist.countryName}` : ''
-    const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
+    const rawArtworks = await getKeyWorksByArtistId(artist.artistId)
     const artworkCount = rawArtworks.length
 
     const titleTag = `${artistName} - ${specialty} | Bio, Œuvres & Cote | InRealArt`
@@ -72,12 +72,11 @@ export default async function ArtistPage({ params }: Props) {
     permanentRedirect('/artists')
   }
 
-  const rawArtworks = await getPresaleArtworksByArtistId(artist.artistId)
-  const artworks = rawArtworks.map(transformPresaleArtworkToArtwork)
+  const artworks = await getKeyWorksByArtistId(artist.artistId)
 
   const artistName = `${artist.name} ${artist.surname}`
   const personJsonLd = generateArtistPersonJsonLd(artist)
-  const artworksJsonLd = generateArtistVisualArtworksJsonLd(artworks, artistName, slug)
+  const artworksJsonLd = generateArtistVisualArtworksJsonLd(artworks.map(transformPresaleArtworkToArtwork), artistName, slug)
   const breadcrumbJsonLd = generateArtistBreadcrumbJsonLd(artistName, slug)
 
   return (
