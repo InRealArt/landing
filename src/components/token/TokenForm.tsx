@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { Shield, BadgeCheck, Lock } from 'lucide-react';
 import Button from '../common/Button';
 import { submitTokenForm } from '@/actions/tokenActions';
@@ -16,7 +16,7 @@ interface FormData {
 }
 
 export default function TokenForm() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',

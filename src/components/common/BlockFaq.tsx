@@ -1,7 +1,7 @@
 'use client'
 import Button from './Button'
 import { ArrowRight } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface HomeFaqProps {
   title?: string
@@ -16,7 +16,7 @@ const BlockFaq = ({
   buttonText,
   link,
 }: HomeFaqProps) => {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="w-full max-w-90 xl:max-w-screen-xl m-auto mt-36">

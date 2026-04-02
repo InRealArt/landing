@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Button from '@/components/common/Button'
 import Question from './subcomponents/Question'
 import { FaqData } from '@/actions/faqActions'
@@ -20,7 +20,7 @@ export default function FAQClient({
   titre,
   description
 }: FAQClientProps) {
-  const t = useLanguageStore(state => state.t)
+  const { t } = useTranslation()
 
   const faqTitle = titre ?? (titleKey ? t(titleKey) : t('faq.page.title'))
   const faqDescription = description ?? (descriptionKey ? t(descriptionKey) : t('faq.page.description'))

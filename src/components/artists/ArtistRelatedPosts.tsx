@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import { getPostsMentioningArtist, getLanguageIdByCode } from '@/actions/seoPostActions'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function ArtistRelatedPosts({ artistName, artistSurname }: Props) {
-  const { language } = useLanguageStore()
+  const { language } = useTranslation()
   const [posts, setPosts] = useState<SeoPost[]>([])
   const [loading, setLoading] = useState(true)
 

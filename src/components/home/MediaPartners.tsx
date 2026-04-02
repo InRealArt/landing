@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface MediaPartner {
   src: string
@@ -43,7 +43,7 @@ const MEDIA_PARTNERS: MediaPartner[] = [
 ]
 
 export default function MediaPartners() {
-  const t = useLanguageStore(state => state.t)
+  const { t } = useTranslation()
 
   return (
     <section className="mt-12">

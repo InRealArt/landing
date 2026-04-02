@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { type ArtworkLeaseResults, formatCurrency } from '@/utils/artworkLeaseCalculations'
 
 interface LeaseResultsTabProps {
@@ -8,7 +8,7 @@ interface LeaseResultsTabProps {
 }
 
 export default function LeaseResultsTab({ leaseResults }: LeaseResultsTabProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <div className="space-y-4">

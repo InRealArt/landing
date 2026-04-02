@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Link from 'next/link'
 import { stringToSlug } from '@/utils/functions'
 import SoldStatusBadge from '@/components/common/SoldStatusBadge'
@@ -23,7 +23,7 @@ const ArtworkCardOrder = ({
   price,
   isSold = false,
 }: ArtworkCardOrderProps) => {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const slug = stringToSlug(name)
 
   return (

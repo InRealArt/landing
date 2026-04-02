@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TeamSlider from './TeamSlider'
 import SkeletonSlider from './SkeletonSlider'
 import { TeamMemberData } from '@/actions/teamActions'
@@ -11,7 +11,7 @@ interface TeamClientProps {
 }
 
 export default function TeamClient({ members }: TeamClientProps) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   // Dériver les membres traduits depuis les données serveur selon la langue active.
   // Pas de refetch — les traductions sont déjà embarquées dans la prop.

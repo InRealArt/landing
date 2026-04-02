@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TabNavigation, { TabItem } from '@/components/common/TabNavigation'
 
 interface TabNavigationProps {
@@ -9,7 +9,7 @@ interface TabNavigationProps {
 }
 
 export default function LoaTabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   
   const tabs: TabItem<'summary' | 'lease' | 'comparison' | 'tax'>[] = [
     { id: 'summary', label: t('loaSimulator.results.tabs.summary') },

@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Container } from '@/components/common/Container'
 
 const TermsPage = () => {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <Container>

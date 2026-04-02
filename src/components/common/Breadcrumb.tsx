@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface BreadcrumbItem {
   label: string
@@ -87,7 +87,7 @@ interface BlogBreadcrumbProps {
 }
 
 export function BlogBreadcrumb({ postTitle, className, showIcons = false }: BlogBreadcrumbProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   
   const items: BreadcrumbItem[] = [
     { 

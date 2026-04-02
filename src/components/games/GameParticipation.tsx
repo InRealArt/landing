@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GamePage } from '@/types/game';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { gameTranslations } from '@/locales/gameComponents';
 
 interface GameParticipationProps {
@@ -10,7 +10,7 @@ interface GameParticipationProps {
 }
 
 export default function GameParticipation({ game }: GameParticipationProps) {
-  const { language } = useLanguageStore();
+  const { language } = useTranslation();
   const t = gameTranslations[language];
   return (
     <section className="py-20 px-4 overflow-hidden">

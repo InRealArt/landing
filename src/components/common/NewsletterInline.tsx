@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { subscribeToNewsletter } from '@/actions/newsletterActions'
@@ -9,7 +9,7 @@ import OptimizedImage from './OptimizedImage'
 
 
 export default function NewsletterInline() {
-  const { t } = useLanguageStore()
+  const { t, language } = useTranslation()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -100,25 +100,25 @@ export default function NewsletterInline() {
 
           {/* Right column — copy + form */}
           <div className="flex flex-col justify-center">
-            <span className="section-number mb-6">{t('newsletter.modal.eyebrow')}</span>
+            <span className="section-number mb-6" suppressHydrationWarning>{t('newsletter.modal.eyebrow')}</span>
 
             <h2 className="serif italic text-4xl lg:text-5xl xl:text-6xl text-textColor leading-tight mb-6">
-              {t('newsletter.modal.title')}{' '}
-              <em className="not-italic text-gold-accent">{t('newsletter.modal.titleAccent')}</em>
+              <span suppressHydrationWarning>{t('newsletter.modal.title')}</span>{' '}
+              <em className="not-italic text-gold-accent" suppressHydrationWarning>{t('newsletter.modal.titleAccent')}</em>
             </h2>
 
-            <p className="montserrat text-[13px] text-grayText leading-loose mb-2 font-light">
+            <p className="montserrat text-[13px] text-grayText leading-loose mb-2 font-light" suppressHydrationWarning>
               {t('newsletter.modal.subtitle')}
             </p>
 
-            <p className="montserrat text-[11px] text-grayText leading-loose mb-10 font-light">
+            <p className="montserrat text-[11px] text-grayText leading-loose mb-10 font-light" suppressHydrationWarning>
               {t('newsletter.modal.description')}
             </p>
 
             {/* Form */}
             <form action={handleSubmit} className="flex flex-col gap-0">
               {/* Hidden language field */}
-              <input type="hidden" name="language" value={useLanguageStore.getState().language} />
+              <input type="hidden" name="language" value={language} />
 
               {/* Minimal underline input */}
               <div className="relative border-b border-borderColor focus-within:border-gold-accent transition-colors duration-300 mb-8">
@@ -128,6 +128,7 @@ export default function NewsletterInline() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('newsletter.modal.emailPlaceholder')}
+                  suppressHydrationWarning
                   disabled={isPending}
                   className="w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-[13px] font-light focus:outline-none"
                   required
@@ -141,7 +142,7 @@ export default function NewsletterInline() {
                   disabled={isPending}
                   className="btn-cta border-textColor hover:bg-textColor hover:text-backgroundColor disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}
+                  <span suppressHydrationWarning>{isPending ? t('newsletter.modal.subscribing') : t('newsletter.modal.subscribeButton')}</span>
                 </button>
               </div>
             </form>

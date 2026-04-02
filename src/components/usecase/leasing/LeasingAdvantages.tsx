@@ -1,7 +1,7 @@
 'use client'
 
 import TranslatedText from '@/components/common/TranslatedText';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const advantages = [
   {
@@ -22,7 +22,7 @@ const advantages = [
 ];
 
 export default function LeasingAdvantages() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="py-40 bg-black text-white px-10">

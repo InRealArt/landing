@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import OptimizedContentImage from './OptimizedContentImage'
 import LoadingSpinner from './LoadingSpinner'
 
@@ -22,7 +22,7 @@ export default function ArtworkImageModal({
   onIndexChange,
   artworkName
 }: ArtworkImageModalProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isAnimating, setIsAnimating] = useState(false)
   const [isImageLoading, setIsImageLoading] = useState(true)
 

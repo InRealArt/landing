@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 import BlogPagination from './BlogPagination'
 
@@ -39,7 +39,7 @@ export default function PostsGrid({
   showPagination = true,
   showViewAllCta = false,
 }: PostsGridProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const isEmpty = posts.length === 0
 

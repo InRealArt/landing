@@ -1,5 +1,5 @@
 'use client'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Question from './subcomponents/Question'
 import TranslatedText from '@/components/common/TranslatedText'
 import Button from '@/components/common/Button'
@@ -18,7 +18,7 @@ const PageFAQClient = ({
   descriptionKey = 'common.faq.description',
   className = ''
 }: PageFAQClientProps) => {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   // Traduire les items
   const translatedFaqItems = initialData.faqItems.map(item => {

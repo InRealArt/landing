@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 import { getPublishedPostsPaginated, getLanguageIdByCode } from '@/actions/seoPostActions'
 import PostsGrid from '@/components/blog/PostsGrid'
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function MediaArticlesSectionClient({ initialPosts }: Props) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
 
   const [posts, setPosts] = useState<SeoPost[]>(initialPosts)
   const [isLoading, setIsLoading] = useState(false)

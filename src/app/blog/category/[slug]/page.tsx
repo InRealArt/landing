@@ -8,7 +8,7 @@ import {
   getCategoriesWithTranslations,
 } from '@/actions/seoPostActions'
 import BlogCategoryPageClient from './BlogCategoryPageClient'
-import { SeoPost } from '@/store/useSeoPostStore'
+import { SeoPost } from '@/types/seoPost'
 
 type ParamsType = Promise<{ slug: string }>
 

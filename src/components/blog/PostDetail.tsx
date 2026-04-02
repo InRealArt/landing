@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/components/common/Button'
 import { BlogBreadcrumb } from '@/components/common/Breadcrumb'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { getPostBySlug, getLanguageIdByCode, getRelatedPosts, findTranslatedPost, incrementPostViews } from '@/actions/seoPostActions'
 import type { SeoPost } from '@/types/seoPost'
 import FirebaseImage from '@/components/common/FirebaseImage'
@@ -17,7 +17,7 @@ interface PostDetailProps {
 }
 
 export default function PostDetail({ slug, initialPost }: PostDetailProps) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
   const [post, setPost] = useState<SeoPost>(initialPost)
   const [relatedPosts, setRelatedPosts] = useState<SeoPost[]>([])
   const [isLoadingLang, setIsLoadingLang] = useState(false)

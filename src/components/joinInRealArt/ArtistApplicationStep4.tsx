@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import {
   FormData,
   SectionHeader,
@@ -21,7 +21,7 @@ export default function ArtistApplicationStep4({
   status,
   errorMessage,
 }: Props) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const fp = 'joinInRealArt.artists.application.form'
 
   return (

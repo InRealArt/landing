@@ -1,14 +1,14 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useTheme } from '@/contexts/ThemeContext'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { subscribeToNewsletter } from '@/actions/newsletterActions'
 import { toast } from 'sonner'
 
 export default function JoinNewsletterSection() {
-  const { t } = useLanguageStore()
+  const { t, language } = useTranslation()
   const { theme } = useTheme()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const [email, setEmail] = useState('')
@@ -51,7 +51,7 @@ export default function JoinNewsletterSection() {
           className="flex flex-col md:flex-row gap-6 justify-center items-stretch"
         >
           {/* Hidden language field */}
-          <input type="hidden" name="language" value={useLanguageStore.getState().language} />
+          <input type="hidden" name="language" value={language} />
 
           <input
             type="email"

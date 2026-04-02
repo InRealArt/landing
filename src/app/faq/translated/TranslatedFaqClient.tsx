@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Header from "@/components/common/annexe/Header";
 import TabFilter from "@/components/common/annexe/TabFilter";
 import ContentGrid from "@/components/common/annexe/ContentGrid";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { GlobalDetailedFaqData } from "@/actions/detailedFaqActions";
 
 interface TranslatedFaqClientProps {
@@ -12,7 +12,7 @@ interface TranslatedFaqClientProps {
 }
 
 export default function TranslatedFaqClient({ initialData }: TranslatedFaqClientProps) {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
   
   // Traduire les headers
   const faqTabs = useMemo(() => {

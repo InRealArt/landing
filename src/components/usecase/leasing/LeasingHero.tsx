@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import TranslatedText from '@/components/common/TranslatedText';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function LeasingHero() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <header className="pt-48 pb-32 px-10">

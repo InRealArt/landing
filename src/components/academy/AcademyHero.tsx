@@ -2,10 +2,10 @@
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import { useTheme } from '@/contexts/ThemeContext'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function AcademyHero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const { theme } = useTheme()
 
   return (

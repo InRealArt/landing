@@ -2,10 +2,10 @@
 
 import Button from "@/components/common/Button";
 import { ArrowRight } from "lucide-react";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function ExpertSection() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="flex flex-col md:flex-row justify-between gap-10 md:gap-20 items-center mt-32">

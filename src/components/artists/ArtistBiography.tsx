@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import FirebaseImage from '@/components/common/FirebaseImage'
@@ -111,7 +111,7 @@ function BiographyEntry({
 }
 
 export default function ArtistBiography({ artist }: ArtistBiographyProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [randomImage, setRandomImage] = useState<string>('')
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({})
 

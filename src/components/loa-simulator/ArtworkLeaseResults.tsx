@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { type ArtworkLeaseResults, type ArtworkLeaseComparison } from '@/utils/artworkLeaseCalculations'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { toast } from 'sonner'
 import { Send } from 'lucide-react'
 import LoaTabNavigation from './results/TabNavigation'
@@ -28,7 +28,7 @@ interface ArtworkLeaseResultsProps {
 }
 
 export default function ArtworkLeaseResults({ leaseResults, comparison, formData }: ArtworkLeaseResultsProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState<'summary' | 'lease' | 'comparison' | 'tax'>('summary')
   const [isSendingPDF, setIsSendingPDF] = useState(false)
 

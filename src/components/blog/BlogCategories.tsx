@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { getCategoriesWithTranslations } from '@/actions/seoPostActions'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface Category {
   id: number
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function BlogCategories({ initialCategories }: Props) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
   const [categories, setCategories] = useState<Category[]>(initialCategories)
   const [loadedLang, setLoadedLang] = useState<string | null>(null)
   const [showLeftFade, setShowLeftFade] = useState(false)

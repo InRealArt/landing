@@ -1,10 +1,10 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function AcademySection3() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="relative w-full py-16 md:py-24 bg-[rgb(19,19,19)]">

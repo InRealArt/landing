@@ -1,13 +1,13 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { Phone } from 'lucide-react';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 export default function ForWho() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   // Get the translation strings directly
   const whyChooseTitle = t('lending.whyChoose.title');

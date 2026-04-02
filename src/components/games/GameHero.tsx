@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GamePage } from '@/types/game';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { gameTranslations } from '@/locales/gameComponents';
 import Button from '../common/Button';
 
@@ -11,7 +11,7 @@ interface GameHeroProps {
 }
 
 export default function GameHero({ game }: GameHeroProps) {
-  const { language } = useLanguageStore();
+  const { language } = useTranslation();
   const t = gameTranslations[language];
   return (
     <section className="relative min-h-[100vh] flex items-center justify-center py-20 px-4 overflow-hidden mt-10">

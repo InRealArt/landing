@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { validateEmail } from '@/utils/functions'
 import SimulatorInput from '@/components/common/simulator/SimulatorInput'
 import SimulatorSelect from '@/components/common/simulator/SimulatorSelect'
@@ -14,7 +14,7 @@ interface HeritageArtFormProps {
 }
 
 export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const [formData, setFormData] = useState<HeritageArtFormData>({
     immobilier: 0,

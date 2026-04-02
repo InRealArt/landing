@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface MosaicArtist {
   slug: string
@@ -149,7 +149,7 @@ const MOBILE_CELL_CLASSES = [
 ]
 
 export default function ArtistsMosaic({ artists }: Props) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   // slug → detected aspect ratio category (populated lazily via image probe)
   const [ratioCategories, setRatioCategories] = useState<Record<string, RatioCategory>>({})

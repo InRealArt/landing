@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import StepsSwiper from '@/components/common/StepsSwiper';
 
 export default function SliderSection() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const steps = [
     {

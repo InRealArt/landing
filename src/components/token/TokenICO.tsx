@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import OptimizedImage from '@/components/common/OptimizedImage';
 
 export default function TokenICO() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const timelineItems = [
     { key: 'preseed', className: 'bg-indigo-600' },

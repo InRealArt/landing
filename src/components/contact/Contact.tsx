@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Mail, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import { EXTERNAL_URLS } from '@/constants/constants'
@@ -32,7 +32,7 @@ const XIcon = ({ size = 24, className = "" }) => (
 )
 
 export default function Contact() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)

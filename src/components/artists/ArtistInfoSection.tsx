@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { TransformedArtistData } from '@/types/artist'
 import { formatTextWithLineBreaksJSX } from '@/utils/functions'
 import FirebaseImage from '@/components/common/FirebaseImage'
@@ -13,7 +13,7 @@ interface ArtistInfoSectionProps {
 }
 
 export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }: ArtistInfoSectionProps) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   const sectionRef = useRef<HTMLElement>(null)
   const photoColRef = useRef<HTMLDivElement>(null)

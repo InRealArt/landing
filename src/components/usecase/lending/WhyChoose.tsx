@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface WhyChooseItem {
   title: string;
@@ -8,7 +8,7 @@ interface WhyChooseItem {
 }
 
 export default function WhyChoose() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   // Get the items from translation or use default if not available
   const items: WhyChooseItem[] = [

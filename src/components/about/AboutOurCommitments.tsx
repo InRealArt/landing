@@ -1,7 +1,7 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 const COMMITMENT_KEYS = [
   'about.ourCommitments.commitments.commitment1',
@@ -11,7 +11,7 @@ const COMMITMENT_KEYS = [
 ] as const
 
 export default function AboutOurCommitments() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="bg-backgroundColor w-full py-24 lg:py-32">

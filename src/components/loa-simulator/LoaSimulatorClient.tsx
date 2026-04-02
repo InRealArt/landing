@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import OptimizedImage from '@/components/common/OptimizedImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import ArtworkLeaseForm from '@/components/loa-simulator/ArtworkLeaseForm'
 import ArtworkLeaseResults from '@/components/loa-simulator/ArtworkLeaseResults'
 import SimulatorLayout from '@/components/common/simulator/SimulatorLayout'
@@ -16,7 +16,7 @@ import {
 import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
 
 export default function LoaSimulatorClient() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [results, setResults] = useState<{
     leaseResults: LeaseResultsType | null
     comparison: ComparisonType | null

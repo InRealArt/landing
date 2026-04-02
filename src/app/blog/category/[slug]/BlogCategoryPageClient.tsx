@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 import { getPostsByCategorySlug, getLanguageIdByCode } from '@/actions/seoPostActions'
 import { generateCollectionJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
@@ -46,7 +46,7 @@ export default function BlogCategoryPageClient({
   initialPosts,
   initialCategory,
 }: Props) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
 
   const [posts, setPosts] = useState<SeoPost[]>(initialPosts)
   const [category, setCategory] = useState<CategoryData>(initialCategory)

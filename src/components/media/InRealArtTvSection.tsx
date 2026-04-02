@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from '@/components/common/TranslatedText'
 
 interface JobCardProps {

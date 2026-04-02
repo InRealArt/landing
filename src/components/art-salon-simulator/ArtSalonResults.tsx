@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Euro, Users, MapPin } from 'lucide-react';
 import { type ArtSalonResults as ArtSalonResultsType, formatPrice } from '@/utils/artSalonCalculations';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { toast } from 'sonner';
 import Button from '@/components/common/Button';
 import TabNavigation, { TabItem } from '@/components/common/TabNavigation';
@@ -19,7 +19,7 @@ interface ArtSalonResultsProps {
 type ResultsTab = 'summary' | 'breakdown';
 
 export default function ArtSalonResults({ results, formData }: ArtSalonResultsProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<ResultsTab>('summary');
   const [isSendingPDF, setIsSendingPDF] = useState(false);
 

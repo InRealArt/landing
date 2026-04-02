@@ -1,7 +1,7 @@
 'use client'
 
 import { TrendingUp, TrendingDown } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { type ArtworkLeaseResults, type ArtworkLeaseComparison, formatCurrency } from '@/utils/artworkLeaseCalculations'
 
 interface ComparisonTabProps {
@@ -10,7 +10,7 @@ interface ComparisonTabProps {
 }
 
 export default function ComparisonTab({ leaseResults, comparison }: ComparisonTabProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const isLeasingAdvantage = comparison.savings > 0
 
   return (

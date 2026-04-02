@@ -2,11 +2,13 @@
 
 import { Container } from '@/components/common/Container';
 import { PageHeader } from '@/components/common/PageHeader';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useLanguageStore } from '@/store/languageStore';
 
 export default function LegalPage() {
-  const { t, translations, language } = useLanguageStore();
-  
+  const { t } = useTranslation();
+  const { translations, language } = useLanguageStore();
+
   // Get options directly from translations
   const mediationOptions = translations[language]?.legal?.mediation?.options || [];
 

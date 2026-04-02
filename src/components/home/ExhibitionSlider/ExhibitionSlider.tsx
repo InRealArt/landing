@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useCallback, useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import type { ExhibitionData } from '@/actions/exhibitionActions'
 
 // ---------------------------------------------------------------------------
@@ -120,6 +120,7 @@ function ArrowButton({ direction, onClick, label }: ArrowButtonProps) {
       type="button"
       onClick={onClick}
       aria-label={label}
+      suppressHydrationWarning
       style={{ [direction === 'prev' ? 'left' : 'right']: '1.5rem' }}
       className="
         group absolute top-1/2 -translate-y-1/2 z-20
@@ -194,7 +195,7 @@ interface ExhibitionSliderProps {
 }
 
 export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   const [current, setCurrent] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
@@ -278,6 +279,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
         className="relative w-full overflow-hidden"
         style={{ height: resolvedHeight }}
         aria-label={t('exhibitions.sliderAriaLabel')}
+        suppressHydrationWarning
         aria-roledescription="carousel"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -395,6 +397,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
                 className="flex items-center gap-2"
                 role="tablist"
                 aria-label={t('exhibitions.pagination')}
+                suppressHydrationWarning
               >
                 {exhibitions.map((_, idx) => (
                   <button
@@ -403,6 +406,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
                     role="tab"
                     aria-selected={idx === current}
                     aria-label={`${t('exhibitions.slide')} ${idx + 1}`}
+                    suppressHydrationWarning
                     onClick={() => goTo(idx)}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-full"
                     style={{

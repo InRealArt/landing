@@ -1,9 +1,9 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function Header() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <header className="pt-32 md:pt-48 pb-16 md:pb-24 px-4 sm:px-6 lg:px-10 border-b border-borderColor">

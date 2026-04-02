@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface ArtistSubNavProps {
   hasArtworks?: boolean
@@ -10,7 +10,7 @@ interface ArtistSubNavProps {
 }
 
 export default function ArtistSubNav({ hasArtworks = false, hasExhibitions = false, hasInterview = false }: ArtistSubNavProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [activeId, setActiveId] = useState<string>('')
   const [topOffset, setTopOffset] = useState<number>(0)
   const [spacerHeight, setSpacerHeight] = useState<number>(0)

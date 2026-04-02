@@ -1,7 +1,7 @@
 'use client'
 
 import ArtworkCard from '@/components/common/cards/ArtworkCardOrder'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface Artwork {
   id: string
@@ -17,7 +17,7 @@ interface ArtworksGalleryProps {
 }
 
 export default function ArtworksGallery({ artworks, artistName }: ArtworksGalleryProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const artworkImages = artworks.map(artwork => ({
     id: artwork.id,

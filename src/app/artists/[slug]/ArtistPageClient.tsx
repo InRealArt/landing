@@ -8,7 +8,7 @@ import ArtistBiography from '@/components/artists/ArtistBiography'
 import ArtistRelatedPosts from '@/components/artists/ArtistRelatedPosts'
 import ArtistPageSkeleton from '@/components/artists/ArtistPageSkeleton'
 import ArtistSubNav from '@/components/artists/ArtistSubNav'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Lang } from '@/types/types'
 import { ArtistData } from '@/actions/artistActions'
 import { PresaleArtworkData } from '@/actions/presaleArtworkActions'
@@ -23,7 +23,7 @@ export interface ArtistPageClientProps {
 }
 
 export default function ArtistPageClient({ slug: _slug, initialArtist, initialArtworks, interviewUrl, artitudeUrl }: ArtistPageClientProps) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
 
   // Transform initialArtist to the format expected by components (StoreArtistData-like)
   const artist = useMemo(() => {

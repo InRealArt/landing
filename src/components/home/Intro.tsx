@@ -1,13 +1,13 @@
 'use client'
 import OptimizedBackgroundImage from '../common/OptimizedBackgroundImage';
 import Button from "../common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import HeroArtistSlider from './HeroArtistSlider';
 import { useTheme } from '@/contexts/ThemeContext';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Intro = () => {
-  const t = useLanguageStore(state => state.t);
+  const { t } = useTranslation()
 
   const { theme } = useTheme();
 

@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { loadGsap } from '@/lib/gsap'
 
 const items = [
@@ -43,9 +43,7 @@ const items = [
 ]
 
 export default function Expertises() {
-  const t = useLanguageStore((state) => state.t)
-  // Subscribe to language to trigger re-renders on language change
-  useLanguageStore((state) => state.language)
+  const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)

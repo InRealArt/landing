@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import prestigeImage from '../../../public/images/marketplace/marketplace_prestige.webp'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function Prestige() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="py-32 px-10 bg-backgroundGrey border-y border-borderColor">

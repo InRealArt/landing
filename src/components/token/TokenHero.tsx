@@ -3,10 +3,10 @@
 import TokenForm from '@/components/token/TokenForm';
 import TokenSaleInfo from '@/components/token/TokenSaleInfo';
 import PresaleFeatures from '@/components/presale/PresaleFeatures';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import marketplaceImage from "../../../public/images/intro-background.webp";
 export default function TokenHero() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   return (
     <section className="relative bg-cover m-auto bg-no-repeat bg-bottom min-h-screen w-full flex items-center justify-center pt-headerSize mx-auto" style={{ backgroundImage: `url('${marketplaceImage.src}')` }} >
       <div className="max-w-90 xl:max-w-screen-xl m-auto">

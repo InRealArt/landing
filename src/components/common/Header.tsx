@@ -5,13 +5,13 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Header = () => {
-  const t = useLanguageStore(state => state.t)
+  const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);

@@ -2,7 +2,7 @@
 import buyImage from "../../../public/images/presale/buy-1.webp";
 import { useState, useEffect } from "react";
 import Button from "../common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface BuyImage {
   image: typeof buyImage;
@@ -13,7 +13,7 @@ interface BuyImage {
 
 const BuyProcess = () => {
   const [activeSlide, setActiveSlide] = useState<number>(0)
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [sanitizedName, setSanitizedName] = useState('');
   const [sanitizedDescription, setSanitizedDescription] = useState('');
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { useTheme } from '@/contexts/ThemeContext'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Image from 'next/image'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
@@ -42,7 +42,7 @@ const artists: Artist[] = [
 
 export default function HeroArtistSlider() {
   const { theme } = useTheme()
-  const t = useLanguageStore(state => state.t)
+  const { t } = useTranslation()
   const [swiper, setSwiper] = useState<any>(null) // eslint-disable-line @typescript-eslint/no-explicit-any
 
   const nextSlide = () => {

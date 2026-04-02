@@ -3,7 +3,7 @@
 import { useEffect, useCallback, useState } from 'react'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { getFeaturedPost, getLanguageIdByCode } from '@/actions/seoPostActions'
 import type { SeoPost } from '@/types/seoPost'
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function FeaturedPost({ initialPost }: Props) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
   const [post, setPost] = useState<SeoPost | null>(initialPost)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)

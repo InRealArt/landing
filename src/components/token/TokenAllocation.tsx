@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function TokenAllocation() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('distribution');
   const [activeCell, setActiveCell] = useState<string | null>(null);
   // Data for the distribution chart

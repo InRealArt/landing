@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { ArrowRight, Phone, X } from 'lucide-react'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
@@ -14,7 +14,7 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const pathname = usePathname()
 
   const initialMount = useRef(true)

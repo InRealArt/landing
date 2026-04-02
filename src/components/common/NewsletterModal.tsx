@@ -2,7 +2,7 @@
 
 import { X } from 'lucide-react'
 import { useEffect, useState, useTransition } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { toast } from 'sonner'
 import { subscribeToNewsletter, type NewsletterActionResult } from '@/actions/newsletterActions'
@@ -17,7 +17,7 @@ const initialState: NewsletterActionResult = {
 
 export default function NewsletterModal() {
   const { isModalOpen, closeModal, markAsNotInterested, onSubscriptionSuccess } = useNewsletter()
-  const { t } = useLanguageStore()
+  const { t, language } = useTranslation()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -185,7 +185,7 @@ export default function NewsletterModal() {
             {/* Form */}
             <form action={handleSubmit} className="flex flex-col">
               {/* Hidden language field */}
-              <input type="hidden" name="language" value={useLanguageStore.getState().language} />
+              <input type="hidden" name="language" value={language} />
 
               {/* Minimal underline input */}
               <div className="relative border-b border-borderColor focus-within:border-gold-accent transition-colors duration-300 mb-6">

@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function MarianSection() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const SERVICES = [
     t('media.marian.services.interviews'),

@@ -10,7 +10,7 @@ import {
 } from 'chart.js'
 import { Send } from 'lucide-react'
 import { toast } from 'sonner'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
 import Button from '../common/Button'
 
@@ -29,7 +29,7 @@ interface HeritageArtResultsProps {
 }
 
 export default function HeritageArtResults({ results, formData }: HeritageArtResultsProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSendPDF = async () => {

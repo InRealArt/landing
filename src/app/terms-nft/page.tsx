@@ -1,10 +1,10 @@
 'use client';
 
 import { Container } from '@/components/common/Container';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function TermsNFTPage() {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
 
   return (
     <Container>

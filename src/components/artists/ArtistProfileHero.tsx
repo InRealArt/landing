@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface ArtistProfileHeroProps {
   artist: {
@@ -19,7 +19,7 @@ interface ArtistProfileHeroProps {
 }
 
 export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
-  const { language } = useLanguageStore()
+  const { language } = useTranslation()
 
   const containerRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)

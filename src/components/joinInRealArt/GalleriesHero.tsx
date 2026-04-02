@@ -1,11 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from '@/components/common/TranslatedText'
 
 export default function GalleriesHero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="bg-backgroundColor pt-32 sm:pt-40 pb-20 px-6 sm:px-10">

@@ -1,12 +1,12 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { ArrowRight } from 'lucide-react';
 
 export default function Solutions() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="py-32 px-10 bg-[var(--soft-gray)] border-b border-[var(--border-light)]">

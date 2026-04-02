@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import PresaleHero from "@/components/presale/PresaleHero";
 import ArtworkCard from "@/components/common/cards/ArtworkCardOrder";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useQueryStates, parseAsInteger, parseAsString } from 'nuqs'
 import { Download } from "lucide-react";
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
@@ -14,7 +14,7 @@ import { PresaleArtworkData } from '@/actions/presaleArtworkActions';
 const PAGE_SIZE = 12 // 3 colonnes x 4 lignes
 
 export default function PresaleClient({ children, initialArtworks }: { children?: React.ReactNode, initialArtworks: PresaleArtworkData[] }) {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
 
   // États pour le formulaire de téléchargement du catalogue
   const [email, setEmail] = useState('')

@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { type ArtworkLeaseResults, type ArtworkLeaseComparison, formatCurrency } from '@/utils/artworkLeaseCalculations'
 import { textSimulatorClassName } from '@/utils/classes'
 
@@ -18,7 +18,7 @@ interface SummaryTabProps {
 }
 
 export default function SummaryTab({ leaseResults, comparison, formData }: SummaryTabProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   return (
     <div className="space-y-0">
       <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.summary.title')}</h2>

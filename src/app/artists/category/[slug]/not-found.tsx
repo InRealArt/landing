@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function CategoryNotFound() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-backgroundColor text-textColor flex items-center justify-center">

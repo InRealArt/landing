@@ -14,7 +14,7 @@ import {
   getAvailableFormulas,
   accommodationComfortCosts
 } from '@/utils/artSalonCalculations';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ArtSalonFormProps {
   onCalculate: (results: ArtSalonResults, formData: { firstName: string, lastName: string, email: string, phone: string }) => void;
@@ -23,7 +23,7 @@ interface ArtSalonFormProps {
 }
 
 export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSalonFormProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<ArtSalonInputs>({
     firstName: '',
     lastName: '',

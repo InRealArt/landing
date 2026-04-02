@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ArtistProfileProps {
   artist: {
@@ -13,7 +13,7 @@ interface ArtistProfileProps {
 }
 
 export default function ArtistProfile({ artist }: ArtistProfileProps) {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
 
   return (
     <div>

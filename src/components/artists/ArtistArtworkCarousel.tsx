@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import ArtworkCard from '@/components/common/cards/ArtworkCard'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -25,7 +25,7 @@ interface ArtistArtworkCarouselProps {
 }
 
 export default function ArtistArtworkCarousel({ artistName, artworks }: ArtistArtworkCarouselProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [mounted, setMounted] = useState(false)
 
   // Assurer que le composant est monté côté client

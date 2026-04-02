@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useState, useEffect } from 'react';
 
 export default function Alternative() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [sanitizedTitle, setSanitizedTitle] = useState('');
   
   useEffect(() => {

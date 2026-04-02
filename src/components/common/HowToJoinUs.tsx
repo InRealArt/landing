@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import Button from './Button'
 import ContactModal from './ContactModal'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface Step {
   number: string;
@@ -32,7 +32,7 @@ export default function HowToJoinUs({
   modalTitleKey,
   modalMessageKey
 }: HowToJoinUsProps = {}) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const displayTitle = title ? t(title) : t('joinInRealArt.howToJoin.title')

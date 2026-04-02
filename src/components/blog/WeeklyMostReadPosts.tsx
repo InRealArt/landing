@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import BlogPostCard from '@/components/common/BlogPostCard';
 import { BlogPost } from '@/types/blog';
 
@@ -39,7 +39,7 @@ export const createArticle = (id: string, translationKey: string, imageUrl: stri
 };
 
 export default function WeeklyMostReadPosts() {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
   
   // Weekly posts data
   const weeklyMostReadPosts: BlogPost[] = [

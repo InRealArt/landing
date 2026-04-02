@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { BlogPost } from '@/types/blog';
 
 interface BlogPostCardProps {
@@ -10,7 +10,7 @@ interface BlogPostCardProps {
 }
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   // Catégorie principale = premier tag disponible
   const primaryTag = post.tags[0] ?? null;

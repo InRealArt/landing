@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 
 export default function Hero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="relative w-full h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">

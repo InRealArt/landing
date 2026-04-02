@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { ArrowRight } from 'lucide-react'
 import Button from "@/components/common/Button"
 import TranslatedText from "@/components/common/TranslatedText"
@@ -16,7 +16,7 @@ interface JoinIraHeroProps {
 
 // Composant Hero réutilisable pour les pages Join In Real Art
 export default function JoinIraHero({ title, subtitle, buttonText, buttonUrl }: JoinIraHeroProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const { theme } = useTheme()
   return (
     <section className="relative w-full h-[80vh] sm:h-[70vh] lg:h-[50vh] xl:h-[60vh] overflow-hidden">

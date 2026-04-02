@@ -1,9 +1,9 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function JoinInRealArtHero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   // The title already contains "InRealArt" — we split on it to apply the gold italic style.
   // Fallback renders the full title without splitting if the word is absent.

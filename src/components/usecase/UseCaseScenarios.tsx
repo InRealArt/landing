@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface Scenario {
   badge: string
@@ -19,7 +19,7 @@ interface Scenario {
 }
 
 export default function UseCaseScenarios() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const scenarios: Scenario[] = [
     {

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import {
   FormData,
   INITIAL_FORM,
@@ -17,7 +17,7 @@ import ArtistApplicationStep4 from './ArtistApplicationStep4'
 import ArtistValidationPopup from './ArtistValidationPopup'
 
 export default function ArtistApplicationForm() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const fp = 'joinInRealArt.artists.application.form'
 
   // ─── Form state ────────────────────────────────────────────────────────────

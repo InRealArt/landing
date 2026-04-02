@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useQueryState, parseAsInteger } from 'nuqs'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 import { getPublishedPostsPaginated, getLanguageIdByCode } from '@/actions/seoPostActions'
 import PostsGrid from './PostsGrid'
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function OthersPosts({ initialPosts, initialPage, totalPages }: Props) {
-  const { language, t } = useLanguageStore()
+  const { language, t } = useTranslation()
   const [page] = useQueryState('page', parseAsInteger.withDefault(1))
 
   const [posts, setPosts] = useState<SeoPost[]>(initialPosts)

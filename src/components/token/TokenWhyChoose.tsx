@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { ArrowUp } from 'lucide-react';
 import Button from '@/components/common/Button';
 
@@ -11,7 +11,7 @@ interface BenefitCardProps {
 }
 
 function BenefitCard({ title, description, index }: BenefitCardProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   const scrollToTop = () => {
     window.scrollTo({
@@ -35,7 +35,7 @@ function BenefitCard({ title, description, index }: BenefitCardProps) {
 }
 
 export default function TokenWhyChoose() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   const benefits = [
     {

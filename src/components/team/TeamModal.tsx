@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import FirebaseImage from '@/components/common/FirebaseImage'
 
 interface TeamModalProps {
@@ -62,7 +62,7 @@ function SocialIcon({ url }: { url: string }) {
 }
 
 export default function TeamModal({ isOpen, onClose, member }: TeamModalProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {

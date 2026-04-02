@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface TimerData {
   days: number;
@@ -11,7 +11,7 @@ interface TimerData {
 }
 
 export default function TokenSaleInfo() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState<TimerData>({
     days: 12,
     hours: 7,

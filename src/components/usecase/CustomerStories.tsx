@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Story {
   title: string;
@@ -12,7 +12,7 @@ interface Story {
 }
 
 export default function CustomerStories() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   // Define features explicitly
   const investorFeatures = [

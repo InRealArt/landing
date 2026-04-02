@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from '@/components/common/TranslatedText'
 
 export default function HotelPrestigeClient() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <main className="min-h-screen bg-[var(--canvas-bg)] text-[var(--ink-black)]">

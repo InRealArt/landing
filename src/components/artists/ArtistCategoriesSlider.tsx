@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { getArtistCategories, ArtistCategory } from '@/actions/artistCategoryActions'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -15,7 +15,7 @@ import 'swiper/css/navigation'
 export default function ArtistCategoriesSlider() {
   const [categories, setCategories] = useState<ArtistCategory[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
   const router = useRouter()
 
   useEffect(() => {

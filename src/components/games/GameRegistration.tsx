@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import PhoneInput from 'react-phone-number-input';
 import { toast } from 'sonner';
 import { GamePage } from '@/types/game';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { gameTranslations } from '@/locales/gameComponents';
 import Button from '@/components/common/Button';
 import { subscribeToNewsletter } from '@/actions/newsletterActions';
@@ -15,7 +15,7 @@ interface GameRegistrationProps {
 }
 
 export default function GameRegistration({ game }: GameRegistrationProps) {
-  const { language } = useLanguageStore();
+  const { language } = useTranslation();
   const t = gameTranslations[language];
   const [formData, setFormData] = useState({
     email: '',

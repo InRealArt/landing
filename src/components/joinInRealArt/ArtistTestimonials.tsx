@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import TranslatedText from '@/components/common/TranslatedText';
 import OptimizedBackgroundImage from '../common/OptimizedBackgroundImage';
 
@@ -75,7 +75,7 @@ export default function ArtistTestimonials({
   sectionLabelKey,
   className = ''
 }: ArtistTestimonialsProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   // Calculer les classes de grid en fonction du nombre de témoignages
   const getGridClasses = (count: number) => {

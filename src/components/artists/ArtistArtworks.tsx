@@ -2,7 +2,7 @@
 
 import { useMemo, useEffect, useRef, useState } from 'react'
 import ArtworkCard from '@/components/common/cards/ArtworkCardOrder'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useQueryStates, parseAsInteger } from 'nuqs'
 
 const PAGE_SIZE = 9
@@ -21,7 +21,7 @@ interface ArtistArtworksProps {
 }
 
 export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1),

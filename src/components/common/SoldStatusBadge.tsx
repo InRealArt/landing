@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface SoldStatusBadgeProps {
   isSold: boolean
@@ -8,7 +8,7 @@ interface SoldStatusBadgeProps {
 }
 
 export default function SoldStatusBadge({ isSold, className = '' }: SoldStatusBadgeProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   if (!isSold) {
     return null

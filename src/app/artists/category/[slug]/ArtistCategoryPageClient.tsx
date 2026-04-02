@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistCategory } from '@/actions/artistCategoryActions'
 import { ArtistData } from '@/actions/artistActions'
 import ArtistCategoryGrid from '@/components/artists/ArtistCategoryGrid'
@@ -16,7 +16,7 @@ export default function ArtistCategoryPageClient({
   category, 
   initialArtists 
 }: ArtistCategoryPageClientProps) {
-  const { language } = useLanguageStore()
+  const { language } = useTranslation()
 
   // Traductions de la catégorie
   const displayCategory = useMemo(() => {

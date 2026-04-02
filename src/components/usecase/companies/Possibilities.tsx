@@ -3,10 +3,10 @@
 import OptimizedImage from "@/components/common/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Possibilities() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const sections = [
     {

@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { loadGsap } from '@/lib/gsap'
 
 const testimonials = [
@@ -26,9 +26,7 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
-  const t = useLanguageStore((state) => state.t)
-  // Subscribe to language changes to trigger re-renders
-  useLanguageStore((state) => state.language)
+  const { t } = useTranslation()
 
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)

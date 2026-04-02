@@ -1,10 +1,10 @@
 'use client'
 
 import { Check } from 'lucide-react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function PresaleFeatures() {
-  const { language } = useLanguageStore();
+  const { language } = useTranslation();
   
   // Define features based on language
   const features = language === 'fr' 

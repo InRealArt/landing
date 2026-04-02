@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Download, FileText } from 'lucide-react'
 import { toast } from 'sonner'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { generateLeaseResultsPDF } from '@/utils/pdfGenerator'
 import { type ArtworkLeaseResults, type ArtworkLeaseComparison } from '@/utils/artworkLeaseCalculations'
 
@@ -23,7 +23,7 @@ interface ActionButtonsProps {
 }
 
 export default function ActionButtons({ leaseResults, comparison, formData }: ActionButtonsProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
 
   const handleGeneratePDF = async () => {

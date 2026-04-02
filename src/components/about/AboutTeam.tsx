@@ -1,7 +1,7 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from '@/components/common/TranslatedText'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import { TeamMemberData } from '@/actions/teamActions'
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export default function AboutTeam({ members }: Props) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   const lang = language.toLowerCase()
 

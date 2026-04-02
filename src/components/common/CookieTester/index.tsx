@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface CookieTesterProps {
   onDeleteCookies: () => void;
 }
 
 const CookieTester = ({ onDeleteCookies }: CookieTesterProps) => {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [cookies, setCookies] = useState<Record<string, string>>({});
 

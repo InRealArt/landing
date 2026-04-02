@@ -1,9 +1,9 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Benefits() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const benefitsItems = [
     {

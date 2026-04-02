@@ -3,11 +3,11 @@
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage';
 import Button from "@/components/common/Button";
 import TranslatedText from '@/components/common/TranslatedText';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="relative w-full overflow-hidden" style={{ minHeight: '100svh' }}>

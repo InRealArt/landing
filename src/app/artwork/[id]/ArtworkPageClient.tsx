@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react'
 import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
 import ArtworkImageModal from '@/components/common/ArtworkImageModal'
 import SoldStatusBadge from '@/components/common/SoldStatusBadge'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
 import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: Props) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [sanitizedDescription, setSanitizedDescription] = useState('')

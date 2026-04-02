@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface TranslatedTextProps {
   translationKey?: string
@@ -18,7 +18,7 @@ export default function TranslatedText({
   className = '',
   allowHtml = false 
 }: TranslatedTextProps) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
   const [sanitizedContent, setSanitizedContent] = useState('')
 
   useEffect(() => {

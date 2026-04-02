@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger } from 'nuqs'
 import { ArtistData } from '@/actions/artistActions'
@@ -39,7 +39,7 @@ export function ArtistCategoryGridSkeleton() {
 }
 
 export default function ArtistCategoryGrid({ artists }: ArtistCategoryGridProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const [params, setParams] = useQueryStates({
     page: parseAsInteger.withDefault(1)

@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Gallery {
   title: string;
@@ -11,7 +11,7 @@ interface Gallery {
 }
 
 export default function ReadyToStart() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const galleries: Gallery[] = [
     {

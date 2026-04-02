@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import TeamCard from '@/components/common/cards/TeamCard'
 import TeamModal from '@/components/team/TeamModal'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { TeamMemberData } from '@/actions/teamActions'
 
 interface SocialLink {
@@ -27,7 +27,7 @@ interface Props {
 }
 
 export default function TeamContent({ initialMembers }: Props) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
   const [selectedMember, setSelectedMember] = useState<ResolvedMember | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 

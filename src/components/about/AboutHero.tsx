@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Hero from '@/components/common/Hero'
 
 export default function AboutHero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <Hero

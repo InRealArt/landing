@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { ArrowRight } from 'lucide-react';
 import Button from "@/components/common/Button";
 import TranslatedText from "@/components/common/TranslatedText";
@@ -26,7 +26,7 @@ export default function JoinIraOpportunities({
   buttonUrl,
   darkBackground = false
 }: JoinIraOpportunitiesProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   if (darkBackground) {
     return (

@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export interface PartnerItem {
   id: number
@@ -17,7 +17,7 @@ interface PartnersClientProps {
 }
 
 export default function PartnersClient({ partners }: PartnersClientProps) {
-  const t = useLanguageStore(state => state.t)
+  const { t } = useTranslation()
   const router = useRouter()
 
   const handlePartnerClick = (slug: string) => {

@@ -1,7 +1,7 @@
 'use client';
 import { Plus, Phone } from 'lucide-react';
 import React, { useState } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { EXTERNAL_URLS } from '@/constants/constants';
 
 interface QuestionProps {
@@ -11,7 +11,7 @@ interface QuestionProps {
 
 const Question = ({ question, answer }: QuestionProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);

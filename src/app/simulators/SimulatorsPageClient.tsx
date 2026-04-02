@@ -1,13 +1,13 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import Link from 'next/link'
 import { salons } from '@/utils/artSalonCalculations'
 import { EXTERNAL_URLS } from '@/constants/constants'
 import SimulatorsAnimations from '@/components/simulators/SimulatorsAnimations'
 
 export default function SimulatorsPageClient() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-[var(--canvas-bg)] pt-headerSize">

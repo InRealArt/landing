@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import OptimizedContentImage from './OptimizedContentImage'
 import LoadingSpinner from './LoadingSpinner'
 import FirebaseImageLoader from './FirebaseImageLoader'
@@ -26,7 +26,7 @@ export default function ArtworkImageWithHover({
   priority = false,
   onViewDetails
 }: ArtworkImageWithHoverProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [isHovered, setIsHovered] = useState(false)
   const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(src)
   const isImageLoading = status === 'loading' || status === 'retrying'

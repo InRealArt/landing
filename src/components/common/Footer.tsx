@@ -1,7 +1,7 @@
 'use client'
 
 import SuccessModal from '@/components/common/SuccessModal'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useState, useTransition } from 'react'
 import { toast } from 'sonner'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
@@ -26,8 +26,7 @@ const atelierLinks = [
 ]
 
 const Footer = () => {
-  const t = useLanguageStore(state => state.t)
-  const language = useLanguageStore(state => state.language)
+  const { t, language } = useTranslation()
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })

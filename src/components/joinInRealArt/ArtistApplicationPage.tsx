@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import ArtistApplicationForm from './ArtistApplicationForm'
 
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'), {
@@ -10,7 +10,7 @@ const Testimonials = dynamic(() => import('@/components/home/Testimonials'), {
 })
 
 export default function ArtistApplicationPage() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const engagements = [1, 2, 3].map((n) => ({
     number: t(`joinInRealArt.artists.application.engagements.${n}.number`),

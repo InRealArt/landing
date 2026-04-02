@@ -2,10 +2,10 @@
 import BG from "../../../public/images/presale/intro.webp";
 import Button from "../common/Button";
 import { ArrowRight } from "lucide-react";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Intro = () => {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="bg-cover m-auto bg-no-repeat bg-bottom h-screen w-full " style={{ backgroundImage: ` url('${BG.src}')` }}>

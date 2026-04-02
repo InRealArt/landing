@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface ArtistValidationPopupProps {
   errors: string[]
@@ -27,7 +27,7 @@ export default function ArtistValidationPopup({
   errors,
   onClose,
 }: ArtistValidationPopupProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {

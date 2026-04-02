@@ -1,12 +1,12 @@
 'use client'
 
 import { useTheme } from '@/contexts/ThemeContext'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Sun, Moon } from 'lucide-react'
 
 export default function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme()
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <button

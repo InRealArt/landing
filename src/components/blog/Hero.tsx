@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import TranslatedText from '@/components/common/TranslatedText';
 
 export default function Hero() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   return (
     <section className="py-32 px-10 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">

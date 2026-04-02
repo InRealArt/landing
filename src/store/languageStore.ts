@@ -9,6 +9,8 @@ type TranslationMap = Record<string, any>
 
 interface LanguageState {
     language: Language
+    _hasHydrated: boolean
+    setHasHydrated: (value: boolean) => void
     setLanguage: (language: Language) => Promise<void>
     translations: Record<Language, TranslationMap>
     t: (key: string) => string
@@ -51,6 +53,8 @@ export const useLanguageStore = create<LanguageState>()(
     persist(
         (set, get) => ({
             language: DEFAULT_LANGUAGE,
+            _hasHydrated: false,
+            setHasHydrated: (value) => set({ _hasHydrated: value }),
             setLanguage: async (language) => {
                 if (language === 'en') {
                     const { translations } = get()
@@ -109,11 +113,11 @@ export const useLanguageStore = create<LanguageState>()(
         }),
         {
             name: 'language-storage',
-            // Désactiver l'hydration côté serveur pour éviter les différences
             skipHydration: true,
-            // Ne persister que la langue, jamais les traductions
-            // (les traductions viennent du bundle JS, pas de localStorage)
             partialize: (state) => ({ language: state.language }),
+            onRehydrateStorage: () => () => {
+                useLanguageStore.getState().setHasHydrated(true)
+            },
         }
     )
 )

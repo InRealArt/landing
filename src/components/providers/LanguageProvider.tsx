@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useLanguageStore } from '@/store/languageStore'
 
 interface LanguageProviderProps {
@@ -8,13 +8,12 @@ interface LanguageProviderProps {
 }
 
 export default function LanguageProvider({ children }: LanguageProviderProps) {
-  const [isHydrated, setIsHydrated] = useState(false)
-
   useEffect(() => {
     // Use Zustand's built-in rehydration instead of manual localStorage parsing.
     // The store uses skipHydration: true, so this is the correct trigger point.
     // Calling rehydrate() here (post-commit, inside useEffect) means React has
     // already finished its initial render pass — no hydration mismatch.
+    // onRehydrateStorage in the store sets _hasHydrated: true automatically.
     useLanguageStore.persist.rehydrate()
 
     // After rehydration, the persisted language may be 'en' but the en translations
@@ -25,14 +24,7 @@ export default function LanguageProvider({ children }: LanguageProviderProps) {
       useLanguageStore.getState().setLanguage('en')
     }
 
-    setIsHydrated(true)
-  }, [])
-
-  useEffect(() => {
-    if (!isHydrated) return
-
-    // Read language directly without subscribing the provider component to the
-    // store — this avoids unnecessary re-renders of LanguageProvider itself.
+    // Sync document.documentElement.lang with the persisted language.
     document.documentElement.lang = useLanguageStore.getState().language
 
     // Keep the attribute in sync with future language changes.
@@ -40,7 +32,7 @@ export default function LanguageProvider({ children }: LanguageProviderProps) {
       document.documentElement.lang = state.language
     })
     return unsub
-  }, [isHydrated])
+  }, [])
 
   return <>{children}</>
-} 
+}

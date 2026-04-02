@@ -1,10 +1,10 @@
 'use client'
 
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function AboutOurInvitation() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="bg-backgroundGrey border-y border-borderColor w-full py-24 lg:py-32">

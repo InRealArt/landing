@@ -1,9 +1,9 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function ArtistsHero() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <section className="pt-48 pb-12 px-4 sm:px-10 bg-backgroundColor">

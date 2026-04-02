@@ -3,12 +3,12 @@
 import OptimizedImage from "@/components/common/OptimizedImage";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/common/Button";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import expertImage from "../../../../public/images/expert.webp";
 import { useState, useEffect } from 'react';
 
 export default function Expert() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [sanitizedQuote, setSanitizedQuote] = useState('');
   
   useEffect(() => {

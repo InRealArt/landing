@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useCallback, useState } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import type { ExpoData } from '@/actions/exhibitionActions'
 
 // ---------------------------------------------------------------------------
@@ -110,7 +110,7 @@ interface ExpoCarouselProps {
 }
 
 export default function ExpoCarousel({ expos }: ExpoCarouselProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const [current, setCurrent] = useState(0)
   const [isHovered, setIsHovered] = useState(false)

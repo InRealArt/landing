@@ -5,11 +5,10 @@ import { loadGsap } from '@/lib/gsap'
 import Button from '../common/Button'
 import TranslatedText from '@/components/common/TranslatedText'
 import { ArrowRight } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export default function Explore() {
-  const t = useLanguageStore((state) => state.t)
-  const language = useLanguageStore((state) => state.language) // Subscribe to language changes to trigger re-renders
+  const { t, language } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])

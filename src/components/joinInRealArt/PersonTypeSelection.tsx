@@ -2,11 +2,11 @@
 
 import { ArrowRight } from "lucide-react"
 import Button from "@/components/common/Button"
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from "@/components/common/TranslatedText"
 
 export default function PersonTypeSelection() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const selectPersonType = [
     {

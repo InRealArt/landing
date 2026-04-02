@@ -1,12 +1,12 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import OptimizedImage from '@/components/common/OptimizedImage';
 import Button from '@/components/common/Button';
 import { ArrowRight, ArrowUp } from 'lucide-react';
 
 export default function TokenPhysicalArt() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const scrollToTop = () => {
     window.scrollTo({

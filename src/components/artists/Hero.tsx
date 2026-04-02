@@ -1,7 +1,7 @@
 'use client'
 
 import BioSlider from "@/components/common/slider/BioSlider";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface HeroProps {
   artists: Array<{
@@ -15,7 +15,7 @@ interface HeroProps {
 }
 
 export default function Hero({ artists, onSlideChange }: HeroProps) {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   
   const formattedArtists = artists.map(artist => ({
     name: artist.name,

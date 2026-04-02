@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import OptimizedContentImage from '@/components/common/OptimizedContentImage'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface CardData {
   tag: string
@@ -18,7 +18,7 @@ interface CardData {
 }
 
 export default function DescriptionsBlock() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const cards: CardData[] = [
     {

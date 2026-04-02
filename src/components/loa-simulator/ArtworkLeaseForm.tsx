@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { z } from 'zod'
 import { toast } from 'sonner'
 import { Calculator } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { isValidPhoneNumber } from 'react-phone-number-input'
 import {
   calculateArtworkLease,
@@ -24,7 +24,7 @@ interface ArtworkLeaseFormProps {
 }
 
 export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const artworkLeaseSchema = z.object({
     company: z.string().min(1, t('loaSimulator.form.errors.companyRequired')),

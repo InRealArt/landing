@@ -1,12 +1,12 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { ArrowUp, Check, Copy, CreditCard, Bitcoin, ArrowRight } from 'lucide-react';
 import Button from '@/components/common/Button';
 import { toast } from 'sonner';
 
 export default function TokenHowToBuy() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const walletAddress = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 

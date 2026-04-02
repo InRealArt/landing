@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getArtistsMentionedInPost } from '@/actions/artistActions'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistData } from '@/actions/artistActions'
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function PostRelatedArtists({ postTitle, postMetaKeywords, postListTags, postMetaDescription }: Props) {
-  const { language } = useLanguageStore()
+  const { language } = useTranslation()
   const [artists, setArtists] = useState<ArtistData[]>([])
   const [loading, setLoading] = useState(true)
 

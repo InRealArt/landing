@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { GamePage } from '@/types/game';
 import { useTheme } from '@/contexts/ThemeContext';
 import { gameTranslations } from '@/locales/gameComponents';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface GameArtistProps {
   game: GamePage;
 }
 
 export default function GameArtist({ game }: GameArtistProps) {
-  const { language } = useLanguageStore();
+  const { language } = useTranslation();
   const t = gameTranslations[language];
   const { theme } = useTheme();
   

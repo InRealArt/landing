@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface LoadingSpinnerProps {
   size?: 'sm' | 'md' | 'lg'
@@ -15,7 +15,7 @@ export default function LoadingSpinner({
   text,
   className = '' 
 }: LoadingSpinnerProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   const sizeClasses = {
     sm: 'w-8 h-8',

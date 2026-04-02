@@ -1,56 +1,42 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import BlogPostCard from '@/components/common/BlogPostCard'
-import { useSeoPostsData } from '@/hooks/useSeoPostsData'
+import { seoPostsToBlogPosts } from '@/utils/seoPostUtils'
+import type { SeoPost } from '@/types/seoPost'
 
 interface SeoPostsCarouselProps {
   title?: string
-  excludeFeatured?: boolean
+  posts: SeoPost[]
   postsPerPage?: number
   className?: string
 }
 
 export default function SeoPostsCarousel({
   title,
-  excludeFeatured = true,
+  posts,
   postsPerPage = 3,
   className = ''
 }: SeoPostsCarouselProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const [currentPage, setCurrentPage] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
 
-  const {
-    blogPosts,
-    isInitialLoading,
-    error,
-    isEmpty,
-    retry
-  } = useSeoPostsData({
-    excludeFeatured,
-    limit: 100, // On récupère tous les posts pour la pagination côté client
-    autoFetch: true
-  })
-
-  // Calculer le nombre total de pages
+  const blogPosts = seoPostsToBlogPosts(posts)
   const totalPages = Math.ceil(blogPosts.length / postsPerPage)
 
-  // Obtenir les posts pour la page actuelle
   const getCurrentPagePosts = () => {
     const startIndex = currentPage * postsPerPage
     return blogPosts.slice(startIndex, startIndex + postsPerPage)
   }
 
-  // Gestionnaire pour le changement de page
   const handlePageChange = (newPage: number) => {
     if (newPage === currentPage || isTransitioning) return
 
     setIsTransitioning(true)
 
-    // Effet de transition
     if (carouselRef.current) {
       carouselRef.current.classList.add('opacity-0')
       setTimeout(() => {
@@ -68,50 +54,7 @@ export default function SeoPostsCarousel({
     }
   }
 
-  // Affichage du loading initial
-  if (isInitialLoading) {
-    return (
-      <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
-        {title && <span className="section-number mb-12 block">{title}</span>}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[400px]">
-          {Array.from({ length: postsPerPage }).map((_, index) => (
-            <div key={index} className="bg-[var(--canvas-bg)] animate-pulse p-6">
-              <div className="flex gap-6">
-                <div className="w-1/3 shrink-0 bg-[var(--border-light)]" style={{ aspectRatio: '3/4' }} />
-                <div className="w-2/3 flex flex-col gap-3">
-                  <div className="h-4 bg-[var(--border-light)] w-full" />
-                  <div className="h-4 bg-[var(--border-light)] w-3/4" />
-                  <div className="h-2 bg-[var(--border-light)] w-16 mt-1" />
-                  <div className="h-2 bg-[var(--border-light)] w-full" />
-                  <div className="h-2 bg-[var(--border-light)] w-5/6" />
-                  <div className="h-2 bg-[var(--border-light)] w-4/6" />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )
-  }
-
-  if (error && isEmpty) {
-    return (
-      <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
-        {title && <span className="section-number mb-12 block">{title}</span>}
-        <div className="text-center py-12">
-          <p className="text-[12px] text-red-500 mb-6">{error}</p>
-          <button
-            onClick={retry}
-            className="btn-cta"
-          >
-            {t('common.retry')}
-          </button>
-        </div>
-      </section>
-    )
-  }
-
-  if (isEmpty) {
+  if (posts.length === 0) {
     return (
       <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
         {title && <span className="section-number mb-12 block">{title}</span>}
@@ -196,4 +139,4 @@ export default function SeoPostsCarousel({
       )}
     </section>
   )
-} 
+}

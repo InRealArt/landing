@@ -1,10 +1,10 @@
 'use client'
 
 import OptimizedImage from "@/components/common/OptimizedImage";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Investment() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   return (
     <section className="py-32 px-10 bg-[var(--canvas-bg)]">

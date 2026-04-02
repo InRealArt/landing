@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistData } from '@/actions/artistActions'
 import ArtistsMosaic from './ArtistsMosaic'
 
@@ -68,7 +68,7 @@ export function ArtistsGridSkeleton() {
 }
 
 export default function ArtistsGrid({ initialArtists }: Props) {
-  const { t, language } = useLanguageStore()
+  const { t, language } = useTranslation()
 
   /*
    * Build enriched artist records client-side so language switching works

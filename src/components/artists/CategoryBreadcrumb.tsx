@@ -2,14 +2,14 @@
 
 import Link from 'next/link'
 import { ChevronRight, Home } from 'lucide-react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface CategoryBreadcrumbProps {
   categoryName: string
 }
 
 export default function CategoryBreadcrumb({ categoryName }: CategoryBreadcrumbProps) {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
 
   return (
     <nav className="flex items-center space-x-2 text-sm text-textColor/60 mb-8">

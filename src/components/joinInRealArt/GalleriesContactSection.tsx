@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { z } from 'zod'
 
 // ─── Zod schema ──────────────────────────────────────────────────────────────
@@ -16,7 +16,7 @@ type FormState = z.infer<typeof galleryContactSchema>
 type FormErrors = Partial<Record<keyof FormState, string>>
 
 export default function GalleriesContactSection() {
-  const { t } = useLanguageStore()
+  const { t } = useTranslation()
   const fp = 'joinInRealArt.galleries.contactSection.form'
 
   // ─── Form state ────────────────────────────────────────────────────────────

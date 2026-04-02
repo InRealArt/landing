@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import { debugAnalytics } from '@/utils/analyticsDebug';
 import CookieTester from '../CookieTester';
 import { useGTMConsent } from '@/hooks/useGTMConsent';
@@ -61,7 +61,7 @@ const clearCookies = () => {
 };
 
 const GDPRConsentBanner = () => {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
   const [state, setState] = useState<CookieConsentState>({
     hasConsent: null,
     showBanner: false,

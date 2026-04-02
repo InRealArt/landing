@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import type { CatalogArtworkItem } from './CatalogSection'
 
@@ -30,8 +30,7 @@ function formatDimensions(width: number | null, height: number | null): string |
 }
 
 export default function CatalogSectionClient({ artworks }: CatalogSectionClientProps) {
-  const t = useLanguageStore((state) => state.t)
-  const language = useLanguageStore((state) => state.language)
+  const { t, language } = useTranslation()
 
   return (
     <section className="pt-24 sm:pt-32 md:pt-48 pb-12 px-4 sm:px-6 lg:px-10">
@@ -42,9 +41,9 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
           <span className="section-number" suppressHydrationWarning>
             {t('home.catalog.sectionNumber')}
           </span>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl serif italic break-words" suppressHydrationWarning>
-            {t('home.catalog.title')}{' '}
-            <span className="not-italic text-gold-accent">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl serif italic break-words">
+            <span suppressHydrationWarning>{t('home.catalog.title')}</span>{' '}
+            <span className="not-italic text-gold-accent" suppressHydrationWarning>
               {t('home.catalog.titleAccent')}
             </span>
           </h2>

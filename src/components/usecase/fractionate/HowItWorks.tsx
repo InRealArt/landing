@@ -1,10 +1,10 @@
 'use client'
 
 import StepsSwiper from '@/components/common/StepsSwiper';
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function HowItWorks() {
-  const { t } = useLanguageStore();
+  const { t } = useTranslation();
 
   const steps = [
     {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import gsap from "gsap";
-import { useLanguageStore } from '@/store/languageStore';
+import { useTranslation } from '@/hooks/useTranslation';
 import FaqAnimations from "@/components/faq/FaqAnimations";
 import { GlobalDetailedFaqData } from "@/actions/detailedFaqActions";
 
@@ -11,7 +11,7 @@ interface FaqClientProps {
 }
 
 export default function FaqClient({ initialData }: FaqClientProps) {
-  const { t, language } = useLanguageStore();
+  const { t, language } = useTranslation();
   const [activeTab, setActiveTab] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 

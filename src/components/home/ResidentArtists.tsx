@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from '@/store/languageStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { loadGsap } from '@/lib/gsap'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
@@ -20,8 +20,7 @@ interface ResidentArtistsProps {
 }
 
 export default function ResidentArtists({ artists }: ResidentArtistsProps) {
-  const t = useLanguageStore((state) => state.t)
-  useLanguageStore((state) => state.language)
+  const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
