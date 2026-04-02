@@ -320,23 +320,29 @@
       "title": "Augmented",
       "titleAccent": "Curation.",
       "items": {
-        "edition": {
-          "subtitle": "InRealArt Edition",
-          "title": "Media & Agency",
-          "description": "Supporting artistic trajectories, strong editorial line and creation of premium Com Kits to propel creators onto the world stage.",
-          "cta": "Join us"
+        "media": {
+          "subtitle": "INREALART MEDIA",
+          "title": "Contemporary art agency & media",
+          "description": "We support artists in building their visibility and credibility.\n\nMonographs, visual content, art direction:\nwe create powerful narratives that enhance artworks.\n\nIdeal for artists, galleries and institutions",
+          "cta": "DEVELOP MY IMAGE AND VISIBILITY"
         },
-        "selection": {
-          "subtitle": "InRealArt Selection",
-          "title": "Premium Marketplace",
-          "description": "A rigorous curation for discerning collectors. Access artworks selected for their aesthetic potential and heritage value.",
-          "cta": "Why not you?"
+        "curate": {
+          "subtitle": "INREALART CURATE",
+          "title": "Exclusive & high-end contemporary art marketplace",
+          "description": "Discover a selection of works chosen for their aesthetic quality and appreciation potential.\n\nEach work is:\n\nselected by experts\ncontextualised\nready to join a discerning collection\n\nBuy a work of art with confidence",
+          "cta": "VIEW ARTWORKS"
         },
-        "placement": {
-          "subtitle": "InRealArt Placement",
-          "title": "Art & Finance",
-          "description": "Art as a strategic tool. Leasing solutions (LOA), tax optimization and heritage simulators for businesses.",
-          "cta": "Our simulators"
+        "capital": {
+          "subtitle": "INREALART CAPITAL",
+          "title": "Art investment & leasing",
+          "description": "Transform art into a strategic asset.\n\nWe offer solutions to:\n\ninvest in contemporary art\noptimise taxation\nenhance your professional spaces\n\nA tailored approach for businesses and executives",
+          "cta": "SIMULATE MY INVESTMENT"
+        },
+        "studio": {
+          "subtitle": "INREALART STUDIO",
+          "title": "Artistic agency & collaborations",
+          "description": "We connect artists, brands and institutions.\n\nContent production, campaigns, collaborations:\nwe create artistic projects with high cultural and marketing value.\n\nActivate art as a brand driver",
+          "cta": "LAUNCH A PROJECT"
         }
       }
     },
