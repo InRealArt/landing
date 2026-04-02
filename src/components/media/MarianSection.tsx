@@ -87,7 +87,56 @@ export default function MarianSection() {
           </div>
         </div>
       </div>
+
+      {/* Separator */}
+      <div
+        className="mt-10 sm:mt-14 lg:mt-16 mb-10 sm:mb-12"
+        style={{ borderTop: '1px solid var(--border-light)' }}
+        role="separator"
+        aria-hidden="true"
+      />
+
+      {/* YouTube videos grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        {YOUTUBE_IDS.map((id, index) => (
+          <div
+            key={id}
+            className="group overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              border: '1px solid var(--border-light)',
+              outline: '1px solid transparent',
+              transition:
+                'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              ;(e.currentTarget as HTMLDivElement).style.borderColor =
+                'var(--gold-accent)'
+              ;(e.currentTarget as HTMLDivElement).style.boxShadow =
+                '0 8px 32px rgba(0,0,0,0.28)'
+            }}
+            onMouseLeave={(e) => {
+              ;(e.currentTarget as HTMLDivElement).style.borderColor =
+                'var(--border-light)'
+              ;(e.currentTarget as HTMLDivElement).style.boxShadow = ''
+            }}
+          >
+            <div className="aspect-video">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${id}`}
+                title={`Marian — vidéo ${index + 1}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="w-full h-full"
+                style={{ display: 'block' }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
+
+const YOUTUBE_IDS = ['mDVfbV8TNUQ', '4sdz6Rlojfc', 'I35a3f7BSGk']
 

@@ -197,41 +197,6 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
         <div className="max-w-3xl mx-auto px-10">
           <BlogBreadcrumb postTitle={displayPost.title} className="mb-12 pt-10" />
 
-          {/* Post Header Section */}
-          <div className="mb-12" data-anim="post-header">
-            <h1 className="serif italic text-4xl sm:text-5xl md:text-6xl text-[var(--ink-black)] leading-tight mb-8">
-              {displayPost.title}
-            </h1>
-            
-            {/* <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] mb-12">
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-px bg-[var(--gold-accent)]" />
-                {displayPost.author}
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-px bg-[var(--gold-accent)]" />
-                {formatDate(displayPost.createdAt)}
-              </span>
-              {displayPost.estimatedReadTime && (
-                <span className="flex items-center gap-2">
-                  <span className="w-4 h-px bg-[var(--gold-accent)]" />
-                  {displayPost.estimatedReadTime} {t('blog.readTime.minutes')}
-                </span>
-              )}
-            </div> */}
-
-            {displayPost.mainImageUrl && (
-              <div className="relative aspect-video mb-16 overflow-hidden border border-[var(--border-light)] group">
-                <FirebaseImage 
-                  src={displayPost.mainImageUrl} 
-                  alt={displayPost.mainImageAlt || displayPost.title}
-                  className="w-full h-full"
-                  imgClassName="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 scale-[1.02] group-hover:scale-100"
-                />
-              </div>
-            )}
-          </div>
-
           <div
             data-anim="post-content"
             id="blog-content-container"

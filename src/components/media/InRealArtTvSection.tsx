@@ -178,7 +178,7 @@ export default function InRealArtTvSection() {
 
       {/* TV images grid 2×2 */}
       <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-8 sm:mb-12">
-        {[1, 2, 3, 4].map((n) => (
+        {[5, 6, 1, 2].map((n) => (
           <div key={n} className="relative w-full aspect-video overflow-hidden rounded-lg">
             <Image
               src={`/images/media/tv/InRealArt_TV_${n}.webp`}

@@ -59,50 +59,47 @@ export default function ArtworkImageWithHover({
         onError={onError}
       />
 
-      {/* Overlay avec bouton au survol */}
+      {/* Overlay au survol — dégradé bas vers haut, galerie éditoriale */}
       <div
-        className={`absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center transition-all duration-300 ${
+        className={`absolute inset-0 flex flex-col items-center justify-end pb-10 transition-opacity duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}
+        style={{
+          background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)',
+        }}
       >
+        {/* Étiquette section-number au-dessus du bouton */}
+        <span
+          className={`block text-[0.55rem] uppercase tracking-[0.45em] text-white/60 mb-4 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            isHovered ? 'translate-y-0' : 'translate-y-3'
+          }`}
+          style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
+          aria-hidden="true"
+        >
+          In Real Art
+        </span>
+
+        {/* CTA ghost — bord blanc, remplit blanc au survol */}
         <button
           onClick={onViewDetails}
-          className="bg-purpleColor hover:bg-purpleColor/90 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2"
+          className={`border border-white/70 text-white/90 hover:border-white hover:bg-white hover:text-black px-8 py-3 text-[0.6rem] uppercase tracking-[0.3em] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
           aria-label={t('artwork.viewDetails')}
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-            />
-          </svg>
-          <span>{t('artwork.viewDetails')}</span>
+          {t('artwork.viewDetails')}
         </button>
-      </div>
 
-      {/* Effet de brillance au survol */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 transition-all duration-700 ${
-          isHovered ? 'translate-x-full' : '-translate-x-full'
-        }`}
-        style={{
-          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-          transform: isHovered ? 'translateX(100%) skewX(-12deg)' : 'translateX(-100%) skewX(-12deg)'
-        }}
-      />
+        {/* Filet or en bas de l'overlay */}
+        <div
+          className={`absolute bottom-0 left-0 h-[2px] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            isHovered ? 'w-full' : 'w-0'
+          }`}
+          style={{ backgroundColor: 'var(--gold-accent)' }}
+          aria-hidden="true"
+        />
+      </div>
     </div>
   )
 }
