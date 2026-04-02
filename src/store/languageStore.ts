@@ -115,6 +115,20 @@ export const useLanguageStore = create<LanguageState>()(
             name: 'language-storage',
             skipHydration: true,
             partialize: (state) => ({ language: state.language }),
+            version: 1,
+            migrate: (persistedState, _version) => {
+                // Discard any previously-persisted translations from old localStorage entries.
+                // Only carry forward the language preference.
+                const s = persistedState as { language?: Language }
+                return { language: s?.language ?? DEFAULT_LANGUAGE }
+            },
+            merge: (persistedState, currentState) => ({
+                ...currentState,
+                // Only allow `language` to be restored from localStorage.
+                // Never let persisted state overwrite `translations` or store functions.
+                language: (persistedState as { language?: Language })?.language
+                    ?? currentState.language,
+            }),
             onRehydrateStorage: () => () => {
                 useLanguageStore.getState().setHasHydrated(true)
             },
