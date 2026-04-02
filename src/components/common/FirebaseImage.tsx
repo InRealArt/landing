@@ -18,7 +18,7 @@ export default function FirebaseImage({
   imgClassName,
   loading = 'lazy',
 }: FirebaseImageProps) {
-  const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(src)
+  const { src: imgSrc, status, onLoad, onError, imgRef } = useCloudStorageImage(src)
 
   return (
     <div className={`relative ${className ?? ''}`} style={{ isolation: 'isolate' }}>
@@ -26,6 +26,7 @@ export default function FirebaseImage({
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={imgRef}
         src={imgSrc}
         alt={alt}
         loading={loading}

@@ -1,10 +1,12 @@
 import { Suspense } from 'react'
 import { getTopArtworks } from '@/actions/presaleArtworkActions'
+import { stringToSlug } from '@/utils/functions'
 import CatalogSectionClient from './CatalogSectionClient'
 
 export interface CatalogArtworkItem {
   id: number
   name: string
+  slug: string
   imageUrl: string
   price: number | null
   isSold: boolean
@@ -19,6 +21,7 @@ async function CatalogSectionContent() {
   const items: CatalogArtworkItem[] = artworks.map(a => ({
     id: a.id,
     name: a.name,
+    slug: stringToSlug(a.name),
     imageUrl: a.imageUrl,
     price: a.price,
     isSold: a.isSold,

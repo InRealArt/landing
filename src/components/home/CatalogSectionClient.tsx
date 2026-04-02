@@ -64,7 +64,7 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
             return (
               <Link
                 key={artwork.id}
-                href="/presale"
+                href={`/artwork/${artwork.slug}`}
                 className="artwork-container cursor-pointer block"
               >
                 {/* Image */}

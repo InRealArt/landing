@@ -31,9 +31,7 @@ export const metadata: Metadata = {
   },
   description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique. Pour artistes, collectionneurs et mécènes.",
   icons: {
-    icon: '/icons/favicon-32x32.png',
-    shortcut: '/icons/favicon-16x16.png',
-    apple: '/icons/apple-touch-icon.png',
+    icon: '/icon.svg',
   },
   robots: {
     index: true,

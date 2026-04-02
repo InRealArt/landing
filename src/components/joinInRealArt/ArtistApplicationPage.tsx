@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useTranslation } from '@/hooks/useTranslation'
 import ArtistApplicationForm from './ArtistApplicationForm'
+import Expertises from '../home/Expertises'
 
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground" />,
@@ -60,7 +61,7 @@ export default function ArtistApplicationPage() {
       </section>
 
       {/* ─── LES ENGAGEMENTS ─── */}
-      <section className="py-28 lg:py-32 px-6 sm:px-10 bg-backgroundGrey border-y border-borderColor">
+      {/* <section className="py-28 lg:py-32 px-6 sm:px-10 bg-backgroundGrey border-y border-borderColor">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {engagements.map((item) => (
@@ -78,8 +79,9 @@ export default function ArtistApplicationPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
+      <Expertises/>
       {/* ─── TÉMOIGNAGES ─── */}
       <Testimonials />
 
