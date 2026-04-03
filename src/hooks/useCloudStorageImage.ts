@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { firebaseUrlToR2 } from '@/lib/cloufare/r2/url'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 const MAX_RETRIES = 4
 const BASE_DELAY_MS = 800
@@ -9,14 +9,7 @@ const BASE_DELAY_MS = 800
 export type ImageStatus = 'loading' | 'retrying' | 'ready' | 'error'
 
 function resolveImageSrc(src: string): string {
-  if (!src) return src
-  try {
-    const url = new URL(src)
-    if (url.hostname === 'firebasestorage.googleapis.com') {
-      return firebaseUrlToR2(src) ?? src
-    }
-  } catch {}
-  return src
+  return getImageUrl(src) ?? src
 }
 
 function withCacheBuster(src: string, attempt: number): string {
