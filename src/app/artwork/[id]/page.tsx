@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import {
   getPresaleArtworkBySlug,
-  getPresaleArtworksByArtistId,
+  getKeyWorksByArtistId,
 } from '@/actions/presaleArtworkActions'
 import { getArtistById } from '@/actions/artistActions'
 import ArtworkPageClient from './ArtworkPageClient'
@@ -63,10 +63,11 @@ export default async function ArtworkPage({ params }: Props) {
   if (!artwork) notFound()
 
   // Fetch artist + related artworks in parallel
-  const [artistData, relatedArtworks] = await Promise.all([
+  const [artistData, allKeyWorks] = await Promise.all([
     getArtistById(artwork.artistId),
-    getPresaleArtworksByArtistId(artwork.artistId),
+    getKeyWorksByArtistId(artwork.artistId),
   ])
+  const relatedArtworks = allKeyWorks.filter(aw => aw.id !== artwork.id)
 
   const artist: TransformedArtistData | null = artistData
     ? {
