@@ -113,10 +113,10 @@ export default function NewsletterModal() {
         {/* Close button */}
         <button
           onClick={closeModal}
-          className="absolute right-5 top-5 z-10 text-grayText hover:text-textColor transition-colors duration-200"
+          className="absolute right-4 top-4 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-backgroundColor/80 backdrop-blur-md border border-borderColor text-textColor shadow-sm hover:bg-textColor hover:text-backgroundColor transition-all duration-300 group active:scale-95 md:right-6 md:top-6"
           aria-label={t('newsletter.modal.close')}
         >
-          <X size={18} strokeWidth={1.5} />
+          <X size={20} strokeWidth={1.5} className="group-hover:rotate-90 transition-transform duration-300" />
         </button>
 
         {/* Two-column layout */}
