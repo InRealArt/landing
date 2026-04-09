@@ -213,12 +213,6 @@ export default function ServicesGrid({ translations }: ServicesGridProps) {
                 </div>
 
                 <div className="flex items-center gap-12">
-                  <span className="serif italic text-xl text-textColor">
-                    {item.price}{' '}
-                    <small className="text-[10px] uppercase not-italic montserrat text-grayText">
-                      {item.priceUnit}
-                    </small>
-                  </span>
                   <a
                     href="/contact"
                     className="py-2 px-6 text-[7px] uppercase tracking-[0.25em] montserrat inline-block border border-borderColor text-textColor"
