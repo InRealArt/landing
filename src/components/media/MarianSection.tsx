@@ -81,7 +81,7 @@ export default function MarianSection() {
               src="/images/media/Marian.webp"
               alt={t('media.marian.imageAlt')}
               fill
-              className="object-cover grayscale"
+              className="object-cover object-top grayscale"
               sizes="(max-width: 1024px) 0px, 50vw"
             />
           </div>

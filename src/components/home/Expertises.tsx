@@ -128,7 +128,7 @@ export default function Expertises() {
         {/* Cards */}
         <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {items.map((item) => (
-            <div key={item.key} className="expertise-card border-t border-borderColor pt-12 opacity-0">
+            <div key={item.key} className="expertise-card flex flex-col border-t border-borderColor pt-12 opacity-0">
               {/* Number + subtitle row */}
               <div className="flex items-center gap-4 mb-8">
                 <span className="serif text-4xl italic text-gold-accent leading-none">
@@ -148,13 +148,15 @@ export default function Expertises() {
               <div className="w-8 h-px bg-gold-accent mb-6" />
 
               {/* Description */}
-              <p className="text-[13px] text-grayText leading-loose mb-10" suppressHydrationWarning>
+              <p className="text-[13px] text-grayText leading-loose" suppressHydrationWarning>
                 {t(item.descriptionKey)}
               </p>
 
-              <a href={item.link} className="btn-cta" suppressHydrationWarning>
-                {t(item.ctaKey)}
-              </a>
+              <div className="mt-auto pt-10 flex justify-center">
+                <a href={item.link} className="btn-cta" suppressHydrationWarning>
+                  {t(item.ctaKey)}
+                </a>
+              </div>
             </div>
           ))}
         </div>

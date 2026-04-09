@@ -233,7 +233,10 @@ body {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin-top: 1.5rem;
   background: transparent;
   cursor: pointer;

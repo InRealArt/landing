@@ -161,20 +161,21 @@ export default function ManifestPage() {
               as="span"
               className="section-number block mb-6"
             />
-            <div className="grid lg:grid-cols-12 gap-8 items-end">
-              <div className="lg:col-span-7">
-                <h2 className="text-5xl md:text-6xl xl:text-7xl serif italic leading-none text-textColor">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+              <div>
+                <h2 className="text-2xl md:text-3xl serif italic leading-snug text-textColor mb-6">
                   <TranslatedText
                     translationKey="manifest.p5"
                     as="span"
                   />
                 </h2>
+                <div className="w-12 h-px bg-gold-accent" aria-hidden="true" />
               </div>
-              <div className="lg:col-span-5 lg:col-start-8">
+              <div className="flex items-start pt-1">
                 <TranslatedText
                   as="p"
                   translationKey="manifest.p6"
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-base text-grayText leading-relaxed montserrat"
                 />
               </div>
             </div>
@@ -185,11 +186,12 @@ export default function ManifestPage() {
             {BULLET_KEYS.map((key, index) => (
               <div
                 key={key}
-                className="border-t border-borderColor pt-12 md:pr-12 pb-12"
+                className="border-t border-gold-accent/40 pt-10 pb-12 lg:pr-10"
               >
-                <span className="serif italic text-gold-accent text-4xl leading-none block mb-6">
+                <span className="serif italic text-gold-accent text-3xl leading-none block mb-6">
                   {String(index + 1).padStart(2, '0')}.
                 </span>
+                <div className="w-8 h-px bg-gold-accent/30 mb-6" aria-hidden="true" />
                 <TranslatedText
                   as="p"
                   translationKey={key}
@@ -227,7 +229,7 @@ export default function ManifestPage() {
 
             <div className="w-px h-8 bg-borderColor" aria-hidden="true" />
 
-            <a href="/about" className="btn-cta">
+            <a href="/team" className="btn-cta">
               <TranslatedText translationKey="nav.aboutInRealArt" />
             </a>
 

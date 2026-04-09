@@ -66,6 +66,7 @@
     "loaSimulator": "LOA Simulator",
     "heritageArtSimulator": "Heritage & Art Simulator",
     "artSalonSimulator": "Salon Fee Simulator",
+    "physicalWorkshops": "InRealArt",
     "newsletter": {
       "subscribe": "Subscribe to our newsletter",
       "success": {

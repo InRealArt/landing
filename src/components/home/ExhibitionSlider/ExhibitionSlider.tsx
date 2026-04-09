@@ -361,8 +361,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
 
             {/* Exhibition name — élément dominant, pleine largeur */}
             <p
-              className="unbounded text-white uppercase font-black leading-[0.82] tracking-tight w-full"
-              style={{ fontSize: 'clamp(2.5rem, 8vw, 5.5rem)' }}
+              className="unbounded text-white uppercase font-black leading-[0.82] tracking-tight w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5.5rem]"
               suppressHydrationWarning
             >
               {expo.name}

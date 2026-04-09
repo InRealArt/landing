@@ -108,7 +108,7 @@ export default function TeamContent({ initialMembers }: Props) {
               {t('team.philosophy.description')}
             </p>
             <Link
-              href="/about"
+              href="/manifest"
               className="inline-block py-[0.8rem] px-[1.6rem] border border-textColor text-[0.6rem] uppercase tracking-[0.25em] montserrat bg-transparent hover:bg-textColor hover:text-backgroundColor transition-all duration-500 cubic-bezier(0.19,1,0.22,1)"
             >
               {t('team.philosophy.cta')}
