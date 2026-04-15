@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { getArtistsMentionedInPost } from '@/actions/artistActions'
 import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistData } from '@/actions/artistActions'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 interface Props {
   postTitle: string
@@ -73,7 +74,7 @@ export default function PostRelatedArtists({ postTitle, postMetaKeywords, postLi
                   group-hover:ring-purpleColor group-hover:shadow-[0_0_20px_rgba(96,82,255,0.3)]
                   group-hover:scale-[1.03]">
                   <Image
-                    src={artist.imageUrl}
+                    src={getImageUrl(artist.imageUrl) ?? artist.imageUrl}
                     alt={displayName}
                     fill
                     sizes="144px"
