@@ -246,7 +246,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                         </div>
                       )}
                       <div className="absolute top-4 left-4">
-                        <span className="text-[9px] uppercase tracking-[0.2em] text-white bg-[var(--ink-black)] px-3 py-1">
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--canvas-bg)] bg-[var(--ink-black)] px-3 py-1">
                           {relatedPost.category.name}
                         </span>
                       </div>
