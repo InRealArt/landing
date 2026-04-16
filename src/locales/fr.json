@@ -3037,6 +3037,10 @@
       "title": "Les Métiers de la Création",
       "cta": "Faire votre demande TV"
     },
+    "videos": {
+      "video1": { "title": "InRealArt TV — Portrait d'artiste" },
+      "video2": { "title": "InRealArt TV — Création & marché de l'art" }
+    },
     "jobCards": {
       "director": {
         "title": "Portrait Vidéo Premium",

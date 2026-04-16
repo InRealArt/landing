@@ -52,6 +52,54 @@ function JobCard({ icon, titleKey, descriptionKey, badgeKey }: JobCardProps) {
   )
 }
 
+// ─── YouTube video data ──────────────────────────────────────────────────────
+
+interface VideoCardProps {
+  id: string
+  titleKey: string
+}
+
+function VideoCard({ id, titleKey }: VideoCardProps) {
+  const { t } = useTranslation()
+
+  return (
+    <div
+      className="group overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+      style={{
+        border: '1px solid var(--border-light)',
+        transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+      }}
+      onMouseEnter={(e) => {
+        ;(e.currentTarget as HTMLDivElement).style.borderColor = '#0047FF'
+        ;(e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 32px rgba(0,71,255,0.12)'
+      }}
+      onMouseLeave={(e) => {
+        ;(e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border-light)'
+        ;(e.currentTarget as HTMLDivElement).style.boxShadow = ''
+      }}
+    >
+      <div className="aspect-video">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}`}
+          title={t(titleKey)}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          loading="lazy"
+          className="w-full h-full rounded-xl"
+          style={{ display: 'block' }}
+        />
+      </div>
+    </div>
+  )
+}
+
+const TV_VIDEOS: VideoCardProps[] = [
+  { id: 'xZZfmOXrnX4', titleKey: 'inartTvSection.videos.video1.title' },
+  { id: 'DNUnX4M7jUM', titleKey: 'inartTvSection.videos.video2.title' },
+]
+
+// ─── Job card data ────────────────────────────────────────────────────────────
+
 const JOB_CARDS: JobCardProps[] = [
   {
     titleKey: 'inartTvSection.jobCards.director.title',
@@ -188,6 +236,13 @@ export default function InRealArtTvSection() {
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 40vw"
             />
           </div>
+        ))}
+      </div>
+
+      {/* YouTube videos grid: 1 col mobile → 2 col tablet+ */}
+      <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12">
+        {TV_VIDEOS.map((video) => (
+          <VideoCard key={video.id} {...video} />
         ))}
       </div>
 

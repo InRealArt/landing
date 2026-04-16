@@ -3270,6 +3270,10 @@
       "title": "Creative Professions",
       "cta": "Submit your TV request"
     },
+    "videos": {
+      "video1": { "title": "InRealArt TV — Artist Portrait" },
+      "video2": { "title": "InRealArt TV — Art Creation & Market" }
+    },
     "jobCards": {
       "director": {
         "title": "Premium Video Portrait",
