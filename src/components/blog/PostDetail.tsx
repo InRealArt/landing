@@ -9,6 +9,7 @@ import { getPostBySlug, getLanguageIdByCode, getRelatedPosts, findTranslatedPost
 import type { SeoPost } from '@/types/seoPost'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import PostRelatedArtists from '@/components/blog/PostRelatedArtists'
+import { transformPostHtml } from '@/utils/htmlTransformers'
 import './style.css'
 
 interface PostDetailProps {
@@ -151,7 +152,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
   }
 
   const displayPost = post
-  const htmlContent = displayPost.generatedArticleHtml || displayPost.content
+  const htmlContent = transformPostHtml(displayPost.generatedArticleHtml || displayPost.content)
 
   return (
     <>
