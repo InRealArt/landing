@@ -2,6 +2,14 @@
 
 import { prisma } from '@/lib/prisma'
 
+const R2_BASE_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL ?? ''
+
+function resolveImageUrl(url: string | null): string | null {
+  if (!url) return null
+  if (url.startsWith('https://') || url.startsWith('http://')) return url
+  return `${R2_BASE_URL}/${url}`
+}
+
 export interface ExhibitionArtistData {
   id: number
   slug: string
@@ -71,14 +79,14 @@ export async function getExhibitions(): Promise<ExhibitionData[]> {
       startDate: expo.startDate.toISOString(),
       endDate: expo.endDate.toISOString(),
       address: expo.address,
-      imageUrl: expo.imageUrl ?? null,
+      imageUrl: resolveImageUrl(expo.imageUrl ?? null),
       linkToEvent: expo.linkToEvent ?? null,
       artists: expo.artists.map((ea) => ({
         id: ea.landingArtist.id,
         slug: ea.landingArtist.slug,
         name: ea.landingArtist.artist.name ?? '',
         surname: ea.landingArtist.artist.surname ?? '',
-        imageUrl: ea.landingArtist.imageUrl,
+        imageUrl: resolveImageUrl(ea.landingArtist.imageUrl) ?? '',
       })),
     }))
   } catch (error) {
