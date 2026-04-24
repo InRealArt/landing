@@ -12,7 +12,6 @@ import NewsletterManager from '@/components/common/NewsletterManager'
 import StickyFooterManager from '@/components/common/StickyFooterManager'
 import UmamiAnalytics from '@/components/common/UmamiAnalytics'
 import ScrollToTop from '@/components/ScrollToTop'
-import ogImage from './opengraph-image.png'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
 // Import pour exposer debugGTM globalement (dev uniquement)
@@ -57,14 +56,6 @@ export const metadata: Metadata = {
     url: 'https://inrealart.com/',
     siteName: 'InRealArt',
     locale: 'fr_FR',
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-        alt: "InRealArt — Catalyseur d'Art",
-      },
-    ],
     type: 'website',
   },
   twitter: {
@@ -72,14 +63,6 @@ export const metadata: Metadata = {
     site: '@inrealart',
     title: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-        alt: "InRealArt — Catalyseur d'Art",
-      },
-    ],
   },
 };
 
