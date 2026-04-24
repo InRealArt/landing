@@ -63,6 +63,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/usecase/leasing/immobilier',
   '/usecase/lending',
   '/services',
+  '/agence',
 ])
 
 // Known dynamic route prefixes with exactly one slug segment — always valid

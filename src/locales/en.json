@@ -1935,7 +1935,14 @@
     "metadata": {
       "title": "Expertises & Consulting — High-Level Artistic Support",
       "description": "Consulting, career coaching and artistic heritage management. Our experts combine marketing vision, curatorial expertise and asset management to build sustainable trajectories.",
-      "keywords": ["art consulting", "artist coaching", "artistic heritage management", "career audit", "art advisor", "artist agent"]
+      "keywords": [
+        "art consulting",
+        "artist coaching",
+        "artistic heritage management",
+        "career audit",
+        "art advisor",
+        "artist agent"
+      ]
     },
     "hero": {
       "eyebrow": "Strategic Support",
@@ -3271,8 +3278,12 @@
       "cta": "Submit your TV request"
     },
     "videos": {
-      "video1": { "title": "InRealArt TV — Artist Portrait" },
-      "video2": { "title": "InRealArt TV — Art Creation & Market" }
+      "video1": {
+        "title": "InRealArt TV — Artist Portrait"
+      },
+      "video2": {
+        "title": "InRealArt TV — Art Creation & Market"
+      }
     },
     "jobCards": {
       "director": {
@@ -3310,6 +3321,189 @@
     "generic": {
       "invalidData": "Invalid data",
       "internalError": "Internal error"
+    }
+  },
+  "agence": {
+    "metadata": {
+      "title": "Creator Agency — In Real Art",
+      "description": "A creative studio with uncompromising curation. Full-service campaigns, creator catalogue, bespoke UGC and long-form brand collaborations."
+    },
+    "hero": {
+      "eyebrow": "Creator Agency",
+      "title": "Content that",
+      "titleAccent": "leaves a mark.",
+      "subtitle": "For brands that refuse the ordinary. Every campaign is crafted with the same rigour as a collector's piece.",
+      "cta": "Write to us",
+      "stat1": "Verified creators",
+      "stat2": "Response time",
+      "stat3": "Rights included"
+    },
+    "differentiators": {
+      "eyebrow": "What sets us apart",
+      "title": "A studio, not a factory.",
+      "subtitle": "Four commitments that define how we work — and what you can expect from us.",
+      "items": {
+        "curation": {
+          "title": "Editorial curation",
+          "description": "Every creator enters our catalogue through a rigorous selection process. Visual universe, editorial coherence, production standards — nothing is left to chance."
+        },
+        "rights": {
+          "title": "Rights without ambiguity",
+          "description": "Full rights management from the moment of commission. Digital, print, unlimited duration — every asset belongs entirely to you, with no hidden clauses."
+        },
+        "support": {
+          "title": "One contact, always",
+          "description": "From brief writing to final asset delivery, a single point of contact. Co-built briefing, weekly check-ins, real-time reporting."
+        },
+        "premium": {
+          "title": "Engagement before audience",
+          "description": "We choose creators for the quality of their community, not their follower count. Real audiences, credible voices, lasting impact."
+        }
+      }
+    },
+    "streams": {
+      "eyebrow": "How we work",
+      "title": "Four ways to create together.",
+      "stream1": {
+        "number": "01",
+        "label": "Full-Service Campaigns",
+        "title": "From intention to broadcast",
+        "description": "We orchestrate every detail: creator selection, brief co-writing, production, asset delivery, performance analysis. You set the intention — we build the rest.",
+        "badge": ""
+      },
+      "stream2": {
+        "number": "02",
+        "label": "Catalogue Subscription",
+        "title": "Your permanent casting bureau",
+        "description": "Continuous access to our qualified creator base — verified metrics, complete portfolios, brief/profile matching. Ideal for teams that activate on a rolling basis.",
+        "badge": ""
+      },
+      "stream3": {
+        "number": "03",
+        "label": "Bespoke UGC",
+        "title": "The perfect asset, without a campaign",
+        "description": "You need a precise visual, not a full distribution push. We deliver premium assets, rights included, on guaranteed timelines.",
+        "badge": "Coming Soon"
+      },
+      "stream4": {
+        "number": "04",
+        "label": "Brand Collaboration",
+        "title": "A shared voice, a shared work",
+        "description": "Deep co-creations between your brand and our creators. Not a simple activation — an editorial narrative that lasts, that lingers, that belongs to both.",
+        "badge": "Coming Soon"
+      }
+    },
+    "pricing": {
+      "eyebrow": "Our formats",
+      "title": "Formulas designed",
+      "titleAccent": "for every project.",
+      "stream1": {
+        "title": "Full-Service Campaigns",
+        "subtitle": "On quote — production included",
+        "recommended": "Recommended",
+        "packages": {
+          "nano_essential": {
+            "name": "Nano Essential Pack",
+            "creators": "5 nano-creators",
+            "formats": "2 formats (Reel + Story)",
+            "reach": "50K–150K"
+          },
+          "nano_premium": {
+            "name": "Nano Premium Pack",
+            "creators": "10 nano-creators",
+            "formats": "3 formats (Reel + Story + Still)",
+            "reach": "100K–300K"
+          },
+          "micro_standard": {
+            "name": "Micro Standard Pack",
+            "creators": "3 micro-creators",
+            "formats": "3 formats",
+            "reach": "150K–500K"
+          },
+          "micro_premium": {
+            "name": "Micro Premium Pack",
+            "creators": "5 micro-creators",
+            "formats": "3 formats + raw assets",
+            "reach": "300K–800K"
+          },
+          "full_mix": {
+            "name": "Full Mix Pack",
+            "creators": "5 nano + 3 micro",
+            "formats": "Full multi-format",
+            "reach": "400K–1M"
+          }
+        },
+        "reach_label": "Estimated reach",
+        "formats_label": "Formats",
+        "creators_label": "Creators"
+      },
+      "stream2": {
+        "title": "Catalogue Subscription",
+        "subtitle": "On quote — monthly commitment",
+        "tiers": {
+          "starter": {
+            "name": "Starter",
+            "profiles": "50 profiles",
+            "activations": "2 activations / month",
+            "support": "Email support"
+          },
+          "business": {
+            "name": "Business",
+            "profiles": "150 profiles",
+            "activations": "5 activations / month",
+            "support": "Email + dedicated Slack"
+          },
+          "enterprise": {
+            "name": "Enterprise",
+            "profiles": "Full catalogue",
+            "activations": "Unlimited activations",
+            "support": "Dedicated account manager"
+          }
+        }
+      }
+    },
+    "ugc": {
+      "eyebrow": "Stream 03 — Coming Soon",
+      "title": "The right asset, delivered without friction.",
+      "description": "Premium visual asset production on demand. No distribution campaign, no duration commitment. Every deliverable comes with its rights — you own it from the moment it lands.",
+      "formats": {
+        "still": {
+          "name": "Product still photo",
+          "detail": "5 HD visuals",
+          "rights": "12 months, digital",
+          "delay": "5 days"
+        },
+        "reel": {
+          "name": "Reel / TikTok",
+          "detail": "15–30 seconds",
+          "rights": "12 months, digital",
+          "delay": "7 days"
+        },
+        "serie": {
+          "name": "Content series",
+          "detail": "5 mixed assets",
+          "rights": "12 months, digital",
+          "delay": "10 days"
+        },
+        "pack": {
+          "name": "Campaign pack",
+          "detail": "10 premium assets",
+          "rights": "24 months, digital + print",
+          "delay": "15 days"
+        }
+      },
+      "rights_label": "Rights",
+      "delay_label": "Deadline",
+      "comingSoon": "Available year 2",
+      "comingSoonDetail": "This offer launches in 2026. Pre-register to be notified first."
+    },
+    "cta": {
+      "eyebrow": "Let's talk",
+      "title": "A project in mind.",
+      "titleAccent": "Write to us.",
+      "description": "No ten-page form. A conversation, an intention, a first exchange — that is all it takes to begin.",
+      "button": "Write to us",
+      "secondaryButton": "Schedule a call"
     }
   }
 }
