@@ -8,13 +8,17 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function Image() {
-  const [fontRegular, fontBold, logoData] = await Promise.all([
+  const [fontRegularBuf, fontBoldBuf, logoBuf] = await Promise.all([
     readFile(join(process.cwd(), 'public/fonts/BricolageGrotesque-Regular.ttf')),
     readFile(join(process.cwd(), 'public/fonts/BricolageGrotesque-Bold.ttf')),
-    readFile(join(process.cwd(), 'public/icons/inrealart_logo.webp')),
+    readFile(join(process.cwd(), 'public/icons/inrealart_logo.png')),
   ])
 
-  const logoBase64 = `data:image/webp;base64,${logoData.toString('base64')}`
+  // Convert Node.js Buffers to plain ArrayBuffers (required by ImageResponse)
+  const fontRegular: ArrayBuffer = new Uint8Array(fontRegularBuf).buffer
+  const fontBold: ArrayBuffer = new Uint8Array(fontBoldBuf).buffer
+
+  const logoSrc = `data:image/png;base64,${logoBuf.toString('base64')}`
 
   return new ImageResponse(
     (
@@ -26,7 +30,6 @@ export default async function Image() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'Bricolage',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -44,21 +47,13 @@ export default async function Image() {
 
         {/* Center content */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
-          {/* Logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={logoBase64}
-            width={120}
-            height={120}
-            style={{ borderRadius: '4px' }}
-            alt=""
-          />
+          <img src={logoSrc} width={120} height={120} style={{ borderRadius: '4px' }} alt="" />
 
-          {/* Divider */}
           <div style={{ width: '40px', height: '1px', background: '#b89c72' }} />
 
-          {/* Tagline */}
           <div style={{
+            fontFamily: 'Bricolage',
             fontSize: '13px',
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
