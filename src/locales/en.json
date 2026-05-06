@@ -395,6 +395,10 @@
       "loadingError": "Error loading partner galleries",
       "noPartners": "No partner galleries available"
     },
+    "brandPartners": {
+      "eyebrow": "Our Partners",
+      "title": "They trust us"
+    },
     "mediaPartners": {
       "title": "Our Partners",
       "description": "They talk about us and support us"

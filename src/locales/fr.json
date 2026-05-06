@@ -400,6 +400,10 @@
       "loadingError": "Erreur lors du chargement des galeries partenaires",
       "noPartners": "Aucune galerie partenaire disponible"
     },
+    "brandPartners": {
+      "eyebrow": "Nos Partenaires",
+      "title": "Ils nous font confiance"
+    },
     "mediaPartners": {
       "title": "Nos Partenaires",
       "description": "Ils parlent de nous et nous soutiennent"

@@ -44,6 +44,9 @@ const NewsletterInline = dynamic(() => import("@/components/common/NewsletterInl
 const ResidentArtists = dynamic(() => import("@/components/home/ResidentArtistsWrapper"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
+const BrandPartners = dynamic(() => import("@/components/home/BrandPartners"), {
+  loading: () => <div className="w-full h-64 animate-pulse bg-backgroundGrey" />
+})
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
@@ -75,6 +78,7 @@ export default function Home() {
       {/* <HowItWorks /> */}
       <Expertises />
       <ResidentArtists />
+      <BrandPartners />
       {/* <Explore /> */}
       {/* <div className="relative bg-gradient max-w-screen-2xl m-auto mt-48">
         <ArtistSlider isGallery={false} />
