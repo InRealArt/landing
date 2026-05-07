@@ -3333,13 +3333,13 @@
       "description": "A creative studio with uncompromising curation. Full-service campaigns, creator catalogue, bespoke UGC and long-form brand collaborations."
     },
     "hero": {
-      "eyebrow": "Creator Agency",
-      "title": "Content that",
-      "titleAccent": "leaves a mark.",
-      "subtitle": "For brands that refuse the ordinary. Every campaign is crafted with the same rigour as a collector's piece.",
-      "cta": "Write to us",
+      "eyebrow": "Artistic agency & influence",
+      "title": "Talents that",
+      "titleAccent": "activate your brands.",
+      "subtitle": "We connect exceptional creators to brands, products, venues and experiences. From one-off activations to long-term partnerships.",
+      "cta": "Submit a brief",
       "stat1": "Verified creators",
-      "stat2": "Response time",
+      "stat2": "Brands activated",
       "stat3": "Rights included"
     },
     "differentiators": {
@@ -3398,72 +3398,98 @@
       }
     },
     "pricing": {
-      "eyebrow": "Our formats",
-      "title": "Formulas designed",
-      "titleAccent": "for every project.",
-      "stream1": {
-        "title": "Full-Service Campaigns",
-        "subtitle": "On quote — production included",
+      "eyebrow": "Collaborations & Activations",
+      "title": "Collaborations designed",
+      "titleAccent": "to create desire.",
+      "tagline": "We craft authentic collaborations between talents, brands and experiences.",
+      "collabs": {
+        "title": "Brand Collaborations",
+        "subtitle": "One-off activation or long-term partnership",
+        "description": "Collaborations designed to create visibility, desire and credibility around your brand. We connect the right creators to the right universes: product launches, hospitality, fashion, beauty, lifestyle, events, retail or image campaigns.",
+        "types": {
+          "product_launch": "Product launch",
+          "event_activation": "Events & experiences",
+          "brand_collab": "Brand & creator collaborations",
+          "ambassador": "Brand ambassadors",
+          "brand_trip": "Brand trips",
+          "social_campaign": "Social media campaigns",
+          "seeding": "Premium seedings",
+          "retail": "Retail & pop-up activations",
+          "art_direction": "Influence art direction",
+          "hospitality": "Hospitality & venues"
+        }
+      },
+      "formats": {
+        "title": "Campaigns & Activations",
+        "subtitle": "On quote — strategy, casting and production included",
+        "col_format": "Format",
+        "col_ideal": "Ideal for",
+        "col_includes": "Includes",
+        "note": "On quote — timelines and deliverables defined together",
+        "rows": {
+          "product_launch": {
+            "name": "Product Launch",
+            "ideal": "Product launch",
+            "includes": "Creator selection + distribution"
+          },
+          "event_activation": {
+            "name": "Event Activation",
+            "ideal": "Parties, pop-ups, hotels, restaurants",
+            "includes": "Creator presence + content"
+          },
+          "brand_collab": {
+            "name": "Brand Collaboration",
+            "ideal": "Image & social campaigns",
+            "includes": "Creative direction + amplification"
+          },
+          "ambassador": {
+            "name": "Ambassador Program",
+            "ideal": "Long-term collaboration",
+            "includes": "Recurring activations"
+          }
+        }
+      },
+      "packs": {
+        "title": "Creator Packs",
+        "subtitle": "Activatable quickly based on your goals",
+        "description": "Curated talent selections activatable quickly based on your visibility goals. Each pack is built around a precise casting, a coherent artistic direction and a qualified reach.",
+        "col_creators": "Creators",
+        "col_reach": "Estimated reach",
         "recommended": "Recommended",
         "packages": {
           "nano_essential": {
             "name": "Nano Essential Pack",
             "creators": "5 nano-creators",
-            "formats": "2 formats (Reel + Story)",
             "reach": "50K–150K"
           },
           "nano_premium": {
             "name": "Nano Premium Pack",
             "creators": "10 nano-creators",
-            "formats": "3 formats (Reel + Story + Still)",
             "reach": "100K–300K"
           },
           "micro_standard": {
             "name": "Micro Standard Pack",
             "creators": "3 micro-creators",
-            "formats": "3 formats",
             "reach": "150K–500K"
           },
           "micro_premium": {
             "name": "Micro Premium Pack",
             "creators": "5 micro-creators",
-            "formats": "3 formats + raw assets",
             "reach": "300K–800K"
           },
           "full_mix": {
             "name": "Full Mix Pack",
             "creators": "5 nano + 3 micro",
-            "formats": "Full multi-format",
             "reach": "400K–1M"
           }
-        },
-        "reach_label": "Estimated reach",
-        "formats_label": "Formats",
-        "creators_label": "Creators"
-      },
-      "stream2": {
-        "title": "Catalogue Subscription",
-        "subtitle": "On quote — monthly commitment",
-        "tiers": {
-          "starter": {
-            "name": "Starter",
-            "profiles": "50 profiles",
-            "activations": "2 activations / month",
-            "support": "Email support"
-          },
-          "business": {
-            "name": "Business",
-            "profiles": "150 profiles",
-            "activations": "5 activations / month",
-            "support": "Email + dedicated Slack"
-          },
-          "enterprise": {
-            "name": "Enterprise",
-            "profiles": "Full catalogue",
-            "activations": "Unlimited activations",
-            "support": "Dedicated account manager"
-          }
         }
+      },
+      "assets": {
+        "title": "Production & Assets",
+        "subtitle": "Complementary service",
+        "description": "Premium assets produced for your campaigns, launches and brand materials. Every deliverable is crafted with care and delivered with usage rights — immediately usable across your digital and print channels.",
+        "rights": "Usage rights included — digital & print",
+        "cta": "Request a quote"
       }
     },
     "ugc": {
@@ -3508,6 +3534,44 @@
       "description": "No ten-page form. A conversation, an intention, a first exchange — that is all it takes to begin.",
       "button": "Write to us",
       "secondaryButton": "Schedule a call"
+    },
+    "topCreateurs": {
+      "eyebrow": "Our creators",
+      "title": "Faces that",
+      "titleAccent": "make the difference.",
+      "subtitle": "A curated selection of verified creators for collaborations that leave a lasting impression.",
+      "defaultTitle": "Creator",
+      "cta": "View profile",
+      "ctaComingSoon": "Coming soon",
+      "seeAll": "All artists"
+    },
+    "partners": {
+      "eyebrow": "Partners",
+      "title": "When brands",
+      "titleAccent": "trust artists.",
+      "subtitle": "Authentic collaborations between vetted creators and demanding brands. Every activation generates premium content rooted in a genuine artistic practice.",
+      "caseLabel": "Case Study",
+      "caseBrand": "Logitech",
+      "caseArtist": "Artialy",
+      "caseTag": "UGC Activation · Brand Content",
+      "caseTitle": "Artialy × Logitech",
+      "caseDescription": "Artialy created a series of premium visual assets for Logitech — product photography and creative reels integrating peripherals into his digital art world. Authentic content that speaks where traditional advertising no longer reaches.",
+      "statReach": "organic reach",
+      "statReachValue": "+280 K",
+      "statEngagement": "engagement rate",
+      "statEngagementValue": "8.4 %",
+      "statAssets": "assets delivered",
+      "statAssetsValue": "12",
+      "quote": "\"Content that fits naturally into my world — and performs.\"",
+      "quoteAuthor": "— Artialy",
+      "partnerLogoAlt": "Logitech",
+      "ctaLabel": "Launch an activation"
+    },
+    "testimonials": {
+      "eyebrow": "They speak",
+      "title": "Straight from our",
+      "titleAccent": "creators.",
+      "subtitle": "Partnerships that perform. Creators who speak up."
     }
   }
 }

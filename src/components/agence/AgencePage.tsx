@@ -3,21 +3,28 @@
 import { useTranslation } from '@/hooks/useTranslation'
 import AgenceHero from './AgenceHero'
 import AgenceDifferentiators from './AgenceDifferentiators'
-import AgenceStreams from './AgenceStreams'
+import AgenceTopCreateurs from './AgenceTopCreateurs'
+import AgencePartners from './AgencePartners'
+import AgenceTestimonials from './AgenceTestimonials'
 import AgencePricing from './AgencePricing'
-import AgenceUgc from './AgenceUgc'
 import AgenceCta from './AgenceCta'
+import type { UgcTopArtistData } from '@/actions/ugcActions'
 
-export default function AgencePage() {
+interface Props {
+  topArtists: UgcTopArtistData[]
+}
+
+export default function AgencePage({ topArtists }: Props) {
   const { t } = useTranslation()
 
   return (
     <main className="min-h-screen bg-backgroundColor text-textColor">
       <AgenceHero t={t} />
       <AgenceDifferentiators t={t} />
-      <AgenceStreams t={t} />
+      <AgenceTopCreateurs t={t} artists={topArtists} />
+      <AgencePartners t={t} />
+      <AgenceTestimonials t={t} artists={topArtists} />
       <AgencePricing t={t} />
-      <AgenceUgc t={t} />
       <AgenceCta t={t} />
     </main>
   )

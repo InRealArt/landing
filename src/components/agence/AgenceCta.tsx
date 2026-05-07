@@ -47,25 +47,7 @@ export default function AgenceCta({ t }: Props) {
       ref={sectionRef}
       className="bg-backgroundGrey border-t border-borderColor py-24 lg:py-32 overflow-hidden relative"
     >
-      {/* Decorative large italic serif — bottom right, well below content */}
-      <div
-        className="absolute bottom-0 right-0 select-none pointer-events-none overflow-hidden leading-none"
-        aria-hidden="true"
-      >
-        <span
-          className="text-textColor/[0.04] leading-none whitespace-nowrap block"
-          style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontStyle: 'italic',
-            fontSize: 'clamp(60px, 10vw, 130px)',
-            transform: 'translateY(20%)',
-          }}
-        >
-          In Real Art
-        </span>
-      </div>
-
-      <div ref={contentRef} className="relative z-10 max-w-screen-2xl mx-auto px-10 text-center">
+<div ref={contentRef} className="relative z-10 max-w-screen-2xl mx-auto px-10 text-center">
         <span className="section-number inline-block" style={{ opacity: 0 }}>
           {t('agence.cta.eyebrow')}
         </span>
@@ -98,7 +80,7 @@ export default function AgenceCta({ t }: Props) {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-textColor text-backgroundColor px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent transition-colors duration-300"
+            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
           >
             {t('agence.cta.button')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -108,7 +90,7 @@ export default function AgenceCta({ t }: Props) {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 border border-borderColor text-grayText px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:border-gold-accent hover:text-textColor transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
           >
             {t('agence.cta.secondaryButton')}
           </Link>

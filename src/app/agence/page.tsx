@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import AgencePage from '@/components/agence/AgencePage'
+import { getTopUgcArtists } from '@/actions/ugcActions'
 
 const { t } = getServerTranslations('fr')
 
@@ -19,6 +20,7 @@ export const metadata: Metadata = generateStaticMetadata({
   canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/agence`,
 })
 
-export default function Page() {
-  return <AgencePage />
+export default async function Page() {
+  const topArtists = await getTopUgcArtists(4)
+  return <AgencePage topArtists={topArtists} />
 }

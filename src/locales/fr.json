@@ -3100,13 +3100,13 @@
       "description": "Un studio de création à la sélection exigeante. Campagnes full-service, catalogue créateurs, UGC sur-mesure et collaborations de marque au long cours."
     },
     "hero": {
-      "eyebrow": "Agence Créateurs",
-      "title": "Le contenu qui",
-      "titleAccent": "laisse une trace.",
-      "subtitle": "Pour les marques qui refusent l'ordinaire. Chaque campagne est conçue avec la même rigueur qu'une pièce de collection.",
-      "cta": "Nous écrire",
+      "eyebrow": "Agence artistique & influence",
+      "title": "Des talents qui",
+      "titleAccent": "activent vos marques.",
+      "subtitle": "Nous connectons des créateurs d'exception à des marques, produits, lieux et expériences. De l'activation ponctuelle au partenariat long terme.",
+      "cta": "Déposer un brief",
       "stat1": "Créateurs vérifiés",
-      "stat2": "Délai de réponse",
+      "stat2": "Marques activées",
       "stat3": "Droits inclus"
     },
     "differentiators": {
@@ -3165,72 +3165,98 @@
       }
     },
     "pricing": {
-      "eyebrow": "Modalités",
-      "title": "Des formules pensées",
-      "titleAccent": "pour chaque projet.",
-      "stream1": {
-        "title": "Campagnes Full-Service",
-        "subtitle": "Sur devis — production incluse",
+      "eyebrow": "Collaborations & Activations",
+      "title": "Des collaborations pensées",
+      "titleAccent": "pour créer du désir.",
+      "tagline": "Nous imaginons des collaborations authentiques entre talents, marques et expériences.",
+      "collabs": {
+        "title": "Collaborations Marques",
+        "subtitle": "Activation ponctuelle ou partenariat long terme",
+        "description": "Des collaborations pensées pour créer de la visibilité, du désir et de la crédibilité autour de votre marque. Nous connectons les bons créateurs aux bons univers : lancement produit, hospitality, mode, beauté, lifestyle, événementiel, retail ou campagnes image.",
+        "types": {
+          "product_launch": "Lancement produit",
+          "event_activation": "Events & expériences",
+          "brand_collab": "Collaborations marque & créateurs",
+          "ambassador": "Ambassadeurs de marque",
+          "brand_trip": "Brand trips",
+          "social_campaign": "Campagnes social media",
+          "seeding": "Seedings premium",
+          "retail": "Retail & pop-up activations",
+          "art_direction": "Direction artistique influence",
+          "hospitality": "Hospitality & lieux"
+        }
+      },
+      "formats": {
+        "title": "Campagnes & Activations",
+        "subtitle": "Sur devis — stratégie, casting et production inclus",
+        "col_format": "Format",
+        "col_ideal": "Idéal pour",
+        "col_includes": "Inclut",
+        "note": "Sur devis — délais et livrables définis ensemble",
+        "rows": {
+          "product_launch": {
+            "name": "Product Launch",
+            "ideal": "Lancement de produit",
+            "includes": "Sélection créateurs + diffusion"
+          },
+          "event_activation": {
+            "name": "Event Activation",
+            "ideal": "Soirées, pop-ups, hôtels, restaurants",
+            "includes": "Présence créateurs + contenu"
+          },
+          "brand_collab": {
+            "name": "Brand Collaboration",
+            "ideal": "Campagnes image & social",
+            "includes": "Direction créative + amplification"
+          },
+          "ambassador": {
+            "name": "Ambassador Program",
+            "ideal": "Collaboration long terme",
+            "includes": "Activations récurrentes"
+          }
+        }
+      },
+      "packs": {
+        "title": "Packs Créateurs",
+        "subtitle": "Activables rapidement selon vos objectifs",
+        "description": "Des sélections de talents activables rapidement selon vos objectifs de visibilité. Chaque pack est construit autour d'un casting précis, d'une direction artistique cohérente et d'un reach qualifié.",
+        "col_creators": "Créateurs",
+        "col_reach": "Reach estimé",
         "recommended": "Recommandé",
         "packages": {
           "nano_essential": {
             "name": "Pack Nano Essential",
             "creators": "5 nano-créateurs",
-            "formats": "2 formats (Reel + Story)",
             "reach": "50K–150K"
           },
           "nano_premium": {
             "name": "Pack Nano Premium",
             "creators": "10 nano-créateurs",
-            "formats": "3 formats (Reel + Story + Still)",
             "reach": "100K–300K"
           },
           "micro_standard": {
             "name": "Pack Micro Standard",
             "creators": "3 micro-créateurs",
-            "formats": "3 formats",
             "reach": "150K–500K"
           },
           "micro_premium": {
             "name": "Pack Micro Premium",
             "creators": "5 micro-créateurs",
-            "formats": "3 formats + assets bruts",
             "reach": "300K–800K"
           },
           "full_mix": {
             "name": "Pack Full Mix",
             "creators": "5 nano + 3 micro",
-            "formats": "Multi-format complet",
             "reach": "400K–1M"
           }
-        },
-        "reach_label": "Reach estimé",
-        "formats_label": "Formats",
-        "creators_label": "Créateurs"
-      },
-      "stream2": {
-        "title": "Abonnement Catalogue",
-        "subtitle": "Sur devis — engagement mensuel",
-        "tiers": {
-          "starter": {
-            "name": "Starter",
-            "profiles": "50 profils",
-            "activations": "2 activations / mois",
-            "support": "Support email"
-          },
-          "business": {
-            "name": "Business",
-            "profiles": "150 profils",
-            "activations": "5 activations / mois",
-            "support": "Email + Slack dédié"
-          },
-          "enterprise": {
-            "name": "Enterprise",
-            "profiles": "Catalogue complet",
-            "activations": "Activations illimitées",
-            "support": "Account manager dédié"
-          }
         }
+      },
+      "assets": {
+        "title": "Production & Assets",
+        "subtitle": "Service complémentaire",
+        "description": "Des assets premium produits pour vos campagnes, lancements et supports de marque. Chaque livrable est produit avec soin et livré avec ses droits d'exploitation — utilisables immédiatement sur vos canaux digitaux et print.",
+        "rights": "Droits d'exploitation inclus — digital & print",
+        "cta": "Demander un devis"
       }
     },
     "ugc": {
@@ -3275,6 +3301,44 @@
       "description": "Pas de formulaire de dix pages. Un échange, une intention, une première conversation — c'est tout ce qu'il faut pour commencer.",
       "button": "Nous écrire",
       "secondaryButton": "Prendre rendez-vous"
+    },
+    "topCreateurs": {
+      "eyebrow": "Nos créateurs",
+      "title": "Des visages qui",
+      "titleAccent": "font la différence.",
+      "subtitle": "Une sélection de créateurs vérifiés pour des collaborations qui laissent une empreinte durable.",
+      "defaultTitle": "Créateur",
+      "cta": "Voir le profil",
+      "ctaComingSoon": "Bientôt disponible",
+      "seeAll": "Tous nos artistes"
+    },
+    "partners": {
+      "eyebrow": "Partenaires",
+      "title": "Quand les marques",
+      "titleAccent": "font confiance aux artistes.",
+      "subtitle": "Des collaborations authentiques entre créateurs vérifiés et marques exigeantes. Chaque activation génère un contenu premium ancré dans une démarche artistique réelle.",
+      "caseLabel": "Étude de cas",
+      "caseBrand": "Logitech",
+      "caseArtist": "Artialy",
+      "caseTag": "Activation UGC · Brand Content",
+      "caseTitle": "Artialy × Logitech",
+      "caseDescription": "Artialy a conçu une série d'assets visuels premium pour Logitech — photos produit et reels créatifs intégrant les périphériques dans son univers artistique numérique. Un contenu authentique qui parle là où la publicité classique ne passe plus.",
+      "statReach": "de portée organique",
+      "statReachValue": "+280 K",
+      "statEngagement": "taux d'engagement",
+      "statEngagementValue": "8,4 %",
+      "statAssets": "assets livrés",
+      "statAssetsValue": "12",
+      "quote": "\"Un contenu qui s'intègre naturellement dans mon univers — et qui performe.\"",
+      "quoteAuthor": "— Artialy",
+      "partnerLogoAlt": "Logitech",
+      "ctaLabel": "Lancer une activation"
+    },
+    "testimonials": {
+      "eyebrow": "Ils témoignent",
+      "title": "La parole à nos",
+      "titleAccent": "créateurs.",
+      "subtitle": "Des collaborations qui performent. Des créateurs qui s'expriment."
     }
   }
 }

@@ -116,7 +116,7 @@ export default function AgenceHero({ t }: Props) {
           >
             {[
               { value: '200+', labelKey: 'agence.hero.stat1' },
-              { value: '48h', labelKey: 'agence.hero.stat2' },
+              { value: '80+', labelKey: 'agence.hero.stat2' },
               { value: '100%', labelKey: 'agence.hero.stat3' },
             ].map((stat, i) => (
               <div key={i} className="lg:py-8 lg:border-b border-borderColor last:border-0">
