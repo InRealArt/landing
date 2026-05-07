@@ -47,6 +47,9 @@ const ResidentArtists = dynamic(() => import("@/components/home/ResidentArtistsW
 const BrandPartners = dynamic(() => import("@/components/home/BrandPartners"), {
   loading: () => <div className="w-full h-64 animate-pulse bg-backgroundGrey" />
 })
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
+  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+})
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
@@ -77,6 +80,7 @@ export default function Home() {
       {/* <Statistics /> */}
       {/* <HowItWorks /> */}
       <Expertises />
+      <Testimonials />
       <ResidentArtists />
       <BrandPartners />
       {/* <Explore /> */}
