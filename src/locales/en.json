@@ -3572,6 +3572,56 @@
       "title": "Straight from our",
       "titleAccent": "creators.",
       "subtitle": "Partnerships that perform. Creators who speak up."
+    },
+    "artists": {
+      "metadata": {
+        "title": "Our artists — InRealArt Agency",
+        "description": "Browse the full InRealArt UGC creator catalogue — verified metrics, social presence and portfolios."
+      },
+      "breadcrumb": "UGC ARTISTS — INREALART",
+      "title": "All our",
+      "titleAccent": "creators.",
+      "countLabel": "creator",
+      "countLabelPlural": "creators",
+      "defaultTitle": "Creator",
+      "viewProfile": "View profile",
+      "comingSoon": "Coming soon",
+      "metrics": {
+        "audience": "Audience",
+        "engagement": "Engagement",
+        "consumption": "Views"
+      },
+      "empty": "No creators available yet.",
+      "detail": {
+        "breadcrumbAgence": "Agency",
+        "breadcrumbArtists": "Artists",
+        "backToList": "All creators",
+        "presentationNumber": "01",
+        "presentationLabel": "Presentation",
+        "metricsNumber": "02 — Live data",
+        "metricsTitle": "Impact",
+        "metricsTitleAccent": "in numbers",
+        "metricsSubtitle": "Aggregated metrics across all platforms",
+        "audienceSub": "cumulated followers",
+        "engagementSub": "interactions / post",
+        "consumptionSub": "cumulated views",
+        "activePlatforms": "Active on",
+        "galleryNumber": "03 — Photos",
+        "galleryTitle": "Editorial",
+        "galleryTitleAccent": "Shooting",
+        "galleryCount": "photos",
+        "galleryAlt": "Photo of",
+        "ctaTitle": "Work with",
+        "ctaSubtitle": "Submit a brief and our team will get back to you within 48h with a tailored selection.",
+        "ctaButton": "Submit a brief",
+        "reelsLabel": "Reels",
+        "reelsTitle": "Her",
+        "reelsTitleAccent": "Reels",
+        "reelsCount": "videos",
+        "galleryLabel": "Photos",
+        "tagsNumber": "02",
+        "tagsLabel": "Creative DNA"
+      }
     }
   }
 }

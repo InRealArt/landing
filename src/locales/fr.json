@@ -3339,6 +3339,56 @@
       "title": "La parole à nos",
       "titleAccent": "créateurs.",
       "subtitle": "Des collaborations qui performent. Des créateurs qui s'expriment."
+    },
+    "artists": {
+      "metadata": {
+        "title": "Nos artistes — Agence InRealArt",
+        "description": "Découvrez l'ensemble des créateurs UGC du catalogue InRealArt — métriques vérifiées, présence sociale et portfolios."
+      },
+      "breadcrumb": "ARTISTES UGC — INREALART",
+      "title": "Tous nos",
+      "titleAccent": "créateurs.",
+      "countLabel": "créateur",
+      "countLabelPlural": "créateurs",
+      "defaultTitle": "Créateur",
+      "viewProfile": "Voir le profil",
+      "comingSoon": "Bientôt disponible",
+      "metrics": {
+        "audience": "Audience",
+        "engagement": "Engagement",
+        "consumption": "Vues"
+      },
+      "empty": "Aucun créateur disponible pour le moment.",
+      "detail": {
+        "breadcrumbAgence": "Agence",
+        "breadcrumbArtists": "Artistes",
+        "backToList": "Tous les créateurs",
+        "presentationNumber": "01",
+        "presentationLabel": "Présentation",
+        "metricsNumber": "02 — Live data",
+        "metricsTitle": "L'impact",
+        "metricsTitleAccent": "en chiffres",
+        "metricsSubtitle": "Métriques agrégées toutes plateformes confondues",
+        "audienceSub": "abonnés cumulés",
+        "engagementSub": "interactions / post",
+        "consumptionSub": "vues cumulées",
+        "activePlatforms": "Actif sur",
+        "galleryNumber": "03 — Photos",
+        "galleryTitle": "Shooting",
+        "galleryTitleAccent": "éditorial",
+        "galleryCount": "photos",
+        "galleryAlt": "Photo de",
+        "ctaTitle": "Travailler avec",
+        "ctaSubtitle": "Déposez un brief et notre équipe reviendra vers vous sous 48h avec une sélection sur-mesure.",
+        "ctaButton": "Déposer un brief",
+        "reelsLabel": "Reels",
+        "reelsTitle": "Ses",
+        "reelsTitleAccent": "Reels",
+        "reelsCount": "vidéos",
+        "galleryLabel": "Photos",
+        "tagsNumber": "02",
+        "tagsLabel": "Son univers"
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 interface Props {
   t: (key: string) => string
@@ -108,7 +109,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
                   {artist.profile.profileImageUrl ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img
-                      src={artist.profile.profileImageUrl}
+                      src={getImageUrl(artist.profile.profileImageUrl) ?? artist.profile.profileImageUrl}
                       alt={name}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105"
                     />
@@ -174,7 +175,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
         {/* Section footer link */}
         <div className="mt-16 flex justify-end">
           <Link
-            href="/artists"
+            href="/agence/artists"
             className="text-[11px] uppercase tracking-[0.4em] montserrat text-grayText hover:text-gold-accent transition-colors duration-300 inline-flex items-center gap-3"
           >
             {t('agence.topCreateurs.seeAll')}

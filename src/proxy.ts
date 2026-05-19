@@ -64,6 +64,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/usecase/lending',
   '/services',
   '/agence',
+  '/agence/artists',
 ])
 
 // Known dynamic route prefixes with exactly one slug segment — always valid
@@ -75,6 +76,7 @@ const DYNAMIC_PREFIXES = new Set([
   '/artwork/',
   '/games/',
   '/art-salon-simulator/',
+  '/agence/artists/',
 ])
 
 function getRedirectTarget(pathname: string): string {
