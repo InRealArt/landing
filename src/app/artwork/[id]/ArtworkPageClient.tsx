@@ -7,6 +7,7 @@ import SoldStatusBadge from '@/components/common/SoldStatusBadge'
 import { useTranslation } from '@/hooks/useTranslation'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 import type { TransformedArtistData } from '@/types/artist'
 
@@ -39,10 +40,13 @@ export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: 
   }, [rawDescription])
 
   const artworkImages = useMemo(() => {
-    const images: string[] = [artwork.imageUrl]
+    const images: string[] = [getImageUrl(artwork.imageUrl) ?? artwork.imageUrl]
     if (Array.isArray(artwork.mockupUrls)) {
       const extras = artwork.mockupUrls
-        .map((m: any) => (typeof m === 'object' && m !== null ? m.url : m))
+        .map((m: any) => {
+          const raw = typeof m === 'object' && m !== null ? m.url : m
+          return raw ? (getImageUrl(raw) ?? raw) : null
+        })
         .filter(Boolean) as string[]
       images.push(...extras)
     }
