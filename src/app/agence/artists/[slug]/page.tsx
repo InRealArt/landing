@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getUgcArtistById } from '@/actions/ugcActions'
+import { getUgcArtistBySlug } from '@/actions/ugcActions'
 import AgenceArtistDetailPage from '@/components/agence/AgenceArtistDetailPage'
 
 interface Props {
-  params: Promise<{ id: string }>
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
-  const artist = await getUgcArtistById(Number(id))
+  const { slug } = await params
+  const artist = await getUgcArtistBySlug(slug)
   if (!artist) return {}
   const name = artist.pseudo ?? [artist.name, artist.surname].filter(Boolean).join(' ')
   return {
@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function AgenceArtistDetailRoute({ params }: Props) {
-  const { id } = await params
-  const artist = await getUgcArtistById(Number(id))
+  const { slug } = await params
+  const artist = await getUgcArtistBySlug(slug)
   if (!artist) notFound()
   return <AgenceArtistDetailPage artist={artist} />
 }

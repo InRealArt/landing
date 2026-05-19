@@ -54,7 +54,7 @@ export default function AgenceArtistCard({
   consumptionLabel,
 }: Props) {
   const name = displayName(artist)
-  const href = `/agence/artists/${artist.id}`
+  const href = `/agence/artists/${artist.slug}`
   const imageUrl = getImageUrl(artist.profileImageUrl)
   const metrics = artist.socialMetrics
   const networks = metrics?.socialNetworks ?? []

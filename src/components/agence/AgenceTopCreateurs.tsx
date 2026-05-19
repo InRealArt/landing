@@ -93,9 +93,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
         >
           {artists.map((artist) => {
             const name = displayName(artist.profile)
-            const href = artist.profile.landingArtistSlug
-              ? `/artists/${artist.profile.landingArtistSlug}`
-              : null
+            const href = `/agence/artists/${artist.profile.slug}`
 
             return (
               <div
@@ -151,21 +149,15 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
                     {name}
                   </h3>
 
-                  {href ? (
-                    <Link
-                      href={href}
-                      className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
-                    >
-                      {t('agence.topCreateurs.cta')}
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                        <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </Link>
-                  ) : (
-                    <span className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat text-grayText border border-borderColor/40 px-4 py-2.5 self-start cursor-default select-none">
-                      {t('agence.topCreateurs.ctaComingSoon')}
-                    </span>
-                  )}
+                  <Link
+                    href={href}
+                    className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+                  >
+                    {t('agence.topCreateurs.cta')}
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             )

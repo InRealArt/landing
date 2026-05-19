@@ -1,12 +1,14 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { generateUgcSlug } from '@/utils/ugcSlug'
 
 export interface UgcTopArtistData {
   id: number
   order: number
   profile: {
     id: number
+    slug: string
     name: string | null
     surname: string | null
     pseudo: string | null
@@ -45,6 +47,7 @@ export async function getTopUgcArtists(limit = 4): Promise<UgcTopArtistData[]> {
           order: row.order,
           profile: {
             id: profile.id,
+            slug: generateUgcSlug(profile),
             name: profile.name,
             surname: profile.surname,
             pseudo: profile.pseudo,
@@ -61,8 +64,10 @@ export async function getTopUgcArtists(limit = 4): Promise<UgcTopArtistData[]> {
   }
 }
 
+
 export interface UgcArtistProfileData {
   id: number
+  slug: string
   name: string | null
   surname: string | null
   pseudo: string | null
@@ -102,6 +107,7 @@ function mapUgcProfile(row: {
 }): UgcArtistProfileData {
   return {
     id: row.id,
+    slug: generateUgcSlug(row),
     name: row.name,
     surname: row.surname,
     pseudo: row.pseudo,
@@ -143,7 +149,10 @@ export async function getAllUgcArtists(): Promise<UgcArtistProfileData[]> {
   }
 }
 
-export async function getUgcArtistById(id: number): Promise<UgcArtistProfileData | null> {
+export async function getUgcArtistBySlug(slug: string): Promise<UgcArtistProfileData | null> {
+  // Slug format: "<name-parts>-<id>" — extract id from the last segment
+  const id = parseInt(slug.split('-').pop() ?? '', 10)
+  if (isNaN(id)) return null
   try {
     const row = await prisma.landingUgcArtistProfile.findUnique({
       where: { id },
@@ -152,7 +161,7 @@ export async function getUgcArtistById(id: number): Promise<UgcArtistProfileData
     if (!row) return null
     return mapUgcProfile(row)
   } catch (error) {
-    console.error('[getUgcArtistById] error:', error)
+    console.error('[getUgcArtistBySlug] error:', error)
     return null
   }
 }
