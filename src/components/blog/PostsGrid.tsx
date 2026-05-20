@@ -20,7 +20,7 @@ interface PostsGridProps {
 function PostCardSkeleton() {
   return (
     <div className="flex flex-col bg-[var(--canvas-bg)] border border-borderColor overflow-hidden h-full">
-      <div className="w-full bg-[var(--soft-gray)] animate-pulse" style={{ aspectRatio: '16/9' }} />
+      <div className="w-full h-[480px] bg-[var(--soft-gray)] animate-pulse" />
       <div className="p-8 flex flex-col gap-4">
         <div className="h-3 bg-[var(--soft-gray)] rounded w-1/4 animate-pulse" />
         <div className="h-8 bg-[var(--soft-gray)] rounded w-3/4 animate-pulse" />
@@ -70,10 +70,7 @@ export default function PostsGrid({
               className="group flex flex-col bg-[var(--canvas-bg)] border border-borderColor hover:bg-[var(--soft-gray)] transition-all duration-500 overflow-hidden h-full"
             >
               {/* Image — Top */}
-              <div
-                className="w-full relative overflow-hidden shrink-0"
-                style={{ aspectRatio: '16/9' }}
-              >
+              <div className="w-full h-[480px] relative overflow-hidden shrink-0">
                 {post.mainImageUrl ? (
                   <FirebaseImage
                     src={post.mainImageUrl}
