@@ -134,7 +134,7 @@ export default function BlogCategoryPageClient({
         dangerouslySetInnerHTML={{ __html: breadcrumbLd }}
       />
 
-      <main className="min-h-screen pt-headerSize text-textColor bg-canvas-white">
+      <main className="min-h-screen pt-headerSize text-[var(--text)] bg-[var(--canvas-bg)]">
         <div className="max-w-screen-2xl m-auto px-10 py-16">
           {/* Category header */}
           <div className="mb-12 border-b border-border-light pb-12">
@@ -170,10 +170,7 @@ export default function BlogCategoryPageClient({
                   className="group flex flex-col bg-[var(--canvas-bg)] border border-border-light hover:bg-[var(--soft-gray)] transition-all duration-500 overflow-hidden h-full"
                 >
                   {/* Image — Top */}
-                  <div
-                    className="w-full relative overflow-hidden shrink-0"
-                    style={{ aspectRatio: '16/9' }}
-                  >
+                  <div className="w-full h-[480px] relative overflow-hidden shrink-0">
                     {post.mainImageUrl ? (
                       <FirebaseImage
                         src={post.mainImageUrl}
