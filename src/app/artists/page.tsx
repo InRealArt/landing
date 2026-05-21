@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 import { generateStaticMetadata } from '@/utils/metadata'
 import { getArtists } from '@/actions/artistActions'
-import ArtistsHero from '@/components/artists/ArtistsHero'
-import ArtistsGrid, { ArtistsGridSkeleton } from '@/components/artists/ArtistsGrid'
+import ArtistsHubClient from '@/components/artists/ArtistsHubClient'
+import { ArtistsGridSkeleton } from '@/components/artists/ArtistsGrid'
 import ArtistsAnimations from '@/components/artists/ArtistsAnimations'
 
 export const revalidate = 1800
@@ -21,9 +21,8 @@ export default async function ArtistsPage() {
   return (
     <>
       <ArtistsAnimations />
-      <ArtistsHero />
       <Suspense fallback={<ArtistsGridSkeleton />}>
-        <ArtistsGrid initialArtists={artists} />
+        <ArtistsHubClient initialArtists={artists} />
       </Suspense>
     </>
   )

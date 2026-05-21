@@ -468,6 +468,36 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
     }
 }
 
+export async function getArtworksByLandingArtistSlug(
+    slug: string,
+    limit = 3
+): Promise<Pick<PresaleArtworkData, 'id' | 'name' | 'imageUrl' | 'price' | 'isSold'>[]> {
+    try {
+        const artworks = await prisma.presaleArtwork.findMany({
+            where: {
+                artist: {
+                    LandingArtist: {
+                        some: { slug }
+                    }
+                }
+            },
+            select: {
+                id: true,
+                name: true,
+                imageUrl: true,
+                price: true,
+                isSold: true,
+            },
+            orderBy: { order: 'asc' },
+            take: limit,
+        })
+        return artworks
+    } catch (error) {
+        console.error(`[getArtworksByLandingArtistSlug] slug=${slug}:`, error)
+        return []
+    }
+}
+
 export async function getKeyWorksByArtistId(artistId: number): Promise<PresaleArtworkData[]> {
     try {
         return await fetchKeyWorks(artistId)

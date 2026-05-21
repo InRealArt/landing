@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma'
 import { organizeTranslations } from '@/utils/translations'
+import { generateUgcSlug } from '@/utils/ugcSlug'
 
 export interface ArtistData {
     id: number
@@ -35,6 +36,7 @@ export interface ArtistData {
     imageArtistStudio?: string | null
     interviewUrl?: string | null
     artitudeUrl?: string | null
+    ugcSlug?: string | null
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -94,6 +96,14 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 biographyHeader4: true,
                 biographyText4: true,
                 imageArtistStudio: true,
+                ugcArtistProfile: {
+                    select: {
+                        id: true,
+                        pseudo: true,
+                        name: true,
+                        surname: true,
+                    }
+                },
                 artist: {
                     select: {
                         name: true,
@@ -211,6 +221,7 @@ export async function getArtists(isGallery?: boolean): Promise<ArtistData[]> {
                 biographyHeader4: la.biographyHeader4 ?? null,
                 biographyText4: la.biographyText4 ?? null,
                 imageArtistStudio: la.imageArtistStudio ?? null,
+                ugcSlug: la.ugcArtistProfile ? generateUgcSlug(la.ugcArtistProfile) : null,
                 translations
             }
         })
@@ -346,6 +357,9 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
                 biographyHeader4: true,
                 biographyText4: true,
                 imageArtistStudio: true,
+                ugcArtistProfile: {
+                    select: { id: true, pseudo: true, name: true, surname: true }
+                },
                 seo: {
                     select: {
                         interviewUrl: true,
@@ -458,6 +472,7 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
             imageArtistStudio: landingArtist.imageArtistStudio ?? null,
             interviewUrl: landingArtist.seo?.interviewUrl ?? null,
             artitudeUrl: landingArtist.seo?.artitudeUrl ?? null,
+            ugcSlug: landingArtist.ugcArtistProfile ? generateUgcSlug(landingArtist.ugcArtistProfile) : null,
             translations
         }
     } catch (error) {

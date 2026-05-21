@@ -36,6 +36,9 @@ const nextConfig: NextConfig = {
     // TTL de cache minimum pour réduire les transformations
     minimumCacheTTL: 2678400, // 31 jours
 
+    // Qualités d'image autorisées (doit inclure toutes les valeurs utilisées dans le code)
+    qualities: [75, 85],
+
     // Désactiver l'optimisation pour les images qui n'en bénéficient pas
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

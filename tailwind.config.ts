@@ -93,11 +93,16 @@ export default {
           from: { opacity: '0', transform: 'translateX(40px)' },
           to: { opacity: '1', transform: 'translateX(0)' },
         },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.8s ease-out 0.2s both',
         'fade-up-delay': 'fade-up 0.8s ease-out 0.38s both',
         'fade-right': 'fade-right 0.9s ease-out 0.38s both',
+        marquee: 'marquee 18s linear infinite',
       },
     },
   },

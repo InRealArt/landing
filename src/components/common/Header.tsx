@@ -8,7 +8,6 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
-import { EXTERNAL_URLS } from '@/constants/constants';
 
 const Header = () => {
   const { t } = useTranslation()
@@ -27,23 +26,23 @@ const Header = () => {
 
           <ul className="hidden xl:flex items-center gap-8">
             <li className="whitespace-nowrap">
-              <Link href="/artists" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.artists')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
               <Link href="/presale" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.artworks')}
+                {t('nav.galerie')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
               <Link href="/usecase" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.usecase')}
+                {t('nav.capital')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/agence" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.agence')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
               <Link href="/media" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.blog')}
+                {t('nav.media')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
@@ -52,15 +51,13 @@ const Header = () => {
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <a
-                href={EXTERNAL_URLS.CALENDLY_MEETING}
+              <Link
+                href="/contact"
                 className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-umami-event="calendly-header-click"
+                data-umami-event="contact-header-click"
               >
-                Contact
-              </a>
+                {t('nav.contact')}
+              </Link>
             </li>
           </ul>
 

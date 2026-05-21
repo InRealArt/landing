@@ -26,7 +26,12 @@
     "fractionate": "Fractionate",
     "joinInRealArt": "Join Us",
     "aboutInRealArt": "About",
-    "services": "Services"
+    "services": "Services",
+    "galerie": "Gallery",
+    "capital": "Capital",
+    "agence": "Agency",
+    "media": "Media",
+    "contact": "Contact Us"
   },
   "intro": {
     "title": "The Tokenization of Art accessible to all",
@@ -219,7 +224,17 @@
     "slide": "Exhibition",
     "moreInfo": "More info",
     "sectionTitle": "Latest Exhibitions",
-    "readMore": "View details"
+    "readMore": "View details",
+    "hero": {
+      "claim": "Living art, made accessible.",
+      "claimAccent": "Buy, finance, collaborate.",
+      "profileArtist": "Artist",
+      "profileCollector": "Collector",
+      "profileEnterprise": "Enterprise",
+      "ctaArtist": "Join the gallery",
+      "ctaCollector": "Discover artworks",
+      "ctaEnterprise": "Finance with art"
+    }
   },
   "artists": {
     "title": "Our artists",
@@ -257,7 +272,15 @@
     "roster": {
       "label": "All artists"
     },
+    "hub": {
+      "agenceBridgeEyebrow": "Go further",
+      "agenceBridgeTitle": "Some of our artists collaborate with brands",
+      "agenceBridgeDescription": "Brand content, visual campaigns, creative collaborations — discover our creator agency.",
+      "agenceBridgeCta": "Discover the Agency"
+    },
     "profile": {
+      "acquireArtwork": "Acquire an artwork",
+      "collaborateCta": "Collaborate with {name}",
       "bornIn": "Born in",
       "followArtist": "Follow artist",
       "certifiedArtist": "Artist {name} is part of our certified artists guaranteeing their seriousness and commitment to Inrealart",
@@ -317,33 +340,33 @@
       }
     },
     "expertises": {
-      "eyebrow": "Expertises",
-      "title": "Augmented",
-      "titleAccent": "Curation.",
+      "eyebrow": "Our poles",
+      "title": "Four ways",
+      "titleAccent": "to enter.",
       "items": {
-        "media": {
-          "subtitle": "INREALART MEDIA",
-          "title": "Contemporary art agency & media",
-          "description": "We support artists in building their visibility and credibility.\n\nMonographs, visual content, art direction:\nwe create powerful narratives that enhance artworks.\n\nIdeal for artists, galleries and institutions",
-          "cta": "DEVELOP MY IMAGE AND VISIBILITY"
-        },
-        "curate": {
-          "subtitle": "INREALART CURATE",
-          "title": "Exclusive & high-end contemporary art marketplace",
-          "description": "Discover a selection of works chosen for their aesthetic quality and appreciation potential.\n\nEach work is:\n\nselected by experts\ncontextualised\nready to join a discerning collection\n\nBuy a work of art with confidence",
-          "cta": "VIEW ARTWORKS"
+        "galerie": {
+          "subtitle": "GALLERY",
+          "title": "Buy contemporary artworks",
+          "description": "A curated selection of certified works sourced directly from our resident artists. Each piece is contextualised and ready to join your collection.",
+          "cta": "View artworks"
         },
         "capital": {
-          "subtitle": "INREALART CAPITAL",
-          "title": "Art investment & leasing",
-          "description": "Transform art into a strategic asset.\n\nWe offer solutions to:\n\ninvest in contemporary art\noptimise taxation\nenhance your professional spaces\n\nA tailored approach for businesses and executives",
-          "cta": "SIMULATE MY INVESTMENT"
+          "subtitle": "CAPITAL",
+          "title": "Finance and optimise with art",
+          "description": "Art leasing, investment, tax benefits. Tailored solutions for businesses and executives who want to make art a strategic asset.",
+          "cta": "Simulate my investment"
         },
-        "studio": {
-          "subtitle": "INREALART STUDIO",
-          "title": "Artistic agency & collaborations",
-          "description": "We connect artists, brands and institutions.\n\nContent production, campaigns, collaborations:\nwe create artistic projects with high cultural and marketing value.\n\nActivate art as a brand driver",
-          "cta": "LAUNCH A PROJECT"
+        "agence": {
+          "subtitle": "AGENCY",
+          "title": "Activate creators for your brand",
+          "description": "Artists with a real vision at the service of your campaigns. UGC, brand content, collaborations — authentic creators, not generic profiles.",
+          "cta": "Submit a brief"
+        },
+        "media": {
+          "subtitle": "MEDIA",
+          "title": "Explore contemporary art in depth",
+          "description": "InRealArt TV, editorial blog, artist monographs. An observatory of creation to understand, discover and follow today's art scene.",
+          "cta": "Discover the media"
         }
       }
     },
@@ -400,27 +423,24 @@
       "title": "They trust us"
     },
     "mediaPartners": {
-      "title": "Our Partners",
+      "title": "Media partners",
       "description": "They talk about us and support us"
     },
     "statistics": {
-      "title": "The InRealArt catalog includes:",
+      "title": "InRealArt in numbers",
+      "description": "The multi-pole platform for contemporary art",
       "items": {
+        "artworks": {
+          "number": "300+",
+          "label": "Artworks available"
+        },
         "artists": {
-          "number": "35+",
-          "label": "Artists selected in our global catalog"
+          "number": "40+",
+          "label": "Resident artists"
         },
-        "works": {
-          "number": "600+",
-          "label": "Carefully chosen works to enhance your collection"
-        },
-        "transactions": {
-          "number": "500+",
-          "label": "Transactions completed on our testnet marketplace"
-        },
-        "ranking": {
-          "number": "100%",
-          "label": "of our artists satisfied with their support"
+        "creators": {
+          "number": "20+",
+          "label": "UGC creators"
         }
       }
     }
@@ -2667,8 +2687,8 @@
       "eyebrow": "The Letter",
       "title": "Art at the heart of",
       "titleAccent": "your everyday.",
-      "subtitle": "We only talk about subjects that matter to you",
-      "description": "Artist portraits, techniques, professional equipment and materials, art markets, etc...",
+      "subtitle": "Artist news, new artwork releases, investment insights and art market analysis.",
+      "description": "1 email per week · Zero spam · Unsubscribe in 1 click",
       "emailPlaceholder": "artistname@email.com",
       "subscribeButton": "I want to take advantage now",
       "subscribing": "Subscribing...",
@@ -3620,7 +3640,11 @@
         "reelsCount": "videos",
         "galleryLabel": "Photos",
         "tagsNumber": "02",
-        "tagsLabel": "Creative DNA"
+        "tagsLabel": "Creative DNA",
+        "galleryBridgeNumber": "05",
+        "galleryBridgeLabel": "Gallery",
+        "galleryBridgeTitle": "Available artworks at",
+        "galleryBridgeViewAll": "See all artworks"
       }
     }
   }

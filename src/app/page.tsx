@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import Intro from "@/components/home/Intro"
 import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
 import Statistics from "@/components/home/Statistics"
 import ExhibitionSlider from "@/components/home/ExhibitionSlider"
+import HomeHero from "@/components/home/HomeHero"
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
 export const revalidate = 1800 // régénère toutes les 30 min
@@ -74,12 +74,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: generateArtGalleryJsonLd() }}
       />
 
-      {/* <Intro /> */}
+      <HomeHero />
       <ExhibitionSlider />
+      <Statistics />
       <CatalogSection />
-      {/* <Statistics /> */}
       {/* <HowItWorks /> */}
       <Expertises />
+      <MediaPartners />
       <Testimonials />
       <ResidentArtists />
       <BrandPartners />

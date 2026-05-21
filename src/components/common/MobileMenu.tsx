@@ -3,10 +3,9 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
-import { ArrowRight, Phone, X } from 'lucide-react'
+import { Phone, X } from 'lucide-react'
 import Button from './Button'
 import { usePathname } from 'next/navigation'
-import { EXTERNAL_URLS } from '@/constants/constants'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -52,59 +51,50 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <nav className="flex flex-col gap-6 bricolage-grotesque font-semibold text-xl">
           <Link
-            href="/team"
-            className={`${pathname === '/team' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
-            onClick={onClose}
-          >
-            {t('nav.aboutInRealArt')}
-          </Link>
-          <Link
             href="/presale"
             className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
-            {t('nav.artworks')}
-          </Link>
-          <Link
-            href="/artists"
-            className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
-            onClick={onClose}
-          >
-            {t('nav.artists')}
+            {t('nav.galerie')}
           </Link>
           <Link
             href="/usecase"
             className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
-            {t('nav.usecase')}
+            {t('nav.capital')}
+          </Link>
+          <Link
+            href="/agence"
+            className={`${pathname === '/agence' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            onClick={onClose}
+          >
+            {t('nav.agence')}
           </Link>
           <Link
             href="/media"
             className={`${pathname === '/media' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
-            {t('nav.blog')}
+            {t('nav.media')}
           </Link>
           <Link
-            href="/joinInRealArt"
-            className={`text-textColor py-2 border-b border-textColor/10`}
+            href="/team"
+            className={`${pathname === '/team' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
-            data-umami-event="joinInRealArt-mobile-menu-click"
           >
-            {t('nav.joinInRealArt')}
-          </Link>          
+            {t('nav.aboutInRealArt')}
+          </Link>
         </nav>
 
-        <div className="mt-16 ">
+        <div className="mt-16">
           <Button
-            text={t('buttons.contactUs')}
+            text={t('nav.contact')}
             additionalClassName="bg-purpleColor w-full"
             icon={<Phone />}
             center
-            target='_blank'
-            link={EXTERNAL_URLS.CALENDLY_MEETING}
-            data-umami-event="calendly-mobile-click"
+            link="/contact"
+            data-umami-event="contact-mobile-click"
           />
         </div>
       </div>

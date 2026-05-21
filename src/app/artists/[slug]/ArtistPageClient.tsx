@@ -51,7 +51,8 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
         ...initialArtist,
         name: `${initialArtist.name} ${initialArtist.surname}`, // Combine name
         photo: initialArtist.imageUrl, // Map imageUrl to photo
-        secondaryImageUrl: initialArtist.secondaryImageUrl || '', // Ensure string for components expecting StoreArtistData
+        secondaryImageUrl: initialArtist.secondaryImageUrl || '',
+        ugcSlug: initialArtist.ugcSlug ?? null,
         role: getTranslated('artworkStyle', initialArtist.artworkStyle) || 'Artiste',
         intro: getTranslated('intro', initialArtist.intro),
         description: getTranslated('description', initialArtist.description),

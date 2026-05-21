@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getUgcArtistBySlug } from '@/actions/ugcActions'
 import AgenceArtistDetailPage from '@/components/agence/AgenceArtistDetailPage'
+import AgenceGalleryBridge from '@/components/agence/AgenceGalleryBridge'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -22,5 +23,19 @@ export default async function AgenceArtistDetailRoute({ params }: Props) {
   const { slug } = await params
   const artist = await getUgcArtistBySlug(slug)
   if (!artist) notFound()
-  return <AgenceArtistDetailPage artist={artist} />
+
+  const artistDisplayName = artist.pseudo ?? [artist.name, artist.surname].filter(Boolean).join(' ')
+
+  return (
+    <>
+      <AgenceArtistDetailPage artist={artist} />
+      {artist.landingArtistSlug && (
+        <AgenceGalleryBridge
+          landingArtistSlug={artist.landingArtistSlug}
+          artistDisplayName={artistDisplayName}
+          language="fr"
+        />
+      )}
+    </>
+  )
 }

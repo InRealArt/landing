@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
 
 interface ArtistProfileHeroProps {
@@ -15,11 +16,12 @@ interface ArtistProfileHeroProps {
     birthYear?: number | null
     countryCode?: string | null
     countryName?: string | null
+    ugcSlug?: string | null
   }
 }
 
 export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
-  const { language } = useTranslation()
+  const { language, t } = useTranslation()
 
   const containerRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
@@ -168,6 +170,25 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
           )}
 
         </div>
+
+        {/* Double CTA */}
+        <div className="flex flex-wrap items-center gap-3 mt-3 lg:mt-4">
+          <a
+            href="#artworks"
+            className="px-5 py-2 bg-gold-accent text-black text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold-accent/80 transition-colors duration-200"
+          >
+            {t('artists.profile.acquireArtwork')}
+          </a>
+          {artist.ugcSlug && (
+            <Link
+              href={`/agence/artists/${artist.ugcSlug}`}
+              className="px-5 py-2 border border-gold-accent text-gold-accent text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold-accent hover:text-black transition-colors duration-200"
+            >
+              {t('artists.profile.collaborateCta').replace('{name}', firstName)}
+            </Link>
+          )}
+        </div>
+
       </div>
     </div>
   )

@@ -1,33 +1,33 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { useLanguageStore } from "@/store/languageStore";
+import { useTranslation } from '@/hooks/useTranslation'
 import { loadGsap } from '@/lib/gsap'
 
 const Statistics = () => {
-  const t = useLanguageStore(state => state.t);
+  const { t } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
 
   const stats = [
     {
-      key: 'artists',
+      key: 'artworks',
       index: '01.',
+      number: t('home.statistics.items.artworks.number'),
+      label: t('home.statistics.items.artworks.label')
+    },
+    {
+      key: 'artists',
+      index: '02.',
       number: t('home.statistics.items.artists.number'),
       label: t('home.statistics.items.artists.label')
     },
     {
-      key: 'works',
-      index: '02.',
-      number: t('home.statistics.items.works.number'),
-      label: t('home.statistics.items.works.label')
-    },
-    {
-      key: 'ranking',
+      key: 'creators',
       index: '03.',
-      number: t('home.statistics.items.ranking.number'),
-      label: t('home.statistics.items.ranking.label')
-    }
+      number: t('home.statistics.items.creators.number'),
+      label: t('home.statistics.items.creators.label')
+    },
   ]
 
   useEffect(() => {

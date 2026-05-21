@@ -26,7 +26,12 @@
     "fractionate": "Fractionnement",
     "joinInRealArt": "Nous rejoindre",
     "aboutInRealArt": "À propos",
-    "services": "Services"
+    "services": "Services",
+    "galerie": "Galerie",
+    "capital": "Capital",
+    "agence": "Agence",
+    "media": "Média",
+    "contact": "Nous contacter"
   },
   "intro": {
     "title": "La Tokenisation de l'Art accessible pour tous",
@@ -219,7 +224,17 @@
     "slide": "Exposition",
     "moreInfo": "Plus d'infos",
     "sectionTitle": "Dernières Expositions",
-    "readMore": "Lire la fiche"
+    "readMore": "Lire la fiche",
+    "hero": {
+      "claim": "L'art vivant, accessible.",
+      "claimAccent": "Achetez, financez, collaborez.",
+      "profileArtist": "Artiste",
+      "profileCollector": "Collectionneur",
+      "profileEnterprise": "Entreprise",
+      "ctaArtist": "Rejoindre la galerie",
+      "ctaCollector": "Découvrir les œuvres",
+      "ctaEnterprise": "Financer avec l'art"
+    }
   },
   "artists": {
     "title": "Nos artistes",
@@ -257,7 +272,15 @@
     "roster": {
       "label": "Tous les artistes"
     },
+    "hub": {
+      "agenceBridgeEyebrow": "Aller plus loin",
+      "agenceBridgeTitle": "Certains de nos artistes collaborent avec les marques",
+      "agenceBridgeDescription": "Contenu de marque, campagnes visuelles, collaborations créatives — découvrez notre agence de créateurs.",
+      "agenceBridgeCta": "Découvrir l'Agence"
+    },
     "profile": {
+      "acquireArtwork": "Acquérir une œuvre",
+      "collaborateCta": "Collaborer avec {name}",
       "bornIn": "Né(e) en",
       "followArtist": "Suivre l'artiste",
       "certifiedArtist": "L'artiste {name} fait partie de nos artistes certifiés garantissant son sérieux et engagement pour Inrealart",
@@ -317,33 +340,33 @@
       }
     },
     "expertises": {
-      "eyebrow": "Expertises",
-      "title": "Curation",
-      "titleAccent": "Augmentée.",
+      "eyebrow": "Nos pôles",
+      "title": "Quatre façons",
+      "titleAccent": "d'entrer.",
       "items": {
-        "media": {
-          "subtitle": "INREALART MÉDIA",
-          "title": "Agence & média d'art contemporain",
-          "description": "Nous accompagnons les artistes dans la construction de leur visibilité et de leur crédibilité.\n\nMonographies, contenus visuels, direction artistique :\nnous créons des récits puissants qui valorisent les œuvres.\n\nIdéal pour artistes, galeries et institutions",
-          "cta": "DÉVELOPPER MON IMAGE ET MA VISIBILITÉ"
-        },
-        "curate": {
-          "subtitle": "INREALART CURATE",
-          "title": "Marketplace d'art contemporain exclusive & haut de gamme",
-          "description": "Découvrez une sélection d'œuvres choisies pour leur qualité esthétique et potentiel de valorisation.\n\nChaque œuvre est :\n\nsélectionnée par des experts\ncontextualisée\nprête à intégrer une collection exigeante\n\nAcheter une œuvre d'art en toute confiance",
-          "cta": "VOIR LES ŒUVRES"
+        "galerie": {
+          "subtitle": "GALERIE",
+          "title": "Achetez des œuvres d'art contemporain",
+          "description": "Une sélection rigoureuse d'œuvres certifiées, sourcées directement auprès de nos artistes résidents. Chaque pièce est contextualisée et prête à intégrer votre collection.",
+          "cta": "Voir les œuvres"
         },
         "capital": {
-          "subtitle": "INREALART CAPITAL",
-          "title": "Investissement & leasing d'art",
-          "description": "Transformez l'art en actif stratégique.\n\nNous proposons des solutions pour :\n\ninvestir dans l'art contemporain\noptimiser la fiscalité\nvaloriser vos espaces professionnels\n\nUne approche sur mesure pour entreprises et dirigeants",
-          "cta": "SIMULER MON INVESTISSEMENT"
+          "subtitle": "CAPITAL",
+          "title": "Financez et optimisez avec l'art",
+          "description": "Leasing d'art, investissement, avantages fiscaux. Des solutions sur mesure pour entreprises et dirigeants qui veulent faire de l'art un actif stratégique.",
+          "cta": "Simuler mon investissement"
         },
-        "studio": {
-          "subtitle": "INREALART STUDIO",
-          "title": "Agence artistique & collaborations",
-          "description": "Nous connectons artistes, marques et institutions.\n\nProduction de contenus, campagnes, collaborations :\nnous créons des projets artistiques à forte valeur culturelle et marketing.\n\nActiver l'art comme levier d'image",
-          "cta": "LANCER UN PROJET"
+        "agence": {
+          "subtitle": "AGENCE",
+          "title": "Activez des créateurs pour votre marque",
+          "description": "Des artistes avec une vision réelle au service de vos campagnes. UGC, brand content, collaborations — des créateurs authentiques, pas des profils génériques.",
+          "cta": "Déposer un brief"
+        },
+        "media": {
+          "subtitle": "MÉDIA",
+          "title": "Explorez l'art contemporain en profondeur",
+          "description": "InRealArt TV, blog éditorial, monographies d'artistes. Un observatoire de la création pour comprendre, découvrir et suivre la scène artistique d'aujourd'hui.",
+          "cta": "Découvrir le média"
         }
       }
     },
@@ -405,27 +428,24 @@
       "title": "Ils nous font confiance"
     },
     "mediaPartners": {
-      "title": "Nos Partenaires",
+      "title": "Partenaires médias",
       "description": "Ils parlent de nous et nous soutiennent"
     },
     "statistics": {
-      "title": "Le catalogue InRealArt c'est :",
+      "title": "InRealArt en chiffres",
+      "description": "La plateforme multi-pôles de l'art contemporain",
       "items": {
+        "artworks": {
+          "number": "300+",
+          "label": "Œuvres disponibles"
+        },
         "artists": {
-          "number": "35+",
-          "label": "Artistes sélectionnés dans notre catalogue global"
+          "number": "40+",
+          "label": "Artistes résidents"
         },
-        "works": {
-          "number": "600+",
-          "label": "Œuvres soigneusement choisies pour embellir votre collection"
-        },
-        "transactions": {
-          "number": "500+",
-          "label": "Transactions réalisées sur le testnet notre marketplace"
-        },
-        "ranking": {
-          "number": "100%",
-          "label": "De nos artistes satisfaits de leurs accompagnements"
+        "creators": {
+          "number": "20+",
+          "label": "Créateurs UGC"
         }
       }
     }
@@ -2439,8 +2459,8 @@
       "eyebrow": "La Lettre",
       "title": "L'art au cœur de",
       "titleAccent": "votre quotidien.",
-      "subtitle": "Nous parlons uniquement des sujets qui vous tiennent à cœur",
-      "description": "Portrait d'artistes, techniques, matériel et équipement professionnel, marchés de l'art etc...",
+      "subtitle": "Actualités des artistes, sorties d'œuvres, conseils d'investissement et décryptages du marché de l'art.",
+      "description": "1 email par semaine · Zéro spam · Désinscription en 1 clic",
       "emailPlaceholder": "nomdelartiste@email.com",
       "subscribeButton": "J'en profite dès maintenant",
       "subscribing": "Abonnement en cours...",
@@ -3387,7 +3407,11 @@
         "reelsCount": "vidéos",
         "galleryLabel": "Photos",
         "tagsNumber": "02",
-        "tagsLabel": "Son univers"
+        "tagsLabel": "Son univers",
+        "galleryBridgeNumber": "05",
+        "galleryBridgeLabel": "Galerie",
+        "galleryBridgeTitle": "Ses œuvres disponibles chez",
+        "galleryBridgeViewAll": "Voir toutes ses œuvres"
       }
     }
   }

@@ -5,39 +5,39 @@ import { loadGsap } from '@/lib/gsap'
 
 const items = [
   {
-    key: 'media',
+    key: 'galerie',
     number: '01.',
-    subtitleKey: 'home.expertises.items.media.subtitle',
-    titleKey: 'home.expertises.items.media.title',
-    descriptionKey: 'home.expertises.items.media.description',
-    ctaKey: 'home.expertises.items.media.cta',
-    link: '/media',
-  },
-  {
-    key: 'curate',
-    number: '02.',
-    subtitleKey: 'home.expertises.items.curate.subtitle',
-    titleKey: 'home.expertises.items.curate.title',
-    descriptionKey: 'home.expertises.items.curate.description',
-    ctaKey: 'home.expertises.items.curate.cta',
+    subtitleKey: 'home.expertises.items.galerie.subtitle',
+    titleKey: 'home.expertises.items.galerie.title',
+    descriptionKey: 'home.expertises.items.galerie.description',
+    ctaKey: 'home.expertises.items.galerie.cta',
     link: '/presale',
   },
   {
     key: 'capital',
-    number: '03.',
+    number: '02.',
     subtitleKey: 'home.expertises.items.capital.subtitle',
     titleKey: 'home.expertises.items.capital.title',
     descriptionKey: 'home.expertises.items.capital.description',
     ctaKey: 'home.expertises.items.capital.cta',
-    link: '/simulators/loa',
+    link: '/usecase',
   },
   {
-    key: 'studio',
+    key: 'agence',
+    number: '03.',
+    subtitleKey: 'home.expertises.items.agence.subtitle',
+    titleKey: 'home.expertises.items.agence.title',
+    descriptionKey: 'home.expertises.items.agence.description',
+    ctaKey: 'home.expertises.items.agence.cta',
+    link: '/agence',
+  },
+  {
+    key: 'media',
     number: '04.',
-    subtitleKey: 'home.expertises.items.studio.subtitle',
-    titleKey: 'home.expertises.items.studio.title',
-    descriptionKey: 'home.expertises.items.studio.description',
-    ctaKey: 'home.expertises.items.studio.cta',
+    subtitleKey: 'home.expertises.items.media.subtitle',
+    titleKey: 'home.expertises.items.media.title',
+    descriptionKey: 'home.expertises.items.media.description',
+    ctaKey: 'home.expertises.items.media.cta',
     link: '/media',
   },
 ]
@@ -89,11 +89,17 @@ export default function Expertises() {
               stagger: 0.18,
               scrollTrigger: {
                 trigger: cardsRef.current,
-                start: 'top 82%',
+                start: 'top 90%',
                 toggleActions: 'play none none none',
+                onEnter: () => gsap.set(cards, { opacity: 1, y: 0 }),
               },
             }
           )
+          // Sécurité : si les cards sont déjà visibles au montage, on les affiche directement
+          const rect = cardsRef.current.getBoundingClientRect()
+          if (rect.top < window.innerHeight) {
+            gsap.set(cards, { opacity: 1, y: 0 })
+          }
         }
       }, sectionRef)
     }
@@ -128,7 +134,7 @@ export default function Expertises() {
         {/* Cards */}
         <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {items.map((item) => (
-            <div key={item.key} className="expertise-card flex flex-col border-t border-borderColor pt-12 opacity-0">
+            <div key={item.key} className="expertise-card flex flex-col border-t border-borderColor pt-12">
               {/* Number + subtitle row */}
               <div className="flex items-center gap-4 mb-8">
                 <span className="serif text-4xl italic text-gold-accent leading-none">
@@ -152,8 +158,8 @@ export default function Expertises() {
                 {t(item.descriptionKey)}
               </p>
 
-              <div className="mt-auto pt-10 flex justify-center">
-                <a href={item.link} className="btn-cta" suppressHydrationWarning>
+              <div className="mt-auto pt-10">
+                <a href={item.link} className="btn-cta w-full min-h-[56px]" suppressHydrationWarning>
                   {t(item.ctaKey)}
                 </a>
               </div>
