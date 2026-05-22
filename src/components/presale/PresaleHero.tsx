@@ -2,7 +2,11 @@
 
 import { useTranslation } from '@/hooks/useTranslation'
 
-const PresaleHero = () => {
+interface PresaleHeroProps {
+  totalCount?: number
+}
+
+const PresaleHero = ({ totalCount }: PresaleHeroProps) => {
   const { t } = useTranslation()
 
   return (
@@ -17,6 +21,11 @@ const PresaleHero = () => {
       <p className="mt-8 text-[11px] uppercase tracking-[0.35em] text-textColor/60 max-w-xl leading-relaxed" suppressHydrationWarning>
         {t('presale.intro.subtitle').replace(/<br\s*\/?>/gi, ' ')}
       </p>
+      {totalCount !== undefined && (
+        <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-gold-accent/80" suppressHydrationWarning>
+          {t('presale.availableCount').replace('{{count}}', String(totalCount))}
+        </p>
+      )}
     </section>
   )
 }

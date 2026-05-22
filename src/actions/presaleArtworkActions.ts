@@ -27,6 +27,7 @@ export interface PresaleArtworkData {
     artist: {
         name: string
         surname: string
+        slug: string | null
     }
     translations?: {
         name?: Record<string, string>
@@ -61,7 +62,8 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 artist: {
                     select: {
                         name: true,
-                        surname: true
+                        surname: true,
+                        slug: true,
                     }
                 }
             },
@@ -119,6 +121,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 artist: {
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
+                    slug: artwork.artist.slug ?? null,
                 },
                 mockupUrls,
                 translations
@@ -158,7 +161,8 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
                     artist: {
                         select: {
                             name: true,
-                            surname: true
+                            surname: true,
+                            slug: true,
                         }
                     }
                 }
@@ -209,6 +213,7 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
             artist: {
                 name: artwork.artist.name ?? '',
                 surname: artwork.artist.surname ?? '',
+                slug: artwork.artist.slug ?? null,
             },
             mockupUrls,
             translations
@@ -248,7 +253,8 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
                 artist: {
                     select: {
                         name: true,
-                        surname: true
+                        surname: true,
+                        slug: true,
                     }
                 }
             }
@@ -265,7 +271,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
             }
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations: { name: {}, description: {} } }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null }, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
         return null
@@ -296,7 +302,8 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
                 artist: {
                     select: {
                         name: true,
-                        surname: true
+                        surname: true,
+                        slug: true,
                     }
                 }
             }
@@ -324,7 +331,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             description: translationsByEntity[artworkKey]?.description || {}
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '' }, mockupUrls, translations }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null }, mockupUrls, translations }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null
@@ -353,6 +360,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
                     select: {
                         name: true,
                         surname: true,
+                        slug: true,
                     },
                 },
             },
@@ -366,6 +374,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
             artist: {
                 name: a.artist.name ?? '',
                 surname: a.artist.surname ?? '',
+                slug: a.artist.slug ?? null,
             },
             mockupUrls: null,
             translations: { name: {}, description: {} },
@@ -397,7 +406,8 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 artist: {
                     select: {
                         name: true,
-                        surname: true
+                        surname: true,
+                        slug: true,
                     }
                 }
             },
@@ -455,6 +465,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 artist: {
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
+                    slug: artwork.artist.slug ?? null,
                 },
                 mockupUrls,
                 translations

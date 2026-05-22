@@ -1052,12 +1052,30 @@
       "allArtists": "All artists",
       "searchPlaceholder": "Search for an artwork or artist",
       "artworkFound": "artwork found",
-      "artworksFound": "artworks found"
+      "artworksFound": "artworks found",
+      "sortLabel": "Sort by",
+      "sortRecent": "Most recent",
+      "sortPriceAsc": "Price: low to high",
+      "sortPriceDesc": "Price: high to low",
+      "sortArtistAz": "Artist A→Z",
+      "statusAll": "All statuses",
+      "statusAvailable": "Available",
+      "statusSold": "Sold",
+      "formatAll": "All formats",
+      "formatSmall": "Small (< 50 cm)",
+      "formatMedium": "Medium (50–100 cm)",
+      "formatLarge": "Large (> 100 cm)",
+      "priceLabel": "Price range",
+      "priceMin": "Minimum price",
+      "priceMax": "Maximum price",
+      "reset": "Reset filters"
     },
     "artworks": {
       "button": {
         "seeDetail": "See detail"
-      }
+      },
+      "askPrice": "Ask for price",
+      "onLeasing": "On leasing"
     },
     "buyProcess": {
       "title": "Purchase Process",
@@ -1205,6 +1223,19 @@
         }
       },
       "invalidPhone": "Please enter a valid phone number"
+    },
+    "availableCount": "{{count}} available artworks",
+    "leasing": {
+      "eyebrow": "Financing",
+      "title": "Finance your acquisition",
+      "subtitle": "Integrate an exceptional artwork into your estate or professional spaces through art leasing. Tax-deductible, without tying up your capital.",
+      "bullets": [
+        "100 % deductible from taxable income",
+        "5-year amortisation",
+        "VAT recoverable"
+      ],
+      "cta": "Simulate my LOA financing",
+      "ctaNote": "Instant result — no commitment"
     }
   },
   "token": {

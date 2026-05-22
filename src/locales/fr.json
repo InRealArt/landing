@@ -1029,12 +1029,30 @@
       "allArtists": "Tous les artistes",
       "searchPlaceholder": "Rechercher une œuvre ou un artiste",
       "artworkFound": "œuvre trouvée",
-      "artworksFound": "œuvres trouvées"
+      "artworksFound": "œuvres trouvées",
+      "sortLabel": "Trier par",
+      "sortRecent": "Plus récent",
+      "sortPriceAsc": "Prix croissant",
+      "sortPriceDesc": "Prix décroissant",
+      "sortArtistAz": "Artiste A→Z",
+      "statusAll": "Tous les statuts",
+      "statusAvailable": "Disponible",
+      "statusSold": "Vendu",
+      "formatAll": "Tous les formats",
+      "formatSmall": "Petit (< 50 cm)",
+      "formatMedium": "Moyen (50–100 cm)",
+      "formatLarge": "Grand (> 100 cm)",
+      "priceLabel": "Fourchette de prix",
+      "priceMin": "Prix minimum",
+      "priceMax": "Prix maximum",
+      "reset": "Réinitialiser les filtres"
     },
     "artworks": {
       "button": {
         "seeDetail": "Voir détail"
-      }
+      },
+      "askPrice": "Demander le prix",
+      "onLeasing": "En leasing"
     },
     "buyProcess": {
       "title": "Processus d'achat",
@@ -1181,6 +1199,19 @@
         }
       },
       "invalidPhone": "Veuillez entrer un numéro de téléphone valide"
+    },
+    "availableCount": "{{count}} œuvres disponibles",
+    "leasing": {
+      "eyebrow": "Financement",
+      "title": "Financez votre acquisition",
+      "subtitle": "Intégrez une œuvre d'exception dans votre patrimoine ou vos espaces professionnels grâce au leasing d'art. Déductible fiscalement, sans immobiliser votre capital.",
+      "bullets": [
+        "100 % déductible du résultat imposable",
+        "Amortissement sur 5 ans",
+        "TVA récupérable"
+      ],
+      "cta": "Simuler mon financement LOA",
+      "ctaNote": "Résultat immédiat — sans engagement"
     }
   },
   "token": {
