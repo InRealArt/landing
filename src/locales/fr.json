@@ -3158,7 +3158,8 @@
       "cta": "Déposer un brief",
       "stat1": "Créateurs vérifiés",
       "stat2": "Marques activées",
-      "stat3": "Droits inclus"
+      "stat3": "Droits inclus",
+      "ctaSecondary": "Rejoindre l'agence"
     },
     "differentiators": {
       "eyebrow": "Ce qui nous distingue",
@@ -3361,7 +3362,15 @@
       "defaultTitle": "Créateur",
       "cta": "Voir le profil",
       "ctaComingSoon": "Bientôt disponible",
-      "seeAll": "Tous nos artistes"
+      "seeAll": "Tous nos artistes",
+      "filters": {
+        "all": "Tous",
+        "luxury": "Luxe",
+        "lifestyle": "Lifestyle",
+        "cultural": "Culturel",
+        "institutional": "Institutionnel"
+      },
+      "noResults": "Aucun créateur dans cette verticale pour le moment."
     },
     "partners": {
       "eyebrow": "Partenaires",
@@ -3443,6 +3452,118 @@
         "galleryBridgeLabel": "Galerie",
         "galleryBridgeTitle": "Ses œuvres disponibles chez",
         "galleryBridgeViewAll": "Voir toutes ses œuvres"
+      }
+    },
+    "caseStudies": {
+      "eyebrow": "Ils nous font confiance",
+      "title": "Des résultats,",
+      "titleAccent": "pas des promesses.",
+      "case1": {
+        "brand": "Maison de Luxe",
+        "campaign": "Lancement parfum — Printemps 2025",
+        "metric1": {
+          "value": "2,3M",
+          "label": "Impressions"
+        },
+        "metric2": {
+          "value": "8,4%",
+          "label": "Taux d'engagement"
+        },
+        "metric3": {
+          "value": "12",
+          "label": "Créateurs activés"
+        },
+        "tag": "Luxe · Parfumerie"
+      },
+      "case2": {
+        "brand": "Retailer Premium",
+        "campaign": "Pop-up activation — Marais, Paris",
+        "metric1": {
+          "value": "+340%",
+          "label": "Reach vs objectif"
+        },
+        "metric2": {
+          "value": "48h",
+          "label": "Délai d'activation"
+        },
+        "metric3": {
+          "value": "7",
+          "label": "Créateurs présents"
+        },
+        "tag": "Retail · Événementiel"
+      },
+      "case3": {
+        "brand": "Institution culturelle",
+        "campaign": "Ambassade long terme — 6 mois",
+        "metric1": {
+          "value": "15",
+          "label": "Assets livrés"
+        },
+        "metric2": {
+          "value": "4",
+          "label": "Plateformes activées"
+        },
+        "metric3": {
+          "value": "100%",
+          "label": "Droits cédés"
+        },
+        "tag": "Culturel · Institutionnel"
+      }
+    },
+    "brief": {
+      "metadata": {
+        "title": "Déposer un brief — In Real Art Agence",
+        "description": "Décrivez votre projet créateur en 2 minutes. Notre équipe vous répond sous 48h avec une proposition personnalisée."
+      },
+      "hero": {
+        "eyebrow": "Agence Créateurs",
+        "title": "Votre brief,",
+        "titleAccent": "notre casting.",
+        "subtitle": "Décrivez votre projet en quelques champs. Notre équipe revient vers vous sous 48h avec une sélection de créateurs et une estimation."
+      },
+      "form": {
+        "company": "Nom & entreprise",
+        "companyPlaceholder": "Ex. : Maison Rivière",
+        "projectType": "Type de projet",
+        "projectTypes": {
+          "ugc": "UGC",
+          "campaign": "Campagne",
+          "partnership": "Partenariat long terme",
+          "event": "Événement"
+        },
+        "vertical": "Verticale",
+        "verticals": {
+          "luxury": "Luxe",
+          "lifestyle": "Lifestyle",
+          "cultural": "Culturel",
+          "institutional": "Institutionnel",
+          "other": "Autre"
+        },
+        "platforms": "Plateforme(s) cible(s)",
+        "platformOptions": {
+          "instagram": "Instagram",
+          "tiktok": "TikTok",
+          "youtube": "YouTube",
+          "linkedin": "LinkedIn",
+          "print": "Print"
+        },
+        "budget": "Budget indicatif",
+        "budgetOptions": {
+          "under2k": "< 2 000 €",
+          "2to5k": "2 000 – 5 000 €",
+          "5to15k": "5 000 – 15 000 €",
+          "above15k": "15 000 €+"
+        },
+        "deadline": "Deadline souhaitée",
+        "description": "Description du projet",
+        "descriptionPlaceholder": "Décrivez votre projet, vos objectifs, vos références visuelles... (500 caractères max)",
+        "email": "Email de contact",
+        "emailPlaceholder": "contact@votremarque.com",
+        "rgpd": "J'accepte que mes données soient utilisées pour traiter ma demande",
+        "submit": "Recevoir une proposition sous 48h",
+        "successTitle": "Brief reçu — merci.",
+        "successMessage": "Notre équipe vous recontacte dans les 48h avec une sélection personnalisée.",
+        "errorMessage": "Une erreur est survenue. Réessayez ou contactez-nous directement."
       }
     }
   }

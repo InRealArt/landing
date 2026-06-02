@@ -1,11 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+
+type Vertical = 'all' | 'luxury' | 'lifestyle' | 'cultural' | 'institutional'
+
+const VERTICAL_FILTERS: Vertical[] = ['all', 'luxury', 'lifestyle', 'cultural', 'institutional']
+
+// Temporary static mapping slug → vertical until DB field is available
+const VERTICAL_MAP: Record<string, Vertical> = {}
+
+function getVertical(artist: UgcTopArtistData): Vertical {
+  return VERTICAL_MAP[artist.profile.slug] ?? 'lifestyle'
+}
 
 interface Props {
   t: (key: string) => string
@@ -22,6 +33,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
+  const [activeFilter, setActiveFilter] = useState<Vertical>('all')
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -62,9 +74,12 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
 
     return () => {
       ctx.revert()
-      ScrollTrigger.getAll().forEach((st) => st.kill())
     }
   }, [])
+
+  const filteredArtists = activeFilter === 'all'
+    ? artists
+    : artists.filter((a) => getVertical(a) === activeFilter)
 
   if (artists.length === 0) return null
 
@@ -73,7 +88,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
       <div className="max-w-screen-2xl mx-auto px-10">
 
         {/* Section header */}
-        <div ref={headerRef} className="mb-20" style={{ opacity: 0 }}>
+        <div ref={headerRef} className="mb-12" style={{ opacity: 0 }}>
           <span className="section-number">{t('agence.topCreateurs.eyebrow')}</span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-4 pb-14 border-b border-borderColor">
             <h2 className="serif text-4xl md:text-5xl font-light leading-tight text-textColor max-w-lg">
@@ -86,12 +101,35 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
           </div>
         </div>
 
+        {/* Vertical filter */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {VERTICAL_FILTERS.map((v) => (
+            <button
+              key={v}
+              onClick={() => setActiveFilter(v)}
+              className={[
+                'text-[10px] uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
+                activeFilter === v
+                  ? 'border-gold-accent bg-gold-accent text-white'
+                  : 'border-borderColor text-grayText hover:border-gold-accent/50 hover:text-textColor',
+              ].join(' ')}
+            >
+              {t(`agence.topCreateurs.filters.${v}`)}
+            </button>
+          ))}
+        </div>
+
         {/* Artists grid */}
+        {filteredArtists.length === 0 ? (
+          <p className="text-[12px] uppercase tracking-[0.3em] text-grayText montserrat py-12">
+            {t('agence.topCreateurs.noResults')}
+          </p>
+        ) : null}
         <div
           ref={cardsRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {artists.map((artist) => {
+          {filteredArtists.map((artist) => {
             const name = displayName(artist.profile)
             const href = `/agence/artists/${artist.profile.slug}`
 

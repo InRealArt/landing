@@ -65,6 +65,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/services',
   '/agence',
   '/agence/artists',
+  '/agence/brief',
 ])
 
 // Known dynamic route prefixes with exactly one slug segment — always valid

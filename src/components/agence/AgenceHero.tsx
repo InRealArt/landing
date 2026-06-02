@@ -15,7 +15,7 @@ export default function AgenceHero({ t }: Props) {
   const titleAccentRef = useRef<HTMLElement>(null)
   const subtitleRowRef = useRef<HTMLDivElement>(null)
   const goldBarRef = useRef<HTMLDivElement>(null)
-  const ctaRef = useRef<HTMLAnchorElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -95,17 +95,23 @@ export default function AgenceHero({ t }: Props) {
               </p>
             </div>
 
-            <Link
-              ref={ctaRef}
-              href="/contact"
-              className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
-              style={{ opacity: 0 }}
-            >
-              {t('agence.hero.cta')}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4" style={{ opacity: 0 }}>
+              <Link
+                href="/agence/brief"
+                className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
+              >
+                {t('agence.hero.cta')}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
+              >
+                {t('agence.hero.ctaSecondary')}
+              </Link>
+            </div>
           </div>
 
           {/* Right column — vertical stat strip */}
