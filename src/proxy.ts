@@ -49,6 +49,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/manifest',
   '/marketplace',
   '/media',
+  '/media/production',
   '/presale',
   '/roadmap',
   '/simulators',

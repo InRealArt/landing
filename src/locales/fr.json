@@ -2073,6 +2073,98 @@
       },
       "cta": "Faire votre demande à Marian",
       "imageAlt": "Marian Production"
+    },
+    "production": {
+      "eyebrow": "InRealArt Production",
+      "title": "Nos packages",
+      "titleAccent": "de production.",
+      "subtitle": "Trois formules pour valoriser votre marque, vos artistes ou vos événements culturels.",
+      "packages": {
+        "portrait": {
+          "name": "Portrait Artiste",
+          "description": "Interview filmée, présentation de l'œuvre, montage édito. Idéal pour les galeries et les artistes en développement.",
+          "includes": [
+            "Interview 30 min cadrée",
+            "Montage éditorial 3–5 min",
+            "Droits numériques inclus"
+          ],
+          "tag": "Dès 1 créateur"
+        },
+        "reportage": {
+          "name": "Reportage",
+          "description": "Couverture complète d'un vernissage, d'une foire ou d'un événement. Aftermovie + extraits réseaux sociaux.",
+          "includes": [
+            "Équipe 2 personnes",
+            "Aftermovie 2–4 min",
+            "3 extraits 30s pour réseaux"
+          ],
+          "tag": "Événement / Galerie"
+        },
+        "campaign": {
+          "name": "Campagne Full",
+          "description": "Accompagnement éditorial long terme : série de portraits, contenus marque, direction artistique vidéo.",
+          "includes": [
+            "Série 3–6 épisodes",
+            "Direction artistique",
+            "Diffusion multiplateforme"
+          ],
+          "tag": "Sur devis"
+        }
+      },
+      "cta": "Déposer une demande de production",
+      "ctaSecondary": "Voir nos réalisations"
+    },
+    "productionContact": {
+      "metadata": {
+        "title": "Demande de production — InRealArt Média",
+        "description": "Décrivez votre projet audiovisuel. Notre équipe production vous répond sous 48h."
+      },
+      "hero": {
+        "eyebrow": "InRealArt Production",
+        "title": "Votre projet",
+        "titleAccent": "de production.",
+        "subtitle": "Remplissez ce formulaire et notre équipe vous revient sous 48h avec une proposition adaptée."
+      },
+      "form": {
+        "name": "Nom & structure",
+        "namePlaceholder": "Ex. : Galerie Rivière / Fondation X",
+        "projectType": "Type de projet",
+        "projectTypes": {
+          "portrait": "Portrait artiste",
+          "reportage": "Reportage événement",
+          "campaign": "Campagne Full",
+          "other": "Autre"
+        },
+        "subject": "Sujet / Artiste concerné",
+        "subjectPlaceholder": "Nom de l'artiste, de l'exposition, de l'événement...",
+        "date": "Date souhaitée",
+        "email": "Email de contact",
+        "emailPlaceholder": "contact@votrestructure.com",
+        "message": "Précisions",
+        "messagePlaceholder": "Contexte, lieu, contraintes techniques, budget indicatif...",
+        "rgpd": "J'accepte que mes données soient utilisées pour traiter ma demande",
+        "submit": "Envoyer ma demande",
+        "successTitle": "Demande reçue — merci.",
+        "successMessage": "Notre équipe production vous recontacte sous 48h.",
+        "errorMessage": "Une erreur est survenue. Réessayez ou contactez-nous directement."
+      }
+    },
+    "hub": {
+      "eyebrow": "L'observatoire de la création",
+      "title": "Tout l'univers",
+      "titleAccent": "InRealArt Média.",
+      "col1": {
+        "label": "InRealArt TV",
+        "desc": "Épisodes, portraits, coulisses"
+      },
+      "col2": {
+        "label": "Blog & Édito",
+        "desc": "Articles, interviews, tendances"
+      },
+      "col3": {
+        "label": "Production",
+        "desc": "Packages, devis, réalisations"
+      }
     }
   },
   "services": {

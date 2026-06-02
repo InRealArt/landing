@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslation } from '@/hooks/useTranslation'
 import TranslatedText from '@/components/common/TranslatedText'
@@ -216,12 +217,12 @@ export default function InRealArtTvSection() {
             <TranslatedText translationKey="inartTvSection.header.title" />
           </h2>
         </div>
-        <a
-          href="mailto:teaminrealart@gmail.com"
+        <Link
+          href="/media/production"
           className="btn-action inline-flex items-center min-h-[44px] self-start sm:self-auto"
         >
           <TranslatedText translationKey="inartTvSection.header.cta" />
-        </a>
+        </Link>
       </div>
 
       {/* TV images grid 2×2 */}

@@ -4,10 +4,7 @@ import { useState } from 'react'
 import { submitCapitalContact } from '@/actions/capitalContactAction'
 import type { CapitalContactInput } from '@/actions/capitalContactAction'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
-
-interface Props {
-  t: (key: string) => string
-}
+import { useTranslation } from '@/hooks/useTranslation'
 
 type Sector = 'hotel' | 'real_estate' | 'sme' | 'large_group' | 'other'
 type CompanySize = 's1' | 's2' | 's3' | 's4'
@@ -25,7 +22,8 @@ type FormState = {
   rgpd: boolean
 }
 
-export default function CapitalContactForm({ t }: Props) {
+export default function CapitalContactForm() {
+  const { t } = useTranslation()
   const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
   const [form, setForm] = useState<FormState>({
     company: '',

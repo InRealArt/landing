@@ -5,11 +5,12 @@ import ExpoSection from '@/components/media/ExpoSection'
 import MediaArticlesSection from '@/components/media/MediaArticlesSection'
 import MarianSection from '@/components/media/MarianSection'
 import InRealArtTvSection from '@/components/media/InRealArtTvSection'
+import MediaProductionPackages from '@/components/media/MediaProductionPackages'
 
 export const metadata: Metadata = generateStaticMetadata({
-  title: "Espace Média & Création — InRealArt",
+  title: "L'Observatoire de la Création — InRealArt Média",
   description:
-    "Expositions, articles, entretiens d'artistes et productions vidéo : l'Observatoire de la Création d'InRealArt.",
+    "TV, blog éditorial, interviews d'artistes et packages de production : tout l'univers médias d'InRealArt.",
   keywords: [
     'média art',
     'expositions',
@@ -18,7 +19,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'InRealArt TV',
     'création contemporaine',
   ],
-  canonical: 'https://inrealart.com/media',
+  canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://inrealart.com'}/media`,
 })
 
 export default function MediaPage() {
@@ -40,6 +41,9 @@ export default function MediaPage() {
         <MarianSection />
 
       </main>
+
+      {/* 5. Packages de production */}
+      <MediaProductionPackages />
     </>
   )
 }

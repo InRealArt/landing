@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslation } from '@/hooks/useTranslation'
 
@@ -63,12 +64,12 @@ export default function MarianSection() {
             ))}
           </ul>
 
-          <a
-            href="mailto:teaminrealart@gmail.com"
+          <Link
+            href="/media/production"
             className="btn-action inline-flex items-center min-h-[44px]"
           >
             {t('media.marian.cta')}
-          </a>
+          </Link>
         </div>
 
         {/* Right column — image */}
