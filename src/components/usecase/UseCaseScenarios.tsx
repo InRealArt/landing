@@ -8,6 +8,7 @@ interface Scenario {
   title: string
   titleItalic: string
   description: string
+  roi: string
   pills: string[]
   cta: string
   ctaSecondary: string
@@ -27,6 +28,7 @@ export default function UseCaseScenarios() {
       title: t('usecase.scenarios.scenario2.title'),
       titleItalic: t('usecase.scenarios.scenario2.titleItalic'),
       description: t('usecase.scenarios.scenario2.description'),
+      roi: t('usecase.scenarios.scenario2.roi'),
       pills: [
         t('usecase.scenarios.scenario2.pills.0'),
         t('usecase.scenarios.scenario2.pills.1'),
@@ -45,6 +47,7 @@ export default function UseCaseScenarios() {
       title: t('usecase.scenarios.scenario1.title'),
       titleItalic: t('usecase.scenarios.scenario1.titleItalic'),
       description: t('usecase.scenarios.scenario1.description'),
+      roi: t('usecase.scenarios.scenario1.roi'),
       pills: [
         t('usecase.scenarios.scenario1.pills.0'),
         t('usecase.scenarios.scenario1.pills.1'),
@@ -63,6 +66,7 @@ export default function UseCaseScenarios() {
       title: t('usecase.scenarios.scenario3.title'),
       titleItalic: t('usecase.scenarios.scenario3.titleItalic'),
       description: t('usecase.scenarios.scenario3.description'),
+      roi: t('usecase.scenarios.scenario3.roi'),
       pills: [
         t('usecase.scenarios.scenario3.pills.0'),
         t('usecase.scenarios.scenario3.pills.1'),
@@ -121,9 +125,17 @@ export default function UseCaseScenarios() {
                 </span>
               </h2>
 
-              <p className="text-[13px] leading-relaxed mb-8 text-grayText montserrat font-light">
+              <p className="text-[13px] leading-relaxed mb-6 text-grayText montserrat font-light">
                 {scenario.description}
               </p>
+
+              {/* ROI metric */}
+              <div className="flex items-center gap-3 mb-8 py-4 border-y border-borderColor">
+                <div className="w-1 h-1 rounded-full bg-gold-accent shrink-0" aria-hidden="true" />
+                <p className="text-[11px] uppercase tracking-[0.25em] montserrat" style={{ color: 'var(--gold-accent)' }}>
+                  {scenario.roi}
+                </p>
+              </div>
 
               {/* Pill tags */}
               <div className="flex flex-wrap gap-2 mb-10">

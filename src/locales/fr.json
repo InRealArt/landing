@@ -1291,7 +1291,29 @@
       "titleBefore": "Valoriser ",
       "titleAccent": "votre entreprise et ",
       "titleAfter": "votre patrimoine",
-      "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces."
+      "subtitle": "De la valorisation de patrimoine immobilier à l'affirmation de marque employeur, découvrez comment nos curateurs transforment vos espaces.",
+      "profiles": {
+        "pme": {
+          "label": "PME",
+          "tagline": "Optimisez votre fiscalité et valorisez vos espaces de travail grâce au leasing d'art."
+        },
+        "largeGroup": {
+          "label": "Grand groupe",
+          "tagline": "Structurez votre politique RSE et renforcez votre marque employeur par l'art contemporain."
+        },
+        "hotel": {
+          "label": "Hôtellerie",
+          "tagline": "Créez un parcours artistique cohérent pour vos clients et valorisez chaque espace."
+        },
+        "developer": {
+          "label": "Promoteur",
+          "tagline": "Augmentez la valeur perçue de vos actifs et accélérez les délais de commercialisation."
+        },
+        "residential": {
+          "label": "Résidentiel",
+          "tagline": "Personnalisez vos appartements témoins et espaces communs avec des œuvres sur-mesure."
+        }
+      }
     },
     "items": {
       "fractionate": {
@@ -1380,7 +1402,8 @@
           "Vente directe aux clients"
         ],
         "cta": "Étude de cas détaillée →",
-        "ctaSecondary": "Simulateur LOA"
+        "ctaSecondary": "Simulateur LOA",
+        "roi": "+18% satisfaction équipes · 100% charges déductibles"
       },
       "scenario2": {
         "badge": "Scénario 01",
@@ -1393,7 +1416,8 @@
           "Bien-être au travail"
         ],
         "cta": "Consulter nos solutions leasing →",
-        "ctaSecondary": "Simulateur LOA"
+        "ctaSecondary": "Simulateur LOA",
+        "roi": "+12% valeur perçue chambre · ROI positif dès 18 mois"
       },
       "scenario3": {
         "badge": "Scénario 03",
@@ -1406,7 +1430,8 @@
           "Artistes émergents"
         ],
         "cta": "Contactez un curateur →",
-        "ctaSecondary": "Simulateur LOA"
+        "ctaSecondary": "Simulateur LOA",
+        "roi": "+8% prix de vente · Délai de vente réduit de 23%"
       }
     },
     "impact": {
@@ -1426,7 +1451,87 @@
     "ctaFinal": {
       "title": "Un projet spécifique en tête ?",
       "subtitle": "Nos experts vous accompagnent de la sélection artistique au montage financier.",
-      "button": "Rdv gratuit avec un curateur"
+      "button": "Rdv gratuit avec un curateur",
+      "buttonPrimary": "Télécharger la plaquette",
+      "buttonSecondary": "Prendre rendez-vous"
+    },
+    "fiscal": {
+      "eyebrow": "Avantages fiscaux",
+      "title": "L'art, un actif fiscalement optimisé.",
+      "subtitle": "Trois leviers concrets pour intégrer l'art dans votre stratégie financière.",
+      "stat1": {
+        "value": "100%",
+        "label": "Déductible du résultat imposable"
+      },
+      "stat2": {
+        "value": "5 ans",
+        "label": "Durée d'amortissement comptable"
+      },
+      "stat3": {
+        "value": "TVA",
+        "label": "Récupérable sur les loyers LOA"
+      }
+    },
+    "inlineSimulator": {
+      "eyebrow": "Simulateur LOA",
+      "title": "Calculez votre leasing en direct.",
+      "subtitle": "Renseignez la valeur de l'œuvre et la durée souhaitée — obtenez instantanément le loyer mensuel et les avantages fiscaux associés."
+    },
+    "capital": {
+      "contact": {
+        "metadata": {
+          "title": "Prendre rendez-vous — InRealArt Capital",
+          "description": "Décrivez votre projet d'acquisition ou de leasing d'art. Notre équipe Capital vous répond sous 48h."
+        },
+        "hero": {
+          "eyebrow": "InRealArt Capital",
+          "title": "Parlons de",
+          "titleAccent": "votre projet.",
+          "subtitle": "Notre équipe Capital revient vers vous sous 48h avec une proposition adaptée à votre secteur et vos objectifs."
+        },
+        "form": {
+          "company": "Nom & entreprise",
+          "companyPlaceholder": "Ex. : Groupe Rivière",
+          "sector": "Secteur",
+          "sectors": {
+            "hotel": "Hôtellerie",
+            "real_estate": "Immobilier",
+            "sme": "PME",
+            "large_group": "Grand groupe",
+            "other": "Autre"
+          },
+          "companySize": "Taille entreprise",
+          "sizes": {
+            "s1": "1 – 10 collaborateurs",
+            "s2": "10 – 50 collaborateurs",
+            "s3": "50 – 250 collaborateurs",
+            "s4": "250+ collaborateurs"
+          },
+          "budget": "Budget LOA indicatif",
+          "budgets": {
+            "b1": "< 5 000 €",
+            "b2": "5 000 – 20 000 €",
+            "b3": "20 000 – 50 000 €",
+            "b4": "50 000 €+"
+          },
+          "need": "Besoin",
+          "needs": {
+            "leasing": "Leasing d'œuvres",
+            "investment": "Investissement",
+            "advisory": "Conseil",
+            "other": "Autre"
+          },
+          "message": "Message",
+          "messagePlaceholder": "Décrivez votre projet, vos espaces, vos objectifs...",
+          "email": "Email de contact",
+          "emailPlaceholder": "contact@votre-entreprise.com",
+          "rgpd": "J'accepte que mes données soient utilisées pour traiter ma demande",
+          "submit": "Envoyer ma demande",
+          "successTitle": "Demande reçue — merci.",
+          "successMessage": "Notre équipe Capital vous recontacte sous 48h.",
+          "errorMessage": "Une erreur est survenue. Réessayez ou contactez-nous directement."
+        }
+      }
     }
   },
   "leasing": {

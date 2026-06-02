@@ -1315,7 +1315,29 @@
       "titleBefore": "Enhance the value of ",
       "titleAccent": "your business ",
       "titleAfter": "and your assets",
-      "subtitle": "From real estate heritage valorisation to employer brand affirmation, discover how our curators transform your spaces."
+      "subtitle": "From real estate heritage valorisation to employer brand affirmation, discover how our curators transform your spaces.",
+      "profiles": {
+        "pme": {
+          "label": "SME",
+          "tagline": "Optimise your tax position and enhance your workspaces through art leasing."
+        },
+        "largeGroup": {
+          "label": "Large group",
+          "tagline": "Structure your CSR policy and strengthen your employer brand through contemporary art."
+        },
+        "hotel": {
+          "label": "Hospitality",
+          "tagline": "Create a coherent artistic journey for your guests and enhance every space."
+        },
+        "developer": {
+          "label": "Developer",
+          "tagline": "Increase the perceived value of your assets and shorten time to sale."
+        },
+        "residential": {
+          "label": "Residential",
+          "tagline": "Personalise your show apartments and communal areas with bespoke artworks."
+        }
+      }
     },
     "items": {
       "fractionate": {
@@ -1404,7 +1426,8 @@
           "Direct sales to clients"
         ],
         "cta": "Detailed case study →",
-        "ctaSecondary": "Leasing Simulator"
+        "ctaSecondary": "Leasing Simulator",
+        "roi": "+18% team satisfaction · 100% tax-deductible costs"
       },
       "scenario2": {
         "badge": "Scenario 02",
@@ -1417,7 +1440,8 @@
           "Workplace wellness"
         ],
         "cta": "Explore our leasing solutions →",
-        "ctaSecondary": "Leasing Simulator"
+        "ctaSecondary": "Leasing Simulator",
+        "roi": "+12% perceived room value · Positive ROI within 18 months"
       },
       "scenario3": {
         "badge": "Scenario 03",
@@ -1430,7 +1454,8 @@
           "Emerging artists"
         ],
         "cta": "Contact a curator →",
-        "ctaSecondary": "Leasing Simulator"
+        "ctaSecondary": "Leasing Simulator",
+        "roi": "+8% sale price · 23% shorter sales cycle"
       }
     },
     "impact": {
@@ -1450,7 +1475,87 @@
     "ctaFinal": {
       "title": "A specific project in mind?",
       "subtitle": "Our experts guide you from artwork selection to financial structuring.",
-      "button": "Free appointment with a curator"
+      "button": "Free appointment with a curator",
+      "buttonPrimary": "Download the brochure",
+      "buttonSecondary": "Book a meeting"
+    },
+    "fiscal": {
+      "eyebrow": "Tax benefits",
+      "title": "Art as a tax-optimised asset.",
+      "subtitle": "Three concrete levers to integrate art into your financial strategy.",
+      "stat1": {
+        "value": "100%",
+        "label": "Deductible from taxable income"
+      },
+      "stat2": {
+        "value": "5 yrs",
+        "label": "Accounting depreciation period"
+      },
+      "stat3": {
+        "value": "VAT",
+        "label": "Recoverable on LOA lease payments"
+      }
+    },
+    "inlineSimulator": {
+      "eyebrow": "LOA Simulator",
+      "title": "Calculate your lease instantly.",
+      "subtitle": "Enter the artwork value and desired duration — get the monthly payment and associated tax benefits immediately."
+    },
+    "capital": {
+      "contact": {
+        "metadata": {
+          "title": "Book a meeting — InRealArt Capital",
+          "description": "Describe your art acquisition or leasing project. Our Capital team replies within 48h."
+        },
+        "hero": {
+          "eyebrow": "InRealArt Capital",
+          "title": "Let's talk about",
+          "titleAccent": "your project.",
+          "subtitle": "Our Capital team gets back to you within 48h with a proposal tailored to your sector and objectives."
+        },
+        "form": {
+          "company": "Name & company",
+          "companyPlaceholder": "e.g. Rivière Group",
+          "sector": "Sector",
+          "sectors": {
+            "hotel": "Hospitality",
+            "real_estate": "Real estate",
+            "sme": "SME",
+            "large_group": "Large group",
+            "other": "Other"
+          },
+          "companySize": "Company size",
+          "sizes": {
+            "s1": "1 – 10 employees",
+            "s2": "10 – 50 employees",
+            "s3": "50 – 250 employees",
+            "s4": "250+ employees"
+          },
+          "budget": "Indicative LOA budget",
+          "budgets": {
+            "b1": "< €5,000",
+            "b2": "€5,000 – €20,000",
+            "b3": "€20,000 – €50,000",
+            "b4": "€50,000+"
+          },
+          "need": "Need",
+          "needs": {
+            "leasing": "Artwork leasing",
+            "investment": "Investment",
+            "advisory": "Advisory",
+            "other": "Other"
+          },
+          "message": "Message",
+          "messagePlaceholder": "Describe your project, spaces, objectives...",
+          "email": "Contact email",
+          "emailPlaceholder": "contact@yourcompany.com",
+          "rgpd": "I agree to have my data used to process my request",
+          "submit": "Send my request",
+          "successTitle": "Request received — thank you.",
+          "successMessage": "Our Capital team will get back to you within 48h.",
+          "errorMessage": "An error occurred. Please try again or contact us directly."
+        }
+      }
     }
   },
   "leasing": {

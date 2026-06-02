@@ -62,6 +62,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/usecase/leasing/hotelPrestige',
   '/usecase/leasing/immobilier',
   '/usecase/lending',
+  '/usecase/capital/contact',
   '/services',
   '/agence',
   '/agence/artists',
