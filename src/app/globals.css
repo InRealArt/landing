@@ -9,6 +9,7 @@
   --card: #1d1c1c;
   --text: #ffffff;
   --background: #131313;
+  --background-rgb: 19 19 19;
   --purple: #6052ff;
   --header-height: 90px;
   --footer-height: 300px;
@@ -26,6 +27,7 @@
 /* Light mode variables - Gallery Style */
 [data-theme='light'] {
   --background: #ffffff;
+  --background-rgb: 255 255 255;
   --text: #000000;
   --card: #fbfbfb;
   --purple: #6052ff;
@@ -48,6 +50,7 @@
 /* Dark mode variables (explicit for consistency) */
 [data-theme='dark'] {
   --background: #131313;
+  --background-rgb: 19 19 19;
   --text: #ffffff;
   --card: #1d1c1c;
   --purple: #6052ff;

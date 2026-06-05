@@ -228,12 +228,15 @@
     "hero": {
       "claim": "L'art vivant, accessible.",
       "claimAccent": "Achetez, financez, collaborez.",
-      "profileArtist": "Artiste",
+      "profileArtist": "Artiste & galerie",
+      "profileBrand": "Marque",
       "profileCollector": "Collectionneur",
       "profileEnterprise": "Entreprise",
       "ctaArtist": "Rejoindre la galerie",
       "ctaCollector": "Découvrir les œuvres",
-      "ctaEnterprise": "Financer avec l'art"
+      "ctaEnterprise": "Financer avec l'art",
+      "ctaBrand": "Découvrir l'agence",
+      "ctaCalendly": "Prendre RDV"
     }
   },
   "artists": {
@@ -340,7 +343,7 @@
       }
     },
     "expertises": {
-      "eyebrow": "Nos pôles",
+      "eyebrow": "On vous accompagne",
       "title": "Quatre façons",
       "titleAccent": "d'entrer.",
       "items": {
@@ -383,7 +386,7 @@
     },
     "residentArtists": {
       "eyebrow": "Cercle Privé",
-      "title": "Signatures.",
+      "title": "Nos signatures.",
       "cta": "Découvrir tous les artistes résidents →"
     },
     "explore": {
@@ -433,19 +436,23 @@
     },
     "statistics": {
       "title": "InRealArt en chiffres",
-      "description": "La plateforme multi-pôles de l'art contemporain",
+      "description": "L'écosystème catalyseur d'art, de culture et de patrimoine",
       "items": {
         "artworks": {
-          "number": "300+",
+          "number": "500",
           "label": "Œuvres disponibles"
         },
         "artists": {
           "number": "40+",
-          "label": "Artistes résidents"
+          "label": "Artistes résidents internationaux"
+        },
+        "museum": {
+          "number": "150+",
+          "label": "Œuvres dans des musées & collections privées"
         },
         "creators": {
           "number": "20+",
-          "label": "Créateurs UGC"
+          "label": "Créateurs de contenus"
         }
       }
     }

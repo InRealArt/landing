@@ -137,7 +137,7 @@ export default function Expertises() {
             <div key={item.key} className="expertise-card flex flex-col border-t border-borderColor pt-12">
               {/* Number + subtitle row */}
               <div className="flex items-center gap-4 mb-8">
-                <span className="serif text-4xl italic text-gold-accent leading-none">
+                <span className="serif text-4xl italic text-gold-accent leading-none w-12 shrink-0">
                   {item.number}
                 </span>
                 <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
@@ -146,7 +146,7 @@ export default function Expertises() {
               </div>
 
               {/* Title */}
-              <h4 className="text-3xl serif mb-6 italic text-textColor" suppressHydrationWarning>
+              <h4 className="text-3xl serif mb-6 italic text-textColor min-h-[7rem]" suppressHydrationWarning>
                 {t(item.titleKey)}
               </h4>
 

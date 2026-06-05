@@ -84,11 +84,8 @@ export default function ResidentArtists({ artists }: ResidentArtistsProps) {
     return `${artist.name} ${artist.surname}`.trim()
   }
 
-  const getCategory = (artist: ResidentArtist) => {
-    if (artist.mediumTags && artist.mediumTags.length > 0) {
-      return artist.mediumTags[0]
-    }
-    return 'Artiste Résident'
+  const getCategory = (_artist: ResidentArtist) => {
+    return 'Peintre & artiste résident'
   }
 
   return (

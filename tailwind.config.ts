@@ -40,7 +40,7 @@ export default {
       },
       colors: {
         purpleColor: "var(--purple)",
-        backgroundColor: "var(--background)",
+        backgroundColor: "rgb(var(--background-rgb) / <alpha-value>)",
         textColor: "var(--text)",
         cardBackground: "var(--card)",
         gradientStart: "var(--gradient-start)",

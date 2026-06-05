@@ -23,8 +23,14 @@ const Statistics = () => {
       label: t('home.statistics.items.artists.label')
     },
     {
-      key: 'creators',
+      key: 'museum',
       index: '03.',
+      number: t('home.statistics.items.museum.number'),
+      label: t('home.statistics.items.museum.label')
+    },
+    {
+      key: 'creators',
+      index: '04.',
       number: t('home.statistics.items.creators.number'),
       label: t('home.statistics.items.creators.label')
     },
@@ -155,7 +161,7 @@ const Statistics = () => {
         </div>
 
         {/* Stats grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => (
             <div
               key={stat.key}

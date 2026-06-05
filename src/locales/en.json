@@ -228,12 +228,15 @@
     "hero": {
       "claim": "Living art, made accessible.",
       "claimAccent": "Buy, finance, collaborate.",
-      "profileArtist": "Artist",
+      "profileArtist": "Artist & gallery",
+      "profileBrand": "Brand",
       "profileCollector": "Collector",
       "profileEnterprise": "Enterprise",
       "ctaArtist": "Join the gallery",
       "ctaCollector": "Discover artworks",
-      "ctaEnterprise": "Finance with art"
+      "ctaEnterprise": "Finance with art",
+      "ctaBrand": "Discover the agency",
+      "ctaCalendly": "Book a call"
     }
   },
   "artists": {
@@ -340,7 +343,7 @@
       }
     },
     "expertises": {
-      "eyebrow": "Our poles",
+      "eyebrow": "We support you",
       "title": "Four ways",
       "titleAccent": "to enter.",
       "items": {
@@ -378,7 +381,7 @@
     },
     "residentArtists": {
       "eyebrow": "Private Circle",
-      "title": "Signatures.",
+      "title": "Our signatures.",
       "cta": "Discover all resident artists →"
     },
     "explore": {
@@ -428,19 +431,23 @@
     },
     "statistics": {
       "title": "InRealArt in numbers",
-      "description": "The multi-pole platform for contemporary art",
+      "description": "The catalytic ecosystem for art, culture and heritage",
       "items": {
         "artworks": {
-          "number": "300+",
+          "number": "500",
           "label": "Artworks available"
         },
         "artists": {
           "number": "40+",
-          "label": "Resident artists"
+          "label": "International resident artists"
+        },
+        "museum": {
+          "number": "150+",
+          "label": "Artworks in museums & private collections"
         },
         "creators": {
           "number": "20+",
-          "label": "UGC creators"
+          "label": "Content creators"
         }
       }
     }

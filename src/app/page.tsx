@@ -77,9 +77,9 @@ export default function Home() {
       <HomeHero />
       <ExhibitionSlider />
       <Statistics />
+      <Expertises />
       <CatalogSection />
       {/* <HowItWorks /> */}
-      <Expertises />
       <MediaPartners />
       <Testimonials />
       <ResidentArtists />
