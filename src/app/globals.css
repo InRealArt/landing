@@ -674,3 +674,8 @@ body {
   @apply border-t-textColor opacity-70;
 }
 
+
+@keyframes revealTopToBottom {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0% 0); }
+}

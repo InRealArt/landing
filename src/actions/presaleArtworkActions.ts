@@ -517,3 +517,32 @@ export async function getKeyWorksByArtistId(artistId: number): Promise<PresaleAr
         return []
     }
 }
+
+export interface ArtistArtworkPreview {
+    artistId: number
+    imageUrl: string
+}
+
+export async function getArtworkPreviewsByArtistIds(artistIds: number[]): Promise<ArtistArtworkPreview[]> {
+    try {
+        const rows = await prisma.presaleArtwork.findMany({
+            where: { artistId: { in: artistIds } },
+            select: { artistId: true, imageUrl: true, order: true },
+            orderBy: { order: 'asc' },
+        })
+        // Keep max 3 per artist
+        const countPerArtist = new Map<number, number>()
+        const result: ArtistArtworkPreview[] = []
+        for (const r of rows) {
+            const count = countPerArtist.get(r.artistId) ?? 0
+            if (count < 3) {
+                result.push({ artistId: r.artistId, imageUrl: r.imageUrl })
+                countPerArtist.set(r.artistId, count + 1)
+            }
+        }
+        return result
+    } catch (error) {
+        console.error('Erreur getArtworkPreviewsByArtistIds:', error)
+        return []
+    }
+}

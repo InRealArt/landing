@@ -35,15 +35,15 @@ export default function MediaPage() {
         <MediaArticlesSection />
 
         {/* 3. InRealArt TV — Les Métiers de la Création */}
-        <InRealArtTvSection />
+        {/* <InRealArtTvSection /> */}
 
         {/* 4. Marian — Production Vidéo */}
-        <MarianSection />
+        {/* <MarianSection /> */}
 
       </main>
 
       {/* 5. Packages de production */}
-      <MediaProductionPackages />
+      {/* <MediaProductionPackages /> */}
     </>
   )
 }

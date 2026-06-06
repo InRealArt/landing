@@ -4,10 +4,13 @@ import { useMemo } from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistData } from '@/actions/artistActions'
+import { ArtistArtworkPreview } from '@/actions/presaleArtworkActions'
 import ArtistsMosaic from './ArtistsMosaic'
+import ArtistRosterWithPreview from './ArtistHoverPreview'
 
 interface Props {
   initialArtists: ArtistData[]
+  artworkPreviews: ArtistArtworkPreview[]
 }
 
 function sortKey(a: { surname: string; pseudo: string }): string {
@@ -46,8 +49,19 @@ export function ArtistsGridSkeleton() {
   )
 }
 
-export default function ArtistsGrid({ initialArtists }: Props) {
+export default function ArtistsGrid({ initialArtists, artworkPreviews }: Props) {
   const { t, language } = useTranslation()
+
+  // Build a map artistId → artwork imageUrls (max 3)
+  const artworksByArtistId = useMemo(() => {
+    const map = new Map<number, string[]>()
+    for (const p of artworkPreviews) {
+      const list = map.get(p.artistId) ?? []
+      list.push(p.imageUrl)
+      map.set(p.artistId, list)
+    }
+    return map
+  }, [artworkPreviews])
 
   const artists = useMemo(
     () =>
@@ -60,8 +74,9 @@ export default function ArtistsGrid({ initialArtists }: Props) {
         hasImage: Boolean(a.imageUrl),
         isTopArtist: a.isTopArtist ?? false,
         ugcSlug: a.ugcSlug ?? null,
+        artworkImageUrls: artworksByArtistId.get(a.artistId) ?? [],
       })),
-    [initialArtists],
+    [initialArtists, artworksByArtistId],
   )
 
   const featuredArtists = useMemo(
@@ -80,6 +95,18 @@ export default function ArtistsGrid({ initialArtists }: Props) {
   const collaborationCount = useMemo(
     () => artists.filter(a => a.ugcSlug).length,
     [artists],
+  )
+
+  const rosterArtists = useMemo(
+    () => sortedArtists.map(a => ({
+      slug: a.slug,
+      fullName: a.fullName,
+      surname: a.surname,
+      pseudo: a.pseudo,
+      imageUrl: a.imageUrl,
+      artworkImageUrls: a.artworkImageUrls,
+    })),
+    [sortedArtists],
   )
 
   return (
@@ -105,34 +132,7 @@ export default function ArtistsGrid({ initialArtists }: Props) {
             <span className="section-number !mb-0 font-bold">{t('artists.roster.label')}</span>
           </div>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
-            {sortedArtists.map(artist => (
-              <li key={artist.slug}>
-                <Link
-                  href={`/artists/${artist.slug}`}
-                  className="group flex items-center py-2.5 pr-4 text-textColor hover:text-gold-accent transition-colors duration-200 focus-visible:outline-none focus-visible:text-gold-accent"
-                >
-                  <span className="text-sm uppercase tracking-[0.2em] bricolage-grotesque leading-snug font-bold">
-                    {artist.fullName}
-                  </span>
-                  <svg
-                    width="10"
-                    height="10"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="ml-2 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0 text-gold-accent"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ArtistRosterWithPreview artists={rosterArtists} />
         </div>
       </section>
 

@@ -20,12 +20,6 @@ export default function UseCaseCtaFinal() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/contact?sujet=plaquette-capital"
-            className="btn-action"
-          >
-            {t('usecase.ctaFinal.buttonPrimary')}
-          </Link>
-          <Link
             href="/usecase/capital/contact"
             className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
           >
