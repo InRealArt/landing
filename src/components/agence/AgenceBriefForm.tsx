@@ -84,7 +84,7 @@ export default function AgenceBriefForm({ t }: Props) {
     )
   }
 
-  const inputClass = 'w-full bg-transparent border border-borderColor text-textColor text-[13px] montserrat px-4 py-3 focus:outline-none focus:border-gold-accent transition-colors duration-200 placeholder:text-grayText/50'
+  const inputClass = 'w-full bg-backgroundColor border border-borderColor text-textColor text-[13px] montserrat px-4 py-3 focus:outline-none focus:border-gold-accent transition-colors duration-200 placeholder:text-grayText/50'
   const labelClass = 'text-[9px] uppercase tracking-[0.35em] text-grayText montserrat block mb-2'
 
   return (

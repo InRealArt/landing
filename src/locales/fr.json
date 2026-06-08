@@ -237,6 +237,13 @@
       "ctaEnterprise": "Financer avec l'art",
       "ctaBrand": "Découvrir l'agence",
       "ctaCalendly": "Prendre RDV"
+    },
+    "gridAriaLabel": "Grille des expositions",
+    "eyebrow": "Expositions",
+    "status": {
+      "current": "En cours",
+      "upcoming": "À venir",
+      "past": "Passée"
     }
   },
   "artists": {
@@ -297,6 +304,10 @@
       "description": "La catégorie d'artistes que vous recherchez n'existe pas ou a été supprimée.",
       "viewAllArtists": "Voir tous les artistes",
       "backToHome": "Retour à l'accueil"
+    },
+    "currentlyExposed": {
+      "eyebrow": "En ce moment",
+      "title": "Actuellement exposés dans nos galeries"
     },
     "ceoWord": {
       "headline": "Redéfinir les règles du jeu.",
@@ -434,10 +445,10 @@
     },
     "brandPartners": {
       "eyebrow": "Nos Partenaires",
-      "title": "Ils nous font confiance"
+      "title": "Ils parlent de nous et de nos artistes"
     },
     "mediaPartners": {
-      "title": "Partenaires médias",
+      "title": "Ils collaborent avec nous",
       "description": "Ils parlent de nous et nous soutiennent"
     },
     "statistics": {
@@ -3366,9 +3377,8 @@
       "titleAccent": "activent vos marques.",
       "subtitle": "Nous connectons des créateurs d'exception à des marques, produits, lieux et expériences. De l'activation ponctuelle au partenariat long terme.",
       "cta": "Déposer un brief",
-      "stat1": "Créateurs vérifiés",
-      "stat2": "Marques activées",
-      "stat3": "Droits inclus",
+      "stat1": "Créateurs en pré-lancement",
+      "stat2": "Marques activées en pré-lancement",
       "ctaSecondary": "Rejoindre l'agence"
     },
     "differentiators": {

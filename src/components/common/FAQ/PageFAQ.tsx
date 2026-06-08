@@ -14,7 +14,12 @@ const PageFAQ = async ({
   descriptionKey = 'common.faq.description',
   className = ''
 }: PageFAQProps) => {
-  const initialData = await getDetailedFaqPageData(pageName)
+  let initialData
+  try {
+    initialData = await getDetailedFaqPageData(pageName)
+  } catch {
+    return null
+  }
 
   if (!initialData) {
     return null

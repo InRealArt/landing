@@ -718,6 +718,53 @@ export async function getArtistsMentionedInPost(
     }
 }
 
+export interface CurrentlyExposedArtist {
+    id: number
+    slug: string
+    name: string
+    surname: string
+    pseudo: string
+    imageUrl: string
+    artworkStyle: string | null
+    mediumTags: string[]
+}
+
+export async function getCurrentlyExposedArtists(): Promise<CurrentlyExposedArtist[]> {
+    try {
+        const landingArtists = await prisma.landingArtist.findMany({
+            where: { isCurrentlyExposed: true },
+            select: {
+                id: true,
+                slug: true,
+                imageUrl: true,
+                artworkStyle: true,
+                mediumTags: true,
+                artist: {
+                    select: {
+                        name: true,
+                        surname: true,
+                        pseudo: true,
+                    }
+                }
+            }
+        })
+
+        return landingArtists.map(la => ({
+            id: la.id,
+            slug: la.slug,
+            name: la.artist.name ?? '',
+            surname: la.artist.surname ?? '',
+            pseudo: la.artist.pseudo ?? '',
+            imageUrl: la.imageUrl,
+            artworkStyle: la.artworkStyle,
+            mediumTags: la.mediumTags ?? [],
+        }))
+    } catch (error) {
+        console.error('Erreur lors de la récupération des artistes exposés:', error)
+        return []
+    }
+}
+
 export async function getArtistsByCategory(categorySlug: string): Promise<ArtistData[]> {
     try {
         // Décoder l'URL et récupérer la catégorie par son nom (en attendant la migration pour le slug)

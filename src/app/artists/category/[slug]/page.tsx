@@ -1,24 +1,13 @@
 import { permanentRedirect } from 'next/navigation'
 import { Metadata } from 'next'
-import { getArtistCategoryBySlug, getArtistCategories } from '@/actions/artistCategoryActions'
+import { getArtistCategoryBySlug } from '@/actions/artistCategoryActions'
 import { getArtistsByCategory } from '@/actions/artistActions'
 import ArtistCategoryPageClient from './ArtistCategoryPageClient'
 
+export const dynamic = 'force-dynamic'
+
 interface ArtistCategoryPageProps {
   params: Promise<{ slug: string }>
-}
-
-export async function generateStaticParams() {
-  try {
-    const categories = await getArtistCategories()
-    
-    return categories.map((category) => ({
-      slug: encodeURIComponent(category.name.toLowerCase())
-    }))
-  } catch (error) {
-    console.error('Erreur lors de la génération des paramètres statiques:', error)
-    return []
-  }
 }
 
 export async function generateMetadata({ params }: ArtistCategoryPageProps): Promise<Metadata> {

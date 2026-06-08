@@ -74,7 +74,7 @@ export default function AgencePartners({ t }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="bg-backgroundColor py-24 lg:py-32 overflow-hidden"
+      className="bg-backgroundColor py-16 lg:py-24 overflow-hidden"
     >
       <div className="max-w-screen-2xl mx-auto px-10">
 

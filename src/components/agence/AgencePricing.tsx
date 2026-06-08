@@ -22,14 +22,6 @@ const ACTIVATION_TYPES = [
   'hospitality',
 ] as const
 
-const CAMPAIGN_PACKAGES = [
-  { key: 'nano_essential', recommended: false },
-  { key: 'nano_premium', recommended: false },
-  { key: 'micro_standard', recommended: true },
-  { key: 'micro_premium', recommended: false },
-  { key: 'full_mix', recommended: false },
-] as const
-
 const FORMAT_ROWS = [
   { key: 'product_launch' },
   { key: 'event_activation' },
@@ -42,7 +34,6 @@ export default function AgencePricing({ t }: Props) {
   const headerRef = useRef<HTMLDivElement>(null)
   const tagsRef = useRef<HTMLDivElement>(null)
   const formatsRef = useRef<HTMLDivElement>(null)
-  const packsRef = useRef<HTMLDivElement>(null)
   const assetsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -73,14 +64,6 @@ export default function AgencePricing({ t }: Props) {
         gsap.fromTo(rows, { opacity: 0, y: 18 }, {
           opacity: 1, y: 0, duration: 0.6, ease, stagger: 0.09,
           scrollTrigger: { trigger: formatsRef.current, start: 'top 88%', once: true },
-        })
-      }
-
-      if (packsRef.current) {
-        const rows = packsRef.current.querySelectorAll<HTMLElement>('[data-row]')
-        gsap.fromTo(rows, { opacity: 0, y: 18 }, {
-          opacity: 1, y: 0, duration: 0.6, ease, stagger: 0.08,
-          scrollTrigger: { trigger: packsRef.current, start: 'top 88%', once: true },
         })
       }
 
@@ -187,68 +170,6 @@ export default function AgencePricing({ t }: Props) {
           <p className="mt-6 text-[10px] uppercase tracking-[0.3em] text-grayText/50 montserrat">
             {t('agence.pricing.formats.note')}
           </p>
-        </div>
-
-        {/* ── Block 3 — Packs Créateurs ── */}
-        <div className="mb-24">
-          <SectionLabel title={t('agence.pricing.packs.title')} subtitle={t('agence.pricing.packs.subtitle')} />
-
-          <p className="text-[13px] text-grayText montserrat leading-loose max-w-3xl mb-10">
-            {t('agence.pricing.packs.description')}
-          </p>
-
-          {/* Column headers */}
-          <div className="hidden md:grid grid-cols-9 gap-4 mb-4 px-4">
-            <div className="col-span-3">
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">Pack</span>
-            </div>
-            <div className="col-span-3 text-center">
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">{t('agence.pricing.packs.col_creators')}</span>
-            </div>
-            <div className="col-span-3 text-center">
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">{t('agence.pricing.packs.col_reach')}</span>
-            </div>
-          </div>
-
-          <div ref={packsRef} className="space-y-px">
-            {CAMPAIGN_PACKAGES.map(({ key, recommended }) => (
-              <div
-                key={key}
-                data-row
-                className={[
-                  'grid grid-cols-1 md:grid-cols-9 gap-4 items-center px-4 py-5 transition-colors duration-200',
-                  recommended
-                    ? 'bg-gold-accent/10 border border-gold-accent/30'
-                    : 'bg-backgroundColor border border-borderColor hover:border-gold-accent/20',
-                ].join(' ')}
-                style={{ opacity: 0 }}
-              >
-                <div className="md:col-span-3 flex items-center gap-3">
-                  <h4 className="text-[12px] text-textColor montserrat font-medium">
-                    {t(`agence.pricing.packs.packages.${key}.name`)}
-                  </h4>
-                  {recommended && (
-                    <span className="text-[8px] uppercase tracking-[0.3em] text-gold-accent border border-gold-accent/50 px-2 py-0.5 whitespace-nowrap">
-                      {t('agence.pricing.packs.recommended')}
-                    </span>
-                  )}
-                </div>
-                <div className="md:col-span-3 md:text-center">
-                  <span className="text-[11px] text-grayText montserrat">
-                    {t(`agence.pricing.packs.packages.${key}.creators`)}
-                  </span>
-                </div>
-                <div className="md:col-span-3 md:text-center">
-                  <span
-                    className="text-[13px] text-textColor"
-                    style={{ fontFamily: 'var(--font-unbounded)' }}
-                  >
-                    {t(`agence.pricing.packs.packages.${key}.reach`)}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* ── Block 4 — Production & Assets ── */}

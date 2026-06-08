@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 
 export default function ArtistsCEOWord() {
@@ -22,18 +23,19 @@ export default function ArtistsCEOWord() {
             <p className="font-bricolage text-[0.8rem] lg:text-sm text-white/55 leading-relaxed">
               {t('artists.ceoWord.quoteSecondary')}
             </p>
-            <p className="font-montserrat text-[0.65rem] uppercase tracking-[0.3em] text-white/30 pt-2">
-              —{' '}
-              <a
-                href="https://drive.google.com/file/d/1X1Vk-tUVnG0Kj-X_LFnV59otw4l4p1Nh/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Timothée Roy — voir le document (s'ouvre dans un nouvel onglet)"
-                className="hover:text-white/60 transition-colors duration-200 underline underline-offset-4"
-              >
-                Timothée Roy
-              </a>
-            </p>
+            <a
+              href="https://drive.google.com/file/d/1X1Vk-tUVnG0Kj-X_LFnV59otw4l4p1Nh/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Timothée Roy — voir le document (s'ouvre dans un nouvel onglet)"
+              className="group inline-flex items-center gap-2 pt-2 font-montserrat text-[0.65rem] uppercase tracking-[0.3em] text-white/35 hover:text-white/70 transition-colors duration-300"
+            >
+              <ArrowUpRight
+                className="w-3.5 h-3.5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                strokeWidth={1.5}
+              />
+              Timothée Roy
+            </a>
           </div>
 
           {/* Right: CEO photo — no crop, with vertical padding */}

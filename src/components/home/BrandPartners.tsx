@@ -12,19 +12,9 @@ interface BrandPartner {
 }
 
 const BRAND_PARTNERS: BrandPartner[] = [
-  {
-    src: '/images/partners/LJ_gallery.webp',
-    alt: 'LJ Gallery',
-    width: 200,
-    height: 80,
-  },
-  {
-    src: '/images/partners/logo-art-thema.webp',
-    alt: 'Art Thema',
-    width: 200,
-    height: 80,
-    whiteBackground: true,
-  }
+  { src: '/images/partners/DEMAIN_TV_Logo.webp',       alt: 'Demain TV',  width: 200, height: 80, whiteBackground: true },
+  { src: '/images/partners/JobTalk_Tv_Sans_fond.webp', alt: 'JobTalk TV', width: 200, height: 80 },
+  { src: '/images/partners/Logo-LMC.webp',             alt: 'LMC',        width: 200, height: 80, whiteBackground: true },
 ]
 
 export default function BrandPartners() {
@@ -57,7 +47,7 @@ export default function BrandPartners() {
                   alt={partner.alt}
                   width={partner.width}
                   height={partner.height}
-                  className="h-20 sm:h-28 w-auto object-contain"
+                  className="h-14 sm:h-20 w-auto object-contain"
                 />
               </div>
             </li>

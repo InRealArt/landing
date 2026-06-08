@@ -27,6 +27,9 @@ export interface TeamMemberData {
 export async function getTeamMembers(): Promise<TeamMemberData[]> {
     try {
         const teamMembers = await prisma.team.findMany({
+            where: {
+                visible: true
+            },
             select: {
                 id: true,
                 firstName: true,

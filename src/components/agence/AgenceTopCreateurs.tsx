@@ -84,7 +84,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
   if (artists.length === 0) return null
 
   return (
-    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-24 lg:py-32">
+    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-16 lg:py-24">
       <div className="max-w-screen-2xl mx-auto px-10">
 
         {/* Section header */}

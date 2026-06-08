@@ -237,6 +237,13 @@
       "ctaEnterprise": "Finance with art",
       "ctaBrand": "Discover the agency",
       "ctaCalendly": "Book a call"
+    },
+    "gridAriaLabel": "Exhibitions grid",
+    "eyebrow": "Exhibitions",
+    "status": {
+      "current": "Current",
+      "upcoming": "Upcoming",
+      "past": "Past"
     }
   },
   "artists": {
@@ -297,6 +304,10 @@
       "description": "The artist category you are looking for does not exist or has been deleted.",
       "viewAllArtists": "View all artists",
       "backToHome": "Back to home"
+    },
+    "currentlyExposed": {
+      "eyebrow": "Right now",
+      "title": "Currently exhibited in our galleries"
     },
     "ceoWord": {
       "headline": "Redefining the rules of the game.",
@@ -429,10 +440,10 @@
     },
     "brandPartners": {
       "eyebrow": "Our Partners",
-      "title": "They trust us"
+      "title": "They talk about us and our artists"
     },
     "mediaPartners": {
-      "title": "Media partners",
+      "title": "They collaborate with us",
       "description": "They talk about us and support us"
     },
     "statistics": {
@@ -3599,9 +3610,8 @@
       "titleAccent": "activate your brands.",
       "subtitle": "We connect exceptional creators to brands, products, venues and experiences. From one-off activations to long-term partnerships.",
       "cta": "Submit a brief",
-      "stat1": "Verified creators",
-      "stat2": "Brands activated",
-      "stat3": "Rights included",
+      "stat1": "Creators in pre-launch",
+      "stat2": "Brands activated in pre-launch",
       "ctaSecondary": "Join the agency"
     },
     "differentiators": {

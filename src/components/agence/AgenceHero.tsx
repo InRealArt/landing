@@ -105,12 +105,6 @@ export default function AgenceHero({ t }: Props) {
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
-              >
-                {t('agence.hero.ctaSecondary')}
-              </Link>
             </div>
           </div>
 
@@ -121,9 +115,8 @@ export default function AgenceHero({ t }: Props) {
             style={{ opacity: 0 }}
           >
             {[
-              { value: '200+', labelKey: 'agence.hero.stat1' },
-              { value: '80+', labelKey: 'agence.hero.stat2' },
-              { value: '100%', labelKey: 'agence.hero.stat3' },
+              { value: '20', labelKey: 'agence.hero.stat1' },
+              { value: '5', labelKey: 'agence.hero.stat2' },
             ].map((stat, i) => (
               <div key={i} className="lg:py-8 lg:border-b border-borderColor last:border-0">
                 <p

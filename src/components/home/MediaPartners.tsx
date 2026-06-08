@@ -8,13 +8,14 @@ interface MediaPartner {
   alt: string
   width: number
   height: number
+  bgWhite?: boolean
 }
 
 const MEDIA_PARTNERS: MediaPartner[] = [
-  { src: '/images/partners/biennale-Biennale-2026.webp', alt: 'Biennale 2026', width: 200, height: 120 },
-  { src: '/images/partners/DEMAIN_TV_Logo.webp',         alt: 'Demain TV',      width: 200, height: 120 },
-  { src: '/images/partners/JobTalk_Tv_Sans_fond.webp',   alt: 'JobTalk TV',     width: 200, height: 120 },
-  { src: '/images/partners/Logo-LMC.webp',               alt: 'LMC',            width: 200, height: 120 },
+  { src: '/images/partners/biennale-Biennale-2026.webp', alt: 'Biennale',  width: 200, height: 120 },
+  { src: '/images/partners/logo-art-thema.webp',         alt: 'Artthema',  width: 200, height: 120, bgWhite: true },
+  // { src: '/images/partners/lea-douze.webp',              alt: 'LeaDouze',  width: 200, height: 120 },
+  { src: '/images/partners/logitech.avif',               alt: 'Logitech',  width: 200, height: 120 },
 ]
 
 // On multiplie suffisamment pour couvrir n'importe quelle largeur d'écran sans blanc
@@ -47,7 +48,7 @@ export default function MediaPartners() {
                 alt={partner.alt}
                 width={partner.width}
                 height={partner.height}
-                className="object-contain max-h-12 w-auto"
+                className={`object-contain max-h-16 w-auto${partner.bgWhite ? ' bg-white px-2 py-1' : ''}`}
               />
             </div>
           ))}
