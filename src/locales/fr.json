@@ -297,6 +297,12 @@
       "description": "La catégorie d'artistes que vous recherchez n'existe pas ou a été supprimée.",
       "viewAllArtists": "Voir tous les artistes",
       "backToHome": "Retour à l'accueil"
+    },
+    "ceoWord": {
+      "headline": "Redéfinir les règles du jeu.",
+      "quoteMain": "« Le marché de l'art est resté trop longtemps figé dans ses propres codes. Avec InRealArt, nous changeons radicalement de modèle. Notre ADN n'obéit à aucune étiquette : nous faisons cohabiter des pièces magistrales, déjà ancrées dans l'histoire, et les expérimentations des talents de demain.",
+      "quoteSecondary": "Ce croisement des mondes exigeait un écosystème à sa mesure. Grâce à notre maillage territorial, nous avons créé un écosystème hybride & unique. Nous ne nous contentons plus d'exposer l'art, nous propulsons sa diffusion dans une autre dimension. Le futur de la collection s'écrit ici. »",
+      "manifesto": "In Real Art propulse une communauté internationale et multigénérationnelle d'artistes, mêlant figures historiques, talents émergents et créateurs digitaux. Notre plateforme hybride cultive la diversité technologique, l'inclusion et la parité pour repousser les frontières de la création. En faisant dialoguer le patrimoine artistique avec les expressions contemporaines, nous bousculons les codes et faisons émerger les idées de demain."
     }
   },
   "language": {

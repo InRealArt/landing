@@ -4,6 +4,7 @@ import { ArtistData } from '@/actions/artistActions'
 import { ArtistArtworkPreview } from '@/actions/presaleArtworkActions'
 import ArtistsHero from './ArtistsHero'
 import ArtistsGrid from './ArtistsGrid'
+import ArtistsCEOWord from './ArtistsCEOWord'
 
 interface Props {
   initialArtists: ArtistData[]
@@ -15,6 +16,7 @@ export default function ArtistsHubClient({ initialArtists, artworkPreviews }: Pr
     <>
       <ArtistsHero />
       <ArtistsGrid initialArtists={initialArtists} artworkPreviews={artworkPreviews} />
+      <ArtistsCEOWord />
     </>
   )
 }
