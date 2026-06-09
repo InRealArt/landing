@@ -50,6 +50,9 @@ const BrandPartners = dynamic(() => import("@/components/home/BrandPartners"), {
 const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
   loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
 })
+const PageFAQ = dynamic(() => import("@/components/common/FAQ/PageFAQ"), {
+  loading: () => <div className="w-full h-96 animate-pulse bg-cardBackground rounded-lg" />
+})
 
 export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
@@ -99,6 +102,7 @@ export default function Home() {
           descriptionKey="home.faq.description"
         />
       </Suspense> */}
+      <PageFAQ pageName="faq" />
       <NewsletterInline />
 
     </>

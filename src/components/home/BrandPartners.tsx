@@ -17,6 +17,8 @@ const BRAND_PARTNERS: BrandPartner[] = [
   { src: '/images/partners/Logo-LMC.webp',             alt: 'LMC',        width: 200, height: 80, whiteBackground: true },
 ]
 
+const REPEATED = [...BRAND_PARTNERS, ...BRAND_PARTNERS, ...BRAND_PARTNERS, ...BRAND_PARTNERS, ...BRAND_PARTNERS, ...BRAND_PARTNERS]
+
 export default function BrandPartners() {
   const { t } = useTranslation()
 
@@ -25,34 +27,33 @@ export default function BrandPartners() {
       {/* Gold separator at the very top */}
       <div className="h-px bg-gold-accent/30 w-full" />
 
-      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 py-28 lg:py-40">
+      <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 pt-28 lg:pt-40 pb-10">
         {/* Section header */}
         <div className="text-center mb-20">
-          <span className="section-number">{t('home.brandPartners.eyebrow')}</span>
           <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic text-textColor break-words">
             {t('home.brandPartners.title')}
           </h2>
         </div>
+      </div>
 
-        {/* Partner logos grid */}
-        <ul
-          role="list"
-          className="flex flex-wrap items-center justify-center gap-x-12 gap-y-10 sm:gap-x-16 lg:gap-x-20"
-        >
-          {BRAND_PARTNERS.map((partner) => (
-            <li key={partner.alt}>
-              <div className={partner.whiteBackground ? 'bg-white p-2 inline-flex' : ''}>
-                <Image
-                  src={partner.src}
-                  alt={partner.alt}
-                  width={partner.width}
-                  height={partner.height}
-                  className="h-14 sm:h-20 w-auto object-contain"
-                />
-              </div>
-            </li>
+      {/* Bande scrollante */}
+      <div className="relative flex overflow-hidden pb-28 lg:pb-40 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex gap-20 items-center animate-marquee shrink-0">
+          {REPEATED.map((partner, idx) => (
+            <div
+              key={idx}
+              className="shrink-0 flex items-center justify-center h-16 w-48"
+            >
+              <Image
+                src={partner.src}
+                alt={partner.alt}
+                width={partner.width}
+                height={partner.height}
+                className={`object-contain max-h-11 w-auto${partner.whiteBackground ? ' bg-white px-2 py-1' : ''}`}
+              />
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )
