@@ -3,6 +3,7 @@ import { generateStaticMetadata } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import AgencePage from '@/components/agence/AgencePage'
 import { getTopUgcArtists } from '@/actions/ugcActions'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 const { t } = getServerTranslations('fr')
 
@@ -22,5 +23,10 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default async function Page() {
   const topArtists = await getTopUgcArtists(4)
-  return <AgencePage topArtists={topArtists} />
+  return (
+    <>
+      <AgencePage topArtists={topArtists} />
+      <NewsletterInline />
+    </>
+  )
 }

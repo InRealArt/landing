@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/common/Header'
-import Footer from '@/components/common/Footer'
+import FooterWrapper from '@/components/common/FooterWrapper'
 import LanguageProvider from '@/components/providers/LanguageProvider'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
@@ -120,7 +120,7 @@ export default function RootLayout ({
                     <Header />
                     {children}
                     {/* <FAQ /> */}
-                    <Footer />
+                    <FooterWrapper />
                     <Toaster />
                     <CookieConsentBanner />
                     <NewsletterManager delayInSeconds={5} />

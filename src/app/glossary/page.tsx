@@ -7,6 +7,7 @@ import Header from "@/components/common/annexe/Header";
 import TabFilter from "@/components/common/annexe/TabFilter";
 import ContentGrid from "@/components/common/annexe/ContentGrid";
 import GlossaryAnimations from "@/components/glossary/GlossaryAnimations";
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export default function Glossary() {
   const [activeTab, setActiveTab] = useState("Blockchain");
@@ -43,6 +44,7 @@ export default function Glossary() {
         setActiveTab={setActiveTab}
       />
       <ContentGrid items={filteredItems} />
+      <NewsletterInline />
     </div>
   );
 }

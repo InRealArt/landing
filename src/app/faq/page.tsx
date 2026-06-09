@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata, generateFAQJsonLd } from '@/utils/metadata'
 import { getGlobalDetailedFaqData } from '@/actions/detailedFaqActions'
 import FaqClient from './FaqClient'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Questions Fréquentes — Tout comprendre sur InRealArt',
@@ -26,6 +27,7 @@ export default async function FaqPage() {
         dangerouslySetInnerHTML={{ __html: generateFAQJsonLd(faqData) }}
       />
       <FaqClient initialData={globalFaqData} />
+      <NewsletterInline />
     </>
   )
 }

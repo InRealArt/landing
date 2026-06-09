@@ -26,13 +26,8 @@ const Header = () => {
 
           <ul className="hidden xl:flex items-center gap-8">
             <li className="whitespace-nowrap">
-              <Link href="/presale" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.galerie')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/usecase" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.capital')}
+              <Link href="/artists" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.artists')}
               </Link>
             </li>
             <li className="whitespace-nowrap">
@@ -46,8 +41,18 @@ const Header = () => {
               </Link>
             </li>
             <li className="whitespace-nowrap">
+              <Link href="/usecase" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.capital')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
               <Link href="/team" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.aboutInRealArt')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
+              <Link href="/presale" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.galerie')}
               </Link>
             </li>
             <li className="whitespace-nowrap">

@@ -3,6 +3,7 @@ import { generateStaticMetadata } from '@/utils/metadata'
 import PresaleClient from './PresaleClient'
 import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
 import { getKeyWorksArtworks } from '@/actions/presaleArtworkActions'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Présale — Œuvres d\'Art en Exclusivité | InRealArt',
@@ -17,6 +18,7 @@ export default async function PresalePage() {
   return (
     <PresaleClient initialArtworks={artworks}>
       <FAQWrapper titleKey="presale.faq.title" descriptionKey="presale.faq.description" />
+      <NewsletterInline />
     </PresaleClient>
   )
 }

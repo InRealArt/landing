@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Contact from "@/components/contact/Contact";
+import NewsletterInline from '@/components/common/NewsletterInline'
 import { generateStaticMetadata, defaultMetadata } from '@/utils/metadata'
 
 export const metadata: Metadata = generateStaticMetadata({
@@ -11,8 +12,11 @@ export const metadata: Metadata = generateStaticMetadata({
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen text-textColor">
-      <Contact />
-    </main>
+    <>
+      <main className="min-h-screen text-textColor">
+        <Contact />
+      </main>
+      <NewsletterInline />
+    </>
   );
 } 

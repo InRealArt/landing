@@ -8,6 +8,7 @@ import UseCaseImpact from '@/components/usecase/UseCaseImpact'
 import UseCaseCtaFinal from '@/components/usecase/UseCaseCtaFinal'
 import UseCaseFAQ from '@/components/usecase/UseCaseFAQ'
 import UsecaseAnimations from '@/components/usecase/UsecaseAnimations'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: "L'art comme actif stratégique — InRealArt Capital",
@@ -42,6 +43,7 @@ export default function UseCase() {
 
       {/* 7. FAQ */}
       <UseCaseFAQ />
+      <NewsletterInline />
     </main>
   )
 }

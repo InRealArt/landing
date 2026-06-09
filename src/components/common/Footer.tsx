@@ -10,22 +10,31 @@ import { salons } from '@/utils/artSalonCalculations'
 import Link from 'next/link'
 
 const atelierLinks = [
-  { label: 'Sandrine Hirson - artiste InRealArt', href: 'https://share.google/GewswgKB0Od9tyFEV' },
-  { label: 'Nadine LePrince - artiste InRealArt', href: 'https://share.google/7uieG9SlEVKaUTHvO' },
-  { label: 'Mr Hope - artiste InRealArt', href: 'https://share.google/ZwMEQTKtzRROGGeUF' },
-  { label: 'Monique Laville - artiste InRealArt', href: 'https://share.google/sYkUAhGdXAat97EVf' },
-  { label: 'Marie de Saint Germain - artiste InRealArt', href: 'https://share.google/7XwDxxwXSRlo3IfpQ' },
-  { label: 'Marianne Quinzin - artiste InRealArt', href: 'https://share.google/kYGzFfbZQ7NZdExgQ' },
-  { label: 'Marc Peltzer - artiste InRealArt', href: 'https://share.google/1A8fKvVlZ3lKXIrD7' },
-  { label: 'Jean-Paul Boyer - artiste InRealArt', href: 'https://share.google/374mb9VcmQvHSyppN' },
-  { label: 'François Poulat - artiste InRealArt', href: 'https://share.google/c0cqNa2fGo738bTei' },
-  { label: 'Franck Alagna - artiste InRealArt', href: 'https://share.google/7MeBYyD6SPH1P1I89' },
-  { label: 'Florence Autelin - Artiste InRealArt', href: 'https://share.google/C8KXeYSLAwtW0ya3Z' },
-  { label: 'Catherine Sénéchal - artiste InRealArt', href: 'https://share.google/DfFrXEYyGarxVUkUf' },
-  { label: 'Alves Antoine Junior - Artiste InRealArt', href: 'https://share.google/IzSfhbdnUDNx0e47K' },
+  { label: 'Sandrine Hirson', href: 'https://share.google/GewswgKB0Od9tyFEV' },
+  { label: 'Nadine LePrince', href: 'https://share.google/7uieG9SlEVKaUTHvO' },
+  { label: 'Mr Hope', href: 'https://share.google/ZwMEQTKtzRROGGeUF' },
+  { label: 'Monique Laville', href: 'https://share.google/sYkUAhGdXAat97EVf' },
+  { label: 'Marie de Saint Germain', href: 'https://share.google/7XwDxxwXSRlo3IfpQ' },
+  { label: 'Marianne Quinzin', href: 'https://share.google/kYGzFfbZQ7NZdExgQ' },
+  { label: 'Marc Peltzer', href: 'https://share.google/1A8fKvVlZ3lKXIrD7' },
+  { label: 'Jean-Paul Boyer', href: 'https://share.google/374mb9VcmQvHSyppN' },
+  { label: 'François Poulat', href: 'https://share.google/c0cqNa2fGo738bTei' },
+  { label: 'Franck Alagna', href: 'https://share.google/7MeBYyD6SPH1P1I89' },
+  { label: 'Florence Autelin', href: 'https://share.google/C8KXeYSLAwtW0ya3Z' },
+  { label: 'Catherine Sénéchal', href: 'https://share.google/DfFrXEYyGarxVUkUf' },
+  { label: 'Alves Antoine Junior', href: 'https://share.google/IzSfhbdnUDNx0e47K' },
 ]
 
-const Footer = () => {
+interface ResidentArtist {
+  label: string
+  slug: string
+}
+
+interface FooterProps {
+  residentArtists?: ResidentArtist[]
+}
+
+const Footer = ({ residentArtists = [] }: FooterProps) => {
   const { t, language } = useTranslation()
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -85,7 +94,7 @@ const Footer = () => {
         </div>
 
         {/* Colonnes de navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 mb-14 text-center md:text-left">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 mb-14 text-center md:text-left">
 
           {/* Colonne : À propos */}
           <div>
@@ -150,6 +159,33 @@ const Footer = () => {
             </Link>
           </div>
 
+          {/* Colonne : Atelier de nos artistes */}
+          <div>
+            <h5
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              style={{
+                color: 'var(--ink-black)',
+                borderBottom: '1px solid var(--border-light)',
+              }}
+              suppressHydrationWarning
+            >
+              {t('footer.atelier')}
+            </h5>
+            <div className="h-40 overflow-y-auto pr-2 custom-scrollbar">
+              {atelierLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="artist-list-item"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Colonne : Artistes résidents */}
           <div>
             <h5
@@ -163,16 +199,14 @@ const Footer = () => {
               {t('footer.residents')}
             </h5>
             <div className="h-40 overflow-y-auto pr-2 custom-scrollbar">
-              {atelierLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {residentArtists.map((artist) => (
+                <Link
+                  key={artist.slug}
+                  href={`/artists/${artist.slug}`}
                   className="artist-list-item"
                 >
-                  {link.label.replace(' - artiste InRealArt', '').replace(' - Artiste InRealArt', '')}
-                </a>
+                  {artist.label}
+                </Link>
               ))}
             </div>
           </div>

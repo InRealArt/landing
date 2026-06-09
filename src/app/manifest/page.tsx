@@ -3,6 +3,7 @@ import { generateStaticMetadata } from '@/utils/metadata'
 import OptimizedBackgroundImage from '@/components/common/OptimizedBackgroundImage'
 import OptimizedImage from '@/components/common/OptimizedImage'
 import TranslatedText from '@/components/common/TranslatedText'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Manifeste — InRealArt',
@@ -31,6 +32,7 @@ const BULLET_KEYS = [
 
 export default function ManifestPage() {
   return (
+    <>
     <main className="text-textColor bg-backgroundColor">
 
       {/* ─── Hero ─── */}
@@ -238,5 +240,7 @@ export default function ManifestPage() {
       </section>
 
     </main>
+    <NewsletterInline />
+    </>
   )
 }

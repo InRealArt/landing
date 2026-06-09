@@ -51,18 +51,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <nav className="flex flex-col gap-6 bricolage-grotesque font-semibold text-xl">
           <Link
-            href="/presale"
-            className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            href="/artists"
+            className={`${pathname === '/artists' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
-            {t('nav.galerie')}
-          </Link>
-          <Link
-            href="/usecase"
-            className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
-            onClick={onClose}
-          >
-            {t('nav.capital')}
+            {t('nav.artists')}
           </Link>
           <Link
             href="/agence"
@@ -79,11 +72,25 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {t('nav.media')}
           </Link>
           <Link
+            href="/usecase"
+            className={`${pathname === '/usecase' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            onClick={onClose}
+          >
+            {t('nav.capital')}
+          </Link>
+          <Link
             href="/team"
             className={`${pathname === '/team' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
             onClick={onClose}
           >
             {t('nav.aboutInRealArt')}
+          </Link>
+          <Link
+            href="/presale"
+            className={`${pathname === '/presale' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            onClick={onClose}
+          >
+            {t('nav.galerie')}
           </Link>
         </nav>
 

@@ -9,6 +9,7 @@ import ExpertsSection from './components/ExpertsSection'
 import ServicesGrid from './components/ServicesGrid'
 import TestimonialSection from './components/TestimonialSection'
 import ContactForm from './components/ContactForm'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 const language: 'fr' | 'en' = 'fr'
 const { t } = getServerTranslations(language)
@@ -70,6 +71,7 @@ export default async function ServicesPage() {
   }
 
   return (
+    <>
     <main className="min-h-screen bg-backgroundColor text-textColor">
       {/* HERO */}
       <section className="pt-headerSize pb-24 px-10 bg-backgroundColor">
@@ -199,5 +201,7 @@ export default async function ServicesPage() {
         }}
       />
     </main>
+    <NewsletterInline />
+    </>
   )
 }

@@ -6,6 +6,7 @@ import { getArtworkPreviewsByArtistIds } from '@/actions/presaleArtworkActions'
 import ArtistsHubClient from '@/components/artists/ArtistsHubClient'
 import { ArtistsGridSkeleton } from '@/components/artists/ArtistsGrid'
 import ArtistsAnimations from '@/components/artists/ArtistsAnimations'
+import NewsletterInline from '@/components/common/NewsletterInline'
 
 export const revalidate = 1800
 
@@ -30,6 +31,7 @@ export default async function ArtistsPage() {
       <Suspense fallback={<ArtistsGridSkeleton />}>
         <ArtistsHubClient initialArtists={artists} artworkPreviews={artworkPreviews} currentlyExposedArtists={currentlyExposedArtists} />
       </Suspense>
+      <NewsletterInline />
     </>
   )
 }
