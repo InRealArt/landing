@@ -21,7 +21,7 @@ export default function HotelPrestigePage() {
   return (
     <>
       <HotelPrestigeClient />
-      <PageFAQ pageName="usecase/leasing/hotelPrestige" />
+      <PageFAQ pageName="usecaseLeasingHotelPrestige" />
     </>
   )
 }

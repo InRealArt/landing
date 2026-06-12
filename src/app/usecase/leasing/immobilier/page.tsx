@@ -21,7 +21,7 @@ export default function ImmobilierPage() {
   return (
     <>
       <ImmobilierClient />
-      <PageFAQ pageName="usecase/leasing/immobilier" />
+      <PageFAQ pageName="usecaseLeasingImmobilier" />
     </>
   )
 }

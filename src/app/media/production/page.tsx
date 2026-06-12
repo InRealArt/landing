@@ -16,6 +16,7 @@ export const metadata: Metadata = generateStaticMetadata({
 export default function MediaProductionPage() {
 
   return (
+    <>
     <main className="min-h-screen bg-backgroundColor text-textColor">
 
       {/* Hero */}
@@ -48,5 +49,6 @@ export default function MediaProductionPage() {
 
     </main>
     <MediaProductionFAQ />
+    </>
   )
 }

@@ -3,7 +3,7 @@ import PageFAQ from '@/components/common/FAQ/PageFAQ'
 const AgenceArtistsFAQ = () => {
   return (
     <PageFAQ
-      pageName="agence/artists"
+      pageName="agence_artists"
       titleKey="common.faq.title"
       descriptionKey="common.faq.description"
     />
