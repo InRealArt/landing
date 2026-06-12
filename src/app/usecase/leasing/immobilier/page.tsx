@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import ImmobilierClient from './ImmobilierClient'
+import PageFAQ from '@/components/common/FAQ/PageFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Leasing d\'Art pour Immobilier de Prestige — InRealArt',
@@ -17,5 +18,10 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default function ImmobilierPage() {
-  return <ImmobilierClient />
+  return (
+    <>
+      <ImmobilierClient />
+      <PageFAQ pageName="usecase/leasing/immobilier" />
+    </>
+  )
 }

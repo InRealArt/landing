@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata, generateBlogJsonLd } from '@/utils/metadata'
 import BlogPageClient from './BlogPageClient'
 import NewsletterInline from '@/components/common/NewsletterInline'
+import BlogFAQ from '@/components/blog/BlogFAQ'
 import {
   getFeaturedPost,
   getLanguageIdByCode,
@@ -55,6 +56,7 @@ export default async function BlogPage({
         initialPage={initialPage}
         totalPages={paginatedResult.totalPages}
       />
+      <BlogFAQ />
       <NewsletterInline />
     </>
   )

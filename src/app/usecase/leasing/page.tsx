@@ -4,6 +4,7 @@ import LeasingHero from '@/components/usecase/leasing/LeasingHero';
 import LeasingAdvantages from '@/components/usecase/leasing/LeasingAdvantages';
 import LeasingProcess from '@/components/usecase/leasing/LeasingProcess';
 import LeasingSimulatorForm from '@/components/usecase/leasing/LeasingSimulatorForm';
+import LeasingFAQ from '@/components/usecase/leasing/LeasingFAQ';
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Leasing d\'Art | InRealArt - Solutions Entreprises',
@@ -19,6 +20,7 @@ export default function LeasingPage() {
       <LeasingAdvantages />
       <LeasingProcess />
       <LeasingSimulatorForm />
+      <LeasingFAQ />
     </main>
   );
 } 

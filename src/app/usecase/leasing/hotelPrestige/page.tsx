@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import HotelPrestigeClient from './HotelPrestigeClient'
+import PageFAQ from '@/components/common/FAQ/PageFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Art & Hôtellerie d\'Exception — InRealArt',
@@ -17,5 +18,10 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default function HotelPrestigePage() {
-  return <HotelPrestigeClient />
+  return (
+    <>
+      <HotelPrestigeClient />
+      <PageFAQ pageName="usecase/leasing/hotelPrestige" />
+    </>
+  )
 }

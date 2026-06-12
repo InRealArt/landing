@@ -4,6 +4,7 @@ import { getServerTranslations } from '@/utils/serverTranslations'
 import AgencePage from '@/components/agence/AgencePage'
 import { getTopUgcArtists } from '@/actions/ugcActions'
 import NewsletterInline from '@/components/common/NewsletterInline'
+import AgenceFAQ from '@/components/agence/AgenceFAQ'
 
 const { t } = getServerTranslations('fr')
 
@@ -26,6 +27,7 @@ export default async function Page() {
   return (
     <>
       <AgencePage topArtists={topArtists} />
+      <AgenceFAQ />
       <NewsletterInline />
     </>
   )

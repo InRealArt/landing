@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import MediaProductionForm from '@/components/media/production/MediaProductionForm'
+import MediaProductionFAQ from '@/components/media/MediaProductionFAQ'
 
 const { t: tFr } = getServerTranslations('fr')
 
@@ -46,5 +47,6 @@ export default function MediaProductionPage() {
       </section>
 
     </main>
+    <MediaProductionFAQ />
   )
 }

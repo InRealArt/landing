@@ -7,6 +7,7 @@ import MarianSection from '@/components/media/MarianSection'
 import InRealArtTvSection from '@/components/media/InRealArtTvSection'
 import MediaProductionPackages from '@/components/media/MediaProductionPackages'
 import NewsletterInline from '@/components/common/NewsletterInline'
+import MediaFAQ from '@/components/media/MediaFAQ'
 
 export const metadata: Metadata = generateStaticMetadata({
   title: "L'Observatoire de la Création — InRealArt Média",
@@ -55,6 +56,7 @@ export default function MediaPage() {
       {/* 5. Packages de production */}
       {/* <MediaProductionPackages /> */}
 
+      <MediaFAQ />
       <NewsletterInline />
     </>
   )

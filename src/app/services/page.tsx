@@ -10,6 +10,7 @@ import ServicesGrid from './components/ServicesGrid'
 import TestimonialSection from './components/TestimonialSection'
 import ContactForm from './components/ContactForm'
 import NewsletterInline from '@/components/common/NewsletterInline'
+import PageFAQ from '@/components/common/FAQ/PageFAQ'
 
 const language: 'fr' | 'en' = 'fr'
 const { t } = getServerTranslations(language)
@@ -201,6 +202,7 @@ export default async function ServicesPage() {
         }}
       />
     </main>
+    <PageFAQ pageName="services" />
     <NewsletterInline />
     </>
   )
