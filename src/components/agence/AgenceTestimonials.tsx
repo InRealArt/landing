@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 interface Props {
   t: (key: string) => string
@@ -116,7 +117,7 @@ export default function AgenceTestimonials({ t, artists }: Props) {
         >
           {selected.map(({ artist, testimonial }, i) => {
             const name = artist.profile.pseudo || [artist.profile.name, artist.profile.surname].filter(Boolean).join(' ') || 'Créateur'
-            const img = artist.profile.profileImageUrl
+            const img = getImageUrl(artist.profile.profileImageUrl)
 
             return (
               <div
@@ -154,14 +155,14 @@ export default function AgenceTestimonials({ t, artists }: Props) {
 
                 {/* Artist identity */}
                 <div className="flex items-center gap-4">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden bg-backgroundGrey border border-borderColor shrink-0">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden bg-backgroundGrey border border-borderColor shrink-0">
                     {img ? (
                       <Image
                         src={img}
                         alt={name}
                         fill
                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                        sizes="40px"
+                        sizes="128px"
                       />
                     ) : (
                       <span
