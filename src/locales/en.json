@@ -380,7 +380,7 @@
         "agence": {
           "subtitle": "AGENCY",
           "title": "Activate creators for your brand",
-          "description": "Artists with a real vision at the service of your campaigns. UGC, brand content, collaborations — authentic creators, not generic profiles.",
+          "description": "Artists with a real vision at the service of your campaigns. Artistic content, brand content, collaborations — authentic creators, not generic profiles.",
           "cta": "Submit a brief"
         },
         "media": {
@@ -3657,7 +3657,7 @@
       },
       "stream3": {
         "number": "03",
-        "label": "Bespoke UGC",
+        "label": "Bespoke Artistic Content",
         "title": "The perfect asset, without a campaign",
         "description": "You need a precise visual, not a full distribution push. We deliver premium assets, rights included, on guaranteed timelines.",
         "badge": "Coming Soon"
@@ -3834,7 +3834,7 @@
       "caseLabel": "Case Study",
       "caseBrand": "Logitech",
       "caseArtist": "Artialy",
-      "caseTag": "UGC Activation · Brand Content",
+      "caseTag": "Artistic Content Activation · Brand Content",
       "caseTitle": "Artialy × Logitech",
       "caseDescription": "Artialy created a series of premium visual assets for Logitech — product photography and creative reels integrating peripherals into his digital art world. Authentic content that speaks where traditional advertising no longer reaches.",
       "statReach": "organic reach",
@@ -3859,7 +3859,7 @@
         "title": "Our artists — InRealArt Agency",
         "description": "Browse the full InRealArt UGC creator catalogue — verified metrics, social presence and portfolios."
       },
-      "breadcrumb": "UGC ARTISTS — INREALART",
+      "breadcrumb": "ARTISTIC CONTENT ARTISTS — INREALART",
       "title": "All our",
       "titleAccent": "creators.",
       "countLabel": "creator",

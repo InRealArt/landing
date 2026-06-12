@@ -19,7 +19,7 @@ const TESTIMONIALS = [
   },
   {
     quote: "J'ai livré 8 assets en deux semaines. Le pipeline est fluide, le brief est clair. C'est ça, un partenariat qui scale.",
-    context: "Campagne UGC · Q4 2024",
+    context: "Campagne Artistique · Q4 2024",
   },
   {
     quote: "Mes reels pour la marque ont overperformé de 340 %. In Real Art sait exactement à qui confier quel type de contenu.",

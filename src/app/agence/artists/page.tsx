@@ -6,7 +6,7 @@ import AgenceArtistsFAQ from '@/components/agence/AgenceArtistsFAQ'
 export const metadata: Metadata = {
   title: 'Nos artistes — Agence InRealArt',
   description:
-    "Découvrez l'ensemble des créateurs UGC du catalogue InRealArt — métriques vérifiées, présence sociale et portfolios.",
+    "Découvrez l'ensemble des artistes de l'agence InRealArt — métriques vérifiées, présence sociale et portfolios.",
 }
 
 export default async function AgenceArtistsRoute() {

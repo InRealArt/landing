@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!artist) return {}
   const name = artist.pseudo ?? [artist.name, artist.surname].filter(Boolean).join(' ')
   return {
-    title: `${name} — Artiste UGC | InRealArt`,
-    description: artist.description ?? `Découvrez le profil de ${name}, créateur UGC du catalogue InRealArt.`,
+    title: `${name} — Artiste | InRealArt`,
+    description: artist.description ?? `Découvrez le profil de ${name}, artiste de l'agence InRealArt.`,
   }
 }
 
