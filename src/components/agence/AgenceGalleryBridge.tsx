@@ -1,15 +1,17 @@
 import Link from 'next/link'
-import { getArtworksByLandingArtistSlug } from '@/actions/presaleArtworkActions'
+import { getArtworksByUgcArtistProfileId } from '@/actions/presaleArtworkActions'
 import { getServerTranslations } from '@/utils/serverTranslations'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
 interface Props {
+  ugcArtistProfileId: number
   landingArtistSlug: string
   artistDisplayName: string
   language: string
 }
 
-export default async function AgenceGalleryBridge({ landingArtistSlug, artistDisplayName, language }: Props) {
-  const artworks = await getArtworksByLandingArtistSlug(landingArtistSlug, 3)
+export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingArtistSlug, artistDisplayName, language }: Props) {
+  const artworks = await getArtworksByUgcArtistProfileId(ugcArtistProfileId, 3)
   if (artworks.length === 0) return null
 
   const { t } = getServerTranslations(language as 'fr' | 'en')
@@ -54,7 +56,7 @@ export default async function AgenceGalleryBridge({ landingArtistSlug, artistDis
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={artwork.imageUrl}
+                src={getImageUrl(artwork.imageUrl) ?? artwork.imageUrl}
                 alt={typeof artwork.name === 'string' ? artwork.name : ''}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />

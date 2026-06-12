@@ -479,19 +479,21 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
     }
 }
 
-export async function getArtworksByLandingArtistSlug(
-    slug: string,
+export async function getArtworksByUgcArtistProfileId(
+    ugcArtistProfileId: number,
     limit = 3
 ): Promise<Pick<PresaleArtworkData, 'id' | 'name' | 'imageUrl' | 'price' | 'isSold'>[]> {
     try {
-        const artworks = await prisma.presaleArtwork.findMany({
-            where: {
-                artist: {
-                    LandingArtist: {
-                        some: { slug }
-                    }
-                }
-            },
+        // Resolve the landingArtistId from the UGC profile, then get its artistId
+        const ugcProfile = await prisma.landingUgcArtistProfile.findUnique({
+            where: { id: ugcArtistProfileId },
+            select: { landingArtist: { select: { artistId: true } } },
+        })
+        const artistId = ugcProfile?.landingArtist?.artistId
+        if (!artistId) return []
+
+        const all = await prisma.presaleArtwork.findMany({
+            where: { artistId },
             select: {
                 id: true,
                 name: true,
@@ -499,12 +501,16 @@ export async function getArtworksByLandingArtistSlug(
                 price: true,
                 isSold: true,
             },
-            orderBy: { order: 'asc' },
-            take: limit,
         })
-        return artworks
+
+        // Random shuffle, take limit
+        for (let i = all.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [all[i], all[j]] = [all[j], all[i]]
+        }
+        return all.slice(0, limit)
     } catch (error) {
-        console.error(`[getArtworksByLandingArtistSlug] slug=${slug}:`, error)
+        console.error(`[getArtworksByUgcArtistProfileId] ugcArtistProfileId=${ugcArtistProfileId}:`, error)
         return []
     }
 }

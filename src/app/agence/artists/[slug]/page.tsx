@@ -31,6 +31,7 @@ export default async function AgenceArtistDetailRoute({ params }: Props) {
       <AgenceArtistDetailPage artist={artist} />
       {artist.landingArtistSlug && (
         <AgenceGalleryBridge
+          ugcArtistProfileId={artist.id}
           landingArtistSlug={artist.landingArtistSlug}
           artistDisplayName={artistDisplayName}
           language="fr"
