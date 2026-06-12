@@ -22,7 +22,7 @@ export default function AgencePage({ topArtists }: Props) {
       <AgenceHero t={t} />
       <AgenceDifferentiators t={t} />
       <AgenceTopCreateurs t={t} artists={topArtists} />
-      <AgencePartners t={t} />
+      {/* <AgencePartners t={t} /> */}
       <AgenceTestimonials t={t} artists={topArtists} />
       <AgencePricing t={t} />
       <AgenceCta t={t} />
