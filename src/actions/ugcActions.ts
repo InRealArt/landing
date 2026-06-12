@@ -139,6 +139,7 @@ const ugcProfileInclude = {
 export async function getAllUgcArtists(): Promise<UgcArtistProfileData[]> {
   try {
     const rows = await prisma.landingUgcArtistProfile.findMany({
+      where: { visible: true },
       orderBy: { pseudo: 'asc' },
       include: ugcProfileInclude,
     })
