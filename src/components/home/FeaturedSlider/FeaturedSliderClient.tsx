@@ -74,9 +74,6 @@ export default function FeaturedSliderClient({ items }: Props) {
               {t('featured.sectionTitle')}
             </h2>
           </div>
-          <span className="unbounded text-[10px] text-grayText tabular-nums hidden sm:block">
-            {String(activeIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-          </span>
         </div>
 
         {/* Slide container */}
