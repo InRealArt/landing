@@ -151,12 +151,11 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
 
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
-              <span className="text-5xl mb-4">🎨</span>
               <h3 className="font-cormorant text-2xl font-light mb-2 text-textColor">Aucun atelier trouvé</h3>
               <p className="text-sm text-grayText max-w-sm">Essayez d&apos;élargir vos filtres.</p>
               <button
                 onClick={resetFilters}
-                className="mt-6 bg-gold-accent text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:opacity-90 transition-all"
+                className="mt-6 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-6 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300"
               >
                 Réinitialiser les filtres
               </button>
@@ -169,45 +168,57 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                   <div
                     key={artist.id}
                     onClick={() => onSelectArtist(artist.id)}
-                    className={`group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                      isSelected
-                        ? 'ring-2 ring-gold-accent bg-gold-accent/5 border-gold-accent shadow-md border'
-                        : 'bg-cardBackground border border-borderColor hover:shadow-xl hover:border-gold-accent/40'
+                    className={`group relative flex flex-col cursor-pointer bg-cardBackground transition-all duration-300 ${
+                      isSelected ? 'outline outline-1 outline-gold-accent' : ''
                     }`}
                   >
-                    <div className="relative h-48 overflow-hidden bg-gray-800">
+                    {/* Portrait */}
+                    <div className="relative aspect-[3/4] overflow-hidden bg-backgroundGrey">
                       <Image
                         src={artist.photo}
                         alt={artist.name}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className={`object-cover transition-all duration-700 ease-out group-hover:scale-105 ${isSelected ? '' : 'grayscale group-hover:grayscale-0'}`}
                         unoptimized
                       />
-                      <span
-                        className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full text-white"
-                        style={{ backgroundColor: artist.color }}
-                      >
-                        {artist.medium}
-                      </span>
-                      {artist.openPublic && (
-                        <span className="absolute bottom-3 left-3 bg-black/80 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 backdrop-blur-sm">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
-                          Ouvert au public
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Medium badge */}
+                      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                        <span
+                          className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
+                          style={{ backgroundColor: artist.color + '99' }}
+                        >
+                          {artist.mediumLabel}
                         </span>
-                      )}
+                        {artist.openPublic && (
+                          <span className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                            Ouvert
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="p-5">
-                      <span className="text-xs text-grayText uppercase tracking-widest font-semibold">{artist.city}</span>
-                      <h3 className="font-cormorant text-xl font-light mt-1 group-hover:text-gold-accent transition-colors text-textColor">
+
+                    {/* Card body */}
+                    <div className="flex flex-col flex-1 pt-5 pb-6 px-5 border border-t-0 border-borderColor">
+                      <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
+                        {artist.city} — {artist.region}
+                      </p>
+                      <h3 className="serif text-xl font-light text-textColor leading-tight mb-3 group-hover:text-gold-accent transition-colors duration-300">
                         {artist.name}
                       </h3>
-                      <p className="text-xs text-grayText mt-2 line-clamp-2 italic leading-relaxed">&ldquo;{artist.tagline}&rdquo;</p>
-                      <div className="mt-4 pt-4 border-t border-borderColor flex items-center justify-between text-xs font-semibold text-gold-accent">
-                        <span>Découvrir l&apos;atelier</span>
-                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <p className="text-xs text-grayText italic leading-relaxed line-clamp-2 mb-4">
+                        &ldquo;{artist.tagline}&rdquo;
+                      </p>
+                      <button
+                        className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+                      >
+                        Découvrir l&apos;atelier
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 )
