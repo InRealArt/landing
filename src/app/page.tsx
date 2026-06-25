@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
 import Statistics from "@/components/home/Statistics"
 import ExhibitionSlider from "@/components/home/ExhibitionSlider"
+import FeaturedSlider from "@/components/home/FeaturedSlider/FeaturedSlider"
 import HomeHero from "@/components/home/HomeHero"
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
@@ -78,6 +79,7 @@ export default function Home() {
       />
 
       <HomeHero />
+      <FeaturedSlider />
       <ExhibitionSlider />
       <Statistics />
       <Expertises />

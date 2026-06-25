@@ -4031,5 +4031,17 @@
         "errorMessage": "An error occurred. Please try again or contact us directly."
       }
     }
+  },
+  "featured": {
+    "eyebrow": "IN THE SPOTLIGHT",
+    "sectionTitle": "Featured",
+    "gridAriaLabel": "Slider of featured items",
+    "typeArtist": "Artist",
+    "typeArtwork": "Artwork",
+    "typePost": "Article",
+    "typeExhibition": "Exhibition",
+    "ctaArtist": "Discover the artist",
+    "ctaArtwork": "View the artwork",
+    "ctaPost": "Read the article"
   }
 }

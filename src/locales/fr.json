@@ -3798,5 +3798,17 @@
         "errorMessage": "Une erreur est survenue. Réessayez ou contactez-nous directement."
       }
     }
+  },
+  "featured": {
+    "eyebrow": "À L'HONNEUR",
+    "sectionTitle": "En Lumière",
+    "gridAriaLabel": "Slider des éléments mis en avant",
+    "typeArtist": "Artiste",
+    "typeArtwork": "Œuvre",
+    "typePost": "Article",
+    "typeExhibition": "Exposition",
+    "ctaArtist": "Découvrir l'artiste",
+    "ctaArtwork": "Voir l'œuvre",
+    "ctaPost": "Lire l'article"
   }
 }
