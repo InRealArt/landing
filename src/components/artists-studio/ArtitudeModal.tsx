@@ -85,9 +85,25 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
 
           {/* Left — visual */}
           <div className="relative bg-black border-b md:border-b-0 md:border-r border-borderColor overflow-hidden min-h-[200px] md:min-h-0 flex flex-col justify-end p-8">
+            {/* Full-bleed image */}
+            <div className="absolute inset-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/artists/hero_artists.webp"
+                alt="Ateliers d'artistes InRealArt"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            {/* Vignette */}
             <div
-              className="absolute inset-0"
-              style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(184,156,114,0.15) 0%, transparent 70%)' }}
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%)' }}
+              aria-hidden="true"
+            />
+            {/* Gradient bas */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none"
+              style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)' }}
               aria-hidden="true"
             />
             {/* Cadres dorés */}
