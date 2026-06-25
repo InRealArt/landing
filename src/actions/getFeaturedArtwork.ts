@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { FeaturedArtwork } from '@/types/featured-item'
 
 export async function getFeaturedArtwork(): Promise<FeaturedArtwork | null> {
@@ -22,7 +23,7 @@ export async function getFeaturedArtwork(): Promise<FeaturedArtwork | null> {
       id: artwork.id,
       title: artwork.name,
       slug: '', // No slug for artworks in this context
-      imageUrl: artwork.imageUrl,
+      imageUrl: getImageUrl(artwork.imageUrl) || '',
       price: artwork.price,
     }
   } catch (error) {

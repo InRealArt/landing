@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { FeaturedArtist } from '@/types/featured-item'
 
 export async function getFeaturedArtist(): Promise<FeaturedArtist | null> {
@@ -29,7 +30,7 @@ export async function getFeaturedArtist(): Promise<FeaturedArtist | null> {
       name: artist.artist.name || '',
       surname: artist.artist.surname || '',
       slug: artist.slug,
-      imageUrl: artist.imageUrl,
+      imageUrl: getImageUrl(artist.imageUrl) || '',
       speciality: artist.artworkStyle,
     }
   } catch (error) {

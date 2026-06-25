@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { FeaturedPost } from '@/types/featured-item'
 
 export async function getFeaturedPostByLanguage(languageId: number): Promise<FeaturedPost | null> {
@@ -30,7 +31,7 @@ export async function getFeaturedPostByLanguage(languageId: number): Promise<Fea
       id: post.id,
       title: post.title,
       slug: post.slug,
-      imageUrl: post.mainImageUrl,
+      imageUrl: getImageUrl(post.mainImageUrl),
       categoryName: post.category?.name || null,
     }
   } catch (error) {

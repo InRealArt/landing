@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { FeaturedExhibition } from '@/types/featured-item'
 
 export async function getFeaturedExhibition(): Promise<FeaturedExhibition | null> {
@@ -23,7 +24,7 @@ export async function getFeaturedExhibition(): Promise<FeaturedExhibition | null
       kind: 'exhibition',
       id: exhibition.id,
       title: exhibition.name,
-      imageUrl: exhibition.imageUrl,
+      imageUrl: getImageUrl(exhibition.imageUrl),
       location: exhibition.address,
       startDate: exhibition.startDate.toISOString(),
       endDate: exhibition.endDate.toISOString(),

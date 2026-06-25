@@ -9,15 +9,19 @@ export default function ArtistSlide({ item }: Props) {
     <article className="group flex flex-col h-full">
       {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden bg-backgroundGrey">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={item.imageUrl}
-          alt={`${item.name} ${item.surname}`}
-          fetchPriority="high"
-          loading="eager"
-          decoding="sync"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        />
+        {item.imageUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.imageUrl}
+            alt={`${item.name} ${item.surname}`}
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-backgroundGrey" aria-hidden="true" />
+        )}
       </div>
 
       {/* Content (mobile only) */}
