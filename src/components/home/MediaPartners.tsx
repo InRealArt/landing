@@ -16,6 +16,7 @@ const MEDIA_PARTNERS: MediaPartner[] = [
   { src: '/images/partners/logo-art-thema.webp',         alt: 'Artthema',  width: 200, height: 120, bgWhite: true },
   // { src: '/images/partners/lea-douze.webp',              alt: 'LeaDouze',  width: 200, height: 120 },
   { src: '/images/partners/logitech.avif',               alt: 'Logitech',  width: 200, height: 120 },
+  { src: '/images/partners/icac.webp',               alt: 'ICAC',  width: 200, height: 120 },
 ]
 
 // On multiplie suffisamment pour couvrir n'importe quelle largeur d'écran sans blanc
