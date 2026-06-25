@@ -163,7 +163,7 @@ export default function FeaturedSliderClient({ items }: Props) {
         </div>
 
         {/* Dots Navigation */}
-        <div className="flex justify-center items-center gap-3 mt-12" role="tablist">
+        <div className="flex justify-center items-center gap-4 mt-12" role="tablist">
           {items.map((_, i) => (
             <button
               key={i}
@@ -171,10 +171,10 @@ export default function FeaturedSliderClient({ items }: Props) {
               aria-selected={i === activeIndex}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => goTo(i)}
-              className={`transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
                 i === activeIndex
-                  ? 'w-8 h-1 bg-gold-accent'
-                  : 'w-2 h-1 bg-borderColor hover:bg-gold-accent/50'
+                  ? 'w-3 h-3 bg-gold-accent shadow-lg shadow-gold-accent/30'
+                  : 'w-2.5 h-2.5 bg-borderColor hover:bg-gold-accent/60 hover:scale-110'
               }`}
             />
           ))}
