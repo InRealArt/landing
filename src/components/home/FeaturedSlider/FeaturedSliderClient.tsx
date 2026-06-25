@@ -25,14 +25,23 @@ export default function FeaturedSliderClient({ items }: Props) {
 
   // Auto-rotate: 5 seconds
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+        intervalRef.current = null
+      }
+      return
+    }
 
     intervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % items.length)
     }, 5000)
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+        intervalRef.current = null
+      }
     }
   }, [isPaused, items.length])
 
