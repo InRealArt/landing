@@ -9,6 +9,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 
 const ArtitudeModal = dynamic(() => import('@/components/artists-studio/ArtitudeModal'), { ssr: false });
 
@@ -16,6 +17,26 @@ const Header = () => {
   const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [artitudeModalOpen, setArtitudeModalOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLink = (href: string, label: string, exact = false) => {
+    const isActive = exact ? pathname === href : pathname.startsWith(href)
+    return (
+      <li className="whitespace-nowrap relative group">
+        <Link
+          href={href}
+          className={`text-[13px] uppercase tracking-[0.25em] transition-colors pb-1 ${
+            isActive ? 'text-gold-accent' : 'text-textColor hover:text-gold-accent'
+          }`}
+        >
+          {label}
+          <span className={`absolute bottom-0 left-0 h-px bg-gold-accent transition-all duration-300 ${
+            isActive ? 'w-full' : 'w-0 group-hover:w-full'
+          }`} />
+        </Link>
+      </li>
+    )
+  }
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -30,48 +51,21 @@ const Header = () => {
           </Link>
 
           <ul className="hidden xl:flex items-center gap-4 2xl:gap-6">
-            <li className="whitespace-nowrap">
-              <Link href="/artists" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.artists')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/agence" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.agence')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/media" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.media')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/usecase" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.capital')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/team" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.aboutInRealArt')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/presale" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.galerie')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
-              <Link href="/artists-studio" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
-                {t('nav.ateliers')}
-              </Link>
-            </li>
-            <li className="whitespace-nowrap">
+            {navLink('/artists', t('nav.artists'))}
+            {navLink('/agence', t('nav.agence'))}
+            {navLink('/media', t('nav.media'))}
+            {navLink('/usecase', t('nav.capital'))}
+            {navLink('/team', t('nav.aboutInRealArt'))}
+            {navLink('/presale', t('nav.galerie'), true)}
+            {navLink('/artists-studio', t('nav.ateliers'), true)}
+            <li className="whitespace-nowrap relative group">
               <Link
                 href="/contact"
-                className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
+                className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent transition-colors pb-1"
                 data-umami-event="contact-header-click"
               >
                 {t('nav.contact')}
+                <span className="absolute bottom-0 left-0 h-px bg-gold-accent w-full" />
               </Link>
             </li>
           </ul>
