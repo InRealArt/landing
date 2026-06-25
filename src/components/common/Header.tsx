@@ -19,8 +19,10 @@ const Header = () => {
   const [artitudeModalOpen, setArtitudeModalOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLink = (href: string, label: string, exact = false) => {
-    const isActive = exact ? pathname === href : pathname.startsWith(href)
+  const navLink = (href: string, label: string, exact = false, exclude?: string) => {
+    const isActive = exact
+      ? pathname === href
+      : pathname.startsWith(href) && (!exclude || !pathname.startsWith(exclude))
     return (
       <li className="whitespace-nowrap relative group">
         <Link
@@ -51,7 +53,7 @@ const Header = () => {
           </Link>
 
           <ul className="hidden xl:flex items-center gap-4 2xl:gap-6">
-            {navLink('/artists', t('nav.artists'))}
+            {navLink('/artists', t('nav.artists'), false, '/artists-studio')}
             {navLink('/agence', t('nav.agence'))}
             {navLink('/media', t('nav.media'))}
             {navLink('/usecase', t('nav.capital'))}
