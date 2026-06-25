@@ -3811,5 +3811,91 @@
     "ctaArtist": "Découvrir l'artiste",
     "ctaArtwork": "Voir l'œuvre",
     "ctaPost": "Lire l'article"
+  },
+  "artistsStudio": {
+    "eyebrow": "Réseau d'Art Vivant Contemporain",
+    "hero": {
+      "title": "L'Index des Ateliers",
+      "subtitle": "Trouvez un artiste près de chez vous",
+      "description": "Explorez la géographie de la création. Rencontrez nos artistes résidents, poussez les portes de leurs ateliers et découvrez l'art au plus près de son lieu de naissance.",
+      "statsStudios": "Ateliers Référencés",
+      "statsArtists": "Artistes Certifiés",
+      "statsDisciplines": "Disciplines Majeures"
+    },
+    "map": {
+      "loading": "Chargement de la carte…",
+      "legend": "Médiums Artistiques",
+      "mediums": {
+        "peinture": "Peinture",
+        "sculpture": "Sculpture",
+        "photographie": "Photographie",
+        "dessin": "Dessin / Papier",
+        "autre": "Autres médiums"
+      },
+      "popupCta": "Voir l'atelier"
+    },
+    "grid": {
+      "title": "Les Ateliers",
+      "searchPlaceholder": "Nom, spécialité, mots-clés...",
+      "locationPlaceholder": "Ville, région...",
+      "filterMediums": "Médiums",
+      "filterOpen": "Atelier ouvert",
+      "studioCount_one": "{{count}} atelier",
+      "studioCount_other": "{{count}} ateliers",
+      "reset": "Réinitialiser",
+      "emptyTitle": "Aucun atelier trouvé",
+      "emptyHint": "Essayez d'élargir vos filtres.",
+      "resetFilters": "Réinitialiser les filtres",
+      "discoverCta": "Découvrir l'atelier"
+    },
+    "detail": {
+      "emptyTitle": "Fiche de l'atelier",
+      "emptyHint": "Cliquez sur un marqueur ou sur un atelier pour afficher sa fiche complète",
+      "approach": "Démarche",
+      "portfolio": "Portfolio",
+      "artwork": "Œuvre",
+      "openPublic": "Entrée libre",
+      "byAppointment": "Sur rendez-vous",
+      "access": "Accès : ",
+      "joinCta": "Rejoindre le réseau"
+    },
+    "cta": {
+      "eyebrow": "Rejoignez le collectif",
+      "title": "Vous êtes artiste et vous n'êtes pas encore dans l'Index ?",
+      "description": "Bénéficiez d'une visibilité directe auprès de milliers de collectionneurs et passionnés d'art contemporain.",
+      "joinCta": "S'inscrire gratuitement",
+      "artistsCta": "Voir tous les artistes"
+    },
+    "modal": {
+      "eyebrow": "Artitude — Index des Ateliers",
+      "title": "Rejoignez le",
+      "titleAccent": "réseau vivant",
+      "titleSuffix": "des créateurs",
+      "description": "Votre atelier, visible par des milliers de collectionneurs et passionnés d'art contemporain.",
+      "fieldName": "Nom complet",
+      "fieldMedium": "Médium",
+      "fieldCity": "Ville",
+      "fieldStatus": "Statut de l'atelier",
+      "fieldTagline": "Accroche",
+      "fieldBio": "Démarche artistique",
+      "fieldPhoto": "Photo de l'atelier (URL)",
+      "placeholderName": "Ex : Sophie Duval",
+      "placeholderCity": "Ex : Nantes",
+      "placeholderTagline": "L'art minimaliste au cœur de la matière.",
+      "placeholderBio": "Style, inspirations, univers…",
+      "placeholderPhoto": "https://…",
+      "optionPeinture": "Peinture",
+      "optionSculpture": "Sculpture",
+      "optionPhotographie": "Photographie",
+      "optionDessin": "Dessin / Papier",
+      "optionAutre": "Autre",
+      "optionOpen": "Ouvert au public",
+      "optionAppointment": "Sur rendez-vous uniquement",
+      "submit": "Publier mon atelier",
+      "cancel": "Annuler",
+      "successTitle": "Bienvenue dans l'Index !",
+      "successDescription": "Votre fiche est en cours de validation. Nous revenons vers vous très vite.",
+      "imageAlt": "Ateliers d'artistes InRealArt"
+    }
   }
 }

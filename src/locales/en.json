@@ -4044,5 +4044,91 @@
     "ctaArtist": "Discover the artist",
     "ctaArtwork": "View the artwork",
     "ctaPost": "Read the article"
+  },
+  "artistsStudio": {
+    "eyebrow": "Contemporary Living Art Network",
+    "hero": {
+      "title": "The Studios Index",
+      "subtitle": "Find an artist near you",
+      "description": "Explore the geography of creation. Meet our resident artists, push open the doors of their studios and discover art at its closest to its birthplace.",
+      "statsStudios": "Listed Studios",
+      "statsArtists": "Certified Artists",
+      "statsDisciplines": "Major Disciplines"
+    },
+    "map": {
+      "loading": "Loading map…",
+      "legend": "Artistic Mediums",
+      "mediums": {
+        "peinture": "Painting",
+        "sculpture": "Sculpture",
+        "photographie": "Photography",
+        "dessin": "Drawing / Paper",
+        "autre": "Other mediums"
+      },
+      "popupCta": "View studio"
+    },
+    "grid": {
+      "title": "The Studios",
+      "searchPlaceholder": "Name, specialty, keywords...",
+      "locationPlaceholder": "City, region...",
+      "filterMediums": "Mediums",
+      "filterOpen": "Open studio",
+      "studioCount_one": "{{count}} studio",
+      "studioCount_other": "{{count}} studios",
+      "reset": "Reset",
+      "emptyTitle": "No studio found",
+      "emptyHint": "Try broadening your filters.",
+      "resetFilters": "Reset filters",
+      "discoverCta": "Discover the studio"
+    },
+    "detail": {
+      "emptyTitle": "Studio profile",
+      "emptyHint": "Click on a marker or a studio to view its full profile",
+      "approach": "Approach",
+      "portfolio": "Portfolio",
+      "artwork": "Artwork",
+      "openPublic": "Open to visitors",
+      "byAppointment": "By appointment",
+      "access": "Access: ",
+      "joinCta": "Join the network"
+    },
+    "cta": {
+      "eyebrow": "Join the collective",
+      "title": "Are you an artist not yet in the Index?",
+      "description": "Get direct visibility to thousands of collectors and contemporary art enthusiasts.",
+      "joinCta": "Sign up for free",
+      "artistsCta": "See all artists"
+    },
+    "modal": {
+      "eyebrow": "Artitude — Studios Index",
+      "title": "Join the",
+      "titleAccent": "living network",
+      "titleSuffix": "of creators",
+      "description": "Your studio, visible to thousands of collectors and contemporary art enthusiasts.",
+      "fieldName": "Full name",
+      "fieldMedium": "Medium",
+      "fieldCity": "City",
+      "fieldStatus": "Studio status",
+      "fieldTagline": "Tagline",
+      "fieldBio": "Artistic approach",
+      "fieldPhoto": "Studio photo (URL)",
+      "placeholderName": "Ex: Sophie Duval",
+      "placeholderCity": "Ex: Nantes",
+      "placeholderTagline": "Minimalist art at the heart of matter.",
+      "placeholderBio": "Style, inspirations, universe…",
+      "placeholderPhoto": "https://…",
+      "optionPeinture": "Painting",
+      "optionSculpture": "Sculpture",
+      "optionPhotographie": "Photography",
+      "optionDessin": "Drawing / Paper",
+      "optionAutre": "Other",
+      "optionOpen": "Open to the public",
+      "optionAppointment": "By appointment only",
+      "submit": "Publish my studio",
+      "cancel": "Cancel",
+      "successTitle": "Welcome to the Index!",
+      "successDescription": "Your profile is being validated. We will get back to you shortly.",
+      "imageAlt": "InRealArt artist studios"
+    }
   }
 }

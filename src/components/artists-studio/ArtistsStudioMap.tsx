@@ -22,16 +22,17 @@ type Props = {
   artists: ArtistStudio[]
   selectedArtistId: number | null
   onSelectArtist: (id: number) => void
+  popupCtaLabel: string
 }
 
-export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectArtist }: Props) {
+export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectArtist, popupCtaLabel }: Props) {
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef<Map<number, Marker>>(new Map())
   const onSelectArtistRef = useRef(onSelectArtist)
+  const popupCtaLabelRef = useRef(popupCtaLabel)
 
-  useEffect(() => {
-    onSelectArtistRef.current = onSelectArtist
-  }, [onSelectArtist])
+  useEffect(() => { onSelectArtistRef.current = onSelectArtist }, [onSelectArtist])
+  useEffect(() => { popupCtaLabelRef.current = popupCtaLabel }, [popupCtaLabel])
 
   useEffect(() => {
     // Dynamic import to avoid SSR issues
@@ -104,7 +105,7 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
               onclick="window.__selectStudioArtist(${artist.id})"
               style="margin-top:8px;width:100%;background:#131313;color:#fff;border:none;padding:6px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;"
             >
-              Voir l'atelier
+              ${popupCtaLabelRef.current}
             </button>
           </div>
         `)

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
+import { useTranslation } from '@/hooks/useTranslation'
 
 type Props = {
   isOpen: boolean
@@ -29,6 +30,7 @@ const INITIAL_FORM: FormData = {
 }
 
 export default function ArtitudeModal({ isOpen, onClose }: Props) {
+  const { t } = useTranslation()
   const [form, setForm] = useState<FormData>(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
 
@@ -90,7 +92,7 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/artists/hero_artists.webp"
-                alt="Ateliers d'artistes InRealArt"
+                alt={t('artistsStudio.modal.imageAlt')}
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -114,15 +116,15 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
 
             <div className="relative z-10">
               <span className="montserrat text-[10px] uppercase tracking-[0.35em] text-gold-accent block mb-4">
-                Artitude — Index des Ateliers
+                {t('artistsStudio.modal.eyebrow')}
               </span>
               <h2 className="serif italic text-3xl text-textColor leading-tight mb-4">
-                Rejoignez le{' '}
-                <em className="not-italic text-gold-accent">réseau vivant</em>{' '}
-                des créateurs
+                {t('artistsStudio.modal.title')}{' '}
+                <em className="not-italic text-gold-accent">{t('artistsStudio.modal.titleAccent')}</em>{' '}
+                {t('artistsStudio.modal.titleSuffix')}
               </h2>
               <p className="montserrat text-[11px] text-grayText leading-loose font-light">
-                Votre atelier, visible par des milliers de collectionneurs et passionnés d&apos;art contemporain.
+                {t('artistsStudio.modal.description')}
               </p>
             </div>
           </div>
@@ -136,19 +138,19 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="serif italic text-2xl text-textColor">Bienvenue dans l&apos;Index !</h3>
+                <h3 className="serif italic text-2xl text-textColor">{t('artistsStudio.modal.successTitle')}</h3>
                 <p className="montserrat text-[11px] text-grayText leading-loose font-light">
-                  Votre fiche est en cours de validation. Nous revenons vers vous très vite.
+                  {t('artistsStudio.modal.successDescription')}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-0">
                 <div className={fieldClass}>
-                  <label className={labelClass}>Nom complet *</label>
+                  <label className={labelClass}>{t('artistsStudio.modal.fieldName')} *</label>
                   <input
                     type="text"
                     required
-                    placeholder="Ex : Sophie Duval"
+                    placeholder={t('artistsStudio.modal.placeholderName')}
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className={inputClass}
@@ -157,26 +159,26 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
 
                 <div className="grid grid-cols-2 gap-6">
                   <div className={fieldClass}>
-                    <label className={labelClass}>Médium *</label>
+                    <label className={labelClass}>{t('artistsStudio.modal.fieldMedium')} *</label>
                     <select
                       required
                       value={form.medium}
                       onChange={(e) => setForm({ ...form, medium: e.target.value })}
                       className={inputClass + ' cursor-pointer'}
                     >
-                      <option value="peinture">Peinture</option>
-                      <option value="sculpture">Sculpture</option>
-                      <option value="photographie">Photographie</option>
-                      <option value="dessin">Dessin / Papier</option>
-                      <option value="autre">Autre</option>
+                      <option value="peinture">{t('artistsStudio.modal.optionPeinture')}</option>
+                      <option value="sculpture">{t('artistsStudio.modal.optionSculpture')}</option>
+                      <option value="photographie">{t('artistsStudio.modal.optionPhotographie')}</option>
+                      <option value="dessin">{t('artistsStudio.modal.optionDessin')}</option>
+                      <option value="autre">{t('artistsStudio.modal.optionAutre')}</option>
                     </select>
                   </div>
                   <div className={fieldClass}>
-                    <label className={labelClass}>Ville *</label>
+                    <label className={labelClass}>{t('artistsStudio.modal.fieldCity')} *</label>
                     <input
                       type="text"
                       required
-                      placeholder="Ex : Nantes"
+                      placeholder={t('artistsStudio.modal.placeholderCity')}
                       value={form.city}
                       onChange={(e) => setForm({ ...form, city: e.target.value })}
                       className={inputClass}
@@ -185,24 +187,24 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                 </div>
 
                 <div className={fieldClass}>
-                  <label className={labelClass}>Statut de l&apos;atelier *</label>
+                  <label className={labelClass}>{t('artistsStudio.modal.fieldStatus')} *</label>
                   <select
                     required
                     value={form.open}
                     onChange={(e) => setForm({ ...form, open: e.target.value })}
                     className={inputClass + ' cursor-pointer'}
                   >
-                    <option value="oui">Ouvert au public</option>
-                    <option value="non">Sur rendez-vous uniquement</option>
+                    <option value="oui">{t('artistsStudio.modal.optionOpen')}</option>
+                    <option value="non">{t('artistsStudio.modal.optionAppointment')}</option>
                   </select>
                 </div>
 
                 <div className={fieldClass}>
-                  <label className={labelClass}>Accroche *</label>
+                  <label className={labelClass}>{t('artistsStudio.modal.fieldTagline')} *</label>
                   <input
                     type="text"
                     required
-                    placeholder="L'art minimaliste au cœur de la matière."
+                    placeholder={t('artistsStudio.modal.placeholderTagline')}
                     value={form.tagline}
                     onChange={(e) => setForm({ ...form, tagline: e.target.value })}
                     className={inputClass}
@@ -210,10 +212,10 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                 </div>
 
                 <div className={fieldClass}>
-                  <label className={labelClass}>Démarche artistique</label>
+                  <label className={labelClass}>{t('artistsStudio.modal.fieldBio')}</label>
                   <textarea
                     rows={2}
-                    placeholder="Style, inspirations, univers…"
+                    placeholder={t('artistsStudio.modal.placeholderBio')}
                     value={form.bio}
                     onChange={(e) => setForm({ ...form, bio: e.target.value })}
                     className={inputClass + ' resize-none'}
@@ -221,10 +223,10 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                 </div>
 
                 <div className={fieldClass}>
-                  <label className={labelClass}>Photo de l&apos;atelier (URL)</label>
+                  <label className={labelClass}>{t('artistsStudio.modal.fieldPhoto')}</label>
                   <input
                     type="url"
-                    placeholder="https://…"
+                    placeholder={t('artistsStudio.modal.placeholderPhoto')}
                     value={form.photo}
                     onChange={(e) => setForm({ ...form, photo: e.target.value })}
                     className={inputClass}
@@ -236,14 +238,14 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                     type="submit"
                     className="btn-cta border-textColor hover:bg-textColor hover:text-backgroundColor"
                   >
-                    Publier mon atelier
+                    {t('artistsStudio.modal.submit')}
                   </button>
                   <button
                     type="button"
                     onClick={onClose}
                     className="montserrat text-[10px] text-grayText hover:text-textColor transition-colors duration-200 tracking-[0.15em] uppercase"
                   >
-                    Annuler
+                    {t('artistsStudio.modal.cancel')}
                   </button>
                 </div>
               </form>
