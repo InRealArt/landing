@@ -34,6 +34,7 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/about',
   '/academy',
   '/artists',
+  '/artists-studio',
   '/art-salon-simulator',
   '/blog',
   '/contact',
