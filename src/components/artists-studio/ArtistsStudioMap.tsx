@@ -27,9 +27,16 @@ type Props = {
 export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectArtist }: Props) {
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef<Map<number, Marker>>(new Map())
+  const onSelectArtistRef = useRef(onSelectArtist)
+
+  useEffect(() => {
+    onSelectArtistRef.current = onSelectArtist
+  }, [onSelectArtist])
 
   useEffect(() => {
     // Dynamic import to avoid SSR issues
+    let observer: MutationObserver | null = null
+
     import('leaflet').then((L) => {
       fixLeafletIcons()
 
@@ -52,6 +59,20 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
       }).addTo(map)
 
       mapRef.current = map
+
+      // Watch for theme changes and swap tile layer
+      observer = new MutationObserver(() => {
+        const isDarkNow = document.documentElement.getAttribute('data-theme') === 'dark'
+        const newTileUrl = isDarkNow
+          ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+          : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+        map.eachLayer((layer) => {
+          if ((layer as L.TileLayer).setUrl) {
+            (layer as L.TileLayer).setUrl(newTileUrl)
+          }
+        })
+      })
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 
       // Add markers
       artists.forEach((artist) => {
@@ -94,10 +115,11 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
 
       // Expose global for popup button click
       ;(window as Window & { __selectStudioArtist?: (id: number) => void }).__selectStudioArtist =
-        onSelectArtist
+        (id: number) => onSelectArtistRef.current(id)
     })
 
     return () => {
+      observer?.disconnect()
       if (mapRef.current) {
         mapRef.current.remove()
         mapRef.current = null
@@ -109,7 +131,7 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
 
   // Pan to selected artist
   useEffect(() => {
-    if (!mapRef.current || !selectedArtistId) return
+    if (!mapRef.current || selectedArtistId === null) return
     const artist = artists.find((a) => a.id === selectedArtistId)
     if (artist) {
       mapRef.current.setView([artist.lat, artist.lng], 12, { animate: true })
