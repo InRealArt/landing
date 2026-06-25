@@ -110,7 +110,7 @@ export default function ArtistsStudioPage() {
             <span className="text-xs font-unbounded font-bold tracking-widest text-gold-accent uppercase mb-3 block">
               Rejoignez le collectif
             </span>
-            <h2 className="font-unbounded text-2xl sm:text-4xl font-bold leading-tight mb-4 text-textColor">
+            <h2 className="font-cormorant text-3xl sm:text-5xl font-light leading-tight mb-4 text-textColor">
               Vous êtes artiste et vous n&apos;êtes pas encore dans l&apos;Index ?
             </h2>
             <p className="text-sm sm:text-base text-grayText font-bricolage font-light leading-relaxed">

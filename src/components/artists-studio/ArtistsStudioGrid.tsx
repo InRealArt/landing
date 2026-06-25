@@ -147,12 +147,12 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Grid */}
         <div className="lg:col-span-2">
-          <h2 className="font-unbounded text-2xl font-bold text-textColor mb-6">Les Ateliers</h2>
+          <h2 className="font-cormorant text-3xl font-light text-textColor mb-6">Les Ateliers</h2>
 
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <span className="text-5xl mb-4">🎨</span>
-              <h3 className="font-unbounded text-lg font-bold mb-2 text-textColor">Aucun atelier trouvé</h3>
+              <h3 className="font-cormorant text-2xl font-light mb-2 text-textColor">Aucun atelier trouvé</h3>
               <p className="text-sm text-grayText max-w-sm">Essayez d&apos;élargir vos filtres.</p>
               <button
                 onClick={resetFilters}
@@ -198,7 +198,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                     </div>
                     <div className="p-5">
                       <span className="text-xs text-grayText uppercase tracking-widest font-semibold">{artist.city}</span>
-                      <h3 className="font-unbounded text-base font-bold mt-1 tracking-tight group-hover:text-gold-accent transition-colors text-textColor">
+                      <h3 className="font-cormorant text-xl font-light mt-1 group-hover:text-gold-accent transition-colors text-textColor">
                         {artist.name}
                       </h3>
                       <p className="text-xs text-grayText mt-2 line-clamp-2 italic leading-relaxed">&ldquo;{artist.tagline}&rdquo;</p>

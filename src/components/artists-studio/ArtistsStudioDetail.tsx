@@ -18,7 +18,7 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
           </svg>
         </div>
-        <h3 className="font-unbounded text-base font-bold mb-2 text-textColor">Fiche de l&apos;atelier</h3>
+        <h3 className="font-cormorant text-xl font-light mb-2 text-textColor">Fiche de l&apos;atelier</h3>
         <p className="text-sm text-grayText max-w-xs leading-relaxed">
           Cliquez sur un marqueur ou sur un atelier pour afficher sa fiche complète.
         </p>
@@ -58,7 +58,7 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
       <div className="p-5 space-y-4">
         <div>
           <span className="text-xs font-unbounded font-bold text-gold-accent uppercase tracking-wider">{artist.city}</span>
-          <h3 className="font-unbounded text-xl font-bold mt-1 text-textColor">{artist.name}</h3>
+          <h3 className="font-cormorant text-2xl font-light mt-1 text-textColor">{artist.name}</h3>
         </div>
 
         <p className="text-sm italic text-grayText border-l-2 border-gold-accent pl-3 leading-relaxed">
