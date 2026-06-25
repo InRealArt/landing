@@ -8,7 +8,6 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
-import { usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
 const ArtitudeModal = dynamic(() => import('@/components/artists-studio/ArtitudeModal'), { ssr: false });
@@ -17,8 +16,6 @@ const Header = () => {
   const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [artitudeModalOpen, setArtitudeModalOpen] = useState(false);
-  const pathname = usePathname();
-  const isArtistsStudioPage = pathname === '/artists-studio';
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -64,6 +61,11 @@ const Header = () => {
               </Link>
             </li>
             <li className="whitespace-nowrap">
+              <Link href="/artists-studio" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
+                {t('nav.ateliers')}
+              </Link>
+            </li>
+            <li className="whitespace-nowrap">
               <Link
                 href="/contact"
                 className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent border-b border-gold-accent/30 hover:text-gold-accent/70 transition-colors"
@@ -77,14 +79,12 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <LanguageSwitcher />
             <ThemeSwitcher />
-            {isArtistsStudioPage && (
-              <button
-                onClick={() => setArtitudeModalOpen(true)}
-                className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-xs font-unbounded font-semibold uppercase tracking-wider px-4 py-2 rounded-lg whitespace-nowrap"
-              >
-                Artitude Join
-              </button>
-            )}
+            <button
+              onClick={() => setArtitudeModalOpen(true)}
+              className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-xs font-unbounded font-semibold uppercase tracking-wider px-4 py-2 rounded-lg whitespace-nowrap"
+            >
+              Artitude Join
+            </button>
             <button
               className="text-textColor p-2.5 xl:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={toggleMobileMenu}
@@ -96,9 +96,7 @@ const Header = () => {
         </div>
       </header>
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-      {isArtistsStudioPage && (
-        <ArtitudeModal isOpen={artitudeModalOpen} onClose={() => setArtitudeModalOpen(false)} />
-      )}
+      <ArtitudeModal isOpen={artitudeModalOpen} onClose={() => setArtitudeModalOpen(false)} />
     </Fragment>
   );
 }

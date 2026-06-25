@@ -92,6 +92,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {t('nav.galerie')}
           </Link>
+          <Link
+            href="/artists-studio"
+            className={`${pathname === '/artists-studio' ? 'text-purpleColor' : 'text-textColor'} py-2 border-b border-textColor/10`}
+            onClick={onClose}
+          >
+            {t('nav.ateliers')}
+          </Link>
         </nav>
 
         <div className="mt-16">
