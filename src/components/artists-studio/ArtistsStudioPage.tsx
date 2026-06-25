@@ -38,10 +38,10 @@ export default function ArtistsStudioPage() {
           <span className="text-xs font-unbounded font-semibold tracking-widest text-gold-accent uppercase mb-3">
             Réseau d&apos;Art Vivant Contemporain
           </span>
-          <h1 className="font-cormorant text-4xl sm:text-6xl lg:text-7xl font-light max-w-4xl leading-tight mb-4 text-textColor">
-            L&apos;Index des Ateliers{' '}
-            <span className="italic text-grayText block sm:inline">
-              — Trouvez un artiste près de chez vous
+          <h1 className="font-cormorant text-4xl sm:text-6xl lg:text-7xl font-light max-w-4xl leading-tight mb-4 text-textColor mt-8">
+            L&apos;Index des Ateliers
+            <span className="italic text-grayText block">
+              Trouvez un artiste près de chez vous
             </span>
           </h1>
           <p className="text-sm sm:text-lg max-w-2xl text-grayText font-light leading-relaxed mb-8">
