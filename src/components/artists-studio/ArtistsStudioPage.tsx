@@ -4,7 +4,6 @@ import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { artistsStudioData } from '@/data/artistsStudioData'
 import ArtistsStudioGrid from './ArtistsStudioGrid'
-import ArtitudeModal from './ArtitudeModal'
 
 // Leaflet must be loaded client-side only
 const ArtistsStudioMap = dynamic(() => import('./ArtistsStudioMap'), {
@@ -26,7 +25,6 @@ const MEDIUMS = [
 
 export default function ArtistsStudioPage() {
   const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null)
-  const [modalOpen, setModalOpen] = useState(false)
 
   function handleSelectArtist(id: number) {
     setSelectedArtistId(id === -1 ? null : id)
@@ -36,16 +34,6 @@ export default function ArtistsStudioPage() {
     <div className="min-h-screen bg-backgroundColor text-textColor">
       {/* BLOC 1 — Hero Header */}
       <header className="relative overflow-hidden border-b border-borderColor py-12 lg:py-16 px-4 sm:px-8">
-        {/* Artitude Join button — top right */}
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-20">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-xs font-unbounded font-semibold uppercase tracking-wider px-4 py-2.5 rounded-lg"
-          >
-            Artitude Join
-          </button>
-        </div>
-
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
           <span className="text-xs font-unbounded font-semibold tracking-widest text-gold-accent uppercase mb-3">
             Réseau d&apos;Art Vivant Contemporain
@@ -155,7 +143,6 @@ export default function ArtistsStudioPage() {
         </div>
       </section>
 
-      <ArtitudeModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   )
 }
