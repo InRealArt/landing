@@ -24,12 +24,12 @@ const Header = () => {
   return (
     <Fragment>
       <header className="left-0 right-0 h-16 md:h-headerSize bg-backgroundColor/95 backdrop-blur-md fixed top-0 z-50 border-b border-borderColor">
-        <div className='flex gap-2 sm:gap-4 md:gap-6 lg:gap-20 mx-auto items-center justify-between max-w-screen-2xl w-full px-3 sm:px-6 lg:px-10 h-full min-w-0'>
-          <Link href="/" className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.3em] md:tracking-[0.5em] lg:tracking-[0.7em] font-light uppercase serif cursor-pointer text-textColor shrink min-w-0">
+        <div className='flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 mx-auto items-center justify-between max-w-screen-2xl w-full px-3 sm:px-6 lg:px-10 h-full min-w-0'>
+          <Link href="/" className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.15em] sm:tracking-[0.3em] md:tracking-[0.4em] lg:tracking-[0.4em] font-light uppercase serif cursor-pointer text-textColor shrink-0">
             InRealArt
           </Link>
 
-          <ul className="hidden xl:flex items-center gap-8">
+          <ul className="hidden xl:flex items-center gap-4 2xl:gap-6">
             <li className="whitespace-nowrap">
               <Link href="/artists" className="text-[13px] uppercase tracking-[0.25em] hover:text-gold-accent transition-colors text-textColor">
                 {t('nav.artists')}
@@ -81,7 +81,7 @@ const Header = () => {
             <ThemeSwitcher />
             <button
               onClick={() => setArtitudeModalOpen(true)}
-              className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-xs font-unbounded font-semibold uppercase tracking-wider px-4 py-2 rounded-lg whitespace-nowrap"
+              className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-[10px] font-unbounded font-semibold uppercase tracking-wider px-3 py-2 rounded-lg whitespace-nowrap"
             >
               Artitude Join
             </button>
