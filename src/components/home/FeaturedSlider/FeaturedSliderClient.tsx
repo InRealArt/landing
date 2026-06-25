@@ -91,10 +91,10 @@ export default function FeaturedSliderClient({ items }: Props) {
             <div className="hidden lg:flex flex-col justify-center space-y-6">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-3">
-                  {current.kind === 'artist' && t('featured.typeArtist')}
-                  {current.kind === 'artwork' && t('featured.typeArtwork')}
-                  {current.kind === 'post' && t('featured.typePost')}
-                  {current.kind === 'exhibition' && t('featured.typeExhibition')}
+                  {current.kind === 'artist' && 'Artiste du moment'}
+                  {current.kind === 'artwork' && 'Œuvre à découvrir'}
+                  {current.kind === 'post' && 'Article du moment'}
+                  {current.kind === 'exhibition' && 'Exposition en avant'}
                 </p>
                 <h3 className="serif text-4xl font-light text-textColor leading-tight">
                   {current.kind === 'artist' && `${current.name} ${current.surname}`}

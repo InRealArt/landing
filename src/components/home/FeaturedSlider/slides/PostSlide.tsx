@@ -27,7 +27,7 @@ export default function PostSlide({ item }: Props) {
       {/* Content (mobile only) */}
       <div className="lg:hidden flex flex-col gap-3 p-6 flex-1">
         <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat">
-          Article
+          Article du moment
         </p>
         <h3 className="serif text-2xl font-light text-textColor">
           {item.title}
