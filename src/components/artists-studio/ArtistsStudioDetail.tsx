@@ -11,25 +11,19 @@ type Props = {
 export default function ArtistsStudioDetail({ artist, onClose }: Props) {
   if (!artist) {
     return (
-      <div className="bg-cardBackground border border-dashed border-borderColor rounded-2xl p-8 text-center flex flex-col items-center justify-center h-[520px]">
-        <div className="w-14 h-14 rounded-full bg-gold-accent/10 flex items-center justify-center mb-4">
-          <svg className="w-6 h-6 text-gold-accent animate-spin" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-          </svg>
-        </div>
-        <h3 className="font-cormorant text-xl font-light mb-2 text-textColor">Fiche de l&apos;atelier</h3>
-        <p className="text-sm text-grayText max-w-xs leading-relaxed">
-          Cliquez sur un marqueur ou sur un atelier pour afficher sa fiche complète.
+      <div className="bg-cardBackground border border-dashed border-borderColor p-8 text-center flex flex-col items-center justify-center h-[520px]">
+        <h3 className="serif text-xl font-light mb-2 text-textColor">Fiche de l&apos;atelier</h3>
+        <p className="text-[11px] uppercase tracking-[0.25em] montserrat text-grayText max-w-xs leading-relaxed mt-2">
+          Cliquez sur un marqueur ou sur un atelier pour afficher sa fiche
         </p>
       </div>
     )
   }
 
   return (
-    <div className="bg-cardBackground border border-borderColor rounded-2xl overflow-hidden shadow-xl">
-      {/* Header image */}
-      <div className="relative h-52 overflow-hidden">
+    <div className="flex flex-col bg-cardBackground">
+      {/* Portrait */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-backgroundGrey">
         <Image
           src={artist.photo}
           alt={artist.name}
@@ -37,47 +31,68 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
           className="object-cover"
           unoptimized
         />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+        {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 bg-black/50 hover:bg-black/80 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-all"
+          className="absolute top-3 right-3 bg-black/50 hover:bg-black/80 text-white w-8 h-8 flex items-center justify-center backdrop-blur-sm transition-all"
           aria-label="Fermer"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <span
-          className="absolute bottom-3 left-3 text-white text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-md"
-          style={{ backgroundColor: artist.color }}
-        >
-          {artist.medium}
-        </span>
+
+        {/* Badges bottom */}
+        <div className="absolute bottom-4 left-4 flex flex-wrap gap-1.5">
+          <span
+            className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
+            style={{ backgroundColor: artist.color + '99' }}
+          >
+            {artist.mediumLabel}
+          </span>
+          {artist.openPublic && (
+            <span className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
+              Ouvert
+            </span>
+          )}
+        </div>
       </div>
 
-      {/* Body */}
-      <div className="p-5 space-y-4">
+      {/* Card body */}
+      <div className="flex flex-col pt-5 pb-6 px-5 border border-t-0 border-borderColor space-y-4">
+        {/* Name & city */}
         <div>
-          <span className="text-xs font-unbounded font-bold text-gold-accent uppercase tracking-wider">{artist.city}</span>
-          <h3 className="font-cormorant text-2xl font-light mt-1 text-textColor">{artist.name}</h3>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
+            {artist.city} — {artist.region}
+          </p>
+          <h3 className="serif text-2xl font-light text-textColor leading-tight">
+            {artist.name}
+          </h3>
         </div>
 
-        <p className="text-sm italic text-grayText border-l-2 border-gold-accent pl-3 leading-relaxed">
+        {/* Tagline */}
+        <p className="text-xs text-grayText italic leading-relaxed border-l border-gold-accent pl-3">
           &ldquo;{artist.tagline}&rdquo;
         </p>
 
+        {/* Bio */}
         <div>
-          <h4 className="text-xs font-unbounded text-grayText uppercase tracking-widest mb-1">Démarche</h4>
-          <p className="text-sm text-textColor leading-relaxed font-bricolage">{artist.bio}</p>
+          <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-2">Démarche</p>
+          <p className="text-sm text-textColor leading-relaxed">{artist.bio}</p>
         </div>
 
         {/* Gallery */}
         {artist.gallery.length > 0 && (
           <div>
-            <h4 className="text-xs font-unbounded text-grayText uppercase tracking-widest mb-2">Portfolio</h4>
-            <div className="grid grid-cols-3 gap-2">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-2">Portfolio</p>
+            <div className="grid grid-cols-3 gap-1.5">
               {artist.gallery.map((img, i) => (
-                <div key={i} className="relative h-16 rounded-lg overflow-hidden bg-gray-800">
-                  <Image src={img} alt={`Œuvre ${i + 1}`} fill className="object-cover hover:scale-110 transition-transform" unoptimized />
+                <div key={i} className="relative aspect-square overflow-hidden bg-backgroundGrey">
+                  <Image src={img} alt={`Œuvre ${i + 1}`} fill className="object-cover hover:scale-110 transition-transform duration-500" unoptimized />
                 </div>
               ))}
             </div>
@@ -86,26 +101,29 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
 
         {/* Info */}
         <div className="pt-4 border-t border-borderColor space-y-2">
-          <div className="flex items-center gap-3 text-sm text-grayText">
-            <svg className="w-4 h-4 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="flex items-center gap-3 text-[11px] montserrat text-grayText uppercase tracking-wider">
+            <svg className="w-3.5 h-3.5 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{artist.hours}</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-grayText">
-            <svg className="w-4 h-4 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="flex items-center gap-3 text-[11px] montserrat text-grayText uppercase tracking-wider">
+            <svg className="w-3.5 h-3.5 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
             </svg>
-            <span>Atelier : {artist.openPublic ? 'Entrée libre' : 'Sur rendez-vous'}</span>
+            <span>{artist.openPublic ? 'Entrée libre' : 'Sur rendez-vous'}</span>
           </div>
         </div>
 
         {/* CTA */}
         <a
           href="/joinInRealArt"
-          className="block w-full text-center bg-gold-accent hover:opacity-90 text-white font-unbounded font-bold py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all"
+          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
         >
           Rejoindre le réseau
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </a>
       </div>
     </div>
