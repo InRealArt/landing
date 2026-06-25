@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Index des Ateliers — InRealArt</title>
+  
+  <!-- Google Fonts: Playfair Display pour l'esprit artistique & Inter pour l'ergonomie -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- FontAwesome pour les icônes d'art et d'interface -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            ira: {
+              gold: '#C5A880',
+              goldDark: '#A88B62',
+              charcoal: '#121212',
+              gallery: '#FAF9F6',
+              borderLight: '#E5E7EB',
+              borderDark: '#2D2D2D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Styles personnalisés pour Leaflet */
+    .leaflet-container {
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 2px solid white;
+      transition: all 0.3s ease;
+    }
+    .custom-marker:hover {
+      transform: scale(1.15);
+      z-index: 999 !important;
+    }
+    /* Masquer la scrollbar sur la fiche de détails tout en gardant le défilement */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-ira-gallery dark:bg-[#0D0D0D] text-ira-charcoal dark:text-gray-100 font-sans antialiased transition-colors duration-300">
+
+<!-- Navigation d'InRealArt -->
+<nav class="sticky top-0 z-50 bg-[#FAF9F6]/90 dark:bg-[#0D0D0D]/90 backdrop-blur-md border-b border-gray-200 dark:border-ira-borderDark px-4 sm:px-8 py-4 flex items-center justify-between">
+  <div class="flex items-center space-x-3">
+    <div class="font-serif text-xl sm:text-2xl font-bold tracking-wider">
+      IN<span class="text-ira-gold">REAL</span>ART
+    </div>
+    <span class="text-xs bg-ira-gold/10 text-ira-gold dark:bg-ira-gold/20 px-2 py-0.5 rounded-full font-medium tracking-widest uppercase">Index</span>
+  </div>
+  
+  <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
+    <a href="#" class="hover:text-ira-gold transition-colors">Galerie</a>
+    <a href="#" class="hover:text-ira-gold transition-colors">Capital</a>
+    <a href="#" class="hover:text-ira-gold transition-colors">Agence</a>
+    <a href="#" class="hover:text-ira-gold transition-colors">Média</a>
+    <a href="#" class="text-ira-gold border-b border-ira-gold pb-1 font-semibold">Ateliers</a>
+  </div>
+
+  <div class="flex items-center space-x-4">
+    <!-- Theme Switcher -->
+    <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-ira-borderDark transition-colors" title="Changer d'ambiance">
+      <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+    </button>
+    <button onclick="openRegisterModal()" class="bg-ira-charcoal text-white dark:bg-white dark:text-ira-charcoal hover:bg-ira-gold dark:hover:bg-ira-gold hover:text-white dark:hover:text-white transition-all text-xs sm:text-sm font-semibold uppercase tracking-wider px-4 py-2.5 rounded-lg">
+      Artitude Join
+    </button>
+  </div>
+</nav>
+
+<!-- BLOC 1 — EN-TÊTE DE PAGE -->
+<header class="relative overflow-hidden bg-gradient-to-b from-white to-ira-gallery dark:from-[#121212] dark:to-[#0D0D0D] py-12 lg:py-16 px-4 sm:px-8 border-b border-gray-100 dark:border-ira-borderDark">
+  <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+    <span class="text-xs font-semibold tracking-widest text-ira-gold uppercase mb-3">Réseau d'Art Vivant Contemporain</span>
+    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold max-w-4xl leading-tight mb-4">
+      L'Index des Ateliers <span class="font-light italic block sm:inline text-gray-500 dark:text-gray-400">— Trouvez un artiste près de chez vous</span>
+    </h1>
+    <p class="text-sm sm:text-lg max-w-2xl text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-8">
+      Explorez de façon immersive la géographie de la création. Rencontrez nos artistes résidents, poussez les portes de leurs ateliers et découvrez l’art au plus près de son lieu de naissance.
+    </p>
+
+    <!-- Barre de recherche principale -->
+    <div class="w-full max-w-3xl bg-white dark:bg-[#1A1A1A] rounded-2xl shadow-xl dark:shadow-none p-2 border border-gray-200 dark:border-ira-borderDark flex flex-col md:flex-row gap-2">
+      <div class="flex-1 flex items-center px-4 py-2 border-b md:border-b-0 md:border-r border-gray-100 dark:border-ira-borderDark">
+        <i class="fa-solid fa-magnifying-glass text-gray-400 mr-3"></i>
+        <input type="text" id="search-main" onkeyup="filterData()" placeholder="Nom d'artiste, spécialité, mots clés..." class="w-full bg-transparent focus:outline-none text-sm placeholder-gray-400 dark:text-white">
+      </div>
+      <div class="flex-1 flex items-center px-4 py-2">
+        <i class="fa-solid fa-location-dot text-gray-400 mr-3"></i>
+        <input type="text" id="search-location" onkeyup="filterData()" placeholder="Ville, département, région..." class="w-full bg-transparent focus:outline-none text-sm placeholder-gray-400 dark:text-white">
+      </div>
+      <button onclick="triggerGeolocation()" class="flex items-center justify-center space-x-2 bg-ira-gold hover:bg-ira-goldDark text-white px-6 py-3 rounded-xl transition-all font-medium text-sm whitespace-nowrap">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        <span>Autour de moi</span>
+      </button>
+    </div>
+    
+    <!-- Statistiques rapides -->
+    <div class="flex flex-wrap justify-center gap-6 sm:gap-12 mt-8 text-xs tracking-wider uppercase font-medium text-gray-500 dark:text-gray-400">
+      <div><span class="text-ira-gold font-serif text-lg font-bold mr-1" id="stat-artists">10</span> Ateliers Référencés</div>
+      <div><span class="text-ira-gold font-serif text-lg font-bold mr-1">100%</span> Artistes Certifiés</div>
+      <div><span class="text-ira-gold font-serif text-lg font-bold mr-1">5</span> Disciplines Majeures</div>
+    </div>
+  </div>
+  
+  <!-- Formes artistiques en arrière-plan -->
+  <div class="absolute inset-0 opacity-10 dark:opacity-[0.03] pointer-events-none">
+    <div class="absolute -top-12 -left-12 w-96 h-96 rounded-full bg-ira-gold blur-3xl"></div>
+    <div class="absolute top-1/2 -right-12 w-80 h-80 rounded-full bg-[#E11D48] blur-3xl"></div>
+  </div>
+</header>
+
+<!-- BLOC 2 — CARTE INTERACTIVE -->
+<section class="relative h-[450px] sm:h-[550px] w-full border-b border-gray-200 dark:border-ira-borderDark bg-gray-100 dark:bg-[#151515]">
+  <div id="map" class="h-full w-full z-10"></div>
+  
+  <!-- Légende de la carte flottante -->
+  <div class="absolute bottom-6 left-6 z-[20] bg-white/95 dark:bg-[#121212]/95 backdrop-blur shadow-lg border border-gray-200/50 dark:border-ira-borderDark/50 rounded-xl p-4 max-w-xs text-xs">
+    <h4 class="font-bold tracking-wider uppercase mb-3 text-gray-600 dark:text-gray-300">Médiums Artistiques</h4>
+    <div class="space-y-2">
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-[#E11D48]"></span>
+        <span>Peinture</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-[#0D9488]"></span>
+        <span>Sculpture</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-[#D97706]"></span>
+        <span>Photographie</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-[#4F46E5]"></span>
+        <span>Dessin / Papier</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-[#7C3AED]"></span>
+        <span>Autres médiums</span>
+      </div>
+    </div>
+    
+    <!-- Option de synchronisation dynamique -->
+    <div class="mt-4 pt-3 border-t border-gray-100 dark:border-ira-borderDark flex items-center justify-between">
+      <span class="text-gray-500 font-medium">Filtrer par zone de carte</span>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="sync-map-bounds" checked onchange="toggleMapSync()" class="sr-only peer">
+        <div class="w-9 h-5 bg-gray-200 dark:bg-zinc-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-ira-gold"></div>
+      </label>
+    </div>
+  </div>
+  
+  <!-- Indicateur de chargement / état -->
+  <div id="map-bounds-indicator" class="hidden absolute top-4 left-1/2 transform -translate-x-1/2 z-[20] bg-ira-gold/90 text-white text-xs px-4 py-2 rounded-full font-medium tracking-wide shadow-lg flex items-center space-x-2 animate-pulse">
+    <i class="fa-solid fa-map-location-dot"></i>
+    <span>Liste filtrée par la zone visible sur la carte</span>
+  </div>
+</section>
+
+<!-- BLOC 3 — FILTRES (STICKY) -->
+<section id="filters-section" class="sticky top-[73px] z-40 bg-[#FAF9F6]/95 dark:bg-[#0D0D0D]/95 backdrop-blur-md border-b border-gray-200 dark:border-ira-borderDark py-4 px-4 sm:px-8 shadow-sm">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    
+    <!-- Filtres rapides -->
+    <div class="flex flex-wrap items-center gap-3">
+      <!-- Filtre Médiums -->
+      <div class="relative group">
+        <button onclick="toggleFilterDropdown('dropdown-mediums')" class="bg-white dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark px-4 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between space-x-2 hover:border-ira-gold transition-colors">
+          <span>Médiums Artistiques</span>
+          <i class="fa-solid fa-chevron-down text-xs text-gray-400"></i>
+        </button>
+        <div id="dropdown-mediums" class="hidden absolute left-0 mt-2 w-56 bg-white dark:bg-[#1E1E1E] rounded-xl shadow-xl border border-gray-200 dark:border-ira-borderDark p-4 z-50 space-y-2">
+          <label class="flex items-center space-x-2 text-sm cursor-pointer hover:text-ira-gold">
+            <input type="checkbox" value="peinture" class="filter-medium rounded text-ira-gold focus:ring-ira-gold" onchange="filterData()">
+            <span>Peinture</span>
+          </label>
+          <label class="flex items-center space-x-2 text-sm cursor-pointer hover:text-ira-gold">
+            <input type="checkbox" value="sculpture" class="filter-medium rounded text-ira-gold focus:ring-ira-gold" onchange="filterData()">
+            <span>Sculpture</span>
+          </label>
+          <label class="flex items-center space-x-2 text-sm cursor-pointer hover:text-ira-gold">
+            <input type="checkbox" value="photographie" class="filter-medium rounded text-ira-gold focus:ring-ira-gold" onchange="filterData()">
+            <span>Photographie</span>
+          </label>
+          <label class="flex items-center space-x-2 text-sm cursor-pointer hover:text-ira-gold">
+            <input type="checkbox" value="dessin" class="filter-medium rounded text-ira-gold focus:ring-ira-gold" onchange="filterData()">
+            <span>Dessin / Papier</span>
+          </label>
+          <label class="flex items-center space-x-2 text-sm cursor-pointer hover:text-ira-gold">
+            <input type="checkbox" value="autre" class="filter-medium rounded text-ira-gold focus:ring-ira-gold" onchange="filterData()">
+            <span>Autres médiums</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Filtre Ouverture Public -->
+      <label class="flex items-center space-x-2 bg-white dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark px-4 py-2.5 rounded-xl text-sm font-medium cursor-pointer hover:border-ira-gold transition-colors">
+        <input type="checkbox" id="filter-open" onchange="filterData()" class="rounded text-ira-gold focus:ring-ira-gold">
+        <i class="fa-solid fa-door-open text-ira-gold"></i>
+        <span>Atelier ouvert au public</span>
+      </label>
+      
+      <!-- Option de tri -->
+      <div class="relative">
+        <select id="sort-order" onchange="filterData()" class="appearance-none bg-white dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark px-4 py-2.5 pr-8 rounded-xl text-sm font-medium hover:border-ira-gold focus:outline-none transition-colors">
+          <option value="name">Trier par : Ordre alphabétique</option>
+          <option value="proximity">Trier par : Proximité géographique</option>
+          <option value="open">Trier par : Ateliers ouverts d'abord</option>
+        </select>
+        <i class="fa-solid fa-chevron-down text-xs text-gray-400 absolute right-3 top-3.5 pointer-events-none"></i>
+      </div>
+    </div>
+
+    <!-- Actions de Réinitialisation -->
+    <div class="flex items-center justify-between lg:justify-end gap-3 border-t lg:border-t-0 pt-3 lg:pt-0">
+      <span class="text-xs text-gray-500 dark:text-gray-400 font-medium" id="results-count">10 ateliers trouvés</span>
+      <button onclick="resetFilters()" class="text-xs font-semibold uppercase tracking-wider text-red-500 hover:text-red-600 flex items-center space-x-1.5 transition-colors">
+        <i class="fa-solid fa-rotate-left"></i>
+        <span>Réinitialiser les filtres</span>
+      </button>
+    </div>
+    
+  </div>
+</section>
+
+<!-- SECTION PRINCIPALE : LISTE DES ATELIERS & PANNEAU DETAIL -->
+<main class="max-w-7xl mx-auto py-10 px-4 sm:px-8">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+    <!-- BLOC 4 — LISTE DES ATELIERS (2 tiers de l'écran en desktop, pleine largeur si pas d'artiste sélectionné) -->
+    <div id="grid-container" class="lg:col-span-2 transition-all duration-300">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="font-serif text-2xl font-bold">Les Ateliers de la région</h2>
+        <div class="flex space-x-2">
+          <!-- Switch d'affichage Grid / List -->
+          <button onclick="setViewType('grid')" id="btn-view-grid" class="p-2 rounded bg-gray-200 dark:bg-ira-borderDark text-ira-gold" title="Grille">
+            <i class="fa-solid fa-grip-vertical"></i>
+          </button>
+          <button onclick="setViewType('list')" id="btn-view-list" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-ira-borderDark text-gray-400" title="Liste">
+            <i class="fa-solid fa-list"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Grille responsive -->
+      <div id="artists-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Généré dynamiquement en JS -->
+      </div>
+      
+      <!-- Pas de résultat -->
+      <div id="no-results" class="hidden flex flex-col items-center justify-center py-20 text-center">
+        <i class="fa-solid fa-palette text-5xl text-gray-300 mb-4 animate-bounce"></i>
+        <h3 class="font-serif text-xl font-bold mb-2">Aucun atelier ne correspond à votre recherche</h3>
+        <p class="text-sm text-gray-500 max-w-sm">Essayez d'élargir vos filtres de recherche ou de vous déplacer sur la carte.</p>
+        <button onclick="resetFilters()" class="mt-6 bg-ira-gold text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-ira-goldDark transition-all">
+          Réinitialiser tous les critères
+        </button>
+      </div>
+      
+      <!-- Pagination -->
+      <div id="pagination" class="flex items-center justify-center space-x-2 mt-12 pt-6 border-t border-gray-100 dark:border-ira-borderDark">
+        <!-- Générée dynamiquement en JS -->
+      </div>
+    </div>
+    
+    <!-- BLOC 5 — FICHE DÉTAIL ARTISTE (Panneau Latéral Sticky ou page dédiée) -->
+    <aside class="lg:col-span-1">
+      <div class="sticky top-[160px] z-30">
+        <!-- Fiche active -->
+        <div id="artist-detail-panel" class="hidden bg-white dark:bg-[#121212] border border-gray-200 dark:border-ira-borderDark rounded-2xl overflow-hidden shadow-xl transition-all duration-300">
+          <!-- Chargé dynamiquement en JS -->
+        </div>
+
+        <!-- Fiche vide : état d'attente par défaut -->
+        <div id="artist-detail-empty" class="bg-gradient-to-br from-white to-gray-50 dark:from-[#121212] dark:to-[#171717] border border-dashed border-gray-300 dark:border-ira-borderDark rounded-2xl p-8 text-center flex flex-col items-center justify-center h-[550px]">
+          <div class="w-16 h-16 rounded-full bg-ira-gold/10 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-compass text-2xl text-ira-gold animate-spin-slow"></i>
+          </div>
+          <h3 class="font-serif text-lg font-bold mb-2">Fiche détaillée de l'atelier</h3>
+          <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
+            Cliquez sur un marqueur de la carte ou sur l'un des ateliers ci-contre pour afficher les coordonnées complètes, la galerie d'œuvres de l'artiste et son itinéraire.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- BLOC 6 — BANDEAU D'INCITATION (Bas de page de l'Index) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-8 mb-16">
+  <div class="relative bg-ira-charcoal text-white dark:bg-zinc-900 border border-ira-gold/30 rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+    <div class="relative z-10 max-w-2xl text-center lg:text-left">
+      <span class="text-xs font-bold tracking-widest text-ira-gold uppercase mb-3 block">Rejoignez le collectif</span>
+      <h2 class="font-serif text-2xl sm:text-4xl font-bold leading-tight mb-4">
+        Vous êtes artiste et vous n'êtes pas encore dans l'Index ?
+      </h2>
+      <p class="text-sm sm:text-base text-gray-300 font-light leading-relaxed">
+        Bénéficiez d'une visibilité directe auprès de milliers de collectionneurs et passionnés d'art contemporain. Votre inscription à **Artitude** génère instantanément votre fiche publique.
+      </p>
+    </div>
+    <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+      <button onclick="openRegisterModal()" class="w-full sm:w-auto bg-ira-gold hover:bg-ira-goldDark text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-ira-gold/20 flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-feather-pointed"></i>
+        <span>S'inscrire gratuitement</span>
+      </button>
+      <a href="https://inrealart.com/" target="_blank" class="w-full sm:w-auto border border-white/20 hover:border-white text-center px-8 py-4 rounded-xl font-semibold uppercase tracking-wider text-xs transition-colors block">
+        Découvrir Artitude
+      </a>
+    </div>
+
+    <!-- Motif artistique abstrait en arrière-plan -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-ira-gold blur-3xl"></div>
+      <div class="absolute -left-12 -top-12 w-64 h-64 rounded-full bg-rose-600 blur-3xl"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SIMULÉ -->
+<footer class="bg-white dark:bg-[#080808] border-t border-gray-200 dark:border-ira-borderDark py-12 px-4 sm:px-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <div class="md:col-span-2">
+      <div class="font-serif text-2xl font-bold mb-4">IN<span class="text-ira-gold">REAL</span>ART</div>
+      <p class="text-xs sm:text-sm text-gray-500 max-w-sm font-light leading-relaxed">
+        InRealArt est le catalyseur de l'Art, de la Culture et du Patrimoine contemporains. Nous connectons artistes de talent et collectionneurs autour de projets durables, à la fois physiques et digitaux.
+      </p>
+    </div>
+    <div>
+      <h4 class="font-bold text-xs uppercase tracking-wider mb-4 text-gray-400">Expertises</h4>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-500">
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Achat d'Œuvres d'Art</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Média & Critique d'Art</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Simulateurs Patrimoine</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Solutions Marques & Entreprises</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold text-xs uppercase tracking-wider mb-4 text-gray-400">Ressources</h4>
+      <ul class="space-y-2 text-xs sm:text-sm text-gray-500">
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Le Manifeste</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Notre Équipe</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Rejoindre Artitude</a></li>
+        <li><a href="#" class="hover:text-ira-gold transition-colors">Mentions Légales</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto pt-6 border-t border-gray-100 dark:border-ira-borderDark flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400">
+    <p>&copy; 2026 InRealArt. Tous droits réservés.</p>
+    <div class="flex space-x-4 mt-4 sm:mt-0">
+      <a href="#" class="hover:text-ira-gold"><i class="fa-brands fa-instagram text-base"></i></a>
+      <a href="#" class="hover:text-ira-gold"><i class="fa-brands fa-linkedin text-base"></i></a>
+      <a href="#" class="hover:text-ira-gold"><i class="fa-brands fa-twitter text-base"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL DE SIMULATION D'INSCRIPTION ARTITUDE -->
+<div id="register-modal" class="fixed inset-0 z-50 hidden bg-ira-charcoal/80 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#121212] border border-gray-200 dark:border-ira-borderDark w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+    <div class="p-6 border-b border-gray-100 dark:border-ira-borderDark flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-compass-drafting text-ira-gold text-xl"></i>
+        <h3 class="font-serif text-lg sm:text-xl font-bold">Rejoindre l'Index via Artitude</h3>
+      </div>
+      <button onclick="closeRegisterModal()" class="p-2 hover:bg-gray-100 dark:hover:bg-ira-borderDark rounded-full text-gray-400 hover:text-gray-600 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+    
+    <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
+      <p class="text-gray-500 dark:text-gray-400 mb-4">
+        Ce formulaire simule l'inscription instantanée à la plateforme **Artitude**. Une fois validé, l'artiste sera immédiatement géolocalisé et apparaîtra en temps réel sur la carte et dans l'Index.
+      </p>
+      
+      <form id="artitude-form" onsubmit="handleRegistration(event)">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Nom Complet de l'Artiste *</label>
+            <input type="text" id="reg-name" required placeholder="Ex: Ronan Martin" class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+          </div>
+          <div>
+            <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Médium Artistique Majeur *</label>
+            <select id="reg-medium" required class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+              <option value="peinture">Peinture</option>
+              <option value="sculpture">Sculpture</option>
+              <option value="photographie">Photographie</option>
+              <option value="dessin">Dessin / Art du papier</option>
+              <option value="autre">Autre médium</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Ville de l'Atelier *</label>
+            <input type="text" id="reg-city" required placeholder="Ex: Nantes, Lyon..." class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+          </div>
+          <div>
+            <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Statut de l'Atelier *</label>
+            <select id="reg-open" required class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+              <option value="oui">Ouvert au public</option>
+              <option value="non">Sur rendez-vous uniquement</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Courte Accroche (Max 1 ligne) *</label>
+          <input type="text" id="reg-tagline" required placeholder="Ex: L'art minimaliste et géométrique au cœur de la matière." class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Biographie & Démarche Artistique</label>
+          <textarea id="reg-bio" rows="3" placeholder="Présentation rapide de votre style, vos inspirations..." class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label class="block font-medium mb-1.5 text-gray-700 dark:text-gray-300">Photo de l'Atelier / Artiste (Lien d'image)</label>
+          <input type="url" id="reg-photo" placeholder="https://images.unsplash.com/..." class="w-full bg-gray-50 dark:bg-[#1E1E1E] border border-gray-200 dark:border-ira-borderDark rounded-xl px-4 py-2.5 focus:outline-none focus:border-ira-gold text-gray-900 dark:text-white">
+          <span class="text-xs text-gray-400 block mt-1">Laissez vide pour utiliser une illustration artistique de qualité par défaut.</span>
+        </div>
+
+        <div class="flex items-center justify-end space-x-3 pt-4 border-t border-gray-100 dark:border-ira-borderDark">
+          <button type="button" onclick="closeRegisterModal()" class="px-5 py-2.5 rounded-xl border border-gray-200 dark:border-ira-borderDark text-sm font-semibold hover:bg-gray-100 dark:hover:bg-ira-borderDark transition-colors">
+            Annuler
+          </button>
+          <button type="submit" class="bg-ira-gold hover:bg-ira-goldDark text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all">
+            Publier mon atelier
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- LEAFLET JS SCRIPT -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+  // Base de données simulée des Ateliers InRealArt (Initialisée avec 10 artistes résidents en France)
+  let artistsData = [
+    {
+      id: 1,
+      name: "Ronan Martin",
+      medium: "peinture",
+      mediumLabel: "Peinture & Abstraction Lyrique",
+      city: "Paris",
+      region: "Île-de-France",
+      lat: 48.8566,
+      lng: 2.3522,
+      openPublic: true,
+      tagline: "L'éveil des couleurs et la pureté des huiles texturées.",
+      bio: "Ronan Martin est reconnu internationalement pour son travail sur les textures et l'harmonie vibratoire des pigments. Ses toiles de grand format captent l'énergie de la lumière brute.",
+      photo: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Ronan+Martin+Paris",
+      hours: "Mardi au Samedi: 14:00 - 19:00",
+      color: "#E11D48" // Rose/Rouge
+    },
+    {
+      id: 2,
+      name: "Anna Normand",
+      medium: "dessin",
+      mediumLabel: "Dessin & Architecture du Papier",
+      city: "Nantes",
+      region: "Pays de la Loire",
+      lat: 47.2184,
+      lng: -1.5536,
+      openPublic: true,
+      tagline: "Scénographies délicates et œuvres sculptées en bas-relief.",
+      bio: "Diplômée des Arts Décoratifs de Paris, Anna utilise le papier comme un matériau architectural infini, le découpant et le pliant pour façonner de magnifiques bas-reliefs jouant avec les ombres.",
+      photo: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1576016770956-debb63d900fc?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Anna+Normand+Nantes",
+      hours: "Jeudi & Vendredi: 10:00 - 18:00 (Samedi sur RDV)",
+      color: "#4F46E5" // Indigo
+    },
+    {
+      id: 3,
+      name: "Jean-Paul Boyer",
+      medium: "sculpture",
+      mediumLabel: "Sculpteur de Bronze & Marbre",
+      city: "Lyon",
+      region: "Auvergne-Rhône-Alpes",
+      lat: 45.7640,
+      lng: 4.8357,
+      openPublic: false,
+      tagline: "Un voyage minéral entre force tellurique et légèreté formelle.",
+      bio: "Jean-Paul Boyer sculpte le bronze pour lui donner l'apparence de vagues fluides. Ses pièces monumentales figurent dans de prestigieuses collections internationales.",
+      photo: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Jean-Paul+Boyer+Lyon",
+      hours: "Uniquement sur rendez-vous individuel",
+      color: "#0D9488" // Teal
+    },
+    {
+      id: 4,
+      name: "Alix Goor",
+      medium: "peinture",
+      mediumLabel: "Peinture Abstraite & Matière brute",
+      city: "Bordeaux",
+      region: "Nouvelle-Aquitaine",
+      lat: 44.8378,
+      lng: -0.5792,
+      openPublic: true,
+      tagline: "Des palettes de pigments purs issues des terres régionales.",
+      bio: "Alix explore le rapport de l'homme avec la nature en intégrant du sable, des cendres et des sédiments locaux à sa peinture acrylique, créant de véritables cartes terrestres émotionnelles.",
+      photo: "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1501472312651-726afd116ff1?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Alix+Goor+Bordeaux",
+      hours: "Mercredi au Vendredi: 11:00 - 19:00",
+      color: "#E11D48" // Rose/Rouge
+    },
+    {
+      id: 5,
+      name: "Marc Peltzer",
+      medium: "peinture",
+      mediumLabel: "Néo-Expressionnisme Coloré",
+      city: "Nice",
+      region: "Provence-Alpes-Côte d'Azur",
+      lat: 43.7102,
+      lng: 7.2620,
+      openPublic: false,
+      tagline: "L'énergie de la Riviera retranscrite en explosions de couleurs.",
+      bio: "Inspiré par la lumière méditerranéenne, Marc peint avec une fougue gestuelle caractéristique du mouvement néo-expressionniste. Chaque œuvre est une décharge d'adrénaline chromatique.",
+      photo: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Marc+Peltzer+Nice",
+      hours: "Sur invitation ou rendez-vous VIP",
+      color: "#E11D48" // Rose/Rouge
+    },
+    {
+      id: 6,
+      name: "Nadine LePrince",
+      medium: "autre",
+      mediumLabel: "Art Conceptuel & Installations lumineuses",
+      city: "Strasbourg",
+      region: "Grand Est",
+      lat: 48.5734,
+      lng: 7.7521,
+      openPublic: true,
+      tagline: "Dompter le néon et l'obscurité pour sculpter le vide.",
+      bio: "Nadine est une plasticienne qui questionne notre rapport à l'immatériel. Ses œuvres d'art technologiques utilisent des tubes de gaz rares pour structurer de nouveaux espaces.",
+      photo: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1554147090-e1221a247de2?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Nadine+LePrince+Strasbourg",
+      hours: "Mardi & Jeudi: 15:00 - 18:30",
+      color: "#7C3AED" // Violet
+    },
+    {
+      id: 7,
+      name: "Stefan Beiu",
+      medium: "peinture",
+      mediumLabel: "Surréalisme Contemporain",
+      city: "Marseille",
+      region: "Provence-Alpes-Côte d'Azur",
+      lat: 43.2965,
+      lng: 5.3698,
+      openPublic: false,
+      tagline: "Des toiles oniriques entre figuration classique et déconstruction.",
+      bio: "Les toiles de Stefan Beiu surprennent par leur rigueur technique académique contrastant avec des sujets fragmentés et mystiques, évoquant la fragilité de la mémoire humaine.",
+      photo: "https://images.unsplash.com/photo-1576016770956-debb63d900fc?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Stefan+Beiu+Marseille",
+      hours: "Sur demande par email",
+      color: "#E11D48"
+    },
+    {
+      id: 8,
+      name: "Eaudalix",
+      medium: "photographie",
+      mediumLabel: "Fine Art Photography & Luxe",
+      city: "Toulouse",
+      region: "Occitanie",
+      lat: 43.6047,
+      lng: 1.4442,
+      openPublic: true,
+      tagline: "Exploration esthétique des reflets d'eau et des lumières irisées.",
+      bio: "Eaudalix fusionne stylisme photographique, direction artistique haut de gamme et paysages aquatiques abstraits pour concevoir des clichés hypnotiques de très grand format.",
+      photo: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Eaudalix+Toulouse",
+      hours: "Samedi: 10:00 - 19:00",
+      color: "#D97706" // Ambre
+    },
+    {
+      id: 9,
+      name: "Younes Farhi",
+      medium: "sculpture",
+      mediumLabel: "Métallurgie d'Art & Brutalisme",
+      city: "Lille",
+      region: "Hauts-de-France",
+      lat: 50.6292,
+      lng: 3.0573,
+      openPublic: false,
+      tagline: "Transformer l'acier lourd en volutes d'une finesse inattendue.",
+      bio: "Dans la digne lignée de la tradition industrielle du Nord, Younes Farhi forge des sculptures brutales et brutes en acier corten, qui s'intègrent à merveille dans les jardins de collectionneurs.",
+      photo: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Younes+Farhi+Lille",
+      hours: "Sur rendez-vous uniquement",
+      color: "#0D9488"
+    },
+    {
+      id: 10,
+      name: "Dominique Fonteneau",
+      medium: "photographie",
+      mediumLabel: "Photographie Humaniste & Reportage",
+      city: "Montpellier",
+      region: "Occitanie",
+      lat: 43.6108,
+      lng: 3.8767,
+      openPublic: true,
+      tagline: "Le témoignage visuel d'instants fragiles, en noir et blanc argentique.",
+      bio: "Dominique parcourt les Cévennes et l'arrière-pays héraultais pour immortaliser des scènes quotidiennes grâce à son boîtier mécanique traditionnel, développant lui-même ses tirages d'art.",
+      photo: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop",
+      gallery: [
+        "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1488330890490-c291ec346579?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: "https://maps.google.com/?q=Atelier+Dominique+Fonteneau+Montpellier",
+      hours: "Mardi au Vendredi: 14:00 - 18:00",
+      color: "#D97706"
+    }
+  ];
+
+  // Variables globales
+  let map;
+  let markersLayer;
+  let activeArtist = null;
+  let viewType = 'grid'; // grid ou list
+  let mapSyncEnabled = true;
+  let currentFilterData = [...artistsData];
+  let currentPage = 1;
+  const itemsPerPage = 4;
+
+  window.onload = function() {
+    initMap();
+    applyInitialStyles();
+    renderArtists();
+    updateResultsCount();
+  }
+
+  // Initialisation de la carte Leaflet
+  function initMap() {
+    // Centré par défaut sur la France entière
+    map = L.map('map', {
+      scrollWheelZoom: false
+    }).setView([46.603354, 1.888334], 6);
+
+    // Charger les tuiles cartographiques claires
+    updateMapStyle();
+
+    markersLayer = L.layerGroup().addTo(map);
+
+    // Événement de mouvement de la carte pour la mise à jour dynamique
+    map.on('moveend', function() {
+      if (mapSyncEnabled) {
+        filterData();
+      }
+    });
+
+    // Rendre les marqueurs
+    updateMapMarkers();
+  }
+
+  // Met à jour le style de la carte selon le thème (Clair/Sombre)
+  function updateMapStyle() {
+    const isDark = document.documentElement.classList.contains('dark');
+    // Suppression de l'ancienne couche si elle existe
+    map.eachLayer(function (layer) {
+      if (layer instanceof L.TileLayer) {
+        map.removeLayer(layer);
+      }
+    });
+
+    const tileUrl = isDark 
+      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' 
+      : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+
+    L.tileLayer(tileUrl, {
+      attribution: '&copy; InRealArt &copy; OpenStreetMap contributors'
+    }).addTo(map);
+  }
+
+  // Met à jour les pointeurs sur la carte
+  function updateMapMarkers() {
+    markersLayer.clearLayers();
+
+    currentFilterData.forEach(artist => {
+      // Icône sur mesure avec la couleur associée au médium
+      const customIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div class="custom-marker" style="background-color: ${artist.color}; width: 14px; height: 14px; border: 2.5px solid #fff; box-shadow: 0 0 8px rgba(0,0,0,0.4); border-radius: 50%;"></div>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+
+      const marker = L.marker([artist.lat, artist.lng], { icon: customIcon });
+      
+      // Popup stylisé
+      const popupContent = `
+        <div class="p-2 max-w-[200px] text-ira-charcoal">
+          <img src="${artist.photo}" class="w-full h-20 object-cover rounded-lg mb-2" onerror="this.src='https://placehold.co/200x120/EAEAEA/333333?text=${artist.name}'" />
+          <h4 class="font-serif font-bold text-sm leading-tight">${artist.name}</h4>
+          <p class="text-xs text-ira-gold font-medium uppercase mt-0.5">${artist.medium}</p>
+          <p class="text-[11px] text-gray-500 flex items-center mt-1">
+            <i class="fa-solid fa-location-dot mr-1"></i> ${artist.city}
+          </p>
+          <button onclick="selectArtist(${artist.id})" class="mt-2.5 w-full text-center bg-ira-charcoal text-white text-[10px] font-bold py-1.5 rounded-md hover:bg-ira-gold transition-colors tracking-wider uppercase">
+            Voir l'Atelier
+          </button>
+        </div>
+      `;
+
+      marker.bindPopup(popupContent);
+      markersLayer.addLayer(marker);
+    });
+  }
+
+  // Fonction de filtrage général combinant Recherche, Médiums, Géographie & Map bounds
+  function filterData() {
+    const searchMain = document.getElementById('search-main').value.toLowerCase();
+    const searchLoc = document.getElementById('search-location').value.toLowerCase();
+    const openOnly = document.getElementById('filter-open').checked;
+    
+    // Récupérer les catégories cochées
+    const checkedMediums = Array.from(document.querySelectorAll('.filter-medium:checked')).map(el => el.value);
+
+    // Récupérer les limites de la carte
+    const bounds = mapSyncEnabled ? map.getBounds() : null;
+
+    currentFilterData = artistsData.filter(artist => {
+      // Recherche textuelle nom / spécialité
+      const matchSearchMain = artist.name.toLowerCase().includes(searchMain) || 
+                              artist.mediumLabel.toLowerCase().includes(searchMain) ||
+                              artist.bio.toLowerCase().includes(searchMain);
+
+      // Recherche par géolocalisation / ville
+      const matchLoc = artist.city.toLowerCase().includes(searchLoc) || 
+                       artist.region.toLowerCase().includes(searchLoc);
+
+      // Médiums multiples
+      const matchMedium = checkedMediums.length === 0 || checkedMediums.includes(artist.medium);
+
+      // Atelier ouvert
+      const matchOpen = !openOnly || artist.openPublic;
+
+      // Position dans la zone visible de la carte
+      let matchBounds = true;
+      if (bounds) {
+        matchBounds = bounds.contains([artist.lat, artist.lng]);
+      }
+
+      return matchSearchMain && matchLoc && matchMedium && matchOpen && matchBounds;
+    });
+
+    // Tri de la liste
+    sortArtistsList();
+
+    // Reset pagination à la page 1
+    currentPage = 1;
+    
+    // Mise à jour de la grille et des compteurs
+    renderArtists();
+    updateResultsCount();
+    
+    // Mettre à jour les marqueurs en fonction du filtre actuel
+    updateMapMarkers();
+  }
+
+  // Gérer le Tri des Artistes
+  function sortArtistsList() {
+    const sortVal = document.getElementById('sort-order').value;
+    if (sortVal === 'name') {
+      currentFilterData.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortVal === 'open') {
+      currentFilterData.sort((a, b) => b.openPublic - a.openPublic);
+    } else if (sortVal === 'proximity') {
+      // Si géolocalisation acceptée, on trie par rapport à la position de l'utilisateur
+      if (userLocation) {
+        currentFilterData.sort((a, b) => {
+          const distA = getDistance(userLocation.lat, userLocation.lng, a.lat, a.lng);
+          const distB = getDistance(userLocation.lat, userLocation.lng, b.lat, b.lng);
+          return distA - distB;
+        });
+      }
+    }
+  }
+
+  // Activer/Désactiver la synchronisation dynamique avec la carte
+  function toggleMapSync() {
+    mapSyncEnabled = document.getElementById('sync-map-bounds').checked;
+    const indicator = document.getElementById('map-bounds-indicator');
+    if (mapSyncEnabled) {
+      indicator.classList.remove('hidden');
+    } else {
+      indicator.classList.add('hidden');
+    }
+    filterData();
+  }
+
+  // Basculer l'état d'affichage des menus déroulants de filtres
+  function toggleFilterDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.classList.toggle('hidden');
+  }
+
+  // Rendu de la grille des ateliers (BLOC 4)
+  function renderArtists() {
+    const grid = document.getElementById('artists-grid');
+    const noResults = document.getElementById('no-results');
+    
+    grid.innerHTML = '';
+
+    if (currentFilterData.length === 0) {
+      grid.classList.add('hidden');
+      noResults.classList.remove('hidden');
+      renderPagination(0);
+      return;
+    }
+
+    grid.classList.remove('hidden');
+    noResults.classList.add('hidden');
+
+    // Découpage pour la pagination
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const paginatedItems = currentFilterData.slice(startIndex, startIndex + itemsPerPage);
+
+    paginatedItems.forEach(artist => {
+      const isSelected = activeArtist && activeArtist.id === artist.id;
+      const cardClass = isSelected 
+        ? 'ring-2 ring-ira-gold bg-ira-gold/5 border-ira-gold shadow-md' 
+        : 'bg-white dark:bg-[#121212] border border-gray-100 dark:border-ira-borderDark hover:shadow-xl hover:border-ira-gold/40';
+
+      const renderView = viewType === 'grid' 
+        ? `
+          <!-- Grille uniforme -->
+          <div class="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${cardClass}" onclick="selectArtist(${artist.id})">
+            <div class="relative h-48 overflow-hidden bg-gray-100">
+              <img src="${artist.photo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${artist.name}" onerror="this.src='https://placehold.co/600x400/EAEAEA/333333?text=${artist.name}'">
+              <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full text-white" style="background-color: ${artist.color};">
+                ${artist.medium}
+              </span>
+              ${artist.openPublic ? `
+                <span class="absolute bottom-3 left-3 bg-white/90 dark:bg-black/90 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center space-x-1 backdrop-blur-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>Ouvert au Public</span>
+                </span>
+              ` : ''}
+            </div>
+            <div class="p-5">
+              <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest font-semibold">${artist.city}</span>
+              <h3 class="font-serif text-lg font-bold mt-1 tracking-tight group-hover:text-ira-gold transition-colors">${artist.name}</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 line-clamp-2 italic leading-relaxed">"${artist.tagline}"</p>
+              
+              <div class="mt-4 pt-4 border-t border-gray-50 dark:border-ira-borderDark flex items-center justify-between text-xs font-semibold text-ira-gold">
+                <span>Découvrir l'Atelier</span>
+                <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+          </div>
+        `
+        : `
+          <!-- Version Liste Étirée -->
+          <div class="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 flex flex-col sm:flex-row gap-4 p-4 ${cardClass}" onclick="selectArtist(${artist.id})">
+            <div class="relative w-full sm:w-40 h-40 shrink-0 overflow-hidden rounded-xl bg-gray-100">
+              <img src="${artist.photo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${artist.name}" onerror="this.src='https://placehold.co/600x400/EAEAEA/333333?text=${artist.name}'">
+              <span class="absolute top-2 right-2 text-[8px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full text-white" style="background-color: ${artist.color};">
+                ${artist.medium}
+              </span>
+            </div>
+            <div class="flex-1 flex flex-col justify-between py-1">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-widest font-semibold">${artist.city}</span>
+                  ${artist.openPublic ? '<span class="text-[10px] font-bold text-emerald-500"><i class="fa-solid fa-circle-check"></i> Atelier Ouvert</span>' : ''}
+                </div>
+                <h3 class="font-serif text-xl font-bold mt-1 tracking-tight group-hover:text-ira-gold transition-colors">${artist.name}</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 line-clamp-2 leading-relaxed italic">"${artist.tagline}"</p>
+              </div>
+              
+              <div class="mt-4 sm:mt-0 flex items-center justify-between text-xs font-semibold text-ira-gold">
+                <span>Consulter la fiche complète</span>
+                <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+          </div>
+        `;
+
+      grid.innerHTML += renderView;
+    });
+
+    renderPagination(currentFilterData.length);
+  }
+
+  // Gestion de la pagination numérique
+  function renderPagination(totalItems) {
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = '';
+
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    if (totalPages <= 1) {
+      paginationContainer.classList.add('hidden');
+      return;
+    }
+
+    paginationContainer.classList.remove('hidden');
+
+    // Bouton Précédent
+    const prevBtn = document.createElement('button');
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.className = `px-3 py-1.5 rounded-lg border text-xs font-semibold ${currentPage === 1 ? 'text-gray-300 border-gray-100 cursor-not-allowed dark:border-zinc-800' : 'hover:border-ira-gold hover:text-ira-gold border-gray-200 dark:border-ira-borderDark'}`;
+    prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+    prevBtn.onclick = () => { currentPage--; renderArtists(); };
+    paginationContainer.appendChild(prevBtn);
+
+    // Numéros de page
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.className = `w-8 h-8 rounded-lg text-xs font-bold transition-all ${currentPage === i ? 'bg-ira-gold text-white shadow-md' : 'border border-gray-200 dark:border-ira-borderDark hover:border-ira-gold'}`;
+      pageBtn.innerText = i;
+      pageBtn.onclick = () => { currentPage = i; renderArtists(); };
+      paginationContainer.appendChild(pageBtn);
+    }
+
+    // Bouton Suivant
+    const nextBtn = document.createElement('button');
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.className = `px-3 py-1.5 rounded-lg border text-xs font-semibold ${currentPage === totalPages ? 'text-gray-300 border-gray-100 cursor-not-allowed dark:border-zinc-800' : 'hover:border-ira-gold hover:text-ira-gold border-gray-200 dark:border-ira-borderDark'}`;
+    nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    nextBtn.onclick = () => { currentPage++; renderArtists(); };
+    paginationContainer.appendChild(nextBtn);
+  }
+
+  // Changer l'affichage de Grille / Liste
+  function setViewType(type) {
+    viewType = type;
+    const btnGrid = document.getElementById('btn-view-grid');
+    const btnList = document.getElementById('btn-view-list');
+
+    if (type === 'grid') {
+      btnGrid.className = 'p-2 rounded bg-gray-200 dark:bg-ira-borderDark text-ira-gold';
+      btnList.className = 'p-2 rounded hover:bg-gray-200 dark:hover:bg-ira-borderDark text-gray-400';
+    } else {
+      btnList.className = 'p-2 rounded bg-gray-200 dark:bg-ira-borderDark text-ira-gold';
+      btnGrid.className = 'p-2 rounded hover:bg-gray-200 dark:hover:bg-ira-borderDark text-gray-400';
+    }
+
+    renderArtists();
+  }
+
+  // BLOC 5 — FICHE DETAILED ARTISTE
+  function selectArtist(id) {
+    const artist = artistsData.find(a => a.id === id);
+    if (!artist) return;
+
+    activeArtist = artist;
+
+    // Zoomer légèrement sur le marqueur de la carte associé
+    map.setView([artist.lat, artist.lng], 13);
+
+    // Mettre à jour l'interface des cartes sélectionnées dans la liste
+    renderArtists();
+
+    const detailPanel = document.getElementById('artist-detail-panel');
+    const detailEmpty = document.getElementById('artist-detail-empty');
+
+    detailPanel.innerHTML = `
+      <div class="relative">
+        <img src="${artist.photo}" class="w-full h-56 object-cover" alt="${artist.name}" onerror="this.src='https://placehold.co/600x400/EAEAEA/333333?text=${artist.name}'">
+        <button onclick="clearSelection()" class="absolute top-4 right-4 bg-black/50 text-white hover:bg-black/80 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-all">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="absolute bottom-4 left-4 bg-ira-charcoal/85 backdrop-blur-sm text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-widest uppercase">
+          ${artist.medium}
+        </div>
+      </div>
+      
+      <div class="p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="text-xs text-ira-gold font-bold uppercase tracking-wider">${artist.city}</span>
+            <h3 class="font-serif text-2xl font-bold mt-1">${artist.name}</h3>
+          </div>
+          <a href="${artist.googleMapsUrl}" target="_blank" class="text-ira-gold hover:text-ira-goldDark text-sm p-2 bg-gray-50 dark:bg-ira-borderDark rounded-xl transition-all" title="Itinéraire">
+            <i class="fa-solid fa-diamond-turn-right text-lg"></i>
+          </a>
+        </div>
+
+        <p class="text-sm italic font-medium text-gray-500 dark:text-gray-400 mt-3 border-l-2 border-ira-gold pl-3">
+          "${artist.tagline}"
+        </p>
+
+        <div class="mt-4">
+          <h4 class="font-semibold text-xs text-gray-400 uppercase tracking-widest mb-1">Démarche</h4>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+            ${artist.bio}
+          </p>
+        </div>
+
+        <!-- Galerie d'œuvres -->
+        <div class="mt-6">
+          <h4 class="font-semibold text-xs text-gray-400 uppercase tracking-widest mb-3">Portfolio Récent</h4>
+          <div class="grid grid-cols-3 gap-2">
+            ${artist.gallery ? artist.gallery.map(img => `
+              <div class="group h-16 overflow-hidden rounded-lg bg-gray-100 relative cursor-zoom-in">
+                <img src="${img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Artwork" onerror="this.src='https://placehold.co/120x120/EAEAEA/333333?text=Art'">
+              </div>
+            `).join('') : '<p class="text-xs text-gray-400">Aucune œuvre enregistrée.</p>'}
+          </div>
+        </div>
+
+        <!-- Coordonnées & Horaires -->
+        <div class="mt-6 pt-6 border-t border-gray-100 dark:border-ira-borderDark space-y-3">
+          <div class="flex items-center space-x-3 text-xs sm:text-sm text-gray-500">
+            <i class="fa-solid fa-clock text-ira-gold w-4 text-center"></i>
+            <span>${artist.hours}</span>
+          </div>
+          <div class="flex items-center space-x-3 text-xs sm:text-sm text-gray-500">
+            <i class="fa-solid fa-door-open text-ira-gold w-4 text-center"></i>
+            <span>Atelier : ${artist.openPublic ? 'Entrée libre' : 'Sur rendez-vous uniquement'}</span>
+          </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="mt-6 pt-6 border-t border-gray-100 dark:border-ira-borderDark flex flex-col gap-2.5">
+          <a href="https://inrealart.com/artists/alix-goor" target="_blank" class="w-full text-center bg-ira-gold hover:bg-ira-goldDark text-white font-bold py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-md">
+            Découvrir le profil complet
+          </a>
+          <button onclick="simulateItinerary('${artist.city}')" class="w-full border border-gray-200 dark:border-ira-borderDark hover:border-ira-gold text-center py-3 px-4 rounded-xl text-xs uppercase tracking-widest transition-all flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-route"></i>
+            <span>Simuler un itinéraire</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    detailPanel.classList.remove('hidden');
+    detailEmpty.classList.add('hidden');
+  }
+
+  // Désélectionner l'artiste
+  function clearSelection() {
+    activeArtist = null;
+    document.getElementById('artist-detail-panel').classList.add('hidden');
+    document.getElementById('artist-detail-empty').classList.remove('hidden');
+    renderArtists();
+  }
+
+  // Gestion de la géolocalisation pour le tri de proximité
+  let userLocation = null;
+  function triggerGeolocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          
+          // Modifier l'option de tri par défaut et notifier l'utilisateur
+          document.getElementById('sort-order').value = 'proximity';
+          map.setView([userLocation.lat, userLocation.lng], 9);
+          
+          // Ajouter un marqueur d'utilisateur sur la carte
+          L.circle([userLocation.lat, userLocation.lng], {
+            color: '#10B981',
+            fillColor: '#10B981',
+            fillOpacity: 0.15,
+            radius: 5000
+          }).addTo(map);
+
+          L.marker([userLocation.lat, userLocation.lng], {
+            icon: L.divIcon({
+              html: `<div style="background-color: #10B981; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 0 10px #10B981;" class="animate-ping"></div>`,
+              iconSize: [12, 12],
+              iconAnchor: [6, 6]
+            })
+          }).addTo(map);
+
+          filterData();
+          showNotification("success", "Votre position a été identifiée avec succès ! Tri par proximité activé.");
+        },
+        () => {
+          showNotification("error", "Géolocalisation refusée. Tri standard activé.");
+        }
+      );
+    } else {
+      showNotification("error", "Votre navigateur ne prend pas en charge la géolocalisation.");
+    }
+  }
+
+  // Calculer la distance entre deux coordonnées (Formule de Haversine)
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Rayon de la terre en km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2); 
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    return R * c; // Distance en km
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI/180);
+  }
+
+  // Gérer l'inscription à la volée de l'artiste (Formulaire Artitude)
+  function handleRegistration(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('reg-name').value;
+    const medium = document.getElementById('reg-medium').value;
+    const city = document.getElementById('reg-city').value;
+    const isOpen = document.getElementById('reg-open').value === 'oui';
+    const tagline = document.getElementById('reg-tagline').value;
+    const bio = document.getElementById('reg-bio').value || "Cet artiste n'a pas encore rédigé sa biographie.";
+    let photo = document.getElementById('reg-photo').value;
+
+    if (!photo) {
+      photo = "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop";
+    }
+
+    // Coordonnées fictives proches de la ville entrée pour la simulation
+    const simulatedLat = 46 + (Math.random() - 0.5) * 4;
+    const simulatedLng = 2 + (Math.random() - 0.5) * 4;
+
+    const newArtist = {
+      id: artistsData.length + 1,
+      name: name,
+      medium: medium,
+      mediumLabel: `${medium.charAt(0).toUpperCase() + medium.slice(1)} Contemporain`,
+      city: city,
+      region: "Nouvelle Région",
+      lat: simulatedLat,
+      lng: simulatedLng,
+      openPublic: isOpen,
+      tagline: tagline,
+      bio: bio,
+      photo: photo,
+      gallery: [
+        "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=400&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=400&auto=format&fit=crop"
+      ],
+      googleMapsUrl: `https://maps.google.com/?q=Atelier+${name}+${city}`,
+      hours: isOpen ? "Lundi au Vendredi: 14:00 - 18:00" : "Sur rendez-vous",
+      color: medium === 'peinture' ? '#E11D48' : (medium === 'sculpture' ? '#0D9488' : (medium === 'photographie' ? '#D97706' : '#4F46E5'))
+    };
+
+    // Ajouter à la BDD locale
+    artistsData.unshift(newArtist);
+    
+    // Fermer le modal
+    closeRegisterModal();
+    document.getElementById('artitude-form').reset();
+
+    // Notifier & Recharger les vues
+    showNotification("success", `Bienvenue à l'atelier de ${name} ! Votre fiche est publiée et référencée.`);
+    
+    // Mettre à jour l'application
+    filterData();
+    
+    // Zoomer sur le nouvel artiste créé
+    map.setView([simulatedLat, simulatedLng], 9);
+    selectArtist(newArtist.id);
+  }
+
+  // Utilitaires généraux
+  function updateResultsCount() {
+    document.getElementById('results-count').innerText = `${currentFilterData.length} atelier${currentFilterData.length > 1 ? 's' : ''} trouvé${currentFilterData.length > 1 ? 's' : ''}`;
+    document.getElementById('stat-artists').innerText = artistsData.length;
+  }
+
+  function resetFilters() {
+    document.getElementById('search-main').value = '';
+    document.getElementById('search-location').value = '';
+    document.getElementById('filter-open').checked = false;
+    document.querySelectorAll('.filter-medium').forEach(el => el.checked = false);
+    
+    map.setView([46.603354, 1.888334], 6);
+    filterData();
+    clearSelection();
+    showNotification("success", "Les filtres de recherche ont été réinitialisés.");
+  }
+
+  // Modals & Menu d'inscription
+  function openRegisterModal() {
+    document.getElementById('register-modal').classList.remove('hidden');
+  }
+
+  function closeRegisterModal() {
+    document.getElementById('register-modal').classList.add('hidden');
+  }
+
+  // Système de notification moderne (Remplace 'alert' conformément aux règles de sécurité)
+  function showNotification(type, message) {
+    const isDark = document.documentElement.classList.contains('dark');
+    const bg = type === 'success' ? 'bg-[#121212] border-ira-gold' : 'bg-red-500 border-red-700';
+    const text = 'text-white';
+
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-8 right-8 z-50 ${bg} ${text} border p-4 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-2 opacity-0 flex items-center space-x-3 text-xs sm:text-sm font-semibold tracking-wide`;
+    toast.innerHTML = `
+      <i class="${type === 'success' ? 'fa-solid fa-circle-check text-ira-gold' : 'fa-solid fa-circle-exclamation'} text-lg"></i>
+      <span>${message}</span>
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-2', 'opacity-0');
+    }, 100);
+
+    setTimeout(() => {
+      toast.classList.add('translate-y-2', 'opacity-0');
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  }
+
+  // Simulateur d'itinéraire personnalisé
+  function simulateItinerary(city) {
+    showNotification("success", `Itinéraire calculé de Paris à ${city} (temps estimé : 2h40). Les coordonnées GPS ont été partagées.`);
+  }
+
+  // Gérer le mode Sombre / Galerie Claire d'InRealArt
+  function toggleDarkMode() {
+    const doc = document.documentElement;
+    const themeIcon = document.getElementById('theme-icon');
+    
+    if (doc.classList.contains('dark')) {
+      doc.classList.remove('dark');
+      themeIcon.className = "fa-solid fa-moon text-lg";
+      showNotification("success", "Ambiance Galerie Claire activée.");
+    } else {
+      doc.classList.add('dark');
+      themeIcon.className = "fa-solid fa-sun text-lg text-ira-gold";
+      showNotification("success", "Ambiance Collectionneur Sombre activée.");
+    }
+    
+    // Mettre à jour la palette de couleur de la carte
+    updateMapStyle();
+  }
+
+  function applyInitialStyles() {
+    // Par défaut, activer le style sombre si demandé par l'appareil ou conserver le mode clair soigné d'InRealArt
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+      document.getElementById('theme-icon').className = "fa-solid fa-sun text-lg text-ira-gold";
+    }
+  }
+</script>
+</body>
+</html>
+

@@ -55,6 +55,7 @@ next-env.d.ts
 .cursor/
 CLAUDE.md
 .qwen*
+.superpowers/*
 
 #personal files
 InRealArt_Refonte_CMO_Dev.docx
