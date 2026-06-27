@@ -7,6 +7,9 @@ import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
 import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
+import ArtistSlide from '@/components/home/FeaturedSlider/slides/ArtistSlide'
+import ArtworkSlide from '@/components/home/FeaturedSlider/slides/ArtworkSlide'
+import PostSlide from '@/components/home/FeaturedSlider/slides/PostSlide'
 
 type Profile = 'collector' | 'artist' | 'enterprise'
 
@@ -77,17 +80,23 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
   const subheadlineRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
   const cardsRef = useRef<(HTMLButtonElement | null)[]>([])
+  const featuredRef = useRef<HTMLDivElement>(null)
 
   const current = PROFILES.find((p) => p.key === active)!
 
-  // Animate headline + subheading on persona change
+  const hasFeaturedContent =
+    (active === 'collector' && featuredArtwork !== null) ||
+    (active === 'artist' && featuredArtist !== null) ||
+    (active === 'enterprise' && featuredPost !== null)
+
+  // Animate headline + subheading + featured zone on persona change
   useEffect(() => {
     if (!headlineRef.current || !subheadlineRef.current) return
 
     const headlineSpans = headlineRef.current.querySelectorAll('span')
     const tl = gsap.timeline()
 
-    // Fade out + slide up current content
+    // Fade out + slide up — headline, subheading, featured zone
     tl.to(headlineSpans, {
       opacity: 0,
       y: -10,
@@ -103,7 +112,16 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
       ease: 'power2.in',
     }, 0)
 
-    // Fade in + slide down new content
+    if (featuredRef.current) {
+      tl.to(featuredRef.current, {
+        opacity: 0,
+        y: -8,
+        duration: 0.25,
+        ease: 'power2.in',
+      }, 0)
+    }
+
+    // Fade in + slide down — headline, subheading, featured zone
     tl.to(headlineSpans, {
       opacity: 1,
       y: 0,
@@ -118,6 +136,15 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
       duration: 0.4,
       ease: 'power2.out',
     }, 0.15)
+
+    if (featuredRef.current) {
+      tl.to(featuredRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, 0.2)
+    }
   }, [active])
 
   // CTA subtle pulse animation on mount
@@ -302,6 +329,34 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             </span>
           </a>
         </div>
+
+        {/* Featured contextuelle par persona */}
+        {hasFeaturedContent && (
+          <div
+            ref={featuredRef}
+            className="mt-12 border-t border-white/10 pt-10"
+          >
+            {/* Eyebrow label */}
+            <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-6">
+              {active === 'collector' && "Œuvre à l'honneur"}
+              {active === 'artist' && "Artiste à l'honneur"}
+              {active === 'enterprise' && "Article à l'honneur"}
+            </p>
+
+            {/* Slide contextuelle */}
+            <div className="max-w-sm">
+              {active === 'collector' && featuredArtwork && (
+                <ArtworkSlide item={featuredArtwork} />
+              )}
+              {active === 'artist' && featuredArtist && (
+                <ArtistSlide item={featuredArtist} />
+              )}
+              {active === 'enterprise' && featuredPost && (
+                <PostSlide item={featuredPost} />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
