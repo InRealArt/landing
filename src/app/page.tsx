@@ -5,7 +5,7 @@ import FAQWrapper from '@/components/common/FAQ/FAQWrapper'
 import Statistics from "@/components/home/Statistics"
 import ExhibitionSlider from "@/components/home/ExhibitionSlider"
 import FeaturedSlider from "@/components/home/FeaturedSlider/FeaturedSlider"
-import HomeHero from "@/components/home/HomeHero"
+import HomeHeroWrapper from "@/components/home/HomeHeroWrapper"
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
 export const revalidate = 1800 // régénère toutes les 30 min
@@ -78,7 +78,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: generateArtGalleryJsonLd() }}
       />
 
-      <HomeHero />
+      <HomeHeroWrapper />
       <FeaturedSlider />
       <ExhibitionSlider />
       <Statistics />
