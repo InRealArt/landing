@@ -79,7 +79,7 @@ export default function Home() {
       />
 
       <HomeHeroWrapper />
-      <FeaturedSlider />
+      {/* <FeaturedSlider /> */}
       <ExhibitionSlider />
       <Statistics />
       <Expertises />
