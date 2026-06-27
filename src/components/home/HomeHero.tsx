@@ -6,8 +6,15 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
+import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
 
-type Profile = 'collector' | 'artist' | 'enterprise' | 'brand'
+type Profile = 'collector' | 'artist' | 'enterprise'
+
+interface HomeHeroProps {
+  featuredArtist: FeaturedArtist | null
+  featuredArtwork: FeaturedArtwork | null
+  featuredPost: FeaturedPost | null
+}
 
 interface ProfileConfig {
   key: Profile
@@ -51,19 +58,19 @@ const PROFILES: ProfileConfig[] = [
     imagePath: '/images/persona-heroes/enterprise.avif',
     description: 'Solutions d\'acquisition pour institutions',
   },
-  {
-    key: 'brand',
-    labelKey: 'exhibitions.hero.profileBrand',
-    ctaKey: 'exhibitions.hero.ctaBrand',
-    href: '/agence',
-    headlineKey: 'exhibitions.hero.claimBrand',
-    subheadlineKey: 'exhibitions.hero.subheadlineBrand',
-    imagePath: '/images/persona-heroes/brand.avif',
-    description: 'Partenaires créatifs et marques de prestige',
-  },
+  // {
+  //   key: 'brand',
+  //   labelKey: 'exhibitions.hero.profileBrand',
+  //   ctaKey: 'exhibitions.hero.ctaBrand',
+  //   href: '/agence',
+  //   headlineKey: 'exhibitions.hero.claimBrand',
+  //   subheadlineKey: 'exhibitions.hero.subheadlineBrand',
+  //   imagePath: '/images/persona-heroes/brand.avif',
+  //   description: 'Partenaires créatifs et marques de prestige',
+  // },
 ]
 
-export default function HomeHero() {
+export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost }: HomeHeroProps) {
   const { t } = useTranslation()
   const [active, setActive] = useState<Profile>('collector')
   const headlineRef = useRef<HTMLHeadingElement>(null)
@@ -248,9 +255,7 @@ export default function HomeHero() {
                 ? t('exhibitions.hero.claimAccent')
                 : active === 'artist'
                 ? t('exhibitions.hero.claimAccentArtist')
-                : active === 'enterprise'
-                ? t('exhibitions.hero.claimAccentEnterprise')
-                : t('exhibitions.hero.claimAccentBrand')}
+                : t('exhibitions.hero.claimAccentEnterprise')}
             </span>
           </h1>
 
