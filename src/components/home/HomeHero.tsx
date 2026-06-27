@@ -7,9 +7,6 @@ import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
 import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
-import ArtistSlide from '@/components/home/FeaturedSlider/slides/ArtistSlide'
-import ArtworkSlide from '@/components/home/FeaturedSlider/slides/ArtworkSlide'
-import PostSlide from '@/components/home/FeaturedSlider/slides/PostSlide'
 
 type Profile = 'collector' | 'artist' | 'enterprise'
 
@@ -273,7 +270,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
         </div>
 
         {/* Dynamic Claim (contextual per persona) */}
-        <div className="mb-8 md:mb-10 max-w-3xl" key={active}>
+        <div className="mb-8 md:mb-10 max-w-3xl">
           <h1
             ref={headlineRef}
             className="unbounded text-white font-black uppercase leading-[0.9] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
@@ -340,24 +337,71 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             ref={featuredRef}
             className="mt-12 border-t border-white/10 pt-10"
           >
-            {/* Eyebrow label */}
             <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-6">
               {active === 'collector' && "Œuvre à l'honneur"}
               {active === 'artist' && "Artiste à l'honneur"}
               {active === 'enterprise' && "Article à l'honneur"}
             </p>
 
-            {/* Slide contextuelle */}
-            <div className="max-w-sm">
-              {active === 'collector' && featuredArtwork && (
-                <ArtworkSlide item={featuredArtwork} />
-              )}
-              {active === 'artist' && featuredArtist && (
-                <ArtistSlide item={featuredArtist} />
-              )}
-              {active === 'enterprise' && featuredPost && (
-                <PostSlide item={featuredPost} />
-              )}
+            <div className="flex gap-6 items-start max-w-xl">
+              {/* Image */}
+              <div className="relative w-32 h-40 shrink-0 overflow-hidden bg-white/5">
+                {active === 'collector' && featuredArtwork?.imageUrl && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={featuredArtwork.imageUrl}
+                    alt={featuredArtwork.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+                {active === 'artist' && featuredArtist?.imageUrl && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={featuredArtist.imageUrl}
+                    alt={`${featuredArtist.name} ${featuredArtist.surname}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+                {active === 'enterprise' && featuredPost?.imageUrl && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={featuredPost.imageUrl}
+                    alt={featuredPost.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              {/* Texte */}
+              <div className="flex flex-col gap-2 py-1">
+                <h3 className="serif text-white font-light text-lg leading-snug">
+                  {active === 'collector' && featuredArtwork?.title}
+                  {active === 'artist' && featuredArtist && `${featuredArtist.name} ${featuredArtist.surname}`}
+                  {active === 'enterprise' && featuredPost?.title}
+                </h3>
+
+                <p className="text-white/50 text-xs">
+                  {active === 'collector' && featuredArtwork?.price && new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(featuredArtwork.price)}
+                  {active === 'artist' && featuredArtist?.speciality}
+                  {active === 'enterprise' && featuredPost?.categoryName}
+                </p>
+
+                <a
+                  href={
+                    active === 'collector' ? '/presale' :
+                    active === 'artist' && featuredArtist ? `/artists/${featuredArtist.slug}` :
+                    active === 'enterprise' && featuredPost ? `/media/${featuredPost.slug}` : '#'
+                  }
+                  className="mt-2 inline-flex items-center gap-2 text-gold-accent text-[10px] uppercase tracking-[0.25em] font-medium montserrat hover:underline"
+                >
+                  {active === 'collector' && "Voir l'œuvre"}
+                  {active === 'artist' && "Découvrir l'artiste"}
+                  {active === 'enterprise' && "Lire l'article"}
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         )}
