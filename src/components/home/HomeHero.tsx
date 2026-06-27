@@ -145,6 +145,10 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
         ease: 'power2.out',
       }, 0.2)
     }
+
+    return () => {
+      tl.kill()
+    }
   }, [active])
 
   // CTA subtle pulse animation on mount
