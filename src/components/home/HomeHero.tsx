@@ -191,17 +191,9 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
     <section className="w-full bg-black pt-headerSize">
       <div className="max-w-screen-2xl mx-auto px-6 sm:px-12 lg:px-24 xl:px-32 py-20 md:py-28 lg:py-36">
 
-        {/* Persona Selector avec contexte */}
+        {/* Persona Selector */}
         <div className="mb-8 md:mb-12">
           <div className="flex flex-col gap-4">
-            {/* Label instructionnel */}
-            <div className="flex items-center gap-2">
-              <span className="text-white/50 text-[11px] uppercase tracking-[0.3em] font-medium">
-                {t('exhibitions.hero.whoAreYou') || 'Qui êtes-vous ?'}
-              </span>
-              <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent" aria-hidden="true" />
-            </div>
-
             {/* Boutons toggle profil - layout avec images */}
             <div
               className="grid grid-cols-2 sm:grid-cols-4 gap-3"
@@ -269,14 +261,70 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
           </div>
         </div>
 
-        {/* Dynamic Claim (contextual per persona) */}
-        <div className="mb-8 md:mb-10 max-w-3xl">
+        {/* Featured contextuelle par persona */}
+        {hasFeaturedContent && (
+          <div ref={featuredRef} className="mb-12">
+            {/* Image — très grande, dominante, avec badge en overlay */}
+            <a
+              href={
+                active === 'collector' ? '/presale' :
+                active === 'artist' && featuredArtist ? `/artists/${featuredArtist.slug}` :
+                active === 'enterprise' && featuredPost ? `/media/${featuredPost.slug}` : '#'
+              }
+              className="relative overflow-hidden bg-white/5 group/img block w-full max-w-2xl h-[420px] sm:h-[520px]"
+            >
+              {active === 'collector' && featuredArtwork?.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featuredArtwork.imageUrl}
+                  alt={featuredArtwork.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
+                />
+              )}
+              {active === 'artist' && featuredArtist?.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featuredArtist.imageUrl}
+                  alt={`${featuredArtist.name} ${featuredArtist.surname}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
+                />
+              )}
+              {active === 'enterprise' && featuredPost?.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={featuredPost.imageUrl}
+                  alt={featuredPost.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
+                />
+              )}
+              {/* Badge "de la semaine" en haut à gauche */}
+              <span className="absolute top-4 left-4 bg-black/70 text-gold-accent text-[9px] uppercase tracking-[0.3em] px-3 py-1.5 montserrat backdrop-blur-sm">
+                {active === 'collector' && 'Œuvre de la semaine'}
+                {active === 'artist' && 'Artiste de la semaine'}
+                {active === 'enterprise' && 'Article de la semaine'}
+              </span>
+              {/* Gradient bas pour lisibilité */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent" aria-hidden="true" />
+            </a>
+
+            {/* Texte discret sous l'image */}
+            <div className="flex flex-col gap-2 mt-4 max-w-2xl">
+              <p className="text-white/30 text-xs leading-relaxed">
+                {active === 'collector' && 'Découvrez les œuvres exclusives avant tout le monde.'}
+                {active === 'artist' && 'Découvrez les artistes émergents avant tout le monde.'}
+                {active === 'enterprise' && "Les analyses de marché qui guident les décisions d'acquisition."}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Dynamic Claim */}
+        <div className="mb-6 md:mb-8 max-w-2xl">
           <h1
             ref={headlineRef}
-            className="unbounded text-white font-black uppercase leading-[0.9] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            className="unbounded text-white font-black uppercase leading-[0.9] tracking-tight text-xl sm:text-2xl md:text-3xl"
             suppressHydrationWarning
           >
-            {/* Headline adaptatif par persona */}
             <span className="block text-white">{t(current.headlineKey)}</span>
             <span className="block text-gold-accent">
               {active === 'collector'
@@ -287,17 +335,16 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             </span>
           </h1>
 
-          {/* Subheading contextuel */}
           <p
             ref={subheadlineRef}
-            className="mt-6 text-white/70 text-sm sm:text-base max-w-2xl leading-relaxed"
+            className="mt-4 text-white/50 text-xs sm:text-sm max-w-xl leading-relaxed"
             suppressHydrationWarning
           >
             {t(current.subheadlineKey)}
           </p>
         </div>
 
-        {/* CTA Row - simplifiée et plus claire */}
+        {/* CTA Row */}
         <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
           {/* CTA Primaire */}
           <Link
@@ -330,81 +377,6 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             </span>
           </a>
         </div>
-
-        {/* Featured contextuelle par persona */}
-        {hasFeaturedContent && (
-          <div
-            ref={featuredRef}
-            className="mt-12 border-t border-white/10 pt-10"
-          >
-            <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-6">
-              {active === 'collector' && t('featured.heroArtworkLabel')}
-              {active === 'artist' && t('featured.heroArtistLabel')}
-              {active === 'enterprise' && t('featured.heroPostLabel')}
-            </p>
-
-            <div className="flex gap-6 items-start max-w-xl">
-              {/* Image */}
-              <div className="relative w-32 h-40 shrink-0 overflow-hidden bg-white/5">
-                {active === 'collector' && featuredArtwork?.imageUrl && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={featuredArtwork.imageUrl}
-                    alt={featuredArtwork.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                )}
-                {active === 'artist' && featuredArtist?.imageUrl && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={featuredArtist.imageUrl}
-                    alt={`${featuredArtist.name} ${featuredArtist.surname}`}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                )}
-                {active === 'enterprise' && featuredPost?.imageUrl && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={featuredPost.imageUrl}
-                    alt={featuredPost.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                )}
-              </div>
-
-              {/* Texte */}
-              <div className="flex flex-col gap-2 py-1">
-                <h3 className="serif text-white font-light text-lg leading-snug">
-                  {active === 'collector' && featuredArtwork?.title}
-                  {active === 'artist' && featuredArtist && `${featuredArtist.name} ${featuredArtist.surname}`}
-                  {active === 'enterprise' && featuredPost?.title}
-                </h3>
-
-                <p className="text-white/50 text-xs">
-                  {active === 'collector' && featuredArtwork?.price && new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(featuredArtwork.price)}
-                  {active === 'artist' && featuredArtist?.speciality}
-                  {active === 'enterprise' && featuredPost?.categoryName}
-                </p>
-
-                <a
-                  href={
-                    active === 'collector' ? '/presale' :
-                    active === 'artist' && featuredArtist ? `/artists/${featuredArtist.slug}` :
-                    active === 'enterprise' && featuredPost ? `/media/${featuredPost.slug}` : '#'
-                  }
-                  className="mt-2 inline-flex items-center gap-2 text-gold-accent text-[10px] uppercase tracking-[0.25em] font-medium montserrat hover:underline"
-                >
-                  {active === 'collector' && t('featured.ctaArtwork')}
-                  {active === 'artist' && t('featured.ctaArtist')}
-                  {active === 'enterprise' && t('featured.ctaPost')}
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                    <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )
