@@ -338,9 +338,9 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             className="mt-12 border-t border-white/10 pt-10"
           >
             <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-6">
-              {active === 'collector' && "Œuvre à l'honneur"}
-              {active === 'artist' && "Artiste à l'honneur"}
-              {active === 'enterprise' && "Article à l'honneur"}
+              {active === 'collector' && t('featured.heroArtworkLabel')}
+              {active === 'artist' && t('featured.heroArtistLabel')}
+              {active === 'enterprise' && t('featured.heroPostLabel')}
             </p>
 
             <div className="flex gap-6 items-start max-w-xl">
@@ -394,9 +394,9 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
                   }
                   className="mt-2 inline-flex items-center gap-2 text-gold-accent text-[10px] uppercase tracking-[0.25em] font-medium montserrat hover:underline"
                 >
-                  {active === 'collector' && "Voir l'œuvre"}
-                  {active === 'artist' && "Découvrir l'artiste"}
-                  {active === 'enterprise' && "Lire l'article"}
+                  {active === 'collector' && t('featured.ctaArtwork')}
+                  {active === 'artist' && t('featured.ctaArtist')}
+                  {active === 'enterprise' && t('featured.ctaPost')}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

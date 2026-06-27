@@ -3808,6 +3808,9 @@
     "typeArtwork": "Œuvre",
     "typePost": "Article",
     "typeExhibition": "Exposition",
+    "heroArtworkLabel": "Œuvre à l'honneur",
+    "heroArtistLabel": "Artiste à l'honneur",
+    "heroPostLabel": "Article à l'honneur",
     "ctaArtist": "Découvrir l'artiste",
     "ctaArtwork": "Voir l'œuvre",
     "ctaPost": "Lire l'article"

@@ -4041,6 +4041,9 @@
     "typeArtwork": "Artwork",
     "typePost": "Article",
     "typeExhibition": "Exhibition",
+    "heroArtworkLabel": "Artwork of the moment",
+    "heroArtistLabel": "Artist of the moment",
+    "heroPostLabel": "Article of the moment",
     "ctaArtist": "Discover the artist",
     "ctaArtwork": "View the artwork",
     "ctaPost": "Read the article"
