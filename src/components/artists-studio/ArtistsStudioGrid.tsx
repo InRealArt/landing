@@ -30,9 +30,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
         a.name.toLowerCase().includes(search.toLowerCase()) ||
         a.mediumLabel.toLowerCase().includes(search.toLowerCase()) ||
         a.bio.toLowerCase().includes(search.toLowerCase())
-      const matchLoc =
-        a.city.toLowerCase().includes(locationSearch.toLowerCase()) ||
-        a.region.toLowerCase().includes(locationSearch.toLowerCase())
+      const matchLoc = a.city.toLowerCase().includes(locationSearch.toLowerCase())
       const matchMedium = selectedMediums.length === 0 || selectedMediums.includes(a.medium)
       const matchOpen = !openOnly || a.openPublic
       return matchSearch && matchLoc && matchMedium && matchOpen
@@ -197,7 +195,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                     {/* Card body */}
                     <div className="flex flex-col flex-1 pt-5 pb-6 px-5 border border-t-0 border-borderColor">
                       <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
-                        {artist.city} — {artist.region}
+                        {artist.city}
                       </p>
                       <h3 className="serif text-xl font-light text-textColor leading-tight mb-3 group-hover:text-gold-accent transition-colors duration-300">
                         {artist.name}

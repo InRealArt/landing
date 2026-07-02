@@ -66,7 +66,7 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
       <div className="flex flex-col pt-5 pb-6 px-5 border border-t-0 border-borderColor space-y-4">
         <div>
           <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
-            {artist.city} — {artist.region}
+            {artist.city}
           </p>
           <h3 className="serif text-2xl font-light text-textColor leading-tight">
             {artist.name}
