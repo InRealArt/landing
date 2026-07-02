@@ -3860,7 +3860,9 @@
       "openPublic": "Entrée libre",
       "byAppointment": "Sur rendez-vous",
       "access": "Accès : ",
-      "joinCta": "Rejoindre le réseau"
+      "joinCta": "Rejoindre le réseau",
+      "readMore": "Voir plus",
+      "readLess": "Voir moins"
     },
     "cta": {
       "eyebrow": "Rejoignez le collectif",

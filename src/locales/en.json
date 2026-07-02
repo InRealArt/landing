@@ -4093,7 +4093,9 @@
       "openPublic": "Open to visitors",
       "byAppointment": "By appointment",
       "access": "Access: ",
-      "joinCta": "Join the network"
+      "joinCta": "Join the network",
+      "readMore": "Read more",
+      "readLess": "Read less"
     },
     "cta": {
       "eyebrow": "Join the collective",

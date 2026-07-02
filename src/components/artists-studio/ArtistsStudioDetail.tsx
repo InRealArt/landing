@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { ArtistStudio } from '@/types/artistsStudio'
 import Image from 'next/image'
 import { useTranslation } from '@/hooks/useTranslation'
@@ -9,8 +10,15 @@ type Props = {
   onClose: () => void
 }
 
+const BIO_TRUNCATE_LENGTH = 220
+
 export default function ArtistsStudioDetail({ artist, onClose }: Props) {
   const { t } = useTranslation()
+  const [bioExpanded, setBioExpanded] = useState(false)
+
+  useEffect(() => {
+    setBioExpanded(false)
+  }, [artist?.id])
 
   if (!artist) {
     return (
@@ -83,7 +91,19 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
           <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-2">
             {t('artistsStudio.detail.approach')}
           </p>
-          <p className="text-sm text-textColor leading-relaxed">{artist.bio}</p>
+          <p className="text-sm text-textColor leading-relaxed">
+            {bioExpanded || artist.bio.length <= BIO_TRUNCATE_LENGTH
+              ? artist.bio
+              : `${artist.bio.slice(0, BIO_TRUNCATE_LENGTH).trimEnd()}…`}
+          </p>
+          {artist.bio.length > BIO_TRUNCATE_LENGTH && (
+            <button
+              onClick={() => setBioExpanded((v) => !v)}
+              className="mt-2 text-[11px] uppercase tracking-[0.25em] montserrat text-gold-accent hover:text-textColor transition-colors underline underline-offset-4"
+            >
+              {bioExpanded ? t('artistsStudio.detail.readLess') : t('artistsStudio.detail.readMore')}
+            </button>
+          )}
         </div>
 
         {artist.gallery.length > 0 && (
@@ -126,7 +146,9 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
         </div>
 
         <a
-          href="/joinInRealArt"
+          href="https://artitude.inrealart.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
         >
           {t('artistsStudio.detail.joinCta')}
