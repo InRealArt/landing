@@ -6,9 +6,8 @@ export type ArtistStudio = {
   medium: ArtistMedium
   mediumLabel: string
   city: string
-  region: string
-  lat: number
-  lng: number
+  lat: number | null
+  lng: number | null
   openPublic: boolean
   tagline: string
   bio: string
