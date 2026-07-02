@@ -75,8 +75,9 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
       })
       observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 
-      // Add markers
+      // Add markers (skip studios without geolocation)
       artists.forEach((artist) => {
+        if (artist.lat === null || artist.lng === null) return
         const icon = L.divIcon({
           className: '',
           html: `<div style="
@@ -134,7 +135,7 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
   useEffect(() => {
     if (!mapRef.current || selectedArtistId === null) return
     const artist = artists.find((a) => a.id === selectedArtistId)
-    if (artist) {
+    if (artist && artist.lat !== null && artist.lng !== null) {
       mapRef.current.setView([artist.lat, artist.lng], 12, { animate: true })
       const marker = markersRef.current.get(selectedArtistId)
       if (marker) marker.openPopup()
