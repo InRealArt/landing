@@ -73,9 +73,11 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
           </h3>
         </div>
 
-        <p className="text-xs text-grayText italic leading-relaxed border-l border-gold-accent pl-3">
-          &ldquo;{artist.tagline}&rdquo;
-        </p>
+        {artist.tagline && (
+          <p className="text-xs text-grayText italic leading-relaxed border-l border-gold-accent pl-3">
+            &ldquo;{artist.tagline}&rdquo;
+          </p>
+        )}
 
         <div>
           <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-2">
@@ -110,7 +112,7 @@ export default function ArtistsStudioDetail({ artist, onClose }: Props) {
             <svg className="w-3.5 h-3.5 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>{artist.hours}</span>
+            <span>{artist.hours || t('artistsStudio.detail.byAppointment')}</span>
           </div>
           <div className="flex items-center gap-3 text-[11px] montserrat text-grayText uppercase tracking-wider">
             <svg className="w-3.5 h-3.5 text-gold-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

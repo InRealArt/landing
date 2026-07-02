@@ -200,9 +200,11 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                       <h3 className="serif text-xl font-light text-textColor leading-tight mb-3 group-hover:text-gold-accent transition-colors duration-300">
                         {artist.name}
                       </h3>
-                      <p className="text-xs text-grayText italic leading-relaxed line-clamp-2 mb-4">
-                        &ldquo;{artist.tagline}&rdquo;
-                      </p>
+                      {artist.tagline && (
+                        <p className="text-xs text-grayText italic leading-relaxed line-clamp-2 mb-4">
+                          &ldquo;{artist.tagline}&rdquo;
+                        </p>
+                      )}
                       <button className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start">
                         {t('artistsStudio.grid.discoverCta')}
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
