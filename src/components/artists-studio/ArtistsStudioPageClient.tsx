@@ -1,0 +1,153 @@
+'use client'
+
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
+import { ArtistStudio } from '@/types/artistsStudio'
+import ArtistsStudioGrid from './ArtistsStudioGrid'
+import { useTranslation } from '@/hooks/useTranslation'
+
+const ArtistsStudioMap = dynamic(() => import('./ArtistsStudioMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full bg-cardBackground animate-pulse flex items-center justify-center">
+      <span className="text-grayText text-sm montserrat"></span>
+    </div>
+  ),
+})
+
+const MEDIUM_COLORS = [
+  { color: '#E11D48', key: 'peinture' },
+  { color: '#0D9488', key: 'sculpture' },
+  { color: '#D97706', key: 'photographie' },
+  { color: '#4F46E5', key: 'dessin' },
+  { color: '#7C3AED', key: 'autre' },
+] as const
+
+type Props = {
+  artists: ArtistStudio[]
+}
+
+export default function ArtistsStudioPageClient({ artists }: Props) {
+  const { t } = useTranslation()
+  const [selectedArtistId, setSelectedArtistId] = useState<number | null>(null)
+
+  function handleSelectArtist(id: number) {
+    setSelectedArtistId(id === -1 ? null : id)
+  }
+
+  return (
+    <div className="min-h-screen bg-backgroundColor text-textColor">
+      {/* BLOC 1 — Hero Header */}
+      <header className="relative overflow-hidden border-b border-borderColor py-12 lg:py-16 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+          <span className="text-xs font-unbounded font-semibold tracking-widest text-gold-accent uppercase mb-3">
+            {t('artistsStudio.eyebrow')}
+          </span>
+          <h1 className="font-cormorant text-4xl sm:text-6xl lg:text-7xl font-light max-w-4xl leading-tight mb-4 text-textColor mt-8">
+            {t('artistsStudio.hero.title')}
+            <span className="italic text-grayText block">
+              {t('artistsStudio.hero.subtitle')}
+            </span>
+          </h1>
+          <p className="text-sm sm:text-lg max-w-2xl text-grayText font-light leading-relaxed mb-8">
+            {t('artistsStudio.hero.description')}
+          </p>
+
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-2 text-xs tracking-wider uppercase font-unbounded font-medium text-grayText">
+            <div>
+              <span className="text-gold-accent font-bold text-lg mr-1">{artists.length}</span>
+              {t('artistsStudio.hero.statsStudios')}
+            </div>
+            <div>
+              <span className="text-gold-accent font-bold text-lg mr-1">100%</span>
+              {t('artistsStudio.hero.statsArtists')}
+            </div>
+            <div>
+              <span className="text-gold-accent font-bold text-lg mr-1">5</span>
+              {t('artistsStudio.hero.statsDisciplines')}
+            </div>
+          </div>
+        </div>
+
+        {/* Background blobs */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute -top-12 -left-12 w-96 h-96 rounded-full bg-gold-accent blur-3xl" />
+          <div className="absolute top-1/2 -right-12 w-80 h-80 rounded-full bg-purple-600 blur-3xl" />
+        </div>
+      </header>
+
+      {/* BLOC 2 — Interactive Map */}
+      <section className="relative h-[420px] sm:h-[520px] w-full border-b border-borderColor bg-cardBackground">
+        <ArtistsStudioMap
+          artists={artists}
+          selectedArtistId={selectedArtistId}
+          onSelectArtist={handleSelectArtist}
+          popupCtaLabel={t('artistsStudio.map.popupCta')}
+        />
+
+        {/* Map legend */}
+        <div className="absolute bottom-5 left-5 z-[20] bg-cardBackground/95 backdrop-blur shadow-lg border border-borderColor p-4 max-w-[200px] text-xs">
+          <h4 className="font-unbounded font-bold tracking-wider uppercase mb-3 text-grayText text-[10px]">
+            {t('artistsStudio.map.legend')}
+          </h4>
+          <div className="space-y-1.5">
+            {MEDIUM_COLORS.map(({ color, key }) => (
+              <div key={key} className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
+                <span className="text-textColor">{t(`artistsStudio.map.mediums.${key}`)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BLOC 3+4+5 — Filters, Grid, Detail */}
+      <ArtistsStudioGrid
+        artists={artists}
+        selectedArtistId={selectedArtistId}
+        onSelectArtist={handleSelectArtist}
+      />
+
+      {/* BLOC 6 — CTA Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 mb-16">
+        <div className="relative bg-cardBackground border border-gold-accent/30 overflow-hidden p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+          <div className="relative z-10 max-w-2xl text-center lg:text-left">
+            <span className="text-xs font-unbounded font-bold tracking-widest text-gold-accent uppercase mb-3 block">
+              {t('artistsStudio.cta.eyebrow')}
+            </span>
+            <h2 className="font-cormorant text-3xl sm:text-5xl font-light leading-tight mb-4 text-textColor">
+              {t('artistsStudio.cta.title')}
+            </h2>
+            <p className="text-sm sm:text-base text-grayText font-light leading-relaxed">
+              {t('artistsStudio.cta.description')}
+            </p>
+          </div>
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+            <a
+              href="/joinInRealArt"
+              className="w-full sm:w-auto bg-gold-accent hover:opacity-90 text-white px-8 py-4 font-unbounded font-semibold uppercase tracking-wider text-xs transition-all shadow-lg flex items-center justify-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+              {t('artistsStudio.cta.joinCta')}
+            </a>
+            <a
+              href="/artists"
+              className="w-full sm:w-auto border border-borderColor hover:border-gold-accent text-center px-8 py-4 font-unbounded font-semibold uppercase tracking-wider text-xs transition-colors text-textColor block"
+            >
+              {t('artistsStudio.cta.artistsCta')}
+            </a>
+          </div>
+
+          {/* Background blobs */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-gold-accent blur-3xl" />
+            <div className="absolute -left-12 -top-12 w-64 h-64 rounded-full bg-rose-600 blur-3xl" />
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
