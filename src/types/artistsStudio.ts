@@ -15,4 +15,5 @@ export type ArtistStudio = {
   gallery: string[]
   hours: string
   color: string // hex, used for map marker and badge
+  googleBusinessProfileUrl: string | null
 }

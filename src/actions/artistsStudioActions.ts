@@ -47,6 +47,18 @@ function buildArtistName(artist: { name: string | null; surname: string | null; 
   return [artist.name, artist.surname].filter(Boolean).join(' ')
 }
 
+// Retire le paramètre authuser (lié à une session GMB) des liens copiés depuis le Gestionnaire de fiches
+function sanitizeGoogleBusinessProfileUrl(url: string | null): string | null {
+  if (!url) return null
+  try {
+    const parsed = new URL(url)
+    parsed.searchParams.delete('authuser')
+    return parsed.toString()
+  } catch {
+    return url
+  }
+}
+
 export async function getArtistsStudioData(): Promise<ArtistStudio[]> {
   try {
     const studios = await prisma.artitudeArtist.findMany({
@@ -101,6 +113,7 @@ export async function getArtistsStudioData(): Promise<ArtistStudio[]> {
         gallery,
         hours,
         color: MEDIUM_COLORS[medium],
+        googleBusinessProfileUrl: sanitizeGoogleBusinessProfileUrl(studio.googleBusinessProfileUrl),
       } satisfies ArtistStudio
     })
   } catch (error) {
