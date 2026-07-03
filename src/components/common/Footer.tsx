@@ -129,6 +129,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             <Link href="/services" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/media" className="footer-link">{t('nav.blog')}</Link>
+            <Link href="/artists-studio" className="footer-link">{t('footer.ateliersIndex')}</Link>
           </div>
 
           {/* Colonne : Simulateurs */}

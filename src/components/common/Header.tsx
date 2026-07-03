@@ -8,15 +8,11 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useState } from 'react';
 import MobileMenu from './MobileMenu';
-import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-
-const ArtitudeModal = dynamic(() => import('@/components/artists-studio/ArtitudeModal'), { ssr: false });
 
 const Header = () => {
   const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [artitudeModalOpen, setArtitudeModalOpen] = useState(false);
   const pathname = usePathname();
 
   const navLink = (href: string, label: string, exact = false, exclude?: string) => {
@@ -59,7 +55,6 @@ const Header = () => {
             {navLink('/usecase', t('nav.capital'))}
             {navLink('/team', t('nav.aboutInRealArt'))}
             {navLink('/presale', t('nav.galerie'), true)}
-            {navLink('/artists-studio', t('nav.ateliers'), true)}
             <li className="whitespace-nowrap relative group">
               <Link
                 href="/contact"
@@ -75,12 +70,14 @@ const Header = () => {
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <LanguageSwitcher />
             <ThemeSwitcher />
-            <button
-              onClick={() => setArtitudeModalOpen(true)}
+            <a
+              href="https://artitude.inrealart.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-[10px] font-unbounded font-semibold uppercase tracking-wider px-3 py-2 rounded-lg whitespace-nowrap"
             >
               Artitude Join
-            </button>
+            </a>
             <button
               className="text-textColor p-2.5 xl:hidden min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={toggleMobileMenu}
@@ -92,7 +89,6 @@ const Header = () => {
         </div>
       </header>
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-      <ArtitudeModal isOpen={artitudeModalOpen} onClose={() => setArtitudeModalOpen(false)} />
     </Fragment>
   );
 }
