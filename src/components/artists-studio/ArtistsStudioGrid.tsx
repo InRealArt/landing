@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import Image from 'next/image'
 import { ArtistStudio, ArtistMedium } from '@/types/artistsStudio'
 import ArtistsStudioDetail from './ArtistsStudioDetail'
@@ -21,6 +21,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
   const [selectedMediums, setSelectedMediums] = useState<ArtistMedium[]>([])
   const [openOnly, setOpenOnly] = useState(false)
   const [showMediumDropdown, setShowMediumDropdown] = useState(false)
+  const detailRef = useRef<HTMLElement>(null)
 
   const selectedArtist = artists.find((a) => a.id === selectedArtistId) ?? null
 
@@ -41,6 +42,13 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
     setSelectedMediums((prev) =>
       prev.includes(m) ? prev.filter((x) => x !== m) : [...prev, m]
     )
+  }
+
+  function handleDiscoverClick(id: number) {
+    onSelectArtist(id)
+    if (window.innerWidth < 1024) {
+      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   function resetFilters() {
@@ -205,7 +213,13 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                           &ldquo;{artist.tagline}&rdquo;
                         </p>
                       )}
-                      <button className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleDiscoverClick(artist.id)
+                        }}
+                        className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+                      >
                         {t('artistsStudio.grid.discoverCta')}
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                           <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -220,7 +234,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
         </div>
 
         {/* Detail panel */}
-        <aside className="lg:col-span-1">
+        <aside className="lg:col-span-1" ref={detailRef}>
           <div className="sticky top-[160px] z-30">
             <ArtistsStudioDetail
               artist={selectedArtist}
