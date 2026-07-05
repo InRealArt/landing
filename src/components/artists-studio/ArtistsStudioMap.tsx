@@ -49,7 +49,7 @@ export default function ArtistsStudioMap({ artists, selectedArtistId, onSelectAr
         : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
 
       const map = L.map('artists-studio-map', {
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
         zoomControl: true,
       }).setView([46.603354, 1.888334], 6)
 
