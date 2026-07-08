@@ -1,6 +1,12 @@
 'use client'
 
 import type { FeaturedArtist, FeaturedArtwork } from '@/types/featured-item'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
 
 interface HomeHeroFeaturedSliderProps {
   featuredArtwork: FeaturedArtwork | null
@@ -98,6 +104,54 @@ export default function HomeHeroFeaturedSlider({
     )
   }
 
-  // Multi-slide Swiper carousel is added in Task 2.
-  return null
+  return (
+    <div className="mb-12 max-w-4xl featured-slider">
+      <style jsx global>{`
+        .featured-slider .swiper-pagination {
+          position: absolute;
+          bottom: 1rem;
+          right: 1rem;
+          left: auto;
+          width: auto;
+          display: flex;
+          gap: 6px;
+          z-index: 10;
+        }
+        .featured-slider-bullet {
+          display: inline-block;
+          width: 20px;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+        .featured-slider-bullet-active {
+          background: var(--gold-accent, #b89c72);
+        }
+      `}</style>
+      <Swiper
+        modules={[Autoplay, EffectFade, Pagination]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        speed={600}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        pagination={{
+          clickable: true,
+          bulletClass: 'featured-slider-bullet',
+          bulletActiveClass: 'featured-slider-bullet-active',
+        }}
+        loop
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.key}>
+            <FeaturedSlideContent slide={slide} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  )
 }
