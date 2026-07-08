@@ -107,14 +107,17 @@ export default function HomeHeroFeaturedSlider({
   return (
     <div className="mb-12 max-w-4xl featured-slider">
       <style jsx global>{`
-        .featured-slider .swiper-pagination {
+        .featured-slider-pagination-target.swiper-pagination-bullets.swiper-pagination-horizontal {
           position: absolute;
-          bottom: 1rem;
-          right: 1rem;
-          left: auto;
-          width: auto;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: auto;
           display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
           gap: 6px;
+          padding: 1rem;
           z-index: 10;
         }
         .featured-slider-bullet {
@@ -129,29 +132,34 @@ export default function HomeHeroFeaturedSlider({
           background: var(--gold-accent, #b89c72);
         }
       `}</style>
-      <Swiper
-        modules={[Autoplay, EffectFade, Pagination]}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        speed={600}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        pagination={{
-          clickable: true,
-          bulletClass: 'featured-slider-bullet',
-          bulletActiveClass: 'featured-slider-bullet-active',
-        }}
-        loop
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.key}>
-            <FeaturedSlideContent slide={slide} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="relative">
+        <Swiper
+          modules={[Autoplay, EffectFade, Pagination]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          speed={600}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          pagination={{
+            el: '.featured-slider-pagination-target',
+            clickable: true,
+            bulletClass: 'featured-slider-bullet',
+            bulletActiveClass: 'featured-slider-bullet-active',
+          }}
+          loop
+        >
+          {slides.map((slide) => (
+            <SwiperSlide key={slide.key}>
+              <FeaturedSlideContent slide={slide} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        {/* Anchored to the image's aspect ratio, not the slide (which also contains the caption text below it) */}
+        <div className="featured-slider-pagination-target aspect-[4/3] sm:aspect-[16/9]" />
+      </div>
     </div>
   )
 }
