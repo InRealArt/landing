@@ -250,7 +250,13 @@
       "ctaEnterprise": "View use cases",
       "ctaBrand": "Become a partner",
       "ctaCalendly": "Book a call",
-      "whoAreYou": "Who are you?"
+      "whoAreYou": "Who are you?",
+      "featuredArtworkEyebrow": "Artwork of the week",
+      "featuredArtistEyebrow": "Artist of the week",
+      "featuredArtworkDescription": "The piece our collectors are snapping up this week.",
+      "featuredArtistDescription": "The talent we're spotlighting this week.",
+      "featuredArtworkCta": "Discover the artwork",
+      "featuredArtistCta": "View the portfolio"
     },
     "gridAriaLabel": "Exhibitions grid",
     "eyebrow": "Exhibitions",

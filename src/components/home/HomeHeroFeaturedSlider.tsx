@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import type { FeaturedArtist, FeaturedArtwork } from '@/types/featured-item'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
@@ -29,13 +30,16 @@ interface FeaturedSlide {
   href: string
   imageUrl: string
   alt: string
-  badgeLabel: string
+  eyebrow: string
+  title: string
   descriptionText: string
+  ctaLabel: string
 }
 
 function buildSlides(
   featuredArtwork: FeaturedArtwork | null,
-  featuredArtist: FeaturedArtist | null
+  featuredArtist: FeaturedArtist | null,
+  t: (key: string) => string
 ): FeaturedSlide[] {
   const slides: FeaturedSlide[] = []
 
@@ -45,8 +49,10 @@ function buildSlides(
       href: '/presale',
       imageUrl: featuredArtwork.imageUrl,
       alt: featuredArtwork.title,
-      badgeLabel: 'Œuvre de la semaine',
-      descriptionText: 'Découvrez les œuvres exclusives avant tout le monde.',
+      eyebrow: t('exhibitions.hero.featuredArtworkEyebrow'),
+      title: featuredArtwork.title,
+      descriptionText: t('exhibitions.hero.featuredArtworkDescription'),
+      ctaLabel: t('exhibitions.hero.featuredArtworkCta'),
     })
   }
 
@@ -56,8 +62,10 @@ function buildSlides(
       href: `/artists/${featuredArtist.slug}`,
       imageUrl: featuredArtist.imageUrl,
       alt: `${featuredArtist.name} ${featuredArtist.surname}`,
-      badgeLabel: 'Artiste de la semaine',
-      descriptionText: 'Découvrez les artistes émergents avant tout le monde.',
+      eyebrow: t('exhibitions.hero.featuredArtistEyebrow'),
+      title: `${featuredArtist.name} ${featuredArtist.surname}`,
+      descriptionText: t('exhibitions.hero.featuredArtistDescription'),
+      ctaLabel: t('exhibitions.hero.featuredArtistCta'),
     })
   }
 
@@ -69,7 +77,7 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
     <>
       <a
         href={slide.href}
-        aria-label={`${slide.badgeLabel} : ${slide.alt}`}
+        aria-label={`${slide.eyebrow} : ${slide.title}`}
         className={`relative overflow-hidden bg-black group/img block w-full ${FEATURED_IMAGE_ASPECT}`}
       >
         {/* Couche fond : la même image, remplie (object-cover), floutée et assombrie
@@ -95,9 +103,33 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
           priority={priority}
           className="object-contain transition-transform duration-700 group-hover/img:scale-[1.02]"
         />
-        <span className="absolute top-4 left-4 z-10 bg-black/70 text-gold-accent text-[9px] uppercase tracking-[0.3em] px-3 py-1.5 montserrat backdrop-blur-sm">
-          {slide.badgeLabel}
-        </span>
+
+        {/* Dégradé bas pour asseoir le titre sur l'image */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+          aria-hidden="true"
+        />
+
+        {/* Eyebrow raffiné : trait doré + label en capitales espacées */}
+        <div className="absolute top-5 left-5 z-10 flex items-center gap-2.5">
+          <span className="h-px w-6 bg-gold-accent" aria-hidden="true" />
+          <span className="montserrat text-[10px] uppercase tracking-[0.35em] text-gold-accent">
+            {slide.eyebrow}
+          </span>
+        </div>
+
+        {/* Bloc titre éditorial (Cormorant) + sous-titre + CTA au hover */}
+        <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 lg:p-9">
+          <h3 className="font-cormorant font-light leading-[0.95] text-white text-3xl sm:text-4xl lg:text-5xl">
+            {slide.title}
+          </h3>
+          <span className="mt-3 inline-flex items-center gap-2 montserrat text-[10px] uppercase tracking-[0.25em] text-white/70 opacity-0 translate-y-1 transition-all duration-300 group-hover/img:opacity-100 group-hover/img:translate-y-0">
+            {slide.ctaLabel}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
       </a>
     </>
   )
@@ -108,7 +140,8 @@ export default function HomeHeroFeaturedSlider({
   featuredArtist,
   onActiveSlideChange,
 }: HomeHeroFeaturedSliderProps) {
-  const slides = buildSlides(featuredArtwork, featuredArtist)
+  const { t } = useTranslation()
+  const slides = buildSlides(featuredArtwork, featuredArtist, t)
   const firstSlideKey = slides[0]?.key
   const [activeKey, setActiveKey] = useState<FeaturedSlideKey | undefined>(firstSlideKey)
 
