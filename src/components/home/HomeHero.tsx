@@ -2,12 +2,11 @@
 
 import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
 import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
-import HomeHeroFeaturedSlider from './HomeHeroFeaturedSlider'
+import HomeHeroFeaturedSlider, { type FeaturedSlideKey } from './HomeHeroFeaturedSlider'
 
 type Profile = 'collector' | 'artist' | 'enterprise'
 
@@ -24,8 +23,6 @@ interface ProfileConfig {
   href: string
   headlineKey: string
   subheadlineKey: string
-  imagePath: string
-  description: string
 }
 
 const PROFILES: ProfileConfig[] = [
@@ -36,8 +33,6 @@ const PROFILES: ProfileConfig[] = [
     href: '/presale',
     headlineKey: 'exhibitions.hero.claimCollector',
     subheadlineKey: 'exhibitions.hero.subheadlineCollector',
-    imagePath: '/images/persona-heroes/collector.webp',
-    description: 'Découvrez et acquérez des œuvres exclusives',
   },
   {
     key: 'artist',
@@ -46,8 +41,6 @@ const PROFILES: ProfileConfig[] = [
     href: '/joinInRealArt',
     headlineKey: 'exhibitions.hero.claimArtist',
     subheadlineKey: 'exhibitions.hero.subheadlineArtist',
-    imagePath: '/images/persona-heroes/artist.avif',
-    description: 'Monétisez votre art et contrôlez vos ventes',
   },
   // {
   //   key: 'enterprise',
@@ -56,8 +49,6 @@ const PROFILES: ProfileConfig[] = [
   //   href: '/usecase',
   //   headlineKey: 'exhibitions.hero.claimEnterprise',
   //   subheadlineKey: 'exhibitions.hero.subheadlineEnterprise',
-  //   imagePath: '/images/persona-heroes/enterprise.avif',
-  //   description: 'Solutions d\'acquisition pour institutions',
   // },
   // {
   //   key: 'brand',
@@ -66,8 +57,6 @@ const PROFILES: ProfileConfig[] = [
   //   href: '/agence',
   //   headlineKey: 'exhibitions.hero.claimBrand',
   //   subheadlineKey: 'exhibitions.hero.subheadlineBrand',
-  //   imagePath: '/images/persona-heroes/brand.avif',
-  //   description: 'Partenaires créatifs et marques de prestige',
   // },
 ]
 
@@ -77,9 +66,12 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const subheadlineRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
-  const cardsRef = useRef<(HTMLButtonElement | null)[]>([])
 
   const current = PROFILES.find((p) => p.key === active)!
+
+  const handleSliderSlideChange = (key: FeaturedSlideKey) => {
+    setActive(key === 'artwork' ? 'collector' : 'artist')
+  }
 
   // Animate headline + subheading on persona change
   useEffect(() => {
@@ -155,93 +147,15 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
     }
   }, [])
 
-  // Card hover + active animations
-  const handleCardHover = (e: React.MouseEvent<HTMLButtonElement>, isEnter: boolean) => {
-    gsap.to(e.currentTarget, {
-      scale: isEnter ? 1.02 : 1,
-      duration: 0.3,
-      ease: 'power2.inOut',
-    })
-  }
-
   return (
     <section className="w-full bg-black pt-headerSize">
-      <div className="max-w-screen-2xl mx-auto px-6 sm:px-12 lg:px-24 xl:px-32 py-20 md:py-28 lg:py-36">
-
-        {/* Persona Selector */}
-        <div className="mb-8 md:mb-12">
-          <div className="flex flex-col gap-4">
-            {/* Boutons toggle profil - layout avec images */}
-            <div
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3"
-              role="group"
-              aria-label="Choisissez votre profil"
-            >
-              {PROFILES.map((p, idx) => (
-                <button
-                  key={p.key}
-                  ref={(el) => {
-                    cardsRef.current[idx] = el
-                  }}
-                  type="button"
-                  onClick={() => setActive(p.key)}
-                  onMouseEnter={(e) => handleCardHover(e, true)}
-                  onMouseLeave={(e) => handleCardHover(e, false)}
-                  suppressHydrationWarning
-                  className={`
-                    relative group text-left overflow-hidden
-                    h-40 sm:h-48
-                    ${active === p.key
-                      ? 'border-t-4 border-l border-r border-b border-gold-accent'
-                      : 'border border-white/20 hover:border-white/50'}
-                  `}
-                  aria-pressed={active === p.key}
-                >
-                  {/* Background image */}
-                  <Image
-                    src={p.imagePath}
-                    alt={t(p.labelKey)}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    priority={active === p.key}
-                  />
-
-                  {/* Gradient overlay - du bas vers haut pour lire le texte */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" aria-hidden="true" />
-
-                  {/* Content (en bas de la card) */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-4 z-10">
-                    {/* Label */}
-                    <span className={`
-                      text-sm sm:text-base uppercase tracking-[0.25em] font-bold transition-colors mb-2
-                      ${active === p.key ? 'text-gold-accent' : 'text-white/90'}
-                    `}>
-                      {t(p.labelKey)}
-                    </span>
-
-                    {/* Description */}
-                    <p className={`
-                      text-xs sm:text-sm leading-snug transition-all duration-300
-                      ${active === p.key ? 'text-white/80 opacity-100' : 'text-white/50 opacity-0 group-hover:opacity-100'}
-                    `}>
-                      {p.description}
-                    </p>
-                  </div>
-
-                  {/* Indicator border (actif) */}
-                  {active === p.key && (
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gold-accent" aria-hidden="true" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="max-w-screen-2xl mx-auto px-6 sm:px-12 lg:px-24 xl:px-32 pt-8 md:pt-10 lg:pt-12 pb-20 md:pb-28 lg:pb-36">
 
         {/* Slider "artiste de la semaine" / "œuvre de la semaine" */}
         <HomeHeroFeaturedSlider
           featuredArtwork={featuredArtwork}
           featuredArtist={featuredArtist}
+          onActiveSlideChange={handleSliderSlideChange}
         />
 
         {/* Dynamic Claim */}
