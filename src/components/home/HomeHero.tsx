@@ -7,6 +7,7 @@ import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
 import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
+import HomeHeroFeaturedSlider from './HomeHeroFeaturedSlider'
 
 type Profile = 'collector' | 'artist' | 'enterprise'
 
@@ -77,23 +78,17 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
   const subheadlineRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
   const cardsRef = useRef<(HTMLButtonElement | null)[]>([])
-  const featuredRef = useRef<HTMLDivElement>(null)
 
   const current = PROFILES.find((p) => p.key === active)!
 
-  const hasFeaturedContent =
-    (active === 'collector' && featuredArtwork !== null) ||
-    (active === 'artist' && featuredArtist !== null) ||
-    (active === 'enterprise' && featuredPost !== null)
-
-  // Animate headline + subheading + featured zone on persona change
+  // Animate headline + subheading on persona change
   useEffect(() => {
     if (!headlineRef.current || !subheadlineRef.current) return
 
     const headlineSpans = headlineRef.current.querySelectorAll('span')
     const tl = gsap.timeline()
 
-    // Fade out + slide up — headline, subheading, featured zone
+    // Fade out + slide up — headline, subheading
     tl.to(headlineSpans, {
       opacity: 0,
       y: -10,
@@ -109,16 +104,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
       ease: 'power2.in',
     }, 0)
 
-    if (featuredRef.current) {
-      tl.to(featuredRef.current, {
-        opacity: 0,
-        y: -8,
-        duration: 0.25,
-        ease: 'power2.in',
-      }, 0)
-    }
-
-    // Fade in + slide down — headline, subheading, featured zone
+    // Fade in + slide down — headline, subheading
     tl.to(headlineSpans, {
       opacity: 1,
       y: 0,
@@ -133,15 +119,6 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
       duration: 0.4,
       ease: 'power2.out',
     }, 0.15)
-
-    if (featuredRef.current) {
-      tl.to(featuredRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: 'power2.out',
-      }, 0.2)
-    }
 
     return () => {
       tl.kill()
@@ -261,62 +238,11 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
           </div>
         </div>
 
-        {/* Featured contextuelle par persona */}
-        {hasFeaturedContent && (
-          <div ref={featuredRef} className="mb-12">
-            {/* Image — très grande, dominante, avec badge en overlay */}
-            <a
-              href={
-                active === 'collector' ? '/presale' :
-                active === 'artist' && featuredArtist ? `/artists/${featuredArtist.slug}` :
-                active === 'enterprise' && featuredPost ? `/media/${featuredPost.slug}` : '#'
-              }
-              className="relative overflow-hidden bg-white/5 group/img block w-full max-w-2xl h-[420px] sm:h-[520px]"
-            >
-              {active === 'collector' && featuredArtwork?.imageUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={featuredArtwork.imageUrl}
-                  alt={featuredArtwork.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
-                />
-              )}
-              {active === 'artist' && featuredArtist?.imageUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={featuredArtist.imageUrl}
-                  alt={`${featuredArtist.name} ${featuredArtist.surname}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
-                />
-              )}
-              {active === 'enterprise' && featuredPost?.imageUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={featuredPost.imageUrl}
-                  alt={featuredPost.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.03]"
-                />
-              )}
-              {/* Badge "de la semaine" en haut à gauche */}
-              <span className="absolute top-4 left-4 bg-black/70 text-gold-accent text-[9px] uppercase tracking-[0.3em] px-3 py-1.5 montserrat backdrop-blur-sm">
-                {active === 'collector' && 'Œuvre de la semaine'}
-                {active === 'artist' && 'Artiste de la semaine'}
-                {active === 'enterprise' && 'Article de la semaine'}
-              </span>
-              {/* Gradient bas pour lisibilité */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent" aria-hidden="true" />
-            </a>
-
-            {/* Texte discret sous l'image */}
-            <div className="flex flex-col gap-2 mt-4 max-w-2xl">
-              <p className="text-white/30 text-xs leading-relaxed">
-                {active === 'collector' && 'Découvrez les œuvres exclusives avant tout le monde.'}
-                {active === 'artist' && 'Découvrez les artistes émergents avant tout le monde.'}
-                {active === 'enterprise' && "Les analyses de marché qui guident les décisions d'acquisition."}
-              </p>
-            </div>
-          </div>
-        )}
+        {/* Slider "artiste de la semaine" / "œuvre de la semaine" */}
+        <HomeHeroFeaturedSlider
+          featuredArtwork={featuredArtwork}
+          featuredArtist={featuredArtist}
+        />
 
         {/* Dynamic Claim */}
         <div className="mb-6 md:mb-8 max-w-2xl">
