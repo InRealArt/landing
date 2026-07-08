@@ -35,6 +35,11 @@ export default function ArtistsStudioPageClient({ artists }: Props) {
     setSelectedArtistId(id === -1 ? null : id)
   }
 
+  function handleJoinCtaClick() {
+    window.open('https://artitude.inrealart.com/fr#register', '_blank', 'noopener,noreferrer')
+    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+  }
+
   return (
     <div className="min-h-screen bg-backgroundColor text-textColor">
       {/* BLOC 1 — Hero Header */}
@@ -124,15 +129,16 @@ export default function ArtistsStudioPageClient({ artists }: Props) {
             </p>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-            <a
-              href="/joinInRealArt"
+            <button
+              type="button"
+              onClick={handleJoinCtaClick}
               className="w-full sm:w-auto bg-gold-accent hover:opacity-90 text-white px-8 py-4 font-unbounded font-semibold uppercase tracking-wider text-xs transition-all shadow-lg flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
               </svg>
               {t('artistsStudio.cta.joinCta')}
-            </a>
+            </button>
             <a
               href="/artists"
               className="w-full sm:w-auto border border-borderColor hover:border-gold-accent text-center px-8 py-4 font-unbounded font-semibold uppercase tracking-wider text-xs transition-colors text-textColor block"

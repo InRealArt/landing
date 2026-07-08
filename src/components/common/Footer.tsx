@@ -13,7 +13,6 @@ const atelierLinks = [
   { label: 'Sandrine Hirson', href: 'https://share.google/GewswgKB0Od9tyFEV' },
   { label: 'Nadine LePrince', href: 'https://share.google/7uieG9SlEVKaUTHvO' },
   { label: 'Mr Hope', href: 'https://share.google/ZwMEQTKtzRROGGeUF' },
-  { label: 'Monique Laville', href: 'https://share.google/sYkUAhGdXAat97EVf' },
   { label: 'Marie de Saint Germain', href: 'https://share.google/7XwDxxwXSRlo3IfpQ' },
   { label: 'Marianne Quinzin', href: 'https://share.google/kYGzFfbZQ7NZdExgQ' },
   { label: 'Marc Peltzer', href: 'https://share.google/1A8fKvVlZ3lKXIrD7' },
