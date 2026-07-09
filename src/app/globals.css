@@ -38,7 +38,7 @@
   --shadow-color: rgba(0, 0, 0, 0.08);
   --gradient-from: #f8f8f8;
   --gradient-to: #eeeeee;
-  --gray-text: #666666;
+  --gray-text: #000000;
   --background-grey: #fbfbfb;
   --canvas-bg: #ffffff;
   --gold-accent: #b89c72;
@@ -443,12 +443,17 @@ body {
 /* ─── InRealArt Gallery - Section Number ─── */
 .section-number {
   font-size: 0.6rem;
+  font-weight: 600;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   color: #aaa;
   margin-bottom: 1.5rem;
   display: block;
   font-family: var(--font-montserrat), sans-serif;
+}
+
+[data-theme='light'] .section-number {
+  color: #000000;
 }
 
 /* ─── InRealArt Gallery - Step Number (Leasing) ─── */

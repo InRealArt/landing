@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-20 flex items-end">
         <div className="max-w-screen-2xl mx-auto w-full px-10 pb-16 md:pb-20 lg:pb-28">
           <div className="max-w-4xl">
-            <span className="section-number text-white/60">{t('marketplace.hero.subtitle')}</span>
+            <span className="section-number !text-white/60">{t('marketplace.hero.subtitle')}</span>
             <h1 className="text-6xl md:text-8xl lg:text-9xl serif text-white leading-none">
               {t('marketplace.hero.titleLine1')}{' '}
               <span className="italic text-gold-accent">{t('marketplace.hero.titleLine2')}</span>

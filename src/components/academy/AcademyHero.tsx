@@ -30,7 +30,7 @@ export default function AcademyHero() {
       <div className="absolute inset-0 z-20 flex items-end">
         <div className="max-w-screen-2xl mx-auto w-full px-10 pb-12 md:pb-16 lg:pb-20">
           <div className="max-w-4xl">
-            <span className="section-number text-white/70">{t('academy.hero.subtitle')}</span>
+            <span className="section-number !text-white/70">{t('academy.hero.subtitle')}</span>
             <h1 className="text-6xl md:text-8xl serif text-white mb-6">
               <span className="italic text-gold-accent">Académie</span>
             </h1>

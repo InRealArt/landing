@@ -150,7 +150,7 @@ const Statistics = () => {
         <div ref={headerRef} className="grid lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
           <div className="lg:col-span-7">
             {/* Eyebrow */}
-            <span className="header-reveal block text-[0.6rem] uppercase tracking-[0.5em] text-grayText mb-6 opacity-0" suppressHydrationWarning>
+            <span className="section-number header-reveal !mb-6 opacity-0" suppressHydrationWarning>
               {t('home.statistics.description')}
             </span>
             {/* Title */}

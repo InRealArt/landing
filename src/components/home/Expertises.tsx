@@ -118,7 +118,7 @@ export default function Expertises() {
         {/* Header */}
         <div ref={headerRef} className="grid lg:grid-cols-12 gap-10 mb-24">
           <div className="lg:col-span-6">
-            <span className="section-number" suppressHydrationWarning>
+            <span className="section-number !text-textColor" suppressHydrationWarning>
               {t('home.expertises.eyebrow')}
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-textColor break-words" suppressHydrationWarning>

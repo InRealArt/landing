@@ -45,7 +45,7 @@ export default function ArtistsCurrentlyExposed({ artists }: Props) {
     <section className="w-full bg-[var(--background-grey)] border-t border-[var(--border-color)]">
       <div className="max-w-screen-2xl mx-auto px-10 py-16 lg:px-20 lg:py-20">
         <div className="mb-10 flex flex-col gap-1">
-          <p className="font-montserrat text-[0.6rem] uppercase tracking-[0.35em] text-[var(--text-color)]/40">
+          <p className="section-number !mb-0">
             {t('artists.currentlyExposed.eyebrow')}
           </p>
           <h2 className="font-cormorant text-3xl lg:text-4xl xl:text-5xl font-light italic leading-tight text-[var(--foreground)]">

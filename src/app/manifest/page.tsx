@@ -56,7 +56,7 @@ export default function ManifestPage() {
               <TranslatedText
                 translationKey="manifest.heroLabel"
                 as="span"
-                className="section-number text-white/50 block mb-6"
+                className="section-number !text-white/50 block mb-6"
               />
               <h1 className="text-7xl md:text-9xl serif text-white leading-none mb-8">
                 <TranslatedText

@@ -18,7 +18,7 @@ export default function AboutHero() {
       priority={true}
       renderCustomContent={(_title, subtitle) => (
         <div className="max-w-3xl">
-          <span className="section-number text-white/50 block mb-6">
+          <span className="section-number !text-white/50 block mb-6">
             {t('nav.aboutInRealArt').toUpperCase()}
           </span>
           <h1 className="text-7xl md:text-9xl serif text-white leading-none mb-8">

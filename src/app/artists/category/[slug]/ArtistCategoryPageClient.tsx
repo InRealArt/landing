@@ -44,7 +44,7 @@ export default function ArtistCategoryPageClient({
         {/* Contenu du hero */}
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="max-w-screen-2xl mx-auto px-10 text-center">
-            <span className="section-number text-white/70">Nos Artistes</span>
+            <span className="section-number !text-white/70">Nos Artistes</span>
             <h1 className="text-6xl md:text-8xl serif text-white mb-6">
               <span className="italic text-gold-accent">{displayCategory.name}</span>
             </h1>
