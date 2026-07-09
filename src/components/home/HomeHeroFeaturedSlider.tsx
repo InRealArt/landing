@@ -110,10 +110,9 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
           aria-hidden="true"
         />
 
-        {/* Eyebrow raffiné : trait doré + label en capitales espacées */}
-        <div className="absolute top-5 left-5 z-10 flex items-center gap-2.5">
-          <span className="h-px w-6 bg-gold-accent" aria-hidden="true" />
-          <span className="montserrat text-[10px] uppercase tracking-[0.35em] text-gold-accent">
+        {/* Eyebrow raffiné : cadre flouté (glassmorphism) + label en capitales espacées */}
+        <div className="absolute top-5 left-5 z-10 flex items-center border border-white/15 bg-black/30 backdrop-blur-md px-4 py-2 shadow-lg">
+          <span className="montserrat text-xs sm:text-sm uppercase tracking-[0.35em] text-gold-accent font-medium">
             {slide.eyebrow}
           </span>
         </div>

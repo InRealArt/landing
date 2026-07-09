@@ -253,8 +253,8 @@
       "whoAreYou": "Qui êtes-vous ?",
       "featuredArtworkEyebrow": "Œuvre de la semaine",
       "featuredArtistEyebrow": "Artiste de la semaine",
-      "featuredArtworkDescription": "La pièce que nos collectionneurs s'arrachent cette semaine.",
-      "featuredArtistDescription": "Le talent que nous mettons en lumière cette semaine.",
+      "featuredArtworkDescription": "",
+      "featuredArtistDescription": "",
       "featuredArtworkCta": "Découvrir l'œuvre",
       "featuredArtistCta": "Voir le portfolio"
     },
