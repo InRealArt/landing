@@ -38,7 +38,7 @@ export default function ArtistApplicationPage() {
                   {t('joinInRealArt.artists.application.hero.titleAccent')}
                 </span>
               </h1>
-              <p className="text-[12px] uppercase tracking-[0.3em] text-grayText mt-10 max-w-xl leading-loose">
+              <p className="text-sm uppercase tracking-[0.3em] text-grayText mt-10 max-w-xl leading-loose">
                 {t('joinInRealArt.artists.application.hero.subtitle')}
               </p>
             </div>
@@ -69,10 +69,10 @@ export default function ArtistApplicationPage() {
                 <span className="serif text-3xl italic block mb-6" style={{ color: 'var(--gold-accent)' }}>
                   {item.category}
                 </span>
-                <h3 className="text-[10px] uppercase tracking-[0.3em] font-bold text-textColor mb-6">
+                <h3 className="text-xs uppercase tracking-[0.3em] font-bold text-textColor mb-6">
                   {item.subtitle}
                 </h3>
-                <p className="text-[13px] text-grayText leading-relaxed">
+                <p className="text-sm text-grayText leading-relaxed">
                   {item.description}
                 </p>
               </div>

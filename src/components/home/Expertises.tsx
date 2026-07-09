@@ -140,7 +140,7 @@ export default function Expertises() {
                 <span className="serif text-4xl italic text-gold-accent leading-none w-12 shrink-0">
                   {item.number}
                 </span>
-                <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
+                <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
                   {t(item.subtitleKey)}
                 </h3>
               </div>
@@ -154,7 +154,7 @@ export default function Expertises() {
               <div className="w-8 h-px bg-gold-accent mb-6" />
 
               {/* Description */}
-              <p className="text-[13px] text-grayText leading-loose" suppressHydrationWarning>
+              <p className="text-sm text-grayText leading-loose" suppressHydrationWarning>
                 {t(item.descriptionKey)}
               </p>
 

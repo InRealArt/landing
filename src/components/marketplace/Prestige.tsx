@@ -20,7 +20,7 @@ export default function Prestige() {
               {t('marketplace.prestige.title')}{' '}
               <span className="italic text-gold-accent">{t('marketplace.prestige.titleAccent')}</span>
             </h2>
-            <p className="text-[13px] text-grayText leading-loose max-w-lg mb-4">
+            <p className="text-sm text-grayText leading-loose max-w-lg mb-4">
               {t('marketplace.prestige.description')}
             </p>
             <div className="flex flex-wrap gap-4">

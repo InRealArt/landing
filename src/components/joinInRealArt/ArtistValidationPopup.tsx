@@ -88,7 +88,7 @@ export default function ArtistValidationPopup({
                 style={{ backgroundColor: 'var(--gold-accent)' }}
                 aria-hidden="true"
               />
-              <span className="text-[10px] uppercase tracking-[0.15em] text-textColor leading-relaxed">
+              <span className="text-xs uppercase tracking-[0.15em] text-textColor leading-relaxed">
                 {msg}
               </span>
             </li>

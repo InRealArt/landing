@@ -159,12 +159,12 @@ export default function ArtistApplicationForm() {
             {t(`${fp}.success.title`)}
           </h2>
           <p
-            className="text-[11px] uppercase tracking-[0.25em] mb-10"
+            className="text-sm uppercase tracking-[0.25em] mb-10"
             style={{ color: 'var(--gold-accent)' }}
           >
             {t(`${fp}.success.subtitle`)}
           </p>
-          <p className="text-[13px] text-grayText leading-relaxed max-w-lg mx-auto mb-14">
+          <p className="text-sm text-grayText leading-relaxed max-w-lg mx-auto mb-14">
             {t(`${fp}.success.body`)}
           </p>
 
@@ -192,7 +192,7 @@ export default function ArtistApplicationForm() {
           <h2 className="serif text-4xl sm:text-5xl md:text-6xl italic text-textColor mb-6">
             {t(`${fp}.title`)}
           </h2>
-          <p className="text-[11px] text-grayText uppercase tracking-[0.2em]">
+          <p className="text-sm text-grayText uppercase tracking-[0.2em]">
             {t(`${fp}.intro`)}
           </p>
         </div>
@@ -214,7 +214,7 @@ export default function ArtistApplicationForm() {
                 className="flex flex-col items-center gap-3 group focus-visible:outline-none"
               >
                 <span
-                  className="w-10 h-10 flex items-center justify-center text-[10px] uppercase tracking-widest transition-all duration-500 border-2"
+                  className="w-10 h-10 flex items-center justify-center text-xs uppercase tracking-widest transition-all duration-500 border-2"
                   style={
                     step === currentStep
                       ? { 
@@ -299,7 +299,7 @@ export default function ArtistApplicationForm() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="group text-[9px] uppercase tracking-[0.3em] text-grayText hover:text-[#b89c72] transition-all duration-300 flex items-center gap-3"
+                  className="group text-xs uppercase tracking-[0.3em] text-grayText hover:text-[#b89c72] transition-all duration-300 flex items-center gap-3"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform duration-300 group-hover:-translate-x-1">
                     <line x1="13" y1="7" x2="1" y2="7" stroke="currentColor" strokeWidth="1" />
@@ -315,7 +315,7 @@ export default function ArtistApplicationForm() {
                 <button
                   type="button"
                   onClick={handleAdvance}
-                  className="group inline-flex items-center gap-3 text-[9px] uppercase tracking-[0.3em] text-textColor hover:text-[#b89c72] transition-all duration-300"
+                  className="group inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-textColor hover:text-[#b89c72] transition-all duration-300"
                 >
                   {t(`${fp}.next`)}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">

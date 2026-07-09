@@ -28,7 +28,7 @@ export default function HotelPrestigeClient() {
                 </em>{' '}
                 <TranslatedText translationKey="hotelPrestige.hero.titleSuffix" />
               </h1>
-              <p className="text-[12px] uppercase tracking-[0.3em] text-[var(--gray-text)] mt-12 leading-loose max-w-lg montserrat">
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] mt-12 leading-loose max-w-lg montserrat">
                 <TranslatedText translationKey="hotelPrestige.hero.description" />
               </p>
               <div className="mt-12">
@@ -95,7 +95,7 @@ export default function HotelPrestigeClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.stay.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.stay.description" />
               </p>
             </div>
@@ -110,7 +110,7 @@ export default function HotelPrestigeClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.aesthetics.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.aesthetics.description" />
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function HotelPrestigeClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.commitment.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="hotelPrestige.advantages.cards.commitment.description" />
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function HotelPrestigeClient() {
                 <br />
                 <TranslatedText translationKey="hotelPrestige.process.titleSuffix" />
               </h2>
-              <p className="text-[12px] uppercase tracking-[0.2em] text-[var(--gray-text)] leading-loose montserrat">
+              <p className="text-sm uppercase tracking-[0.2em] text-[var(--gray-text)] leading-loose montserrat">
                 <TranslatedText translationKey="hotelPrestige.process.description" />
               </p>
             </div>
@@ -158,37 +158,37 @@ export default function HotelPrestigeClient() {
             <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border-light)] border border-[var(--border-light)]">
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="hotelPrestige.process.steps.curation.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="hotelPrestige.process.steps.curation.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="hotelPrestige.process.steps.financing.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="hotelPrestige.process.steps.financing.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="hotelPrestige.process.steps.installation.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="hotelPrestige.process.steps.installation.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="hotelPrestige.process.steps.renewal.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="hotelPrestige.process.steps.renewal.description" />
                 </p>
               </div>
@@ -223,7 +223,7 @@ export default function HotelPrestigeClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="hotelPrestige.stats.items.stay.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="hotelPrestige.stats.items.stay.label" />
                 </p>
               </div>
@@ -231,7 +231,7 @@ export default function HotelPrestigeClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="hotelPrestige.stats.items.satisfaction.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="hotelPrestige.stats.items.satisfaction.label" />
                 </p>
               </div>
@@ -239,7 +239,7 @@ export default function HotelPrestigeClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="hotelPrestige.stats.items.tax.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="hotelPrestige.stats.items.tax.label" />
                 </p>
               </div>
@@ -260,7 +260,7 @@ export default function HotelPrestigeClient() {
             <h3 className="serif text-4xl italic mb-4 text-[var(--ink-black)]">
               <TranslatedText translationKey="hotelPrestige.form.title" />
             </h3>
-            <p className="text-[9px] uppercase tracking-widest text-[var(--gray-text)] montserrat">
+            <p className="text-xs uppercase tracking-widest text-[var(--gray-text)] montserrat">
               <TranslatedText translationKey="hotelPrestige.form.subtitle" />
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function HotelPrestigeClient() {
                   type="text"
                   name="etablissement"
                   placeholder={t('hotelPrestige.form.fields.hotelName.placeholder')}
-                  className="w-full border-b border-[var(--border-light)] py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent text-[var(--ink-black)] placeholder:text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300"
+                  className="w-full border-b border-[var(--border-light)] py-3 text-xs uppercase tracking-widest outline-none bg-transparent text-[var(--ink-black)] placeholder:text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300"
                 />
               </div>
               <div>
@@ -297,7 +297,7 @@ export default function HotelPrestigeClient() {
                 <select
                   id="hotel-rooms"
                   name="chambres"
-                  className="w-full border-b border-[var(--border-light)] py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300 cursor-pointer"
+                  className="w-full border-b border-[var(--border-light)] py-3 text-xs uppercase tracking-widest outline-none bg-transparent text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300 cursor-pointer"
                 >
                   <option value="">{t('hotelPrestige.form.fields.rooms.placeholder')}</option>
                   <option value="moins-50">{t('hotelPrestige.form.fields.rooms.options.less50')}</option>
@@ -320,7 +320,7 @@ export default function HotelPrestigeClient() {
                   type="email"
                   name="email"
                   placeholder={t('hotelPrestige.form.fields.email.placeholder')}
-                  className="w-full border-b border-[var(--border-light)] py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent text-[var(--ink-black)] placeholder:text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300"
+                  className="w-full border-b border-[var(--border-light)] py-3 text-xs uppercase tracking-widest outline-none bg-transparent text-[var(--ink-black)] placeholder:text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300"
                 />
               </div>
               <div>
@@ -333,7 +333,7 @@ export default function HotelPrestigeClient() {
                 <select
                   id="hotel-budget"
                   name="budget"
-                  className="w-full border-b border-[var(--border-light)] py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300 cursor-pointer"
+                  className="w-full border-b border-[var(--border-light)] py-3 text-xs uppercase tracking-widest outline-none bg-transparent text-[var(--gray-text)] montserrat focus:border-[var(--gold-accent)] transition-colors duration-300 cursor-pointer"
                 >
                   <option value="">{t('hotelPrestige.form.fields.budget.placeholder')}</option>
                   <option value="5k-15k">{t('hotelPrestige.form.fields.budget.options.5kto15k')}</option>

@@ -34,7 +34,7 @@ export default function SimulatorRadioGroup({
   return (
     <div>
       <fieldset>
-        <legend className="block text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-3">
+        <legend className="block text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-3">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </legend>
@@ -55,7 +55,7 @@ export default function SimulatorRadioGroup({
                 disabled={option.disabled}
                 className="w-3.5 h-3.5 accent-[var(--ink-black)] border-[var(--border-light)]"
               />
-              <span className={`ml-3 text-[11px] uppercase tracking-[0.15em] font-montserrat transition-colors ${value === option.value ? 'text-[var(--ink-black)]' : 'text-[var(--gray-text)]'}`}>{option.label}</span>
+              <span className={`ml-3 text-sm uppercase tracking-[0.15em] font-montserrat transition-colors ${value === option.value ? 'text-[var(--ink-black)]' : 'text-[var(--gray-text)]'}`}>{option.label}</span>
             </label>
           ))}
         </div>

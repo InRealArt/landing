@@ -16,7 +16,7 @@ export default function LeasingHero() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl serif leading-tight text-ink-black">
               L&apos;Art devient un <span className="italic text-gold-accent">Investissement</span> fluide.
             </h1>
-            <p className="text-[11px] md:text-[12px] uppercase tracking-[0.25em] md:tracking-[0.3em] text-gray-400 mt-12 leading-relaxed max-w-lg">
+            <p className="text-sm md:text-sm uppercase tracking-[0.25em] md:tracking-[0.3em] text-gray-400 mt-12 leading-relaxed max-w-lg">
               Optimisez la fiscalité de votre entreprise tout en sublimant vos espaces de travail grâce à nos solutions de Location avec Option d&apos;Achat (LOA).
             </p>
             <div className="mt-12">

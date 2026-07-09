@@ -38,13 +38,13 @@ const Question = ({ question, answer }: QuestionProps) => {
         className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden">
-          <p className="mt-6 mb-4 text-[13px] text-[var(--gray-text)] leading-loose">
+          <p className="mt-6 mb-4 text-sm text-[var(--gray-text)] leading-loose">
             {answer}
           </p>
 
           {/* Calendly CTA */}
           <div className="mt-6 mb-2 flex flex-col sm:flex-row sm:items-center gap-4">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)]">
               {t('faqPerPage.haveQuestions')}
             </p>
             <a

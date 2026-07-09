@@ -121,7 +121,7 @@ export default function AboutTeam({ members }: Props) {
               <TranslatedText
                 translationKey={descKey}
                 as="p"
-                className="text-[13px] text-grayText leading-loose montserrat"
+                className="text-sm text-grayText leading-loose montserrat"
                 allowHtml={true}
               />
             </div>

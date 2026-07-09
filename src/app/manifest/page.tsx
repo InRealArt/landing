@@ -98,22 +98,22 @@ export default function ManifestPage() {
                 <TranslatedText
                   as="p"
                   translationKey="manifest.p1"
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-sm text-grayText leading-loose montserrat"
                 />
                 <TranslatedText
                   as="p"
                   translationKey="manifest.p2"
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-sm text-grayText leading-loose montserrat"
                 />
                 <TranslatedText
                   as="p"
                   translationKey="manifest.p3"
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-sm text-grayText leading-loose montserrat"
                 />
                 <TranslatedText
                   as="p"
                   translationKey="manifest.p4"
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-sm text-grayText leading-loose montserrat"
                 />
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function ManifestPage() {
                 <TranslatedText
                   as="p"
                   translationKey={key}
-                  className="text-[13px] text-grayText leading-loose montserrat"
+                  className="text-sm text-grayText leading-loose montserrat"
                 />
               </div>
             ))}

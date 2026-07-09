@@ -63,7 +63,7 @@ const ArtworkCardOrder = ({
           aria-hidden="true"
           className="absolute inset-0 flex items-end justify-start p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"
         >
-          <span className="text-[9px] uppercase tracking-[0.25em] text-white bg-black/40 px-3 py-1.5 backdrop-blur-[2px]">
+          <span className="text-xs uppercase tracking-[0.25em] text-white bg-black/40 px-3 py-1.5 backdrop-blur-[2px]">
             {t('presale.artworks.button.seeDetail')}
           </span>
         </div>
@@ -81,12 +81,12 @@ const ArtworkCardOrder = ({
           <Link
             href={`/artists/${artistSlug}`}
             onClick={e => e.stopPropagation()}
-            className="text-[9px] uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate block hover:underline underline-offset-2"
+            className="text-xs uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate block hover:underline underline-offset-2"
           >
             {artistName}
           </Link>
         ) : (
-          <p className="text-[9px] uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate">
+          <p className="text-xs uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate">
             {artistName}
           </p>
         )}
@@ -99,17 +99,17 @@ const ArtworkCardOrder = ({
         {/* Price or CTA */}
         <div className="mt-2">
           {status === 'available' && (
-            <p className="text-[11px] font-medium text-textColor/70 tracking-wide">
+            <p className="text-sm font-medium text-textColor/70 tracking-wide">
               {price!.toLocaleString('fr-FR')}&thinsp;€
             </p>
           )}
           {status === 'on_demand' && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#b89c72]/80">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#b89c72]/80">
               {t('presale.artworks.askPrice')}
             </p>
           )}
           {status === 'sold' && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-textColor/30">
+            <p className="text-xs uppercase tracking-[0.2em] text-textColor/30">
               {t('presale.filters.statusSold')}
             </p>
           )}

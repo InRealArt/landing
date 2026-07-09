@@ -25,7 +25,7 @@ export default function LeasingCTA() {
             </em>
           </h2>
 
-          <p className="mt-6 text-[11px] uppercase tracking-[0.3em] text-textColor/50 leading-relaxed max-w-md" suppressHydrationWarning>
+          <p className="mt-6 text-sm uppercase tracking-[0.3em] text-textColor/50 leading-relaxed max-w-md" suppressHydrationWarning>
             {t('presale.leasing.subtitle')}
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function LeasingCTA() {
               <li key={i} className="flex items-start gap-4">
                 {/* Thin gold rule */}
                 <span className="mt-1.5 w-5 h-px bg-[#b89c72] flex-shrink-0" aria-hidden="true" />
-                <span className="text-[10px] uppercase tracking-[0.3em] text-textColor/70 leading-relaxed">
+                <span className="text-xs uppercase tracking-[0.3em] text-textColor/70 leading-relaxed">
                   {item}
                 </span>
               </li>
@@ -56,7 +56,7 @@ export default function LeasingCTA() {
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <p className="mt-3 text-[9px] uppercase tracking-[0.25em] text-textColor/30" suppressHydrationWarning>
+            <p className="mt-3 text-xs uppercase tracking-[0.25em] text-textColor/30" suppressHydrationWarning>
               {t('presale.leasing.ctaNote')}
             </p>
           </div>

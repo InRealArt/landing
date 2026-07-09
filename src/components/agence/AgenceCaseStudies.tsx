@@ -66,13 +66,13 @@ export default function AgenceCaseStudies({ t }: Props) {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-1">
+                  <p className="text-sm uppercase tracking-[0.35em] text-gold-accent montserrat mb-1">
                     {t(`agence.caseStudies.${caseKey}.tag`)}
                   </p>
-                  <h3 className="text-[13px] text-textColor montserrat font-medium">
+                  <h3 className="text-sm text-textColor montserrat font-medium">
                     {t(`agence.caseStudies.${caseKey}.brand`)}
                   </h3>
-                  <p className="text-[11px] text-grayText montserrat mt-1">
+                  <p className="text-sm text-grayText montserrat mt-1">
                     {t(`agence.caseStudies.${caseKey}.campaign`)}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export default function AgenceCaseStudies({ t }: Props) {
                     >
                       {t(`agence.caseStudies.${caseKey}.${m}.value`)}
                     </p>
-                    <p className="text-[9px] uppercase tracking-[0.3em] text-grayText montserrat leading-snug">
+                    <p className="text-xs uppercase tracking-[0.3em] text-grayText montserrat leading-snug">
                       {t(`agence.caseStudies.${caseKey}.${m}.label`)}
                     </p>
                   </div>

@@ -202,7 +202,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
             <button
               disabled={page === 1}
               onClick={() => { setParams({ page: page - 1 }); scrollToGrid() }}
-              className="text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="text-xs uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {t('pagination.previous')}
             </button>
@@ -210,7 +210,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
             <button
               disabled={page === totalPages}
               onClick={() => { setParams({ page: page + 1 }); scrollToGrid() }}
-              className="text-[10px] uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="text-xs uppercase tracking-[0.25em] text-textColor border-b border-transparent hover:border-textColor pb-0.5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {t('pagination.next')}
             </button>
@@ -225,7 +225,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
           <h2 className="serif font-light text-3xl italic text-textColor mb-4">
             {t('presale.intro.buttons.catalog')}
           </h2>
-          <p className="text-[10px] uppercase tracking-[0.3em] text-textColor/50 mb-10 leading-relaxed">
+          <p className="text-xs uppercase tracking-[0.3em] text-textColor/50 mb-10 leading-relaxed">
             {language === 'en'
               ? 'Enter your email to download our catalog'
               : 'Entrez votre email pour télécharger notre catalogue'}

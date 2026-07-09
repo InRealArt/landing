@@ -87,7 +87,7 @@ export default function PostsGrid({
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="h-px w-6 bg-gold-accent" />
-                  <p className="text-[10px] uppercase text-gold-accent font-bold tracking-[0.2em]">
+                  <p className="text-xs uppercase text-gold-accent font-bold tracking-[0.2em]">
                     {post.category.name}
                   </p>
                 </div>
@@ -96,12 +96,12 @@ export default function PostsGrid({
                   {post.title}
                 </h3>
 
-                <p className="text-[13px] text-[var(--gray-text)] leading-relaxed line-clamp-3 mb-8">
+                <p className="text-sm text-[var(--gray-text)] leading-relaxed line-clamp-3 mb-8">
                   {post.excerpt ?? post.metaDescription}
                 </p>
 
                 <div className="mt-auto pt-4">
-                  <span className="inline-block border-b border-[var(--text)] text-[10px] uppercase tracking-[0.3em] font-semibold text-[var(--text)] transition-all duration-500 group-hover:text-gold-accent group-hover:border-gold-accent">
+                  <span className="inline-block border-b border-[var(--text)] text-xs uppercase tracking-[0.3em] font-semibold text-[var(--text)] transition-all duration-500 group-hover:text-gold-accent group-hover:border-gold-accent">
                     {t('blog.readMore')}
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export default function PostsGrid({
         <div className="flex justify-center mt-12">
           <Link
             href="/blog"
-            className="border border-[var(--text)] text-[var(--text)] px-8 py-3 text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[var(--text)] hover:text-[var(--canvas-bg)] transition-colors duration-300"
+            className="border border-[var(--text)] text-[var(--text)] px-8 py-3 text-sm uppercase tracking-[0.2em] font-semibold hover:bg-[var(--text)] hover:text-[var(--canvas-bg)] transition-colors duration-300"
           >
             {t('blog.viewAllPosts')}
           </Link>

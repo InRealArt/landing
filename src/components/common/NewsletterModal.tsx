@@ -174,11 +174,11 @@ export default function NewsletterModal() {
               <em className="not-italic text-gold-accent">{t('newsletter.modal.titleAccent')}</em>
             </h2>
 
-            <p className="montserrat text-[12px] text-grayText leading-loose mb-1 font-light">
+            <p className="montserrat text-sm text-grayText leading-loose mb-1 font-light">
               {t('newsletter.modal.subtitle')}
             </p>
 
-            <p className="montserrat text-[11px] text-grayText leading-loose mb-8 font-light">
+            <p className="montserrat text-sm text-grayText leading-loose mb-8 font-light">
               {t('newsletter.modal.description')}
             </p>
 
@@ -196,7 +196,7 @@ export default function NewsletterModal() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t('newsletter.modal.emailPlaceholder')}
                   disabled={isPending}
-                  className="w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-[12px] font-light focus:outline-none"
+                  className="w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-sm font-light focus:outline-none"
                   required
                 />
               </div>
@@ -216,7 +216,7 @@ export default function NewsletterModal() {
               <button
                 type="button"
                 onClick={handleNotInterested}
-                className="montserrat text-[10px] text-grayText hover:text-textColor transition-colors duration-200 tracking-[0.15em] uppercase"
+                className="montserrat text-xs text-grayText hover:text-textColor transition-colors duration-200 tracking-[0.15em] uppercase"
               >
                 {t('newsletter.modal.notInterested')}
               </button>

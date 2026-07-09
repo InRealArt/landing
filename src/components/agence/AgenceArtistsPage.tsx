@@ -26,7 +26,7 @@ export default function AgenceArtistsPage({ artists }: Props) {
               {t('agence.artists.title')}{' '}
               <em className="not-italic text-gold-accent">{t('agence.artists.titleAccent')}</em>
             </h1>
-            <p className="text-[13px] montserrat text-grayText uppercase tracking-[0.3em]">
+            <p className="text-sm montserrat text-grayText uppercase tracking-[0.3em]">
               {countLabel}
             </p>
           </div>

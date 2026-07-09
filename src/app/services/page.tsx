@@ -77,7 +77,7 @@ export default async function ServicesPage() {
       {/* HERO */}
       <section className="pt-headerSize pb-24 px-10 bg-backgroundColor">
         <div className="max-w-screen-2xl mx-auto">
-          <span className="block text-[10px] uppercase tracking-[0.5em] mb-6 montserrat text-grayText">
+          <span className="block text-xs uppercase tracking-[0.5em] mb-6 montserrat text-grayText">
             {t('services.hero.eyebrow')}
           </span>
           <h1 className="serif text-6xl md:text-8xl mb-8 font-light text-textColor">
@@ -87,7 +87,7 @@ export default async function ServicesPage() {
               {t('services.hero.titleAccent')}
             </span>
           </h1>
-          <p className="text-[12px] uppercase tracking-[0.3em] max-w-2xl leading-relaxed montserrat text-grayText">
+          <p className="text-sm uppercase tracking-[0.3em] max-w-2xl leading-relaxed montserrat text-grayText">
             {t('services.hero.description')}
           </p>
         </div>

@@ -101,7 +101,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
               <div className="mt-8 flex justify-between items-start">
                 {artist.birthYear && (
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest font-semibold text-textColor font-montserrat">
+                    <p className="text-xs uppercase tracking-widest font-semibold text-textColor font-montserrat">
                       {language === 'fr' ? 'Née en' : 'Born'}
                     </p>
                     <p className="text-lg font-cormorant italic font-light text-gray-500 mt-1">
@@ -111,7 +111,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
                 )}
                 {artist.countryName && (
                   <div className="text-right">
-                    <p className="text-[10px] uppercase tracking-widest font-semibold text-textColor font-montserrat">
+                    <p className="text-xs uppercase tracking-widest font-semibold text-textColor font-montserrat">
                       {language === 'fr' ? 'Origine' : 'Origin'}
                     </p>
                     <p className="text-lg font-cormorant italic font-light text-gray-500 mt-1">
@@ -128,7 +128,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
                 {artist.mediumTags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1.5 border text-[10px] uppercase tracking-widest font-montserrat transition-colors duration-300 hover:bg-textColor hover:text-backgroundColor"
+                    className="px-3 py-1.5 border text-xs uppercase tracking-widest font-montserrat transition-colors duration-300 hover:bg-textColor hover:text-backgroundColor"
                     style={{ borderColor: '#eeeeee', color: '#888888' }}
                   >
                     {tag}
@@ -143,7 +143,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
             ref={textColRef}
             className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center space-y-8"
           >
-            <span className="block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat">
+            <span className="block text-xs uppercase tracking-[0.5em] text-gray-400 font-montserrat">
               {language === 'fr' ? 'La Démarche' : 'The Approach'}
             </span>
 
@@ -181,7 +181,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
                     href={interviewUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-7 py-4 border text-[10px] uppercase tracking-[0.25em] font-montserrat transition-all duration-500 hover:bg-textColor hover:text-backgroundColor"
+                    className="inline-block px-7 py-4 border text-xs uppercase tracking-[0.25em] font-montserrat transition-all duration-500 hover:bg-textColor hover:text-backgroundColor"
                     style={{ borderColor: '#000000' }}
                   >
                     {t('artists.profile.readInterview').replace('{name}', '')}
@@ -192,7 +192,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
                     href={artitudeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-7 py-4 border text-[10px] uppercase tracking-[0.25em] font-montserrat transition-all duration-500"
+                    className="inline-block px-7 py-4 border text-xs uppercase tracking-[0.25em] font-montserrat transition-all duration-500"
                     style={{ borderColor: '#b89c72', color: '#b89c72' }}
                     onMouseEnter={e => {
                       ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#b89c72'

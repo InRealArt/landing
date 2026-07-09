@@ -39,7 +39,7 @@ export default function ArtistCard({
         {/* Text block — centered below image */}
         <div className="text-center">
           {countryName ? (
-            <p className="text-[9px] text-grayText uppercase tracking-widest bricolage-grotesque mb-1">
+            <p className="text-xs text-grayText uppercase tracking-widest bricolage-grotesque mb-1">
               {countryName}
             </p>
           ) : null}
@@ -47,7 +47,7 @@ export default function ArtistCard({
             {name}
           </h4>
           {medium ? (
-            <p className="text-[10px] text-grayText uppercase tracking-widest mt-1.5 italic serif">
+            <p className="text-xs text-grayText uppercase tracking-widest mt-1.5 italic serif">
               {medium}
             </p>
           ) : null}

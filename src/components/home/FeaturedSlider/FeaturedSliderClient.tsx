@@ -90,7 +90,7 @@ export default function FeaturedSliderClient({ items }: Props) {
             {/* Info card on right (desktop) or below (mobile) */}
             <div className="hidden lg:flex flex-col justify-center space-y-6">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat mb-3">
+                <p className="text-xs uppercase tracking-[0.35em] text-gold-accent montserrat mb-3">
                   {current.kind === 'artist' && 'Artiste du moment'}
                   {current.kind === 'artwork' && 'Œuvre à découvrir'}
                   {current.kind === 'post' && 'Article du moment'}

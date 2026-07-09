@@ -180,7 +180,7 @@ export default function ServicesGrid({ translations }: ServicesGridProps) {
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="text-center mb-24">
-          <span className="block text-[10px] uppercase tracking-[0.5em] mb-4 montserrat text-grayText">
+          <span className="block text-xs uppercase tracking-[0.5em] mb-4 montserrat text-grayText">
             {translations.catalog.eyebrow}
           </span>
           <h2 className="serif text-5xl italic text-textColor">
@@ -190,7 +190,7 @@ export default function ServicesGrid({ translations }: ServicesGridProps) {
 
         {SERVICES.map((category) => (
           <div key={category.number} className="mb-20">
-            <h3 className="text-[11px] uppercase tracking-[0.5em] font-bold pb-4 mb-8 montserrat text-textColor border-b border-borderColor">
+            <h3 className="text-sm uppercase tracking-[0.5em] font-bold pb-4 mb-8 montserrat text-textColor border-b border-borderColor">
               {category.number} {category.label}
             </h3>
 
@@ -209,7 +209,7 @@ export default function ServicesGrid({ translations }: ServicesGridProps) {
               >
                 <div className="md:w-1/2">
                   <h4 className="serif text-2xl text-textColor">{item.title}</h4>
-                  <p className="text-[12px] mt-2 montserrat text-grayText">{item.description}</p>
+                  <p className="text-sm mt-2 montserrat text-grayText">{item.description}</p>
                 </div>
 
                 <div className="flex items-center gap-12">

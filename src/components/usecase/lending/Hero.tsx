@@ -40,7 +40,7 @@ export default function Hero() {
             </h1>
           </div>
           <div data-anim="lending-hero-desc">
-            <p className="text-[11px] text-white/60 leading-loose uppercase tracking-[0.2em] max-w-xl mb-8">
+            <p className="text-sm text-white/60 leading-loose uppercase tracking-[0.2em] max-w-xl mb-8">
               {t('lending.hero.description')}
             </p>
           </div>

@@ -36,7 +36,7 @@ const Intro = () => {
           >
             {t('home.intro.title')}
           </h1>
-          <p className="text-black/70 text-[11px] uppercase tracking-[0.3em] mt-6 max-w-xl leading-relaxed mx-auto animate-fade-up-delay" suppressHydrationWarning>
+          <p className="text-black/70 text-sm uppercase tracking-[0.3em] mt-6 max-w-xl leading-relaxed mx-auto animate-fade-up-delay" suppressHydrationWarning>
             {t('home.intro.description')}
           </p>
           <div className="mt-12 animate-fade-up-delay">

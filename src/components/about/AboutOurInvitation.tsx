@@ -45,11 +45,11 @@ export default function AboutOurInvitation() {
             </div>
 
             <div className="space-y-6">
-              <p className="text-[13px] text-grayText leading-loose montserrat">
+              <p className="text-sm text-grayText leading-loose montserrat">
                 {t('about.ourInvitation.description1')}
               </p>
               {t('about.ourInvitation.description2') && (
-                <p className="text-[13px] text-grayText leading-loose montserrat">
+                <p className="text-sm text-grayText leading-loose montserrat">
                   {t('about.ourInvitation.description2')}
                 </p>
               )}

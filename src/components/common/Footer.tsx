@@ -98,7 +98,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
           {/* Colonne : À propos */}
           <div>
             <h5
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
               style={{
                 color: 'var(--ink-black)',
                 borderBottom: '1px solid var(--border-light)',
@@ -116,7 +116,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
           {/* Colonne : Expertise */}
           <div>
             <h5
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
               style={{
                 color: 'var(--ink-black)',
                 borderBottom: '1px solid var(--border-light)',
@@ -134,7 +134,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
           {/* Colonne : Simulateurs */}
           <div>
             <h5
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
               style={{
                 color: 'var(--ink-black)',
                 borderBottom: '1px solid var(--border-light)',
@@ -162,7 +162,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
           {/* Colonne : Atelier de nos artistes */}
           <div>
             <h5
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
               style={{
                 color: 'var(--ink-black)',
                 borderBottom: '1px solid var(--border-light)',
@@ -189,7 +189,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
           {/* Colonne : Artistes résidents */}
           <div>
             <h5
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
+              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
               style={{
                 color: 'var(--ink-black)',
                 borderBottom: '1px solid var(--border-light)',
@@ -223,7 +223,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('footer.newsletter.subscribe')}
               disabled={isPending}
-              className="w-full montserrat rounded-none py-3 px-0 pr-14 outline-none bg-transparent text-[12px] font-light transition-colors duration-300 disabled:opacity-50"
+              className="w-full montserrat rounded-none py-3 px-0 pr-14 outline-none bg-transparent text-sm font-light transition-colors duration-300 disabled:opacity-50"
               style={{
                 borderBottom: '1px solid var(--border-light)',
                 color: 'var(--ink-black)',
@@ -234,7 +234,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             />
             <button
               type="submit"
-              className={`absolute right-0 top-1/2 -translate-y-1/2 text-[9px] uppercase tracking-[0.3em] transition-colors duration-300 montserrat${isPending ? ' opacity-50 cursor-not-allowed' : ''}`}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 text-xs uppercase tracking-[0.3em] transition-colors duration-300 montserrat${isPending ? ' opacity-50 cursor-not-allowed' : ''}`}
               style={{ color: 'var(--gray-text)' }}
               aria-label={t('footer.newsletter.subscribe')}
               disabled={isPending}
@@ -251,13 +251,13 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <p
-              className="text-[9px] uppercase tracking-widest italic montserrat"
+              className="text-xs uppercase tracking-widest italic montserrat"
               style={{ color: 'var(--gray-text)' }}
             >
               {t('footer.physicalWorkshops')}
             </p>
             <p
-              className="text-[9px] uppercase tracking-widest montserrat"
+              className="text-xs uppercase tracking-widest montserrat"
               style={{ color: 'var(--gray-text)' }}
             >
               © {new Date().getFullYear()} — {t('footer.rights')}
@@ -268,7 +268,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             {/* Réseaux sociaux */}
             <div className="flex items-center gap-3">
               <span
-                className="text-[9px] uppercase tracking-[0.2em] montserrat"
+                className="text-xs uppercase tracking-[0.2em] montserrat"
                 style={{ color: 'var(--gray-text)' }}
                 suppressHydrationWarning
               >
@@ -308,7 +308,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             <div className="flex space-x-4">
               <Link
                 href="/terms"
-                className="text-[9px] uppercase tracking-[0.2em] montserrat transition-colors duration-300"
+                className="text-xs uppercase tracking-[0.2em] montserrat transition-colors duration-300"
                 style={{ color: 'var(--gray-text)' }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--ink-black)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--gray-text)' }}
@@ -317,7 +317,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
               </Link>
               <Link
                 href="/legal"
-                className="text-[9px] uppercase tracking-[0.2em] montserrat transition-colors duration-300"
+                className="text-xs uppercase tracking-[0.2em] montserrat transition-colors duration-300"
                 style={{ color: 'var(--gray-text)' }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--ink-black)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--gray-text)' }}
@@ -330,7 +330,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
 
         {/* Notice reCAPTCHA */}
         <div
-          className="text-[9px] montserrat text-center mt-6"
+          className="text-xs montserrat text-center mt-6"
           style={{ color: 'var(--gray-text)' }}
         >
           {t('footer.recaptcha.notice')} &nbsp;

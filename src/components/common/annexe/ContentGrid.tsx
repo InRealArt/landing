@@ -28,7 +28,7 @@ export default function ContentGrid({ items, className = "" }: ContentGridProps)
               </span>
               <h3 className="serif text-2xl italic leading-snug pt-1">{item.title}</h3>
             </div>
-            <p className="text-[13px] text-[var(--gray-text)] leading-loose">{item.content}</p>
+            <p className="text-sm text-[var(--gray-text)] leading-loose">{item.content}</p>
           </div>
         ))}
       </div>

@@ -41,7 +41,7 @@ export default function LoaSimulatorClient() {
         height={500}
         className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
       />
-      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+      <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
         {t('loaSimulator.title')}
       </p>
     </div>

@@ -26,7 +26,7 @@ export default function MarianSection() {
         {/* Left column — text */}
         <div>
           <span
-            className="text-[10px] font-bold uppercase tracking-[0.3em] mb-4 sm:mb-6 block montserrat"
+            className="text-xs font-bold uppercase tracking-[0.3em] mb-4 sm:mb-6 block montserrat"
             style={{ color: 'var(--gold-accent)' }}
           >
             {t('media.marian.eyebrow')}
@@ -48,7 +48,7 @@ export default function MarianSection() {
             {descriptionParts[1]}
           </p>
 
-          <ul className="text-[11px] uppercase tracking-widest space-y-4 mb-8 sm:mb-10 montserrat">
+          <ul className="text-sm uppercase tracking-widest space-y-4 mb-8 sm:mb-10 montserrat">
             {SERVICES.map((service) => (
               <li
                 key={service}

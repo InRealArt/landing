@@ -42,7 +42,7 @@ function FilterButton({
       type="button"
       onClick={onClick}
       aria-expanded={open}
-      className={`flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] pb-1 border-b transition-colors duration-300 ${
+      className={`flex items-center gap-2 text-xs uppercase tracking-[0.25em] pb-1 border-b transition-colors duration-300 ${
         active
           ? 'text-[#b89c72] border-[#b89c72]'
           : 'text-textColor border-textColor hover:text-[#b89c72] hover:border-[#b89c72]'
@@ -84,7 +84,7 @@ function DropdownItem({
 }) {
   return (
     <button
-      className={`w-full text-left px-4 py-2.5 text-[10px] uppercase tracking-[0.2em] transition-colors duration-200 border-t border-borderColor/40 first:border-t-0 ${
+      className={`w-full text-left px-4 py-2.5 text-xs uppercase tracking-[0.2em] transition-colors duration-200 border-t border-borderColor/40 first:border-t-0 ${
         active ? 'text-[#b89c72]' : 'text-textColor hover:text-[#b89c72]'
       }`}
       onClick={onClick}
@@ -187,7 +187,7 @@ export default function PresaleFiltersBar({
             value={filters.q}
             onChange={e => onChange({ q: e.target.value })}
             placeholder={t('presale.filters.searchPlaceholder')}
-            className="bg-transparent outline-none text-[10px] uppercase tracking-[0.2em] placeholder-textColor/30 text-textColor flex-1 min-w-0 py-0"
+            className="bg-transparent outline-none text-xs uppercase tracking-[0.2em] placeholder-textColor/30 text-textColor flex-1 min-w-0 py-0"
           />
         </div>
 
@@ -254,12 +254,12 @@ export default function PresaleFiltersBar({
             </FilterButton>
             {openDropdown === 'price' && (
               <div className="absolute z-20 top-full mt-2 left-0 bg-backgroundColor border border-borderColor shadow-md p-5 w-64">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-textColor/60 mb-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-textColor/60 mb-4">
                   {filters.priceMin.toLocaleString('fr-FR')}€ – {filters.priceMax.toLocaleString('fr-FR')}€
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <label className="text-[9px] uppercase tracking-[0.2em] text-textColor/50 block mb-1">
+                    <label className="text-xs uppercase tracking-[0.2em] text-textColor/50 block mb-1">
                       {t('presale.filters.priceMin')}
                     </label>
                     <input
@@ -275,7 +275,7 @@ export default function PresaleFiltersBar({
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] uppercase tracking-[0.2em] text-textColor/50 block mb-1">
+                    <label className="text-xs uppercase tracking-[0.2em] text-textColor/50 block mb-1">
                       {t('presale.filters.priceMax')}
                     </label>
                     <input
@@ -323,7 +323,7 @@ export default function PresaleFiltersBar({
           <button
             type="button"
             onClick={resetAll}
-            className="text-[10px] uppercase tracking-[0.25em] text-textColor/50 border-b border-textColor/30 pb-0.5 hover:text-[#b89c72] hover:border-[#b89c72] transition-colors duration-300"
+            className="text-xs uppercase tracking-[0.25em] text-textColor/50 border-b border-textColor/30 pb-0.5 hover:text-[#b89c72] hover:border-[#b89c72] transition-colors duration-300"
           >
             {t('presale.filters.reset')}
           </button>

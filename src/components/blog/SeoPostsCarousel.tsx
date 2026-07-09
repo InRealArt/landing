@@ -59,7 +59,7 @@ export default function SeoPostsCarousel({
       <section className={`px-10 py-20 max-w-screen-2xl mx-auto ${className}`}>
         {title && <span className="section-number mb-12 block">{title}</span>}
         <div className="text-center py-12">
-          <p className="text-[12px] text-[var(--gray-text)] uppercase tracking-[0.2em]">{t('blog.noPosts')}</p>
+          <p className="text-sm text-[var(--gray-text)] uppercase tracking-[0.2em]">{t('blog.noPosts')}</p>
         </div>
       </section>
     )
@@ -88,7 +88,7 @@ export default function SeoPostsCarousel({
         ) : (
           <div className="text-center py-16 border border-[var(--border-light)]">
             <h3 className="serif italic text-2xl mb-3">{t('blog.noArticles')}</h3>
-            <p className="text-[12px] text-[var(--gray-text)] uppercase tracking-[0.2em]">
+            <p className="text-sm text-[var(--gray-text)] uppercase tracking-[0.2em]">
               {t('blog.noArticlesDescription')}
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function SeoPostsCarousel({
             {currentPage > 0 && (
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
-                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
+                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-xs uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
                 disabled={isTransitioning}
               >
                 ← {t('blog.carousel.previous')}
@@ -113,7 +113,7 @@ export default function SeoPostsCarousel({
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors disabled:opacity-30 ${
+                  className={`px-4 py-2 text-xs uppercase tracking-[0.2em] transition-colors disabled:opacity-30 ${
                     page === currentPage
                       ? 'border border-[var(--ink-black)] bg-[var(--ink-black)] text-white'
                       : 'border border-[var(--border-light)] text-[var(--gray-text)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)]'
@@ -128,7 +128,7 @@ export default function SeoPostsCarousel({
             {currentPage < totalPages - 1 && (
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
-                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
+                className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-xs uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors disabled:opacity-30"
                 disabled={isTransitioning}
               >
                 {t('blog.carousel.next')} →

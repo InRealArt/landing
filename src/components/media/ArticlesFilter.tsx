@@ -48,7 +48,7 @@ function ArticleCard({ article }: { article: Article }) {
       <div className="aspect-video bg-gray-100 mb-4 sm:mb-6 overflow-hidden" />
 
       <span
-        className="text-[10px] font-bold uppercase tracking-widest montserrat"
+        className="text-xs font-bold uppercase tracking-widest montserrat"
         style={{ color: 'var(--gold-accent)' }}
       >
         {article.badge}
@@ -103,7 +103,7 @@ export default function ArticlesFilter() {
             className="
               appearance-none montserrat w-full sm:w-auto
               border px-4 pr-10 rounded
-              text-[11px] uppercase tracking-[0.1em]
+              text-sm uppercase tracking-[0.1em]
               cursor-pointer focus:outline-none
               min-h-[44px]
             "

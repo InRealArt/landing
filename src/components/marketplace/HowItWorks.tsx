@@ -38,7 +38,7 @@ export default function HowItWorks() {
             <div key={step.number} className="border-t border-borderColor pt-12">
               <span className="serif text-4xl italic text-gold-accent mb-8 block">{step.number}.</span>
               <h3 className="text-3xl serif mb-6 italic">{step.title}</h3>
-              <p className="text-[13px] text-grayText leading-loose">
+              <p className="text-sm text-grayText leading-loose">
                 {step.description}
               </p>
             </div>

@@ -59,7 +59,7 @@ export default function StepsSwiper({ title, steps }: StepsSwiperProps) {
                   <div className="max-w-3xl mx-auto text-center flex flex-col gap-8">
                     <span className="serif text-7xl md:text-9xl italic text-[var(--gold-accent)]">{step.number}</span>
                     <h4 className="serif italic text-2xl md:text-3xl text-[var(--ink-black)]">{step.title}</h4>
-                    <p className="text-[12px] text-[var(--gray-text)] leading-loose uppercase tracking-[0.15em] max-w-lg mx-auto">{step.description}</p>
+                    <p className="text-sm text-[var(--gray-text)] leading-loose uppercase tracking-[0.15em] max-w-lg mx-auto">{step.description}</p>
                   </div>
                 </div>
               </SwiperSlide>

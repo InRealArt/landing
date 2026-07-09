@@ -38,7 +38,7 @@ export default function HeritageArtSimulatorClient() {
         height={700}
         className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
       />
-      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+      <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
         Patrimoine & Art
       </p>
     </div>

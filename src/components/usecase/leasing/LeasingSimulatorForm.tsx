@@ -31,7 +31,7 @@ export default function LeasingSimulatorForm() {
           <h3 className="serif text-4xl md:text-5xl italic mb-4 text-ink-black dark:text-[#000000]">
             Demander une simulation
           </h3>
-          <p className="text-[9px] uppercase tracking-widest text-gray-400 dark:text-gray-600">
+          <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-600">
             Réponse sous 48h par un conseiller spécialisé.
           </p>
         </div>
@@ -43,14 +43,14 @@ export default function LeasingSimulatorForm() {
               name="company"
               placeholder="ENTREPRISE"
               required
-              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
+              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-xs uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
             />
             <input
               type="text"
               name="siret"
               placeholder="SIRET"
               required
-              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
+              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-xs uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
             />
           </div>
 
@@ -60,12 +60,12 @@ export default function LeasingSimulatorForm() {
               name="email"
               placeholder="EMAIL PROFESSIONNEL"
               required
-              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-[10px] uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
+              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-xs uppercase tracking-widest outline-none focus:border-gold-accent transition-all bg-transparent text-ink-black dark:text-[#000000] placeholder-gray-300 dark:placeholder-gray-500"
             />
             <select
               name="budget"
               required
-              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-[10px] uppercase tracking-widest outline-none bg-transparent text-ink-black dark:text-[#000000] cursor-pointer"
+              className="w-full border-b border-gray-200 dark:border-gray-400 py-3 text-xs uppercase tracking-widest outline-none bg-transparent text-ink-black dark:text-[#000000] cursor-pointer"
             >
               <option value="" disabled selected>BUDGET ESTIMÉ</option>
               <option value="5000-15000">5 000€ - 15 000€</option>

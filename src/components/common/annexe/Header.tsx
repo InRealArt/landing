@@ -35,11 +35,11 @@ export default function Header({
             <TranslatedText
               as="p"
               translationKey={descriptionKey}
-              className="text-[11px] text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl"
+              className="text-sm text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl"
               data-anim="annexe-header-desc"
             />
           ) : (
-            <p className="text-[11px] text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl" data-anim="annexe-header-desc">
+            <p className="text-sm text-[var(--gray-text)] leading-loose uppercase tracking-[0.2em] max-w-xl" data-anim="annexe-header-desc">
               {description}
             </p>
           )

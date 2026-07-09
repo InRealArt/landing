@@ -93,7 +93,7 @@ export default function ArtistsStudioPageClient({ artists }: Props) {
 
         {/* Map legend */}
         <div className="absolute bottom-5 left-5 z-[20] bg-cardBackground/95 backdrop-blur shadow-lg border border-borderColor p-4 max-w-[200px] text-xs">
-          <h4 className="font-unbounded font-bold tracking-wider uppercase mb-3 text-grayText text-[10px]">
+          <h4 className="font-unbounded font-bold tracking-wider uppercase mb-3 text-grayText text-xs">
             {t('artistsStudio.map.legend')}
           </h4>
           <div className="space-y-1.5">

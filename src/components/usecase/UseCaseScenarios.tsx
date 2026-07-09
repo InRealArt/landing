@@ -112,7 +112,7 @@ export default function UseCaseScenarios() {
             {/* Text column */}
             <div className={`flex flex-col${scenario.reversed ? ' lg:order-1' : ''}`}>
               <span
-                className="text-[10px] uppercase tracking-[0.4em] montserrat mb-6 block"
+                className="text-xs uppercase tracking-[0.4em] montserrat mb-6 block"
                 style={{ color: 'var(--gold-accent)' }}
               >
                 {scenario.badge}
@@ -125,14 +125,14 @@ export default function UseCaseScenarios() {
                 </span>
               </h2>
 
-              <p className="text-[13px] leading-relaxed mb-6 text-grayText montserrat font-light">
+              <p className="text-sm leading-relaxed mb-6 text-grayText montserrat font-light">
                 {scenario.description}
               </p>
 
               {/* ROI metric */}
               <div className="flex items-center gap-3 mb-8 py-4 border-y border-borderColor">
                 <div className="w-1 h-1 rounded-full bg-gold-accent shrink-0" aria-hidden="true" />
-                <p className="text-[11px] uppercase tracking-[0.25em] montserrat" style={{ color: 'var(--gold-accent)' }}>
+                <p className="text-sm uppercase tracking-[0.25em] montserrat" style={{ color: 'var(--gold-accent)' }}>
                   {scenario.roi}
                 </p>
               </div>

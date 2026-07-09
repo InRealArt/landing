@@ -122,7 +122,7 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
           <h3 className="font-cormorant font-light leading-[0.95] text-white text-3xl sm:text-4xl lg:text-5xl">
             {slide.title}
           </h3>
-          <span className="mt-3 inline-flex items-center gap-2 montserrat text-[10px] uppercase tracking-[0.25em] text-white/70 opacity-0 translate-y-1 transition-all duration-300 group-hover/img:opacity-100 group-hover/img:translate-y-0">
+          <span className="mt-3 inline-flex items-center gap-2 montserrat text-xs uppercase tracking-[0.25em] text-white/70 opacity-0 translate-y-1 transition-all duration-300 group-hover/img:opacity-100 group-hover/img:translate-y-0">
             {slide.ctaLabel}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

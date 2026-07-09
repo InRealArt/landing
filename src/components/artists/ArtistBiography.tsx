@@ -58,7 +58,7 @@ function BiographyEntry({
           {header}
         </span>
         <span
-          className="text-[10px] uppercase tracking-widest text-gray-400 font-montserrat flex-shrink-0"
+          className="text-xs uppercase tracking-widest text-gray-400 font-montserrat flex-shrink-0"
           aria-hidden="true"
         >
           {sectionNumber}
@@ -81,13 +81,13 @@ function BiographyEntry({
       {/* Expandable text body */}
       {text && (
         <div className="mt-5">
-          <div className="text-[11px] uppercase tracking-[0.3em] text-gray-500 font-montserrat leading-relaxed">
+          <div className="text-sm uppercase tracking-[0.3em] text-gray-500 font-montserrat leading-relaxed">
             {formatTextWithLineBreaksJSX(displayText)}
           </div>
           {shouldTruncate && (
             <button
               onClick={onToggle}
-              className="mt-4 inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-montserrat transition-colors duration-200"
+              className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-widest font-montserrat transition-colors duration-200"
               style={{ color: '#b89c72' }}
               aria-expanded={isExpanded}
             >
@@ -233,7 +233,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
               {/* Left sticky panel */}
               <div className="lg:col-span-4">
                 <div ref={leftPanelRef} className="lg:sticky lg:top-40 space-y-6">
-                  <span className="block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat">
+                  <span className="block text-xs uppercase tracking-[0.5em] text-gray-400 font-montserrat">
                     {t('artistPage.biographyLabel')}
                   </span>
 
@@ -286,7 +286,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
       >
         <div className="max-w-4xl mx-auto">
           <span
-            className="block text-[10px] uppercase tracking-[0.5em] font-montserrat mb-6 italic"
+            className="block text-xs uppercase tracking-[0.5em] font-montserrat mb-6 italic"
             style={{ color: '#555555' }}
           >
             {t('artistPage.ctaLabel')}
@@ -304,7 +304,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             {/* Primary CTA — white border */}
             <a
               href="/contact"
-              className="inline-block px-8 py-4 text-[10px] uppercase tracking-[0.25em] font-montserrat border border-white transition-all duration-500 hover:bg-white hover:text-black"
+              className="inline-block px-8 py-4 text-xs uppercase tracking-[0.25em] font-montserrat border border-white transition-all duration-500 hover:bg-white hover:text-black"
             >
               {t('artistPage.ctaCatalog')}
             </a>
@@ -312,7 +312,7 @@ export default function ArtistBiography({ artist }: ArtistBiographyProps) {
             {/* Secondary CTA — gold border */}
             <a
               href="/contact"
-              className="inline-block px-8 py-4 text-[10px] uppercase tracking-[0.25em] font-montserrat border transition-all duration-500"
+              className="inline-block px-8 py-4 text-xs uppercase tracking-[0.25em] font-montserrat border transition-all duration-500"
               style={{ borderColor: '#b89c72', color: '#b89c72' }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLAnchorElement

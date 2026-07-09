@@ -138,7 +138,7 @@ export default function ArtistSubNav({ hasArtworks = false, hasExhibitions = fal
                     aria-current={isActive ? 'location' : undefined}
                     className={[
                       'relative py-3 sm:py-5 px-4 sm:px-6 lg:px-8',
-                      'text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.4em] font-light bricolage-grotesque',
+                      'text-xs sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] font-light bricolage-grotesque',
                       'transition-colors duration-300 cursor-pointer whitespace-nowrap',
                       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
                       isActive ? 'text-textColor' : 'text-grayText hover:text-textColor',

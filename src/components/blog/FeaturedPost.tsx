@@ -78,7 +78,7 @@ export default function FeaturedPost({ initialPost }: Props) {
     return (
       <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
         <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
-        <div className="border border-red-200 p-8 text-red-700 text-[12px]">{error}</div>
+        <div className="border border-red-200 p-8 text-red-700 text-sm">{error}</div>
       </section>
     )
   }
@@ -87,7 +87,7 @@ export default function FeaturedPost({ initialPost }: Props) {
     return (
       <section className="px-10 py-20 max-w-screen-2xl mx-auto border-b border-[var(--border-light)]">
         <span className="section-number mb-12 block">{t('blog.featuredPost')}</span>
-        <div className="border border-[var(--border-light)] p-8 text-[12px] text-[var(--gray-text)]">
+        <div className="border border-[var(--border-light)] p-8 text-sm text-[var(--gray-text)]">
           {t('blog.noFeaturedPost')}
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function FeaturedPost({ initialPost }: Props) {
             />
           ) : (
             <div className="w-full h-full bg-[var(--soft-gray)] flex items-center justify-center">
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
+              <span className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
             </div>
           )}
         </Link>
@@ -126,7 +126,7 @@ export default function FeaturedPost({ initialPost }: Props) {
           className="p-10 border border-l-0 border-[var(--border-light)] flex flex-col justify-between bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] transition-colors duration-500"
         >
           <div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] mb-6">
+            <div className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] mb-6">
               <span>{formatDate(post.createdAt)}</span>
               <span className="mx-3 text-[var(--gold-accent)]">—</span>
               <span>{formatReadTime(post.estimatedReadTime)}</span>
@@ -136,7 +136,7 @@ export default function FeaturedPost({ initialPost }: Props) {
               {post.title}
             </h3>
 
-            <p className="text-[12px] text-[var(--gray-text)] leading-loose mb-6">
+            <p className="text-sm text-[var(--gray-text)] leading-loose mb-6">
               {post.excerpt || post.metaDescription}
             </p>
 
@@ -144,7 +144,7 @@ export default function FeaturedPost({ initialPost }: Props) {
               {post.listTags.slice(0, 3).map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 border border-[var(--border-light)] text-[9px] uppercase tracking-[0.2em] text-[var(--gray-text)]"
+                  className="px-3 py-1 border border-[var(--border-light)] text-xs uppercase tracking-[0.2em] text-[var(--gray-text)]"
                 >
                   {tag}
                 </span>
@@ -152,7 +152,7 @@ export default function FeaturedPost({ initialPost }: Props) {
             </div>
           </div>
 
-          <div className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-t border-[var(--border-light)] pt-6">
+          <div className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] border-t border-[var(--border-light)] pt-6">
             {t('blog.by')} <span className="text-[var(--ink-black)]">{post.author}</span>
           </div>
         </Link>

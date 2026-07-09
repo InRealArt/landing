@@ -12,25 +12,25 @@ export default function LeaseResultsTab({ leaseResults }: LeaseResultsTabProps) 
 
   return (
     <div className="space-y-4">
-      <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.lease.title')}</h2>
+      <h2 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.lease.title')}</h2>
 
       {/* Paiements mensuels */}
       <div className="border border-[var(--border-light)]">
         <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
-          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.monthlyPayments')}</h3>
+          <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.monthlyPayments')}</h3>
         </div>
         <div className="divide-y divide-[var(--border-light)]">
           <div className="flex justify-between items-center px-4 py-3">
-            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.firstMonth')}</span>
+            <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.lease.firstMonth')}</span>
             <span className="serif italic text-xl text-[var(--ink-black)]">{formatCurrency(leaseResults.firstMonthRent)}</span>
           </div>
           <div className="flex justify-between items-center px-4 py-3">
-            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.followingMonths')}</span>
+            <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.lease.followingMonths')}</span>
             <span className="serif italic text-xl text-[var(--ink-black)]">{formatCurrency(leaseResults.monthlyRent)}</span>
           </div>
           <div className="flex justify-between items-center px-4 py-3">
-            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.totalLeaseAmount')}</span>
-            <span className="text-[12px] text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.totalLeaseAmount)}</span>
+            <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.lease.totalLeaseAmount')}</span>
+            <span className="text-sm text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.totalLeaseAmount)}</span>
           </div>
         </div>
       </div>
@@ -38,15 +38,15 @@ export default function LeaseResultsTab({ leaseResults }: LeaseResultsTabProps) 
       {/* Économies fiscales */}
       <div className="border border-[var(--border-light)]">
         <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
-          <h3 className="text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</h3>
+          <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</h3>
         </div>
         <div className="divide-y divide-[var(--border-light)]">
           <div className="flex justify-between items-center px-4 py-3">
-            <span className="text-[11px] text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</span>
-            <span className="text-[12px] text-[var(--gold-accent)] font-medium">{formatCurrency(leaseResults.taxSavings)}</span>
+            <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.lease.taxSavings')}</span>
+            <span className="text-sm text-[var(--gold-accent)] font-medium">{formatCurrency(leaseResults.taxSavings)}</span>
           </div>
           <div className="flex justify-between items-center px-4 py-3 bg-[var(--ink-black)]">
-            <span className="text-[11px] text-white/60">{t('loaSimulator.results.lease.netCostAfterTax')}</span>
+            <span className="text-sm text-white/60">{t('loaSimulator.results.lease.netCostAfterTax')}</span>
             <span className="serif italic text-xl text-white">{formatCurrency(leaseResults.netCostAfterTax)}</span>
           </div>
         </div>

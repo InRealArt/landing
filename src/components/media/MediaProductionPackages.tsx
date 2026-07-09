@@ -49,7 +49,7 @@ export default function MediaProductionPackages() {
               {t('media.production.title')}{' '}
               <em className="not-italic italic text-gold-accent">{t('media.production.titleAccent')}</em>
             </h2>
-            <p className="text-[12px] uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-sm">
+            <p className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-sm">
               {t('media.production.subtitle')}
             </p>
           </div>
@@ -71,15 +71,15 @@ export default function MediaProductionPackages() {
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <div className="w-6 h-px bg-gold-accent mb-4" />
-                <h3 className="text-[11px] uppercase tracking-[0.4em] text-textColor montserrat font-bold mb-2">
+                <h3 className="text-sm uppercase tracking-[0.4em] text-textColor montserrat font-bold mb-2">
                   {t(`media.production.packages.${pkg}.name`)}
                 </h3>
-                <span className="text-[9px] uppercase tracking-[0.3em] text-gold-accent montserrat border border-gold-accent/40 px-2 py-0.5">
+                <span className="text-xs uppercase tracking-[0.3em] text-gold-accent montserrat border border-gold-accent/40 px-2 py-0.5">
                   {t(`media.production.packages.${pkg}.tag`)}
                 </span>
               </div>
 
-              <p className="text-[13px] text-grayText montserrat leading-loose">
+              <p className="text-sm text-grayText montserrat leading-loose">
                 {t(`media.production.packages.${pkg}.description`)}
               </p>
 
@@ -87,7 +87,7 @@ export default function MediaProductionPackages() {
                 {([0, 1, 2] as const).map((idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="w-1 h-1 rounded-full bg-gold-accent shrink-0 mt-1.5" aria-hidden="true" />
-                    <span className="text-[11px] text-grayText montserrat">
+                    <span className="text-sm text-grayText montserrat">
                       {t(`media.production.packages.${pkg}.includes.${idx}`)}
                     </span>
                   </li>
@@ -100,7 +100,7 @@ export default function MediaProductionPackages() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <Link
             href="/media/production"
-            className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
           >
             {t('media.production.cta')}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

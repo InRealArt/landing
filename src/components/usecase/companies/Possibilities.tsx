@@ -87,7 +87,7 @@ export default function Possibilities() {
               </div>
               <div className="p-8 border border-t-0 border-[var(--border-light)] flex-1">
                 <h3 className="serif italic text-2xl mb-4">{section.title}</h3>
-                <p className="text-[12px] text-[var(--gray-text)] leading-loose">{section.description}</p>
+                <p className="text-sm text-[var(--gray-text)] leading-loose">{section.description}</p>
               </div>
             </div>
           ))}
@@ -112,7 +112,7 @@ export default function Possibilities() {
                 </span>
                 <div className="flex-1">
                   <h3 className="serif italic text-2xl mb-3">{step.title}</h3>
-                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">{step.description}</p>
+                  <p className="text-sm text-[var(--gray-text)] leading-loose">{step.description}</p>
                 </div>
               </div>
             ))}

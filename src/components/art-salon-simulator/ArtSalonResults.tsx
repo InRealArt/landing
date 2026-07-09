@@ -79,11 +79,11 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
           <div className="space-y-4">
             {/* Personal Info Card */}
             <div className="border border-[var(--border-light)] p-5">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
                 <Users className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.personalInfo')}
               </h3>
-              <div className="space-y-1.5 text-[12px] text-[var(--ink-black)] leading-loose">
+              <div className="space-y-1.5 text-sm text-[var(--ink-black)] leading-loose">
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.name')} </span>{results.personalInfo.firstName} {results.personalInfo.lastName}</p>
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.email')} </span>{results.personalInfo.email}</p>
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.phone')} </span>{results.personalInfo.phone}</p>
@@ -92,11 +92,11 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
 
             {/* Exhibition Details Card */}
             <div className="border border-[var(--border-light)] p-5">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.salonDetails')}
               </h3>
-              <div className="space-y-1.5 text-[12px] text-[var(--ink-black)] leading-loose">
+              <div className="space-y-1.5 text-sm text-[var(--ink-black)] leading-loose">
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.exhibition')} </span>{results.salonDetails.name}</p>
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.formula')} </span>{results.salonDetails.formula}</p>
                 <p><span className="text-[var(--gray-text)]">{t('artSalonSimulator.results.labels.duration')} </span>{results.salonDetails.days} {t('artSalonSimulator.results.labels.days')}</p>
@@ -110,14 +110,14 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
 
             {/* Total Cost */}
             <div className="border border-[var(--ink-black)] bg-[var(--ink-black)] p-6 text-center">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-white/60 mb-3 flex items-center justify-center gap-2">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-white/60 mb-3 flex items-center justify-center gap-2">
                 <Euro className="w-3.5 h-3.5" />
                 {t('artSalonSimulator.results.sections.totalCost')}
               </h3>
               <p className="serif italic text-4xl text-white">
                 {formatPrice(results.breakdown.total)}
               </p>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-white/50 mt-3">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/50 mt-3">
                 {results.totalPersons === 1
                   ? t('artSalonSimulator.results.labels.forPersons').replace('{count}', results.totalPersons.toString())
                   : t('artSalonSimulator.results.labels.forPersons_plural').replace('{count}', results.totalPersons.toString())
@@ -129,45 +129,45 @@ export default function ArtSalonResults({ results, formData }: ArtSalonResultsPr
 
         {activeTab === 'breakdown' && (
           <div className="space-y-0">
-            <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
+            <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4 flex items-center gap-2">
               <Euro className="w-3.5 h-3.5" />
               {t('artSalonSimulator.results.breakdown.title')}
             </h3>
 
             <div className="divide-y divide-[var(--border-light)] border border-[var(--border-light)]">
               <div className="px-5 py-4 flex justify-between items-center">
-                <span className="text-[12px] text-[var(--gray-text)]">
+                <span className="text-sm text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.transport').replace('{count}', results.totalPersons.toString())}
                 </span>
-                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.transport)}</span>
+                <span className="text-sm text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.transport)}</span>
               </div>
 
               <div className="px-5 py-4 flex justify-between items-center">
-                <span className="text-[12px] text-[var(--gray-text)]">
+                <span className="text-sm text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.accommodation')
                     .replace('{nights}', Math.max(0, results.salonDetails.days - 1).toString())
                     .replace('{persons}', results.totalPersons.toString())
                   }
                 </span>
-                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.accommodation)}</span>
+                <span className="text-sm text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.accommodation)}</span>
               </div>
 
               <div className="px-5 py-4 flex justify-between items-center">
-                <span className="text-[12px] text-[var(--gray-text)]">
+                <span className="text-sm text-[var(--gray-text)]">
                   {t('artSalonSimulator.results.breakdown.pass').replace('{persons}', results.totalPersons.toString())}
                 </span>
-                <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.pass)}</span>
+                <span className="text-sm text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.pass)}</span>
               </div>
 
               {results.breakdown.comfortSupplement > 0 && (
                 <div className="px-5 py-4 flex justify-between items-center">
-                  <span className="text-[12px] text-[var(--gray-text)]">{t('artSalonSimulator.results.breakdown.comfortSupplement')}</span>
-                  <span className="text-[13px] text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.comfortSupplement)}</span>
+                  <span className="text-sm text-[var(--gray-text)]">{t('artSalonSimulator.results.breakdown.comfortSupplement')}</span>
+                  <span className="text-sm text-[var(--ink-black)] font-medium">{formatPrice(results.breakdown.comfortSupplement)}</span>
                 </div>
               )}
 
               <div className="px-5 py-4 flex justify-between items-center bg-[var(--ink-black)]">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-white/70">{t('artSalonSimulator.results.breakdown.total')}</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-white/70">{t('artSalonSimulator.results.breakdown.total')}</span>
                 <span className="serif italic text-2xl text-white">{formatPrice(results.breakdown.total)}</span>
               </div>
             </div>

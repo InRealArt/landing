@@ -190,14 +190,14 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
           className="flex flex-col md:flex-row justify-between items-end mb-16 lg:mb-24 gap-8"
         >
           <div>
-            <span className="block text-[10px] uppercase tracking-[0.5em] text-grayText font-montserrat mb-4">
+            <span className="block text-xs uppercase tracking-[0.5em] text-grayText font-montserrat mb-4">
               {t('artistPage.artworksLabel')}
             </span>
             <h2 className="text-5xl lg:text-6xl font-cormorant font-light italic text-textColor leading-tight">
               {t('artistPage.artworksTitle')}
             </h2>
             {artworks.length > 0 && (
-              <p className="mt-3 text-[11px] uppercase tracking-widest text-grayText font-montserrat">
+              <p className="mt-3 text-sm uppercase tracking-widest text-grayText font-montserrat">
                 {artworks.length}{' '}
                 {artworks.length > 1
                   ? t('artistPage.artwork_plural')
@@ -216,7 +216,7 @@ export default function ArtistArtworks({ artistName, artworks }: ArtistArtworksP
                   setActiveFilter(filter.key)
                   setParams({ page: 1 })
                 }}
-                className="px-5 py-2.5 text-[9px] uppercase tracking-widest font-montserrat border transition-colors duration-300"
+                className="px-5 py-2.5 text-xs uppercase tracking-widest font-montserrat border transition-colors duration-300"
                 style={
                   activeFilter === filter.key
                     ? { borderColor: 'var(--text)', backgroundColor: 'var(--text)', color: 'var(--background)' }

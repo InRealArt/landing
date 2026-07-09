@@ -28,21 +28,21 @@ export default function Investment() {
             <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8">
               {t('leasing.investment.title')}
             </h2>
-            <p className="text-[12px] leading-loose text-[var(--gray-text)] mb-10">
+            <p className="text-sm leading-loose text-[var(--gray-text)] mb-10">
               {t('leasing.investment.description')}
             </p>
             <ul className="divide-y divide-[var(--border-light)]">
               <li className="flex items-start gap-6 py-5">
                 <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0 mt-0.5">—</span>
-                <span className="text-[12px] leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.0')}</span>
+                <span className="text-sm leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.0')}</span>
               </li>
               <li className="flex items-start gap-6 py-5">
                 <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0 mt-0.5">—</span>
-                <span className="text-[12px] leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.1')}</span>
+                <span className="text-sm leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.1')}</span>
               </li>
               <li className="flex items-start gap-6 py-5">
                 <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0 mt-0.5">—</span>
-                <span className="text-[12px] leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.2')}</span>
+                <span className="text-sm leading-loose text-[var(--gray-text)]">{t('leasing.investment.bullets.2')}</span>
               </li>
             </ul>
           </div>

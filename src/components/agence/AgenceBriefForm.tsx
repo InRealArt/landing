@@ -77,15 +77,15 @@ export default function AgenceBriefForm({ t }: Props) {
         <h2 className="serif text-4xl md:text-5xl font-light text-textColor mb-4">
           {t('agence.brief.form.successTitle')}
         </h2>
-        <p className="text-[12px] uppercase tracking-[0.25em] text-grayText montserrat max-w-md mx-auto">
+        <p className="text-sm uppercase tracking-[0.25em] text-grayText montserrat max-w-md mx-auto">
           {t('agence.brief.form.successMessage')}
         </p>
       </div>
     )
   }
 
-  const inputClass = 'w-full bg-backgroundColor border border-borderColor text-textColor text-[13px] montserrat px-4 py-3 focus:outline-none focus:border-gold-accent transition-colors duration-200 placeholder:text-grayText/50'
-  const labelClass = 'text-[9px] uppercase tracking-[0.35em] text-grayText montserrat block mb-2'
+  const inputClass = 'w-full bg-backgroundColor border border-borderColor text-textColor text-sm montserrat px-4 py-3 focus:outline-none focus:border-gold-accent transition-colors duration-200 placeholder:text-grayText/50'
+  const labelClass = 'text-xs uppercase tracking-[0.35em] text-grayText montserrat block mb-2'
 
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
@@ -128,7 +128,7 @@ export default function AgenceBriefForm({ t }: Props) {
               type="button"
               onClick={() => setForm((p) => ({ ...p, projectType: type }))}
               className={[
-                'text-[10px] uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
+                'text-xs uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
                 form.projectType === type
                   ? 'border-gold-accent bg-gold-accent text-white'
                   : 'border-borderColor text-grayText hover:border-gold-accent/50',
@@ -184,7 +184,7 @@ export default function AgenceBriefForm({ t }: Props) {
               type="button"
               onClick={() => togglePlatform(p)}
               className={[
-                'text-[10px] uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
+                'text-xs uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
                 form.platforms.includes(p)
                   ? 'border-gold-accent bg-gold-accent text-white'
                   : 'border-borderColor text-grayText hover:border-gold-accent/50',
@@ -221,7 +221,7 @@ export default function AgenceBriefForm({ t }: Props) {
           onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
           className={`${inputClass} resize-none`}
         />
-        <p className="text-[10px] text-grayText/50 montserrat mt-1 text-right">
+        <p className="text-xs text-grayText/50 montserrat mt-1 text-right">
           {form.description.length}/500
         </p>
       </div>
@@ -235,13 +235,13 @@ export default function AgenceBriefForm({ t }: Props) {
           onChange={(e) => setForm((p) => ({ ...p, rgpd: e.target.checked }))}
           className="mt-0.5 accent-gold-accent"
         />
-        <span className="text-[11px] text-grayText montserrat leading-relaxed group-hover:text-textColor transition-colors duration-200">
+        <span className="text-sm text-grayText montserrat leading-relaxed group-hover:text-textColor transition-colors duration-200">
           {t('agence.brief.form.rgpd')}
         </span>
       </label>
 
       {status === 'error' && (
-        <p className="text-[11px] text-red-500 montserrat">
+        <p className="text-sm text-red-500 montserrat">
           {t('agence.brief.form.errorMessage')}
         </p>
       )}
@@ -249,7 +249,7 @@ export default function AgenceBriefForm({ t }: Props) {
       <button
         type="submit"
         disabled={status === 'loading' || !form.projectType || !form.vertical || !form.budget || form.platforms.length === 0 || !form.rgpd}
-        className="inline-flex items-center gap-3 bg-gold-accent text-white px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+        className="inline-flex items-center gap-3 bg-gold-accent text-white px-10 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
       >
         {status === 'loading' ? '...' : t('agence.brief.form.submit')}
         {status !== 'loading' && (

@@ -62,7 +62,7 @@ export default function JoinNewsletterSection() {
             required
             disabled={isPending}
             className={[
-              'flex-1 min-w-0 px-6 py-4 text-[11px] uppercase tracking-[0.3em] font-light',
+              'flex-1 min-w-0 px-6 py-4 text-sm uppercase tracking-[0.3em] font-light',
               'bg-transparent border border-borderColor text-textColor placeholder-grayText',
               'focus:outline-none focus:border-[#b89c72] transition-colors duration-300',
               'disabled:opacity-50 disabled:cursor-not-allowed',
@@ -73,7 +73,7 @@ export default function JoinNewsletterSection() {
             type="submit"
             disabled={isPending}
             className={[
-              'px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-light transition-all duration-300',
+              'px-10 py-4 text-xs uppercase tracking-[0.3em] font-light transition-all duration-300',
               'bg-textColor text-backgroundColor',
               'hover:bg-[#b89c72] hover:border-[#b89c72]',
               'disabled:opacity-40 disabled:cursor-not-allowed',

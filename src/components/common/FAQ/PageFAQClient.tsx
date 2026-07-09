@@ -57,7 +57,7 @@ const PageFAQClient = ({
           <TranslatedText
             as="p"
             translationKey={descriptionKey}
-            className="text-[12px] text-[var(--gray-text)] leading-loose mb-8"
+            className="text-sm text-[var(--gray-text)] leading-loose mb-8"
             allowHtml={true}
           />
           <Button

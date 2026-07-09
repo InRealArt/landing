@@ -110,7 +110,7 @@ function ExhibitionCard({ exhibition, priority, language, t }: ExhibitionCardPro
         {/* Status badge */}
         <div className="absolute top-4 left-4">
           <span
-            className={`text-[9px] uppercase tracking-[0.4em] montserrat px-3 py-1.5 border bg-backgroundColor/90 backdrop-blur-sm ${statusColor}`}
+            className={`text-xs uppercase tracking-[0.4em] montserrat px-3 py-1.5 border bg-backgroundColor/90 backdrop-blur-sm ${statusColor}`}
           >
             {statusLabel}
           </span>
@@ -121,7 +121,7 @@ function ExhibitionCard({ exhibition, priority, language, t }: ExhibitionCardPro
       <div className="flex flex-col gap-2 p-6 flex-1">
         {/* Artists */}
         {artistNames && (
-          <p className="text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat leading-none">
+          <p className="text-xs uppercase tracking-[0.35em] text-gold-accent montserrat leading-none">
             {artistNames}
           </p>
         )}
@@ -133,13 +133,13 @@ function ExhibitionCard({ exhibition, priority, language, t }: ExhibitionCardPro
 
         {/* Location */}
         {exhibition.address && (
-          <p className="text-[11px] text-grayText montserrat">
+          <p className="text-sm text-grayText montserrat">
             {exhibition.address}
           </p>
         )}
 
         {/* Dates */}
-        <p className="text-[10px] uppercase tracking-[0.25em] text-grayText/60 montserrat mt-auto pt-4">
+        <p className="text-xs uppercase tracking-[0.25em] text-grayText/60 montserrat mt-auto pt-4">
           {dateRange}
         </p>
       </div>
@@ -194,7 +194,7 @@ export default function ExhibitionSlider({ exhibitions }: ExhibitionSliderProps)
               {t('exhibitions.sectionTitle')}
             </h2>
           </div>
-          <span className="unbounded text-[10px] text-grayText tabular-nums hidden sm:block">
+          <span className="unbounded text-xs text-grayText tabular-nums hidden sm:block">
             {String(sorted.length).padStart(2, '0')}
           </span>
         </div>

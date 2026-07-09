@@ -126,7 +126,7 @@ export default function ResidentArtists({ artists }: ResidentArtistsProps) {
                 <h4 className="text-sm uppercase tracking-[0.3em] font-medium text-textColor" suppressHydrationWarning>
                   {getDisplayName(artist)}
                 </h4>
-                <p className="text-[10px] text-grayText uppercase tracking-widest mt-2 italic serif" suppressHydrationWarning>
+                <p className="text-xs text-grayText uppercase tracking-widest mt-2 italic serif" suppressHydrationWarning>
                   {getCategory(artist)}
                 </p>
               </div>
@@ -136,7 +136,7 @@ export default function ResidentArtists({ artists }: ResidentArtistsProps) {
 
         {/* CTA */}
         <div className="text-center mt-20">
-          <Link href="/artists" className="text-[10px] border-b border-borderColor pb-1 uppercase tracking-[0.3em] hover:opacity-50 text-textColor" suppressHydrationWarning>
+          <Link href="/artists" className="text-xs border-b border-borderColor pb-1 uppercase tracking-[0.3em] hover:opacity-50 text-textColor" suppressHydrationWarning>
             {t('home.residentArtists.cta')}
           </Link>
         </div>

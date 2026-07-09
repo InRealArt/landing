@@ -60,7 +60,7 @@ export default function Hero() {
             <TranslatedText
               translationKey="leasing.hero.description.p1"
               as="p"
-              className="text-[11px] text-white/60 leading-loose uppercase tracking-[0.2em]"
+              className="text-sm text-white/60 leading-loose uppercase tracking-[0.2em]"
               allowHtml={true}
             />
           </div>
@@ -68,7 +68,7 @@ export default function Hero() {
             <TranslatedText
               translationKey="leasing.hero.description.p2"
               as="p"
-              className="text-[11px] text-white/60 leading-loose uppercase tracking-[0.2em]"
+              className="text-sm text-white/60 leading-loose uppercase tracking-[0.2em]"
               allowHtml={true}
             />
           </div>
@@ -76,7 +76,7 @@ export default function Hero() {
             <TranslatedText
               translationKey="leasing.hero.description.p3"
               as="p"
-              className="text-[11px] text-white/60 leading-loose uppercase tracking-[0.2em]"
+              className="text-sm text-white/60 leading-loose uppercase tracking-[0.2em]"
               allowHtml={true}
             />
           </div>

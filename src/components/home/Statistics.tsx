@@ -185,7 +185,7 @@ const Statistics = () => {
               <div className="stat-rule w-8 h-px bg-gold-accent mb-5 transition-all duration-500 ease-out group-hover:w-16" />
 
               {/* Label — small uppercase tracking */}
-              <p className="text-[11px] uppercase tracking-[0.4em] text-grayText leading-relaxed max-w-full" suppressHydrationWarning>
+              <p className="text-sm uppercase tracking-[0.4em] text-grayText leading-relaxed max-w-full" suppressHydrationWarning>
                 {stat.label}
               </p>
             </div>

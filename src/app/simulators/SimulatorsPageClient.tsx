@@ -21,7 +21,7 @@ export default function SimulatorsPageClient() {
             Tous les{' '}
             <span className="text-[var(--gold-accent)]">Simulateurs</span>
           </h1>
-          <p data-anim="sim-hero-sub" className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] max-w-3xl mx-auto leading-relaxed">
+          <p data-anim="sim-hero-sub" className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] max-w-3xl mx-auto leading-relaxed">
             {t('simulators.description')}
           </p>
         </div>
@@ -49,12 +49,12 @@ export default function SimulatorsPageClient() {
                   <h3 className="serif italic text-xl text-[var(--ink-black)] group-hover:text-[var(--gold-accent)] transition-colors mb-3">
                     {salon.name}
                   </h3>
-                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">
+                  <p className="text-sm text-[var(--gray-text)] leading-loose">
                     {t('footer.artSalonSimulator')}
                   </p>
                 </div>
                 <div className="mt-8 pt-6 border-t border-[var(--border-light)]">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
+                  <span className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
                     {t('simulators.accessSimulator')}
                   </span>
                 </div>
@@ -86,12 +86,12 @@ export default function SimulatorsPageClient() {
                 <h3 className="serif italic text-xl text-[var(--ink-black)] group-hover:text-[var(--gold-accent)] transition-colors mb-3">
                   {t('footer.loaSimulator')}
                 </h3>
-                <p className="text-[12px] text-[var(--gray-text)] leading-loose">
+                <p className="text-sm text-[var(--gray-text)] leading-loose">
                   {t('simulators.loaDescription')}
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-[var(--border-light)]">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
+                <span className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
                   {t('simulators.accessSimulator')}
                 </span>
               </div>
@@ -109,12 +109,12 @@ export default function SimulatorsPageClient() {
                 <h3 className="serif italic text-xl text-[var(--ink-black)] group-hover:text-[var(--gold-accent)] transition-colors mb-3">
                   {t('footer.heritageArtSimulator')}
                 </h3>
-                <p className="text-[12px] text-[var(--gray-text)] leading-loose">
+                <p className="text-sm text-[var(--gray-text)] leading-loose">
                   {t('simulators.heritageDescription')}
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-[var(--border-light)]">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
+                <span className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] group-hover:text-[var(--ink-black)] transition-colors">
                   {t('simulators.accessSimulator')}
                 </span>
               </div>

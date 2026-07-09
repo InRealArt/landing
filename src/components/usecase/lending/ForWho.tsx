@@ -41,7 +41,7 @@ export default function ForWho() {
               {whyChooseItems.map((item, index) => (
                 <li key={index} className="flex items-start gap-6 py-4">
                   <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0">—</span>
-                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">{item}</p>
+                  <p className="text-sm text-[var(--gray-text)] leading-loose">{item}</p>
                 </li>
               ))}
             </ul>
@@ -53,7 +53,7 @@ export default function ForWho() {
               {forWhoItems.map((item, index) => (
                 <li key={index} className="flex items-start gap-6 py-4">
                   <span className="serif italic text-xl text-[var(--gold-accent)] shrink-0">—</span>
-                  <p className="text-[12px] text-[var(--gray-text)] leading-loose">{item}</p>
+                  <p className="text-sm text-[var(--gray-text)] leading-loose">{item}</p>
                 </li>
               ))}
             </ul>

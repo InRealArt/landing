@@ -48,7 +48,7 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
             </span>
           </h2>
           <p
-            className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-6 max-w-xl leading-relaxed"
+            className="text-sm uppercase tracking-[0.3em] text-grayText mt-6 max-w-xl leading-relaxed"
             suppressHydrationWarning
           >
             {t('home.catalog.description')}
@@ -79,19 +79,19 @@ export default function CatalogSectionClient({ artworks }: CatalogSectionClientP
 
                 {/* Metadata */}
                 <div className="flex flex-col space-y-1">
-                  <span className="text-[9px] uppercase tracking-widest text-gold-accent font-medium">
+                  <span className="text-xs uppercase tracking-widest text-gold-accent font-medium">
                     {artwork.artistName}
                   </span>
                   <h3 className="serif text-2xl italic text-textColor">
                     {artwork.name}
                   </h3>
                   {dimensions && (
-                    <p className="text-[10px] text-grayText uppercase tracking-widest">
+                    <p className="text-xs text-grayText uppercase tracking-widest">
                       {dimensions}
                     </p>
                   )}
                   <p
-                    className={`text-[11px] font-medium mt-3 text-textColor${artwork.isSold ? ' opacity-50' : ''}`}
+                    className={`text-sm font-medium mt-3 text-textColor${artwork.isSold ? ' opacity-50' : ''}`}
                     suppressHydrationWarning
                   >
                     {priceLabel}

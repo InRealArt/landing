@@ -49,7 +49,7 @@ export default function ArtistCategoryPageClient({
               <span className="italic text-gold-accent">{displayCategory.name}</span>
             </h1>
             {displayCategory.description && (
-              <p className="text-[11px] uppercase tracking-[0.3em] text-white/70 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm uppercase tracking-[0.3em] text-white/70 max-w-3xl mx-auto leading-relaxed">
                 {displayCategory.description}
               </p>
             )}

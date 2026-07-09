@@ -34,7 +34,7 @@ export default function Glossary() {
         descriptionKey="glossary.description"
       />
       <div className="max-w-screen-2xl mx-auto px-10 mb-4">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)]">
           {filteredItems.length} terme{filteredItems.length > 1 ? 's' : ''} — {activeTab}
         </p>
       </div>

@@ -30,7 +30,7 @@ export default function Hero() {
               {t('marketplace.hero.titleLine1')}{' '}
               <span className="italic text-gold-accent">{t('marketplace.hero.titleLine2')}</span>
             </h1>
-            <p className="mt-8 text-[11px] uppercase tracking-[0.3em] text-white/60 max-w-lg leading-relaxed">
+            <p className="mt-8 text-sm uppercase tracking-[0.3em] text-white/60 max-w-lg leading-relaxed">
               {t('marketplace.hero.description')}
             </p>
             <div className="mt-10">

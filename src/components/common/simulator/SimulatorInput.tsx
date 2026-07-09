@@ -43,7 +43,7 @@ export default function SimulatorInput({
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="block text-[10px] uppercase tracking-[0.2em] text-[var(--gray-text)] mb-2">
+        <label htmlFor={id} className="block text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-2">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>

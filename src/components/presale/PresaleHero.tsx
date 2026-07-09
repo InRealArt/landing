@@ -18,11 +18,11 @@ const PresaleHero = ({ totalCount }: PresaleHeroProps) => {
           {t('presale.intro.title').split(' ').slice(-2).join(' ')}
         </em>
       </h1>
-      <p className="mt-8 text-[11px] uppercase tracking-[0.35em] text-textColor/60 max-w-xl leading-relaxed" suppressHydrationWarning>
+      <p className="mt-8 text-sm uppercase tracking-[0.35em] text-textColor/60 max-w-xl leading-relaxed" suppressHydrationWarning>
         {t('presale.intro.subtitle').replace(/<br\s*\/?>/gi, ' ')}
       </p>
       {totalCount !== undefined && (
-        <p className="mt-4 text-[10px] uppercase tracking-[0.3em] text-gold-accent/80" suppressHydrationWarning>
+        <p className="mt-4 text-xs uppercase tracking-[0.3em] text-gold-accent/80" suppressHydrationWarning>
           {t('presale.availableCount').replace('{{count}}', String(totalCount))}
         </p>
       )}

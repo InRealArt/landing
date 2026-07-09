@@ -23,11 +23,11 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
         <div className="flex items-end justify-between mb-12 pb-10 border-b border-borderColor">
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-[10px] uppercase tracking-[0.5em] montserrat text-gold-accent">
+              <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
                 {t('agence.artists.detail.galleryBridgeNumber')}
               </span>
               <span className="h-px bg-borderColor w-8" />
-              <span className="text-[10px] uppercase tracking-[0.35em] montserrat text-grayText">
+              <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                 {t('agence.artists.detail.galleryBridgeLabel')}
               </span>
             </div>
@@ -38,7 +38,7 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
           </div>
           <Link
             href={`/artists/${landingArtistSlug}`}
-            className="hidden sm:inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] montserrat text-grayText hover:text-gold-accent transition-colors duration-200"
+            className="hidden sm:inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] montserrat text-grayText hover:text-gold-accent transition-colors duration-200"
           >
             {t('agence.artists.detail.galleryBridgeViewAll')}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -61,12 +61,12 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               {artwork.isSold && (
-                <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[0.3em] montserrat bg-black/70 text-white px-2 py-1">
+                <span className="absolute top-3 left-3 text-xs uppercase tracking-[0.3em] montserrat bg-black/70 text-white px-2 py-1">
                   {t('artists.profile.sold')}
                 </span>
               )}
               {artwork.price !== null && !artwork.isSold && (
-                <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-[0.2em] montserrat bg-backgroundColor/90 text-textColor px-3 py-1.5">
+                <span className="absolute bottom-3 right-3 text-xs uppercase tracking-[0.2em] montserrat bg-backgroundColor/90 text-textColor px-3 py-1.5">
                   {artwork.price.toLocaleString()} €
                 </span>
               )}
@@ -77,7 +77,7 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
         <div className="mt-8 sm:hidden">
           <Link
             href={`/artists/${landingArtistSlug}`}
-            className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] montserrat border border-borderColor text-textColor px-6 py-3 hover:border-gold-accent hover:text-gold-accent transition-colors duration-200"
+            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] montserrat border border-borderColor text-textColor px-6 py-3 hover:border-gold-accent hover:text-gold-accent transition-colors duration-200"
           >
             {t('agence.artists.detail.galleryBridgeViewAll')}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

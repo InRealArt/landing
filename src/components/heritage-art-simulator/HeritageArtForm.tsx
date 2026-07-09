@@ -164,7 +164,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Répartition du patrimoine */}
             <div className="space-y-6">
-              <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
+              <h2 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
                 {t('heritageArtSimulator.form.repartitionTitle')}
               </h2>
 
@@ -237,12 +237,12 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
                 />
               </div>
 
-              <div className={`text-[11px] uppercase tracking-[0.2em] font-medium ${totalPercentage === 100 ? 'text-[var(--ink-black)]' : 'text-[var(--gold-accent)]'}`}>
+              <div className={`text-sm uppercase tracking-[0.2em] font-medium ${totalPercentage === 100 ? 'text-[var(--ink-black)]' : 'text-[var(--gold-accent)]'}`}>
                 {t('heritageArtSimulator.form.total')}: {totalPercentage}%
               </div>
 
               {errors.total && (
-                <div className="text-red-500 text-[11px]">
+                <div className="text-red-500 text-sm">
                   {errors.total}
                 </div>
               )}
@@ -291,7 +291,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
           <>
             {/* Informations personnelles */}
             <div className="space-y-6">
-              <h2 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
+              <h2 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">
                 {t('heritageArtSimulator.form.personalInfo')}
               </h2>
 
@@ -369,7 +369,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
         )}
 
         {errors.general && (
-          <div className="text-red-500 text-[11px] text-center">
+          <div className="text-red-500 text-sm text-center">
             {errors.general}
           </div>
         )}

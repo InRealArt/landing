@@ -33,7 +33,7 @@ export default function SimulatorCheckbox({
             onChange={handleChange}
             className="w-3.5 h-3.5 accent-[var(--ink-black)] border-[var(--border-light)]"
           />
-          <span className="text-[11px] uppercase tracking-[0.15em] font-montserrat text-[var(--gray-text)]">{label}</span>
+          <span className="text-sm uppercase tracking-[0.15em] font-montserrat text-[var(--gray-text)]">{label}</span>
         </label>
       </div>
       {error && (

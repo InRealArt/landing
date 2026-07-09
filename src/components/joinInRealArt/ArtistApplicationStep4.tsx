@@ -34,7 +34,7 @@ export default function ArtistApplicationStep4({
           <p className={labelClass}>
             {t(`${fp}.section4.hasLegalRestrictions`)} *
           </p>
-          <p className="text-[11px] text-grayText mb-3">
+          <p className="text-sm text-grayText mb-3">
             {t(`${fp}.section4.hasLegalRestrictionsHint`)}
           </p>
           <RadioGroup
@@ -74,7 +74,7 @@ export default function ArtistApplicationStep4({
                 </svg>
               )}
             </button>
-            <span className="text-[11px] uppercase tracking-[0.2em] text-textColor leading-relaxed group-hover:text-[#b89c72] transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.2em] text-textColor leading-relaxed group-hover:text-[#b89c72] transition-colors duration-300">
               {t(`${fp}.section4.willingToPromote`)} *
             </span>
           </label>
@@ -83,7 +83,7 @@ export default function ArtistApplicationStep4({
         {/* Submission error */}
         {status === 'error' && (
           <p
-            className="mt-4 text-[10px] uppercase tracking-[0.2em] text-center flex items-center justify-center gap-2"
+            className="mt-4 text-xs uppercase tracking-[0.2em] text-center flex items-center justify-center gap-2"
             style={{ color: '#c0392b' }}
             role="alert"
           >
@@ -108,7 +108,7 @@ export default function ArtistApplicationStep4({
           >
             {status === 'submitting' ? t(`${fp}.submitting`) : t(`${fp}.submit`)}
           </button>
-          <p className="text-[9px] text-grayText mt-8 uppercase tracking-[0.25em]">
+          <p className="text-xs text-grayText mt-8 uppercase tracking-[0.25em]">
             {t(`${fp}.responseTime`)}
           </p>
         </div>

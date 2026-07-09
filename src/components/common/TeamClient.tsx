@@ -37,7 +37,7 @@ export default function TeamClient({ members }: TeamClientProps) {
     <section className="mt-0 pt-24 pb-24 max-w-full w-full">
       <div className="max-w-90 xl:max-w-screen-xl md:flex flex-col w-full mx-auto px-4 items-start">
         <h1 className="text-6xl md:text-8xl serif text-textColor">{t('home.team.heading')}<span className="italic text-gold-accent">{t('home.team.headingHighlight')}</span></h1>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-grayText mt-4">{t('home.team.subtitle')}</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-grayText mt-4">{t('home.team.subtitle')}</p>
       </div>
 
       {formattedMembers.length > 0 ? (

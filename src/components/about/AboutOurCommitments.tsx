@@ -41,7 +41,7 @@ export default function AboutOurCommitments() {
                     <span className="serif italic text-gold-accent text-sm leading-loose shrink-0 mt-0.5">
                       {String(index + 1).padStart(2, '0')}.
                     </span>
-                    <p className="text-[13px] text-grayText leading-loose montserrat">
+                    <p className="text-sm text-grayText leading-loose montserrat">
                       {t(key)}
                     </p>
                   </div>
@@ -51,7 +51,7 @@ export default function AboutOurCommitments() {
 
             {/* Description complémentaire — affichée seulement si la clé n'est pas vide */}
             {t('about.ourCommitments.description') && (
-              <p className="text-[13px] text-grayText leading-loose montserrat border-t border-borderColor pt-8">
+              <p className="text-sm text-grayText leading-loose montserrat border-t border-borderColor pt-8">
                 {t('about.ourCommitments.description')}
               </p>
             )}

@@ -83,7 +83,7 @@ export default function AgenceArtistCard({
             {artist.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
+                className="text-xs uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
               >
                 {tag}
               </span>
@@ -94,7 +94,7 @@ export default function AgenceArtistCard({
 
       {/* Card body */}
       <div className="flex flex-col flex-1 pt-5 pb-6 px-5 border border-t-0 border-borderColor">
-        <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
+        <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat mb-1">
           {artist.title ?? defaultTitleLabel}
         </p>
         <h3 className="serif text-xl font-light text-textColor leading-tight mb-3">
@@ -107,7 +107,7 @@ export default function AgenceArtistCard({
             {networks.slice(0, 4).map((net) => (
               <span
                 key={net}
-                className="text-[9px] uppercase tracking-[0.2em] montserrat border border-borderColor text-grayText px-2 py-0.5"
+                className="text-xs uppercase tracking-[0.2em] montserrat border border-borderColor text-grayText px-2 py-0.5"
               >
                 {SOCIAL_LABELS[net] ?? net}
               </span>
@@ -119,7 +119,7 @@ export default function AgenceArtistCard({
         {metrics && (
           <div className="grid grid-cols-3 gap-2 mb-5 pt-4 border-t border-borderColor">
             <div className="flex flex-col gap-0.5">
-              <span className="text-[9px] uppercase tracking-[0.25em] montserrat text-grayText">
+              <span className="text-xs uppercase tracking-[0.25em] montserrat text-grayText">
                 {audienceLabel}
               </span>
               <span className="serif text-base font-light text-textColor">
@@ -127,7 +127,7 @@ export default function AgenceArtistCard({
               </span>
             </div>
             <div className="flex flex-col gap-0.5">
-              <span className="text-[9px] uppercase tracking-[0.25em] montserrat text-grayText">
+              <span className="text-xs uppercase tracking-[0.25em] montserrat text-grayText">
                 {engagementLabel}
               </span>
               <span className="serif text-base font-light text-textColor">
@@ -135,7 +135,7 @@ export default function AgenceArtistCard({
               </span>
             </div>
             <div className="flex flex-col gap-0.5">
-              <span className="text-[9px] uppercase tracking-[0.25em] montserrat text-grayText">
+              <span className="text-xs uppercase tracking-[0.25em] montserrat text-grayText">
                 {consumptionLabel}
               </span>
               <span className="serif text-base font-light text-textColor">
@@ -148,7 +148,7 @@ export default function AgenceArtistCard({
         {/* CTA */}
         <Link
           href={href}
-          className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+          className="mt-auto inline-flex items-center gap-2 text-sm uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
         >
           {viewProfileLabel}
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

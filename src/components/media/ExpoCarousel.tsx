@@ -256,7 +256,7 @@ export default function ExpoCarousel({ expos }: ExpoCarouselProps) {
           {/* Text block */}
           <div className="flex flex-col gap-y-1.5">
             {/* Location */}
-            <span className="text-white/60 text-[10px] uppercase tracking-[0.35em] montserrat">
+            <span className="text-white/60 text-xs uppercase tracking-[0.35em] montserrat">
               {expo.location}
             </span>
 
@@ -270,7 +270,7 @@ export default function ExpoCarousel({ expos }: ExpoCarouselProps) {
 
             {/* Date */}
             {expo.date && (
-              <p className="text-white/50 text-[10px] uppercase tracking-[0.3em] montserrat">
+              <p className="text-white/50 text-xs uppercase tracking-[0.3em] montserrat">
                 {expo.date}
               </p>
             )}
@@ -311,7 +311,7 @@ export default function ExpoCarousel({ expos }: ExpoCarouselProps) {
 
             {/* Numeric counter */}
             <span
-              className="unbounded text-white/35 text-[10px] tabular-nums"
+              className="unbounded text-white/35 text-xs tabular-nums"
               aria-hidden="true"
             >
               <span className="text-white/80">{String(current + 1).padStart(2, '0')}</span>

@@ -29,7 +29,7 @@ export default function TestimonialSection({ translations }: TestimonialSectionP
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <span
-          className="block text-[10px] uppercase tracking-[0.5em] italic mb-12 montserrat"
+          className="block text-xs uppercase tracking-[0.5em] italic mb-12 montserrat"
           style={{ color: '#666' }}
         >
           {translations.eyebrow}
@@ -46,11 +46,11 @@ export default function TestimonialSection({ translations }: TestimonialSectionP
               style={{ height: '1px', backgroundColor: 'var(--gold-accent)' }}
               aria-hidden="true"
             />
-            <p className="text-[11px] uppercase tracking-[0.4em] font-bold montserrat">
+            <p className="text-sm uppercase tracking-[0.4em] font-bold montserrat">
               {translations.author}
             </p>
             <p
-              className="text-[9px] uppercase tracking-widest mt-1 montserrat"
+              className="text-xs uppercase tracking-widest mt-1 montserrat"
               style={{ color: '#555' }}
             >
               {translations.role}

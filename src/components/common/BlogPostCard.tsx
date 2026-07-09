@@ -45,7 +45,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             </h3>
 
             {tagLabel && (
-              <p className="text-[10px] uppercase text-[#b89c72] font-bold mb-3 tracking-tighter">
+              <p className="text-xs uppercase text-[#b89c72] font-bold mb-3 tracking-tighter">
                 {tagLabel}
               </p>
             )}

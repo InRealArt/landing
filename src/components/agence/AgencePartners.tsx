@@ -86,7 +86,7 @@ export default function AgencePartners({ t }: Props) {
               {t('agence.partners.title')}{' '}
               <em className="not-italic text-gold-accent">{t('agence.partners.titleAccent')}</em>
             </h2>
-            <p className="text-[13px] text-grayText leading-loose montserrat max-w-sm">
+            <p className="text-sm text-grayText leading-loose montserrat max-w-sm">
               {t('agence.partners.subtitle')}
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function AgencePartners({ t }: Props) {
           {/* Left — brand logo panel */}
           <div className="lg:col-span-4 bg-backgroundGrey border-b lg:border-b-0 lg:border-r border-borderColor flex flex-col justify-between p-12 lg:p-16 relative overflow-hidden min-h-[280px]">
             {/* Top — case label */}
-            <p className="relative text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">
+            <p className="relative text-xs uppercase tracking-[0.4em] text-grayText montserrat">
               {t('agence.partners.caseLabel')}
             </p>
 
@@ -121,7 +121,7 @@ export default function AgencePartners({ t }: Props) {
             {/* Bottom — artist callout */}
             <div className="relative">
               <div className="w-8 h-px bg-gold-accent mb-4" />
-              <p className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat mb-1">
+              <p className="text-xs uppercase tracking-[0.4em] text-grayText montserrat mb-1">
                 {t('agence.partners.caseTag')}
               </p>
               <p
@@ -153,7 +153,7 @@ export default function AgencePartners({ t }: Props) {
                 >
                   {t('agence.partners.quote')}
                 </p>
-                <footer className="mt-2 text-[10px] uppercase tracking-[0.35em] text-gold-accent montserrat">
+                <footer className="mt-2 text-xs uppercase tracking-[0.35em] text-gold-accent montserrat">
                   {t('agence.partners.quoteAuthor')}
                 </footer>
               </blockquote>
@@ -185,7 +185,7 @@ export default function AgencePartners({ t }: Props) {
                     >
                       {t(`agence.partners.${value}`)}
                     </span>
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-grayText montserrat leading-snug">
+                    <span className="text-xs uppercase tracking-[0.3em] text-grayText montserrat leading-snug">
                       {t(`agence.partners.${label}`)}
                     </span>
                   </div>
@@ -196,7 +196,7 @@ export default function AgencePartners({ t }: Props) {
               <div className="border-t sm:border-t-0 sm:border-l border-borderColor flex items-center justify-center p-6">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 whitespace-nowrap"
+                  className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 whitespace-nowrap"
                 >
                   {t('agence.partners.ctaLabel')}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

@@ -68,7 +68,7 @@ export default function AgenceCta({ t }: Props) {
         </div>
 
         <p
-          className="text-[12px] uppercase tracking-[0.25em] text-grayText montserrat leading-loose max-w-xl mx-auto mb-12"
+          className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-loose max-w-xl mx-auto mb-12"
           style={{ opacity: 0 }}
         >
           {t('agence.cta.description')}
@@ -80,7 +80,7 @@ export default function AgenceCta({ t }: Props) {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
           >
             {t('agence.cta.button')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -90,7 +90,7 @@ export default function AgenceCta({ t }: Props) {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
           >
             {t('agence.cta.secondaryButton')}
           </Link>

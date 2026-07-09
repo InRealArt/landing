@@ -107,11 +107,11 @@ export default function NewsletterInline() {
               <em className="not-italic text-gold-accent" suppressHydrationWarning>{t('newsletter.modal.titleAccent')}</em>
             </h2>
 
-            <p className="montserrat text-[13px] text-grayText leading-loose mb-2 font-light" suppressHydrationWarning>
+            <p className="montserrat text-sm text-grayText leading-loose mb-2 font-light" suppressHydrationWarning>
               {t('newsletter.modal.subtitle')}
             </p>
 
-            <p className="montserrat text-[11px] text-grayText leading-loose mb-10 font-light" suppressHydrationWarning>
+            <p className="montserrat text-sm text-grayText leading-loose mb-10 font-light" suppressHydrationWarning>
               {t('newsletter.modal.description')}
             </p>
 
@@ -130,7 +130,7 @@ export default function NewsletterInline() {
                   placeholder={t('newsletter.modal.emailPlaceholder')}
                   suppressHydrationWarning
                   disabled={isPending}
-                  className="w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-[13px] font-light focus:outline-none"
+                  className="w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-sm font-light focus:outline-none"
                   required
                 />
               </div>

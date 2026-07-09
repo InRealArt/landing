@@ -64,7 +64,7 @@ export default function TeamContent({ initialMembers }: Props) {
   if (teamItems.length === 0) {
     return (
       <div className="max-w-screen-2xl mx-auto px-10 py-32">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-grayText">{t('team.noMembers')}</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-grayText">{t('team.noMembers')}</p>
       </div>
     )
   }
@@ -104,7 +104,7 @@ export default function TeamContent({ initialMembers }: Props) {
             <h2 className="serif text-4xl italic mb-6 text-textColor">
               {t('team.philosophy.title1')}<br />{t('team.philosophy.title2')}
             </h2>
-            <p className="text-[13px] text-grayText leading-relaxed montserrat mb-8 max-w-md">
+            <p className="text-sm text-grayText leading-relaxed montserrat mb-8 max-w-md">
               {t('team.philosophy.description')}
             </p>
             <Link

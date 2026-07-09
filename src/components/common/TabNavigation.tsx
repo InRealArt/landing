@@ -25,7 +25,7 @@ export default function TabNavigation<T extends string = string>({
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 py-3 px-4 text-[10px] uppercase tracking-[0.2em] font-montserrat transition-colors duration-300 ${
+            className={`flex-1 py-3 px-4 text-xs uppercase tracking-[0.2em] font-montserrat transition-colors duration-300 ${
               activeTab === tab.id
                 ? 'bg-[var(--ink-black)] text-white'
                 : 'text-[var(--gray-text)] hover:text-[var(--ink-black)] hover:bg-[var(--canvas-bg)]'

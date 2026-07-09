@@ -274,8 +274,8 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
 
         {/* Explication des champs marqués d'un astérisque */}
         <div className="border border-[var(--border-light)] p-5 space-y-3">
-          <h3 className="text-[10px] uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">{t('loaSimulator.form.infoBloc.title')}</h3>
-          <div className="space-y-2 text-[12px] text-[var(--gray-text)] leading-loose">
+          <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">{t('loaSimulator.form.infoBloc.title')}</h3>
+          <div className="space-y-2 text-sm text-[var(--gray-text)] leading-loose">
             <div>
               <span className="text-[var(--gold-accent)]">— {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
             </div>

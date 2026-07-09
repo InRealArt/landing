@@ -122,7 +122,7 @@ export default function Contact() {
             <h1 className="text-4xl sm:text-5xl md:text-7xl serif italic leading-tight text-textColor mb-8" suppressHydrationWarning>
               {t('contact.title')}
             </h1>
-            <p className="text-[13px] uppercase tracking-[0.3em] text-grayText max-w-2xl leading-relaxed" suppressHydrationWarning>
+            <p className="text-sm uppercase tracking-[0.3em] text-grayText max-w-2xl leading-relaxed" suppressHydrationWarning>
               {t('contact.subtitle')}
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function Contact() {
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 01.
               </span>
-              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
                 {t('contact.calendly')}
               </h3>
             </div>
@@ -148,7 +148,7 @@ export default function Contact() {
 
             <div className="w-8 h-px bg-gradient-to-r from-gold-accent to-transparent mb-6" />
 
-            <p className="text-[13px] text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
+            <p className="text-sm text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
               {t('contact.calendlyDescription')}
             </p>
 
@@ -171,7 +171,7 @@ export default function Contact() {
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 02.
               </span>
-              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
                 {t('contact.email')}
               </h3>
             </div>
@@ -182,7 +182,7 @@ export default function Contact() {
 
             <div className="w-8 h-px bg-gradient-to-r from-gold-accent to-transparent mb-6" />
 
-            <p className="text-[13px] text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
+            <p className="text-sm text-grayText leading-loose mb-10 flex-grow" suppressHydrationWarning>
               {contactInfo.email}
             </p>
 
@@ -203,7 +203,7 @@ export default function Contact() {
               <span className="serif text-4xl italic text-gold-accent leading-none">
                 03.
               </span>
-              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor" suppressHydrationWarning>
                 {t('contact.social')}
               </h3>
             </div>
@@ -234,7 +234,7 @@ export default function Contact() {
               })}
             </div>
 
-            <p className="text-[10px] uppercase tracking-[0.2em] text-grayText" suppressHydrationWarning>
+            <p className="text-xs uppercase tracking-[0.2em] text-grayText" suppressHydrationWarning>
               {t('contact.followUs')}
             </p>
           </div>

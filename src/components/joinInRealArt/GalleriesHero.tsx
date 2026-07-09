@@ -14,7 +14,7 @@ export default function GalleriesHero() {
 
           {/* Colonne gauche — texte */}
           <div>
-            <span className="block text-[10px] uppercase tracking-[0.4em] text-grayText mb-8">
+            <span className="block text-xs uppercase tracking-[0.4em] text-grayText mb-8">
               {t('joinInRealArt.galleries.hero.sectionLabel')}
             </span>
 
@@ -25,7 +25,7 @@ export default function GalleriesHero() {
               allowHtml={true}
             />
 
-            <p className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-10 leading-relaxed max-w-lg">
+            <p className="text-sm uppercase tracking-[0.3em] text-grayText mt-10 leading-relaxed max-w-lg">
               {t('joinInRealArt.galleries.hero.subtitle')}
             </p>
 

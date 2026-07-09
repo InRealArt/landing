@@ -71,7 +71,7 @@ export const TOTAL_STEPS = 4
 export const inputClass =
   'w-full bg-transparent border-0 border-b border-borderColor py-4 text-[0.85rem] text-textColor placeholder:text-grayText focus:outline-none focus:border-[#b89c72] focus:ring-0 transition-all duration-300 appearance-none rounded-none'
 
-export const labelClass = 'block text-[9px] uppercase tracking-[0.2em] text-grayText mb-3 font-medium'
+export const labelClass = 'block text-xs uppercase tracking-[0.2em] text-grayText mb-3 font-medium'
 
 export const textareaClass = `${inputClass} resize-none min-h-[120px]`
 
@@ -143,7 +143,7 @@ export function SectionHeader({
       >
         {number}
       </span>
-      <span className="text-[10px] uppercase tracking-[0.4em] text-textColor">
+      <span className="text-xs uppercase tracking-[0.4em] text-textColor">
         {title}
       </span>
     </div>
@@ -193,7 +193,7 @@ export function RadioGroup({
               onChange={() => onChange(bool)}
               className="sr-only"
             />
-            <span className="text-[11px] uppercase tracking-[0.2em] text-textColor group-hover:text-[#b89c72] transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.2em] text-textColor group-hover:text-[#b89c72] transition-colors duration-300">
               {label}
             </span>
           </label>
@@ -209,7 +209,7 @@ export function FieldError({ message }: { message: string | undefined }) {
   if (!message) return null
   return (
     <p
-      className="mt-2 text-[9px] uppercase tracking-[0.2em] flex items-center gap-2"
+      className="mt-2 text-xs uppercase tracking-[0.2em] flex items-center gap-2"
       style={{ color: '#c0392b' }}
       role="alert"
     >

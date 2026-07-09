@@ -159,7 +159,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
         {/* Section header */}
         <div ref={headerRef} className="flex items-end gap-10 mb-16">
           <div>
-            <span className="rp-label block text-[10px] uppercase tracking-[0.5em] text-gray-400 font-montserrat mb-4">
+            <span className="rp-label block text-xs uppercase tracking-[0.5em] text-gray-400 font-montserrat mb-4">
               {language === 'fr' ? 'À lire aussi' : 'Further reading'}
             </span>
             <h2 className="rp-title text-4xl lg:text-5xl font-cormorant font-light text-textColor leading-tight">
@@ -232,7 +232,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span
-                        className="text-[10px] uppercase tracking-widest font-montserrat opacity-40"
+                        className="text-xs uppercase tracking-widest font-montserrat opacity-40"
                         style={{ color: 'var(--gray-text)' }}
                       >
                         {language === 'fr' ? 'Sans image' : 'No image'}
@@ -243,7 +243,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
                   {/* Category badge — gold outline, no background fill */}
                   <div className="absolute top-3 left-3">
                     <span
-                      className="inline-block px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-montserrat font-semibold"
+                      className="inline-block px-2.5 py-1 text-xs uppercase tracking-[0.2em] font-montserrat font-semibold"
                       style={{
                         backgroundColor: 'var(--canvas-bg)',
                         color: '#b89c72',
@@ -285,7 +285,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
                     style={{ borderColor: '#eeeeee' }}
                   >
                     <span
-                      className="text-[10px] uppercase tracking-[0.12em] font-montserrat"
+                      className="text-xs uppercase tracking-[0.12em] font-montserrat"
                       style={{ color: 'var(--gray-text)' }}
                     >
                       {new Intl.DateTimeFormat(language === 'fr' ? 'fr-FR' : 'en-US', {
@@ -299,7 +299,7 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
 
                     {/* Read link — border-b transitions to gold on hover */}
                     <span
-                      className="inline-block border-b text-[9px] uppercase tracking-[0.15em] font-semibold font-montserrat transition-colors duration-300 flex-shrink-0 ml-2"
+                      className="inline-block border-b text-xs uppercase tracking-[0.15em] font-semibold font-montserrat transition-colors duration-300 flex-shrink-0 ml-2"
                       style={{ borderColor: 'var(--text)', color: 'var(--text)' }}
                       onMouseEnter={e => {
                         const el = e.currentTarget as HTMLSpanElement

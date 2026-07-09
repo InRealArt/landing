@@ -23,7 +23,7 @@ const Header = () => {
       <li className="whitespace-nowrap relative group">
         <Link
           href={href}
-          className={`text-[13px] uppercase tracking-[0.25em] transition-colors pb-1 ${
+          className={`text-sm uppercase tracking-[0.25em] transition-colors pb-1 ${
             isActive ? 'text-gold-accent' : 'text-textColor hover:text-gold-accent'
           }`}
         >
@@ -58,7 +58,7 @@ const Header = () => {
             <li className="whitespace-nowrap relative group">
               <Link
                 href="/contact"
-                className="text-[13px] uppercase tracking-[0.25em] font-bold text-gold-accent transition-colors pb-1"
+                className="text-sm uppercase tracking-[0.25em] font-bold text-gold-accent transition-colors pb-1"
                 data-umami-event="contact-header-click"
               >
                 {t('nav.contact')}
@@ -74,7 +74,7 @@ const Header = () => {
               href="https://artitude.inrealart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-[10px] font-unbounded font-semibold uppercase tracking-wider px-3 py-2 rounded-lg whitespace-nowrap"
+              className="hidden sm:block bg-textColor text-backgroundColor hover:bg-gold-accent hover:text-white transition-all text-xs font-unbounded font-semibold uppercase tracking-wider px-3 py-2 rounded-lg whitespace-nowrap"
             >
               Artitude Join
             </a>

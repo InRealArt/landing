@@ -29,7 +29,7 @@ export default function LeasingProcess() {
             <h2 className="serif text-5xl mb-8 italic">
               De la sélection <br />à l&apos;installation.
             </h2>
-            <p className="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-400 leading-loose">
+            <p className="text-sm md:text-sm uppercase tracking-[0.2em] text-gray-400 leading-loose">
               Un accompagnement clé-en-main pour intégrer l&apos;art dans votre stratégie d&apos;entreprise sans contrainte administrative.
             </p>
           </div>
@@ -39,10 +39,10 @@ export default function LeasingProcess() {
                 key={step.title}
                 className="advantage-box bg-[var(--soft-gray)]"
               >
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 text-ink-black">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 text-ink-black">
                   {step.title}
                 </h4>
-                <p className="text-[13px] text-gray-500 font-light">
+                <p className="text-sm text-gray-500 font-light">
                   {step.description}
                 </p>
               </div>

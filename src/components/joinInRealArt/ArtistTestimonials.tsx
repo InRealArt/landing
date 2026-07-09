@@ -92,7 +92,7 @@ export default function ArtistTestimonials({
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4">
         <div className="mb-16 text-center">
           {sectionLabelKey && (
-            <span className="block text-[10px] uppercase tracking-[0.5em] text-grayText mb-4">
+            <span className="block text-xs uppercase tracking-[0.5em] text-grayText mb-4">
               {t(sectionLabelKey)}
             </span>
           )}

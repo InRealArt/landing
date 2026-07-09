@@ -43,12 +43,12 @@ export default function ContactForm({ translations }: ContactFormProps) {
           {translations.title} <br />
           <span className="italic">{translations.titleAccent}</span>
         </h2>
-        <p className="text-[12px] mb-12 uppercase tracking-widest montserrat text-grayText">
+        <p className="text-sm mb-12 uppercase tracking-widest montserrat text-grayText">
           {translations.description}
         </p>
 
         {submitted ? (
-          <p className="text-[13px] montserrat text-gold-accent">
+          <p className="text-sm montserrat text-gold-accent">
             {translations.successMessage}
           </p>
         ) : (
@@ -64,7 +64,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full py-4 text-[10px] tracking-widest outline-none montserrat bg-transparent text-textColor border-b border-borderColor"
+                className="w-full py-4 text-xs tracking-widest outline-none montserrat bg-transparent text-textColor border-b border-borderColor"
                 style={{ transition: 'border-color 0.3s ease' }}
                 onFocus={(e) => {
                   ;(e.currentTarget as HTMLInputElement).style.borderBottomColor = 'var(--text)'
@@ -83,7 +83,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
                 id="services-expert"
                 value={expert}
                 onChange={(e) => setExpert(e.target.value)}
-                className="w-full py-4 text-[10px] tracking-widest outline-none montserrat bg-transparent border-b border-borderColor"
+                className="w-full py-4 text-xs tracking-widest outline-none montserrat bg-transparent border-b border-borderColor"
                 style={{
                   color: expert ? 'var(--text)' : 'var(--gray-text)',
                   transition: 'border-color 0.3s ease',
@@ -105,7 +105,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
 
             <button
               type="submit"
-              className="w-full mt-10 py-4 text-[10px] uppercase tracking-[0.25em] montserrat border border-borderColor text-textColor bg-transparent"
+              className="w-full mt-10 py-4 text-xs uppercase tracking-[0.25em] montserrat border border-borderColor text-textColor bg-transparent"
               style={{
                 transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
                 cursor: 'pointer',

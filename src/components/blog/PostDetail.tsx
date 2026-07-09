@@ -100,7 +100,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
       <div className="px-10 py-32 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center min-h-[50vh] gap-8">
           <span className="block w-px h-16 bg-[var(--border-light)] animate-pulse" />
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('common.loading')}</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('common.loading')}</p>
         </div>
       </div>
     )
@@ -111,7 +111,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
       <div className="px-10 py-32 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center min-h-[50vh] gap-6 border border-[var(--border-light)] p-16">
           <p className="serif italic text-3xl text-[var(--ink-black)]">{t('blog.postNotFound')}</p>
-          <Link href="/blog" className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
+          <Link href="/blog" className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
             {t('blog.backToBlog')}
           </Link>
         </div>
@@ -124,7 +124,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
       <div className="px-10 py-32 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center min-h-[50vh] gap-8">
           <span className="block w-px h-16 bg-[var(--border-light)] animate-pulse" />
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.searchingTranslation')}</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.searchingTranslation')}</p>
         </div>
       </div>
     )
@@ -135,7 +135,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
       <div className="px-10 py-32 max-w-screen-2xl mx-auto">
         <div className="flex flex-col items-center justify-center min-h-[50vh] gap-6 border border-[var(--border-light)] p-16 text-center">
           <p className="serif italic text-3xl text-[var(--ink-black)] mb-2">{t('blog.postNotFoundInLanguage')}</p>
-          <p className="text-[12px] text-[var(--gray-text)] leading-loose max-w-md">
+          <p className="text-sm text-[var(--gray-text)] leading-loose max-w-md">
             {t('blog.postAvailableInOtherLanguage')}
           </p>
           <Button
@@ -143,7 +143,7 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
             additionalClassName="bg-purpleColor mt-4"
             link={`/blog/${translatedPost.slug}`}
           />
-          <Link href="/blog" className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
+          <Link href="/blog" className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] border-b border-[var(--border-light)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors pb-1">
             {t('blog.backToBlog')}
           </Link>
         </div>
@@ -243,11 +243,11 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-[var(--soft-gray)]">
-                          <span className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
+                          <span className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)]">{t('blog.noImage')}</span>
                         </div>
                       )}
                       <div className="absolute top-4 left-4">
-                        <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--canvas-bg)] bg-[var(--ink-black)] px-3 py-1">
+                        <span className="text-xs uppercase tracking-[0.2em] text-[var(--canvas-bg)] bg-[var(--ink-black)] px-3 py-1">
                           {relatedPost.category.name}
                         </span>
                       </div>
@@ -257,11 +257,11 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                         {relatedPost.title}
                       </h3>
                       {relatedPost.excerpt && (
-                        <p className="text-[12px] text-[var(--gray-text)] line-clamp-2 leading-relaxed mb-6">
+                        <p className="text-sm text-[var(--gray-text)] line-clamp-2 leading-relaxed mb-6">
                           {relatedPost.excerpt}
                         </p>
                       )}
-                      <div className="mt-auto pt-4 border-t border-[var(--border-light)] text-[9px] uppercase tracking-[0.25em] text-[var(--gray-text)] flex justify-between items-center">
+                      <div className="mt-auto pt-4 border-t border-[var(--border-light)] text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] flex justify-between items-center">
                         <span>{formatDate(relatedPost.createdAt)}</span>
                         {relatedPost.estimatedReadTime && (
                           <span>{relatedPost.estimatedReadTime} {t('blog.readTime.minutes')}</span>

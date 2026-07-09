@@ -141,7 +141,7 @@ export default function ArtistsGrid({ initialArtists, artworkPreviews }: Props) 
         <section className="py-20 px-4 sm:px-10 bg-backgroundColor border-b border-borderColor">
           <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-grayText mb-3">
+              <p className="text-xs uppercase tracking-[0.4em] text-grayText mb-3">
                 {t('artists.hub.agenceBridgeEyebrow')}
               </p>
               <p className="text-lg font-bold uppercase tracking-[0.1em] bricolage-grotesque text-textColor">

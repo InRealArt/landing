@@ -29,7 +29,7 @@ export default function MediaPartners() {
     <section className="w-full bg-backgroundGrey border-y border-borderColor py-16 overflow-hidden">
       <div className="max-w-90 xl:max-w-screen-xl mx-auto px-4 mb-10">
         <p
-          className="text-[10px] uppercase tracking-[0.4em] text-grayText text-center"
+          className="text-xs uppercase tracking-[0.4em] text-grayText text-center"
           suppressHydrationWarning
         >
           {t('home.mediaPartners.title')}

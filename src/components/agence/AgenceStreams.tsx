@@ -84,7 +84,7 @@ export default function AgenceStreams({ t }: Props) {
               >
                 {/* Coming soon badge */}
                 {isComingSoon && (
-                  <span className="absolute top-8 right-8 text-[9px] uppercase tracking-[0.4em] border border-gold-accent/50 text-gold-accent/70 px-3 py-1 montserrat">
+                  <span className="absolute top-8 right-8 text-xs uppercase tracking-[0.4em] border border-gold-accent/50 text-gold-accent/70 px-3 py-1 montserrat">
                     {badge}
                   </span>
                 )}
@@ -102,7 +102,7 @@ export default function AgenceStreams({ t }: Props) {
                 </p>
 
                 {/* Label */}
-                <p className="text-[9px] uppercase tracking-[0.45em] text-gold-accent montserrat mb-4">
+                <p className="text-xs uppercase tracking-[0.45em] text-gold-accent montserrat mb-4">
                   {t(`agence.streams.${key}.label`)}
                 </p>
 
@@ -115,7 +115,7 @@ export default function AgenceStreams({ t }: Props) {
                 <div className="w-8 h-px bg-gold-accent/40 mb-6 group-hover:w-16 group-hover:bg-gold-accent transition-all duration-500" />
 
                 {/* Description */}
-                <p className="text-[13px] text-grayText leading-loose montserrat">
+                <p className="text-sm text-grayText leading-loose montserrat">
                   {t(`agence.streams.${key}.description`)}
                 </p>
               </div>

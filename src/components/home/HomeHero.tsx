@@ -191,7 +191,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             ref={ctaRef}
             href={current.href}
             suppressHydrationWarning
-            className="inline-flex items-center gap-3 bg-white text-black text-[11px] uppercase tracking-[0.3em] font-bold px-8 py-4 hover:bg-gold-accent transition-all duration-200 shadow-lg hover:shadow-gold-accent/30"
+            className="inline-flex items-center gap-3 bg-white text-black text-sm uppercase tracking-[0.3em] font-bold px-8 py-4 hover:bg-gold-accent transition-all duration-200 shadow-lg hover:shadow-gold-accent/30"
           >
             {t(current.ctaKey)}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -205,7 +205,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             target="_blank"
             rel="noopener noreferrer"
             suppressHydrationWarning
-            className="inline-flex items-center gap-2 text-white/50 text-[10px] uppercase tracking-[0.25em] font-medium hover:text-gold-accent transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 text-white/50 text-xs uppercase tracking-[0.25em] font-medium hover:text-gold-accent transition-colors duration-200 group"
           >
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true" className="shrink-0">
               <rect x="1" y="2.5" width="11" height="9.5" rx="1" stroke="currentColor" strokeWidth="1.2" />

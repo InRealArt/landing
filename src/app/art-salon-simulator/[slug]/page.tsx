@@ -49,7 +49,7 @@ export default function ArtSalonSimulatorPage({ params }: ArtSalonSimulatorPageP
         height={400}
         className="[&_img]:opacity-90 [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
       />
-      <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
+      <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
         {salon.name}
       </p>
     </div>

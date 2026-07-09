@@ -28,7 +28,7 @@ export default function ImmobilierClient() {
                 </em>{' '}
                 <TranslatedText translationKey="immobilier.hero.titleSuffix" />
               </h1>
-              <p className="text-[12px] uppercase tracking-[0.3em] text-[var(--gray-text)] mt-12 leading-loose max-w-lg montserrat">
+              <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] mt-12 leading-loose max-w-lg montserrat">
                 <TranslatedText translationKey="immobilier.hero.description" />
               </p>
               <div className="mt-12">
@@ -95,7 +95,7 @@ export default function ImmobilierClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="immobilier.advantages.cards.projection.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="immobilier.advantages.cards.projection.description" />
               </p>
             </div>
@@ -110,7 +110,7 @@ export default function ImmobilierClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="immobilier.advantages.cards.acceleration.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="immobilier.advantages.cards.acceleration.description" />
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function ImmobilierClient() {
               <h3 className="serif text-2xl mb-6 text-[var(--canvas-bg)]">
                 <TranslatedText translationKey="immobilier.advantages.cards.differentiation.title" />
               </h3>
-              <p className="text-[13px] text-[#999] leading-loose montserrat font-light">
+              <p className="text-sm text-[#999] leading-loose montserrat font-light">
                 <TranslatedText translationKey="immobilier.advantages.cards.differentiation.description" />
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function ImmobilierClient() {
                 <br />
                 <TranslatedText translationKey="immobilier.process.titleSuffix" />
               </h2>
-              <p className="text-[12px] uppercase tracking-[0.2em] text-[var(--gray-text)] leading-loose montserrat">
+              <p className="text-sm uppercase tracking-[0.2em] text-[var(--gray-text)] leading-loose montserrat">
                 <TranslatedText translationKey="immobilier.process.description" />
               </p>
             </div>
@@ -158,37 +158,37 @@ export default function ImmobilierClient() {
             <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border-light)] border border-[var(--border-light)]">
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="immobilier.process.steps.curation.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="immobilier.process.steps.curation.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="immobilier.process.steps.deployment.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="immobilier.process.steps.deployment.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="immobilier.process.steps.commitment.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="immobilier.process.steps.commitment.description" />
                 </p>
               </div>
 
               <div className="bg-[var(--soft-gray)] hover:bg-[var(--canvas-bg)] border-t-2 border-t-transparent hover:border-t-[var(--gold-accent)] p-12 transition-all duration-500">
-                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
+                <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-4 montserrat text-[var(--ink-black)]">
                   <TranslatedText translationKey="immobilier.process.steps.revelation.title" />
                 </h4>
-                <p className="text-[13px] text-[var(--gray-text)] montserrat font-light leading-relaxed">
+                <p className="text-sm text-[var(--gray-text)] montserrat font-light leading-relaxed">
                   <TranslatedText translationKey="immobilier.process.steps.revelation.description" />
                 </p>
               </div>
@@ -223,7 +223,7 @@ export default function ImmobilierClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="immobilier.stats.items.projection.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="immobilier.stats.items.projection.label" />
                 </p>
               </div>
@@ -231,7 +231,7 @@ export default function ImmobilierClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="immobilier.stats.items.acceleration.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="immobilier.stats.items.acceleration.label" />
                 </p>
               </div>
@@ -239,7 +239,7 @@ export default function ImmobilierClient() {
                 <span className="serif text-6xl italic block mb-3" style={{ color: 'var(--gold-accent)' }}>
                   <TranslatedText translationKey="immobilier.stats.items.tax.value" />
                 </span>
-                <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
+                <p className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] montserrat">
                   <TranslatedText translationKey="immobilier.stats.items.tax.label" />
                 </p>
               </div>

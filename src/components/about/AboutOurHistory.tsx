@@ -63,10 +63,10 @@ export default function AboutOurHistory() {
               key={item.number}
               className="border-t border-borderColor pt-12 md:pr-12 pb-12"
             >
-              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor mb-4 montserrat">
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor mb-4 montserrat">
                 {t(item.titleKey)}
               </h3>
-              <p className="text-[13px] text-grayText leading-loose montserrat">
+              <p className="text-sm text-grayText leading-loose montserrat">
                 {t(item.textKey)}
               </p>
             </div>

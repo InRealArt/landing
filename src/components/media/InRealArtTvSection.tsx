@@ -44,7 +44,7 @@ function JobCard({ icon, titleKey, descriptionKey, badgeKey }: JobCardProps) {
       </p>
 
       <span
-        className="text-[9px] font-bold uppercase tracking-widest montserrat"
+        className="text-xs font-bold uppercase tracking-widest montserrat"
         style={{ color: '#0047FF' }}
       >
         <TranslatedText translationKey={badgeKey} />
@@ -205,7 +205,7 @@ export default function InRealArtTvSection() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
         <div>
           <span
-            className="text-[10px] font-bold uppercase tracking-[0.4em] block mb-2 montserrat"
+            className="text-xs font-bold uppercase tracking-[0.4em] block mb-2 montserrat"
             style={{ color: '#aaa' }}
           >
             <TranslatedText translationKey="inartTvSection.header.label" />

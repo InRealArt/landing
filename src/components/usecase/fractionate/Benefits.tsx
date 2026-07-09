@@ -42,7 +42,7 @@ export default function Benefits() {
             >
               <span className="serif text-3xl italic text-[var(--gold-accent)] block mb-6">0{index + 1}.</span>
               <h3 className="serif italic text-2xl mb-4">{benefit.title}</h3>
-              <p className="text-[12px] text-[var(--gray-text)] leading-loose">{benefit.description}</p>
+              <p className="text-sm text-[var(--gray-text)] leading-loose">{benefit.description}</p>
             </div>
           ))}
         </div>

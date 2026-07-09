@@ -134,10 +134,10 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
             </label>
 
             {/* Count + reset */}
-            <span className="text-[11px] text-grayText montserrat">{studioCountLabel}</span>
+            <span className="text-sm text-grayText montserrat">{studioCountLabel}</span>
             <button
               onClick={resetFilters}
-              className="text-[11px] uppercase tracking-[0.2em] montserrat text-grayText hover:text-textColor transition-colors"
+              className="text-sm uppercase tracking-[0.2em] montserrat text-grayText hover:text-textColor transition-colors"
             >
               {t('artistsStudio.grid.reset')}
             </button>
@@ -157,7 +157,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
               <p className="text-sm text-grayText montserrat max-w-sm">{t('artistsStudio.grid.emptyHint')}</p>
               <button
                 onClick={resetFilters}
-                className="mt-6 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-6 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300"
+                className="mt-6 text-sm uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-6 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300"
               >
                 {t('artistsStudio.grid.resetFilters')}
               </button>
@@ -186,13 +186,13 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                         <span
-                          className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
+                          className="text-xs uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1"
                           style={{ backgroundColor: artist.color + '99' }}
                         >
                           {artist.mediumLabel}
                         </span>
                         {artist.openPublic && (
-                          <span className="text-[9px] uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
+                          <span className="text-xs uppercase tracking-[0.3em] text-white/90 montserrat bg-black/40 backdrop-blur-sm px-2 py-1 flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
                             {t('artistsStudio.detail.openPublic')}
                           </span>
@@ -202,7 +202,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
 
                     {/* Card body */}
                     <div className="flex flex-col flex-1 pt-5 pb-6 px-5 border border-t-0 border-borderColor">
-                      <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat mb-1">
+                      <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat mb-1">
                         {artist.city}
                       </p>
                       <h3 className="serif text-xl font-light text-textColor leading-tight mb-3 group-hover:text-gold-accent transition-colors duration-300">
@@ -218,7 +218,7 @@ export default function ArtistsStudioGrid({ artists, selectedArtistId, onSelectA
                           e.stopPropagation()
                           handleDiscoverClick(artist.id)
                         }}
-                        className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+                        className="mt-auto inline-flex items-center gap-2 text-sm uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
                       >
                         {t('artistsStudio.grid.discoverCta')}
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

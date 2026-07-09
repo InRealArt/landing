@@ -148,7 +148,7 @@ export default function TeamModal({ isOpen, onClose, member }: TeamModalProps) {
 
               {/* Name + role */}
               <h2 className="text-4xl md:text-5xl serif text-textColor leading-tight">{member.name}</h2>
-              <p className="text-[10px] uppercase tracking-widest text-gold-accent mt-3 montserrat">
+              <p className="text-xs uppercase tracking-widest text-gold-accent mt-3 montserrat">
                 {member.role}
               </p>
 
@@ -157,14 +157,14 @@ export default function TeamModal({ isOpen, onClose, member }: TeamModalProps) {
 
               {/* Intro */}
               {member.intro && (
-                <p className="text-[13px] text-grayText leading-loose montserrat mb-5">
+                <p className="text-sm text-grayText leading-loose montserrat mb-5">
                   {member.intro}
                 </p>
               )}
 
               {/* Description */}
               {member.description && (
-                <p className="text-[12px] text-grayText leading-loose montserrat whitespace-pre-line border-t border-borderColor pt-6">
+                <p className="text-sm text-grayText leading-loose montserrat whitespace-pre-line border-t border-borderColor pt-6">
                   {member.description}
                 </p>
               )}
@@ -181,7 +181,7 @@ export default function TeamModal({ isOpen, onClose, member }: TeamModalProps) {
                       className="group/btn flex items-center gap-2 px-4 py-2.5 border border-textColor/20 hover:border-textColor hover:bg-textColor hover:text-backgroundColor transition-all duration-500"
                     >
                       <SocialIcon url={social.link} />
-                      <span className="text-[9px] uppercase tracking-[0.25em] montserrat">
+                      <span className="text-xs uppercase tracking-[0.25em] montserrat">
                         {getSocialLabel(social.link)}
                       </span>
                     </Link>

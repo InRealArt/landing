@@ -135,7 +135,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
 
             <p
               ref={specialtyRef}
-              className="text-[9px] lg:text-[10px] uppercase tracking-[0.3em] lg:tracking-[0.35em] text-gray-400 font-montserrat flex items-center gap-2 lg:gap-3 opacity-0"
+              className="text-xs lg:text-xs uppercase tracking-[0.3em] lg:tracking-[0.35em] text-gray-400 font-montserrat flex items-center gap-2 lg:gap-3 opacity-0"
             >
               <span className="w-4 lg:w-6 h-px bg-gray-300 flex-shrink-0" aria-hidden="true" />
               {artist.role}
@@ -175,14 +175,14 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
         <div className="flex flex-wrap items-center gap-3 mt-3 lg:mt-4">
           <a
             href="#artworks"
-            className="px-5 py-2 bg-gold-accent text-black text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold-accent/80 transition-colors duration-200"
+            className="px-5 py-2 bg-gold-accent text-black text-xs uppercase tracking-[0.2em] font-bold hover:bg-gold-accent/80 transition-colors duration-200"
           >
             {t('artists.profile.acquireArtwork')}
           </a>
           {artist.ugcSlug && (
             <Link
               href={`/agence/artists/${artist.ugcSlug}`}
-              className="px-5 py-2 border border-gold-accent text-gold-accent text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-gold-accent hover:text-black transition-colors duration-200"
+              className="px-5 py-2 border border-gold-accent text-gold-accent text-xs uppercase tracking-[0.2em] font-bold hover:bg-gold-accent hover:text-black transition-colors duration-200"
             >
               {t('artists.profile.collaborateCta').replace('{name}', firstName)}
             </Link>

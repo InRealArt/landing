@@ -71,16 +71,16 @@ export default function AgenceUgc({ t }: Props) {
               {t('agence.ugc.title')}
             </h2>
             <div className="w-8 h-px bg-gold-accent mb-6" />
-            <p className="text-[13px] text-grayText leading-loose montserrat">
+            <p className="text-sm text-grayText leading-loose montserrat">
               {t('agence.ugc.description')}
             </p>
 
             {/* Coming soon notice */}
             <div className="mt-10 border border-gold-accent/30 p-6">
-              <p className="text-[9px] uppercase tracking-[0.4em] text-gold-accent montserrat mb-2">
+              <p className="text-xs uppercase tracking-[0.4em] text-gold-accent montserrat mb-2">
                 {t('agence.ugc.comingSoon')}
               </p>
-              <p className="text-[12px] text-grayText montserrat leading-relaxed">
+              <p className="text-sm text-grayText montserrat leading-relaxed">
                 {t('agence.ugc.comingSoonDetail')}
               </p>
             </div>
@@ -90,11 +90,11 @@ export default function AgenceUgc({ t }: Props) {
           <div className="lg:col-span-8">
             {/* Column headers */}
             <div className="grid grid-cols-3 gap-4 px-4 pb-4 border-b border-borderColor mb-0">
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">Format</span>
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">
+              <span className="text-xs uppercase tracking-[0.4em] text-grayText montserrat">Format</span>
+              <span className="text-xs uppercase tracking-[0.4em] text-grayText montserrat">
                 {t('agence.ugc.rights_label')}
               </span>
-              <span className="text-[9px] uppercase tracking-[0.4em] text-grayText montserrat">
+              <span className="text-xs uppercase tracking-[0.4em] text-grayText montserrat">
                 {t('agence.ugc.delay_label')}
               </span>
             </div>
@@ -109,21 +109,21 @@ export default function AgenceUgc({ t }: Props) {
                 >
                   {/* Format name */}
                   <div>
-                    <p className="text-[13px] text-textColor montserrat font-medium leading-snug">
+                    <p className="text-sm text-textColor montserrat font-medium leading-snug">
                       {t(`agence.ugc.formats.${key}.name`)}
                     </p>
-                    <p className="text-[11px] text-grayText montserrat mt-1">
+                    <p className="text-sm text-grayText montserrat mt-1">
                       {t(`agence.ugc.formats.${key}.detail`)}
                     </p>
                   </div>
 
                   {/* Rights */}
-                  <p className="text-[11px] text-grayText montserrat leading-relaxed">
+                  <p className="text-sm text-grayText montserrat leading-relaxed">
                     {t(`agence.ugc.formats.${key}.rights`)}
                   </p>
 
                   {/* Delay */}
-                  <p className="text-[11px] text-grayText montserrat">
+                  <p className="text-sm text-grayText montserrat">
                     {t(`agence.ugc.formats.${key}.delay`)}
                   </p>
                 </div>

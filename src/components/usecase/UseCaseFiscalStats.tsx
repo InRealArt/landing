@@ -54,7 +54,7 @@ export default function UseCaseFiscalStats() {
           <h2 className="serif text-4xl md:text-5xl lg:text-6xl font-light leading-none mt-4 text-white">
             {t('usecase.fiscal.title')}
           </h2>
-          <p className="text-[11px] uppercase tracking-[0.3em] section-dark-muted mt-6 max-w-xl mx-auto leading-relaxed montserrat">
+          <p className="text-sm uppercase tracking-[0.3em] section-dark-muted mt-6 max-w-xl mx-auto leading-relaxed montserrat">
             {t('usecase.fiscal.subtitle')}
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function UseCaseFiscalStats() {
               >
                 {t(valueKey)}
               </p>
-              <p className="text-[10px] uppercase tracking-[0.35em] section-dark-muted montserrat leading-relaxed max-w-[180px] mx-auto">
+              <p className="text-xs uppercase tracking-[0.35em] section-dark-muted montserrat leading-relaxed max-w-[180px] mx-auto">
                 {t(labelKey)}
               </p>
             </div>

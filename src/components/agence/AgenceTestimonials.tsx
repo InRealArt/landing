@@ -104,7 +104,7 @@ export default function AgenceTestimonials({ t, artists }: Props) {
               {t('agence.testimonials.title')}{' '}
               <em className="not-italic text-gold-accent">{t('agence.testimonials.titleAccent')}</em>
             </h2>
-            <p className="text-[13px] text-grayText leading-loose montserrat max-w-sm">
+            <p className="text-sm text-grayText leading-loose montserrat max-w-sm">
               {t('agence.testimonials.subtitle')}
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function AgenceTestimonials({ t, artists }: Props) {
                 </blockquote>
 
                 {/* Context tag */}
-                <p className="text-[9px] uppercase tracking-[0.35em] text-grayText montserrat">
+                <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat">
                   {testimonial.context}
                 </p>
 
@@ -181,7 +181,7 @@ export default function AgenceTestimonials({ t, artists }: Props) {
                       {name}
                     </p>
                     {artist.profile.title && (
-                      <p className="text-[9px] uppercase tracking-[0.3em] text-grayText montserrat mt-1">
+                      <p className="text-xs uppercase tracking-[0.3em] text-grayText montserrat mt-1">
                         {artist.profile.title}
                       </p>
                     )}

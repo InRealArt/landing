@@ -35,7 +35,7 @@ export default function UseCaseImpact() {
               {stat.value}
             </span>
             <p
-              className="text-[10px] uppercase tracking-[0.3em] montserrat leading-relaxed section-dark-muted"
+              className="text-xs uppercase tracking-[0.3em] montserrat leading-relaxed section-dark-muted"
             >
               {stat.label}
             </p>

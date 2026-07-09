@@ -71,16 +71,16 @@ export default function ExpertsSection({ experts, translations }: ExpertsSection
                 </div>
 
                 {/* Meta */}
-                <span className="text-[9px] uppercase tracking-widest font-bold text-gold-accent">
+                <span className="text-xs uppercase tracking-widest font-bold text-gold-accent">
                   {meta.specialty}
                 </span>
                 <h2 className="serif text-4xl mt-2 text-textColor">
                   {fullName}
                 </h2>
-                <p className="text-[10px] uppercase tracking-widest mb-6 italic text-grayText">
+                <p className="text-xs uppercase tracking-widest mb-6 italic text-grayText">
                   {role}
                 </p>
-                <p className="text-[13px] leading-relaxed montserrat text-grayText">
+                <p className="text-sm leading-relaxed montserrat text-grayText">
                   {meta.intro}
                 </p>
               </div>

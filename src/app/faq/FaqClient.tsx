@@ -87,7 +87,7 @@ export default function FaqClient({ initialData }: FaqClientProps) {
           Questions{' '}
           <em className="italic text-gold-accent not-italic">fréquentes</em>
         </h1>
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 max-w-md" data-anim="faq-hero-desc">
+        <p className="text-sm uppercase tracking-[0.3em] text-gray-400 max-w-md" data-anim="faq-hero-desc">
           {t('faq.page.description')}
         </p>
       </section>
@@ -101,7 +101,7 @@ export default function FaqClient({ initialData }: FaqClientProps) {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={[
-                  'text-[9px] uppercase tracking-[0.25em] px-5 py-2.5 border transition-colors duration-200',
+                  'text-xs uppercase tracking-[0.25em] px-5 py-2.5 border transition-colors duration-200',
                   activeTab === tab
                     ? 'border-ink-black bg-ink-black text-white'
                     : 'border-border-light bg-transparent text-ink-black hover:border-ink-black',
@@ -156,7 +156,7 @@ export default function FaqClient({ initialData }: FaqClientProps) {
                       opacity: isOpen ? 1 : 0,
                     }}
                   >
-                    <p className="text-[13px] text-gray-500 leading-loose pb-6 max-w-2xl">
+                    <p className="text-sm text-gray-500 leading-loose pb-6 max-w-2xl">
                       {item.content}
                     </p>
                   </dd>
@@ -165,7 +165,7 @@ export default function FaqClient({ initialData }: FaqClientProps) {
             })}
           </dl>
         ) : (
-          <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 py-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-400 py-16">
             —
           </p>
         )}

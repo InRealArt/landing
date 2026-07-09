@@ -28,7 +28,7 @@ export default function Advantages() {
           <h2 className="text-5xl md:text-7xl serif italic leading-tight">
             <span className="text-[var(--gold-accent)]">{t('leasing.advantages.title')}</span>
           </h2>
-          <p className="text-[12px] text-[var(--gray-text)] leading-loose mt-6 max-w-lg uppercase tracking-[0.2em]">
+          <p className="text-sm text-[var(--gray-text)] leading-loose mt-6 max-w-lg uppercase tracking-[0.2em]">
             {t('leasing.advantages.subtitle')}
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function Advantages() {
               <h3 className="serif italic text-2xl mb-4">
                 {item.title}
               </h3>
-              <p className="text-[12px] text-[var(--gray-text)] leading-loose">
+              <p className="text-sm text-[var(--gray-text)] leading-loose">
                 {item.description}
               </p>
             </div>

@@ -236,7 +236,7 @@ const GDPRConsentBanner = () => {
                   <span className="text-gold-accent not-italic">personnalisée</span>
                 </h3>
                 
-                <p className="text-[13px] text-gray-500 leading-loose mb-6 max-w-2xl">
+                <p className="text-sm text-gray-500 leading-loose mb-6 max-w-2xl">
                   {t('cookieConsent.valueProposition')}
                 </p>
 
@@ -257,7 +257,7 @@ const GDPRConsentBanner = () => {
                 </div>
 
                 <button
-                  className="text-[10px] uppercase tracking-[0.25em] text-gold-accent hover:text-ink-black transition-colors border-b border-gold-accent/30 pb-1"
+                  className="text-xs uppercase tracking-[0.25em] text-gold-accent hover:text-ink-black transition-colors border-b border-gold-accent/30 pb-1"
                   onClick={handleShowPreferences}
                 >
                   {t('cookieConsent.managePreferences')}
@@ -312,7 +312,7 @@ const GDPRConsentBanner = () => {
                 <p className="serif text-xl italic text-ink-black mb-2">
                   {t('cookieConsent.transparencyNotice')}
                 </p>
-                <p className="text-[13px] text-gray-500 leading-loose">
+                <p className="text-sm text-gray-500 leading-loose">
                   {t('cookieConsent.transparencyDescription')}
                 </p>
               </div>
@@ -322,14 +322,14 @@ const GDPRConsentBanner = () => {
                 <div className="border-t border-border-light pt-6">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-lg serif italic text-ink-black">{t('cookieConsent.necessary')}</h3>
-                    <span className="text-[9px] uppercase tracking-[0.25em] text-gray-400 bg-soft-gray px-3 py-1">
+                    <span className="text-xs uppercase tracking-[0.25em] text-gray-400 bg-soft-gray px-3 py-1">
                       {t('cookieConsent.alwaysActive')}
                     </span>
                   </div>
-                  <p className="text-[13px] text-gray-500 leading-loose mb-3">
+                  <p className="text-sm text-gray-500 leading-loose mb-3">
                     {t('cookieConsent.necessaryDescription')}
                   </p>
-                  <div className="text-[12px] text-gray-400 space-y-1">
+                  <div className="text-sm text-gray-400 space-y-1">
                     <p>{t('cookieConsent.sessionCookies')}</p>
                     <p>{t('cookieConsent.securityCookies')}</p>
                   </div>
@@ -349,11 +349,11 @@ const GDPRConsentBanner = () => {
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gold-accent"></div>
                     </label>
                   </div>
-                  <p className="text-[13px] text-gray-500 leading-loose mb-3">
+                  <p className="text-sm text-gray-500 leading-loose mb-3">
                     {t('cookieConsent.marketingDescription')}
                   </p>
                   {!state.preferences.marketing && (
-                    <div className="text-[12px] text-gray-400 italic serif">
+                    <div className="text-sm text-gray-400 italic serif">
                       Publicités génériques, offres non ciblées
                     </div>
                   )}
@@ -373,11 +373,11 @@ const GDPRConsentBanner = () => {
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gold-accent"></div>
                     </label>
                   </div>
-                  <p className="text-[13px] text-gray-500 leading-loose mb-3">
+                  <p className="text-sm text-gray-500 leading-loose mb-3">
                     {t('cookieConsent.functionalityDescription')}
                   </p>
                   {!state.preferences.functionality && (
-                    <div className="text-[12px] text-gray-400 italic serif">
+                    <div className="text-sm text-gray-400 italic serif">
                       Préférences non sauvegardées, pas de personnalisation
                     </div>
                   )}
@@ -397,11 +397,11 @@ const GDPRConsentBanner = () => {
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gold-accent"></div>
                     </label>
                   </div>
-                  <p className="text-[13px] text-gray-500 leading-loose mb-3">
+                  <p className="text-sm text-gray-500 leading-loose mb-3">
                     {t('cookieConsent.analyticsDescription')}
                   </p>
                   {!state.preferences.analytics && (
-                    <div className="text-[12px] text-gray-400 italic serif">
+                    <div className="text-sm text-gray-400 italic serif">
                       Statistiques anonymes, pas d&quot;amélioration personnalisée
                     </div>
                   )}
@@ -427,7 +427,7 @@ const GDPRConsentBanner = () => {
                 <div className="text-center">
                   <button
                     onClick={handleRejectAll}
-                    className="text-[10px] uppercase tracking-[0.25em] text-gray-400 hover:text-ink-black transition-colors underline"
+                    className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-ink-black transition-colors underline"
                   >
                     {t('cookieConsent.continueWithoutAccepting')}
                   </button>

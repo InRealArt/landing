@@ -47,7 +47,7 @@ export default function Benefits() {
                 <h3 className="serif italic text-2xl md:text-3xl mb-4">
                   {item.title}
                 </h3>
-                <p className="text-[12px] leading-loose text-[var(--gray-text)]">
+                <p className="text-sm leading-loose text-[var(--gray-text)]">
                   {item.description}
                 </p>
               </div>

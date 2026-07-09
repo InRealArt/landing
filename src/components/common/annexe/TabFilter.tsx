@@ -15,7 +15,7 @@ export default function TabFilter({ activeTab, tabs, setActiveTab, className = "
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2 text-[10px] uppercase tracking-[0.3em] transition-all duration-300 border ${
+            className={`px-6 py-2 text-xs uppercase tracking-[0.3em] transition-all duration-300 border ${
               activeTab === tab
                 ? "border-[var(--ink-black)] bg-[var(--ink-black)] text-white"
                 : "border-[var(--border-light)] text-[var(--gray-text)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)]"

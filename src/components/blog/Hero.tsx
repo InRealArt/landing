@@ -21,7 +21,7 @@ export default function Hero() {
         <TranslatedText
           translationKey="blog.subtitle"
           as="p"
-          className="text-[11px] uppercase tracking-[0.3em] text-[var(--gray-text)] max-w-2xl leading-loose mt-6"
+          className="text-sm uppercase tracking-[0.3em] text-[var(--gray-text)] max-w-2xl leading-loose mt-6"
           allowHtml={true}
         />
       </div>

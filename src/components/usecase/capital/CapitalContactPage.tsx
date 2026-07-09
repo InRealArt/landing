@@ -19,7 +19,7 @@ export default function CapitalContactPage() {
           </h1>
           <div className="flex items-center gap-4 mt-8 max-w-2xl">
             <div className="w-12 h-px bg-gold-accent shrink-0" />
-            <p className="text-[12px] uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed">
+            <p className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed">
               {t('usecase.capital.contact.hero.subtitle')}
             </p>
           </div>

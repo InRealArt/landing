@@ -127,7 +127,7 @@ export default function Testimonials() {
               {/* Quote text */}
               <blockquote className="flex-1">
                 <p
-                  className="text-[13px] text-grayText leading-loose italic"
+                  className="text-sm text-grayText leading-loose italic"
                   suppressHydrationWarning
                 >
                   {t(item.quoteKey)}
@@ -149,7 +149,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <cite
-                  className="not-italic text-[10px] uppercase tracking-[0.35em] font-bold text-textColor leading-snug min-w-0 break-words"
+                  className="not-italic text-xs uppercase tracking-[0.35em] font-bold text-textColor leading-snug min-w-0 break-words"
                   suppressHydrationWarning
                 >
                   {t(item.nameKey)}

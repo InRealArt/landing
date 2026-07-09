@@ -90,7 +90,7 @@ export default function AgenceHero({ t }: Props) {
                 className="w-12 h-px bg-gold-accent shrink-0"
                 style={{ transformOrigin: 'left center' }}
               />
-              <p className="text-[12px] uppercase tracking-[0.3em] text-grayText montserrat max-w-xl leading-relaxed">
+              <p className="text-sm uppercase tracking-[0.3em] text-grayText montserrat max-w-xl leading-relaxed">
                 {t('agence.hero.subtitle')}
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function AgenceHero({ t }: Props) {
             <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4" style={{ opacity: 0 }}>
               <Link
                 href="/agence/brief"
-                className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-[10px] uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
+                className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
               >
                 {t('agence.hero.cta')}
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -125,7 +125,7 @@ export default function AgenceHero({ t }: Props) {
                 >
                   {stat.value}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.35em] text-grayText montserrat">
+                <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat">
                   {t(stat.labelKey)}
                 </p>
               </div>

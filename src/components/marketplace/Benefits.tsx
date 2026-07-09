@@ -38,7 +38,7 @@ export default function Benefits() {
             {t('marketplace.benefits.title')}{' '}
             <span className="italic text-gold-accent">{t('marketplace.benefits.titleAccent')}</span>
           </h2>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-grayText mt-8 max-w-xl leading-relaxed">
+          <p className="text-sm uppercase tracking-[0.3em] text-grayText mt-8 max-w-xl leading-relaxed">
             {t('marketplace.benefits.description')}
           </p>
         </div>
@@ -50,10 +50,10 @@ export default function Benefits() {
               <span className="serif text-3xl italic text-gold-accent block mb-6">
                 {benefit.index}.
               </span>
-              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-textColor mb-6">
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-textColor mb-6">
                 {benefit.title}
               </h3>
-              <p className="text-[13px] text-grayText leading-loose">
+              <p className="text-sm text-grayText leading-loose">
                 {benefit.description}
               </p>
             </div>

@@ -17,7 +17,7 @@ export default function Advantages() {
             <h2 className="text-5xl md:text-7xl serif italic leading-tight mb-8">
               {t('lending.advantages.title')}
             </h2>
-            <p className="text-[12px] text-[var(--gray-text)] leading-loose mb-10">
+            <p className="text-sm text-[var(--gray-text)] leading-loose mb-10">
               {t('lending.advantages.description')}
             </p>
             <Button

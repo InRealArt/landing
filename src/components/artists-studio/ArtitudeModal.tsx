@@ -60,9 +60,9 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
     }, 2500)
   }
 
-  const inputClass = "w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-[12px] font-light focus:outline-none"
+  const inputClass = "w-full bg-transparent py-3 pr-4 text-textColor placeholder-grayText montserrat text-sm font-light focus:outline-none"
   const fieldClass = "relative border-b border-borderColor focus-within:border-gold-accent transition-colors duration-300 mb-6"
-  const labelClass = "montserrat text-[10px] uppercase tracking-[0.25em] text-grayText mb-1 block"
+  const labelClass = "montserrat text-xs uppercase tracking-[0.25em] text-grayText mb-1 block"
 
   return (
     <div
@@ -115,7 +115,7 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
             <div className="absolute left-4 top-1/4 bottom-1/4 w-px bg-gold-accent/40" aria-hidden="true" />
 
             <div className="relative z-10">
-              <span className="montserrat text-[10px] uppercase tracking-[0.35em] text-gold-accent block mb-4">
+              <span className="montserrat text-xs uppercase tracking-[0.35em] text-gold-accent block mb-4">
                 {t('artistsStudio.modal.eyebrow')}
               </span>
               <h2 className="serif italic text-3xl text-textColor leading-tight mb-4">
@@ -123,7 +123,7 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                 <em className="not-italic text-gold-accent">{t('artistsStudio.modal.titleAccent')}</em>{' '}
                 {t('artistsStudio.modal.titleSuffix')}
               </h2>
-              <p className="montserrat text-[11px] text-grayText leading-loose font-light">
+              <p className="montserrat text-sm text-grayText leading-loose font-light">
                 {t('artistsStudio.modal.description')}
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                   </svg>
                 </div>
                 <h3 className="serif italic text-2xl text-textColor">{t('artistsStudio.modal.successTitle')}</h3>
-                <p className="montserrat text-[11px] text-grayText leading-loose font-light">
+                <p className="montserrat text-sm text-grayText leading-loose font-light">
                   {t('artistsStudio.modal.successDescription')}
                 </p>
               </div>
@@ -243,7 +243,7 @@ export default function ArtitudeModal({ isOpen, onClose }: Props) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="montserrat text-[10px] text-grayText hover:text-textColor transition-colors duration-200 tracking-[0.15em] uppercase"
+                    className="montserrat text-xs text-grayText hover:text-textColor transition-colors duration-200 tracking-[0.15em] uppercase"
                   >
                     {t('artistsStudio.modal.cancel')}
                   </button>

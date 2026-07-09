@@ -398,7 +398,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
               <div data-anim>
                 <Link
                   href="/agence/artists"
-                  className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.35em] montserrat text-grayText hover:text-gold-accent transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.35em] montserrat text-grayText hover:text-gold-accent transition-colors duration-300"
                 >
                   <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M10 6H2M6 2L2 6l4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -413,14 +413,14 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                     {name}
                   </h1>
                   {artist.title && (
-                    <p className="mt-2 text-[11px] uppercase tracking-[0.4em] montserrat text-grayText">
+                    <p className="mt-2 text-sm uppercase tracking-[0.4em] montserrat text-grayText">
                       {artist.title}
                     </p>
                   )}
                 </div>
 
                 {artist.description && (
-                  <p data-anim className="text-[13px] text-grayText leading-relaxed montserrat max-w-lg">
+                  <p data-anim className="text-sm text-grayText leading-relaxed montserrat max-w-lg">
                     {artist.description}
                   </p>
                 )}
@@ -430,7 +430,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                     {networks.map((net) => (
                       <span
                         key={net}
-                        className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] montserrat border border-borderColor text-textColor px-3 py-1.5 hover:border-gold-accent hover:text-gold-accent transition-colors duration-200"
+                        className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] montserrat border border-borderColor text-textColor px-3 py-1.5 hover:border-gold-accent hover:text-gold-accent transition-colors duration-200"
                       >
                         <SocialIcon network={net} />
                         {SOCIAL_LABELS[net] ?? net}
@@ -453,7 +453,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
           <div className="max-w-screen-2xl mx-auto px-10 mb-10">
             <div className="flex items-center gap-5">
               <span className="h-px bg-borderColor flex-1" />
-              <span className="text-[9px] uppercase tracking-[0.6em] montserrat text-grayText/60 whitespace-nowrap">
+              <span className="text-xs uppercase tracking-[0.6em] montserrat text-grayText/60 whitespace-nowrap">
                 {t('agence.artists.detail.tagsLabel')}
               </span>
               <span className="h-px bg-borderColor flex-1" />
@@ -501,7 +501,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 lg:gap-20">
               <div data-anim-label className="flex flex-col gap-3" style={{ opacity: 0 }}>
                 <div className="flex items-center gap-4">
-                  <span className="text-[10px] uppercase tracking-[0.5em] montserrat text-gold-accent">01</span>
+                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">01</span>
                   <span className="flex-1 h-px bg-borderColor" />
                 </div>
                 <p className="serif text-2xl font-light text-textColor">
@@ -527,7 +527,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
           <div className="max-w-screen-2xl mx-auto px-10" ref={metricsRef}>
             <div data-anim-header className="mb-14" style={{ opacity: 0 }}>
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-[10px] uppercase tracking-[0.5em] montserrat text-gold-accent">
+                <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
                   {t('agence.artists.detail.metricsNumber')}
                 </span>
                 <span className="h-px bg-borderColor w-12" />
@@ -536,7 +536,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                 {t('agence.artists.detail.metricsTitle')}{' '}
                 <em className="not-italic text-gold-accent">{t('agence.artists.detail.metricsTitleAccent')}</em>
               </h2>
-              <p className="mt-3 text-[12px] montserrat text-grayText">
+              <p className="mt-3 text-sm montserrat text-grayText">
                 {t('agence.artists.detail.metricsSubtitle')}
               </p>
             </div>
@@ -559,22 +559,22 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                   >
                     {value}
                   </span>
-                  <span className="text-[10px] uppercase tracking-[0.4em] montserrat text-gold-accent">{label}</span>
-                  <span className="text-[11px] montserrat text-grayText">{sub}</span>
+                  <span className="text-xs uppercase tracking-[0.4em] montserrat text-gold-accent">{label}</span>
+                  <span className="text-sm montserrat text-grayText">{sub}</span>
                 </div>
               ))}
             </div>
 
             {networks.length > 0 && (
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <span className="text-[10px] uppercase tracking-[0.35em] montserrat text-grayText">
+                <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                   {t('agence.artists.detail.activePlatforms')}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {networks.map((net) => (
                     <span
                       key={net}
-                      className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] montserrat border border-borderColor text-grayText px-3 py-1"
+                      className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.25em] montserrat border border-borderColor text-grayText px-3 py-1"
                     >
                       <SocialIcon network={net} />
                       {SOCIAL_LABELS[net] ?? net}
@@ -594,9 +594,9 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div data-anim-header className="flex items-end justify-between mb-12 pb-10 border-b border-borderColor" style={{ opacity: 0 }}>
               <div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-[10px] uppercase tracking-[0.5em] montserrat text-gold-accent">03</span>
+                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">03</span>
                   <span className="h-px bg-borderColor w-8" />
-                  <span className="text-[10px] uppercase tracking-[0.35em] montserrat text-grayText">
+                  <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                     {t('agence.artists.detail.reelsLabel')}
                   </span>
                 </div>
@@ -605,7 +605,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                   <em className="not-italic text-gold-accent">{t('agence.artists.detail.reelsTitleAccent')}</em>
                 </h2>
               </div>
-              <span className="text-[11px] montserrat text-grayText">
+              <span className="text-sm montserrat text-grayText">
                 {videos.length} {t('agence.artists.detail.reelsCount')}
               </span>
             </div>
@@ -641,11 +641,11 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div data-anim-header className="flex items-end justify-between mb-12 pb-10 border-b border-borderColor" style={{ opacity: 0 }}>
               <div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-[10px] uppercase tracking-[0.5em] montserrat text-gold-accent">
+                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
                     {videos.length > 0 ? '04' : '03'}
                   </span>
                   <span className="h-px bg-borderColor w-8" />
-                  <span className="text-[10px] uppercase tracking-[0.35em] montserrat text-grayText">
+                  <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                     {t('agence.artists.detail.galleryLabel')}
                   </span>
                 </div>
@@ -654,7 +654,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
                   <em className="not-italic text-gold-accent">{t('agence.artists.detail.galleryTitleAccent')}</em>
                 </h2>
               </div>
-              <span className="text-[11px] montserrat text-grayText">
+              <span className="text-sm montserrat text-grayText">
                 {photos.length} {t('agence.artists.detail.galleryCount')}
               </span>
             </div>
@@ -693,13 +693,13 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
               <em className="not-italic text-gold-accent">{name}</em>
               {' ?'}
             </h2>
-            <p className="mt-3 text-[13px] montserrat text-grayText max-w-lg">
+            <p className="mt-3 text-sm montserrat text-grayText max-w-lg">
               {t('agence.artists.detail.ctaSubtitle')}
             </p>
           </div>
           <Link
             href="/agence#brief"
-            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-8 py-4 hover:bg-gold-accent hover:text-white transition-all duration-300 whitespace-nowrap"
+            className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-8 py-4 hover:bg-gold-accent hover:text-white transition-all duration-300 whitespace-nowrap"
           >
             {t('agence.artists.detail.ctaButton')}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

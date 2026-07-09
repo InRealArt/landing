@@ -115,7 +115,7 @@ export default function GalleriesContactSection() {
   }
 
   const inputClass =
-    'w-full bg-transparent border-0 border-b border-borderColor py-3 text-[11px] uppercase tracking-[0.2em] text-textColor placeholder:text-grayText focus:outline-none focus:border-[#b89c72] transition-colors duration-200'
+    'w-full bg-transparent border-0 border-b border-borderColor py-3 text-sm uppercase tracking-[0.2em] text-textColor placeholder:text-grayText focus:outline-none focus:border-[#b89c72] transition-colors duration-200'
 
   return (
     <section id="contact" className="py-32 lg:py-40 px-6 sm:px-10 bg-backgroundColor">
@@ -123,7 +123,7 @@ export default function GalleriesContactSection() {
 
         {/* En-tête */}
         <div className="text-center mb-20 lg:mb-24">
-          <span className="block text-[10px] uppercase tracking-[0.5em] text-grayText mb-6">
+          <span className="block text-xs uppercase tracking-[0.5em] text-grayText mb-6">
             {t('joinInRealArt.galleries.contactSection.sectionLabel')}
           </span>
           <h2 className="serif text-4xl sm:text-5xl italic text-textColor">
@@ -135,7 +135,7 @@ export default function GalleriesContactSection() {
 
           {/* Colonne gauche — description + points */}
           <div className="space-y-8">
-            <p className="text-[13px] leading-relaxed text-grayText font-light">
+            <p className="text-sm leading-relaxed text-grayText font-light">
               {t('joinInRealArt.galleries.contactSection.description')}
             </p>
 
@@ -143,7 +143,7 @@ export default function GalleriesContactSection() {
               {(['1', '2', '3'] as const).map((key) => (
                 <li key={key} className="flex items-center gap-4">
                   <span className="w-2 h-2 bg-[#b89c72] rounded-full flex-shrink-0" aria-hidden="true" />
-                  <span className="text-[10px] uppercase tracking-widest text-textColor">
+                  <span className="text-xs uppercase tracking-widest text-textColor">
                     {t(`joinInRealArt.galleries.contactSection.points.${key}`)}
                   </span>
                 </li>
@@ -168,7 +168,7 @@ export default function GalleriesContactSection() {
                 className={`${inputClass} ${errors.galleryName && touched.galleryName ? 'border-red-500' : ''}`}
               />
               {errors.galleryName && touched.galleryName && (
-                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                <p className="mt-2 text-xs text-red-500 uppercase tracking-[0.2em]">
                   {errors.galleryName}
                 </p>
               )}
@@ -189,7 +189,7 @@ export default function GalleriesContactSection() {
                 className={`${inputClass} ${errors.email && touched.email ? 'border-red-500' : ''}`}
               />
               {errors.email && touched.email && (
-                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                <p className="mt-2 text-xs text-red-500 uppercase tracking-[0.2em]">
                   {errors.email}
                 </p>
               )}
@@ -210,19 +210,19 @@ export default function GalleriesContactSection() {
                 className={`${inputClass} resize-none ${errors.profile && touched.profile ? 'border-red-500' : ''}`}
               />
               {errors.profile && touched.profile && (
-                <p className="mt-2 text-[10px] text-red-500 uppercase tracking-[0.2em]">
+                <p className="mt-2 text-xs text-red-500 uppercase tracking-[0.2em]">
                   {errors.profile}
                 </p>
               )}
             </div>
 
             {status === 'success' && (
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#b89c72]">
+              <p className="text-sm uppercase tracking-[0.2em] text-[#b89c72]">
                 {t(`${fp}.success`)}
               </p>
             )}
             {status === 'error' && (
-              <p className="text-[11px] uppercase tracking-[0.2em] text-red-500">
+              <p className="text-sm uppercase tracking-[0.2em] text-red-500">
                 {errorMessage || t(`${fp}.error`)}
               </p>
             )}

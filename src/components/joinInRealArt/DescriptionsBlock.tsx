@@ -75,7 +75,7 @@ function JoinCard({ card }: { card: CardData }) {
     >
       <div>
         {/* Tag */}
-        <span className="text-[#b89c72] text-[9px] uppercase tracking-[0.4em] mb-8 block font-[family-name:var(--font-montserrat)]">
+        <span className="text-[#b89c72] text-xs uppercase tracking-[0.4em] mb-8 block font-[family-name:var(--font-montserrat)]">
           {card.tag}
         </span>
 
@@ -105,7 +105,7 @@ function JoinCard({ card }: { card: CardData }) {
         {/* Description */}
         <p
           className={[
-            'text-[13px] leading-relaxed font-light mb-12 font-[family-name:var(--font-montserrat)]',
+            'text-sm leading-relaxed font-light mb-12 font-[family-name:var(--font-montserrat)]',
             featured ? 'text-gray-400' : 'text-grayText',
           ].join(' ')}
         >
@@ -117,7 +117,7 @@ function JoinCard({ card }: { card: CardData }) {
       <Link
         href={card.link}
         className={[
-          'text-[10px] uppercase tracking-[0.3em] border-b pb-1 inline-block self-start transition-all duration-300 min-h-[44px] flex items-end',
+          'text-xs uppercase tracking-[0.3em] border-b pb-1 inline-block self-start transition-all duration-300 min-h-[44px] flex items-end',
           featured
             ? 'text-[#b89c72] border-[#b89c72] hover:text-white hover:border-white'
             : 'text-textColor border-textColor hover:text-[#b89c72] hover:border-[#b89c72]',

@@ -42,7 +42,7 @@ export default function LeasingAdvantages() {
             >
               <span className="step-number">{advantage.number}</span>
               <h3 className="serif text-2xl mb-6">{advantage.title}</h3>
-              <p className="text-[13px] text-gray-400 leading-relaxed font-light">
+              <p className="text-sm text-gray-400 leading-relaxed font-light">
                 {advantage.description}
               </p>
             </div>

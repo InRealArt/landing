@@ -17,7 +17,7 @@ export default function BlogPagination({ totalPages }: BlogPaginationProps) {
         {page > 1 && (
           <button
             onClick={() => setPage(page - 1)}
-            className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors"
+            className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-xs uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors"
             aria-label="Page précédente"
           >
             ←
@@ -30,7 +30,7 @@ export default function BlogPagination({ totalPages }: BlogPaginationProps) {
               key={p}
               onClick={() => setPage(p)}
               aria-current={p === page ? 'page' : undefined}
-              className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] transition-colors ${
+              className={`px-4 py-2 text-xs uppercase tracking-[0.2em] transition-colors ${
                 p === page
                   ? 'border border-[var(--ink-black)] bg-[var(--ink-black)] text-white'
                   : 'border border-[var(--border-light)] text-[var(--gray-text)] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)]'
@@ -44,7 +44,7 @@ export default function BlogPagination({ totalPages }: BlogPaginationProps) {
         {page < totalPages && (
           <button
             onClick={() => setPage(page + 1)}
-            className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-[10px] uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors"
+            className="border border-[var(--border-light)] text-[var(--gray-text)] px-4 py-2 text-xs uppercase tracking-[0.2em] hover:border-[var(--ink-black)] hover:text-[var(--ink-black)] transition-colors"
             aria-label="Page suivante"
           >
             →

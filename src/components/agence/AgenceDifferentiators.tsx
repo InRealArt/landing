@@ -67,7 +67,7 @@ export default function AgenceDifferentiators({ t }: Props) {
             </h2>
           </div>
           <div className="lg:col-span-7 lg:flex lg:items-end">
-            <p className="text-[12px] uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-lg">
+            <p className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-lg">
               {t('agence.differentiators.subtitle')}
             </p>
           </div>
@@ -92,11 +92,11 @@ export default function AgenceDifferentiators({ t }: Props) {
 
               <div className="w-6 h-px bg-gold-accent mb-6" />
 
-              <h3 className="text-[10px] uppercase tracking-[0.4em] text-textColor montserrat font-bold mb-4">
+              <h3 className="text-xs uppercase tracking-[0.4em] text-textColor montserrat font-bold mb-4">
                 {t(`agence.differentiators.items.${key}.title`)}
               </h3>
 
-              <p className="text-[13px] text-grayText leading-loose montserrat">
+              <p className="text-sm text-grayText leading-loose montserrat">
                 {t(`agence.differentiators.items.${key}.description`)}
               </p>
             </div>
