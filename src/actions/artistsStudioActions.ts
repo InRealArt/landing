@@ -62,6 +62,9 @@ function sanitizeGoogleBusinessProfileUrl(url: string | null): string | null {
 export async function getArtistsStudioData(): Promise<ArtistStudio[]> {
   try {
     const studios = await prisma.artitudeArtist.findMany({
+      where: {
+        isActive: true,
+      },
       include: {
         artist: {
           include: {
