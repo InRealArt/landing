@@ -15,6 +15,7 @@ export type FeaturedArtwork = {
   slug: string
   imageUrl: string
   price: number | null
+  artistName: string
 }
 
 export type FeaturedPost = {

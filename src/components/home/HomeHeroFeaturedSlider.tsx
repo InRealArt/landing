@@ -35,6 +35,7 @@ interface FeaturedSlide {
   alt: string
   eyebrow: string
   title: string
+  subtitle?: string
   descriptionText: string
   ctaLabel: string
 }
@@ -55,6 +56,7 @@ function buildSlides(
       alt: featuredArtwork.title,
       eyebrow: t('exhibitions.hero.featuredArtworkEyebrow'),
       title: featuredArtwork.title,
+      subtitle: featuredArtwork.artistName || undefined,
       descriptionText: t('exhibitions.hero.featuredArtworkDescription'),
       ctaLabel: t('exhibitions.hero.featuredArtworkCta'),
     })
@@ -143,6 +145,11 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
           <h3 className="font-cormorant font-light leading-[0.95] text-white text-3xl sm:text-4xl lg:text-5xl">
             {slide.title}
           </h3>
+          {slide.subtitle && (
+            <p className="mt-1.5 montserrat text-xs sm:text-sm text-white/60">
+              {slide.subtitle}
+            </p>
+          )}
           <span className="mt-3 inline-flex items-center gap-2 montserrat text-xs uppercase tracking-[0.25em] text-white/70 opacity-0 translate-y-1 transition-all duration-300 group-hover/img:opacity-100 group-hover/img:translate-y-0">
             {slide.ctaLabel}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
