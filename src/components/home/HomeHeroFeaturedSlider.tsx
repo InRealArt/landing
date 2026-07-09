@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import type { FeaturedArtist, FeaturedArtwork } from '@/types/featured-item'
+import type { FeaturedArtist, FeaturedArtwork, FeaturedExhibition } from '@/types/featured-item'
 import { useTranslation } from '@/hooks/useTranslation'
+import { getSafeExternalUrl } from '@/utils/url'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
@@ -17,17 +18,19 @@ const FEATURED_IMAGE_ASPECT = 'aspect-[4/3] sm:aspect-[16/9]'
 // de charger une résolution plus grande que nécessaire.
 const FEATURED_IMAGE_SIZES = '(min-width: 1280px) 1280px, 100vw'
 
-export type FeaturedSlideKey = 'artwork' | 'artist'
+export type FeaturedSlideKey = 'artwork' | 'artist' | 'exhibition'
 
 interface HomeHeroFeaturedSliderProps {
   featuredArtwork: FeaturedArtwork | null
   featuredArtist: FeaturedArtist | null
+  featuredExhibition: FeaturedExhibition | null
   onActiveSlideChange?: (key: FeaturedSlideKey) => void
 }
 
 interface FeaturedSlide {
   key: FeaturedSlideKey
   href: string
+  isExternal?: boolean
   imageUrl: string
   alt: string
   eyebrow: string
@@ -39,6 +42,7 @@ interface FeaturedSlide {
 function buildSlides(
   featuredArtwork: FeaturedArtwork | null,
   featuredArtist: FeaturedArtist | null,
+  featuredExhibition: FeaturedExhibition | null,
   t: (key: string) => string
 ): FeaturedSlide[] {
   const slides: FeaturedSlide[] = []
@@ -69,6 +73,21 @@ function buildSlides(
     })
   }
 
+  if (featuredExhibition && featuredExhibition.imageUrl) {
+    const exhibitionHref = getSafeExternalUrl(featuredExhibition.linkToEvent)
+    slides.push({
+      key: 'exhibition',
+      href: exhibitionHref || '#',
+      isExternal: Boolean(exhibitionHref),
+      imageUrl: featuredExhibition.imageUrl,
+      alt: featuredExhibition.title,
+      eyebrow: t('exhibitions.hero.featuredExhibitionEyebrow'),
+      title: featuredExhibition.title,
+      descriptionText: t('exhibitions.hero.featuredExhibitionDescription'),
+      ctaLabel: t('exhibitions.hero.featuredExhibitionCta'),
+    })
+  }
+
   return slides
 }
 
@@ -77,6 +96,8 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
     <>
       <a
         href={slide.href}
+        target={slide.isExternal ? '_blank' : undefined}
+        rel={slide.isExternal ? 'noopener noreferrer' : undefined}
         aria-label={`${slide.eyebrow} : ${slide.title}`}
         className={`relative overflow-hidden bg-black group/img block w-full ${FEATURED_IMAGE_ASPECT}`}
       >
@@ -137,10 +158,11 @@ function FeaturedSlideContent({ slide, priority = false }: { slide: FeaturedSlid
 export default function HomeHeroFeaturedSlider({
   featuredArtwork,
   featuredArtist,
+  featuredExhibition,
   onActiveSlideChange,
 }: HomeHeroFeaturedSliderProps) {
   const { t } = useTranslation()
-  const slides = buildSlides(featuredArtwork, featuredArtist, t)
+  const slides = buildSlides(featuredArtwork, featuredArtist, featuredExhibition, t)
   const firstSlideKey = slides[0]?.key
   const [activeKey, setActiveKey] = useState<FeaturedSlideKey | undefined>(firstSlideKey)
 

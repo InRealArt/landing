@@ -15,6 +15,7 @@ export async function getFeaturedExhibition(): Promise<FeaturedExhibition | null
         imageUrl: true,
         startDate: true,
         endDate: true,
+        linkToEvent: true,
       },
     })
 
@@ -28,6 +29,7 @@ export async function getFeaturedExhibition(): Promise<FeaturedExhibition | null
       location: exhibition.address,
       startDate: exhibition.startDate.toISOString(),
       endDate: exhibition.endDate.toISOString(),
+      linkToEvent: exhibition.linkToEvent,
     }
   } catch (error) {
     console.error('Error fetching featured exhibition:', error)

@@ -1,10 +1,15 @@
+'use client'
+
 import type { FeaturedExhibition } from '@/types/featured-item'
+import { useTranslation } from '@/hooks/useTranslation'
 
 type Props = {
   item: FeaturedExhibition
 }
 
 export default function ExhibitionSlide({ item }: Props) {
+  const { t } = useTranslation()
+
   return (
     <article className="group flex flex-col h-full">
       {/* Image */}
@@ -27,7 +32,7 @@ export default function ExhibitionSlide({ item }: Props) {
       {/* Content (mobile only) */}
       <div className="lg:hidden flex flex-col gap-3 p-6 flex-1">
         <p className="text-xs uppercase tracking-[0.35em] text-gold-accent montserrat">
-          Exposition en avant
+          {t('exhibitions.hero.featuredExhibitionEyebrow')}
         </p>
         <h3 className="serif text-2xl font-light text-textColor">
           {item.title}

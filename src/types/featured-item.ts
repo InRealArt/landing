@@ -34,6 +34,7 @@ export type FeaturedExhibition = {
   location: string | null
   startDate: string
   endDate: string
+  linkToEvent: string | null
 }
 
 export type FeaturedItem =

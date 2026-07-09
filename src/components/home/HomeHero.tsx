@@ -5,14 +5,16 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { useTranslation } from '@/hooks/useTranslation'
 import { EXTERNAL_URLS } from '@/constants/constants'
-import type { FeaturedArtist, FeaturedArtwork, FeaturedPost } from '@/types/featured-item'
+import type { FeaturedArtist, FeaturedArtwork, FeaturedExhibition, FeaturedPost } from '@/types/featured-item'
+import { getSafeExternalUrl } from '@/utils/url'
 import HomeHeroFeaturedSlider, { type FeaturedSlideKey } from './HomeHeroFeaturedSlider'
 
-type Profile = 'collector' | 'artist' | 'enterprise'
+type Profile = 'collector' | 'artist' | 'exhibition' | 'enterprise'
 
 interface HomeHeroProps {
   featuredArtist: FeaturedArtist | null
   featuredArtwork: FeaturedArtwork | null
+  featuredExhibition: FeaturedExhibition | null
   featuredPost: FeaturedPost | null
 }
 
@@ -22,6 +24,7 @@ interface ProfileConfig {
   ctaKey: string
   href: string
   headlineKey: string
+  accentKey: string
   subheadlineKey: string
 }
 
@@ -32,6 +35,7 @@ const PROFILES: ProfileConfig[] = [
     ctaKey: 'exhibitions.hero.ctaCollector',
     href: '/presale',
     headlineKey: 'exhibitions.hero.claimCollector',
+    accentKey: 'exhibitions.hero.claimAccent',
     subheadlineKey: 'exhibitions.hero.subheadlineCollector',
   },
   {
@@ -40,7 +44,17 @@ const PROFILES: ProfileConfig[] = [
     ctaKey: 'exhibitions.hero.ctaArtist',
     href: '/joinInRealArt',
     headlineKey: 'exhibitions.hero.claimArtist',
+    accentKey: 'exhibitions.hero.claimAccentArtist',
     subheadlineKey: 'exhibitions.hero.subheadlineArtist',
+  },
+  {
+    key: 'exhibition',
+    labelKey: 'exhibitions.hero.profileExhibition',
+    ctaKey: 'exhibitions.hero.ctaExhibition',
+    href: '/presale',
+    headlineKey: 'exhibitions.hero.claimExhibition',
+    accentKey: 'exhibitions.hero.claimAccentExhibition',
+    subheadlineKey: 'exhibitions.hero.subheadlineExhibition',
   },
   // {
   //   key: 'enterprise',
@@ -60,7 +74,7 @@ const PROFILES: ProfileConfig[] = [
   // },
 ]
 
-export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost }: HomeHeroProps) {
+export default function HomeHero({ featuredArtist, featuredArtwork, featuredExhibition, featuredPost }: HomeHeroProps) {
   const { t } = useTranslation()
   const [active, setActive] = useState<Profile>('collector')
   const headlineRef = useRef<HTMLHeadingElement>(null)
@@ -69,8 +83,10 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
 
   const current = PROFILES.find((p) => p.key === active)!
 
+  const exhibitionHref = getSafeExternalUrl(featuredExhibition?.linkToEvent)
+
   const handleSliderSlideChange = (key: FeaturedSlideKey) => {
-    setActive(key === 'artwork' ? 'collector' : 'artist')
+    setActive(key === 'artist' ? 'artist' : key === 'exhibition' ? 'exhibition' : 'collector')
   }
 
   // Animate headline + subheading on persona change
@@ -117,7 +133,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
     }
   }, [active])
 
-  // CTA subtle pulse animation on mount
+  // CTA subtle pulse animation — re-bound whenever the CTA node changes (persona switch swaps <a>/<Link>)
   useLayoutEffect(() => {
     if (!ctaRef.current) return
 
@@ -145,7 +161,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
     return () => {
       tl.kill()
     }
-  }, [])
+  }, [active])
 
   return (
     <section className="w-full bg-black pt-headerSize">
@@ -155,6 +171,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
         <HomeHeroFeaturedSlider
           featuredArtwork={featuredArtwork}
           featuredArtist={featuredArtist}
+          featuredExhibition={featuredExhibition}
           onActiveSlideChange={handleSliderSlideChange}
         />
 
@@ -166,13 +183,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
             suppressHydrationWarning
           >
             <span className="block text-white">{t(current.headlineKey)}</span>
-            <span className="block text-gold-accent">
-              {active === 'collector'
-                ? t('exhibitions.hero.claimAccent')
-                : active === 'artist'
-                ? t('exhibitions.hero.claimAccentArtist')
-                : t('exhibitions.hero.claimAccentEnterprise')}
-            </span>
+            <span className="block text-gold-accent">{t(current.accentKey)}</span>
           </h1>
 
           <p
@@ -187,17 +198,35 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredPost
         {/* CTA Row */}
         <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
           {/* CTA Primaire */}
-          <Link
-            ref={ctaRef}
-            href={current.href}
-            suppressHydrationWarning
-            className="inline-flex items-center gap-3 bg-white text-black text-sm uppercase tracking-[0.3em] font-bold px-8 py-4 hover:bg-gold-accent transition-all duration-200 shadow-lg hover:shadow-gold-accent/30"
-          >
-            {t(current.ctaKey)}
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+          {active === 'exhibition' ? (
+            exhibitionHref && (
+              <a
+                ref={ctaRef}
+                href={exhibitionHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                suppressHydrationWarning
+                className="inline-flex items-center gap-3 bg-white text-black text-sm uppercase tracking-[0.3em] font-bold px-8 py-4 hover:bg-gold-accent transition-all duration-200 shadow-lg hover:shadow-gold-accent/30"
+              >
+                {t(current.ctaKey)}
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            )
+          ) : (
+            <Link
+              ref={ctaRef}
+              href={current.href}
+              suppressHydrationWarning
+              className="inline-flex items-center gap-3 bg-white text-black text-sm uppercase tracking-[0.3em] font-bold px-8 py-4 hover:bg-gold-accent transition-all duration-200 shadow-lg hover:shadow-gold-accent/30"
+            >
+              {t(current.ctaKey)}
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          )}
 
           {/* CTA Secondaire Calendly */}
           <a
