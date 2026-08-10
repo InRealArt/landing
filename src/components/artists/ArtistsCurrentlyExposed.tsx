@@ -10,7 +10,7 @@ interface Props {
 }
 
 function ArtistCard({ artist }: { artist: CurrentlyExposedArtist }) {
-  const fullName = `${artist.name} ${artist.surname}`.trim() || artist.pseudo
+  const fullName = artist.pseudo?.trim() || `${artist.name} ${artist.surname}`.trim()
   return (
     <Link
       href={`/artists/${artist.slug}`}

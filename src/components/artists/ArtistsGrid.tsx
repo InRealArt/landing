@@ -67,7 +67,7 @@ export default function ArtistsGrid({ initialArtists, artworkPreviews }: Props) 
     () =>
       initialArtists.map(a => ({
         slug: a.slug,
-        fullName: `${a.name} ${a.surname}`.trim(),
+        fullName: a.pseudo?.trim() || `${a.name} ${a.surname}`.trim(),
         surname: a.surname,
         pseudo: a.pseudo,
         imageUrl: a.imageUrl,
