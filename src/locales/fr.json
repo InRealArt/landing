@@ -2201,6 +2201,16 @@
         "errorMessage": "Une erreur est survenue. Réessayez ou contactez-nous directement."
       }
     },
+    "header": {
+      "eyebrow": "InRealArt Média",
+      "title": "L'Observatoire de la Création"
+    },
+    "sections": {
+      "interviews": "Articles & Entretiens",
+      "divers": "Divers",
+      "top10": "Top 10",
+      "businessCareer": "Business & Carrière"
+    },
     "hub": {
       "eyebrow": "L'observatoire de la création",
       "title": "Tout l'univers",

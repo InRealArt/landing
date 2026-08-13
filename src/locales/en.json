@@ -2217,6 +2217,16 @@
         "errorMessage": "An error occurred. Please try again or contact us directly."
       }
     },
+    "header": {
+      "eyebrow": "InRealArt Media",
+      "title": "The Observatory of Creation"
+    },
+    "sections": {
+      "interviews": "Articles & Interviews",
+      "divers": "Miscellaneous",
+      "top10": "Top 10",
+      "businessCareer": "Business & Career"
+    },
     "hub": {
       "eyebrow": "The observatory of creation",
       "title": "The full",

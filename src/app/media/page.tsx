@@ -34,16 +34,16 @@ export default function MediaPage() {
         <ExpoSection />
 
         {/* 2. Articles & Entretiens — vrais articles du blog, max 3 */}
-        <BlogCategoryPreview categorySlug="interviews" title="Articles & Entretiens" />
+        <BlogCategoryPreview categorySlug="interviews" titleKey="media.sections.interviews" />
 
         {/* 3. Divers — catégorie "autres", 3 derniers articles */}
-        <BlogCategoryPreview categorySlug="autres" title="Divers" />
+        <BlogCategoryPreview categorySlug="autres" titleKey="media.sections.divers" />
 
         {/* 4. Top 10 */}
-        <BlogCategoryPreview categorySlug="top10" title="Top 10" />
+        <BlogCategoryPreview categorySlug="top10" titleKey="media.sections.top10" />
 
         {/* 5. Business & Carrière */}
-        <BlogCategoryPreview categorySlug="business-carriere" title="Business & Carrière" />
+        <BlogCategoryPreview categorySlug="business-carriere" titleKey="media.sections.businessCareer" />
 
         {/* 3. InRealArt TV — Les Métiers de la Création */}
         {/* <InRealArtTvSection /> */}

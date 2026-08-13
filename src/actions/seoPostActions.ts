@@ -448,8 +448,16 @@ export async function getPostsByCategorySlug(
             })
         ])
 
+        const postsWithTranslatedCategory = posts.map(post => ({
+            ...post,
+            category: {
+                ...post.category,
+                name: translatedCategoryName
+            }
+        }))
+
         return {
-            posts: posts as SeoPost[],
+            posts: postsWithTranslatedCategory as SeoPost[],
             total,
             category: {
                 id: category.id,
@@ -535,8 +543,16 @@ export async function getPostsByCategory(
             })
         ])
 
+        const postsWithTranslatedCategory = posts.map(post => ({
+            ...post,
+            category: {
+                ...post.category,
+                name: translatedCategoryName
+            }
+        }))
+
         return {
-            posts: posts as SeoPost[],
+            posts: postsWithTranslatedCategory as SeoPost[],
             total,
             category: {
                 id: category.id,
