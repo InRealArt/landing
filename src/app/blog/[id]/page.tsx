@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
 import PostDetailAnimations from '@/components/blog/PostDetailAnimations'
+import PostLanguageSwitchOverride from '@/components/blog/PostLanguageSwitchOverride'
 import { getPostBySlug } from '@/actions/seoPostActions'
 
 export const revalidate = 1800 // régénère toutes les 30 min
@@ -101,6 +102,9 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="min-h-screen pt-headerSize bg-[var(--canvas-bg)] text-[var(--ink-black)]">
       <PostDetailAnimations />
+      {/* Surcharge du bouton de langue : redirige vers le slug de l'article
+          jumeau traduit. Actif uniquement sur cette page. */}
+      <PostLanguageSwitchOverride postId={initialPost.id} slug={slug} />
       <PostDetail slug={slug} initialPost={initialPost} />
     </main>
   )

@@ -231,6 +231,37 @@ export async function getRelatedPosts(
     }
 }
 
+/**
+ * Construit la clause Prisma qui identifie le "jumeau" d'un post dans une
+ * langue donnée, en suivant la relation `originalPostId` de SeoPost.
+ *
+ * Deux cas :
+ * - le post courant est l'original  -> le jumeau a `originalPostId = post.id`
+ * - le post courant est une traduction -> le jumeau est soit l'original,
+ *   soit une autre traduction du même original
+ */
+function buildTranslationWhere(
+    post: Pick<SeoPost, 'id' | 'originalPostId'>,
+    targetLanguageId: number
+) {
+    const base = {
+        languageId: targetLanguageId,
+        status: 'PUBLISHED' as const
+    }
+
+    if (post.originalPostId === null) {
+        return { ...base, originalPostId: post.id }
+    }
+
+    return {
+        ...base,
+        OR: [
+            { id: post.originalPostId }, // L'original
+            { originalPostId: post.originalPostId } // Une autre traduction
+        ]
+    }
+}
+
 export async function findTranslatedPost(currentPost: SeoPost, targetLanguageCode: string): Promise<SeoPost | null> {
     try {
         // Récupérer l'ID de la langue cible
@@ -239,52 +270,58 @@ export async function findTranslatedPost(currentPost: SeoPost, targetLanguageCod
             throw new Error(`Langue non trouvée: ${targetLanguageCode}`)
         }
 
-        let translatedPost: any = null
-
-        if (currentPost.originalPostId === null) {
-            // Le post courant est l'original, chercher la traduction
-            translatedPost = await prisma.seoPost.findFirst({
-                where: {
-                    originalPostId: currentPost.id,
-                    languageId: targetLanguageId,
-                    status: 'PUBLISHED'
-                },
-                include: {
-                    category: {
-                        select: {
-                            id: true,
-                            name: true,
-                            color: true
-                        }
+        const translatedPost = await prisma.seoPost.findFirst({
+            where: buildTranslationWhere(currentPost, targetLanguageId),
+            include: {
+                category: {
+                    select: {
+                        id: true,
+                        name: true,
+                        color: true
                     }
                 }
-            })
-        } else {
-            // Le post courant est une traduction, chercher l'original ou une autre traduction
-            translatedPost = await prisma.seoPost.findFirst({
-                where: {
-                    languageId: targetLanguageId,
-                    status: 'PUBLISHED',
-                    OR: [
-                        { id: currentPost.originalPostId }, // L'original
-                        { originalPostId: currentPost.originalPostId } // Une autre traduction
-                    ]
-                },
-                include: {
-                    category: {
-                        select: {
-                            id: true,
-                            name: true,
-                            color: true
-                        }
-                    }
-                }
-            })
-        }
+            }
+        })
 
         return translatedPost as SeoPost | null
     } catch (error) {
         console.error('Erreur lors de la recherche du post traduit:', error)
+        return null
+    }
+}
+
+/**
+ * Retourne le slug du post jumeau publié dans `targetLanguageCode`, ou `null`
+ * si aucune traduction n'existe.
+ *
+ * Utilisé par la page de détail d'article pour rediriger vers l'URL de la
+ * traduction lors d'un changement de langue.
+ */
+export async function getTranslatedPostSlug(
+    postId: number,
+    targetLanguageCode: string
+): Promise<string | null> {
+    try {
+        const targetLanguageId = await getLanguageIdByCode(targetLanguageCode)
+        if (!targetLanguageId) return null
+
+        const currentPost = await prisma.seoPost.findUnique({
+            where: { id: postId },
+            select: { id: true, originalPostId: true, languageId: true, slug: true }
+        })
+        if (!currentPost) return null
+
+        // Déjà dans la langue cible : aucune redirection nécessaire
+        if (currentPost.languageId === targetLanguageId) return null
+
+        const translatedPost = await prisma.seoPost.findFirst({
+            where: buildTranslationWhere(currentPost, targetLanguageId),
+            select: { slug: true }
+        })
+
+        return translatedPost?.slug ?? null
+    } catch (error) {
+        console.error('Erreur lors de la récupération du slug traduit:', error)
         return null
     }
 }

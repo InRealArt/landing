@@ -1,13 +1,17 @@
 'use client'
 
 import { useLanguageStore } from '@/store/languageStore'
+import { useLanguageSwitch } from '@/contexts/LanguageSwitchContext'
 import { Globe } from 'lucide-react'
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage, t } = useLanguageStore()
+  const { language, t } = useLanguageStore()
+  // Comportement natif par défaut, surchargeable par la page courante
+  // (ex. article de blog : redirection vers le slug de la traduction).
+  const switchLanguage = useLanguageSwitch()
 
   const toggleLanguage = () => {
-    setLanguage(language === 'fr' ? 'en' : 'fr')
+    switchLanguage(language === 'fr' ? 'en' : 'fr')
   }
 
   return (

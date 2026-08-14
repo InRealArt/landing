@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/common/Header'
 import FooterWrapper from '@/components/common/FooterWrapper'
 import LanguageProvider from '@/components/providers/LanguageProvider'
+import { LanguageSwitchProvider } from '@/contexts/LanguageSwitchContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 import Toaster from '@/components/common/Toaster'
 import GoogleTag from '@/components/common/GoogleTag'
@@ -116,6 +117,7 @@ export default function RootLayout ({
           <NuqsAdapter>
             <ThemeProvider>
               <LanguageProvider>
+                <LanguageSwitchProvider>
                 <RecaptchaProvider>
                     <Header />
                     {children}
@@ -129,6 +131,7 @@ export default function RootLayout ({
                     {/* Uncomment this when we have a way to test the global navigation (previouspage visited)*/}
                     {/* <GlobalNavigationTest /> */}
                 </RecaptchaProvider>
+                </LanguageSwitchProvider>
               </LanguageProvider>
             </ThemeProvider>
           </NuqsAdapter>
