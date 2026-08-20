@@ -34,7 +34,10 @@ export default function MediaPage() {
         <ExpoSection />
 
         {/* 2. Articles & Entretiens — vrais articles du blog, max 3 */}
-        <BlogCategoryPreview categorySlug="interviews" titleKey="media.sections.interviews" />
+        <BlogCategoryPreview
+          categorySlug={['interviews', 'artists-interviews']}
+          titleKey="media.sections.interviews"
+        />
 
         {/* 3. Divers — catégorie "autres", 3 derniers articles */}
         <BlogCategoryPreview categorySlug="autres" titleKey="media.sections.divers" />

@@ -7,7 +7,7 @@ import { getPostsByCategorySlug, getLanguageIdByCode } from '@/actions/seoPostAc
 import PostsGrid from './PostsGrid'
 
 interface BlogCategoryPreviewClientProps {
-  categorySlug: string
+  categorySlug: string | string[]
   /** Clé de traduction du titre affiché au-dessus des cards */
   titleKey: string
   /** Server-rendered initial data for the default language (French). */
@@ -27,6 +27,7 @@ export default function BlogCategoryPreviewClient({
   const { language, t } = useTranslation()
 
   const [posts, setPosts] = useState<SeoPost[]>(initialPosts)
+  const categorySlugKey = Array.isArray(categorySlug) ? categorySlug.join(',') : categorySlug
 
   useEffect(() => {
     if (language === 'fr') {
@@ -56,7 +57,7 @@ export default function BlogCategoryPreviewClient({
     return () => {
       cancelled = true
     }
-  }, [language, categorySlug, initialPosts])
+  }, [language, categorySlugKey, initialPosts])
 
   return (
     <section className="mb-16 md:mb-24 lg:mb-32">

@@ -2,8 +2,8 @@ import { getLanguageIdByCode, getPostsByCategorySlug } from '@/actions/seoPostAc
 import BlogCategoryPreviewClient from './BlogCategoryPreviewClient'
 
 interface BlogCategoryPreviewProps {
-  /** Slug de la catégorie en base (ex: "interview-artistes") */
-  categorySlug: string
+  /** Slug(s) de la catégorie en base (ex: "interviews" ou ["interviews", "artists-interviews"]) */
+  categorySlug: string | string[]
   /** Clé de traduction du titre affiché au-dessus des cards */
   titleKey: string
 }

@@ -425,16 +425,28 @@ export async function getCategoryBySlug(slug: string): Promise<{ id: number, nam
 }
 
 export async function getPostsByCategorySlug(
-    categorySlug: string,
+    categorySlug: string | string[],
     languageId: number,
     limit: number = 10,
     offset: number = 0
 ): Promise<{ posts: SeoPost[], total: number, category: { id: number, name: string, color: string | null, url: string | null } | null }> {
     try {
-        // Récupérer la catégorie par son slug
-        const category = await getCategoryBySlug(categorySlug)
+        const categorySlugs = Array.isArray(categorySlug) ? categorySlug : [categorySlug]
 
-        if (!category) {
+        // Récupérer les catégories correspondant aux slugs demandés
+        const categories = await prisma.seoCategory.findMany({
+            where: {
+                url: { in: categorySlugs }
+            },
+            select: {
+                id: true,
+                name: true,
+                color: true,
+                url: true
+            }
+        })
+
+        if (categories.length === 0) {
             return {
                 posts: [],
                 total: 0,
@@ -442,23 +454,26 @@ export async function getPostsByCategorySlug(
             }
         }
 
-        // Récupérer la traduction de la catégorie pour cette langue
+        const categoryIds = categories.map(c => c.id)
+        const primaryCategory = categories[0]
+
+        // Récupérer la traduction du nom de la catégorie principale pour cette langue
         const categoryTranslation = await prisma.translation.findFirst({
             where: {
                 entityType: 'SeoCategory',
-                entityId: category.id,
+                entityId: primaryCategory.id,
                 languageId: languageId,
                 field: 'name'
             }
         })
 
         // Utiliser la traduction si disponible, sinon le nom par défaut
-        const translatedCategoryName = categoryTranslation?.value || category.name
+        const translatedCategoryName = categoryTranslation?.value || primaryCategory.name
 
         const whereClause = {
             status: 'PUBLISHED' as const,
             languageId: languageId,
-            categoryId: category.id
+            categoryId: { in: categoryIds }
         }
 
         const [posts, total] = await Promise.all([
@@ -497,10 +512,10 @@ export async function getPostsByCategorySlug(
             posts: postsWithTranslatedCategory as SeoPost[],
             total,
             category: {
-                id: category.id,
+                id: primaryCategory.id,
                 name: translatedCategoryName,
-                color: category.color,
-                url: category.url
+                color: primaryCategory.color,
+                url: primaryCategory.url
             }
         }
     } catch (error) {
