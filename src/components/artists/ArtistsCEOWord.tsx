@@ -42,7 +42,7 @@ export default function ArtistsCEOWord() {
           <div className="lg:w-1/2 flex items-center justify-center bg-black py-10 lg:py-12 px-6 lg:px-0">
             <div className="relative w-full max-w-md lg:max-w-lg">
               <Image
-                src="/images/Tim.webp"
+                src="/images/Tim_BG.webp"
                 alt="Timothée Roy — InRealArt"
                 width={600}
                 height={800}
