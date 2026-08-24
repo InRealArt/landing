@@ -53,21 +53,21 @@ export default function AgenceDifferentiators({ t }: Props) {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-24 lg:py-32">
-      <div className="max-w-screen-2xl mx-auto px-10">
+    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-16 sm:py-24 lg:py-32">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Section header */}
-        <div ref={headerRef} className="grid lg:grid-cols-12 gap-8 mb-20" style={{ opacity: 0 }}>
+        <div ref={headerRef} className="grid lg:grid-cols-12 gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20" style={{ opacity: 0 }}>
           <div className="lg:col-span-5">
             <span className="section-number">
               {t('agence.differentiators.eyebrow')}
             </span>
-            <h2 className="serif text-5xl md:text-6xl xl:text-7xl font-light leading-none text-textColor">
+            <h2 className="serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light leading-tight lg:leading-none text-textColor">
               {t('agence.differentiators.title')}
             </h2>
           </div>
           <div className="lg:col-span-7 lg:flex lg:items-end">
-            <p className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-lg">
+            <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.25em] text-grayText montserrat leading-relaxed max-w-lg">
               {t('agence.differentiators.subtitle')}
             </p>
           </div>
@@ -78,12 +78,12 @@ export default function AgenceDifferentiators({ t }: Props) {
           {DIFF_KEYS.map((key, i) => (
             <div
               key={key}
-              className="bg-backgroundColor p-8 lg:p-10 group hover:bg-backgroundGrey transition-colors duration-300"
+              className="bg-backgroundColor p-6 sm:p-8 lg:p-10 group hover:bg-backgroundGrey transition-colors duration-300"
               style={{ opacity: 0 }}
             >
               {/* Index number */}
               <p
-                className="text-gold-accent/40 text-5xl font-light leading-none mb-8 group-hover:text-gold-accent/70 transition-colors duration-300"
+                className="text-gold-accent/40 text-4xl sm:text-5xl font-light leading-none mb-6 sm:mb-8 group-hover:text-gold-accent/70 transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}
                 aria-hidden="true"
               >
@@ -92,11 +92,11 @@ export default function AgenceDifferentiators({ t }: Props) {
 
               <div className="w-6 h-px bg-gold-accent mb-6" />
 
-              <h3 className="text-xs uppercase tracking-[0.4em] text-textColor montserrat font-bold mb-4">
+              <h3 className="text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] text-textColor montserrat font-bold mb-4">
                 {t(`agence.differentiators.items.${key}.title`)}
               </h3>
 
-              <p className="text-sm text-grayText leading-loose montserrat">
+              <p className="text-sm text-grayText leading-relaxed sm:leading-loose montserrat">
                 {t(`agence.differentiators.items.${key}.description`)}
               </p>
             </div>

@@ -41,7 +41,7 @@ export default function AgenceHero({ t }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[85vh] bg-backgroundColor flex items-end overflow-hidden"
+      className="relative min-h-[80vh] sm:min-h-[85vh] bg-backgroundColor flex items-end overflow-hidden"
     >
       {/* Background noise texture overlay */}
       <div
@@ -56,8 +56,8 @@ export default function AgenceHero({ t }: Props) {
       <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold-accent/40 to-transparent" aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-10 pt-headerSize pb-24 w-full">
-        <div className="grid lg:grid-cols-12 gap-8 items-end">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10 pt-headerSize pb-16 sm:pb-20 lg:pb-24 w-full">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-8">
             <span
               ref={eyebrowRef}
@@ -67,7 +67,7 @@ export default function AgenceHero({ t }: Props) {
               {t('agence.hero.eyebrow')}
             </span>
 
-            <h1 className="serif font-light leading-none mb-8" style={{ fontSize: 'clamp(3.5rem, 8vw, 8rem)' }}>
+            <h1 className="serif font-light leading-[1.05] mb-6 sm:mb-8 break-words" style={{ fontSize: 'clamp(2.5rem, 9vw, 8rem)' }}>
               <span ref={titleLineRef} style={{ opacity: 0, display: 'block' }}>
                 {t('agence.hero.title')}
               </span>
@@ -82,15 +82,15 @@ export default function AgenceHero({ t }: Props) {
 
             <div
               ref={subtitleRowRef}
-              className="flex items-center gap-4 mb-10"
+              className="flex items-center gap-4 mb-8 sm:mb-10"
               style={{ opacity: 0 }}
             >
               <div
                 ref={goldBarRef}
-                className="w-12 h-px bg-gold-accent shrink-0"
+                className="w-8 sm:w-12 h-px bg-gold-accent shrink-0"
                 style={{ transformOrigin: 'left center' }}
               />
-              <p className="text-sm uppercase tracking-[0.3em] text-grayText montserrat max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-grayText montserrat max-w-xl leading-relaxed">
                 {t('agence.hero.subtitle')}
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function AgenceHero({ t }: Props) {
             <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4" style={{ opacity: 0 }}>
               <Link
                 href="/agence/brief"
-                className="inline-flex items-center gap-3 bg-gold-accent text-white px-8 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 bg-gold-accent text-white px-6 sm:px-8 py-4 text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] montserrat hover:bg-gold-accent/80 transition-all duration-300 text-center"
               >
                 {t('agence.hero.cta')}
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -111,7 +111,7 @@ export default function AgenceHero({ t }: Props) {
           {/* Right column — vertical stat strip */}
           <div
             ref={statsRef}
-            className="lg:col-span-4 flex lg:flex-col justify-end lg:justify-start gap-8 lg:gap-0 lg:border-l border-borderColor lg:pl-10"
+            className="lg:col-span-4 flex flex-row lg:flex-col justify-start lg:justify-start gap-10 sm:gap-12 lg:gap-0 pt-8 lg:pt-0 border-t lg:border-t-0 lg:border-l border-borderColor lg:pl-10"
             style={{ opacity: 0 }}
           >
             {[
@@ -120,12 +120,12 @@ export default function AgenceHero({ t }: Props) {
             ].map((stat, i) => (
               <div key={i} className="lg:py-8 lg:border-b border-borderColor last:border-0">
                 <p
-                  className="text-4xl lg:text-5xl text-textColor leading-none mb-2"
+                  className="text-3xl sm:text-4xl lg:text-5xl text-textColor leading-none mb-2"
                   style={{ fontFamily: 'var(--font-unbounded)' }}
                 >
                   {stat.value}
                 </p>
-                <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat">
+                <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.35em] text-grayText montserrat">
                   {t(stat.labelKey)}
                 </p>
               </div>

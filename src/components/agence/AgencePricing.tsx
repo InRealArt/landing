@@ -80,40 +80,40 @@ export default function AgencePricing({ t }: Props) {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-24 lg:py-32">
-      <div className="max-w-screen-2xl mx-auto px-10">
+    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-16 sm:py-24 lg:py-32">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* ── Header ── */}
-        <div ref={headerRef} className="border-b border-borderColor pb-14 mb-20" style={{ opacity: 0 }}>
+        <div ref={headerRef} className="border-b border-borderColor pb-8 sm:pb-12 lg:pb-14 mb-12 sm:mb-16 lg:mb-20" style={{ opacity: 0 }}>
           <span className="section-number">{t('agence.pricing.eyebrow')}</span>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-4">
-            <h2 className="serif text-5xl md:text-6xl xl:text-7xl font-light leading-none text-textColor">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8 mt-4">
+            <h2 className="serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light leading-tight lg:leading-none text-textColor">
               {t('agence.pricing.title')}{' '}
               <em className="not-italic text-gold-accent" style={{ fontStyle: 'italic' }}>
                 {t('agence.pricing.titleAccent')}
               </em>
             </h2>
-            <p className="text-sm text-grayText leading-loose montserrat max-w-sm lg:text-right">
+            <p className="text-sm text-grayText leading-relaxed sm:leading-loose montserrat max-w-sm lg:text-right">
               {t('agence.pricing.tagline')}
             </p>
           </div>
         </div>
 
         {/* ── Block 1 — Collaborations Marques ── */}
-        <div className="mb-24">
+        <div className="mb-16 sm:mb-20 lg:mb-24">
           <SectionLabel title={t('agence.pricing.collabs.title')} subtitle={t('agence.pricing.collabs.subtitle')} />
 
-          <p className="text-sm text-grayText montserrat leading-loose max-w-3xl mb-12">
+          <p className="text-sm text-grayText montserrat leading-relaxed sm:leading-loose max-w-3xl mb-8 sm:mb-12">
             {t('agence.pricing.collabs.description')}
           </p>
 
           {/* Activation type tags */}
-          <div ref={tagsRef} className="flex flex-wrap gap-3">
+          <div ref={tagsRef} className="flex flex-wrap gap-2 sm:gap-3">
             {ACTIVATION_TYPES.map((key) => (
               <span
                 key={key}
                 data-tag
-                className="text-xs uppercase tracking-[0.3em] montserrat border border-borderColor text-grayText px-4 py-2 hover:border-gold-accent/50 hover:text-textColor transition-colors duration-300 cursor-default"
+                className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] montserrat border border-borderColor text-grayText px-3 sm:px-4 py-2 hover:border-gold-accent/50 hover:text-textColor transition-colors duration-300 cursor-default"
                 style={{ opacity: 0 }}
               >
                 {t(`agence.pricing.collabs.types.${key}`)}
@@ -123,7 +123,7 @@ export default function AgencePricing({ t }: Props) {
         </div>
 
         {/* ── Block 2 — Campagnes & Activations (formats table) ── */}
-        <div className="mb-24">
+        <div className="mb-16 sm:mb-20 lg:mb-24">
           <SectionLabel title={t('agence.pricing.formats.title')} subtitle={t('agence.pricing.formats.subtitle')} />
 
           {/* Column headers */}
@@ -144,7 +144,7 @@ export default function AgencePricing({ t }: Props) {
               <div
                 key={key}
                 data-row
-                className="grid grid-cols-1 md:grid-cols-10 gap-4 items-start px-4 py-5 bg-backgroundColor border border-borderColor hover:border-gold-accent/20 transition-colors duration-200"
+                className="grid grid-cols-1 md:grid-cols-10 gap-2 md:gap-4 items-start px-4 sm:px-5 py-5 bg-backgroundColor border border-borderColor hover:border-gold-accent/20 transition-colors duration-200"
                 style={{ opacity: 0 }}
               >
                 <div className="md:col-span-3 flex items-center gap-3">
@@ -167,7 +167,7 @@ export default function AgencePricing({ t }: Props) {
             ))}
           </div>
 
-          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-grayText/50 montserrat">
+          <p className="mt-6 text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] text-grayText/50 montserrat">
             {t('agence.pricing.formats.note')}
           </p>
         </div>
@@ -176,18 +176,18 @@ export default function AgencePricing({ t }: Props) {
         <div ref={assetsRef} style={{ opacity: 0 }}>
           <SectionLabel title={t('agence.pricing.assets.title')} subtitle={t('agence.pricing.assets.subtitle')} />
 
-          <div className="bg-backgroundColor border border-borderColor p-10 lg:p-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+          <div className="bg-backgroundColor border border-borderColor p-6 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-10">
             <div className="max-w-2xl">
-              <p className="text-sm text-grayText montserrat leading-loose mb-6">
+              <p className="text-sm text-grayText montserrat leading-relaxed sm:leading-loose mb-6">
                 {t('agence.pricing.assets.description')}
               </p>
-              <p className="text-sm uppercase tracking-[0.3em] text-gold-accent montserrat">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-gold-accent montserrat">
                 {t('agence.pricing.assets.rights')}
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-8 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 whitespace-nowrap shrink-0"
+              className="inline-flex items-center justify-center gap-3 border border-gold-accent text-textColor px-6 sm:px-8 py-4 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 sm:whitespace-nowrap shrink-0 text-center"
             >
               {t('agence.pricing.assets.cta')}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -204,9 +204,9 @@ export default function AgencePricing({ t }: Props) {
 
 function SectionLabel({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <div className="flex items-baseline justify-between mb-2">
-      <h3 className="text-xs uppercase tracking-[0.45em] text-textColor montserrat font-bold">{title}</h3>
-      <span className="text-xs text-grayText montserrat tracking-widest">{subtitle}</span>
+    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+      <h3 className="text-[11px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.45em] text-textColor montserrat font-bold">{title}</h3>
+      <span className="text-[11px] sm:text-xs text-grayText montserrat tracking-wide sm:tracking-widest">{subtitle}</span>
     </div>
   )
 }

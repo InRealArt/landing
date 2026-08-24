@@ -45,15 +45,15 @@ export default function AgenceCta({ t }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="bg-backgroundGrey border-t border-borderColor py-24 lg:py-32 overflow-hidden relative"
+      className="bg-backgroundGrey border-t border-borderColor py-16 sm:py-24 lg:py-32 overflow-hidden relative"
     >
-<div ref={contentRef} className="relative z-10 max-w-screen-2xl mx-auto px-10 text-center">
+<div ref={contentRef} className="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10 text-center">
         <span className="section-number inline-block" style={{ opacity: 0 }}>
           {t('agence.cta.eyebrow')}
         </span>
 
         <h2
-          className="serif text-5xl md:text-7xl lg:text-8xl font-light leading-none text-textColor mt-4 mb-4"
+          className="serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light leading-tight sm:leading-none text-textColor mt-4 mb-4 break-words"
           style={{ opacity: 0 }}
         >
           {t('agence.cta.title')}
@@ -63,24 +63,24 @@ export default function AgenceCta({ t }: Props) {
           </em>
         </h2>
 
-        <div className="flex justify-center mb-12" style={{ opacity: 0 }}>
+        <div className="flex justify-center mb-8 sm:mb-12" style={{ opacity: 0 }}>
           <div className="w-16 h-px bg-gold-accent" />
         </div>
 
         <p
-          className="text-sm uppercase tracking-[0.25em] text-grayText montserrat leading-loose max-w-xl mx-auto mb-12"
+          className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.25em] text-grayText montserrat leading-relaxed sm:leading-loose max-w-xl mx-auto mb-10 sm:mb-12"
           style={{ opacity: 0 }}
         >
           {t('agence.cta.description')}
         </p>
 
         <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4"
           style={{ opacity: 0 }}
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
+            className="inline-flex items-center justify-center gap-3 border border-gold-accent text-textColor px-6 sm:px-10 py-4 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 text-center"
           >
             {t('agence.cta.button')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -90,7 +90,7 @@ export default function AgenceCta({ t }: Props) {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 border border-gold-accent text-textColor px-10 py-4 text-xs uppercase tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300"
+            className="inline-flex items-center justify-center gap-3 border border-gold-accent text-textColor px-6 sm:px-10 py-4 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.4em] montserrat hover:bg-gold-accent hover:text-white transition-all duration-300 text-center"
           >
             {t('agence.cta.secondaryButton')}
           </Link>

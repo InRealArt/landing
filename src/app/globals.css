@@ -170,6 +170,15 @@ body {
   transform: scale(1.08);
 }
 
+/* Hidden scrollbar utility (horizontal scroll rows on mobile) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* InRealArt Gallery - Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 2px;

@@ -84,31 +84,31 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
   if (artists.length === 0) return null
 
   return (
-    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-16 lg:py-24">
-      <div className="max-w-screen-2xl mx-auto px-10">
+    <section ref={sectionRef} className="bg-backgroundGrey border-y border-borderColor py-14 sm:py-16 lg:py-24">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Section header */}
-        <div ref={headerRef} className="mb-12" style={{ opacity: 0 }}>
+        <div ref={headerRef} className="mb-10 sm:mb-12" style={{ opacity: 0 }}>
           <span className="section-number">{t('agence.topCreateurs.eyebrow')}</span>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-4 pb-14 border-b border-borderColor">
-            <h2 className="serif text-4xl md:text-5xl font-light leading-tight text-textColor max-w-lg">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-8 mt-4 pb-8 sm:pb-12 lg:pb-14 border-b border-borderColor">
+            <h2 className="serif text-3xl sm:text-4xl md:text-5xl font-light leading-tight text-textColor max-w-lg">
               {t('agence.topCreateurs.title')}{' '}
               <em className="not-italic text-gold-accent">{t('agence.topCreateurs.titleAccent')}</em>
             </h2>
-            <p className="text-sm text-grayText leading-loose montserrat max-w-sm">
+            <p className="text-sm text-grayText leading-relaxed sm:leading-loose montserrat max-w-sm">
               {t('agence.topCreateurs.subtitle')}
             </p>
           </div>
         </div>
 
         {/* Vertical filter */}
-        <div className="flex flex-wrap gap-3 mb-12">
+        <div className="flex flex-nowrap sm:flex-wrap gap-2 sm:gap-3 mb-10 sm:mb-12 overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0 sm:overflow-visible">
           {VERTICAL_FILTERS.map((v) => (
             <button
               key={v}
               onClick={() => setActiveFilter(v)}
               className={[
-                'text-xs uppercase tracking-[0.35em] montserrat px-5 py-2.5 border transition-colors duration-200',
+                'text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.35em] montserrat px-4 sm:px-5 py-2.5 border transition-colors duration-200 whitespace-nowrap shrink-0',
                 activeFilter === v
                   ? 'border-gold-accent bg-gold-accent text-white'
                   : 'border-borderColor text-grayText hover:border-gold-accent/50 hover:text-textColor',
@@ -121,13 +121,13 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
 
         {/* Artists grid */}
         {filteredArtists.length === 0 ? (
-          <p className="text-sm uppercase tracking-[0.3em] text-grayText montserrat py-12">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-grayText montserrat py-12">
             {t('agence.topCreateurs.noResults')}
           </p>
         ) : null}
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6"
         >
           {filteredArtists.map((artist) => {
             const name = displayName(artist.profile)
@@ -180,7 +180,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
 
                 {/* Card body */}
                 <div className="flex flex-col flex-1 pt-5 pb-6 border-b border-borderColor">
-                  <p className="text-xs uppercase tracking-[0.35em] text-grayText montserrat mb-1">
+                  <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.35em] text-grayText montserrat mb-1">
                     {artist.profile.title ?? t('agence.topCreateurs.defaultTitle')}
                   </p>
                   <h3 className="serif text-xl font-light text-textColor leading-tight mb-4">
@@ -189,7 +189,7 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
 
                   <Link
                     href={href}
-                    className="mt-auto inline-flex items-center gap-2 text-sm uppercase tracking-[0.35em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
+                    className="mt-auto inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] montserrat border border-gold-accent text-textColor px-4 py-2.5 hover:bg-gold-accent hover:text-white transition-all duration-300 self-start"
                   >
                     {t('agence.topCreateurs.cta')}
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -203,10 +203,10 @@ export default function AgenceTopCreateurs({ t, artists }: Props) {
         </div>
 
         {/* Section footer link */}
-        <div className="mt-16 flex justify-end">
+        <div className="mt-12 sm:mt-16 flex justify-start sm:justify-end">
           <Link
             href="/agence/artists"
-            className="text-sm uppercase tracking-[0.4em] montserrat text-grayText hover:text-gold-accent transition-colors duration-300 inline-flex items-center gap-3"
+            className="text-[11px] sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.4em] montserrat text-grayText hover:text-gold-accent transition-colors duration-300 inline-flex items-center gap-3"
           >
             {t('agence.topCreateurs.seeAll')}
             <span className="w-8 h-px bg-current" />
