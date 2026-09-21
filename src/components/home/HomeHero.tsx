@@ -183,7 +183,7 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredExhi
             suppressHydrationWarning
           >
             <span className="block text-white">{t(current.headlineKey)}</span>
-            <span className="block text-gold-accent">{t(current.accentKey)}</span>
+            {t(current.accentKey) && <span className="block text-gold-accent">{t(current.accentKey)}</span>}
           </h1>
 
           <p
