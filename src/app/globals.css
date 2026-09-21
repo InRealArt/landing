@@ -134,7 +134,10 @@ h6 {
 }
 
 html {
-  font-size: 17.5px;
+  /* Taille de police racine du site : base pour toutes les unités rem
+     (Tailwind text-*, clamp() en rem, etc.). Modifier cette seule valeur
+     grossit/rétrécit la police de tout le site de manière centralisée. */
+  font-size: 20px; /* +14% vs base historique de 17.5px */
   scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
