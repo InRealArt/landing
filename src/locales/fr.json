@@ -3417,7 +3417,12 @@
       "cta": "Déposer un brief",
       "stat1": "Créateurs en pré-lancement",
       "stat2": "Marques activées en pré-lancement",
-      "ctaSecondary": "Rejoindre l'agence"
+      "ctaSecondary": "Rejoindre l'agence",
+      "eventsLabel": "À l'affiche",
+      "eventsRegion": "Événements de l'agence à l'affiche",
+      "eventCta": "Voir l'événement",
+      "eventPrev": "Événement précédent",
+      "eventNext": "Événement suivant"
     },
     "differentiators": {
       "eyebrow": "Ce qui nous distingue",

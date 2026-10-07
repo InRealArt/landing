@@ -3,6 +3,7 @@ import { generateStaticMetadata } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import AgencePage from '@/components/agence/AgencePage'
 import { getTopUgcArtists } from '@/actions/ugcActions'
+import { getFeaturedAgencyEvents } from '@/actions/agencyEventActions'
 import NewsletterInline from '@/components/common/NewsletterInline'
 import AgenceFAQ from '@/components/agence/AgenceFAQ'
 
@@ -23,10 +24,13 @@ export const metadata: Metadata = generateStaticMetadata({
 })
 
 export default async function Page() {
-  const topArtists = await getTopUgcArtists(4)
+  const [topArtists, featuredEvents] = await Promise.all([
+    getTopUgcArtists(4),
+    getFeaturedAgencyEvents(),
+  ])
   return (
     <>
-      <AgencePage topArtists={topArtists} />
+      <AgencePage topArtists={topArtists} featuredEvents={featuredEvents} />
       <AgenceFAQ />
       <NewsletterInline />
     </>

@@ -93,6 +93,14 @@ export default {
           from: { opacity: '0', transform: 'translateX(40px)' },
           to: { opacity: '1', transform: 'translateX(0)' },
         },
+        'hairline-progress': {
+          from: { transform: 'scaleX(0)' },
+          to: { transform: 'scaleX(1)' },
+        },
+        'aura-breathe': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.85' },
+          '50%': { transform: 'scale(1.08)', opacity: '1' },
+        },
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
@@ -103,6 +111,7 @@ export default {
         'fade-up-delay': 'fade-up 0.8s ease-out 0.38s both',
         'fade-right': 'fade-right 0.9s ease-out 0.38s both',
         marquee: 'marquee 18s linear infinite',
+        'aura-breathe': 'aura-breathe 9s ease-in-out infinite',
       },
     },
   },

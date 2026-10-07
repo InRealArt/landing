@@ -9,17 +9,19 @@ import AgenceTestimonials from './AgenceTestimonials'
 import AgencePricing from './AgencePricing'
 import AgenceCta from './AgenceCta'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
+import type { AgencyEventData } from '@/actions/agencyEventActions'
 
 interface Props {
   topArtists: UgcTopArtistData[]
+  featuredEvents: AgencyEventData[]
 }
 
-export default function AgencePage({ topArtists }: Props) {
+export default function AgencePage({ topArtists, featuredEvents }: Props) {
   const { t } = useTranslation()
 
   return (
     <main className="min-h-screen bg-backgroundColor text-textColor">
-      <AgenceHero t={t} />
+      <AgenceHero t={t} events={featuredEvents} />
       <AgenceDifferentiators t={t} />
       <AgenceTopCreateurs t={t} artists={topArtists} />
       {/* <AgencePartners t={t} /> */}

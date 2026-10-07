@@ -3650,7 +3650,12 @@
       "cta": "Submit a brief",
       "stat1": "Creators in pre-launch",
       "stat2": "Brands activated in pre-launch",
-      "ctaSecondary": "Join the agency"
+      "ctaSecondary": "Join the agency",
+      "eventsLabel": "Now showing",
+      "eventsRegion": "Featured agency events",
+      "eventCta": "View the event",
+      "eventPrev": "Previous event",
+      "eventNext": "Next event"
     },
     "differentiators": {
       "eyebrow": "What sets us apart",
