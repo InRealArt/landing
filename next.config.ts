@@ -63,6 +63,9 @@ const nextConfig: NextConfig = {
   // Cela élimine les requêtes bloquantes pour les CSS et améliore le Speed Index
   experimental: {
     inlineCss: true,
+    // Cache disque Turbopack en dev désactivé : il gonflait (~3 Go) et bloquait
+    // le serveur à ~100% CPU sur tous les cœurs au repos
+    turbopackFileSystemCacheForDev: false,
   },
 
   // Configuration SWC pour éviter les polyfills inutiles pour les navigateurs modernes
