@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
@@ -22,7 +23,10 @@ const STATS = [
 
 export default function AgenceHero({ t, events = [] }: Props) {
   const hasEvents = events.length > 0
+  const lead = events[0]
   const sectionRef = useRef<HTMLElement>(null)
+  const introRef = useRef<HTMLDivElement>(null)
+  const spotlightRef = useRef<HTMLDivElement>(null)
   const eyebrowRef = useRef<HTMLSpanElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const titleLineRef = useRef<HTMLSpanElement>(null)
@@ -35,8 +39,10 @@ export default function AgenceHero({ t, events = [] }: Props) {
   const eventsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const ctx = gsap.context(() => {}, sectionRef)
+    const ctx = gsap.context(() => {}, section)
     let cancelled = false
 
     const revealed = [eyebrowRef, titleLineRef, titleAccentRef, subtitleRowRef, ctaRef, statsRef, eventsRef]
@@ -45,109 +51,204 @@ export default function AgenceHero({ t, events = [] }: Props) {
 
     // Sans animation, les éléments masqués par défaut doivent tout de même apparaître
     if (prefersReduced) {
-      ctx.add(() => gsap.set(revealed, { opacity: 1 }))
+      ctx.add(() => {
+        gsap.set(revealed, { opacity: 1 })
+        if (introRef.current) gsap.set(introRef.current, { display: 'none' })
+      })
       return () => ctx.revert()
     }
 
-    // Le découpage du titre attend les polices pour mesurer les bons mots
+    // Le découpage des textes attend les polices pour mesurer les bons mots
     document.fonts.ready.then(() => {
       if (cancelled) return
+
       ctx.add(() => {
+        const plate = eventsRef.current
+        const intro = introRef.current
+        const q = plate ? gsap.utils.selector(plate) : null
+        const isDesktop = window.matchMedia('(min-width: 1024px)').matches
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+        let textAt = 0
+
+        if (plate && q && intro && isDesktop) {
+          // L'accrochage : l'œuvre occupe tout le hero, puis vole jusqu'à son cadre
+          const introPlate = intro.querySelector<HTMLElement>('[data-intro-plate]')
+          const introImg = intro.querySelector<HTMLElement>('[data-intro-img]')
+          const introShade = intro.querySelector<HTMLElement>('[data-intro-shade]')
+          const introCaption = intro.querySelector<HTMLElement>('[data-intro-caption]')
+          const target = plate.querySelector<HTMLElement>('[data-plate-window]')
+          const captionWords = introCaption
+            ? SplitText.create(introCaption.querySelectorAll('[data-intro-split]'), { type: 'words', wordsClass: 'inline-block' }).words
+            : []
+
+          if (introPlate && target) {
+            const from = section.getBoundingClientRect()
+            const to = target.getBoundingClientRect()
+            const FLY = 1.6
+
+            gsap.set(plate, { opacity: 1 })
+            gsap.set(q('[data-hero-cartel] > *'), { opacity: 0 })
+            gsap.set(q('[data-plate-aura]'), { opacity: 0 })
+            gsap.set(q('[data-plate-frame] rect'), { strokeDasharray: 1, strokeDashoffset: 1 })
+
+            tl.fromTo(introImg, { scale: 1.3 }, { scale: 1.08, duration: FLY + 0.4, ease: 'power2.out' }, 0)
+              .fromTo(introShade, { opacity: 0 }, { opacity: 1, duration: 0.8 }, 0)
+              .fromTo(
+                captionWords,
+                { yPercent: 90, opacity: 0, filter: 'blur(12px)' },
+                { yPercent: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9, stagger: 0.06, ease: 'expo.out' },
+                0.2,
+              )
+              .to(introCaption, { opacity: 0, y: -24, duration: 0.45, ease: 'power2.in' }, FLY - 0.15)
+              .to(introShade, { opacity: 0, duration: 0.6 }, FLY)
+              .fromTo(
+                introPlate,
+                { top: 0, left: 0, width: from.width, height: from.height },
+                {
+                  top: to.top - from.top,
+                  left: to.left - from.left,
+                  width: to.width,
+                  height: to.height,
+                  duration: 1.3,
+                  ease: 'expo.inOut',
+                },
+                FLY,
+              )
+              .to(introImg, { scale: 1, duration: 1.3, ease: 'expo.inOut' }, FLY)
+              .to(q('[data-plate-frame] rect'), { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, FLY + 0.9)
+              .to(intro, { autoAlpha: 0, duration: 0.45, ease: 'power1.out' }, FLY + 1.3)
+              .fromTo(q('[data-plate-aura]'), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 2, ease: 'power2.out' }, FLY + 1)
+              .fromTo(q('[data-hero-cartel] > *'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 }, FLY + 1.35)
+              .fromTo(
+                q('[data-plate-glint]'),
+                { xPercent: 0, opacity: 1 },
+                { xPercent: 400, duration: 1.2, ease: 'power2.inOut' },
+                FLY + 1.5,
+              )
+              .set(q('[data-plate-glint]'), { opacity: 0 })
+
+            // Le titre se dévoile pendant que l'œuvre s'éloigne
+            textAt = FLY + 0.35
+          }
+        } else {
+          if (intro) gsap.set(intro, { display: 'none' })
+
+          if (plate && q) {
+            // Vernissage : le filet se trace, le rideau or monte puis se retire
+            tl.set(plate, { opacity: 1 }, 0.4)
+              .fromTo(q('[data-plate-aura]'), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 2.2, ease: 'power2.out' }, 0.5)
+              .fromTo(
+                q('[data-plate-frame] rect'),
+                { strokeDasharray: 1, strokeDashoffset: 1 },
+                { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' },
+                0.4,
+              )
+              .set(q('[data-plate-media]'), { opacity: 0 }, 0)
+              .fromTo(
+                q('[data-plate-curtain]'),
+                { scaleY: 0, transformOrigin: '50% 100%' },
+                { scaleY: 1, duration: 0.7, ease: 'power4.inOut' },
+                0.7,
+              )
+              .set(q('[data-plate-media]'), { opacity: 1 })
+              .set(q('[data-plate-curtain]'), { transformOrigin: '50% 0%' })
+              .to(q('[data-plate-curtain]'), { scaleY: 0, duration: 0.9, ease: 'power4.inOut' })
+              .fromTo(q('[data-plate-media]'), { scale: 1.35 }, { scale: 1, duration: 1.6, ease: 'expo.out' }, '<0.1')
+              .fromTo(q('[data-hero-cartel] > *'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 }, '<0.3')
+              .fromTo(
+                q('[data-plate-glint]'),
+                { xPercent: 0, opacity: 1 },
+                { xPercent: 400, duration: 1.2, ease: 'power2.inOut' },
+                '-=0.5',
+              )
+              .set(q('[data-plate-glint]'), { opacity: 0 })
+          }
+        }
+
         const words = [titleLineRef.current, titleAccentRef.current].flatMap((el) =>
           el ? SplitText.create(el, { type: 'words', wordsClass: 'inline-block will-change-transform' }).words : [],
         )
-        const counters = gsap.utils.toArray<HTMLElement>('[data-count]')
-        const plate = eventsRef.current
-        const q = plate ? gsap.utils.selector(plate) : null
 
-        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-        tl.fromTo(eyebrowRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 })
-          .set([titleLineRef.current, titleAccentRef.current], { opacity: 1 }, 0.1)
+        tl.fromTo(eyebrowRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, textAt)
+          .set([titleLineRef.current, titleAccentRef.current], { opacity: 1 }, textAt + 0.1)
           .fromTo(
             words,
             { yPercent: 70, opacity: 0, rotate: 3, filter: 'blur(14px)' },
             { yPercent: 0, opacity: 1, rotate: 0, filter: 'blur(0px)', duration: 1.1, stagger: 0.07, ease: 'expo.out' },
-            0.15,
+            textAt + 0.15,
           )
-          .fromTo(goldBarRef.current, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'expo.inOut' }, 0.75)
-          .fromTo(subtitleRowRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 0.8)
-          .fromTo(ctaRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.95)
-          .fromTo(statsRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 1.1)
+          .fromTo(goldBarRef.current, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'expo.inOut' }, textAt + 0.75)
+          .fromTo(subtitleRowRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, textAt + 0.8)
+          .fromTo(ctaRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, textAt + 0.95)
+          .fromTo(statsRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, textAt + 1.1)
 
-        counters.forEach((el) => {
+        gsap.utils.toArray<HTMLElement>('[data-count]').forEach((el) => {
           const counter = { value: 0 }
-          const end = Number(el.dataset.count)
           el.textContent = '0'
           tl.to(
             counter,
             {
-              value: end,
+              value: Number(el.dataset.count),
               duration: 1.6,
               ease: 'power2.out',
               onUpdate: () => void (el.textContent = String(Math.round(counter.value))),
             },
-            1.15,
+            textAt + 1.15,
           )
         })
 
-        if (plate && q) {
-          // Vernissage : le filet se trace, le rideau or monte puis se retire,
-          // l'œuvre se dézoome et un reflet traverse la vitre
-          tl.set(plate, { opacity: 1 }, 0.4)
-            .fromTo(q('[data-plate-aura]'), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 2.2, ease: 'power2.out' }, 0.5)
-            .fromTo(
-              q('[data-plate-frame] rect'),
-              { strokeDasharray: 1, strokeDashoffset: 1 },
-              { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' },
-              0.4,
-            )
-            .set(q('[data-plate-media]'), { opacity: 0 }, 0)
-            .fromTo(
-              q('[data-plate-curtain]'),
-              { scaleY: 0, transformOrigin: '50% 100%' },
-              { scaleY: 1, duration: 0.7, ease: 'power4.inOut' },
-              0.7,
-            )
-            .set(q('[data-plate-media]'), { opacity: 1 })
-            .set(q('[data-plate-curtain]'), { transformOrigin: '50% 0%' })
-            .to(q('[data-plate-curtain]'), { scaleY: 0, duration: 0.9, ease: 'power4.inOut' })
-            .fromTo(q('[data-plate-media]'), { scale: 1.35 }, { scale: 1, duration: 1.6, ease: 'expo.out' }, '<0.1')
-            .fromTo(
-              q('[data-hero-cartel] > *'),
-              { opacity: 0, y: 14 },
-              { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 },
-              '<0.3',
-            )
-            .fromTo(
-              q('[data-plate-glint]'),
-              { xPercent: 0, opacity: 1 },
-              { xPercent: 400, duration: 1.2, ease: 'power2.inOut' },
-              '-=0.5',
-            )
-            .set(q('[data-plate-glint]'), { opacity: 0 })
+        // Un geste du visiteur pendant l'intro l'accélère au lieu de la subir
+        const hurry = () => {
+          if (tl.progress() < 1) tl.timeScale(3)
         }
+        const hurryEvents = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const
+        hurryEvents.forEach((type) => window.addEventListener(type, hurry, { once: true, passive: true }))
 
         // CTA magnétique (souris uniquement)
         const link = ctaLinkRef.current
-        if (link && window.matchMedia('(pointer: fine)').matches) {
-          const moveX = gsap.quickTo(link, 'x', { duration: 0.5, ease: 'power3' })
-          const moveY = gsap.quickTo(link, 'y', { duration: 0.5, ease: 'power3' })
-          const onMove = (e: PointerEvent) => {
-            const rect = link.getBoundingClientRect()
-            moveX((e.clientX - rect.left - rect.width / 2) * 0.25)
-            moveY((e.clientY - rect.top - rect.height / 2) * 0.35)
-          }
-          const onLeave = () => {
-            moveX(0)
-            moveY(0)
-          }
-          link.addEventListener('pointermove', onMove)
-          link.addEventListener('pointerleave', onLeave)
-          return () => {
-            link.removeEventListener('pointermove', onMove)
-            link.removeEventListener('pointerleave', onLeave)
-          }
+        const finePointer = window.matchMedia('(pointer: fine)').matches
+        const onCtaMove = (e: PointerEvent) => {
+          if (!link) return
+          const rect = link.getBoundingClientRect()
+          gsap.to(link, {
+            x: (e.clientX - rect.left - rect.width / 2) * 0.25,
+            y: (e.clientY - rect.top - rect.height / 2) * 0.35,
+            duration: 0.5,
+            ease: 'power3',
+            overwrite: 'auto',
+          })
+        }
+        const onCtaLeave = () => link && gsap.to(link, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)', overwrite: 'auto' })
+
+        // Projecteur : une lumière de galerie suit le pointeur sur tout le hero
+        const spot = spotlightRef.current
+        const onSpotMove = (e: PointerEvent) => {
+          if (!spot) return
+          const rect = section.getBoundingClientRect()
+          gsap.to(spot, {
+            '--sx': `${e.clientX - rect.left}px`,
+            '--sy': `${e.clientY - rect.top}px`,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power3',
+            overwrite: 'auto',
+          })
+        }
+        const onSpotLeave = () => spot && gsap.to(spot, { opacity: 0, duration: 0.8 })
+
+        if (finePointer) {
+          link?.addEventListener('pointermove', onCtaMove)
+          link?.addEventListener('pointerleave', onCtaLeave)
+          section.addEventListener('pointermove', onSpotMove)
+          section.addEventListener('pointerleave', onSpotLeave)
+        }
+
+        return () => {
+          hurryEvents.forEach((type) => window.removeEventListener(type, hurry))
+          link?.removeEventListener('pointermove', onCtaMove)
+          link?.removeEventListener('pointerleave', onCtaLeave)
+          section.removeEventListener('pointermove', onSpotMove)
+          section.removeEventListener('pointerleave', onSpotLeave)
         }
       })
 
@@ -155,7 +256,7 @@ export default function AgenceHero({ t, events = [] }: Props) {
       ctx.add(() => {
         const mm = gsap.matchMedia()
         mm.add('(min-width: 1024px)', () => {
-          const scrollTrigger = { trigger: sectionRef.current, start: 'top top', end: 'bottom top', scrub: true }
+          const scrollTrigger = { trigger: section, start: 'top top', end: 'bottom top', scrub: true }
           if (eventsRef.current) gsap.to(eventsRef.current, { yPercent: -12, ease: 'none', scrollTrigger })
           gsap.to(titleRef.current, { yPercent: 18, ease: 'none', scrollTrigger })
         })
@@ -178,6 +279,19 @@ export default function AgenceHero({ t, events = [] }: Props) {
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Projecteur qui suit le pointeur */}
+      <div
+        ref={spotlightRef}
+        className="pointer-events-none absolute inset-0 opacity-0"
+        style={{
+          ['--sx' as string]: '50%',
+          ['--sy' as string]: '50%',
+          background:
+            'radial-gradient(650px circle at var(--sx) var(--sy), rgba(184, 156, 114, 0.16), rgba(184, 156, 114, 0) 60%)',
         }}
         aria-hidden="true"
       />
@@ -284,6 +398,40 @@ export default function AgenceHero({ t, events = [] }: Props) {
           )}
         </div>
       </div>
+
+      {/* Intro « accrochage » : l'œuvre plein cadre avant de rejoindre son cadre (desktop) */}
+      {lead && (
+        <div
+          ref={introRef}
+          className="pointer-events-none absolute inset-0 z-30 hidden lg:block motion-reduce:hidden"
+          aria-hidden="true"
+        >
+          <div data-intro-plate className="absolute inset-0 overflow-hidden bg-black">
+            <div data-intro-img className="absolute inset-0 will-change-transform">
+              <Image src={lead.imageUrl} alt="" fill sizes="100vw" quality={75} priority className="object-cover" />
+            </div>
+            <div
+              data-intro-shade
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"
+            />
+            <div
+              data-intro-caption
+              className="absolute inset-x-0 bottom-0 max-w-screen-2xl mx-auto px-10 pb-20 text-white"
+            >
+              <p data-intro-split className="montserrat text-sm text-gold-accent mb-4">
+                {t('agence.hero.eventsLabel')}
+              </p>
+              <p
+                data-intro-split
+                className="serif italic font-light leading-[1.02] max-w-[16ch]"
+                style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
+              >
+                {lead.name}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
