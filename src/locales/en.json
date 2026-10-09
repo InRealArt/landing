@@ -495,6 +495,275 @@
           "label": "Content creators"
         }
       }
+    },
+    "ecosystem": {
+      "eyebrow": "The In Real Art ecosystem",
+      "title": "One ecosystem,",
+      "titleAccent": "three crafts.",
+      "lede": "Neither a marketplace nor just a gallery.",
+      "ledeStrong": "We give artistic voices a stage, then connect them with the companies, collectors and brands that match them.",
+      "tour": {
+        "replay": "Replay the journey",
+        "stop": "Stop",
+        "hint": "Pick your profile or one of our crafts in the diagram.",
+        "step1": "We select artists for the singularity of their vision.",
+        "step2": "Our media and our agency make them shine.",
+        "step3": "The B2B gallery presents their works to companies and collectors.",
+        "step4": "The talent agency pairs them with leading brands.",
+        "step5": "Institutions, galleries and independent professionals benefit from the same expertise.",
+        "step6": "Every project feeds the media, and the circle starts again."
+      },
+      "diagram": {
+        "capInputs": "Those we support, by selection",
+        "capOutputs": "Those we connect",
+        "onSelection": "by selection",
+        "ringText": "every project feeds the media, which amplifies",
+        "ringTextShort": "every project feeds the media",
+        "hubName": "InRealArt",
+        "hubSub1": "the media",
+        "hubSub2": "at the core",
+        "signatures": "our signatures",
+        "signaturesAria": "Artists: our signatures, including"
+      },
+      "nodes": {
+        "artiste": {
+          "label": "Artists",
+          "sub": "Painters, sculptors, photographers"
+        },
+        "createur": {
+          "label": "Content creators",
+          "sub": "Artist-influencers"
+        },
+        "institution": {
+          "label": "Institutions",
+          "sub": "Museums, local authorities, foundations"
+        },
+        "pro": {
+          "label": "Art professionals",
+          "sub": "Gallerists, artisans, curators"
+        },
+        "liberal": {
+          "label": "Independent professionals",
+          "sub": "Architects, lawyers, practitioners"
+        },
+        "amp": {
+          "label": "Amplifier",
+          "sub": "Media & communications agency"
+        },
+        "galerie": {
+          "label": "B2B Gallery",
+          "sub": "Art for companies"
+        },
+        "talents": {
+          "label": "Talent agency",
+          "sub": "Creators and brands"
+        },
+        "entreprises": {
+          "label": "Companies and executives",
+          "sub": "Workspaces, assets, CSR"
+        },
+        "marques": {
+          "label": "Leading brands",
+          "sub": "Launches, campaigns, events"
+        },
+        "collect": {
+          "label": "Collectors",
+          "sub": "Acquisitions, private collections"
+        },
+        "hub": {
+          "label": "The media",
+          "sub": ""
+        }
+      },
+      "panel": {
+        "kicker": "How we work",
+        "title": "Reveal, amplify, connect.",
+        "intro": "Three crafts that reinforce each other: what one builds, the others extend. At the core, our media tells every project's story and restarts the circle.",
+        "cta": "Book a meeting",
+        "tourCta": "See an artist's journey",
+        "overview": "Overview",
+        "forWho": "For whom",
+        "does": "What we do",
+        "proof": "Track record",
+        "yourPath": "Your journey",
+        "reveal": "Reveal",
+        "revealText": "We select artists and talents for the singularity of their vision.",
+        "amplify": "Amplify",
+        "amplifyText": "Our media and our agency build their visibility: editorial, content, fairs.",
+        "connect": "Connect",
+        "connectText": "The B2B gallery introduces them to companies and collectors; the talent agency pairs them with brands.",
+        "signaturesTitle": "Some of our signatures",
+        "enlarge": "Enlarge:",
+        "viewer": "Enlarged visual",
+        "prev": "Previous",
+        "next": "Next",
+        "close": "Close"
+      },
+      "content": {
+        "amp": {
+          "kicker": "Media and communications agency",
+          "title": "Amplifier",
+          "intro": "We make your voice heard: a media outlet that tells your story, and an agency that builds your editorial line and content.",
+          "forWho": "Artists, institutions, art professionals, independent professionals.",
+          "does1": "Coverage in our media: InRealArt TV, blog, monographs, social networks",
+          "does2": "Strategy and editorial line",
+          "does3": "Content production: video, photo, materials for fairs",
+          "proof": "Our artists have been featured on Demain TV and JobTalk TV.",
+          "cta": "Talk about your visibility"
+        },
+        "galerie": {
+          "kicker": "Art for companies and collectors",
+          "title": "B2B Gallery",
+          "intro": "We place works by artists selected from our residents in company spaces and executives' private collections.",
+          "forWho": "Companies and executives, collectors, independent professionals, art professionals, hotels and hospitality venues.",
+          "does1": "Curated works for your spaces",
+          "does2": "Rental, rent-to-own, leasing",
+          "does3": "Commissions and tax guidance",
+          "proof": "Over 150 works in museums and private collections, over 40 resident artists.",
+          "cta": "Request a selection"
+        },
+        "talents": {
+          "kicker": "Creators and brands",
+          "title": "Talent agency",
+          "intro": "We pair creators, selected for their singular universe, with leading brands, from one-off activations to long-term partnerships.",
+          "forWho": "Brands, venues and experiences; creators and artist-influencers.",
+          "does1": "Casting of selected creators",
+          "does2": "Launches, events, social media campaigns",
+          "does3": "Ambassador programmes, usage rights included",
+          "proof": "Logitech G × Artialy: a collaboration between digital art and esports.",
+          "cta": "Submit a brief"
+        },
+        "hub": {
+          "kicker": "At the core of the ecosystem",
+          "title": "The media",
+          "intro": "InRealArt TV, the blog and the monographs tell our artists' stories. Every sale, every collaboration becomes content that amplifies them again.",
+          "forWho": "Anyone who wants to follow today's art scene.",
+          "does1": "InRealArt TV",
+          "does2": "Editorial blog",
+          "does3": "Artist monographs",
+          "proof": "Over 20 content creators in our network.",
+          "cta": "Discover the media"
+        },
+        "artiste": {
+          "title": "You are an artist",
+          "intro": "We make your work shine, then open the doors of companies and brands to it.",
+          "step1": "Media, content, fairs: your visibility, built with you.",
+          "step2": "Your works offered to companies, executives and collectors, by selection.",
+          "step3": "Collaborations with brands that share your universe, by selection.",
+          "cta": "Join InRealArt"
+        },
+        "createur": {
+          "title": "You are a content creator",
+          "intro": "We refine your editorial universe, then pair you with brands that resemble you.",
+          "step1": "An editorial line and content worthy of your universe.",
+          "step2": "Casting and collaborations with leading brands, by selection.",
+          "cta": "Join our talents"
+        },
+        "institution": {
+          "title": "You are an institution",
+          "intro": "Museum, local authority, foundation: we showcase your programmes with a media outlet and an agency that know the art world.",
+          "step1": "Media, content and campaigns for your exhibitions and programmes.",
+          "step2": "Reach an audience that follows the art scene.",
+          "cta": "Discuss your project"
+        },
+        "collect": {
+          "title": "You are a collector",
+          "intro": "We introduce you to works by artists we follow closely, with their background and their story.",
+          "step1": "Each artist's journey documented by our media.",
+          "step2": "Curated works and acquisitions, by appointment.",
+          "cta": "Book a meeting"
+        },
+        "pro": {
+          "title": "You are an art professional",
+          "intro": "Gallery, art studio, curation: we build your communication with first-hand knowledge of the field.",
+          "step1": "Strategy, content and presence in our media.",
+          "step2": "Works by our artists for your venue or your clients.",
+          "cta": "Discuss your project"
+        },
+        "liberal": {
+          "title": "You are an independent professional",
+          "intro": "Architect, lawyer, practitioner: we give your image the rigour and sensitivity of a cultural agency.",
+          "step1": "Editorial identity, content and visibility, designed for your profession.",
+          "step2": "Works for your practice: rental, acquisition, tax benefits.",
+          "cta": "Discuss your project"
+        },
+        "entreprises": {
+          "title": "You are a company",
+          "intro": "We bring art into your spaces, with artists we know and support every day.",
+          "step1": "Artists already highlighted by our media, with their story.",
+          "step2": "Selection, rental or acquisition, tax guidance.",
+          "cta": "Request a selection"
+        },
+        "marques": {
+          "title": "You are a brand",
+          "intro": "We introduce you to creators with a genuine universe and an engaged audience, not generic profiles.",
+          "step1": "Talents whose work we follow and showcase.",
+          "step2": "Casting, activation, ambassador programmes.",
+          "cta": "Submit a brief"
+        }
+      },
+      "visuals": {
+        "logitech": {
+          "title": "Logitech G × Artialy",
+          "note": "Brand activation between digital art and esports"
+        },
+        "artialy": {
+          "title": "Artialy",
+          "note": "Creator, dreamlike universe, Japanese culture and gaming"
+        },
+        "tassou": {
+          "title": "Marine Tassou",
+          "note": "Creator, luxury, lifestyle and fashion universe"
+        },
+        "romav": {
+          "title": "Rom av.JC",
+          "note": "Worn skateboards turned into works inspired by Antiquity"
+        },
+        "eaudalix": {
+          "title": "Eaudalix",
+          "note": "Colourful universe, hybrid and totemic figures"
+        },
+        "nontron": {
+          "title": "Nontron exhibition",
+          "note": "A hanging of our artists, May 2026"
+        },
+        "senechal": {
+          "title": "Catherine Sénéchal, painter",
+          "note": "Communication materials for social networks and fairs"
+        },
+        "ronan": {
+          "title": "Martin Ronan, painter",
+          "note": "Artist portrait and story for the media"
+        },
+        "boyer": {
+          "title": "Jean-Paul Boyer, sculptor",
+          "note": "Works offered to companies and collectors"
+        },
+        "collectif": {
+          "title": "The InRealArt collective",
+          "note": "Support for resident artists"
+        },
+        "galeries": {
+          "title": "Gallery partnerships",
+          "note": "Projects run with partner galleries"
+        },
+        "lettre": {
+          "title": "The InRealArt Letter",
+          "note": "Every week, our artists' stories told to our audience"
+        },
+        "sigSenechal": {
+          "title": "Catherine Sénéchal",
+          "note": "Painter, resident artist"
+        },
+        "sigRonan": {
+          "title": "Martin Ronan",
+          "note": "Painter, Icac-rated"
+        },
+        "sigBoyer": {
+          "title": "Jean-Paul Boyer",
+          "note": "Sculptor, resident artist"
+        }
+      }
     }
   },
   "marketplace": {

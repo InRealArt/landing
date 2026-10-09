@@ -1,0 +1,1010 @@
+<html lang="fr"><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.w_ePPE-a.js","assets":"assets.DOAjpBS9.js","comments":"comments.BcqPhVn7.js","db":"db.zFlAA4qL.js","dictation":"dictation.f3j7VXQ8.js","downloads":"downloads.axDW2QAi.js","embed":"embed.SWCZLzn6.js","endpoints":"endpoints.BPfoKaE1.js","files":"files.IkpCjcgM.js","mcp":"mcp.kl0G36TA.js","network":"network.B5UA9Su4.js","permissions":"permissions.6yWoDecA.js","reads":"reads.Bgov9hIw.js","room":"room.Dy3vHyq9.js","sample":"sample.D5wHJkl_.js","self":"artifact.w_ePPE-a.js","user":"user.CB0zJsP2.js"},"transforms":"_transforms.C_b-uWUJ.js","comments":"_comments.CVOoGJSh.js","translate":"_translate.DqxC5ek1.js","ldx":"_ldx.B4FSryPi.js"}                                                                                                                                                                                                                              </script><script>(function(){"use strict";function fr(t){return t==="cookie"||t==="query"?t:void 0}function dr(t){return typeof t=="number"&&Number.isSafeInteger(t)&&t>0?t:void 0}var to=3e5;function hr(t,e){try{const r=t("navigation")[0],n=[r.responseStart,r.redirectEnd-r.redirectStart,r.domContentLoadedEventStart,e(),r.connectEnd-r.domainLookupStart,r.responseStart-r.requestStart];r.requestStart>0||(n.length=4);for(let a=0;a<n.length;a++)if(n[a]>=0&&n[a]<=3e5)n[a]=n[a]|0;else{if(a<4)return;n.length=4}return n}catch{return}}var pr=["light","dark","system"],mr=/^[A-Za-z0-9_-]{1,64}$/,Lt=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,vr=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function yr(t){const e=t.toLowerCase();return e.startsWith("data-")||e.startsWith("aria-")||vr.has(e)}var Ot="data-ldx-props";function _r(t,e){if(e.toLowerCase()===Ot)return!0;const r=t.getAttribute(Ot);if(r===null)return!1;try{const n=JSON.parse(r);if(n===null||typeof n!="object"||Array.isArray(n))return!0;const a=e.toLowerCase();return Object.keys(n).some(s=>s.toLowerCase()===a)}catch{return!0}}var ro="http://www.w3.org/1999/xhtml",gr="http://www.w3.org/2000/svg",wr=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),br=new Set(["script","style"]);function Er(t){const e=t.localName.toLowerCase();return t.namespaceURI==="http://www.w3.org/1999/xhtml"?!wr.has(e):t.namespaceURI===gr?!br.has(e):!1}function tt(t,e){return t===e||(t===160||t===32)&&(e===160||e===32)}function Sr(t,e){const r=t.length,n=e.length;let a=0;for(;a<r&&a<n&&tt(t.charCodeAt(a),e.charCodeAt(a));)a++;let s=0;for(;s<r-a&&s<n-a&&tt(t.charCodeAt(r-1-s),e.charCodeAt(n-1-s));)s++;return{p:a,s}}function kr(t,e){const r=t.firstChild;if(t.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){t.textContent=e;return}const n=r.data,a=n.length,s=e.length,{p:l,s:c}=Sr(n,e);l===a&&c===0&&a===s||r.replaceData(l,a-l-c,e.slice(l,s-c));const T=r.data,_=t.ownerDocument.getSelection?.()??null,v=_!==null&&_.rangeCount>0&&(_.anchorNode===r||_.focusNode===r)?{anchor:_.anchorNode,anchorOffset:_.anchorOffset,focus:_.focusNode,focusOffset:_.focusOffset}:null;let h=-1,k=-1;for(let p=0;p<T.length&&p<e.length;p++){const F=T.charCodeAt(p),R=e.charCodeAt(p);F!==R&&tt(F,R)&&(h<0&&(h=p),k=p)}const O=h>=0;if(O&&r.replaceData(h,k-h+1,e.slice(h,k+1)),O&&v!==null&&v.anchor!==null&&v.focus!==null)try{_.setBaseAndExtent(v.anchor,v.anchorOffset,v.focus,v.focusOffset)}catch{}}var Ar=new Set(["html","head","body","frameset"]);function Rr(t){return t.namespaceURI==="http://www.w3.org/1999/xhtml"&&Ar.has(t.localName)}function Tr(t){if(t===null||typeof t!="object")return!1;const e=t;if(typeof e.target!="string"||!mr.test(e.target)||e.text!==void 0&&typeof e.text!="string")return!1;if(e.attrsSet!==void 0){if(e.attrsSet===null||typeof e.attrsSet!="object")return!1;for(const[r,n]of Object.entries(e.attrsSet))if(!Lt.test(r)||typeof n!="string")return!1}if(e.attrsRemoved!==void 0){if(!Array.isArray(e.attrsRemoved))return!1;for(const r of e.attrsRemoved)if(typeof r!="string"||!Lt.test(r))return!1}return!0}function Lr(t,e){if(t===null||typeof t!="object")return!1;const{seq:r,elements:n}=t;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let a=0;a<n.length;a++)if(!e(n[a]))return!1;return!0}function Or(t){return t===null||typeof t!="object"?!1:Lr(t.__frame_patch,Tr)}function Mr(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_init;return e!==null&&typeof e=="object"}function Pr(t){return t!==null&&typeof t=="object"&&t.__frame_size_poke===!0}function Nr(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_host_visible;return e!==null&&typeof e=="object"&&typeof e.visible=="boolean"}function Cr(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_theme;if(e===null||typeof e!="object")return!1;const r=e.theme;return typeof r=="string"&&pr.includes(r)}var Fr=["ok","empty","snapshot_error","snapshot_timeout","unclonable","oversize","unavailable","restore_error","withheld"],jr=["TypeError","RangeError","ReferenceError","SyntaxError","DataCloneError","QuotaExceededError","AbortError","TimeoutError","SecurityError","Error","other"];function xr(t){return typeof t=="string"&&jr.includes(t)?t:"other"}var Ir=Object.freeze({until:null,now:!1}),Dr="__claude_hot",Hr="__claude_hot_in",qr=/^__claude_hot(?:_in)?(?::|$)/,Mt=/^[0-9a-z]{1,32}$/,rt=t=>t===void 0?Dr:"__claude_hot:"+t,Le=t=>t===void 0?Hr:"__claude_hot_in:"+t;function Br(t,e){const r=[];for(let n=0;n<t.length;n++){const a=t.key(n);a!==null&&a!==e&&qr.test(a)&&r.push(a)}for(const n of r)t.removeItem(n)}function Ur(t){let e=null;try{e=B(JSON.parse(t)?.hot)}catch{return null}return e===null||typeof e.k!="string"||!Mt.test(e.k)?null:he(e.g)?{k:e.k,g:e.g}:{k:e.k}}var no=262144,Kr=3e3,Gr=5e3,Pt=/^[a-z0-9._:-]{1,64}$/,$r=["none","hot-restart","hard-reload"],zr=["asset","doc","added","removed"],Wr=1500,Vr=/^[0-9a-f]{64}$/;function B(t){return t!==null&&typeof t=="object"?t:null}function he(t){return typeof t=="number"&&Number.isInteger(t)&&t>=0&&t<2**31}function Nt(t){return t===void 0||typeof t=="number"&&Number.isFinite(t)}function Xr(t){return t===void 0||typeof t=="string"&&Pt.test(t)}function Ct(t){const e=B(t);return e!==null&&(e.until===null||typeof e.until=="number"&&Number.isFinite(e.until))&&typeof e.now=="boolean"}function nt(t){const e=B(t);return e!==null&&typeof e.ver=="string"&&e.ver.length<=128&&Nt(e.seq)&&typeof e.handoff=="string"&&Fr.includes(e.handoff)&&Xr(e.note)}function Ft(t){const e=B(t);return e!==null&&he(e.gen)&&(e.phase==="final"||e.phase==="pending")&&(e.from===null||nt(e.from))}function Yr(t){const e=B(t);return e!==null&&e.kv===1&&he(e.gen)&&nt(e.from)&&Object.hasOwn(e,"data")}function Jr(t){const e=B(t);return e!==null&&e.__frame_hot_snapshot===!0&&he(e.gen)&&typeof e.timeoutMs=="number"&&e.timeoutMs>=0&&e.timeoutMs<=6e4&&(e.handoff===void 0||typeof e.handoff=="boolean")&&(e.deadline===void 0||Ct(e.deadline))&&Nt(e.seq)&&(e.note===void 0||typeof e.note=="string")&&(e.key===void 0||typeof e.key=="string")}function Zr(t){const e=B(t);return e!==null&&e.__frame_hot_start===!0&&he(e.gen)&&nt(e.from)}function Qr(t){return typeof t=="string"&&t.length>=1&&t.length<=128}function jt(t){return B(t)!==null&&!Array.isArray(t)}function en(t){const e=B(t);return e!==null&&e.__frame_cap_grant===!0&&typeof e.cap=="string"&&Qr(e.ver)&&(e.grant===void 0||jt(e.grant))&&(e.budgets===void 0||jt(e.budgets)&&Object.values(e.budgets).every(Number.isFinite))&&(e.brokerGen===void 0||he(e.brokerGen))}function tn(t){const e=B(t);return e!==null&&e.__frame_cap_rewired===!0&&(e.caps===void 0||Array.isArray(e.caps)&&e.caps.every(r=>typeof r=="string"))&&(e.brokerGen===void 0||he(e.brokerGen))}function Ge(t){const e=B(t);return e!==null&&typeof e.ver=="string"&&e.ver.length<=128&&Number.isFinite(e.seq)}function xt(t){if(t==null||typeof t=="string")return!0;const e=B(t);return e!==null&&typeof e.doc=="string"&&typeof e.profile=="string"}function rn(t){const e=B(t);return e!==null&&typeof e.path=="string"&&zr.includes(e.kind)&&xt(e.from)&&xt(e.to)}function nn(t){return t===null?null:Object.freeze(t.filter(rn))}function on(t){const e=B(t);return e!==null&&e.__frame_hot_update===!0&&Number.isFinite(e.id)&&Ge(e.from)&&Ge(e.to)&&(e.changed===null||Array.isArray(e.changed))&&$r.includes(e.required)&&Ct(e.deadline)&&typeof e.verdictTimeoutMs=="number"&&e.verdictTimeoutMs>=0&&e.verdictTimeoutMs<=6e4&&(e.preflight===void 0||typeof e.preflight=="string"&&Vr.test(e.preflight))}function an(t){const e=B(t);return e!==null&&e.__frame_hot_readdress===!0&&Ge(e.from)&&Ge(e.to)}var pe=/^[\w.-]+\.js$/;function sn(t,e,r){return r?"inert":typeof e=="string"&&pe.test(e)?t?[e]:"inert":t?"inert":"framed"}var It=Object.freeze({[Symbol("claude.hot.restart")]:!0});function Dt(t,e){let r;try{r=t??sessionStorage}catch{return null}const n=rt(e?.k),a=Le(e?.k);let s=null;try{s=r.getItem(n)}catch{}try{r.removeItem(n)}catch{}try{Br(r,a)}catch{}let l=null;if(s!==null&&!(e!==null&&e.g===void 0))try{const c=JSON.parse(s);Yr(c)&&(e===null||c.gen===e.g)&&(l=c)}catch{}if(l===null)try{r.removeItem(a)}catch{}return l}function Ht(){const t=/^\/_f\/([^/]{1,128})\//.exec(location.pathname);return t?t[1]:""}var ln=/^[^/\\?#]{1,128}$/,ot=t=>ln.test(t)&&t!=="."&&t!=="..";function qt(t,e,r){const n=new URL(t),a="/_f/"+e+"/";if(!e||!n.pathname.startsWith(a)||!ot(r))return null;const s=n.search.slice(1).split("&").filter(l=>!/^__frame_t(?:=|$)/.test(l)).join("&");return n.origin+"/_f/"+r+"/"+n.pathname.slice(a.length)+(s?"?"+s:"")+n.hash}var $e="{}";function Oe(t){if(!t)return null;const e={ver:t.ver,handoff:t.handoff};return t.seq!==void 0&&(e.seq=t.seq),t.note!==void 0&&(e.note=t.note),e}function Bt(t,e){return t!==null&&t.note===void 0&&e?.note!==void 0?{...t,note:e.note}:t}function Ut(t){const e=t?.k;return e!==null&&typeof e=="object"?e:void 0}function cn(t,e,r,n=null){const a=setTimeout,s=clearTimeout,l=queueMicrotask,c=performance.now.bind(performance),T=new TextEncoder;let _=null,v=null;try{_=history,v=_.replaceState.bind(_)}catch{}const h=(...o)=>{try{console.warn(...o)}catch{}};let k=Ht(),O=null;try{O=sessionStorage}catch{}const p={storage:O,fetch:typeof fetch=="function"?fetch.bind(globalThis):null,entry:location.origin+location.pathname+location.search,ver:k,priors:[],key:n?.k};let F=n?.k;const R=typeof requestAnimationFrame=="function"?requestAnimationFrame:o=>a(()=>o(c()),16);let g=e?.data??{},w=Oe(e?.from),j=e?.gen??0,I=e!==null,q=!1,G=!1,D=null,be=!1;const Fe=new AbortController;let je=null,U=null,Ee=null,xe=!1,le=()=>{};const ce=new Promise(o=>{le=o});let ve=!1,u=!1,b=!1,y,A=null,H=!1,X=!1,K=!1,te=!1,Y=!1,ye=!1;const _e=o=>{for(const f of[rt(o),Le(o)])try{O?.removeItem(f)}catch{}},$=(o,f)=>{try{f!==null&&r.post(o,f)}catch{}},Ie=()=>Y||=K&&(U===null||te),J=()=>{const o={__frame_hot:!0,ready:U!==null,accept:Ee!==null,demand:!0};ye=!Y,ye&&(o.booting=!0),ve&&(o.readData=!0),b&&(o.threw=!0),A?.assess&&(o.preflight=!0),$(o,D)};let De=!1,re=!1,ue=!1,He=!1;const Je=()=>{De||!be||ue||(De=!0,$({__frame_reveal_hold:!0},"*"))},Se=()=>new Promise(o=>{let f,d=0;const m=M=>{if(f===void 0)f=M;else if(M!==f||++d>=8){o();return}try{R(m)}catch{o()}};try{R(m)}catch{o()}}),qe=()=>{ue=!0,$({__frame_reveal_ready:!0},"*")},Be=o=>{re||(re=!0,o.then(f=>{if(f===!1)return;let d=null;try{d=A?.settle?.()??null}catch{}return(d===null?Se():new Promise(m=>{a(m,50),Promise.resolve(d).then(m,m)}).then(Se)).then(qe)}))},gt=()=>{if(He||!ue)return;He=!0;const o=()=>{try{A?.afterReveal?.()}catch{}};o(),Se().then(()=>{o(),qe()})},ee=(o=!1)=>{if(xe||U===null||!I||!G)return;xe=!0;const f=U,d=g;l(()=>{let m;try{m=f(d)}catch(P){throw le(!1),P}let M=!1;try{M=typeof m?.then=="function"}catch{}if(!M){le(!0);return}Promise.resolve(m).then(()=>le(!0),P=>{le(!1),l(()=>{throw P})})}),Be(o?ce:r.dcl.then(()=>ce))},fe=o=>typeof o=="string"&&Pt.test(o)?o:void 0,ke=o=>{const f={__frame_hot_restart:!0},d=fe(o?.note);d!==void 0&&(f.note=d),o?.required==="hard-reload"&&(f.required="hard-reload"),$(f,D)},Ue=Object.freeze({get data(){return G||(u=!0),!I&&!ve&&(ve=!0,G&&J()),g},get from(){return w},get gen(){return j},signal:Fe.signal,snapshot(o){typeof o=="function"&&(je=o)},ready(o){typeof o!="function"||U!==null||(U=o,Je(),J(),q&&$({__frame_hot_ready:!0,gen:j},D),ee())},accept(o){typeof o=="function"&&(Ee=o,J())},restart(o){const f={note:o?.note,required:o?.required};if(G){ke(f);return}const d=y;y={note:fe(d?.note)??f.note,required:d?.required==="hard-reload"||f.required==="hard-reload"?"hard-reload":void 0}}});let i=null,E=()=>{};const S=new Promise(o=>{E=o});let N=null;const Z=()=>N??=r.dcl.then(()=>{let o=!1;try{o=i!==null&&i.expect()}catch{}if(!o)return;const f=i.maxMs;return new Promise(d=>{S.then(d),a(d,f)})}),Q=()=>{if(!H||X||A===null)return;X=!0;const o=A;Z().then(()=>{try{ue||o.afterStart(Ut(e),!1)}catch{}})},de=o=>{e!==null&&u&&(ve=!0),g={},w=null,j=0;try{O?.removeItem(Le(n?.k))}catch{}e!==null&&!o&&Be(r.dcl.then(()=>U!==null?ce:void 0))},$n=()=>{H=!0,Be(Z().then(()=>U!==null?ce:void 0)),Q()};try{addEventListener("error",()=>{b||U!==null||(b=!0,J())})}catch{}const sr=()=>{a(()=>{!Y&&Ie()&&ye&&J()},0)};try{K=document.readyState==="complete",K||addEventListener("load",()=>{K=!0,sr()},{once:!0})}catch{K=!0}Ie(),ce.then(()=>{te=!0,sr()});let ge=-1,wt,bt,Ke=!0,Et=!1,St,Ze=null;const kt=o=>{const f=Ze===null;Ze=Ke&&o[0]!=="withheld"?o:["withheld",o[1],$e];let d=o[0];if(Ke&&d!=="withheld"){const M={ver:k,handoff:d};wt!==void 0&&(M.seq=wt),bt!==void 0&&(M.note=bt);try{if(O===null)throw new Error("no storage");O.setItem(rt(F),'{"kv":1,"gen":'+ge+',"from":'+JSON.stringify(M)+(St!==void 0?',"k":'+JSON.stringify(St):"")+',"data":'+(d==="ok"?o[2]:$e)+"}")}catch{d="unavailable"}}else{d="withheld",_e(F);try{A?.release?.()}catch{}}const m={__frame_hot_snapshotted:!0,gen:ge,handoff:d,bytes:o[1]};o[3]!==void 0&&(m.errName=o[3]),$(m,D),f&&(d==="snapshot_error"||d==="unclonable"||d==="oversize")&&h("claude.hot: snapshot",d,o[3])},Ae=o=>{try{return xr(o?.name)}catch{return"other"}},Re=(o,f,d=0)=>kt(f===void 0?[o,d,$e]:[o,d,$e,Ae(f)]),zn=o=>{if(o.gen<=ge)return;const f=ge>=0;if(ge=o.gen,wt=o.seq,bt=fe(o.note),typeof o.key=="string"&&Mt.test(o.key)&&o.key!==F&&(_e(F),F=o.key),Ke&&=o.handoff!==!1,f){Ze!==null?kt(Ze):Et&&$({__frame_hot_held:!0,gen:ge},D);return}Fe.abort();const d=Object.freeze({handoff:Ke,timeoutMs:o.timeoutMs,deadline:o.deadline??Ir}),m=je,M=()=>{if(Ke)try{St=A?.capture()}catch{}if(m===null){Re("empty");return}let L=!1;const z=a(()=>{L||(L=!0,Re("snapshot_timeout"))},Math.max(0,d.timeoutMs));Promise.resolve().then(()=>m(d)).then(Te=>{if(L)return;L=!0,s(z);let ne;try{ne=JSON.stringify(Te)}catch(At){Re("unclonable",At);return}if(typeof ne!="string"){Re("unclonable");return}let oe=ne.length;try{oe=T.encode(ne).length}catch{}if(oe>262144){Re("oversize",void 0,oe);return}kt(["ok",oe,ne])},Te=>{L||(L=!0,s(z),Re("snapshot_error",Te))})};let P=null;try{P=A?.holdForIme()??null}catch{}if(P===null)M();else{Et=!0,$({__frame_hot_held:!0,gen:ge},D);const L=()=>{Et=!1,M()};P.then(L,L)}},Wn=o=>{if(!q||I||U===null||o.gen!==j)return;let f=null;try{f=Dt(O,n&&{k:n.k,g:o.gen})}catch{}if(f!==null&&f.gen!==o.gen){f=null;try{O?.removeItem(Le(n?.k))}catch{}}g=f?.data??{},w=Bt(Oe(f?.from??o.from),Oe(o.from)),f!==null&&(j=f.gen),I=!0,q=!1;const d=Ut(f);ce.then(m=>{try{m&&A?.afterStart(d,!0)}catch{}}),ee(!0)},ir=o=>{const f=k,d=p.entry;let m="",M,P=null;try{if(m=location.href,M=_.state,P=qt(m,f,o),P!==null)if(v(M,"",P),location.pathname.startsWith("/_f/"+o+"/"))P=location.href;else return{failed:"navigate event canceled"}}catch(L){return{failed:Ae(L)}}k=p.ver=o,p.priors.push(f)>8&&p.priors.splice(1,1);try{p.entry=qt(d,f,o)??d}catch{}return[P,f,d,m,M]},Vn=({from:o,to:f})=>{let d,m;if(!ot(f.ver))d="adopt_failed",m="not a version path segment";else if(f.ver===k)d="adopted";else if(!k||o.ver!==k)d="stale";else{const P=ir(f.ver);"failed"in P?(d="adopt_failed",m=P.failed):d=P[0]===null?"adopt_skipped":"adopted"}m!==void 0&&h(`claude.hot: could not move this page's URL to its new version folder /_f/${f.ver}/ (${m})`);const M={__frame_hot_readdressed:!0,to:f.ver,at:k,outcome:d};$(M,D)};let Qe=0;const Xn=o=>{const f=Ee;if(f===null||o.id<=Qe)return;Qe=o.id;const d=A?.assess;if(o.preflight===void 0||d===void 0){lr(o,f);return}let m=!1;const M=z=>{m||(m=!0,s(L),o.id===Qe&&lr(o,f,z))},P=()=>M(d.timeout(o)),L=a(P,Wr+100);d.run(o,window).then(M,P)},lr=(o,f,d)=>{let m,M=!1,P=!1,L,z,Te=null;const ne=C=>{if(P)return!1;if(L!==void 0&&L!==C)return h(`claude.hot: u.${C}() ignored - u.${L}() was called first`),!1;const ae=L===void 0;return L=C,ae},oe=C=>{L="restart",h(`claude.hot: ${C} - restarting`)},At=()=>{if(!ne("adopt")||o.id!==Qe)return;const C=o.to.ver;if(et.required!=="none"){oe(`u.adopt() needs required 'none', it is '${et.required}'`);return}if(!ot(C)){oe("u.adopt() cannot address this version");return}if(!k||C===k)return;const ae=ir(C);if("failed"in ae){z="adopt_failed",oe(`adopt_failed ${ae.failed}; URL not changed`);return}const[W,Tt,Zn,ur,Qn]=ae;W===null?(z="adopt_skipped",h(`claude.hot: adopt_skipped - page already left /_f/${Tt}/; URL not changed, update still applied`)):z="adopted",Te=()=>{if(k===C){if(W!==null)try{if(location.href!==W)h("claude.hot: adopt_revert_skipped - update not applied; URL left where the page navigated");else{if(v(Qn,"",ur),location.href!==ur){h("claude.hot: adopt_revert_failed navigate event canceled - URL still at the new version");return}z="adopt_reverted",h("claude.hot: adopt_reverted - adopt() was called but the handler threw; URL restored")}}catch(eo){h(`claude.hot: adopt_revert_failed ${Ae(eo)} - URL still at the new version`);return}k=p.ver=Tt,p.entry=Zn,p.priors[p.priors.length-1]===Tt&&p.priors.pop(),W===null&&(z=void 0)}}},et=Object.freeze({from:{ver:o.from.ver,seq:o.from.seq},to:{ver:o.to.ver,seq:o.to.seq},changed:nn(o.changed),required:o.required,deadline:o.deadline,adopt:At,defer(){return ne("defer")&&et.deadline.now&&oe("u.defer() past the deadline"),It},restart(C){return ne("restart"),L==="restart"&&!P&&(m??=fe(C?.note),M||=C?.required==="hard-reload"),It},...d?.update}),Yn=(C,ae)=>{P=!0,C==="threw"?(Te?.(),m??=Ae(ae).toLowerCase()):L===void 0&&h(C==="timeout"?"claude.hot: accept handler did not answer in time - restarting":"claude.hot: accept handler settled without defer/restart/adopt - restarting");const W={__frame_hot_verdict:!0,id:o.id};W.verdict=C==="threw"||L===void 0||L==="restart"?"restart":L==="adopt"?"applied":"deferred",W.verdict==="restart"&&(M&&(W.required="hard-reload"),m!==void 0&&(W.note=m)),z!==void 0&&(W.verdict==="applied"||z!=="adopted")&&(W.adopt=z),$(Object.assign(W,d?.verdict),D)};let cr=!1;const Rt=(C,ae)=>cr?!1:(cr=!0,s(Jn),Yn(C,ae),!0),Jn=a(()=>Rt("timeout"),o.verdictTimeoutMs);Promise.resolve().then(()=>f(et)).then(()=>Rt("settled"),C=>{!Rt("threw",C)&&L==="adopt"&&ke({note:Ae(C).toLowerCase()}),h("claude.hot: accept",Ae(C))})};try{t.hot===void 0&&Object.defineProperty(t,"hot",{value:Ue,writable:!1,configurable:!1,enumerable:!1})}catch{}return{hot:Ue,boot:p,afterConnect(){be=!0,(e!==null||U!==null)&&Je()},onInit(o,f){D=f,G=!0;const d=Ft(o)?o:null;d?.phase==="final"&&e!==null&&e.gen===d.gen?(I=!0,w=Bt(w,Oe(d.from)),$n()):(q=d?.phase==="pending",de(q),I=!q,j=d?.gen??0,w=Oe(d?.from)),J(),ye&&a(()=>{Y||(Y=!0,J())},Gr),q&&U!==null&&$({__frame_hot_ready:!0,gen:j},f),y!==void 0&&(ke(y),y=void 0),ee()},onNoInit(){G=!0,de(!1),I=!0,ee()},onShell(o){return o?.__frame_revealed===!0?(gt(),!1):Jr(o)?(zn(o),!0):Zr(o)?(Wn(o),!0):on(o)?(Xn(o),!0):an(o)?(Vn(o),!0):!1},attachExtras(o){A=o,Q(),o.assess&&J()},inSlot:()=>Le(F),hydration(o,f){i??={expect:o,maxMs:f}},hydrated(){E()},carried(){return I?g:{}},presented:()=>ue}}var oo="frame_ldx_runtime",un="frame_ldx_build",ao="script#an-form",fn=256;function at(t,e,r){for(const n of t)r(n)&&t.delete(n);t.size>=fn&&!t.has(e)&&t.delete(t.values().next().value),t.add(e)}function Me(t,e,r,n){try{const a=t[e];if(typeof a!="function")return;t[e]=function(...s){if(n){let c;try{c=n(this)}catch{}if(c!==void 0)return c}const l=a.apply(this,s);try{r?.(this)}catch{}return l}}catch{}}var dn=()=>{},st;function hn(){if(st)return st;const t={media:new Set,contexts:new Set,wakeLocks:new Set,gate:null,refuse:null,onStart:null,onStop:null};st=t;const e=l=>t.gate?.(l),r=l=>{t.onStop?.(l)},n=window.HTMLMediaElement?.prototype;n&&(Me(n,"play",l=>{at(t.media,l,c=>c.paused),t.onStart?.(l)},e),Me(n,"pause",r));const a=window.AudioContext,s=window.AudioNode?.prototype;a&&s&&(Me(s,"connect",l=>{const c=l.context;c instanceof a&&(at(t.contexts,c,T=>T.state==="closed"),t.onStart?.(c))}),Me(a.prototype,"resume",void 0,e),Me(a.prototype,"suspend",r));try{const l=window.WakeLock?.prototype,c=l?.request;l&&typeof c=="function"&&(l.request=function(...T){if(t.refuse)return t.refuse();const _=c.apply(this,T);return Promise.resolve(_).then(v=>{at(t.wakeLocks,v,h=>h.released),t.onStart?.(v)},dn),_})}catch{}return t}function pn(t){let e=window;for(let r=0;e.parent&&e.parent!==e&&r<8;r++)if(e=e.parent,t(e))return!0;return!1}function mn(){let t=null;const e=()=>t??parent,r=n=>t?n===t:pn(a=>a===n);return{post(n,a){if(t){e().postMessage(n,a);return}let s=parent;for(let l=0;l<8&&(s.postMessage(n,a),!(!s.parent||s.parent===s));l++)s=s.parent},on(n){const a=s=>{const l=s.source;r(l)&&n(s.data,s.origin,s.isTrusted,()=>{t??=l})};return addEventListener("message",a),()=>removeEventListener("message",a)},port:n=>({post(a,s){if(s?.activation){e().postMessage(a,{targetOrigin:n,includeUserActivation:!0});return}if(s?.transfer){e().postMessage(a,n,s.transfer);return}e().postMessage(a,n)},on(a,s){const l=c=>{r(c.source)&&c.origin===n&&a(c.data,c)};return addEventListener("message",l,s),()=>removeEventListener("message",l,s)}})}}function vn(){const t={post:()=>{},on:()=>()=>{}};return{...t,port:()=>t}}var yn=500,_n=2e4,gn="data-token-reads",wn="data-frame-refused-watch",bn="data-frame-unsupported",En=/(?:^|\s)stylesheet(?:\s|$)/i;function Sn(t,e){let r="";if(t instanceof HTMLScriptElement?r=t.src:t instanceof HTMLLinkElement&&En.test(t.rel)&&(r=t.href),!r)return null;try{const n=new URL(r);return n.origin===location.origin&&n.pathname.startsWith(e)?n.origin+n.pathname:null}catch{return null}}function kn(t,e,r){if(!t||e!=="query")return;const n="/_f/"+t+"/";document.documentElement.setAttribute(wn,"");const a=location.href,s=fetch,l=setTimeout,c={method:"HEAD",cache:"no-store",credentials:"same-origin"},T=p=>p.ok||p.status===304;let _=!1,v=!1;const h=()=>removeEventListener("error",O,!0),k=async p=>{const F=await s(p,c);if(T(F))v=!0;else if(F.status===403){const R=await s(a,c);if(T(R)){const g=(await s(p,c)).status;g===403?(v=!0,document.documentElement.setAttribute(bn,""),r()):g<500&&(v=!0)}else R.status>=400&&R.status<500&&(v=!0)}},O=p=>{if(v||_)return;if(document.documentElement.hasAttribute(gn)){v=!0,h();return}const F=Sn(p.target,n);F&&(_=!0,l(()=>{k(F).catch(()=>{}).finally(()=>{_=!1,v&&h()})},yn))};addEventListener("error",O,!0),addEventListener("load",h,{once:!0}),l(h,_n)}var it="__frame_scroll",An=150,Rn=310,Tn=160,Ln=3e4,Kt="p,h1,h2,h3,h4,h5,h6,li,pre,blockquote,tr,dt,dd,figcaption,summary",Gt=()=>innerWidth<=Rn&&innerHeight<=Tn,$t=t=>{const e=document.createTreeWalker(t,NodeFilter.SHOW_TEXT);let r="";for(;r.length<600&&e.nextNode();)r+=e.currentNode.nodeValue.slice(0,600-r.length);const n=r.replace(/\s+/g," ").trim().slice(0,120);let a=2166136261;for(let s=0;s<n.length;s++)a=Math.imul(a^n.charCodeAt(s),16777619);return n.length>11?a>>>0||1:0},zt=t=>{for(let e=t;e&&e!==document.scrollingElement;e=e.parentElement){const r=getComputedStyle(e).position;if(r==="fixed"||r==="sticky"||e!==t&&e.scrollTop)return!1}return!0},On=()=>{const t=[],e=[];try{for(let r=0;r<16;r++){const n=document.elementFromPoint(innerWidth/(r%2?4:2),innerHeight*(r>>1)/8+1);let a=n?.closest(Kt)??n;for(;a&&!a.matches(Kt)&&![...a.childNodes].some(l=>l.nodeType===3&&l.nodeValue?.trim());)a=a.parentElement;const s=a&&!e.includes(a)?$t(a):0;s&&!t.some(l=>l[0]===s&&l[2]===a.tagName)&&zt(a)&&(e.push(a),t.push([s,Math.round(a.getBoundingClientRect().top),a.tagName]))}}catch{}return t.sort((r,n)=>+(r[1]<0)-+(n[1]<0)),t.length?t.slice(0,3):void 0},Mn=t=>{try{for(const[e,r,n]of t.a??[]){const a=document.getElementsByTagName(n);let s;for(let c=0;c<a.length&&a.length<5e3;c++)$t(a[c])===e&&(s=s===void 0||s?.contains(a[c])?a[c]:null);const l=s?.getBoundingClientRect();if(l?.height&&s.checkVisibility?.()!==!1&&zt(s)&&isFinite(r))return Math.max(0,Math.round(scrollY+l.top-r))}}catch{}return t.y};function Pn(){let t=0,e=!1,r=!1,n=!1,a={y:0},s=null;const l=w=>{try{sessionStorage.setItem(it,JSON.stringify(w))}catch{}},c=w=>{if(clearTimeout(t),s===null)return;const j=s;s=null,l({y:j,a:w&&j>0?On():void 0})},T=()=>{if(e){e=!1;return}r=!0,s=scrollY,clearTimeout(t),t=setTimeout(c,An,!0)};try{addEventListener("scroll",T,{passive:!0}),addEventListener("pagehide",()=>c())}catch{}const _=()=>{let w;try{w=sessionStorage.getItem(it)}catch{return null}if(w===null)return null;let j;try{j=JSON.parse(w)}catch{j=null}const{y:I,a:q}=j??{};if(!(typeof I=="number"&&Number.isFinite(I)&&I>=0)){try{sessionStorage.removeItem(it)}catch{}return null}const G=D=>Array.isArray(D)&&typeof D[0]=="number"&&Number.isFinite(D[1])&&typeof D[2]=="string";return{y:I,a:Array.isArray(q)&&q.length<4&&q.every(G)?q:void 0}};let v=!1,h=-1;const k=w=>{try{const j=scrollY,I=Mn(w);scrollTo({top:I,left:0,behavior:"instant"}),a=Gt()?w:{y:I,a:w.a},n=!0,clearTimeout(t),s=null,l(a),h=scrollY,h!==j&&(e=!0);const q=I!==w.y&&document.readyState!=="complete";(h!==I||q)&&!v&&(v=!0,addEventListener("load",()=>{try{scrollY===h&&k(_()??a)}catch{}},{once:!0}))}catch{}},O=()=>{try{return!!location.hash}catch{return!0}};let p=!1;const F=()=>{try{if(p||!Gt())return;p=!0;const w=Date.now(),j=()=>{try{removeEventListener("resize",j)}catch{}Date.now()-w>Ln||r||O()||k(_()??a)};addEventListener("resize",j)}catch{}};let R=!1,g=!1;return{restore(){if(R||(R=!0,O()))return;const w=_();w!==null&&(k(w),F())},promoted(){if(g||(g=!0,O()))return;const w=_();w!==null?(k(w),F()):n&&k(a)}}}function Nn(t,e,r,n){let a=null;try{a=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:T=>T})??null}catch{}const s=window.Worker,l=s?.prototype,c=Object.freeze({Worker:s,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,now:Date.now,policy:a,origins:e});r(t).then(T=>T?.bootTopLevel?T.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var so="modulepreload",io=function(t){return"/"+t},lo={},Cn=function(e,r,n){let a=Promise.resolve();function s(l){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=l,window.dispatchEvent(c),!c.defaultPrevented)throw l}return a.then(l=>{for(const c of l||[])c.status==="rejected"&&s(c.reason);return e().catch(s)})},Fn=window===top,Wt=Object.getOwnPropertyDescriptor(window,"claude"),ze=sn(Fn,window.__FRAME_PREAMBLE?.topLevel,Wt?.writable===!1),lt=typeof ze=="object"&&ze[0],x=lt?vn():mn();(function(){const t=Object.defineProperty,e=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let a=0;a<r.length;a++){const s=r[a];try{t(e,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete e[s]}catch{}try{t(e,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof e[s]=="function"&&n++}if(n&&ze==="framed")try{x.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Vt=1e4,jn=2e3,ct=2e3,ut=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function Xt(t){for(const e of ut)if(e.endsWith(":*"))try{const r=new URL(t);if(`${r.protocol}//${r.hostname}:*`===e)return!0}catch{}else if(t===e)return!0;return!1}var Pe=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),Ne=window.__FRAME_PREAMBLE?.transforms,ft=window.__FRAME_PREAMBLE?.comments,dt=window.__FRAME_PREAMBLE?.translate,me=window.__FRAME_PREAMBLE?.ldx,We=fr(window.__FRAME_PREAMBLE?.cred),Yt=(()=>{try{const[t]=performance.getEntriesByType("navigation"),e=t?.serverTiming?.find(r=>r.name==="frame-cred-exp");return e!==void 0&&/^\d{1,15}$/.test(e.description)?dr(Number(e.description)):void 0}catch{return}})();function Jt(t){return Cn(()=>import("/_runtime/"+t),void 0)}var Ce=new Set,Zt=setTimeout,xn=fetch,In=AbortController,Dn=800+800*Math.random(),Hn=3e3,Ve=null,Qt=new Map;function qn(t,e){let r=Qt.get(t);return r||Qt.set(t,r=Bn(t,e)),r}function Bn(t,e){if(Ve?.has(t))return Promise.resolve("csp");if(navigator.onLine===!1)return Promise.resolve("offline");const r=new In;let n=!1;return Zt(()=>{n=!0,r.abort()},Hn),xn("/_runtime/"+t,{signal:r.signal}).then(a=>(r.abort(),a.ok?/javascript/i.test(a.headers.get("content-type")??"")?e instanceof Error&&/:\d+:\d+\)?$/m.test(e.stack??"")?"eval":"served":"mime":"http"),()=>n?"timeout":Ve?.has(t)?"csp":"net")}function se(t){if(!Ve){const e=Ve=new Set;try{document.addEventListener("securitypolicyviolation",r=>{const n=/\/_runtime\/([^/?#]+)/.exec(r.blockedURI);n&&r.disposition!=="report"&&e.add(n[1])})}catch{}}return Jt(t).catch(()=>new Promise(e=>Zt(e,Dn)).then(()=>Jt(t+"?r=1")).then(e=>(e!==void 0&&Ce.add(t),e)))}function er(t,e,r){return{contract:t.contract,changes:new Set(t.changes??[]),flags:new Set(t.flags??[]),capabilities:t.capabilities??{},capBudgets:t.capBudgets??{},brokerGen:t.brokerGen,transforms:new Map,shellOrigin:e,shell:r,mount:_t,hooks:Xe,pipe:()=>({wrap:(n,a)=>(...s)=>{try{return a(...s)}catch(l){return Promise.reject(l)}}})}}var we=null,V=null;function tr(t,e,r){try{Object.defineProperty(t,e,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(t,e,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var ht=!1,Xe={editBefore:null,edit:null};function Un(t,e,r=!1){const n=[];let a;if(r)try{Xe.editBefore?.(t)}catch{}for(const s of t.elements){const l=document.querySelector(`[data-id="${s.target}"]`);if(!l){a=s.target;break}if([...Object.keys(s.attrsSet??{}),...s.attrsRemoved??[]].some(c=>!yr(c)||_r(l,c))){a=s.target;break}if(s.text!==void 0&&(!Er(l)||Rr(l))){a=s.target;break}for(const[c,T]of Object.entries(s.attrsSet??{}))if(!nr(l,c)){try{l.setAttribute(c,T)}catch{}rr(l,c,T)}for(const c of s.attrsRemoved??[])nr(l,c)||(l.removeAttribute(c),rr(l,c,null));typeof s.text=="string"&&kr(l,s.text),n.push(s.target)}if(r)try{Xe.edit?.(t.seq,n,a)}catch{}if(a!==void 0){x.post({__frame_patch_miss:{seq:t.seq}},e);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:t.seq,targets:n}}))}catch{}}function rr(t,e,r){if(!(t instanceof HTMLInputElement))return;const n=e.toLowerCase();n==="checked"?t.checked=r!==null:n==="value"&&t.type!=="file"&&(t.value=r??"")}function nr(t,e){const r=e.toLowerCase(),n=t;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${t.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function or(t){const e=document.documentElement;t==="light"||t==="dark"?(e.dataset.theme=t,e.style.colorScheme=t,ht=!0):ht&&(delete e.dataset.theme,e.style.colorScheme="",ht=!1)}var ie=new Map,pt=null;function mt(){let t;const e={u:new Promise(r=>{t=r}),r:r=>{e.done=!0,t(r)},done:!1,nulled:!1};return e}function Ye(t,e){t.nulled=!0,t.ver=e,t.r(null)}function vt(t,e){for(const[r,n]of ie)n.done||(e&&n.asked?e(r,n):Ye(n,t))}function Kn(){for(const t of ie.values())if(t.asked&&!t.done)return!0;return!1}var Gn=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),yt=!1,_t=(t,e)=>{let r=ie.get(t);if(r?.nulled&&yt)r=mt(),ie.set(t,r);else if(!r||r.done){r?.nulled&&V&&x.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:t,phase:"install"}},V);return}const n=typeof e=="function"?Object.setPrototypeOf(e,Gn):Object.assign(Object.create(null),e);typeof n.then=="function"&&delete n.then,r.want=void 0,r.r(Object.freeze(n))};function ar(){const t=Wt?.value??{};tr(window,"claude",t);for(const e of Object.keys(Pe)){if(t[e]!==void 0){tr(t,e,t[e]);continue}ie.set(e,mt())}if(t.use===void 0){const e=r=>{if(typeof r!="string"||!Object.hasOwn(Pe,r))return Promise.resolve(null);let n=ie.get(r);return n?(pt&&(n.nulled||n.want!==void 0)&&(n=pt(r,n)),n.asked=!0,n.u):Promise.resolve(t[r]??null)};try{Object.defineProperty(t,"use",{value:e,writable:!0,configurable:!0,enumerable:!1})}catch{}}return t}if(ze==="framed"){let t;const e=Ne&&pe.test(Ne)?se(Ne).catch(u=>{t={f:Ne,e:u}}):Promise.resolve(void 0),r=u=>{if(u.type==="auxclick"&&u.button!==1)return;const b=u.target,y=b&&b.closest?b.closest("a[href],area[href]"):null;if(!y)return;const A=y.getAttribute("href");if(!A)return;let H;try{H=new URL(A,document.baseURI)}catch{return}if((H.protocol==="http:"||H.protocol==="https:")&&H.origin!==location.origin){u.preventDefault();const X=(y.getAttribute("target")??"").toLowerCase(),K=u.type==="auxclick"||u.metaKey||u.ctrlKey||u.shiftKey||u.altKey||!["","_self","_top","_parent"].includes(X);x.post({__frame_nav:!0,url:H.href,newTab:K},"*")}};addEventListener("click",r,!0),addEventListener("auxclick",r,!0);const n={},a=u=>{u.isTrusted&&(n.pointer=!0)},s=u=>{u.isTrusted&&(n.click=!0)};addEventListener("pointermove",a,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0});const l={cb:null};addEventListener("keydown",u=>l.cb?.(u),!0);const c={cb:null};addEventListener("keydown",u=>c.cb?.(u));const T=hn();e.then(u=>u?.installEscapeForward?.(l,b=>{V&&x.post(b,V)})),e.then(u=>{try{u?.installFocusKeep?.()}catch{}}),e.then(u=>{if(!u?.wireNav)return;const b=x.port("*");u.wireNav(b),removeEventListener("click",r,!0),removeEventListener("auxclick",r,!0),removeEventListener("pointermove",a,!0),removeEventListener("click",s,!0),u.wireEngagement?.(n,b,T)});let _=null;try{_=Pn()}catch{}const v=document.readyState==="loading"?new Promise(u=>document.addEventListener("DOMContentLoaded",()=>u(),{once:!0})):Promise.resolve();let h="dcl",k=!1;v.then(()=>{k=!0});let O=null,p=null;try{p=Ur(window.name),O=Dt(null,p)}catch{}const F=ar();let R=null;try{R=cn(F,O,{post:(u,b)=>x.post(u,b),dcl:v},p)}catch{}e.then(u=>{try{R&&u?.installHotExtras?.(R)}catch{}});let g=null;const w=()=>Array.isArray(g?.flags)&&g.flags.includes("frame_ldx_runtime")&&!!me&&pe.test(me)&&document.querySelector("script#an-form")!==null;try{R?.hydration(w,Kr)}catch{}let j=null,I=0;const q=x.on((u,b,y,A)=>{Xt(b)&&Mr(u)&&(A(),g=u.__frame_init,V=b,q(),clearTimeout(I),j?.())});if(We){const u=Yt===void 0?{__frame_cred:We}:{__frame_cred:We,exp:Yt};for(const b of ut)try{b.endsWith(":*")||x.post(u,b)}catch{}}x.post({__frame_connect:!0},"*");try{R?.afterConnect()}catch{}const G=setTimeout,D=clearTimeout;let be=()=>NaN,Fe=()=>[];try{be=performance.now.bind(performance),Fe=performance.getEntriesByType.bind(performance)}catch{}let je=0;const U=()=>{try{x.post({__frame_alive:!0},"*")}catch{}je=G(U,jn)},Ee=()=>D(je);U(),addEventListener("load",Ee,{once:!0});const xe=new Promise(u=>{j=u,I=setTimeout(()=>{q(),u()},Vt)}),le=new WeakSet;addEventListener("error",u=>{u.target&&le.add(u.target)},!0);try{kn(Ht(),We,()=>{e.then(u=>{try{u?.drawRefusedNotice?.()}catch{}})})}catch{}const ce=()=>{let u=[];try{u=[...document.querySelectorAll("link[rel~=stylesheet]:not([rel~=alternate])")].filter(y=>!y.sheet&&!y.disabled&&!le.has(y)&&y.getAttribute("href")&&URL.canParse(y.href)&&(!y.media||matchMedia(y.media).matches))}catch{}let b=u.length;return b===0?Promise.resolve():new Promise(y=>{try{const A=ct-be();A>0&&(h="sheets");const H=G(y,A>0?A<ct?A:ct:0),X=()=>{--b===0&&(D(H),y())};for(const K of u)K.addEventListener("load",X,{once:!0}),K.addEventListener("error",X,{once:!0})}catch{y()}})};v.then(()=>{try{_?.restore()}catch{}}),Promise.all([xe,v,e]).then(([,,u])=>{if(g?.hostOverlays!==!0||!V)return;let b=!1;try{b=u?.declaresCover?.()===!0}catch{}x.post({__frame_layout:{cover:b}},V)});const ve={cb:null};x.on((u,b)=>{if(Xt(b)&&Pr(u)){try{_?.promoted()}catch{}ve.cb?.()}}),xe.then(async()=>{if(!g||!V){vt();try{R?.onNoInit()}catch{}return}if(or(g.theme),g.hostVisible===!1&&e.then(i=>i?.applyHostVisible?.(!1,T)),g.hostKeys!==void 0){const i=V,E=g.hostKeys;e.then(S=>S?.installHostKeyForward?.(c,E,N=>x.post(N,i)))}try{R?.onInit(g.hot,V)}catch{}let u;const b=()=>{try{!u&&me&&w()&&(u=se(me),u.then(i=>i?.prefetch?.()).catch(()=>{}))}catch{}};b(),v.then(b);const y=V,A=x.port(y),H=(i,E)=>x.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:i,phase:E}},y),X=(i,E,S)=>{new Promise(N=>N(qn(E,S))).then(N=>H(i,N),()=>H(i))},K=i=>x.post({__frame_cap_recovered:{cap:i}},y);let te=g.brokerGen;const Y=()=>R?.boot.ver??"",ye=Y(),_e=(i,E)=>{const S=Y();D(E.t),E.want=S,E.t=G(()=>{E.done||Ye(E,S)},Vt),x.post({__frame_cap_want:!0,cap:i,ver:S},y)},$=(i,E)=>{const S=ie.get(i.cap),N=Pe[i.cap];if(!E||!S||S.done||S.want!==i.ver||!pe.test(N))return;if(D(S.t),S.want=void 0,te=i.brokerGen??te,i.ver!==Y()){_e(i.cap,S);return}if(!i.grant||i.cap==="network"){Ye(S,i.ver);return}const Z=we,Q=we={...Z,capabilities:{...Z.capabilities,[i.cap]:i.grant},capBudgets:{...Z.capBudgets,[i.cap]:{...Z.capBudgets[i.cap],...i.budgets}}};se(N).then(de=>{Ce.has(N)&&K(i.cap),Q.brokerGen=te,yt=!0;try{de?.install?.(Q)}catch{H(i.cap,"install")}finally{yt=!1}},de=>X(i.cap,N,de)).then(()=>{S.done||Ye(S,i.ver)})};let Ie=!1,J=!1;x.on((i,E,S)=>{if(E!==y)return;try{if(R?.onShell(i))return}catch{}if(Cr(i)&&or(i.__frame_theme.theme),en(i)&&$(i,S),S&&tn(i)&&(te=i.brokerGen??te),Nr(i)){const Q=i.__frame_host_visible.visible;e.then(de=>de?.applyHostVisible?.(Q,T))}Or(i)&&Un(i.__frame_patch,y,S);const N=i?.__fc_mode;N&&typeof N=="object"&&!Ie&&ft&&pe.test(ft)&&(Ie=!0,se(ft).then(Q=>Q.install?.(y,N.on===!0,A)).catch(()=>{}));const Z=i?.__ft_cmd;Z&&typeof Z=="object"&&!J&&dt&&pe.test(dt)&&(J=!0,se(dt).then(Q=>Q.install?.(y,Z,A)).catch(()=>{}))});const De=Object.keys(g.capabilities??{}).filter(i=>Object.hasOwn(Pe,i)).map(i=>[i,Pe[i]]).filter(i=>typeof i[1]=="string"&&pe.test(i[1])),re=y;let ue=!1,He=()=>{};const Je=new Promise(i=>{He=()=>{ue=!0,i()}}),Se=()=>(ue||(h="caps"),Je),qe=O!==null||Ft(g.hot)||g.hostVisible===!1||g.hostOverlays===!0;k&&(h="init");const Be=v.then(()=>qe?Se():new Promise(i=>G(i,0))).then(ce).then(()=>{let i=!0;try{i=qe||Kn()}catch{}return i?Se():void 0}).then(()=>{Ee();const i=hr(Fe,be);x.post(i?{__frame_ready:!0,nav:i,gate:h}:{__frame_ready:!0,gate:h},re),e.then(E=>{E?.installSizeReporter?.(re,ve,A),E?.installPaintReporter?.(A)})}),gt=await Promise.allSettled(De.map(([,i])=>se(i))),ee=await e;if(ee?.buildBoot||(t?X("_transforms",t.f,t.e):H("_transforms")),ee?.buildBoot)try{we=ee.buildBoot(g,ee.TRANSFORMS??{},{shellOrigin:re,mount:_t,hooks:Xe,shell:A},i=>x.post({__frame_cap_telemetry:i},re))}catch{H("_transforms","install"),we=er(g,re,A)}else we=er(g,re,A);ee?.buildBoot&&Ce.has(Ne??"")&&K("_transforms");const fe=we;fe.brokerGen=te,gt.forEach((i,E)=>{const[S,N]=De[E];if(i.status!=="fulfilled"){X(S,N,i.reason);return}Ce.has(N)&&K(S);try{i.value?.install?.(fe)}catch{H(S,"install")}});const ke=g.capWants===!0;ke&&(pt=(i,E)=>{const S=Y();if(!S)return E;if(!E.nulled)return E.want!==S&&_e(i,E),E;if(S===E.ver)return E;const N=mt();return ie.set(i,N),_e(i,N),N}),vt(ye,ke&&Y()!==ye?_e:void 0),He(),await Be;let Ue=!1;try{Ue=w()}catch{}me&&Ue?(u??se(me)).then(i=>i?.boot?.({shellOrigin:y,build:fe.flags.has(un),hot:R?.hot??null,carried:R?.carried(),presented:()=>R?.presented()??!0})).catch(()=>!1).then(i=>{R?.hydrated(),i!==!0?H("_ldx"):Ce.has(me)&&K("_ldx")}):R?.hydrated()})}else lt&&(ar(),Nn(lt,ut,se,{settle:vt,mount:_t}))})();</script><!-- /frame-runtime -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InRealArt — schéma de l’écosystème (avec visuels)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* ============ Tokens ============ */
+:root{
+  --wall:#E3E6DF;      /* mur de salle, pierre vert-de-gris */
+  --paper:#F6F7F2;     /* cartel */
+  --ink:#14271E;       /* vert musée profond */
+  --muted:#56665C;
+  --line:#B3BDB4;
+  --gilt:#9A7121;      /* dorure */
+  --gilt-soft:#CDB47A;
+  --hub:#173A2E;
+  --hub-ink:#F2EAD3;
+  --select:#2D7A57;
+  --glint:#E8C46A;   /* vert : lien sur sélection */
+  --dim:.3;
+  --serif:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --wall:#0E1C16;--paper:#15271F;--ink:#ECE6D8;--muted:#9AA79F;--line:#2F4639;
+    --gilt:#D3AE5F;--gilt-soft:#6E5C32;--hub:#E8DCBC;--hub-ink:#14271E;--dim:.32;--select:#62BE91;--glint:#FFE6A0;
+  }
+}
+:root[data-theme="dark"]{
+  --wall:#0E1C16;--paper:#15271F;--ink:#ECE6D8;--muted:#9AA79F;--line:#2F4639;
+  --gilt:#D3AE5F;--gilt-soft:#6E5C32;--hub:#E8DCBC;--hub-ink:#14271E;--dim:.32;--select:#62BE91;--glint:#FFE6A0;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--wall);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* ============ Bloc ============ */
+.ira-eco{max-width:1240px;margin:0 auto;padding:clamp(40px,7vw,96px) clamp(16px,4vw,48px)}
+.ira-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px 64px;align-items:end;margin-bottom:clamp(20px,3.5vw,40px)}
+.ira-title{font-family:var(--serif);font-weight:500;font-size:clamp(2.3rem,5vw,4.3rem);line-height:1;letter-spacing:-.015em;margin:0;font-variation-settings:"opsz" 96}
+.ira-lede{font-size:clamp(1rem,1.25vw,1.12rem);line-height:1.6;color:var(--muted);margin:0;max-width:48ch}
+.ira-lede b{color:var(--ink);font-weight:600}
+.ira-tour{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px 22px;align-items:center;
+  margin:0 0 clamp(10px,2vw,22px);padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tour-btn{display:inline-flex;align-items:center;gap:.65em;min-height:44px;padding:0 1.1em 0 .45em;cursor:pointer;
+  background:transparent;color:var(--ink);border:1px solid var(--gilt);border-radius:999px;font:inherit;font-weight:500;font-size:.95rem;white-space:nowrap;transition:background-color .2s ease}
+.tour-btn:hover{background:var(--paper)}
+.tour-btn:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+.tour-ico{position:relative;width:32px;height:32px;border-radius:50%;background:var(--ink);flex:none}
+.tour-ico::before{content:"";position:absolute;left:12px;top:10px;border-left:10px solid var(--paper);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.tour-btn[aria-pressed="true"] .tour-ico::before{left:11px;top:10px;width:3px;height:12px;border:0;background:var(--paper);box-shadow:6px 0 0 var(--paper)}
+.tour-text{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.7vw,1.4rem);line-height:1.3;color:var(--gilt);transition:opacity .3s ease,color .3s ease}
+.ira-tour.is-playing .tour-text{color:var(--ink)}
+.tour-text.is-out{opacity:0}
+.tour-steps{display:flex;gap:6px;list-style:none;margin:0;padding:0;opacity:0;transition:opacity .3s ease}
+.ira-tour.is-playing .tour-steps{opacity:1}
+.tour-steps li{position:relative;width:26px;height:2px;background:var(--line);overflow:hidden}
+.tour-steps li i{position:absolute;inset:0;background:var(--gilt);transform:scaleX(0);transform-origin:left}
+.tour-steps li.done i{transform:scaleX(1)}
+.tour-steps li.now i{animation:tourFill var(--dur,3.6s) linear forwards}
+@keyframes tourFill{to{transform:scaleX(1)}}
+@media (max-width:760px){
+  .ira-tour{grid-template-columns:auto minmax(0,1fr)}
+  .tour-steps{grid-column:1/-1}
+  .tour-btn .tour-lbl{display:none}
+  .tour-btn{padding:0 .45em}
+}
+#ira-sheen .s0{stop-color:var(--gilt-soft)}
+#ira-sheen .s1{stop-color:var(--glint)}
+.ring-frame.sheen{stroke:url(#ira-sheen);stroke-width:1.8}
+@media (max-width:760px){.ira-head{grid-template-columns:1fr}}
+
+/* ============ Scène ============ */
+.ira-stage{position:relative;width:100%;container-type:inline-size}
+.ira-stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ira-stage[data-layout="wide"]{--fs-label:clamp(12.5px,1.38cqw,17px);--fs-pillar:clamp(14px,1.62cqw,20px);--fs-sub:clamp(10.5px,1.02cqw,13px);--fs-hub:clamp(19px,2.5cqw,31px);--fs-cap:clamp(12.5px,1.2cqw,15px);--sig:clamp(20px,2.1cqw,26px)}
+.ira-stage[data-layout="tall"]{--fs-label:clamp(12.5px,3.7cqw,17px);--fs-pillar:clamp(13.5px,4cqw,19px);--fs-sub:clamp(10.5px,2.75cqw,13px);--fs-hub:clamp(17px,5.4cqw,26px);--fs-cap:clamp(12.5px,3.6cqw,15px);--sig:clamp(20px,5.8cqw,26px)}
+
+.ira-node{position:absolute;transform:translate(-50%,-50%);margin:0;padding:.72em .95em .78em;
+  background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:2px;
+  font:inherit;text-align:left;cursor:pointer;
+  transition:opacity .35s ease,background-color .25s ease,border-color .25s ease,color .25s ease}
+.ira-node .n-label{display:block;font-family:var(--serif);font-weight:500;font-size:var(--fs-label);line-height:1.15;font-variation-settings:"opsz" 24}
+.ira-node .n-sub{display:block;font-size:var(--fs-sub);color:var(--muted);margin-top:.3em;line-height:1.3;transition:color .25s ease}
+.ira-node:hover{border-color:var(--gilt)}
+.ira-node:focus-visible{outline:2px solid var(--gilt);outline-offset:5px}
+.ira-node.pillar{text-align:center;border-color:var(--gilt);box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--gilt-soft)}
+.ira-node.pillar .n-label{font-style:italic;font-size:var(--fs-pillar)}
+.ira-node.is-dim{opacity:var(--dim)}
+.ira-node.is-lit{border-color:var(--gilt)}
+.ira-node.is-selected{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ira-node.is-selected .n-sub{color:color-mix(in srgb,var(--paper) 74%,transparent)}
+.ira-node.pillar.is-selected{box-shadow:0 0 0 3px var(--wall),0 0 0 4px var(--gilt)}
+
+.ira-hub{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;border-radius:50%;border:0;padding:0;
+  background:var(--hub);color:var(--hub-ink);display:grid;place-content:center;text-align:center;cursor:pointer;font:inherit;
+  box-shadow:0 0 0 5px var(--wall),0 0 0 6px var(--gilt-soft);transition:opacity .35s ease,box-shadow .25s ease}
+.ira-hub .h-name{font-family:var(--serif);font-style:italic;font-weight:500;font-size:var(--fs-hub);line-height:1;font-variation-settings:"opsz" 72}
+.ira-hub .h-sub{font-size:var(--fs-sub);margin-top:.5em;opacity:.82;line-height:1.3}
+.ira-hub:hover,.ira-hub.is-selected{box-shadow:0 0 0 5px var(--wall),0 0 0 6px var(--gilt)}
+.ira-hub:focus-visible{outline:2px solid var(--gilt);outline-offset:9px}
+.ira-hub.is-dim{opacity:.55}
+
+.ira-cap{position:absolute;transform:translate(-50%,-50%);margin:0;white-space:nowrap;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:var(--fs-cap);pointer-events:none}
+
+.edge{fill:none;stroke:var(--line);stroke-width:1.2;vector-effect:non-scaling-stroke;transition:stroke .3s ease,opacity .3s ease,stroke-width .3s ease}
+.edge.ring{stroke:var(--gilt-soft);stroke-width:1.6}
+.edge.is-on{stroke:var(--gilt);stroke-width:2}
+.edge.ring.is-on{stroke-width:2.6}
+.edge.is-dim{opacity:.28}
+.edge.sel{stroke:var(--select);stroke-width:2}
+.edge.sel.is-on{stroke:var(--select);stroke-width:2.8}
+.particle.sel{fill:var(--select)}
+.ira-sel{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:.45em;margin:0;
+  font-family:var(--serif);font-style:italic;font-size:var(--fs-cap);color:var(--select);white-space:nowrap;pointer-events:none;transition:opacity .3s ease}
+.ira-sel::before{content:"";width:18px;height:2px;background:var(--select)}
+.ira-sel.is-dim{opacity:.3}
+.ira-stage[data-layout="tall"] .ira-sel{background:var(--wall);padding:.15em .5em}
+.ira-stage[data-layout="tall"] .ira-sel::before{display:none}
+.n-sigs{display:flex;align-items:center;gap:.55em;margin-top:.45em}
+.sig-row{display:flex}
+.sig{position:relative;width:var(--sig);height:var(--sig);border-radius:50%;overflow:hidden;display:grid;place-items:center;
+  background:var(--wall);border:1.5px solid var(--paper);box-shadow:0 0 0 1px var(--gilt-soft);
+  font-size:calc(var(--sig)*.36);font-weight:600;color:var(--muted);letter-spacing:.02em}
+.sig+.sig{margin-left:calc(var(--sig)*-.3)}
+.sig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.n-sigs i{font-style:normal;font-size:var(--fs-sub);color:var(--muted)}
+.ira-node.is-selected .sig{border-color:var(--ink)}
+.ira-node.is-selected .n-sigs i{color:color-mix(in srgb,var(--paper) 74%,transparent)}
+.route li.is-sel::before{background:var(--select)}
+.ring-frame{fill:none;stroke:var(--gilt-soft);stroke-width:.8;vector-effect:non-scaling-stroke}
+.ring-text{font-family:var(--serif);font-style:italic;fill:var(--gilt);letter-spacing:.02em;transition:opacity .3s ease}
+.tip{fill:var(--line);transition:fill .3s ease,opacity .3s ease}
+.tip.is-on{fill:var(--gilt)}
+.tip.is-dim{opacity:.3}
+.particle{fill:var(--gilt)}
+.idle-dot{fill:var(--gilt)}
+
+.ira-stage[data-layout="tall"]{max-width:560px;margin:0 auto}
+@container (max-width:1000px){
+  .ira-stage[data-layout="wide"] .ira-node.input .n-sub,
+  .ira-stage[data-layout="wide"] .ira-node.output .n-sub{display:none}
+}
+
+/* ============ Accrochage (visuels) ============ */
+.p-hang{grid-column:1/-1;margin-top:clamp(4px,1vw,12px);padding-top:clamp(20px,2.6vw,30px);border-top:1px solid var(--line)}
+.hang-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);align-items:start}
+.hang-item{margin:0}
+.frame{all:unset;box-sizing:border-box;display:block;width:100%;cursor:zoom-in;position:relative;
+  background:var(--wall);padding:clamp(8px,1vw,12px);border:1px solid var(--gilt);
+  box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--gilt-soft);transition:box-shadow .25s ease}
+.frame:hover{box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--gilt)}
+.frame:focus-visible{outline:2px solid var(--gilt);outline-offset:8px}
+.frame .mat{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--paper);position:relative}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.frame:hover img{transform:scale(1.03)}
+.frame .ph{display:none;position:absolute;inset:0;place-content:center;text-align:center;padding:1em;
+  font-family:var(--serif);font-style:italic;color:var(--muted);font-size:.98rem;line-height:1.35;
+  background:repeating-linear-gradient(135deg,transparent 0 11px,color-mix(in srgb,var(--gilt-soft) 22%,transparent) 11px 12px)}
+.frame .ph::after{content:"";display:block;width:28px;height:1px;background:var(--gilt);margin:.8em auto 0}
+.frame.is-empty img{display:none}
+.frame.is-empty .ph{display:grid}
+.cartel{margin-top:.9em}
+.cartel b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.04rem;line-height:1.25}
+.cartel span{display:block;margin-top:.2em;font-size:.88rem;color:var(--muted);line-height:1.4}
+@media (max-width:760px){
+  .hang-row{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 12px;margin:0 -6px}
+  .hang-item{scroll-snap-align:start}
+}
+
+/* ============ Visionneuse ============ */
+.ira-lb{border:0;padding:0;background:transparent;color:var(--ink);max-width:min(1100px,94vw);width:100%}
+.ira-lb::backdrop{background:color-mix(in srgb,var(--wall) 88%,transparent);backdrop-filter:blur(3px)}
+.lb-inner{background:var(--paper);border-top:1px solid var(--gilt);padding:clamp(14px,2.4vw,28px)}
+.lb-frame{background:var(--wall);padding:clamp(10px,1.4vw,16px);border:1px solid var(--gilt);box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--gilt-soft);margin:4px}
+.lb-mat{position:relative;aspect-ratio:3/2;max-height:68vh;width:100%;background:var(--paper);overflow:hidden}
+.lb-mat img{width:100%;height:100%;object-fit:contain;display:block}
+.lb-mat .ph{display:none;position:absolute;inset:0;place-content:center;text-align:center;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1.2rem;padding:1em;
+  background:repeating-linear-gradient(135deg,transparent 0 13px,color-mix(in srgb,var(--gilt-soft) 22%,transparent) 13px 14px)}
+.lb-mat.is-empty img{display:none}
+.lb-mat.is-empty .ph{display:grid}
+.lb-foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between;margin-top:18px}
+.lb-foot .cartel{margin:0;max-width:60ch}
+.lb-foot .cartel b{font-size:1.3rem}
+.lb-nav{display:flex;gap:10px}
+.ira-lb[open]{animation:lbIn .28s ease}
+@keyframes lbIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ira-lb[open]{animation:none}}
+
+/* ============ Panneau ============ */
+.ira-panel{margin-top:clamp(26px,4vw,44px);background:var(--paper);border-top:1px solid var(--gilt);
+  padding:clamp(22px,3.2vw,40px);min-height:260px}
+.ira-panel-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px 64px;transition:opacity .2s ease}
+.ira-panel-inner.is-swapping{opacity:0}
+.p-kicker{margin:0 0 .5em;color:var(--gilt);font-size:.95rem}
+.p-title{margin:0 0 .45em;font-family:var(--serif);font-weight:500;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.05;letter-spacing:-.01em;font-variation-settings:"opsz" 72}
+.p-intro{margin:0;font-size:1.04rem;line-height:1.62;max-width:50ch}
+.p-actions{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:1.5em}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 1.25em;border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  text-decoration:none;font:inherit;font-weight:500;font-size:.98rem;border-radius:2px;cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+.p-dl{margin:0}
+.p-dl dt{font-size:.88rem;color:var(--muted);margin:0 0 .35em}
+.p-dl dd{margin:0 0 1.25em;line-height:1.55}
+.p-dl dd:last-child{margin-bottom:0}
+.p-list{list-style:none;margin:0;padding:0}
+.p-list li{padding:.5em 0;border-bottom:1px solid var(--line)}
+.p-list li:first-child{padding-top:.1em}
+.p-proof{font-family:var(--serif);font-style:italic;font-size:1.08rem}
+
+.route{list-style:none;margin:0;padding:0;position:relative}
+.route li{position:relative;padding:0 0 1.2em 26px}
+.route li:last-child{padding-bottom:0}
+.route li::before{content:"";position:absolute;left:4px;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--gilt)}
+.route li:not(:last-child)::after{content:"";position:absolute;left:8px;top:1.3em;bottom:-.2em;width:1px;background:var(--gilt-soft)}
+.route-node{all:unset;cursor:pointer;font-family:var(--serif);font-style:italic;font-size:1.18rem;border-bottom:1px solid var(--gilt-soft)}
+.route-node:hover{border-color:var(--gilt)}
+.route-node:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+.route p{margin:.3em 0 0;line-height:1.55;color:var(--muted)}
+
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.trio h4{margin:0 0 .35em;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.35rem}
+.trio p{margin:0;line-height:1.55;color:var(--muted);font-size:.97rem}
+
+@media (max-width:760px){
+  .ira-panel-inner{grid-template-columns:1fr}
+  .trio{grid-template-columns:1fr;gap:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<section class="ira-eco" aria-labelledby="ira-title">
+  <header class="ira-head">
+    <h2 class="ira-title" id="ira-title">Un écosystème, trois&nbsp;métiers.</h2>
+    <p class="ira-lede">Ni place de marché, ni simple galerie. <b>Nous faisons entendre des voix artistiques, puis nous les connectons aux entreprises, aux collectionneurs et aux marques</b> qui leur correspondent.</p>
+  </header>
+
+  <div class="ira-tour" id="ira-tour">
+    <button type="button" class="tour-btn" id="tour-btn" aria-pressed="false" aria-controls="ira-stage">
+      <span class="tour-ico" aria-hidden="true"></span><span class="tour-lbl">Revoir le parcours</span>
+    </button>
+    <p class="tour-text" id="tour-text" aria-live="polite">Choisissez votre profil ou l’un de nos métiers dans le schéma.</p>
+    <ol class="tour-steps" id="tour-steps" aria-hidden="true" style="--dur: 3.6s;"><li class=""><i></i></li><li class=""><i></i></li><li class=""><i></i></li><li class=""><i></i></li><li class=""><i></i></li><li class=""><i></i></li></ol>
+  </div>
+
+  <div class="ira-stage" id="ira-stage" data-layout="tall" style="aspect-ratio: 400 / 1050;">
+    <svg id="ira-svg" aria-hidden="true" focusable="false" viewBox="0 0 400 1050">
+      <defs>
+        <path id="ira-text-arc" d="M99.7,700.3 A135,135 0 0 0 300.3,700.3"></path>
+        <linearGradient id="ira-sheen" gradientUnits="userSpaceOnUse" x1="55" y1="610" x2="345" y2="610" gradientTransform="rotate(219.78359999999998 200 610)">
+          <stop class="s0" offset="0"></stop><stop class="s0" offset=".4"></stop><stop class="s1" offset=".5"></stop><stop class="s0" offset=".6"></stop><stop class="s0" offset="1"></stop>
+        </linearGradient>
+      </defs>
+      <g id="g-frame"><path fill="none" d="M200.0,475.0 A135,135 0 0 0 200.0,745.0 A135,135 0 0 0 200.0,475.0"></path><circle class="ring-frame" cx="200" cy="610" r="128"></circle><circle class="ring-frame sheen" cx="200" cy="610" r="142"></circle></g>
+      <g id="g-edges"><path class="edge" d="M101.99321809610454,124.88627905053346 C101.99321809610454,295.95897775204696 200,264.85485071540813 200,435.9275494169217" style=""></path><path class="edge" d="M297.99024067488216,115.14349516169051 C297.99024067488216,291.5747250020677 200,259.4963195765445 200,435.9275494169217" style=""></path><path class="edge" d="M297.99024067488216,242.35381688859485 C297.99024067488216,348.8193697791746 200,329.4619965263419 200,435.9275494169217" style=""></path><path class="edge" d="M101.99321809610454,250.86427921594577 C101.99321809610454,352.64907782648254 200,334.1427508063849 200,435.9275494169217" style=""></path><path class="edge" d="M200,360.35894466958894 C200,401.92167728062196 200,394.36481680588867 200,435.9275494169217" style=""></path><path class="edge ring sel" d="M200.0,475.0 A135,135 0 0 0 83.1,677.5" style=""></path><path class="edge ring" d="M83.1,677.5 A135,135 0 0 0 316.9,677.5" style=""></path><path class="edge ring sel" d="M316.9,677.5 A135,135 0 0 0 200.0,475.0" style=""></path><path class="edge" d="M101.99321809610454,250.86427921594577 C101.99321809610454,296.86427921594577 14,276.86427921594577 14,346.86427921594577 L14,611.6455214622447 C14,633.6455214622447 42.072119758498054,627.6455214622447 42.072119758498054,645.6455214622447" style=""></path><path class="edge" d="M200,360.35894466958894 C200,406.35894466958894 14,386.35894466958894 14,456.35894466958894 L14,611.6455214622447 C14,633.6455214622447 42.072119758498054,627.6455214622447 42.072119758498054,645.6455214622447" style=""></path><path class="edge" d="M83.0700521048714,709.3127119344967 C83.0700521048714,803.3644859813085 101.99321809610454,786.2641634273426 101.99321809610454,880.3159374741543" style=""></path><path class="edge" d="M316.9134066661153,718.5096352659002 C316.9134066661153,808.2127202051113 297.99024067488216,791.903068397982 297.99024067488216,881.606153337193" style=""></path><path class="edge" d="M83.0700521048714,709.3127119344967 C83.0700521048714,852.4737407989414 200,826.4444628235879 200,969.6054916880324" style=""></path></g>
+      <g id="g-tips"><circle cx="101.99321809610454" cy="124.88627905053346" r="2.6" class="tip" data-edge="e1"></circle><circle cx="200" cy="435.9275494169217" r="2.6" class="tip" data-edge="e1"></circle><circle cx="297.99024067488216" cy="115.14349516169051" r="2.6" class="tip" data-edge="e2"></circle><circle cx="200" cy="435.9275494169217" r="2.6" class="tip" data-edge="e2"></circle><circle cx="297.99024067488216" cy="242.35381688859485" r="2.6" class="tip" data-edge="i1"></circle><circle cx="200" cy="435.9275494169217" r="2.6" class="tip" data-edge="i1"></circle><circle cx="101.99321809610454" cy="250.86427921594577" r="2.6" class="tip" data-edge="e3"></circle><circle cx="200" cy="435.9275494169217" r="2.6" class="tip" data-edge="e3"></circle><circle cx="200" cy="360.35894466958894" r="2.6" class="tip" data-edge="e4"></circle><circle cx="200" cy="435.9275494169217" r="2.6" class="tip" data-edge="e4"></circle><circle cx="101.99321809610454" cy="250.86427921594577" r="2.6" class="tip" data-edge="g1"></circle><circle cx="42.072119758498054" cy="645.6455214622447" r="2.6" class="tip" data-edge="g1"></circle><circle cx="200" cy="360.35894466958894" r="2.6" class="tip" data-edge="g2"></circle><circle cx="42.072119758498054" cy="645.6455214622447" r="2.6" class="tip" data-edge="g2"></circle><circle cx="83.0700521048714" cy="709.3127119344967" r="2.6" class="tip" data-edge="o1"></circle><circle cx="101.99321809610454" cy="880.3159374741543" r="2.6" class="tip" data-edge="o1"></circle><circle cx="316.9134066661153" cy="718.5096352659002" r="2.6" class="tip" data-edge="o2"></circle><circle cx="297.99024067488216" cy="881.606153337193" r="2.6" class="tip" data-edge="o2"></circle><circle cx="83.0700521048714" cy="709.3127119344967" r="2.6" class="tip" data-edge="o3"></circle><circle cx="200" cy="969.6054916880324" r="2.6" class="tip" data-edge="o3"></circle></g>
+      <text class="ring-text" id="ira-ring-text" font-size="12" dy="19" style="opacity: 1;"><textPath href="#ira-text-arc" startOffset="50%" text-anchor="middle">chaque projet nourrit le média</textPath></text>
+      <g id="g-particles"><circle r="3" class="idle-dot" cx="307.8" cy="691.3" style="opacity: 1;"></circle></g>
+    </svg>
+    <div id="ira-layer"><button type="button" class="ira-node input" data-id="artiste" aria-pressed="false" aria-label="Artistes : nos signatures, dont Catherine Sénéchal, Martin Ronan, Jean-Paul Boyer, Marine Tassou" style="left: 25.5%; top: 8%; width: 46.5%;"><span class="n-label">Artistes</span><span class="n-sigs"><span class="sig-row"><span class="sig" title="Catherine Sénéchal">CS</span><span class="sig" title="Martin Ronan">MR</span><span class="sig" title="Jean-Paul Boyer">JB</span><span class="sig" title="Marine Tassou">MT</span></span><i>nos signatures</i></span></button><button type="button" class="ira-node input" data-id="createur" aria-pressed="false" style="left: 74.5%; top: 8%; width: 46.5%;"><span class="n-label">Créateurs de contenu</span><span class="n-sub">Artistes-influenceurs</span></button><button type="button" class="ira-node input" data-id="institution" aria-pressed="false" style="left: 74.5%; top: 19.4286%; width: 46.5%;"><span class="n-label">Institutions</span><span class="n-sub">Musées, collectivités, fondations</span></button><button type="button" class="ira-node input" data-id="pro" aria-pressed="false" style="left: 25.5%; top: 19.4286%; width: 46.5%;"><span class="n-label">Professionnels du secteur</span><span class="n-sub">Galeristes, artisans d’art, curateurs</span></button><button type="button" class="ira-node input" data-id="liberal" aria-pressed="false" style="left: 50%; top: 30.6667%; width: 46.5%;"><span class="n-label">Professions libérales</span><span class="n-sub">Architectes, avocats, praticiens</span></button><button type="button" class="ira-node pillar" data-id="amp" aria-pressed="false" style="left: 50%; top: 45.2381%; width: 37.5%;"><span class="n-label">Amplificateur</span><span class="n-sub">Média &amp; agence de com</span></button><button type="button" class="ira-node pillar" data-id="galerie" aria-pressed="false" style="left: 20.7716%; top: 64.5238%; width: 37.5%;"><span class="n-label">Galerie B2B</span><span class="n-sub">L’art en entreprise</span></button><button type="button" class="ira-node pillar" data-id="talents" aria-pressed="false" style="left: 79.2284%; top: 64.5238%; width: 37.5%;"><span class="n-label">Agence de talents</span><span class="n-sub">Créateurs et marques</span></button><button type="button" class="ira-node output" data-id="entreprises" aria-pressed="false" style="left: 25.5%; top: 87.619%; width: 46.5%;"><span class="n-label">Entreprises et dirigeants</span><span class="n-sub">Espaces, patrimoine, RSE</span></button><button type="button" class="ira-node output" data-id="marques" aria-pressed="false" style="left: 74.5%; top: 87.619%; width: 46.5%;"><span class="n-label">Marques leaders</span><span class="n-sub">Lancements, campagnes, events</span></button><button type="button" class="ira-node output" data-id="collect" aria-pressed="false" style="left: 50%; top: 96%; width: 46.5%;"><span class="n-label">Collectionneurs</span><span class="n-sub">Acquisitions, collections privées</span></button><button type="button" class="ira-hub" data-id="hub" aria-pressed="false" style="left: 50%; top: 58.0952%; width: 37%;"><span class="h-name">InRealArt</span><span class="h-sub">le média<br>au centre</span></button><p class="ira-sel" style="left: 20.7716%; top: 51.6667%;">sur sélection</p><p class="ira-sel" style="left: 79.2284%; top: 51.6667%;">sur sélection</p><p class="ira-cap" style="left: 50%; top: 1.90476%;">Ceux que nous accompagnons, sur sélection</p><p class="ira-cap" style="left: 50%; top: 80.9524%;">Ceux que nous connectons</p></div>
+  </div>
+
+  <div class="ira-panel">
+    <div class="ira-panel-inner" id="ira-panel" aria-live="polite">
+        <div>
+          <p class="p-kicker">Comment nous travaillons</p>
+          <h3 class="p-title">Révéler, amplifier, connecter.</h3>
+          <p class="p-intro">Trois métiers qui se renforcent : ce que l’un construit, les autres le prolongent. Au centre, notre média raconte chaque projet et relance le cercle.</p>
+          <div class="p-actions">
+            <a class="btn" href="https://calendly.com/teaminrealart/demande-de-rdv" target="_blank" rel="noopener">Prendre rendez-vous</a>
+            <button type="button" class="btn ghost" data-tour="">Voir le parcours d’un artiste</button>
+          </div>
+        </div>
+        <div class="trio">
+          <div><h4>Révéler</h4><p>Nous sélectionnons des artistes et des talents pour la singularité de leur regard.</p></div>
+          <div><h4>Amplifier</h4><p>Notre média et notre agence construisent leur visibilité : éditorial, contenus, salons.</p></div>
+          <div><h4>Connecter</h4><p>La galerie B2B les présente aux entreprises et aux collectionneurs, l’agence de talents les associe aux marques.</p></div>
+        </div><div class="p-hang"><div class="hang-row">
+      <figure class="hang-item">
+        <button type="button" class="frame is-empty" data-view="0" aria-label="Agrandir : Le collectif InRealArt">
+          <span class="mat"><img src="https://www.inrealart.com/images/joinInRealArt/hero_joinInRealArt.webp" alt="Le collectif InRealArt" loading="lazy" decoding="async"><span class="ph">Le collectif InRealArt</span></span>
+        </button>
+        <figcaption class="cartel"><b>Le collectif InRealArt</b><span>Accompagnement des artistes résidents</span></figcaption>
+      </figure>
+      <figure class="hang-item">
+        <button type="button" class="frame is-empty" data-view="1" aria-label="Agrandir : La Lettre InRealArt">
+          <span class="mat"><img src="https://www.inrealart.com/images/newsletter/newsletter.webp" alt="La Lettre InRealArt" loading="lazy" decoding="async"><span class="ph">La Lettre InRealArt</span></span>
+        </button>
+        <figcaption class="cartel"><b>La Lettre InRealArt</b><span>Chaque semaine, nos artistes racontés à notre audience</span></figcaption>
+      </figure>
+      <figure class="hang-item">
+        <button type="button" class="frame is-empty" data-view="2" aria-label="Agrandir : Logitech G × Artialy">
+          <span class="mat"><img src="https://pub-d7df68395d644bd3bc80d24168d6d8be.r2.dev/agency-events/Logitech/logitech.webp" alt="Logitech G × Artialy" loading="lazy" decoding="async"><span class="ph">Logitech G × Artialy</span></span>
+        </button>
+        <figcaption class="cartel"><b>Logitech G × Artialy</b><span>Activation de marque entre art digital et e-sport</span></figcaption>
+      </figure></div></div></div>
+  </div>
+</section>
+
+<dialog class="ira-lb" id="ira-lb" aria-label="Visuel agrandi">
+  <div class="lb-inner">
+    <div class="lb-frame"><div class="lb-mat" id="lb-mat"><img id="lb-img" alt=""><span class="ph" id="lb-ph"></span></div></div>
+    <div class="lb-foot">
+      <div class="cartel"><b id="lb-title"></b><span id="lb-note"></span></div>
+      <div class="lb-nav">
+        <button type="button" class="btn ghost" data-lb="prev">Précédent</button>
+        <button type="button" class="btn ghost" data-lb="next">Suivant</button>
+        <button type="button" class="btn" data-lb="close">Fermer</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const SITE = "https://www.inrealart.com";
+  const RDV = "https://calendly.com/teaminrealart/demande-de-rdv";
+  const NS = "http://www.w3.org/2000/svg";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Modèle ---------- */
+  // Nos signatures, affichées en vignettes dans la carte « Artistes »
+  const SIGNATURES = [
+    ["CS","Catherine Sénéchal", SITE + "/images/home/hero/senechal.webp"],
+    ["MR","Martin Ronan",       SITE + "/images/home/hero/ronan.webp"],
+    ["JB","Jean-Paul Boyer",    SITE + "/images/home/hero/boyer.webp"],
+    ["MT","Marine Tassou",      "https://pub-d7df68395d644bd3bc80d24168d6d8be.r2.dev/artistsUGC/Marine%20Tassou/profile.webp"]
+  ];
+  const NODES = {
+    artiste:     { kind:"input",  label:"Artistes",                  sub:"Peintres, sculpteurs, photographes", sigs:true },
+    createur:    { kind:"input",  label:"Créateurs de contenu",      sub:"Artistes-influenceurs" },
+    institution: { kind:"input",  label:"Institutions",              sub:"Musées, collectivités, fondations" },
+    pro:         { kind:"input",  label:"Professionnels du secteur", sub:"Galeristes, artisans d’art, curateurs" },
+    liberal:     { kind:"input",  label:"Professions libérales",     sub:"Architectes, avocats, praticiens" },
+    amp:         { kind:"pillar", label:"Amplificateur",             sub:"Média & agence de com" },
+    galerie:     { kind:"pillar", label:"Galerie B2B",               sub:"L’art en entreprise" },
+    talents:     { kind:"pillar", label:"Agence de talents",         sub:"Créateurs et marques" },
+    entreprises: { kind:"output", label:"Entreprises et dirigeants", sub:"Espaces, patrimoine, RSE" },
+    marques:     { kind:"output", label:"Marques leaders",           sub:"Lancements, campagnes, events" },
+    collect:     { kind:"output", label:"Collectionneurs",           sub:"Acquisitions, collections privées" }
+  };
+
+  const EDGES = [
+    { id:"e1", from:"artiste",  to:"amp" },
+    { id:"e2", from:"createur", to:"amp" },
+    { id:"i1", from:"institution", to:"amp" },
+    { id:"e3", from:"pro",      to:"amp" },
+    { id:"e4", from:"liberal",  to:"amp" },
+    { id:"r1", from:"amp",      to:"galerie", ring:true, sel:true },
+    { id:"r2", from:"galerie",  to:"talents", ring:true },
+    { id:"r3", from:"talents",  to:"amp",     ring:true, sel:true },
+    { id:"g1", from:"pro",      to:"galerie", bus:true },
+    { id:"g2", from:"liberal",  to:"galerie", bus:true },
+    { id:"o1", from:"galerie",  to:"entreprises" },
+    { id:"o2", from:"talents",  to:"marques" },
+    { id:"o3", from:"galerie",  to:"collect" }
+  ];
+
+  // "!" = parcours dans le sens inverse du tracé
+  const FOCUS = {
+    artiste:     { nodes:["hub","artiste","amp","galerie","talents","entreprises","collect","marques"], edges:["e1","r1","!r3","o1","o3","o2"] },
+    institution: { nodes:["hub","institution","amp"],                                     edges:["i1"] },
+    collect:     { nodes:["hub","artiste","amp","galerie","collect"],                     edges:["e1","r1","o3"] },
+    createur:    { nodes:["hub","createur","amp","talents","marques"],                          edges:["e2","!r3","o2"] },
+    pro:         { nodes:["pro","amp","hub","galerie"],                                   edges:["e3","g1"] },
+    liberal:     { nodes:["liberal","amp","hub","galerie"],                               edges:["e4","g2"] },
+    entreprises: { nodes:["hub","artiste","amp","galerie","entreprises"],                       edges:["e1","r1","o1"] },
+    marques:     { nodes:["hub","artiste","createur","amp","talents","marques"],                edges:["e1","e2","!r3","o2"] },
+    amp:         { nodes:["hub","artiste","createur","institution","pro","liberal","amp"],      edges:["e1","e2","i1","e3","e4"] },
+    galerie:     { nodes:["hub","artiste","pro","liberal","amp","galerie","entreprises","collect"], edges:["e1","r1","g1","g2","o1","o3"] },
+    talents:     { nodes:["hub","artiste","createur","amp","talents","marques"],                edges:["e1","e2","!r3","o2"] },
+    hub:         { nodes:["hub","amp","galerie","talents"],                               edges:["r1","r2","r3"] }
+  };
+
+  const CONTENT = {
+    amp: { type:"pillar", kicker:"Média et agence de communication", title:"Amplificateur",
+      intro:"Nous faisons entendre votre voix : un média qui vous raconte, et une agence qui construit votre ligne éditoriale et vos contenus.",
+      forWho:"Artistes, institutions, professionnels du secteur de l’art, professions libérales.",
+      does:["Diffusion dans notre média : InRealArt TV, blog, monographies, réseaux","Stratégie et ligne éditoriale","Production de contenus : vidéo, photo, supports pour salons"],
+      proof:"Nos artistes ont été présentés sur Demain TV et JobTalk TV.",
+      cta:"Parler de votre visibilité", href:RDV },
+    galerie: { type:"pillar", kicker:"L’art pour les entreprises et les collectionneurs", title:"Galerie B2B",
+      intro:"Nous plaçons dans les espaces des entreprises et le patrimoine des dirigeants les œuvres d’artistes sélectionnés parmi nos résidents.",
+      forWho:"Entreprises et dirigeants, collectionneurs, professions libérales, professionnels du secteur, hôtels et lieux d’accueil.",
+      does:["Sélection d’œuvres pour vos espaces","Location, location avec option d’achat, leasing","Commandes sur mesure et accompagnement fiscal"],
+      proof:"Plus de 150 œuvres en musées et collections privées, plus de 40 artistes résidents.",
+      cta:"Demander une sélection", href:RDV },
+    talents: { type:"pillar", kicker:"Créateurs et marques", title:"Agence de talents",
+      intro:"Nous associons des créateurs sélectionnés pour leur univers singulier à des marques leaders, de l’activation ponctuelle au partenariat long terme.",
+      forWho:"Marques, lieux et expériences ; créateurs et artistes-influenceurs.",
+      does:["Casting de créateurs sélectionnés","Lancements, événements, campagnes social media","Programmes ambassadeurs, droits d’exploitation inclus"],
+      proof:"Logitech G × Artialy : une collaboration entre art digital et e-sport.",
+      cta:"Déposer un brief", href:SITE + "/agence/brief" },
+    hub: { type:"pillar", kicker:"Au centre de l’écosystème", title:"Le média",
+      intro:"InRealArt TV, le blog et les monographies racontent nos artistes. Chaque vente, chaque collaboration devient un contenu qui les amplifie à nouveau.",
+      forWho:"Tous ceux qui veulent suivre la scène artistique d’aujourd’hui.",
+      does:["InRealArt TV","Blog éditorial","Monographies d’artistes"],
+      proof:"Plus de 20 créateurs de contenu dans notre réseau.",
+      cta:"Découvrir le média", href:SITE + "/media" },
+
+    artiste: { type:"persona", title:"Vous êtes artiste",
+      intro:"Nous faisons rayonner votre travail, puis nous lui ouvrons les portes des entreprises et des marques.",
+      steps:[["amp","Média, contenus, salons : votre visibilité construite avec vous."],
+             ["galerie","Vos œuvres proposées aux entreprises, aux dirigeants et aux collectionneurs, sur sélection.", true],
+             ["talents","Des collaborations avec des marques qui partagent votre univers, sur sélection.", true]],
+      cta:"Rejoindre InRealArt", href:SITE + "/joinInRealArt" },
+    createur: { type:"persona", title:"Vous êtes créateur de contenu",
+      intro:"Nous affinons votre univers éditorial, puis nous vous associons à des marques qui vous ressemblent.",
+      steps:[["amp","Ligne éditoriale et contenus à la hauteur de votre univers."],
+             ["talents","Casting et collaborations avec des marques leaders, sur sélection.", true]],
+      cta:"Rejoindre nos talents", href:SITE + "/agence" },
+    institution: { type:"persona", title:"Vous êtes une institution",
+      intro:"Musée, collectivité, fondation : nous valorisons vos programmes avec un média et une agence qui connaissent le monde de l’art.",
+      steps:[["amp","Média, contenus et campagnes pour vos expositions et vos programmes."],
+             ["hub","Une diffusion auprès d’une audience qui suit la scène artistique."]],
+      cta:"Parler de votre projet", href:RDV },
+    collect: { type:"persona", title:"Vous êtes collectionneur",
+      intro:"Nous vous présentons les œuvres d’artistes que nous suivons de près, avec leur parcours et leur histoire.",
+      steps:[["amp","Le parcours de chaque artiste documenté par notre média."],
+             ["galerie","Sélection d’œuvres et acquisitions, sur rendez-vous."]],
+      cta:"Prendre rendez-vous", href:RDV },
+    pro: { type:"persona", title:"Vous êtes un professionnel de l’art",
+      intro:"Galerie, atelier d’art, commissariat : nous construisons votre communication avec la connaissance du milieu.",
+      steps:[["amp","Stratégie, contenus et présence dans notre média."],
+             ["galerie","Des œuvres de nos artistes pour votre lieu ou pour vos clients."]],
+      cta:"Parler de votre projet", href:RDV },
+    liberal: { type:"persona", title:"Vous exercez en libéral",
+      intro:"Architecte, avocat, praticien : nous donnons à votre image l’exigence et la sensibilité d’une agence culturelle.",
+      steps:[["amp","Identité éditoriale, contenus et visibilité, pensés pour votre métier."],
+             ["galerie","Des œuvres pour votre cabinet : location, acquisition, avantages fiscaux."]],
+      cta:"Parler de votre projet", href:RDV },
+    entreprises: { type:"persona", title:"Vous êtes une entreprise",
+      intro:"Nous faisons entrer l’art dans vos espaces, avec des artistes que nous connaissons et accompagnons au quotidien.",
+      steps:[["amp","Des artistes déjà mis en lumière par notre média, avec leur histoire."],
+             ["galerie","Sélection, location ou acquisition, accompagnement fiscal."]],
+      cta:"Demander une sélection", href:RDV },
+    marques: { type:"persona", title:"Vous êtes une marque",
+      intro:"Nous vous présentons des créateurs à l’univers réel et à l’audience engagée, pas des profils génériques.",
+      steps:[["amp","Des talents dont nous suivons et racontons le travail."],
+             ["talents","Casting, activation, programmes ambassadeurs."]],
+      cta:"Déposer un brief", href:SITE + "/agence/brief" }
+  };
+
+  /* ---------- Mises en page ---------- */
+  const LAYOUTS = {
+    wide: { W:1200, H:600, dir:"h",
+      ring:{ cx:600, cy:300, r:190 }, hubR:90,
+      angles:{ amp:180, galerie:50, talents:-50 }, busY:566,
+      pos:{ artiste:[125,128], createur:[125,218], institution:[125,308], pro:[125,398], liberal:[125,488], marques:[1078,200], entreprises:[1078,392], collect:[1078,500] },
+      w:{ input:214, pillar:180, output:214 },
+      selR:150, caps:[["Ceux que nous accompagnons, sur sélection",160,60],["Ceux que nous connectons",1078,128]],
+      loop:0, text:{ from:166, to:74, dy:20, size:14, str:"chaque projet nourrit le média, qui amplifie" } },
+    tall: { W:400, H:1050, dir:"v",
+      ring:{ cx:200, cy:610, r:135 }, hubR:74,
+      angles:{ amp:-90, galerie:150, talents:30 }, busX:14,
+      pos:{ artiste:[102,84], createur:[298,84], pro:[102,204], institution:[298,204], liberal:[200,322], entreprises:[102,920], marques:[298,920], collect:[200,1008] },
+      w:{ input:186, pillar:150, output:186 },
+      selR:135, caps:[["Ceux que nous accompagnons, sur sélection",200,20],["Ceux que nous connectons",200,850]],
+      loop:0, text:{ from:138, to:42, dy:19, size:12, str:"chaque projet nourrit le média" } }
+  };
+
+  /* ---------- DOM ---------- */
+  const stage = document.getElementById("ira-stage");
+  const svg = document.getElementById("ira-svg");
+  const layer = document.getElementById("ira-layer");
+  const gFrame = document.getElementById("g-frame");
+  const gEdges = document.getElementById("g-edges");
+  const gTips = document.getElementById("g-tips");
+  const gPart = document.getElementById("g-particles");
+  const textArc = document.getElementById("ira-text-arc");
+  const ringText = document.getElementById("ira-ring-text");
+  const panel = document.getElementById("ira-panel");
+
+  const els = {};
+  for (const [id, n] of Object.entries(NODES)) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "ira-node " + n.kind;
+    b.dataset.id = id;
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = n.sigs
+      ? `<span class="n-label">${n.label}</span><span class="n-sigs"><span class="sig-row">${SIGNATURES.map(([ini, name, src]) =>
+          `<span class="sig" title="${name}">${ini}<img src="${src}" alt="" loading="lazy" decoding="async"></span>`).join("")}</span><i>nos signatures</i></span>`
+      : `<span class="n-label">${n.label}</span><span class="n-sub">${n.sub}</span>`;
+    if (n.sigs) b.setAttribute("aria-label", `${n.label} : nos signatures, dont ${SIGNATURES.map(x => x[1]).join(", ")}`);
+    layer.appendChild(b);
+    els[id] = b;
+  }
+  const hub = document.createElement("button");
+  hub.type = "button";
+  hub.className = "ira-hub";
+  hub.dataset.id = "hub";
+  hub.setAttribute("aria-pressed", "false");
+  hub.innerHTML = `<span class="h-name">InRealArt</span><span class="h-sub">le média<br>au centre</span>`;
+  layer.appendChild(hub);
+  els.hub = hub;
+
+  layer.addEventListener("error", e => { if (e.target.closest && e.target.closest(".sig")) e.target.remove(); }, true);
+
+  const selTags = {};
+  for (const e of EDGES.filter(e => e.sel)) {
+    const t = document.createElement("p"); t.className = "ira-sel"; t.textContent = "sur sélection";
+    layer.appendChild(t); selTags[e.id] = t;
+  }
+  const caps = [0,1].map(() => { const p = document.createElement("p"); p.className = "ira-cap"; layer.appendChild(p); return p; });
+
+  const edgeEls = {};
+  for (const e of EDGES) {
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("class", "edge" + (e.ring ? " ring" : "") + (e.sel ? " sel" : ""));
+    gEdges.appendChild(p);
+    edgeEls[e.id] = p;
+  }
+  const loopPath = document.createElementNS(NS, "path"); // trajectoire du point au repos
+  loopPath.setAttribute("fill", "none");
+  gFrame.appendChild(loopPath);
+  const frameA = document.createElementNS(NS, "circle"); frameA.setAttribute("class", "ring-frame");
+  const frameB = document.createElementNS(NS, "circle"); frameB.setAttribute("class", "ring-frame sheen");
+  const sheen = document.getElementById("ira-sheen");
+  gFrame.append(frameA, frameB);
+
+  /* ---------- Géométrie ---------- */
+  let L = LAYOUTS.wide, layoutName = "wide";
+  const rad = a => a * Math.PI / 180;
+  const onRing = a => [L.ring.cx + L.ring.r * Math.cos(rad(a)), L.ring.cy + L.ring.r * Math.sin(rad(a))];
+  const pct = (v, total) => (v / total * 100) + "%";
+
+  function arc(a1, a2, r = L.ring.r, forceSweep) {
+    const [x1, y1] = [L.ring.cx + r * Math.cos(rad(a1)), L.ring.cy + r * Math.sin(rad(a1))];
+    const [x2, y2] = [L.ring.cx + r * Math.cos(rad(a2)), L.ring.cy + r * Math.sin(rad(a2))];
+    let sweep = forceSweep;
+    if (sweep === undefined) { const d = ((a2 - a1 + 540) % 360) - 180; sweep = d > 0 ? 1 : 0; }
+    return `M${x1.toFixed(1)},${y1.toFixed(1)} A${r},${r} 0 0 ${sweep} ${x2.toFixed(1)},${y2.toFixed(1)}`;
+  }
+
+  function placeNodes() {
+    stage.dataset.layout = layoutName;
+    stage.style.aspectRatio = `${L.W} / ${L.H}`;
+    svg.setAttribute("viewBox", `0 0 ${L.W} ${L.H}`);
+    for (const [id, n] of Object.entries(NODES)) {
+      const p = n.kind === "pillar" ? onRing(L.angles[id]) : L.pos[id];
+      const el = els[id];
+      el.style.left = pct(p[0], L.W);
+      el.style.top = pct(p[1], L.H);
+      el.style.width = pct(L.w[n.kind], L.W);
+    }
+    hub.style.left = pct(L.ring.cx, L.W);
+    hub.style.top = pct(L.ring.cy, L.H);
+    hub.style.width = pct(L.hubR * 2, L.W);
+    for (const e of EDGES.filter(e => e.sel)) {
+      const a1 = L.angles[e.from], d = ((L.angles[e.to] - a1 + 540) % 360) - 180, m = rad(a1 + d / 2);
+      selTags[e.id].style.left = pct(L.ring.cx + L.selR * Math.cos(m), L.W);
+      selTags[e.id].style.top = pct(L.ring.cy + L.selR * Math.sin(m), L.H);
+    }
+    L.caps.forEach(([t, x, y], i) => {
+      caps[i].textContent = t;
+      caps[i].style.left = pct(x, L.W);
+      caps[i].style.top = pct(y, L.H);
+    });
+  }
+
+  function box(id) {
+    const s = stage.getBoundingClientRect();
+    const r = els[id].getBoundingClientRect();
+    const k = L.W / s.width;
+    return { x:(r.left - s.left) * k, y:(r.top - s.top) * k, w:r.width * k, h:r.height * k };
+  }
+  function anchor(id, role) {
+    const b = box(id);
+    if (L.dir === "h") return role === "out" ? [b.x + b.w, b.y + b.h / 2] : [b.x, b.y + b.h / 2];
+    return role === "out" ? [b.x + b.w / 2, b.y + b.h] : [b.x + b.w / 2, b.y];
+  }
+
+  function addTips(pts, id) {
+    for (const [x, y] of pts) {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", L.dir === "h" ? 3 : 2.6);
+      c.setAttribute("class", "tip"); c.dataset.edge = id;
+      gTips.appendChild(c);
+    }
+  }
+  function drawEdges() {
+    const { cx, cy, r } = L.ring;
+    frameA.setAttribute("cx", cx); frameA.setAttribute("cy", cy); frameA.setAttribute("r", r - 7);
+    frameB.setAttribute("cx", cx); frameB.setAttribute("cy", cy); frameB.setAttribute("r", r + 7);
+    sheen.setAttribute("x1", cx - r - 10); sheen.setAttribute("y1", cy);
+    sheen.setAttribute("x2", cx + r + 10); sheen.setAttribute("y2", cy);
+    sheen.setAttribute("gradientTransform", `rotate(-35 ${cx} ${cy})`);
+
+    gTips.replaceChildren();
+    for (const e of EDGES) {
+      let d;
+      if (e.ring) {
+        d = arc(L.angles[e.from], L.angles[e.to]);
+      } else if (e.bus) {
+        const [x1, y1] = anchor(e.from, "out");
+        const g = box(e.to);
+        if (L.dir === "h") {
+          const by = L.busY, gx = g.x + g.w / 2, gy = g.y + g.h;
+          d = `M${x1},${y1} C${x1 + 70},${y1} ${x1 + 70},${by} ${x1 + 160},${by} L${gx - 60},${by} Q${gx},${by} ${gx},${gy}`;
+          addTips([[x1, y1], [gx, gy]], e.id);
+        } else {
+          const bx = L.busX, gx = g.x + 34, gy = g.y;
+          d = `M${x1},${y1} C${x1},${y1 + 46} ${bx},${y1 + 26} ${bx},${y1 + 96} L${bx},${gy - 34} C${bx},${gy - 12} ${gx},${gy - 18} ${gx},${gy}`;
+          addTips([[x1, y1], [gx, gy]], e.id);
+        }
+      } else {
+        const [x1, y1] = anchor(e.from, "out");
+        const [x2, y2] = anchor(e.to, "in");
+        if (L.dir === "h") { const dx = (x2 - x1) * .55; d = `M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`; }
+        else { const dy = (y2 - y1) * .55; d = `M${x1},${y1} C${x1},${y1 + dy} ${x2},${y2 - dy} ${x2},${y2}`; }
+        addTips([[x1, y1], [x2, y2]], e.id);
+      }
+      edgeEls[e.id].setAttribute("d", d);
+    }
+    // Boucle complète au repos, dans le sens du cercle
+    const a0 = L.angles.amp;
+    loopPath.setAttribute("d", arc(a0, a0 + 180, r, L.loop) + " " + arc(a0 + 180, a0 + 360, r, L.loop).replace(/^M[^A]+/, ""));
+    // Texte sur l'arc
+    const t = L.text;
+    textArc.setAttribute("d", arc(t.from, t.to, r));
+    ringText.setAttribute("font-size", t.size);
+    ringText.setAttribute("dy", t.dy);
+    ringText.firstElementChild.textContent = t.str;
+    for (const p of particles) p.len = p.path.getTotalLength();
+    applyState();
+  }
+
+  /* ---------- État ---------- */
+  let selected = null;
+
+  let override = null, preview = null;
+  function applyState() {
+    const f = override || preview || (selected ? FOCUS[selected] : null);
+    const mark = override ? override.mark : selected;
+    const onNodes = f ? new Set(f.nodes) : null;
+    const onEdges = f ? new Map(f.edges.map(s => s[0] === "!" ? [s.slice(1), true] : [s, false])) : null;
+
+    for (const [id, el] of Object.entries(els)) {
+      const isSel = id === mark;
+      el.classList.toggle("is-selected", isSel);
+      el.classList.toggle("is-dim", !!f && !onNodes.has(id) && !isSel);
+      el.classList.toggle("is-lit", !!override && onNodes.has(id) && !isSel);
+      el.setAttribute("aria-pressed", String(id === selected));
+    }
+    for (const e of EDGES) {
+      const on = !!f && onEdges.has(e.id);
+      edgeEls[e.id].classList.toggle("is-on", on);
+      edgeEls[e.id].classList.toggle("is-dim", !!f && !on);
+    }
+    for (const [id, t] of Object.entries(selTags)) t.classList.toggle("is-dim", !!f && !onEdges.has(id));
+    gTips.querySelectorAll(".tip").forEach(c => {
+      const on = !!f && onEdges.has(c.dataset.edge);
+      c.classList.toggle("is-on", on);
+      c.classList.toggle("is-dim", !!f && !on);
+    });
+    ringText.style.opacity = f && !["r1","r2","r3"].some(r => onEdges.has(r)) ? .35 : 1;
+    setParticles(onEdges);
+  }
+
+  function select(id) {
+    if (touring) stopTour();
+    preview = null;
+    selected = (id && id === selected) ? null : id;
+    applyState();
+    renderPanel();
+  }
+
+  /* ---------- Particules ---------- */
+  let particles = [];
+  function setParticles(onEdges) {
+    gPart.replaceChildren();
+    particles = [];
+    if (reduce) return;
+    const speed = L.dir === "h" ? 150 : 105;
+    const add = (path, rev, phase, cls = "particle", dur) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("r", L.dir === "h" ? 3.6 : 3);
+      c.setAttribute("class", cls);
+      gPart.appendChild(c);
+      const len = path.getTotalLength();
+      particles.push({ el:c, path, len, rev, phase, dur: dur || Math.max(1.4, len / speed) });
+    };
+    if (!onEdges) { add(loopPath, false, 0, "idle-dot", 16); return; }
+    for (const [id, rev] of onEdges) {
+      const cls = EDGES.find(e => e.id === id).sel ? "particle sel" : "particle";
+      add(edgeEls[id], rev, 0, cls); add(edgeEls[id], rev, .5, cls);
+    }
+  }
+
+  let visible = true, raf = 0;
+  function tick(t) {
+    raf = 0;
+    if (!visible) return;
+    const s = t / 1000;
+    sheen.setAttribute("gradientTransform", `rotate(${(s * 22) % 360} ${L.ring.cx} ${L.ring.cy})`);
+    for (const p of particles) {
+      const f = (s / p.dur + p.phase) % 1;
+      const pt = p.path.getPointAtLength((p.rev ? 1 - f : f) * p.len);
+      p.el.setAttribute("cx", pt.x.toFixed(1));
+      p.el.setAttribute("cy", pt.y.toFixed(1));
+      p.el.style.opacity = p.el.classList.contains("idle-dot") ? 1 : Math.min(1, f * 6, (1 - f) * 6);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function start() { if (!raf && !reduce) raf = requestAnimationFrame(tick); }
+
+  /* ---------- Visuels ----------
+     Remplacez les adresses par vos propres photos (tournages, accrochages en entreprise, activations).
+     Si une image ne charge pas, un cadre vide élégant affiche sa légende à la place. */
+  const R2 = "https://pub-d7df68395d644bd3bc80d24168d6d8be.r2.dev";
+  const IMG = {
+    logitech:  R2 + "/agency-events/Logitech/logitech.webp",
+    artialy:   R2 + "/artistsUGC/Victialy%20Nguyen/profile.webp",
+    tassou:    R2 + "/artistsUGC/Marine%20Tassou/profile.webp",
+    romav:     R2 + "/artistsUGC/Romain%20Hurdequint/profile.webp",
+    eaudalix:  R2 + "/artistsUGC/Alix%20Goor/profile.webp",
+    nontron:   R2 + "/exhibitions/Exposition%20Nontron/exposition-nontron.webp",
+    senechal:  SITE + "/images/home/hero/senechal.webp",
+    ronan:     SITE + "/images/home/hero/ronan.webp",
+    boyer:     SITE + "/images/home/hero/boyer.webp",
+    collectif: SITE + "/images/joinInRealArt/hero_joinInRealArt.webp",
+    galeries:  SITE + "/images/joinInRealArt/joinInRealArt_desc3.webp",
+    lettre:    SITE + "/images/newsletter/newsletter.webp"
+  };
+  const V = {
+    logitech: ["logitech","Logitech G × Artialy","Activation de marque entre art digital et e-sport"],
+    artialy:  ["artialy","Artialy","Créatrice, univers onirique, culture japonaise et gaming"],
+    tassou:   ["tassou","Marine Tassou","Créatrice, univers luxe, lifestyle et mode"],
+    romav:    ["romav","Rom av.JC","Skateboards usés devenus œuvres inspirées de l’Antiquité"],
+    eaudalix: ["eaudalix","Eaudalix","Univers coloré, figures hybrides et totémiques"],
+    nontron:  ["nontron","Exposition Nontron","Accrochage de nos artistes, mai 2026"],
+    senechal: ["senechal","Catherine Sénéchal, peintre","Supports de communication pour les réseaux et les salons"],
+    ronan:    ["ronan","Martin Ronan, peintre","Portrait et récit d’artiste pour le média"],
+    boyer:    ["boyer","Jean-Paul Boyer, sculpteur","Œuvres proposées aux entreprises et aux collectionneurs"],
+    collectif:["collectif","Le collectif InRealArt","Accompagnement des artistes résidents"],
+    galeries: ["galeries","Partenariats galeries","Projets menés avec des galeries partenaires"],
+    lettre:   ["lettre","La Lettre InRealArt","Chaque semaine, nos artistes racontés à notre audience"],
+    sig_senechal: ["senechal","Catherine Sénéchal","Peintre, artiste résidente"],
+    sig_ronan:    ["ronan","Martin Ronan","Peintre, coté Icac"],
+    sig_boyer:    ["boyer","Jean-Paul Boyer","Sculpteur, artiste résident"]
+  };
+  const HANG_TITLE = { artiste:"Quelques-unes de nos signatures" };
+  const GALLERY = {
+    _:           ["collectif","lettre","logitech"],
+    amp:         ["senechal","ronan","lettre"],
+    galerie:     ["nontron","boyer","galeries"],
+    talents:     ["logitech","artialy","eaudalix"],
+    hub:         ["lettre","ronan","logitech"],
+    artiste:     ["sig_senechal","sig_ronan","sig_boyer"],
+    createur:    ["artialy","logitech","tassou"],
+    institution: ["nontron","lettre","collectif"],
+    collect:     ["boyer","nontron","senechal"],
+    pro:         ["galeries","nontron","lettre"],
+    liberal:     ["lettre","boyer","nontron"],
+    entreprises: ["boyer","nontron","galeries"],
+    marques:     ["logitech","romav","eaudalix"]
+  };
+  const currentSet = () => GALLERY[selected || "_"].map(k => V[k]);
+
+  function hangHTML() {
+    const set = currentSet();
+    const ht = HANG_TITLE[selected];
+    return `<div class="p-hang">${ht ? `<p class="p-kicker">${ht}</p>` : ""}<div class="hang-row">${set.map(([k, t, n], i) => `
+      <figure class="hang-item">
+        <button type="button" class="frame" data-view="${i}" aria-label="Agrandir : ${t}">
+          <span class="mat"><img src="${IMG[k]}" alt="${t}" loading="lazy" decoding="async"><span class="ph">${t}</span></span>
+        </button>
+        <figcaption class="cartel"><b>${t}</b><span>${n}</span></figcaption>
+      </figure>`).join("")}</div></div>`;
+  }
+
+  /* ---------- Visionneuse ---------- */
+  const lb = document.getElementById("ira-lb");
+  const lbImg = document.getElementById("lb-img");
+  const lbMat = document.getElementById("lb-mat");
+  let lbIndex = 0;
+  function showLb(i) {
+    const set = currentSet();
+    lbIndex = (i + set.length) % set.length;
+    const [k, t, n] = set[lbIndex];
+    lbMat.classList.remove("is-empty");
+    lbImg.src = IMG[k]; lbImg.alt = t;
+    document.getElementById("lb-ph").textContent = t;
+    document.getElementById("lb-title").textContent = t;
+    document.getElementById("lb-note").textContent = n;
+    if (!lb.open) lb.showModal();
+  }
+  lbImg.addEventListener("error", () => lbMat.classList.add("is-empty"));
+  lb.addEventListener("click", e => {
+    const a = e.target.closest("[data-lb]");
+    if (e.target === lb) { lb.close(); return; }
+    if (!a) return;
+    if (a.dataset.lb === "close") lb.close();
+    else showLb(lbIndex + (a.dataset.lb === "next" ? 1 : -1));
+  });
+  lb.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") showLb(lbIndex + 1);
+    if (e.key === "ArrowLeft") showLb(lbIndex - 1);
+  });
+  panel.addEventListener("error", e => {
+    if (e.target.tagName === "IMG") e.target.closest(".frame")?.classList.add("is-empty");
+  }, true);
+
+  /* ---------- Panneau ---------- */
+  const esc = s => s; // contenu statique
+  function nameOf(id) { return id === "hub" ? "Le média" : NODES[id].label; }
+
+  function renderPanel() {
+    const c = selected ? CONTENT[selected] : null;
+    let html;
+    if (!c) {
+      html = `
+        <div>
+          <p class="p-kicker">Comment nous travaillons</p>
+          <h3 class="p-title">Révéler, amplifier, connecter.</h3>
+          <p class="p-intro">Trois métiers qui se renforcent : ce que l’un construit, les autres le prolongent. Au centre, notre média raconte chaque projet et relance le cercle.</p>
+          <div class="p-actions">
+            <a class="btn" href="${RDV}" target="_blank" rel="noopener">Prendre rendez-vous</a>
+            <button type="button" class="btn ghost" data-tour>Voir le parcours d’un artiste</button>
+          </div>
+        </div>
+        <div class="trio">
+          <div><h4>Révéler</h4><p>Nous sélectionnons des artistes et des talents pour la singularité de leur regard.</p></div>
+          <div><h4>Amplifier</h4><p>Notre média et notre agence construisent leur visibilité : éditorial, contenus, salons.</p></div>
+          <div><h4>Connecter</h4><p>La galerie B2B les présente aux entreprises et aux collectionneurs, l’agence de talents les associe aux marques.</p></div>
+        </div>`;
+    } else if (c.type === "pillar") {
+      html = `
+        <div>
+          <p class="p-kicker">${esc(c.kicker)}</p>
+          <h3 class="p-title">${esc(c.title)}</h3>
+          <p class="p-intro">${esc(c.intro)}</p>
+          <div class="p-actions">
+            <a class="btn" href="${c.href}" target="_blank" rel="noopener">${esc(c.cta)}</a>
+            <button type="button" class="btn ghost" data-reset>Vue d’ensemble</button>
+          </div>
+        </div>
+        <dl class="p-dl">
+          <dt>Pour qui</dt><dd>${esc(c.forWho)}</dd>
+          <dt>Ce que nous faisons</dt><dd><ul class="p-list">${c.does.map(d => `<li>${esc(d)}</li>`).join("")}</ul></dd>
+          <dt>Une preuve</dt><dd class="p-proof">${esc(c.proof)}</dd>
+        </dl>`;
+    } else {
+      html = `
+        <div>
+          <p class="p-kicker">Votre parcours</p>
+          <h3 class="p-title">${esc(c.title)}</h3>
+          <p class="p-intro">${esc(c.intro)}</p>
+          <div class="p-actions">
+            <a class="btn" href="${c.href}" target="_blank" rel="noopener">${esc(c.cta)}</a>
+            <button type="button" class="btn ghost" data-reset>Vue d’ensemble</button>
+          </div>
+        </div>
+        <ol class="route">
+          ${c.steps.map(([id, txt, sel]) => `<li${sel ? ' class="is-sel"' : ""}><button type="button" class="route-node" data-select="${id}">${nameOf(id)}</button><p>${esc(txt)}</p></li>`).join("")}
+        </ol>`;
+    }
+    html += hangHTML();
+    if (reduce) { panel.innerHTML = html; return; }
+    panel.classList.add("is-swapping");
+    setTimeout(() => { panel.innerHTML = html; panel.classList.remove("is-swapping"); }, 160);
+  }
+
+  /* ---------- Visite guidée ---------- */
+  const TOUR = [
+    { t:"Nous sélectionnons des artistes pour la singularité de leur regard.", nodes:["artiste"], edges:[], mark:"artiste" },
+    { t:"Notre média et notre agence les font rayonner.", nodes:["artiste","amp","hub"], edges:["e1"], mark:"amp" },
+    { t:"La galerie B2B présente leurs œuvres aux entreprises et aux collectionneurs.", nodes:["amp","galerie","entreprises","collect","hub"], edges:["r1","o1","o3"], mark:"galerie" },
+    { t:"L’agence de talents les associe à des marques leaders.", nodes:["amp","talents","marques","hub"], edges:["!r3","o2"], mark:"talents" },
+    { t:"Institutions, galeries et professions libérales profitent du même savoir-faire.", nodes:["institution","pro","liberal","amp","galerie","hub"], edges:["i1","e3","e4","g1","g2"], mark:null },
+    { t:"Chaque projet nourrit le média, et le cercle recommence.", nodes:["hub","amp","galerie","talents"], edges:["r1","r2","r3"], mark:"hub" }
+  ];
+  const STEP_MS = 3600;
+  const HINT = "Choisissez votre profil ou l’un de nos métiers dans le schéma.";
+  const tourBar = document.getElementById("ira-tour");
+  const tourBtn = document.getElementById("tour-btn");
+  const tourText = document.getElementById("tour-text");
+  const tourSteps = document.getElementById("tour-steps");
+  tourSteps.style.setProperty("--dur", STEP_MS / 1000 + "s");
+  tourSteps.innerHTML = TOUR.map(() => "<li><i></i></li>").join("");
+  let touring = false, tourTimer = 0, interacted = false;
+
+  function setTourText(txt) {
+    if (reduce) { tourText.textContent = txt; return; }
+    tourText.classList.add("is-out");
+    setTimeout(() => { tourText.textContent = txt; tourText.classList.remove("is-out"); }, 220);
+  }
+  function tourGo(i) {
+    if (i >= TOUR.length) { stopTour(); return; }
+    override = TOUR[i];
+    applyState();
+    setTourText(TOUR[i].t);
+    [...tourSteps.children].forEach((li, k) => { li.className = k < i ? "done" : k === i ? "now" : ""; });
+    tourTimer = setTimeout(() => tourGo(i + 1), STEP_MS);
+  }
+  function startTour() {
+    if (selected) { selected = null; renderPanel(); }
+    touring = true; preview = null;
+    tourBar.classList.add("is-playing");
+    tourBtn.setAttribute("aria-pressed", "true");
+    tourBtn.querySelector(".tour-lbl").textContent = "Arrêter";
+    tourGo(0);
+  }
+  function stopTour() {
+    touring = false; clearTimeout(tourTimer); override = null;
+    tourBar.classList.remove("is-playing");
+    tourBtn.setAttribute("aria-pressed", "false");
+    tourBtn.querySelector(".tour-lbl").textContent = "Revoir le parcours";
+    [...tourSteps.children].forEach(li => li.className = "");
+    setTourText(HINT);
+    applyState();
+  }
+  tourBtn.addEventListener("click", () => { interacted = true; touring ? stopTour() : startTour(); });
+
+  // Lancement automatique, une seule fois, quand le bloc devient bien visible
+  if (!reduce) {
+    const auto = new IntersectionObserver(entries => {
+      if (entries[0].intersectionRatio >= .45) {
+        auto.disconnect();
+        setTimeout(() => { if (!interacted && !selected && !touring) startTour(); }, 1700);
+      }
+    }, { threshold:[.45] });
+    auto.observe(stage);
+  }
+
+  // Aperçu du parcours au survol (souris uniquement)
+  layer.addEventListener("pointerover", e => {
+    if (e.pointerType !== "mouse" || touring || selected) return;
+    const b = e.target.closest("[data-id]");
+    if (!b || preview === FOCUS[b.dataset.id]) return;
+    preview = FOCUS[b.dataset.id]; applyState();
+  });
+  layer.addEventListener("pointerout", e => {
+    if (!preview) return;
+    const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest("[data-id]");
+    if (to) return;
+    preview = null; applyState();
+  });
+
+  /* ---------- Événements ---------- */
+  layer.addEventListener("click", e => {
+    const b = e.target.closest("[data-id]");
+    if (b) { interacted = true; select(b.dataset.id); }
+  });
+  panel.addEventListener("click", e => {
+    interacted = true;
+    if (e.target.closest("[data-tour]")) { startTour(); stage.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block:"center" }); return; }
+    if (e.target.closest("[data-reset]")) { select(null); return; }
+    const v = e.target.closest("[data-view]");
+    if (v) { showLb(+v.dataset.view); return; }
+    const r = e.target.closest("[data-select]");
+    if (r) { select(r.dataset.select); els[r.dataset.select].focus({ preventScroll:true }); }
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape" || lb.open) return;
+    if (touring) stopTour(); else if (selected) select(null);
+  });
+
+  function relayout() {
+    const name = stage.parentElement.clientWidth < 860 ? "tall" : "wide";
+    if (name !== layoutName) { layoutName = name; L = LAYOUTS[name]; }
+    placeNodes();
+    requestAnimationFrame(drawEdges);
+  }
+  new ResizeObserver(relayout).observe(stage.parentElement);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => requestAnimationFrame(drawEdges));
+
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    if (visible) start();
+  }).observe(stage);
+
+  /* ---------- Entrée en scène (une seule fois) ---------- */
+  function intro() {
+    if (reduce) return;
+    const order = ["e1","e2","i1","e3","e4","r1","r2","r3","o1","o2","o3","g1","g2"];
+    order.forEach((id, i) => {
+      const p = edgeEls[id], len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.getBoundingClientRect();
+      p.style.transition = `stroke-dashoffset .9s cubic-bezier(.6,0,.2,1) ${i < 5 ? i * 70 : i < 8 ? 380 + (i - 5) * 160 : i < 11 ? 900 + (i - 8) * 90 : 300 + (i - 11) * 90}ms`;
+      p.style.strokeDashoffset = 0;
+    });
+    setTimeout(() => order.forEach(id => { const p = edgeEls[id]; p.style.strokeDasharray = ""; p.style.strokeDashoffset = ""; p.style.transition = ""; }), 2200);
+  }
+
+  L = LAYOUTS[stage.parentElement.clientWidth < 860 ? "tall" : "wide"];
+  layoutName = stage.parentElement.clientWidth < 860 ? "tall" : "wide";
+  placeNodes();
+  requestAnimationFrame(() => { drawEdges(); renderPanel(); intro(); start(); });
+})();
+</script>
+
+
+</body></html>

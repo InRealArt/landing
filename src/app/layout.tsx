@@ -75,12 +75,6 @@ export default function RootLayout ({
   return (
     <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/home/hero/bg.webp"
-          type="image/webp"
-        />
         {/* LLM & Agent indexing */}
         <link rel="llms" href="/llms.txt" type="text/plain" />
         <link rel="llms-full" href="/llms-full.txt" type="text/plain" />
