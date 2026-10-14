@@ -101,7 +101,7 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
 
         <section className="relative max-w-90 xl:max-w-screen-xl m-auto">
           {formattedArtworks.length > 0 && (
-            <ArtistArtworks artistName={artist.name} artworks={formattedArtworks} />
+            <ArtistArtworks artistName={artist.pseudo?.trim() || artist.name}artworks={formattedArtworks} />
           )}
         </section>
 
