@@ -6,6 +6,7 @@
 export interface TransformedArtistData {
     id: number
     name: string
+    pseudo?: string | null
     role: string
     photo: string
     intro: string

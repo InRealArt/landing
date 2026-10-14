@@ -151,7 +151,7 @@ export default function ArtistInfoSection({ artist, interviewUrl, artitudeUrl }:
             <h2 className="text-4xl lg:text-5xl font-cormorant font-light text-textColor leading-tight">
               {t('artistPage.whoIs')}
               <span className="italic" style={{ color: '#b89c72' }}>
-                {artist.name}
+                {artist.pseudo?.trim() || artist.name}
               </span>
             </h2>
 
