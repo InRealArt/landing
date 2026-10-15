@@ -69,6 +69,8 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/agence',
   '/agence/artists',
   '/agence/brief',
+  // Image de partage générée par src/app/opengraph-image.tsx
+  '/opengraph-image',
 ])
 
 // Known dynamic route prefixes with exactly one slug segment — always valid

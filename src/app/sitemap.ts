@@ -4,7 +4,7 @@ import { getArtistCategories } from '@/actions/artistCategoryActions'
 import { getPublishedPosts, getLanguageIdByCode, getCategoriesWithTranslations } from '@/actions/seoPostActions'
 import { getPresaleArtworks } from '@/actions/presaleArtworkActions'
 
-const BASE_URL = 'https://inrealart.com'
+const BASE_URL = 'https://www.inrealart.com'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [

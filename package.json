@@ -15,7 +15,8 @@
     "prisma:copy-schema": "cp node_modules/@InRealArt/prisma-schema/schema.prisma prisma/schema.prisma",
     "update:schema:inrealart": "npm run install:safe:prisma:inrealart && npm run prisma:copy-schema && npx prisma generate",
     "analyze": "ANALYZE=true npm run build",
-    "test:perf": "npm run build && npm run start & sleep 5 && npm run lighthouse && kill %1"
+    "test:perf": "npm run build && npm run start & sleep 5 && npm run lighthouse && kill %1",
+    "recette": "node scripts/audit-recette.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1015.0",

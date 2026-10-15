@@ -24,7 +24,7 @@ import { unbounded, bricolageGrotesque, cormorantGaramond, montserrat } from '@/
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://inrealart.com/"),
+  metadataBase: new URL("https://www.inrealart.com/"),
   title: {
     default: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     template: "%s | InRealArt",
@@ -44,17 +44,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: 'https://inrealart.com/',
-    languages: {
-      'x-default': 'https://inrealart.com/',
-      'fr': 'https://inrealart.com/',
-    },
-  },
+  // Pas de canonical ni d'og:url ici : héritées par toutes les pages, elles les déclareraient
+  // comme doublons de l'accueil. Chaque page déclare sa propre canonical.
   openGraph: {
     title: "InRealArt — Catalyseur d'Art, de la Culture et du Patrimoine",
     description: "La plateforme curatoriale qui rend l'art, la culture et le patrimoine accessible, humain et éthique.",
-    url: 'https://inrealart.com/',
     siteName: 'InRealArt',
     locale: 'fr_FR',
     type: 'website',

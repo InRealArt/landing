@@ -176,13 +176,13 @@ export default function PostDetail({ slug, initialPost }: PostDetailProps) {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Accueil",
-                "item": process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+                "item": process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Blog",
-                "item": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/blog`
+                "item": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/blog`
               },
               {
                 "@type": "ListItem",

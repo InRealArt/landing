@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { generateStaticMetadata, generateDefinedTermSetJsonLd } from '@/utils/metadata'
 import { glossaryItems } from '@/data/glossary'
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 const GLOSSARY_URL = `${BASE_URL}/glossary`
 
 export const metadata: Metadata = generateStaticMetadata({

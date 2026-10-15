@@ -9,7 +9,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Art & entreprise — Intégrer l\'Art au cœur de votre stratégie',
   description: 'Proposez à vos collaborateurs et visiteurs une expérience artistique forte. Leasing, curation, visibilité et engagement culturel.',
   keywords: ['art entreprise', 'curation corporate', 'mécénat culturel', 'leasing œuvres'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/companies`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase/companies`
 })
 
 export default function CompaniesPage() {

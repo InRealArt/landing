@@ -18,7 +18,7 @@ export function generateArticleJsonLd(
     options: JsonLdOptions = {}
 ): string {
     const {
-        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com',
+        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com',
         organizationName = 'In Real Art',
         logoUrl = '/icons/Logo.png',
         logoWidth = 101,
@@ -90,7 +90,7 @@ export function generateArtistArticleJsonLd(
     options: JsonLdOptions = {}
 ): string {
     const {
-        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com',
+        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com',
         organizationName = 'In Real Art',
         logoUrl = '/icons/Logo.png'
     } = options
@@ -146,7 +146,7 @@ export function generateBreadcrumbJsonLd(
     options: JsonLdOptions = {}
 ): string {
     const {
-        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
     } = options
 
     const jsonLd = {
@@ -184,7 +184,7 @@ export function generateBlogListJsonLd(
     options: JsonLdOptions = {}
 ): string {
     const {
-        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com',
+        baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com',
         organizationName = 'In Real Art'
     } = options
 
@@ -268,7 +268,7 @@ export function generatePostJsonLd(post: SeoPost): string {
  */
 export function generateArtistPersonJsonLd(
     artist: ArtistData,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 ): string {
     const artistName = `${artist.name} ${artist.surname}`
     const artistUrl = `${baseUrl}/artists/${artist.slug}`
@@ -331,7 +331,7 @@ export function generateArtistVisualArtworksJsonLd(
     artworks: ArtWork[],
     artistName: string,
     artistSlug: string,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 ): string {
     const artistUrl = `${baseUrl}/artists/${artistSlug}`
 
@@ -403,7 +403,7 @@ export function generateArtistVisualArtworksJsonLd(
 export function generateArtistBreadcrumbJsonLd(
     artistName: string,
     artistSlug: string,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 ): string {
     return JSON.stringify({
         '@context': 'https://schema.org',

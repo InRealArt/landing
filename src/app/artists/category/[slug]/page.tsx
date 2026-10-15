@@ -1,5 +1,6 @@
 import { permanentRedirect } from 'next/navigation'
 import { Metadata } from 'next'
+import { BASE_URL } from '@/utils/metadata'
 import { getArtistCategoryBySlug } from '@/actions/artistCategoryActions'
 import { getArtistsByCategory } from '@/actions/artistActions'
 import ArtistCategoryPageClient from './ArtistCategoryPageClient'
@@ -16,16 +17,24 @@ export async function generateMetadata({ params }: ArtistCategoryPageProps): Pro
 
   if (!category) {
     return {
-      title: 'Catégorie non trouvée | In Real Art',
+      title: 'Catégorie non trouvée',
       description: 'La catégorie d\'artistes demandée n\'existe pas.'
     }
   }
 
+  // Même construction que src/app/sitemap.ts : canonical identique quelle que soit la casse de l'URL demandée
+  const canonical = `${BASE_URL}/artists/category/${encodeURIComponent(category.name.toLowerCase())}`
+
   return {
-    title: `${category.name} | Catégories d'artistes | In Real Art`,
+    // Nom contenant déjà la marque (ex. « Choix d'InRealArt ») : pas de suffixe du template
+    title: category.name.includes('InRealArt')
+      ? { absolute: `${category.name} | Catégories d'artistes` }
+      : `${category.name} | Catégories d'artistes`,
     description: category.description || `Découvrez les artistes de la catégorie ${category.name} sur In Real Art.`,
+    alternates: { canonical },
     openGraph: {
-      title: `${category.name} | In Real Art`,
+      url: canonical,
+      title: category.name.includes('InRealArt') ? category.name : `${category.name} | InRealArt`,
       description: category.description || `Découvrez les artistes de la catégorie ${category.name} sur In Real Art.`,
       images: category.imageUrl ? [{ url: category.imageUrl }] : []
     }

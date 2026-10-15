@@ -21,18 +21,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!post) {
       return {
-        title: 'Article non trouvé | InRealArt',
+        title: 'Article non trouvé',
         description: 'Cet article n\'existe pas ou a été supprimé.'
       }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
     const articleUrl = `${baseUrl}/blog/${slug}`
 
     return {
-      title: `${post.title} | InRealArt`,
+      title: post.title,
       description: post.metaDescription,
-      keywords: Array.isArray(post.metaKeywords) ? post.metaKeywords.join(', ') : post.metaKeywords,
       authors: [{ name: post.author, url: post.authorLink || undefined }],
       
       // Open Graph
@@ -83,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch (error) {
     console.error('Erreur lors de la génération des métadonnées:', error)
     return {
-      title: 'Erreur | InRealArt',
+      title: 'Erreur',
       description: 'Une erreur est survenue lors du chargement de l\'article.'
     }
   }

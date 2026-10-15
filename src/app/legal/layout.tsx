@@ -5,7 +5,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Mentions Légales - InRealArt',
   description: 'Mentions légales d\'InRealArt. Informations sur l\'éditeur, l\'hébergement, la propriété intellectuelle et les conditions d\'utilisation.',
   keywords: ['mentions légales', 'éditeur', 'hébergement', 'propriété intellectuelle', 'conditions utilisation'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/legal`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/legal`
 })
 
 export default function LegalLayout({

@@ -3,7 +3,7 @@
 ## Présentation
 
 Name: InRealArt
-Domain: https://inrealart.com
+Domain: https://www.inrealart.com
 Type: Plateforme curatoriale d'art tokenisé
 Mission: Rendre l'art, la culture et le patrimoine accessibles, humains et éthiques via la tokenisation blockchain
 Location: Paris, France
@@ -87,7 +87,7 @@ Processus:
 
 ### 2. Marketplace d'œuvres
 Description: Plateforme d'achat/vente d'œuvres tokenisées
-URL: https://inrealart.com/marketplace
+URL: https://www.inrealart.com/marketplace
 Modes d'acquisition:
   - Achat direct (paiement comptant)
   - Location avec Option d'Achat (LOA)
@@ -98,30 +98,30 @@ Modes d'acquisition:
 Description: Outils de calcul gratuits pour projeter l'acquisition d'art
 
 LOA Simulator:
-  URL: https://inrealart.com/loa-simulator
+  URL: https://www.inrealart.com/loa-simulator
   Input: Valeur œuvre, durée (mois), apport initial
   Output: Mensualités, coût total, rapport PDF (envoyé par email)
 
 Heritage Art Simulator:
-  URL: https://inrealart.com/heritage-art-simulator
+  URL: https://www.inrealart.com/heritage-art-simulator
   Input: Budget d'investissement, horizon temporel
   Output: Valorisation projetée, rapport PDF
 
 Art Salon Simulator:
-  URL: https://inrealart.com/art-salon-simulator
+  URL: https://www.inrealart.com/art-salon-simulator
   Input: Salon ciblé, surface stand, localisation
   Output: Estimation des frais de participation, rapport PDF
 
 ### 4. Onboarding partenaires
 Description: Processus d'intégration pour artistes et galeries
-URL: https://inrealart.com/joinInRealArt
+URL: https://www.inrealart.com/joinInRealArt
 Délai moyen de traitement: Contact sous 48h ouvrées
 Formulaire: Renseignements + portfolio/catalogue
 
 ### 5. Newsletter & communauté
 Description: Communication régulière sur l'actualité art/tokenisation
 Fréquence: Hebdomadaire
-Inscription: https://inrealart.com/ (footer)
+Inscription: https://www.inrealart.com/ (footer)
 
 ---
 

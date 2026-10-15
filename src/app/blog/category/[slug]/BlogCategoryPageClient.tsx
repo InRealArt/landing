@@ -27,7 +27,7 @@ interface Props {
 }
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://inrealart.com'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.inrealart.com'
 
 // ---------------------------------------------------------------------------
 // Component

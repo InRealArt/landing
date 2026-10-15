@@ -7,7 +7,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: "À propos d'InRealArt — Mission, Histoire et Équipe",
   description: "Découvrez In Real Art : notre mission pour rendre l'art accessible, humain et éthique. Notre histoire, nos engagements et l'équipe qui les porte.",
   keywords: ['à propos', 'mission In Real Art', 'équipe artistique', 'éthique culturelle', 'plateforme curatoriale'],
-  canonical: 'https://inrealart.com/about',
+  canonical: 'https://www.inrealart.com/about',
 })
 import AboutOurCommitments from '@/components/about/AboutOurCommitments'
 import AboutOurHistory from '@/components/about/AboutOurHistory'

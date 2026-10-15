@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { generateStaticMetadata } from '@/utils/metadata'
+import { generateStaticMetadata, BASE_URL } from '@/utils/metadata'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import MediaProductionForm from '@/components/media/production/MediaProductionForm'
 import MediaProductionFAQ from '@/components/media/MediaProductionFAQ'
@@ -10,7 +10,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: tFr('media.productionContact.metadata.title'),
   description: tFr('media.productionContact.metadata.description'),
   keywords: ['production vidéo art', 'interview artiste', 'aftermovie galerie', 'InRealArt production'],
-  canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://inrealart.com'}/media/production`,
+  canonical: `${BASE_URL}/media/production`,
 })
 
 export default function MediaProductionPage() {

@@ -1,6 +1,6 @@
 # InRealArt — Documentation complète pour agents LLM
 
-URL: https://inrealart.com/
+URL: https://www.inrealart.com/
 Type: Plateforme curatoriale d'art tokenisé
 Pays: France
 Langue principale: Français (English available)

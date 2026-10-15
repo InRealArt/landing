@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 
 // Base configuration
-export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 export const SITE_NAME = 'InRealArt'
 export const SITE_DESCRIPTION = 'Catalyseur d\'Art, culture et Patrimoine'
-export const DEFAULT_OG_IMAGE = '/opengraph-image.png'
+export const DEFAULT_OG_IMAGE = '/opengraph-image'
 
 // SEO metadata types
 export interface PageMetadata {
@@ -39,7 +39,6 @@ export function generateStaticMetadata(
   const {
     title,
     description,
-    keywords,
     image = DEFAULT_OG_IMAGE,
     imageAlt = `${SITE_NAME} - ${title}`,
     noIndex = false,
@@ -54,9 +53,9 @@ export function generateStaticMetadata(
   const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`
 
   const metadata: Metadata = {
-    title: fullTitle,
+    // absolute : le suffixe est déjà dans fullTitle, on évite que le template du layout le rajoute
+    title: { absolute: fullTitle },
     description,
-    keywords: keywords?.join(', '),
 
     // Basic meta tags
     robots: {
@@ -119,7 +118,6 @@ export function generateDynamicMetadata(
   const {
     title,
     description,
-    keywords,
     image = DEFAULT_OG_IMAGE,
     imageAlt = `${SITE_NAME} - ${title}`,
     noIndex = false,
@@ -136,9 +134,9 @@ export function generateDynamicMetadata(
   const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`
 
   const metadata: Metadata = {
-    title: fullTitle,
+    // absolute : le suffixe est déjà dans fullTitle, on évite que le template du layout le rajoute
+    title: { absolute: fullTitle },
     description,
-    keywords: keywords?.join(', ') || tags?.join(', '),
     
     // Authors
     ...(author && { authors: [{ name: author }] }),

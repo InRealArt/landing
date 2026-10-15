@@ -59,7 +59,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.home.title,
   description: defaultMetadata.home.description,
   keywords: defaultMetadata.home.keywords,
-  canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'
+  canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 })
 
 export default function Home() {

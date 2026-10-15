@@ -20,7 +20,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'culture',
     'impact',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/manifest`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/manifest`,
 })
 
 const BULLET_KEYS = [

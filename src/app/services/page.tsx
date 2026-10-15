@@ -26,7 +26,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'art advisor',
     'agent artiste',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/services`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/services`,
 })
 
 const EXPERT_NAMES = ['Maxime', 'Ania', 'Timothée']

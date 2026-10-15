@@ -20,7 +20,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'contenu premium marque',
     'agence nano-influenceurs',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/agence`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/agence`,
 })
 
 export default async function Page() {

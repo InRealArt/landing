@@ -25,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!artwork) {
       return {
-        title: 'Œuvre non trouvée | InRealArt',
+        title: 'Œuvre non trouvée',
         description: "Cette œuvre d'art n'existe pas ou n'est plus disponible.",
       }
     }
 
     const artistFullName = `${artwork.artist.name} ${artwork.artist.surname}`.trim()
-    const canonical = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artwork/${id}`
+    const canonical = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/artwork/${id}`
 
     return generateDynamicMetadata({
       title: `${artwork.name} — ${artistFullName}`,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch (error) {
     console.error('Error generating artwork metadata:', error)
     return {
-      title: 'Œuvre non trouvée | InRealArt',
+      title: 'Œuvre non trouvée',
       description: "Cette œuvre d'art n'existe pas ou n'est plus disponible.",
     }
   }

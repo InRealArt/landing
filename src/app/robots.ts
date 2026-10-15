@@ -34,6 +34,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/'],
       },
     ],
-    sitemap: 'https://inrealart.com/sitemap.xml',
+    sitemap: 'https://www.inrealart.com/sitemap.xml',
   }
 }

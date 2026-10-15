@@ -7,7 +7,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.contact.title,
   description: defaultMetadata.contact.description,
   keywords: defaultMetadata.contact.keywords,
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/contact`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/contact`
 })
 
 export default function ContactPage() {

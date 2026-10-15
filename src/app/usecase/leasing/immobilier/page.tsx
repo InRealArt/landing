@@ -14,7 +14,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'valorisation bien immobilier',
     'halls prestige art',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/leasing/immobilier`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase/leasing/immobilier`,
 })
 
 export default function ImmobilierPage() {

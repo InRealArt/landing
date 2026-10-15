@@ -79,8 +79,8 @@ export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: 
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: generateBreadcrumbJsonLd([
-            { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com' },
-            { name: 'Oeuvres', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artworks` },
+            { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com' },
+            { name: 'Oeuvres', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/artworks` },
             { name: artworkName },
           ]),
         }}

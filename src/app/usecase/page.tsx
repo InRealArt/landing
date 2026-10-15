@@ -15,7 +15,7 @@ export const metadata: Metadata = generateStaticMetadata({
   description:
     "Leasing d'art 100% déductible, amortissement sur 5 ans, TVA récupérable. Découvrez comment InRealArt accompagne entreprises, hôtels et promoteurs.",
   keywords: ["leasing art entreprise", "cas d'usage art", 'LOA art', 'avantages fiscaux art', 'investissement art'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase`,
 })
 
 export default function UseCase() {

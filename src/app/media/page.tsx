@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { generateStaticMetadata } from '@/utils/metadata'
+import { generateStaticMetadata, BASE_URL } from '@/utils/metadata'
 import MediaPageHeader from '@/components/media/MediaPageHeader'
 import ExpoSection from '@/components/media/ExpoSection'
 import BlogCategoryPreview from '@/components/blog/BlogCategoryPreview'
@@ -21,7 +21,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'InRealArt TV',
     'création contemporaine',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://inrealart.com'}/media`,
+  canonical: `${BASE_URL}/media`,
 })
 
 export default function MediaPage() {

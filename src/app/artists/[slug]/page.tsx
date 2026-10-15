@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!artist) {
       return {
-        title: 'Artiste non trouvé | InRealArt',
+        title: 'Artiste non trouvé',
         description: 'Cet artiste n\'existe pas ou n\'est plus disponible.'
       }
     }
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const titleTag = `${artistName} - ${specialty} | Bio, Œuvres & Cote | InRealArt`
     const metaDescription = `Découvrez ${artistName}, ${specialty.toLowerCase()}${nationality}. Biographie, ${artworkCount > 0 ? `${artworkCount}+ ` : ''}œuvres originales, expositions 2026. Achat LOA disponible sur InRealArt.`
 
-    const canonical = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/artists/${slug}`
+    const canonical = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/artists/${slug}`
     return generateDynamicMetadata({
       title: titleTag,
       description: metaDescription,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch (error) {
     console.error('Error generating artist metadata:', error)
     return {
-      title: 'Artiste non trouvé | InRealArt',
+      title: 'Artiste non trouvé',
       description: 'Cet artiste n\'existe pas ou n\'est plus disponible.'
     }
   }

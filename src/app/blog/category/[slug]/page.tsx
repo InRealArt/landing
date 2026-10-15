@@ -42,13 +42,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await getCategoryBySlug(slug)
   if (!category) {
     return {
-      title: 'Catégorie non trouvée | InRealArt',
+      title: 'Catégorie non trouvée',
       description: "Cette catégorie n'existe pas ou n'est plus disponible.",
     }
   }
 
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://inrealart.com'
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.inrealart.com'
   const canonical = `${baseUrl}/blog/category/${slug}`
 
   return generateDynamicMetadata({

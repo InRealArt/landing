@@ -10,7 +10,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Fractionnement d\'oeuvres — Investissez à plusieurs dans l\'Art',
   description: 'Accédez à l\'investissement artistique en co-propriété. Une nouvelle façon de collectionner, accessible et partagée.',
   keywords: ['fractionnement art', 'investissement collectif', 'co-propriété artistique', 'partage de valeur'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/fractionate`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase/fractionate`
 })
 
 export default function FractionatePage() {

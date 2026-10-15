@@ -2,7 +2,7 @@
 
 > Plateforme curatoriale française dédiée à la tokenisation de l'art, de la culture et du patrimoine. Rend l'art accessible, humain et éthique pour artistes, collectionneurs et mécènes.
 
-URL: https://inrealart.com/
+URL: https://www.inrealart.com/
 Langue principale: Français (English available)
 Localisation: Paris, France
 Contact: teaminrealart@gmail.com
@@ -13,46 +13,46 @@ InRealArt est un catalyseur d'art, de culture et de patrimoine. La plateforme co
 
 ## Pages principales
 
-- [Accueil](https://inrealart.com/) — Présentation de la plateforme, statistiques, artistes et œuvres en vedette
-- [Marketplace](https://inrealart.com/marketplace) — Œuvres d'art tokenisées disponibles à l'achat
-- [Artistes](https://inrealart.com/artists) — Catalogue des artistes référencés sur la plateforme
-- [Œuvres en prévente](https://inrealart.com/presale) — Artworks disponibles en prévente avant tokenisation
-- [Blog](https://inrealart.com/blog) — Articles sur l'art, la tokenisation, et les actualités InRealArt
-- [FAQ](https://inrealart.com/faq) — Questions fréquentes sur la plateforme et la tokenisation
-- [Glossaire](https://inrealart.com/glossary) — Terminologie de l'art et de la blockchain
-- [Équipe](https://inrealart.com/team) — L'équipe fondatrice d'InRealArt
-- [À propos](https://inrealart.com/about) — Histoire et valeurs de la plateforme
-- [Manifeste](https://inrealart.com/manifest) — Vision et philosophie d'InRealArt
-- [Roadmap](https://inrealart.com/roadmap) — Feuille de route et jalons du projet
-- [Contact](https://inrealart.com/contact) — Formulaire de contact
-- [Academy](https://inrealart.com/academy) — Formation et éducation autour de l'art tokenisé
+- [Accueil](https://www.inrealart.com/) — Présentation de la plateforme, statistiques, artistes et œuvres en vedette
+- [Marketplace](https://www.inrealart.com/marketplace) — Œuvres d'art tokenisées disponibles à l'achat
+- [Artistes](https://www.inrealart.com/artists) — Catalogue des artistes référencés sur la plateforme
+- [Œuvres en prévente](https://www.inrealart.com/presale) — Artworks disponibles en prévente avant tokenisation
+- [Blog](https://www.inrealart.com/blog) — Articles sur l'art, la tokenisation, et les actualités InRealArt
+- [FAQ](https://www.inrealart.com/faq) — Questions fréquentes sur la plateforme et la tokenisation
+- [Glossaire](https://www.inrealart.com/glossary) — Terminologie de l'art et de la blockchain
+- [Équipe](https://www.inrealart.com/team) — L'équipe fondatrice d'InRealArt
+- [À propos](https://www.inrealart.com/about) — Histoire et valeurs de la plateforme
+- [Manifeste](https://www.inrealart.com/manifest) — Vision et philosophie d'InRealArt
+- [Roadmap](https://www.inrealart.com/roadmap) — Feuille de route et jalons du projet
+- [Contact](https://www.inrealart.com/contact) — Formulaire de contact
+- [Academy](https://www.inrealart.com/academy) — Formation et éducation autour de l'art tokenisé
 
 ## Cas d'usage
 
-- [Entreprises](https://inrealart.com/usecase/companies) — Mécénat d'entreprise et acquisition d'art tokenisé
-- [Location avec option d'achat (LOA)](https://inrealart.com/usecase/leasing) — Accéder à l'art via crédit-bail
-- [Prêt garanti par l'art](https://inrealart.com/usecase/lending) — Utiliser ses œuvres comme collatéral
-- [Fractionnement](https://inrealart.com/usecase/fractionate) — Co-propriété d'œuvres d'art entre plusieurs investisseurs
+- [Entreprises](https://www.inrealart.com/usecase/companies) — Mécénat d'entreprise et acquisition d'art tokenisé
+- [Location avec option d'achat (LOA)](https://www.inrealart.com/usecase/leasing) — Accéder à l'art via crédit-bail
+- [Prêt garanti par l'art](https://www.inrealart.com/usecase/lending) — Utiliser ses œuvres comme collatéral
+- [Fractionnement](https://www.inrealart.com/usecase/fractionate) — Co-propriété d'œuvres d'art entre plusieurs investisseurs
 
 ## Rejoindre InRealArt
 
-- [Hub d'onboarding](https://inrealart.com/joinInRealArt) — Point d'entrée pour rejoindre la plateforme
-- [Artistes](https://inrealart.com/joinInRealArt/artists) — Comment référencer ses œuvres sur InRealArt
-- [Galeries](https://inrealart.com/joinInRealArt/galleries) — Partenariat galeries et maisons de vente
+- [Hub d'onboarding](https://www.inrealart.com/joinInRealArt) — Point d'entrée pour rejoindre la plateforme
+- [Artistes](https://www.inrealart.com/joinInRealArt/artists) — Comment référencer ses œuvres sur InRealArt
+- [Galeries](https://www.inrealart.com/joinInRealArt/galleries) — Partenariat galeries et maisons de vente
 
 ## Simulateurs (outils gratuits)
 
-- [Simulateur LOA](https://inrealart.com/loa-simulator) — Calcul des mensualités pour acquisition d'art en LOA
-- [Simulateur patrimoine artistique](https://inrealart.com/heritage-art-simulator) — Simulation d'investissement dans le patrimoine artistique
-- [Simulateur salon d'art](https://inrealart.com/art-salon-simulator) — Calcul des frais de participation à Art Basel, ArtGenève, etc.
-- [Hub simulateurs](https://inrealart.com/simulators) — Accès à tous les simulateurs
+- [Simulateur LOA](https://www.inrealart.com/loa-simulator) — Calcul des mensualités pour acquisition d'art en LOA
+- [Simulateur patrimoine artistique](https://www.inrealart.com/heritage-art-simulator) — Simulation d'investissement dans le patrimoine artistique
+- [Simulateur salon d'art](https://www.inrealart.com/art-salon-simulator) — Calcul des frais de participation à Art Basel, ArtGenève, etc.
+- [Hub simulateurs](https://www.inrealart.com/simulators) — Accès à tous les simulateurs
 
 ## Mentions légales
 
-- [CGU](https://inrealart.com/terms) — Conditions générales d'utilisation
-- [CGU NFT](https://inrealart.com/terms-nft) — Conditions spécifiques aux NFTs
-- [Mentions légales](https://inrealart.com/legal) — Politique de confidentialité et mentions légales
+- [CGU](https://www.inrealart.com/terms) — Conditions générales d'utilisation
+- [CGU NFT](https://www.inrealart.com/terms-nft) — Conditions spécifiques aux NFTs
+- [Mentions légales](https://www.inrealart.com/legal) — Politique de confidentialité et mentions légales
 
 ## Contenu détaillé
 
-- [llms-full.txt](https://inrealart.com/llms-full.txt) — Version complète avec descriptions étendues de chaque section
+- [llms-full.txt](https://www.inrealart.com/llms-full.txt) — Version complète avec descriptions étendues de chaque section

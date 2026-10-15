@@ -9,7 +9,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Roadmap InRealArt — Vision, étapes et déploiement',
   description: 'Suivez notre feuille de route : évolutions techniques, éditoriales et curatoriales. Transparence et engagement à chaque étape.',
   keywords: ['roadmap art', 'feuille de route', 'stratégie curatoriale', 'développement plateforme'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/roadmap`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/roadmap`
 })
 
 export default function RoadmapPage() {

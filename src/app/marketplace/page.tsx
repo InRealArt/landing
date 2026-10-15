@@ -13,7 +13,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: defaultMetadata.marketplace.title,
   description: defaultMetadata.marketplace.description,
   keywords: defaultMetadata.marketplace.keywords,
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/marketplace`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/marketplace`
 })
 
 export default function Marketplace() {

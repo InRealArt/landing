@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { BASE_URL } from '@/utils/metadata'
 import { notFound } from 'next/navigation'
 import { getUgcArtistBySlug } from '@/actions/ugcActions'
 import AgenceArtistDetailPage from '@/components/agence/AgenceArtistDetailPage'
@@ -14,8 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!artist) return {}
   const name = artist.pseudo ?? [artist.name, artist.surname].filter(Boolean).join(' ')
   return {
-    title: `${name} — Artiste | InRealArt`,
+    title: `${name} — Artiste`,
     description: artist.description ?? `Découvrez le profil de ${name}, artiste de l'agence InRealArt.`,
+    alternates: { canonical: `${BASE_URL}/agence/artists/${slug}` },
   }
 }
 

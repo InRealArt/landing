@@ -14,7 +14,7 @@ export const metadata: Metadata = generateStaticMetadata({
     'art contemporain hôtellerie',
     'RSE luxe art',
   ],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/leasing/hotelPrestige`,
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase/leasing/hotelPrestige`,
 })
 
 export default function HotelPrestigePage() {

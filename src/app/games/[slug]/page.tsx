@@ -1,4 +1,6 @@
+import { Metadata } from 'next';
 import { permanentRedirect, redirect } from 'next/navigation';
+import { generateStaticMetadata, BASE_URL } from '@/utils/metadata';
 import { games } from '@/data/games';
 import GameHero from '@/components/games/GameHero';
 import GameArtist from '@/components/games/GameArtist';
@@ -20,6 +22,18 @@ export async function generateStaticParams() {
   return games.map((game) => ({
     slug: game.slug,
   }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const game = games.find((g) => g.slug === slug);
+  if (!game) return {};
+
+  return generateStaticMetadata({
+    title: game.title.fr,
+    description: game.description.fr,
+    canonical: `${BASE_URL}/games/${game.slug}`,
+  });
 }
 
 export default async function GamePage({ params }: Props) {

@@ -12,7 +12,7 @@ export const metadata: Metadata = generateStaticMetadata({
   title: 'Financement par l\'Art — Prêt garanti, valeur symbolique',
   description: 'Bénéficiez de solutions de financement en adossant vos œuvres comme garantie. Expertise curatoriale et sécurité.',
   keywords: ['prêt art', 'garantie artistique', 'financement culturel', 'actifs symboliques'],
-  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://inrealart.com'}/usecase/lending`
+  canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/usecase/lending`
 })
 
 export default function LendingPage() {

@@ -2497,7 +2497,7 @@
     "title": "Legal Notice",
     "subtitle": "LEGAL NOTICES OF THE WEBSITE",
     "intro": "The website www.inrealart.com (and its subdomains) is the property of InRealArt, whose headquarters are located at the following address: 6 rue du chateau d'eau 37260 Artannes sur Indre.",
-    "website": "https://inrealart.com (hereinafter referred to as \"Site\")",
+    "website": "https://www.inrealart.com (hereinafter referred to as \"Site\")",
     "privacyPolicy": {
       "title": "Privacy Policy",
       "content": "In accordance with the amended French Data Protection Act of January 6, 1978, you have the right to access, rectify, and delete data concerning you. To exercise these rights: By mail: 6 rue du chateau d'eau 37260 Artannes sur Indre."
@@ -3639,7 +3639,7 @@
   },
   "agence": {
     "metadata": {
-      "title": "Creator Agency — In Real Art",
+      "title": "Creator Agency",
       "description": "A creative studio with uncompromising curation. Full-service campaigns, creator catalogue, bespoke UGC and long-form brand collaborations."
     },
     "hero": {
@@ -4008,7 +4008,7 @@
     },
     "brief": {
       "metadata": {
-        "title": "Submit a brief — In Real Art Agency",
+        "title": "Submit a brief — Creator Agency",
         "description": "Describe your creator project in 2 minutes. Our team replies within 48h with a tailored proposal."
       },
       "hero": {

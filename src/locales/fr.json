@@ -2481,7 +2481,7 @@
     "title": "Mentions Légales",
     "subtitle": "MENTIONS LÉGALES DU SITE",
     "intro": "Le site www.inrealart.com (et ses sous-domaines) est la propriété de InRealArt, dont le siège est basé à l'adresse suivante : 6 rue du chateau d'eau 37260 Artannes sur Indre.",
-    "website": "https://inrealart.com (ci-après dénommé \"Site\")",
+    "website": "https://www.inrealart.com (ci-après dénommé \"Site\")",
     "privacyPolicy": {
       "title": "Données personnelles et protection de la vie privée",
       "content": "Conformément à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de rectification et de suppression des données vous concernant. Pour exercer ces droits : Par courrier postal : 6 rue du chateau d'eau 37260 Artannes sur Indre."
@@ -3406,7 +3406,7 @@
   },
   "agence": {
     "metadata": {
-      "title": "Agence Créateurs — In Real Art",
+      "title": "Agence Créateurs",
       "description": "Un studio de création à la sélection exigeante. Campagnes full-service, catalogue créateurs, UGC sur-mesure et collaborations de marque au long cours."
     },
     "hero": {
@@ -3775,7 +3775,7 @@
     },
     "brief": {
       "metadata": {
-        "title": "Déposer un brief — In Real Art Agence",
+        "title": "Déposer un brief — Agence Créateurs",
         "description": "Décrivez votre projet créateur en 2 minutes. Notre équipe vous répond sous 48h avec une proposition personnalisée."
       },
       "hero": {

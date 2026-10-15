@@ -156,7 +156,7 @@ function createArtistApplicationEmailHtml(
               <p style="margin:0 0 4px;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:${dark};font-weight:700;">InRealArt</p>
               <p style="margin:0;font-size:11px;color:${gray};">Ce message est généré automatiquement suite à la soumission du formulaire de candidature artiste.</p>
               <p style="margin:8px 0 0;font-size:11px;color:${mid};">
-                <a href="https://inrealart.com" style="color:${gold};text-decoration:none;">inrealart.com</a>
+                <a href="https://www.inrealart.com" style="color:${gold};text-decoration:none;">inrealart.com</a>
               </p>
             </td>
           </tr>
