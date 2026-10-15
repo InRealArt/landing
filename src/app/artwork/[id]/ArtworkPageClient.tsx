@@ -8,6 +8,7 @@ import { useTranslation } from '@/hooks/useTranslation'
 import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { formatPrice } from '@/utils/formatPrice'
 import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 import type { TransformedArtistData } from '@/types/artist'
 
@@ -102,7 +103,6 @@ export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: 
           <div>
             <div className="flex justify-between items-start mb-6">
               <div>
-                <span className="section-number">{t('artwork.collection')}</span>
                 <h1 className="text-6xl md:text-8xl serif">
                   <span className="italic text-gold-accent">{artworkName}</span>
                 </h1>
@@ -124,21 +124,23 @@ export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: 
               <p className="text-grayText mb-2">
                 {t('artwork.price')}:{' '}
                 <span className="text-textColor font-semibold">
-                  {artwork.price ? `${artwork.price.toLocaleString()} €` : t('artwork.onDemand')}
+                  {formatPrice(artwork.price) ?? t('artwork.onDemand')}
                 </span>
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-12">
-          <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.aboutArtwork')}</h2>
-          <p
-            className="text-grayText"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: sanitizedDescription || 'No description available' }}
-          />
-        </div>
+        {rawDescription && (
+          <div className="mt-12">
+            <h2 className="text-xl font-semibold text-textColor mb-4">{t('artwork.aboutArtwork')}</h2>
+            <p
+              className="text-grayText"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+            />
+          </div>
+        )}
       </div>
 
       {artist && <ArtistInfoSection artist={artist} />}

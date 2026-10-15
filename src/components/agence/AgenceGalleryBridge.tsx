@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getArtworksByUgcArtistProfileId } from '@/actions/presaleArtworkActions'
 import { getServerTranslations } from '@/utils/serverTranslations'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { formatPrice } from '@/utils/formatPrice'
 
 interface Props {
   ugcArtistProfileId: number
@@ -67,7 +68,7 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
               )}
               {artwork.price !== null && !artwork.isSold && (
                 <span className="absolute bottom-3 right-3 text-xs uppercase tracking-[0.2em] montserrat bg-backgroundColor/90 text-textColor px-3 py-1.5">
-                  {artwork.price.toLocaleString()} €
+                  {formatPrice(artwork.price)}
                 </span>
               )}
             </Link>

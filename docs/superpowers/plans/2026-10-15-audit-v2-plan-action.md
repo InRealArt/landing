@@ -312,14 +312,14 @@ grep -rniE "nft|blockchain|web3|tokenis|\btoken\b|investisseur" src/locales/fr.j
   - **Passages N2 relevés (15/10/2026)** : `investissement-dans-lart-pour-le-dirigeant…` (h3 « fractionnement et de tokenisation » + « tokens numériques ») ; `le-cycle-de-vie…optimisation…` + EN (§ 5.3 « Les NFT et les nouvelles formes de valeur numérique », intro « les NFT », conclusion « minter des NFT ») ; `lart-ce-passeur-silencieux…` + EN (h3 « Les NFT : un patrimoine dématérialisé sous tension », « 70 % des plates-formes NFT… Rapport INA 2024 » à sourcer) ; `inrealart-dans-le-paysage-du-pret-garanti…` + EN (« NFT » VC, « crypto-art », « blockchain pour la traçabilité »). Contenu = blocs JSON (`content` + `richContent`) : à éditer dans le back-office, pas en SQL. Les versions EN contiennent des blocs restés en français.
   - **Script SQL fourni à l'utilisateur** (FAQ 17/22/28/32/33/34/51/64/68, suppression FAQ 45 et page-item 63, bios Team, `Translation` 2993, meta/mots-clés/excerpt N1, tags) — à exécuter par l'utilisateur ; attendre la revalidation ISR (≤ 30 min) avant de relancer la recette.
 
-- [ ] **Step 7 : Vérifier** (découpé en 7a-7e ci-dessous) — grep du Step 1 = 0 ligne hors `src/generated` et noms de variables techniques ; `npm run recette` sans FAIL `vocabulaire`. Tester le simulateur Patrimoine de bout en bout (formulaire → PDF).
+- [~] **Step 7 : Vérifier** (7a-7d faits, 7e : recette OK ; reste le test du simulateur avec Chrome en toute fin) (découpé en 7a-7e ci-dessous) — grep du Step 1 = 0 ligne hors `src/generated` et noms de variables techniques ; `npm run recette` sans FAIL `vocabulaire`. Tester le simulateur Patrimoine de bout en bout (formulaire → PDF).
   - [x] ✅ **7a — Pages dépubliées** (FAIT 15/10/2026) : `/terms-nft` → **410** (`GONE_ROUTES` dans `src/proxy.ts`) ; `/usecase/fractionate` et `/usecase/lending` retirées de `KNOWN_STATIC_ROUTES` → redirection **308 vers `/usecase`** ; retirées de `sitemap.ts`, `StickyFooterManager.tsx`, `public/footer.sitemap.xml`, `llms.txt`, `llms-full.txt`, `agents.txt`, `capabilities.txt` (`acquire_via_lending`). Aucun lien interne actif (CaseStudies/ReadyToStart/CustomerStories = code mort → 7d). `tsc` OK. Dossiers `src/app/terms-nft`, `src/app/usecase/{fractionate,lending}`, `src/components/usecase/{fractionate,lending}` injoignables : suppression en 7d. À vérifier après déploiement : `curl -sI /terms-nft` → 410 ; `curl -sI /usecase/lending` → 308 vers `/usecase`.
   - [x] 7b ✅ — CGV `/terms` : 7 articles NFT supprimés (nft, physicalNft, presale, authenticity, advantages, salesTerms, commitment), lots/copyright/buyerCommitments/modifications/price réécrits sans NFT ni cryptomonnaie, renumérotation 1-19 ; **à valider juridiquement**.
   - [x] 7c ✅ — `llms.txt`, `llms-full.txt`, `capabilities.txt` (tokenisation/NFT/blockchain/investisseurs/fractionnement/prêt garanti retirés), JSON-LD `knowsAbout` et `generateBlogJsonLd`, bloc `token` de `defaultMetadata` supprimé. `terms-nft/layout.tsx` reste jusqu’au 7d (dossier à supprimer).
   - [x] 7d ✅ — Clés i18n mortes retirées de `fr.json`/`en.json` (`termsNft`, `token`, `fractionate`, `lending`, `intro`, `presale.token`, `presale.buyProcess`, `footer.termsNft`, `blog.articles`, `blog.tags.{nft,blockchain,tokenization}`, `faq.tabs.{nft,token}`, `leasing.slider`, `roadmap.items`, `nav.ico`, `usecase.items.{fractionate,gallery,lending}`, `joinInRealArt.artists.metadata`) ; 2 clés vivantes réécrites (`about.team.paragraph3Description`, `home.howItWorks.items.art.description`). **Suppression des fichiers morts à faire par l'utilisateur** (commande `rm -r` fournie), puis `npx tsc --noEmit`.
   - [~] 7e — **Recette locale (build prod, base réelle) FAITE le 15/10/2026 : 0 FAIL `vocabulaire`** (692 URL, 1 219 échecs restants = h1/canonical `/artwork/{id}` ×590 → Task 9, h1 `/artists/*` ×37, `/presale` et `/usecase` 2 H1). Build OK, 410 `/terms-nft`, 308 `/usecase/{lending,fractionate}`. **Reste : test du simulateur Patrimoine avec Chrome, à la toute fin (décision utilisateur).**
 
-- [ ] **Step 8 : Commit** — `fix(content): conformité vocabulaire, bandeau Capital et chiffres sourcés (IRA-15/19/20)`
+- [x] ✅ **Step 8 : Commit** — FAIT et poussé sur `main` le 15/10/2026 (commits `5ef7b23`, `63cec07`, `70d0ada` + précédents) — `fix(content): conformité vocabulaire, bandeau Capital et chiffres sourcés (IRA-15/19/20)`
 
 ---
 
@@ -329,9 +329,9 @@ grep -rniE "nft|blockchain|web3|tokenis|\btoken\b|investisseur" src/locales/fr.j
 - Create : `src/utils/formatPrice.ts`
 - Modify : `src/app/artwork/[id]/ArtworkPageClient.tsx:105,127,139`
 
-- [ ] **Step 1 : Test qui échoue** — `curl -s localhost:3000/artwork/<slug> | grep -o "artwork.collection\|No description available\|[0-9],[0-9]\{3\} €"` → des occurrences.
+- [x] ✅ **Step 1 : Test qui échoue** — FAIT le 15/10/2026 (build local, 3 fiches : `ascension-de-lamour`, `bacchanalia-kylix`, `bleu-royal`) : `artwork.collection` et `No description available` présents dans le HTML servi ; prix déjà rendus « 9 000 € » (espace fine) côté serveur, `toLocaleString()` à vérifier avec une locale explicite. `curl -s localhost:3000/artwork/<slug> | grep -o "artwork.collection\|No description available\|[0-9],[0-9]\{3\} €"` → des occurrences.
 
-- [ ] **Step 2 : Utilitaire de prix**
+- [x] ✅ **Step 2 : Utilitaire de prix** — FAIT (`src/utils/formatPrice.ts`)
 
 ```ts
 // src/utils/formatPrice.ts
@@ -344,12 +344,12 @@ export function formatPrice(price: number | null | undefined): string | null {
 }
 ```
 
-- [ ] **Step 3 : Appliquer dans `ArtworkPageClient.tsx`**
+- [x] ✅ **Step 3 : Appliquer dans `ArtworkPageClient.tsx`** — FAIT (span `artwork.collection` retiré ; `formatPrice` ; bloc description conditionné à `rawDescription`, fallback anglais supprimé ; `AgenceGalleryBridge.tsx` aligné) ; `tsc` OK
   - l.105 : supprimer le `<span className="section-number">{t('artwork.collection')}</span>` (ou ajouter la clé `artwork.collection` dans fr/en si le libellé est voulu : « Collection »).
   - l.127 : `{formatPrice(artwork.price) ?? t('artwork.onDemand')}`
   - l.139 : n'afficher le bloc description que si `sanitizedDescription` est non vide ; supprimer le fallback anglais.
 
-- [ ] **Step 4 : Vérifier** — curl du Step 1 → 0 occurrence ; une œuvre à 24000 affiche « 24 000 € » ; une œuvre sans prix affiche « Prix sur demande » ; une œuvre sans description n'affiche pas de bloc vide. Chercher les autres `toLocaleString()` de prix (`grep -rn "price.*toLocaleString" src`) et les remplacer par `formatPrice`.
+- [x] ✅ **Step 4 : Vérifier** — FAIT le 15/10/2026 (build local, 12 fiches de `/presale`) : 0 occurrence de `artwork.collection`, `No description available` ou `1,900 €` ; « 1 900 € » (fr-FR) ; 3 œuvres sans prix → « Sur demande » (`defender`, `le-premier-regard`, `marry-me`) ; 1 œuvre sans description (`defender`) → pas de bloc vide. Reste **Step 5 : commit**. — — curl du Step 1 → 0 occurrence ; une œuvre à 24000 affiche « 24 000 € » ; une œuvre sans prix affiche « Prix sur demande » ; une œuvre sans description n'affiche pas de bloc vide. Chercher les autres `toLocaleString()` de prix (`grep -rn "price.*toLocaleString" src`) et les remplacer par `formatPrice`.
 
 - [ ] **Step 5 : Commit** — `fix(artwork): prix fr-FR, description vide masquée, clé i18n brute retirée (IRA-12a)`
 
