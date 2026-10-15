@@ -2383,40 +2383,12 @@
       "content": "Toute modification demandée par le client qui altère les caractéristiques originales de l'œuvre (dimensions, matériaux, apparence...) constitue une demande de personnalisation. Dans ce cas, le Vendeur fournira un devis à l'Acheteur, qui devra être approuvé avant la production de l'œuvre personnalisée. Le devis inclura une date de livraison estimée. Si le paiement est confirmé par InRealArt dans les 3 jours ouvrables suivant l'envoi du devis à l'Acheteur, la vente est considérée comme conclue selon les CGV acceptées par les deux parties."
     },
     "lots": {
-      "title": "Lots Proposés à la Vente",
-      "content": "Les Acheteurs ont la possibilité d'acquérir plusieurs lots, dont les éléments sont indissociables à l'occasion de cette première vente : Lot d'œuvre physique L'œuvre physique, bien meuble corporel. Le NFT de cette œuvre, bien meuble incorporel, qui comprend un lien vers le fichier numérique reproduisant l'œuvre physique. Les droits d'auteur qui y sont associés, propriétés intellectuelles, pour la durée prévue pour l'offre choisie par l'Acheteur. Lot d'œuvre numérique Le NFT de l'œuvre numérique, bien meuble incorporel, qui comprend un lien vers le fichier numérique original de l'œuvre. Les droits d'auteur qui y sont associés, propriétés intellectuelles, pour la durée prévue pour l'offre choisie par l'Acheteur."
-    },
-    "nft": {
-      "title": "Vente de NFT (Jetons Non Fongibles)",
-      "content": "InRealArt offre à ses Acheteurs l'opportunité unique d'acquérir des œuvres sous forme de NFT, assurant ainsi l'authenticité, la rareté et la propriété des œuvres numériques. Chaque NFT représente une œuvre numérique ou une version numérisée d'une œuvre physique et est enregistré sur une blockchain, offrant une traçabilité et une sécurité inégalées. La réception du NFT par les Acheteurs nécessite qu'ils disposent d'un portefeuille numérique, dont l'adresse (la clé publique) doit être communiquée à InRealArt."
-    },
-    "physicalNft": {
-      "title": "Vente d'une Œuvre Physique et de son NFT (Jetons Non Fongibles)",
-      "content": "Lorsqu'un Acheteur acquiert une œuvre accompagnée de son NFT, il reçoit non seulement l'œuvre physique, mais aussi une version numérisée sous forme de jeton non fongible, garantissant une double valeur : tangible et numérique."
-    },
-    "presale": {
-      "title": "Conditions Spécifiques pour la Prévente",
-      "content": "Lors de la prévente organisée du (telle date à telle date), toute commande validée génère un Smart Contract dont l'exécution opère le transfert du NFT à l'Acheteur dès réception du paiement, sur l'adresse qu'il a fournie. Durant la période de livraison de l'œuvre, le prix est conservé dans le Smart Contract. Dans le cas où l'œuvre n'aurait pas été livrée dans le délai prévu, le prix payé est retourné à l'acheteur, qui doit à son tour restituer le NFT. Au moment de la livraison, pour obtenir la libération de l'œuvre, l'acheteur présente le NFT correspondant. L'Acheteur bénéficiera d'avantages exclusifs à la prévente, tels que : Des remises exclusives, un accès anticipé aux nouvelles œuvres, des éditions limitées, des invitations à des événements exclusifs, des mentions spéciales, et des certificats d'authenticité exclusifs sont offerts aux premiers acheteurs."
-    },
-    "authenticity": {
-      "title": "Double Authentification et Propriété",
-      "content": "L'acquisition d'une œuvre et de son NFT confère à l'Acheteur une double garantie d'authenticité et de propriété. Le NFT, en tant que certificat numérique d'authenticité sur la blockchain, offre une preuve indiscutable de l'origine et de la propriété de l'œuvre, permettant à l'Acheteur de jouir d'une tranquillité d'esprit totale quant à la légitimité de son acquisition."
-    },
-    "advantages": {
-      "title": "Avantages d'Acquérir une Œuvre avec NFT",
-      "content": "Propriété Vérifiable : La blockchain assure une traçabilité transparente de la propriété et de l'historique des transactions, permettant aux Acheteurs et aux futurs acquéreurs de vérifier l'authenticité et la chaîne de propriété de l'œuvre. Protection Contre la Contrefaçon : La technologie NFT rend extrêmement difficile la contrefaçon des œuvres, chaque NFT étant unique et ne pouvant être dupliqué. Potentiel d'Appréciation : Les œuvres accompagnées de leur NFT peuvent gagner une valeur ajoutée significative sur le marché de l'art numérique, en plus de leur valeur en tant qu'objets d'art physiques. Droits d'Utilisation Étendus : Selon les conditions de vente, l'Acheteur peut obtenir des droits supplémentaires tels que l'affichage numérique de l'œuvre, la reproduction à des fins non commerciales, et plus encore, enrichissant ainsi l'expérience de propriété."
-    },
-    "salesTerms": {
-      "title": "Conditions de Vente et Transfert",
-      "content": "Transfert Sécurisé : Le transfert de propriété de l'œuvre physique et de son NFT associé s'effectue au moment de la conclusion du contrat. Conservation de l'Œuvre : L'Acheteur peut choisir de conserver l'œuvre physique tout en exploitant le potentiel du NFT dans l'espace numérique, offrant ainsi une flexibilité dans la manière de profiter de son investissement. Revente Facilitée : Les Acheteurs peuvent revendre l'œuvre physique et son NFT associé sur des marchés spécialisés, bénéficiant d'une plateforme simplifiée pour la revente d'art numérique et physique."
-    },
-    "commitment": {
-      "title": "Engagement d'InRealArt",
-      "content": "InRealArt s'engage à fournir un support complet à ses Acheteurs pendant le processus d'achat, de transfert et de revente des œuvres accompagnées de NFT, garantissant une expérience transparente et sécurisée. Nous garantissons l'authenticité de chaque œuvre et de son NFT, renforçant ainsi la confiance dans le marché de l'art numérique et physique. La vente d'une œuvre et de son NFT représente une opportunité unique pour les amateurs d'art de participer à une nouvelle ère de collection d'art, où la technologie blockchain enrichit la valeur et l'expérience de propriété des œuvres."
+      "title": "Œuvres Proposées à la Vente",
+      "content": "Les Acheteurs ont la possibilité d'acquérir l'œuvre physique, bien meuble corporel, ainsi que les droits d'auteur qui y sont associés, propriétés intellectuelles, pour la durée prévue pour l'offre choisie par l'Acheteur."
     },
     "copyright": {
       "title": "Droit de Cession des Droits d'Auteur",
-      "content": "InRealArt propose diverses options pour l'acquisition de droits d'auteur étendus, incluant mais non limités à la reproduction, l'exposition et la commercialisation de l'œuvre. Les détails de ces droits et les conditions de leur acquisition seront clairement indiqués dans l'offre d'achat du NFT. Lorsque l'offre choisie par l'acheteur le prévoit, les droits d'auteur sur l'œuvre lui sont cédés pour la durée fixée dans l'offre. Dans le cas où l'offre choisie ne prévoit pas une telle cession, les droits d'auteur restent la propriété du créateur de l'œuvre. Cela signifie que l'Acheteur ne peut pas reproduire, exposer publiquement, vendre ou utiliser l'œuvre à des fins commerciales sans le consentement explicite du titulaire des droits d'auteur. À l'expiration de la durée prévue pour la cession des droits d'auteur, l'InRealArt en reprend la pleine propriété, à moins que l'Acheteur n'ait bénéficié d'une extension ou d'un renouvellement des droits d'auteur."
+      "content": "InRealArt propose diverses options pour l'acquisition de droits d'auteur étendus, incluant mais non limités à la reproduction, l'exposition et la commercialisation de l'œuvre. Les détails de ces droits et les conditions de leur acquisition seront clairement indiqués dans l'offre d'achat. Lorsque l'offre choisie par l'acheteur le prévoit, les droits d'auteur sur l'œuvre lui sont cédés pour la durée fixée dans l'offre. Dans le cas où l'offre choisie ne prévoit pas une telle cession, les droits d'auteur restent la propriété du créateur de l'œuvre. Cela signifie que l'Acheteur ne peut pas reproduire, exposer publiquement, vendre ou utiliser l'œuvre à des fins commerciales sans le consentement explicite du titulaire des droits d'auteur. À l'expiration de la durée prévue pour la cession des droits d'auteur, l'InRealArt en reprend la pleine propriété, à moins que l'Acheteur n'ait bénéficié d'une extension ou d'un renouvellement des droits d'auteur."
     },
     "gallery": {
       "title": "Possibilité de Dépôt en Galerie",
@@ -2424,15 +2396,15 @@
     },
     "buyerCommitments": {
       "title": "Engagements de l'Acheteur",
-      "content": "L'Acheteur s'engage à respecter les droits d'auteur et les conditions d'utilisation associées à chaque œuvre acquise sous forme de NFT. Toute utilisation non autorisée de l'œuvre peut entraîner des sanctions juridiques et la révocation du NFT."
+      "content": "L'Acheteur s'engage à respecter les droits d'auteur et les conditions d'utilisation associées à chaque œuvre acquise. Toute utilisation non autorisée de l'œuvre peut entraîner des sanctions juridiques."
     },
     "modifications": {
       "title": "Modifications des Conditions",
-      "content": "InRealArt se réserve le droit de modifier les conditions relatives à la vente des NFT, aux droits de cession des droits d'auteur, et à la possibilité de dépôt en galerie. Toutes les modifications seront communiquées aux utilisateurs et s'appliqueront aux ventes futures."
+      "content": "InRealArt se réserve le droit de modifier les conditions relatives à la vente des œuvres, aux droits de cession des droits d'auteur, et à la possibilité de dépôt en galerie. Toutes les modifications seront communiquées aux utilisateurs et s'appliqueront aux ventes futures."
     },
     "price": {
       "title": "Prix et Modalités de Paiement",
-      "content": "Le prix de vente des œuvres est indiqué sur le Site dans la devise choisie par l'Acheteur et comprend toutes les taxes à l'exception des éventuels frais de livraison et d'emballage. Les options de livraison et les frais correspondants sont présentés lors du récapitulatif de la commande. Les frais de livraison et d'emballage varient en fonction de la nature de l'œuvre, de ses dimensions, de son poids, et du lieu de livraison. Le règlement du prix de l'œuvre par l'Acheteur au Vendeur s'effectue via les moyens de paiement proposés par InRealArt : carte de crédit, virement bancaire, et cryptomonnaie. La propriété de l'œuvre est transférée à l'Acheteur une fois le paiement entièrement effectué. En cas de non-paiement total, la vente est annulée, et l'œuvre est remise en vente sur InRealArt."
+      "content": "Le prix de vente des œuvres est indiqué sur le Site dans la devise choisie par l'Acheteur et comprend toutes les taxes à l'exception des éventuels frais de livraison et d'emballage. Les options de livraison et les frais correspondants sont présentés lors du récapitulatif de la commande. Les frais de livraison et d'emballage varient en fonction de la nature de l'œuvre, de ses dimensions, de son poids, et du lieu de livraison. Le règlement du prix de l'œuvre par l'Acheteur au Vendeur s'effectue via les moyens de paiement proposés par InRealArt : carte de crédit et virement bancaire. La propriété de l'œuvre est transférée à l'Acheteur une fois le paiement entièrement effectué. En cas de non-paiement total, la vente est annulée, et l'œuvre est remise en vente sur InRealArt."
     },
     "delivery": {
       "title": "Livraison",

@@ -314,7 +314,7 @@ grep -rniE "nft|blockchain|web3|tokenis|\btoken\b|investisseur" src/locales/fr.j
 
 - [ ] **Step 7 : Vérifier** (découpé en 7a-7e ci-dessous) — grep du Step 1 = 0 ligne hors `src/generated` et noms de variables techniques ; `npm run recette` sans FAIL `vocabulaire`. Tester le simulateur Patrimoine de bout en bout (formulaire → PDF).
   - [x] ✅ **7a — Pages dépubliées** (FAIT 15/10/2026) : `/terms-nft` → **410** (`GONE_ROUTES` dans `src/proxy.ts`) ; `/usecase/fractionate` et `/usecase/lending` retirées de `KNOWN_STATIC_ROUTES` → redirection **308 vers `/usecase`** ; retirées de `sitemap.ts`, `StickyFooterManager.tsx`, `public/footer.sitemap.xml`, `llms.txt`, `llms-full.txt`, `agents.txt`, `capabilities.txt` (`acquire_via_lending`). Aucun lien interne actif (CaseStudies/ReadyToStart/CustomerStories = code mort → 7d). `tsc` OK. Dossiers `src/app/terms-nft`, `src/app/usecase/{fractionate,lending}`, `src/components/usecase/{fractionate,lending}` injoignables : suppression en 7d. À vérifier après déploiement : `curl -sI /terms-nft` → 410 ; `curl -sI /usecase/lending` → 308 vers `/usecase`.
-  - [ ] 7b — CGV `/terms` : retrait des passages NFT/blockchain (validation juridique par l'utilisateur).
+  - [x] 7b ✅ — CGV `/terms` : 7 articles NFT supprimés (nft, physicalNft, presale, authenticity, advantages, salesTerms, commitment), lots/copyright/buyerCommitments/modifications/price réécrits sans NFT ni cryptomonnaie, renumérotation 1-19 ; **à valider juridiquement**.
   - [ ] 7c — Fichiers `public/*.txt` restants (vocabulaire), JSON-LD `knowsAbout`, `generateBlogJsonLd`.
   - [ ] 7d — Code mort et clés i18n mortes (dont dossiers du 7a, `footer.termsNft`).
   - [ ] 7e — Grep final = 0 ; `npm run recette` sans FAIL `vocabulaire` ; test du simulateur Patrimoine.

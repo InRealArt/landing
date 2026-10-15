@@ -2399,40 +2399,12 @@
       "content": "Any modification requested by the client that alters the original characteristics of the artwork (dimensions, materials, appearance...) constitutes a customization request. In this case, the Seller will provide a quote for the Buyer, which must be approved before the production of the customized artwork. The quote will include an estimated delivery date. If payment is confirmed by InRealArt within 3 working days following the sending of the quote to the Buyer, the sale is considered concluded according to the GTC accepted by both parties."
     },
     "lots": {
-      "title": "Lots Offered for Sale",
-      "content": "Buyers are offered the opportunity to acquire several lots, whose elements are inseparable on the occasion of this first sale: Physical artwork lot The physical artwork, tangible movable property. The NFT of this artwork, intangible movable property, which includes a link to the digital file reproducing the physical artwork. The copyright rights associated with it, intellectual properties, for the duration provided for the offer chosen by the Buyer. Digital artwork lot The NFT of the digital artwork, intangible movable property, which includes a link to the original digital file of the artwork. The copyright rights associated with it, intellectual properties, for the duration provided for the offer chosen by the Buyer."
-    },
-    "nft": {
-      "title": "Sale of NFTs (Non-Fungible Tokens)",
-      "content": "InRealArt offers its Buyers the unique opportunity to acquire artworks in the form of NFTs, thus ensuring the authenticity, rarity, and ownership of digital artworks. Each NFT represents a digital artwork or a digitalized version of a physical artwork and is recorded on a blockchain, offering unmatched traceability and security. The receipt of the NFT by Buyers requires them to have a digital wallet, whose address (the public key) must be communicated to InRealArt."
-    },
-    "physicalNft": {
-      "title": "Sale of a Physical Artwork and Its NFT (Non-Fungible Tokens)",
-      "content": "When a Buyer acquires an artwork accompanied by its NFT, they receive not only the physical artwork but also a digitalized version in the form of a non-fungible token, ensuring a dual value: tangible and digital."
-    },
-    "presale": {
-      "title": "Specific Conditions for Pre-Sale",
-      "content": "During the pre-sale organized from (such date to such date), any validated order generates a Smart Contract whose execution operates the transfer of the NFT to the Buyer upon receipt of payment, on the address provided by him. During the delivery period of the artwork, the price is kept in the Smart Contract. In case the artwork has not been delivered within the scheduled period, the paid price is returned to the buyer, who must in turn return the NFT. At the time of delivery, to obtain the release of the artwork, the buyer presents the corresponding NFT. The Buyer will benefit from exclusive advantages to the pre-sale, such as: Exclusive discounts, early access to new artworks, limited editions, invitations to exclusive events, special mentions, and exclusive authenticity certificates are offered to the first buyers."
-    },
-    "authenticity": {
-      "title": "Double Authenticity and Ownership",
-      "content": "The acquisition of an artwork and its NFT gives the Buyer a double guarantee of authenticity and ownership. The NFT, as a digital certificate of authenticity on the blockchain, offers indisputable proof of the origin and ownership of the artwork, allowing the Buyer to enjoy total peace of mind regarding the legitimacy of their acquisition."
-    },
-    "advantages": {
-      "title": "Advantages of Acquiring an Artwork with NFT",
-      "content": "Verifiable Ownership: The blockchain ensures transparent traceability of ownership and transaction history, allowing Buyers and future purchasers to verify the authenticity and ownership chain of the artwork. Protection Against Counterfeiting: NFT technology makes it extremely difficult to counterfeit artworks, as each NFT is unique and cannot be duplicated. Potential for Appreciation: Artworks accompanied by their NFT can gain significant added value in the digital art market, in addition to their value as physical art objects. Extended Use Rights: Depending on the sales conditions, the Buyer may obtain additional rights such as digital display of the artwork, reproduction for non-commercial purposes, and more, thus enriching the ownership experience."
-    },
-    "salesTerms": {
-      "title": "Sales Terms and Transfer",
-      "content": "Secure Transfer: The transfer of ownership of the physical artwork and its associated NFT occurs at the moment the contract is concluded. Conservation of the Artwork: The Buyer may choose to keep the physical artwork while exploiting the potential of the NFT in the digital space, thus offering flexibility in how to enjoy their investment. Facilitated Resale: Buyers can resell the physical artwork and its associated NFT on specialized markets, benefiting from a simplified platform for the resale of digital and physical art."
-    },
-    "commitment": {
-      "title": "InRealArt's Commitment",
-      "content": "InRealArt commits to providing full support to its Buyers during the purchase, transfer, and resale process of artworks accompanied by NFTs, ensuring a transparent and secure experience. We guarantee the authenticity of each artwork and its NFT, thus strengthening trust in the digital and physical art market. The sale of an artwork and its NFT represents a unique opportunity for art lovers to participate in a new era of art collection, where blockchain technology enriches the value and ownership experience of artworks."
+      "title": "Artworks Offered for Sale",
+      "content": "Buyers are offered the opportunity to acquire the physical artwork, tangible movable property, together with the associated copyright rights, intellectual properties, for the duration provided for the offer chosen by the Buyer."
     },
     "copyright": {
       "title": "Copyright Assignment Right",
-      "content": "InRealArt offers various options for the acquisition of extended copyright rights, including but not limited to reproduction, exhibition, and marketing of the artwork. The details of these rights and the conditions of their acquisition will be clearly indicated in the NFT purchase offer. When the offer chosen by the buyer provides for it, the copyright rights on the artwork are assigned to him for the duration set in the offer. In case the chosen offer does not provide for such an assignment, the copyright rights remain the property of the artwork's creator. This means that the Buyer cannot reproduce, publicly display, sell, or use the artwork for commercial purposes without the explicit consent of the copyright holder. Upon the expiry of the duration provided for the assignment of copyright rights, the InRealArt regains full ownership, unless the Buyer has benefited from an extension or renewal of copyright rights."
+      "content": "InRealArt offers various options for the acquisition of extended copyright rights, including but not limited to reproduction, exhibition, and marketing of the artwork. The details of these rights and the conditions of their acquisition will be clearly indicated in the purchase offer. When the offer chosen by the buyer provides for it, the copyright rights on the artwork are assigned to him for the duration set in the offer. In case the chosen offer does not provide for such an assignment, the copyright rights remain the property of the artwork's creator. This means that the Buyer cannot reproduce, publicly display, sell, or use the artwork for commercial purposes without the explicit consent of the copyright holder. Upon the expiry of the duration provided for the assignment of copyright rights, the InRealArt regains full ownership, unless the Buyer has benefited from an extension or renewal of copyright rights."
     },
     "gallery": {
       "title": "Possibility of Gallery Deposit",
@@ -2440,15 +2412,15 @@
     },
     "buyerCommitments": {
       "title": "Buyer's Commitments",
-      "content": "The Buyer commits to respecting the copyright and usage conditions associated with each artwork acquired in the form of an NFT. Any unauthorized use of the artwork may result in legal sanctions and the revocation of the NFT."
+      "content": "The Buyer commits to respecting the copyright and usage conditions associated with each artwork acquired. Any unauthorized use of the artwork may result in legal sanctions."
     },
     "modifications": {
       "title": "Modifications of Conditions",
-      "content": "InRealArt reserves the right to modify the conditions related to the sale of NFTs, copyright assignment rights, and the possibility of gallery deposit. All modifications will be communicated to users and will apply to future sales."
+      "content": "InRealArt reserves the right to modify the conditions related to the sale of artworks, copyright assignment rights, and the possibility of gallery deposit. All modifications will be communicated to users and will apply to future sales."
     },
     "price": {
       "title": "Price and Payment Terms",
-      "content": "The sale price of the artworks is indicated on the Site in the currency chosen by the Buyer and includes all taxes except possible delivery and packaging fees. Delivery options and corresponding fees are presented during the order summary. Delivery and packaging fees vary depending on the nature of the artwork, its dimensions, its weight, and the delivery location. The settlement of the artwork's price by the Buyer to the Seller is carried out via the payment means offered by InRealArt: credit card, bank transfer, and cryptocurrency. The ownership of the artwork is transferred to the Buyer once the payment is fully made. In case of total non-payment, the sale is cancelled, and the artwork is relisted on InRealArt."
+      "content": "The sale price of the artworks is indicated on the Site in the currency chosen by the Buyer and includes all taxes except possible delivery and packaging fees. Delivery options and corresponding fees are presented during the order summary. Delivery and packaging fees vary depending on the nature of the artwork, its dimensions, its weight, and the delivery location. The settlement of the artwork's price by the Buyer to the Seller is carried out via the payment means offered by InRealArt: credit card and bank transfer. The ownership of the artwork is transferred to the Buyer once the payment is fully made. In case of total non-payment, the sale is cancelled, and the artwork is relisted on InRealArt."
     },
     "delivery": {
       "title": "Delivery",
