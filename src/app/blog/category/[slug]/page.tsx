@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return generateDynamicMetadata({
     title: `${category.name} - Blog`,
-    description: `Découvrez tous les articles de la catégorie ${category.name} sur InRealArt. Actualités, guides et analyses sur l'art tokenisé.`,
-    keywords: [category.name, 'blog', 'articles', 'art tokenisé', 'actualités'],
+    description: `Découvrez tous les articles de la catégorie ${category.name} sur InRealArt. Actualités, guides et analyses sur l'art contemporain.`,
+    keywords: [category.name, 'blog', 'articles', 'art contemporain', 'actualités'],
     canonical,
     alternateLanguages: {
       'x-default': canonical,

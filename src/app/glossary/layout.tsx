@@ -7,8 +7,8 @@ const GLOSSARY_URL = `${BASE_URL}/glossary`
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Glossaire - Termes et Définitions',
-  description: "Retrouvez tous les termes techniques utilisés dans l'univers de la blockchain, des NFTs et de l'art digital pour mieux comprendre notre écosystème.",
-  keywords: ['glossaire', 'définitions', 'termes blockchain', 'NFT', 'art digital', 'patrimoine', 'défiscalisation', 'IRA selection', 'IRA edition', 'IRA placement', 'IRA agance', 'patrimoine', 'culture', 'impact'],
+  description: "Retrouvez tous les termes de l'art, de la finance et du patrimoine pour mieux comprendre notre écosystème.",
+  keywords: ['glossaire', 'définitions', 'termes de l\'art', 'art digital', 'patrimoine', 'défiscalisation', 'IRA selection', 'IRA edition', 'IRA placement', 'IRA agance', 'patrimoine', 'culture', 'impact'],
   canonical: GLOSSARY_URL
 })
 

@@ -10,7 +10,7 @@ import GlossaryAnimations from "@/components/glossary/GlossaryAnimations";
 import NewsletterInline from '@/components/common/NewsletterInline'
 
 export default function Glossary() {
-  const [activeTab, setActiveTab] = useState("Blockchain");
+  const [activeTab, setActiveTab] = useState(glossaryTabs[0]);
 
   const filteredItems = glossaryItems.filter(item =>
     item.categories?.includes(activeTab)

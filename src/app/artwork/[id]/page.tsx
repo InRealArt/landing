@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: artwork.description
         ? `${artwork.description.slice(0, 140)}… Disponible sur InRealArt.`
         : `Découvrez "${artwork.name}" de ${artistFullName} sur InRealArt. Œuvre originale disponible à l'achat et en location-vente.`,
-      keywords: [artwork.name, artistFullName, "œuvre d'art", 'art contemporain', 'art tokenisé'],
+      keywords: [artwork.name, artistFullName, "œuvre d'art", 'art contemporain'],
       image: artwork.imageUrl || undefined,
       canonical,
       alternateLanguages: {

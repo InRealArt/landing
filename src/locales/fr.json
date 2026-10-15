@@ -103,9 +103,9 @@
   "manifest": {
     "title": "Manifeste InRealArt",
     "p1": "InRealArt est une plateforme curatoriale qui met la technologie au service des artistes, des collectionneurs et des institutions. Notre ambition est de démocratiser l'accès à l'art et au patrimoine, d'en sécuriser la transmission et d'en révéler la valeur culturelle, sociale et économique.",
-    "p2": "Nous croyons à un écosystème éthique où la transparence, la traçabilité et la collaboration ouvrent de nouveaux usages : financement d'œuvres, valorisation de collections, et circulation responsable des biens culturels. L'innovation (tokenisation, contrats intelligents, données) n'a de sens que si elle renforce la confiance et soutient la création.",
+    "p2": "Nous croyons à un écosystème éthique où la transparence, la traçabilité et la collaboration ouvrent de nouveaux usages : financement d'œuvres, valorisation de collections, et circulation responsable des biens culturels. L'innovation (outils numériques, données) n'a de sens que si elle renforce la confiance et soutient la création.",
     "p3": "Nous pensons que l'art doit rester un espace vivant d'expérimentation, d'éducation et de transmission. Notre rôle est de relier les artistes aux communautés qui les soutiennent, d'offrir aux institutions des solutions fiables pour valoriser leurs collections, et d'ouvrir aux entreprises des trajectoires de mécénat et d'impact culturel mesurables.",
-    "p4": "Concrètement, nous concevons des outils qui facilitent la découverte, l'évaluation et la circulation des œuvres : référentiels documentaires, protocoles d'authentification, tableaux de bord pour suivre la valeur culturelle et économique, et formats de financement innovants — dont la tokenisation — pour soutenir la création et la conservation.",
+    "p4": "Concrètement, nous concevons des outils qui facilitent la découverte, l'évaluation et la circulation des œuvres : référentiels documentaires, protocoles d'authentification, tableaux de bord pour suivre la valeur culturelle et économique, et formats de financement innovants pour soutenir la création et la conservation.",
     "p5": "Ce manifeste est une invitation : rejoindre un mouvement qui fait de l'art un bien commun mieux partagé, mieux protégé et mieux valorisé.",
     "p6": "Ensemble, donnons à la création les moyens de son rayonnement et aux publics les clés d'un patrimoine vivant — pour que l'innovation ne soit jamais une fin en soi, mais la condition d'une culture plus ouverte, plus juste et plus durable.",
     "bullets": {
@@ -186,7 +186,7 @@
     "title": "Académie",
     "hero": {
       "title": "Académie",
-      "subtitle": "Découvrez nos ressources éducatives et nos formations sur l'art, la tokenisation et le patrimoine.",
+      "subtitle": "Découvrez nos ressources éducatives et nos formations sur l'art et le patrimoine.",
       "button1": "Étudier les Use cases",
       "button2": "Voir le blog"
     },
@@ -507,7 +507,7 @@
       "subtitle": "Le Catalogue",
       "titleLine1": "Œuvres",
       "titleLine2": "Sélectionnées.",
-      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d’Art et\nInvestisseurs de Prestige",
+      "title": "Accédez à une Marketplace Exclusive\npour les Collectionneurs d’Art et\nEntreprises de Prestige",
       "description": "Une collection rigoureuse explorant la matière, la lumière et le geste contemporain. Chaque pièce est certifiée et sourcée directement auprès de nos artistes résidents.",
       "mainButton": "Marketplace bientôt disponible"
     },
@@ -716,7 +716,7 @@
         "points": {
           "1": "Co-curation d'évènements",
           "2": "Digitalisation de catalogue",
-          "3": "Réseau d'investisseurs"
+          "3": "Réseau de collectionneurs et d'entreprises"
         },
         "form": {
           "galleryName": "Nom de la galerie",

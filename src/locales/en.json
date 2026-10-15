@@ -103,9 +103,9 @@
   "manifest": {
     "title": "InRealArt Manifesto",
     "p1": "InRealArt is a curatorial platform that puts technology at the service of artists, collectors and institutions. Our ambition is to democratize access to art and heritage, secure its transmission and reveal its cultural, social and economic value.",
-    "p2": "We believe in an ethical ecosystem where transparency, traceability and collaboration open new uses: artwork financing, collection valorization and responsible circulation of cultural assets. Innovation (tokenization, smart contracts, data) only makes sense if it strengthens trust and supports creation.",
+    "p2": "We believe in an ethical ecosystem where transparency, traceability and collaboration open new uses: artwork financing, collection valorization and responsible circulation of cultural assets. Innovation (digital tools, data) only makes sense if it strengthens trust and supports creation.",
     "p3": "We believe art must remain a living space for experimentation, education and transmission. Our role is to connect artists with their supporting communities, provide institutions with reliable tools to valorize their collections, and open measurable pathways of cultural impact and patronage for companies.",
-    "p4": "Concretely, we design tools that facilitate discovery, assessment and circulation of works: documentary registries, authentication protocols, dashboards to track cultural and economic value, and innovative financing formats — including tokenization — to support creation and conservation.",
+    "p4": "Concretely, we design tools that facilitate discovery, assessment and circulation of works: documentary registries, authentication protocols, dashboards to track cultural and economic value, and innovative financing formats to support creation and conservation.",
     "p5": "This manifesto is an invitation: to join a movement that makes art a better shared, better protected and better valued common good.",
     "p6": "Together, let's give creation the means for its influence and audiences the keys to a living heritage — so that innovation is never an end in itself, but the condition for a more open, fair and sustainable culture.",
     "bullets": {
@@ -186,7 +186,7 @@
     "title": "Academy",
     "hero": {
       "title": "Academy",
-      "subtitle": "Discover our educational resources and training on art, tokenization and heritage.",
+      "subtitle": "Discover our educational resources and training on art and heritage.",
       "button1": "Study Use Cases",
       "button2": "View Blog"
     },
@@ -502,7 +502,7 @@
       "subtitle": "The Catalogue",
       "titleLine1": "Selected",
       "titleLine2": "Artworks.",
-      "title": "Access an Exclusive Marketplace\nfor Art Collectors and\nPrestige Investors",
+      "title": "Access an Exclusive Marketplace\nfor Art Collectors and\nPrestige Companies",
       "description": "A rigorous collection exploring matter, light and the contemporary gesture. Each piece is certified and sourced directly from our resident artists.",
       "mainButton": "Marketplace soon available"
     },
@@ -747,7 +747,7 @@
         "points": {
           "1": "Co-curation of events",
           "2": "Catalogue digitalisation",
-          "3": "Investor network"
+          "3": "Network of collectors and companies"
         },
         "form": {
           "galleryName": "Gallery name",
