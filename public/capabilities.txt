@@ -55,7 +55,6 @@ Contact: teaminrealart@gmail.com
 - All Visiteur capabilities
 - purchase_artwork — Acheter une œuvre tokenisée
 - acquire_via_loa — Acquérir via location avec option d'achat
-- acquire_via_lending — Utiliser l'art comme collatéral de prêt
 - acquire_fractional — Investir en co-propriété d'œuvre
 - manage_portfolio — Gérer son portefeuille d'œuvres
 

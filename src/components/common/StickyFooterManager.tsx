@@ -15,8 +15,6 @@ function getCurrentPageFromPathname(pathname: string): string | undefined {
     '/marketplace': 'marketplace',
     '/usecase': 'usecase',
     '/usecase/leasing': 'usecaseLeasing',
-    '/usecase/lending': 'usecaseLending',
-    '/usecase/fractionate': 'usecaseFractionate',
     '/usecase/companies': 'usecaseCompanies',
     '/roadmap': 'roadmap',
     '/presale': 'presale',
@@ -33,7 +31,6 @@ function getCurrentPageFromPathname(pathname: string): string | undefined {
     '/glossary': 'glossary',
     '/contact': 'contact',
     '/terms': 'terms',
-    '/terms-nft': 'terms_nft',
     '/legal': 'legal',
   }
 

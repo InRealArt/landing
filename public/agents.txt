@@ -58,8 +58,6 @@ Language toggle:
 ### Use cases
 - Companies: /usecase/companies
 - LOA: /usecase/leasing
-- Lending: /usecase/lending
-- Fractional: /usecase/fractionate
 
 ### Join InRealArt
 - Hub: /joinInRealArt
@@ -74,7 +72,6 @@ Language toggle:
 
 ### Legal
 - Terms: /terms
-- NFT Terms: /terms-nft
 - Legal/Privacy: /legal
 
 ---

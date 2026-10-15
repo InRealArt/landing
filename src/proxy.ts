@@ -28,6 +28,11 @@ const SEGMENT_REDIRECTS: Record<string, string> = {
   services: '/services',
 }
 
+// Pages retirées : /usecase/fractionate et /usecase/lending ne figurent plus dans KNOWN_STATIC_ROUTES,
+// ils tombent donc dans la redirection 308 vers /usecase (SEGMENT_REDIRECTS).
+// /terms-nft est définitivement supprimée : 410 Gone.
+const GONE_ROUTES = new Set(['/terms-nft'])
+
 // Known valid static routes — these are never redirected
 const KNOWN_STATIC_ROUTES = new Set([
   '/',
@@ -56,14 +61,11 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/simulators',
   '/team',
   '/terms',
-  '/terms-nft',
   '/usecase',
   '/usecase/companies',
-  '/usecase/fractionate',
   '/usecase/leasing',
   '/usecase/leasing/hotelPrestige',
   '/usecase/leasing/immobilier',
-  '/usecase/lending',
   '/usecase/capital/contact',
   '/services',
   '/agence',
@@ -112,6 +114,11 @@ export function proxy(request: NextRequest) {
     pathname.includes('.')
   ) {
     return nextWithPathname(request)
+  }
+
+  // Pages définitivement supprimées
+  if (GONE_ROUTES.has(pathname.replace(/\/$/, ''))) {
+    return new NextResponse('Gone', { status: 410, headers: { 'content-type': 'text/plain; charset=utf-8' } })
   }
 
   // Known static routes are always valid

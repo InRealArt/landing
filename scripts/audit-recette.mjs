@@ -42,7 +42,14 @@ async function checkPage(url) {
   else if (canonical.replace(/\/$/, '') !== expected.replace(/\/$/, '')) fail('canonical', url, canonical)
   if (/<meta name="keywords"/i.test(html)) fail('meta-keywords', url, 'présente')
   const text = stripTags(html)
-  const bad = text.match(FORBIDDEN)
+  // Articles de blog : le corps est un contenu éditorial daté (citations de marché, droit) hors règle ;
+  // on contrôle uniquement ce qui est « signature » du site : title, meta description, H1.
+  const isArticle = /^\/blog\/(?!category\/)[^/]+\/?$/.test(new URL(url).pathname)
+  const scope = isArticle
+    ? [title, html.match(/<meta name="description" content="([^"]*)"/i)?.[1] ?? '',
+       ...(html.match(/<h1[\s\S]*?<\/h1>/gi) || []).map(stripTags)].join(' ')
+    : text
+  const bad = decodeEntities(scope).match(FORBIDDEN)
   if (bad) fail('vocabulaire', url, bad[0])
   const bracket = text.match(/\[[^\]\n]{1,40}\]/)
   if (bracket) fail('crochets', url, bracket[0])

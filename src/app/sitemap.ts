@@ -25,8 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/usecase`, lastModified: '2025-09-06', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/usecase/companies`, lastModified: '2025-09-06', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/usecase/leasing`, lastModified: '2025-09-06', changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/usecase/lending`, lastModified: '2025-09-01', changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/usecase/fractionate`, lastModified: '2026-01-14', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/joinInRealArt`, lastModified: '2025-08-26', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/joinInRealArt/artists`, lastModified: '2026-02-27', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/joinInRealArt/galleries`, lastModified: '2026-02-27', changeFrequency: 'monthly', priority: 0.6 },
@@ -35,7 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/glossary`, lastModified: '2025-09-06', changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/contact`, lastModified: '2025-09-06', changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/terms`, lastModified: '2025-09-06', changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/terms-nft`, lastModified: '2025-09-06', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/legal`, lastModified: '2025-09-19', changeFrequency: 'yearly', priority: 0.3 },
   ]
 

@@ -31,8 +31,6 @@ InRealArt est un catalyseur d'art, de culture et de patrimoine. La plateforme co
 
 - [Entreprises](https://www.inrealart.com/usecase/companies) — Mécénat d'entreprise et acquisition d'art tokenisé
 - [Location avec option d'achat (LOA)](https://www.inrealart.com/usecase/leasing) — Accéder à l'art via crédit-bail
-- [Prêt garanti par l'art](https://www.inrealart.com/usecase/lending) — Utiliser ses œuvres comme collatéral
-- [Fractionnement](https://www.inrealart.com/usecase/fractionate) — Co-propriété d'œuvres d'art entre plusieurs investisseurs
 
 ## Rejoindre InRealArt
 
@@ -50,7 +48,6 @@ InRealArt est un catalyseur d'art, de culture et de patrimoine. La plateforme co
 ## Mentions légales
 
 - [CGU](https://www.inrealart.com/terms) — Conditions générales d'utilisation
-- [CGU NFT](https://www.inrealart.com/terms-nft) — Conditions spécifiques aux NFTs
 - [Mentions légales](https://www.inrealart.com/legal) — Politique de confidentialité et mentions légales
 
 ## Contenu détaillé

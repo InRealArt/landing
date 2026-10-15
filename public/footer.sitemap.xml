@@ -86,12 +86,6 @@
 
   <!-- Footer Links - Legal Pages -->
   <url>
-    <loc>https://www.inrealart.com/terms-nft</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.inrealart.com/terms</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>yearly</changefreq>

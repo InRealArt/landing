@@ -94,16 +94,6 @@ La LOA artistique permet :
 - Option d'achat définitif à terme
 - Accessible aux particuliers et entreprises
 
-### Prêt garanti par l'art (/usecase/lending)
-- Utiliser ses NFTs d'œuvres comme collatéral
-- Obtenir des liquidités sans vendre son patrimoine artistique
-- Mécanisme de DeFi appliqué à l'art
-
-### Fractionnement (/usecase/fractionate)
-- Co-propriété d'œuvres d'art de grande valeur
-- Investissement accessible dès de faibles montants
-- Liquidité via revente de fractions sur la marketplace
-
 ---
 
 ## Simulateurs gratuits
