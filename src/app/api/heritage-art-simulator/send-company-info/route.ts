@@ -28,7 +28,7 @@ export async function POST(request: Request) {
         </div>
 
         <div style="background-color: #e0e7ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-          <h3 style="color: #333; margin-top: 0;">📊 Profil investisseur</h3>
+          <h3 style="color: #333; margin-top: 0;">📊 Profil patrimonial</h3>
           <p><strong>Profil :</strong> ${results.profil}</p>
           <p><strong>Objectif patrimonial :</strong> ${results.objectif}</p>
           <p><strong>Allocation art recommandée :</strong> ${results.recommendation.artMoyenne}% (fourchette: ${results.recommendation.minArt}%-${results.recommendation.maxArt}%)</p>
@@ -40,7 +40,6 @@ export async function POST(request: Request) {
             <li><strong>Immobilier :</strong> ${results.patrimoineActuel.immobilier}%</li>
             <li><strong>Liquidités :</strong> ${results.patrimoineActuel.liquidites}%</li>
             <li><strong>Produits financiers :</strong> ${results.patrimoineActuel.financier}%</li>
-            <li><strong>Crypto / Actifs numériques :</strong> ${results.patrimoineActuel.crypto}%</li>
             <li><strong>Biens tangibles :</strong> ${results.patrimoineActuel.tangibles}%</li>
           </ul>
         </div>
@@ -73,7 +72,7 @@ export async function POST(request: Request) {
         
         <div style="background-color: #e0e7ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
           <h3 style="color: #333; margin-top: 0;">📊 Récapitulatif de votre profil</h3>
-          <p><strong>Profil investisseur :</strong> ${results.profil}</p>
+          <p><strong>Profil patrimonial :</strong> ${results.profil}</p>
           <p><strong>Objectif patrimonial :</strong> ${results.objectif}</p>
           <p><strong>Allocation art recommandée :</strong> ${results.recommendation.artMoyenne}%</p>
         </div>

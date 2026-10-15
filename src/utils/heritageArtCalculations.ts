@@ -6,7 +6,6 @@ export interface HeritageArtFormData {
   immobilier: number;
   liquidites: number;
   financier: number;
-  crypto: number;
   tangibles: number;
   profil: ProfilInvestisseur;
   objectif: Objectif;
@@ -28,7 +27,6 @@ export interface HeritageArtResults {
     immobilier: number;
     liquidites: number;
     financier: number;
-    crypto: number;
     tangibles: number;
     total: number;
   };
@@ -44,7 +42,6 @@ export interface HeritageArtResults {
     immobilier: number;
     liquidites: number;
     financier: number;
-    crypto: number;
     tangibles: number;
     art: number;
   };
@@ -78,10 +75,10 @@ const matrice: Record<ProfilInvestisseur, Record<Objectif, [number, number]>> = 
 };
 
 export function calculateHeritageArtRecommendation(formData: HeritageArtFormData): HeritageArtResults {
-  const { immobilier, liquidites, financier, crypto, tangibles, profil, objectif } = formData;
+  const { immobilier, liquidites, financier, tangibles, profil, objectif } = formData;
   
   // Vérifier que le total fait 100%
-  const total = immobilier + liquidites + financier + crypto + tangibles;
+  const total = immobilier + liquidites + financier + tangibles;
   if (total !== 100) {
     throw new Error(`La répartition ne totalise pas 100% (actuellement : ${total}%)`);
   }
@@ -90,7 +87,7 @@ export function calculateHeritageArtRecommendation(formData: HeritageArtFormData
   const [min, max] = matrice[profil][objectif];
   
   // Calculer la concentration (valeur max parmi les 5 catégories)
-  const repartition = [immobilier, liquidites, financier, crypto, tangibles];
+  const repartition = [immobilier, liquidites, financier, tangibles];
   const concentration = Math.max(...repartition);
 
   // Ajustement selon la concentration
@@ -111,23 +108,21 @@ export function calculateHeritageArtRecommendation(formData: HeritageArtFormData
     immobilier: Math.round((immobilier * totalSansArt) / 100),
     liquidites: Math.round((liquidites * totalSansArt) / 100),
     financier: Math.round((financier * totalSansArt) / 100),
-    crypto: Math.round((crypto * totalSansArt) / 100),
     tangibles: Math.round((tangibles * totalSansArt) / 100),
     art: artMoyenne,
   };
 
   // Données pour le graphique
   const chartData = {
-    labels: ['Immobilier', 'Liquidités', 'Financier', 'Crypto', 'Tangibles', 'Art recommandé'],
+    labels: ['Immobilier', 'Liquidités', 'Financier', 'Tangibles', 'Art recommandé'],
     data: [
       repartitionAjustee.immobilier,
       repartitionAjustee.liquidites,
       repartitionAjustee.financier,
-      repartitionAjustee.crypto,
       repartitionAjustee.tangibles,
       repartitionAjustee.art,
     ],
-    colors: ['#7E57C2', '#42A5F5', '#66BB6A', '#FFA726', '#EF5350', '#FFD54F'],
+    colors: ['#7E57C2', '#42A5F5', '#66BB6A', '#EF5350', '#FFD54F'],
   };
 
   return {
@@ -141,7 +136,6 @@ export function calculateHeritageArtRecommendation(formData: HeritageArtFormData
       immobilier,
       liquidites,
       financier,
-      crypto,
       tangibles,
       total,
     },

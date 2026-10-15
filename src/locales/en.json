@@ -3288,10 +3288,9 @@
       "immobilier": "Real Estate",
       "liquidites": "Cash & Liquidity",
       "financier": "Financial Products",
-      "crypto": "Crypto / Digital Assets",
       "tangibles": "Tangible Assets",
       "total": "Total",
-      "profil": "Investor Profile",
+      "profil": "Wealth Profile",
       "profilPlaceholder": "-- Choose your profile --",
       "profils": {
         "prudent": "Conservative",
@@ -3320,7 +3319,7 @@
       "calculateButton": "Calculate my recommendation",
       "errors": {
         "totalNot100": "Distribution does not total 100%",
-        "profilRequired": "Please select your investor profile",
+        "profilRequired": "Please select your wealth profile",
         "objectifRequired": "Please select your heritage objective",
         "firstNameRequired": "First name is required",
         "lastNameRequired": "Last name is required",

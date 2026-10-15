@@ -3055,10 +3055,9 @@
       "immobilier": "Immobilier",
       "liquidites": "Liquidités",
       "financier": "Produits financiers",
-      "crypto": "Crypto / Actifs numériques",
       "tangibles": "Biens tangibles",
       "total": "Total",
-      "profil": "Profil investisseur",
+      "profil": "Profil patrimonial",
       "profilPlaceholder": "-- Choisir votre profil --",
       "profils": {
         "prudent": "Prudent",
@@ -3087,7 +3086,7 @@
       "calculateButton": "Calculer ma recommandation",
       "errors": {
         "totalNot100": "La répartition ne totalise pas 100%",
-        "profilRequired": "Veuillez sélectionner votre profil investisseur",
+        "profilRequired": "Veuillez sélectionner votre profil patrimonial",
         "objectifRequired": "Veuillez sélectionner votre objectif patrimonial",
         "firstNameRequired": "Le prénom est requis",
         "lastNameRequired": "Le nom est requis",

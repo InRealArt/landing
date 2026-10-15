@@ -20,7 +20,6 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
     immobilier: 0,
     liquidites: 0,
     financier: 0,
-    crypto: 0,
     tangibles: 0,
     profil: '' as ProfilInvestisseur,
     objectif: '' as Objectif,
@@ -64,7 +63,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
   }
 
   const getTotalPercentage = (): number => {
-    return formData.immobilier + formData.liquidites + formData.financier + formData.crypto + formData.tangibles
+    return formData.immobilier + formData.liquidites + formData.financier + formData.tangibles
   }
 
   const validateStep1 = (): boolean => {
@@ -208,21 +207,6 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
                   required
                 />
 
-                <SimulatorInput
-                  label={`${t('heritageArtSimulator.form.crypto')} (%)`}
-                  id="crypto"
-                  name="crypto"
-                  type="number"
-                  value={formData.crypto.toString()}
-                  onChange={handleInputChange('crypto')}
-                  placeholder="0"
-                  min={0}
-                  max={100}
-                  required
-                />
-              </div>
-
-              <div className="md:w-1/2">
                 <SimulatorInput
                   label={`${t('heritageArtSimulator.form.tangibles')} (%)`}
                   id="tangibles"

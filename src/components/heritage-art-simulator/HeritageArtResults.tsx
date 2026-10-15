@@ -143,7 +143,7 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
             {t('heritageArtSimulator.results.currentDistribution')}
           </h3>
           <div className="divide-y divide-[var(--border-light)]">
-            {(['immobilier', 'liquidites', 'financier', 'crypto', 'tangibles'] as const).map(field => (
+            {(['immobilier', 'liquidites', 'financier', 'tangibles'] as const).map(field => (
               <div key={field} className="flex justify-between items-center py-2.5">
                 <span className="text-sm text-[var(--gray-text)]">{t(`heritageArtSimulator.form.${field}`)}</span>
                 <span className="text-sm text-[var(--ink-black)] font-medium">{results.patrimoineActuel[field]}%</span>
@@ -156,7 +156,7 @@ export default function HeritageArtResults({ results, formData }: HeritageArtRes
             {t('heritageArtSimulator.results.recommendedDistribution')}
           </h3>
           <div className="divide-y divide-[var(--border-light)]">
-            {(['immobilier', 'liquidites', 'financier', 'crypto', 'tangibles'] as const).map(field => (
+            {(['immobilier', 'liquidites', 'financier', 'tangibles'] as const).map(field => (
               <div key={field} className="flex justify-between items-center py-2.5">
                 <span className="text-sm text-[var(--gray-text)]">{t(`heritageArtSimulator.form.${field}`)}</span>
                 <span className="text-sm text-[var(--ink-black)] font-medium">{results.repartitionAjustee[field]}%</span>

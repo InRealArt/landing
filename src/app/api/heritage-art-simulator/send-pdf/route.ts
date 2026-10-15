@@ -19,7 +19,7 @@ function createHeritageArtUserEmailTemplate(formData: any, results: HeritageArtR
       
       <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h3 style="color: #333; margin-top: 0;">📊 Résumé de votre simulation</h3>
-        <p><strong>Profil investisseur :</strong> ${profil}</p>
+        <p><strong>Profil patrimonial :</strong> ${profil}</p>
         <p><strong>Objectif patrimonial :</strong> ${objectif}</p>
         <p><strong>Recommandation :</strong> ${recommendation.minArt}% à ${recommendation.maxArt}% d'allocation artistique</p>
         
@@ -63,7 +63,7 @@ function createHeritageArtFallbackEmailTemplate(formData: any, results: Heritage
       
       <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h3 style="color: #333; margin-top: 0;">📊 Détails de votre profil</h3>
-        <p><strong>Profil investisseur :</strong> ${profil}</p>
+        <p><strong>Profil patrimonial :</strong> ${profil}</p>
         <p><strong>Objectif patrimonial :</strong> ${objectif}</p>
         <p><strong>Recommandation :</strong> ${recommendation.texte}</p>
       </div>
@@ -74,7 +74,6 @@ function createHeritageArtFallbackEmailTemplate(formData: any, results: Heritage
           <li style="margin-bottom: 8px;"><strong>Immobilier :</strong> ${repartitionAjustee.immobilier}%</li>
           <li style="margin-bottom: 8px;"><strong>Liquidités :</strong> ${repartitionAjustee.liquidites}%</li>
           <li style="margin-bottom: 8px;"><strong>Produits financiers :</strong> ${repartitionAjustee.financier}%</li>
-          <li style="margin-bottom: 8px;"><strong>Crypto / Actifs numériques :</strong> ${repartitionAjustee.crypto}%</li>
           <li style="margin-bottom: 8px;"><strong>Biens tangibles :</strong> ${repartitionAjustee.tangibles}%</li>
           <li style="margin-bottom: 8px; color: #7c3aed; font-weight: bold; border-top: 1px solid #ccc; padding-top: 8px;"><strong>Art recommandé :</strong> ${repartitionAjustee.art}%</li>
         </ul>
@@ -208,7 +207,7 @@ async function generateHeritageArtPDF(results: HeritageArtResults, _formData: an
   yPosition += 45
 
   // Profile Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 30, 'Profil investisseur')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 30, 'Profil patrimonial')
   addKeyValue(margin + 5, sectionY, 'Profil :', results.profil)
   addKeyValue(margin + 5, sectionY + 4, 'Objectif patrimonial :', results.objectif)
 
@@ -222,35 +221,33 @@ async function generateHeritageArtPDF(results: HeritageArtResults, _formData: an
   yPosition += 45
 
   // Current Distribution Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 55, 'Répartition actuelle du patrimoine')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 51, 'Répartition actuelle du patrimoine')
   addKeyValue(margin + 5, sectionY, 'Immobilier :', `${results.patrimoineActuel.immobilier}%`)
   addKeyValue(margin + 5, sectionY + 4, 'Liquidités :', `${results.patrimoineActuel.liquidites}%`)
   addKeyValue(margin + 5, sectionY + 8, 'Produits financiers :', `${results.patrimoineActuel.financier}%`)
-  addKeyValue(margin + 5, sectionY + 12, 'Crypto / Actifs numériques :', `${results.patrimoineActuel.crypto}%`)
-  addKeyValue(margin + 5, sectionY + 16, 'Biens tangibles :', `${results.patrimoineActuel.tangibles}%`)
+  addKeyValue(margin + 5, sectionY + 12, 'Biens tangibles :', `${results.patrimoineActuel.tangibles}%`)
 
-  yPosition += 65
+  yPosition += 61
 
   // Recommended Distribution Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 65, 'Répartition optimisée recommandée')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 61, 'Répartition optimisée recommandée')
   addKeyValue(margin + 5, sectionY, 'Immobilier :', `${results.repartitionAjustee.immobilier}%`)
   addKeyValue(margin + 5, sectionY + 4, 'Liquidités :', `${results.repartitionAjustee.liquidites}%`)
   addKeyValue(margin + 5, sectionY + 8, 'Produits financiers :', `${results.repartitionAjustee.financier}%`)
-  addKeyValue(margin + 5, sectionY + 12, 'Crypto / Actifs numériques :', `${results.repartitionAjustee.crypto}%`)
-  addKeyValue(margin + 5, sectionY + 16, 'Biens tangibles :', `${results.repartitionAjustee.tangibles}%`)
+  addKeyValue(margin + 5, sectionY + 12, 'Biens tangibles :', `${results.repartitionAjustee.tangibles}%`)
 
   // Highlight art allocation with purple line and text
   doc.setDrawColor(124, 58, 237) // Purple line
   doc.setLineWidth(1)
-  doc.line(margin + 5, sectionY + 22, margin + contentWidth - 5, sectionY + 22)
+  doc.line(margin + 5, sectionY + 18, margin + contentWidth - 5, sectionY + 18)
   
   doc.setFont(fontFamily, 'bold')
   doc.setFontSize(12)
   doc.setTextColor(124, 58, 237) // Purple text for art
-  doc.text('ART RECOMMANDÉ :', margin + 5, sectionY + 28)
-  doc.text(`${results.repartitionAjustee.art}%`, margin + contentWidth - 15, sectionY + 28, { align: 'right' })
+  doc.text('ART RECOMMANDÉ :', margin + 5, sectionY + 24)
+  doc.text(`${results.repartitionAjustee.art}%`, margin + contentWidth - 15, sectionY + 24, { align: 'right' })
 
-  yPosition += 75
+  yPosition += 71
 
   // Footer
   doc.setFont(fontFamily, 'normal')
