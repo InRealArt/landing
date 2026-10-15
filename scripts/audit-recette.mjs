@@ -74,5 +74,8 @@ const limit = Number(process.env.RECETTE_LIMIT || urls.length)
 for (const url of urls.slice(0, limit)) await checkPage(url)
 
 console.log(failures.join('\n') || 'OK — toutes les règles passent')
+const byRule = failures.reduce((acc, f) => ({ ...acc, [f.split(' ')[1]]: (acc[f.split(' ')[1]] || 0) + 1 }), {})
+console.log(Object.entries(byRule).map(([rule, n]) => `${rule}: ${n}`).join(' · ') || '')
 console.log(`${urls.length} URL dans le sitemap, ${failures.length} échec(s)`)
-process.exit(failures.length ? 1 : 0)
+// exitCode plutôt que process.exit() : sinon la sortie est tronquée quand elle passe dans un pipe (| tail)
+process.exitCode = failures.length ? 1 : 0
