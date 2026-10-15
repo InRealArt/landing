@@ -1256,12 +1256,16 @@
     "leasing": {
       "eyebrow": "Financement",
       "title": "Financez votre acquisition",
-      "subtitle": "Intégrez une œuvre d'exception dans votre patrimoine ou vos espaces professionnels grâce au leasing d'art. Déductible fiscalement, sans immobiliser votre capital.",
-      "bullets": [
-        "100 % déductible du résultat imposable",
-        "Amortissement sur 5 ans",
-        "TVA récupérable"
-      ],
+      "subtitle": "Intégrez une œuvre d'exception dans votre patrimoine ou vos espaces professionnels. Deux modes d'acquisition, deux traitements fiscaux distincts.",
+      "lease": {
+        "title": "Leasing (LOA)",
+        "text": "Loyers déductibles du résultat imposable"
+      },
+      "purchase": {
+        "title": "Achat (art. 238 bis AB du CGI)",
+        "text": "Déduction étalée sur 5 ans, dans la limite de 5 ‰ du chiffre d'affaires"
+      },
+      "disclaimer": "Renseignez-vous auprès de votre expert-comptable.",
       "cta": "Simuler mon financement LOA",
       "ctaNote": "Résultat immédiat — sans engagement"
     }
@@ -1455,7 +1459,7 @@
         ],
         "cta": "Étude de cas détaillée →",
         "ctaSecondary": "Simulateur LOA",
-        "roi": "+18% satisfaction équipes · 100% charges déductibles"
+        "roi": "+18% satisfaction équipes · loyers déductibles du résultat imposable"
       },
       "scenario2": {
         "badge": "Scénario 01",
@@ -1660,7 +1664,7 @@
       "description": "Les conseils d'un expert du marché de l'art, Code Général des Impôts, le leasing artistique derrière des collections d'entreprise, tout en créant une véritable démarche RSE grâce à un suivi personnalisé de votre projet selon vos objectifs, votre image de marque et d'innovations.",
       "bullets": [
         "Objectifs et expertise du marché d'art pour une stratégie d'image et de patrimoine",
-        "Fiscalité déductible à 100% avec avantages ESG, optimisation du bilan, réduction de l'IS (déblocage ainsi du cashflow et réaffectation de l'épargne)",
+        "Loyers de leasing déductibles du résultat imposable, avec avantages ESG, optimisation du bilan et réduction de l'IS (déblocage du cashflow et réaffectation de l'épargne)",
         "Protection contre l'Inflation (diversification d'actifs non corrélés et résilients) pour les PME"
       ]
     }
@@ -2315,12 +2319,6 @@
         "priceUnit": "/ (si achat)",
         "cta": "Simuler"
       }
-    },
-    "testimonial": {
-      "eyebrow": "Témoignages",
-      "quote": "Grâce à l'audit de Maxime et au réseau de Timothée, ma cote a progressé de 40% en un an. Leur vision dépasse largement celle d'une galerie classique.",
-      "author": "Jean-Paul Boyer",
-      "role": "Artiste Résident"
     },
     "contact": {
       "title": "Prêt à élever votre",
@@ -3715,62 +3713,6 @@
         "galleryBridgeLabel": "Galerie",
         "galleryBridgeTitle": "Ses œuvres disponibles chez",
         "galleryBridgeViewAll": "Voir toutes ses œuvres"
-      }
-    },
-    "caseStudies": {
-      "eyebrow": "Ils nous font confiance",
-      "title": "Des résultats,",
-      "titleAccent": "pas des promesses.",
-      "case1": {
-        "brand": "Maison de Luxe",
-        "campaign": "Lancement parfum — Printemps 2025",
-        "metric1": {
-          "value": "2,3M",
-          "label": "Impressions"
-        },
-        "metric2": {
-          "value": "8,4%",
-          "label": "Taux d'engagement"
-        },
-        "metric3": {
-          "value": "12",
-          "label": "Créateurs activés"
-        },
-        "tag": "Luxe · Parfumerie"
-      },
-      "case2": {
-        "brand": "Retailer Premium",
-        "campaign": "Pop-up activation — Marais, Paris",
-        "metric1": {
-          "value": "+340%",
-          "label": "Reach vs objectif"
-        },
-        "metric2": {
-          "value": "48h",
-          "label": "Délai d'activation"
-        },
-        "metric3": {
-          "value": "7",
-          "label": "Créateurs présents"
-        },
-        "tag": "Retail · Événementiel"
-      },
-      "case3": {
-        "brand": "Institution culturelle",
-        "campaign": "Ambassade long terme — 6 mois",
-        "metric1": {
-          "value": "15",
-          "label": "Assets livrés"
-        },
-        "metric2": {
-          "value": "4",
-          "label": "Plateformes activées"
-        },
-        "metric3": {
-          "value": "100%",
-          "label": "Droits cédés"
-        },
-        "tag": "Culturel · Institutionnel"
       }
     },
     "brief": {

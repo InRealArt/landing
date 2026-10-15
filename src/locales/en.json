@@ -1280,12 +1280,16 @@
     "leasing": {
       "eyebrow": "Financing",
       "title": "Finance your acquisition",
-      "subtitle": "Integrate an exceptional artwork into your estate or professional spaces through art leasing. Tax-deductible, without tying up your capital.",
-      "bullets": [
-        "100 % deductible from taxable income",
-        "5-year amortisation",
-        "VAT recoverable"
-      ],
+      "subtitle": "Integrate an exceptional artwork into your estate or professional spaces. Two ways to acquire it, two distinct tax treatments.",
+      "lease": {
+        "title": "Leasing (LOA)",
+        "text": "Rents deductible from taxable income"
+      },
+      "purchase": {
+        "title": "Purchase (art. 238 bis AB of the French tax code)",
+        "text": "Deduction spread over 5 years, capped at 0.5% of turnover"
+      },
+      "disclaimer": "Please consult your chartered accountant.",
       "cta": "Simulate my LOA financing",
       "ctaNote": "Instant result — no commitment"
     }
@@ -1479,7 +1483,7 @@
         ],
         "cta": "Detailed case study →",
         "ctaSecondary": "Leasing Simulator",
-        "roi": "+18% team satisfaction · 100% tax-deductible costs"
+        "roi": "+18% team satisfaction · rents deductible from taxable income"
       },
       "scenario2": {
         "badge": "Scenario 02",
@@ -1684,7 +1688,7 @@
       "description": "Advice from an art market expert, General Tax Code, artistic leasing behind corporate collections, all while creating a genuine CSR approach through personalized monitoring of your project according to your objectives, brand image, and innovations.",
       "bullets": [
         "Objectives and art market expertise for an image and heritage strategy",
-        "100% tax-deductible with ESG benefits, balance sheet optimization, corporate tax reduction (thus releasing cash flow and reallocation of savings)",
+        "Leasing rents deductible from taxable income, with ESG benefits, balance sheet optimization and corporate tax reduction (releasing cash flow and reallocation of savings)",
         "Protection against inflation (diversification of uncorrelated and resilient assets) for SMEs"
       ]
     }
@@ -2331,12 +2335,6 @@
         "priceUnit": "/ (if purchase)",
         "cta": "Simulate"
       }
-    },
-    "testimonial": {
-      "eyebrow": "Testimonials",
-      "quote": "Thanks to Maxime's audit and Timothée's network, my ranking increased by 40% in one year. Their vision goes far beyond that of a traditional gallery.",
-      "author": "Jean-Paul Boyer",
-      "role": "Resident Artist"
     },
     "contact": {
       "title": "Ready to elevate your",
@@ -3948,62 +3946,6 @@
         "galleryBridgeLabel": "Gallery",
         "galleryBridgeTitle": "Available artworks at",
         "galleryBridgeViewAll": "See all artworks"
-      }
-    },
-    "caseStudies": {
-      "eyebrow": "They trust us",
-      "title": "Results,",
-      "titleAccent": "not promises.",
-      "case1": {
-        "brand": "Luxury House",
-        "campaign": "Perfume launch — Spring 2025",
-        "metric1": {
-          "value": "2.3M",
-          "label": "Impressions"
-        },
-        "metric2": {
-          "value": "8.4%",
-          "label": "Engagement rate"
-        },
-        "metric3": {
-          "value": "12",
-          "label": "Creators activated"
-        },
-        "tag": "Luxury · Perfumery"
-      },
-      "case2": {
-        "brand": "Premium Retailer",
-        "campaign": "Pop-up activation — Marais, Paris",
-        "metric1": {
-          "value": "+340%",
-          "label": "Reach vs target"
-        },
-        "metric2": {
-          "value": "48h",
-          "label": "Activation turnaround"
-        },
-        "metric3": {
-          "value": "7",
-          "label": "Creators on-site"
-        },
-        "tag": "Retail · Events"
-      },
-      "case3": {
-        "brand": "Cultural Institution",
-        "campaign": "Long-term ambassadorship — 6 months",
-        "metric1": {
-          "value": "15",
-          "label": "Assets delivered"
-        },
-        "metric2": {
-          "value": "4",
-          "label": "Platforms activated"
-        },
-        "metric3": {
-          "value": "100%",
-          "label": "Rights included"
-        },
-        "tag": "Cultural · Institutional"
       }
     },
     "brief": {

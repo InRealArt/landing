@@ -146,7 +146,7 @@ Le script a été adapté : `RECETTE_ORIGIN` (défaut `https://www.inrealart.com
 
 - [x] ✅ **Revue (reviewer)** — FAIT : 1 problème relevé (sitemap en erreur → « OK » et code 0), corrigé : statut ≠ 200, index de sitemaps ou 0 URL → `FAIL sitemap` et code 1. Vérifié sur l'apex (308 → FAIL, exit 1).
 
-- [ ] **Step 4 : Commit** — `chore(audit): script de recette automatisé (audit V2 §5)` — ⏸️ non commité (à faire par l'utilisateur à la fin du Sprint 1)
+- [x] ✅ **Step 4 : Commit** — FAIT : commité avec la Task 2 (branche `fix/audit-v2-seo-balises`, mergée dans `main`). Ajouts ultérieurs : `VERCEL_BYPASS` (preview protégée), sortie complète via pipe + résumé par règle.
 
 ---
 
@@ -230,9 +230,8 @@ export const metadata: Metadata = generateStaticMetadata({
   - Noté pour plus tard : `/games/<slug>` d'un jeu terminé répond 200 au lieu de rediriger.
   - [x] ✅ **Revue Step 7** — aucun défaut ; `NEXT_PUBLIC_APP_URL` n'apparaît plus nulle part dans `src`. Point cosmétique corrigé : og:title des catégories contenant déjà la marque.
 
-- [ ] **Step 8 : Commit** — ⏸️ à faire par l'utilisateur sur une branche (pas `main`), puis déploiement et recette en prod.
-
-  (message proposé : `fix(seo): canonical auto-référente, suffixe de title unique, suppression meta keywords (IRA-03/04/19)`)
+- [x] ✅ **Step 8 : Commit + mise en prod** — FAIT le 15/10/2026 : branche `fix/audit-v2-seo-balises` (commit `bc2a7a1`), preview Vercel validée (recette 1 238 échecs + contrôle visuel OK), mergée dans `main` et déployée.
+  - Recette prod après déploiement : **695 URL, 1 238 échecs** (h1 629 · canonical 590 · vocabulaire 19) contre **2 077** avant. `title`, `meta-keywords`, `sitemap-domaine`, `status` : 0.
 
 ---
 
@@ -247,19 +246,54 @@ export const metadata: Metadata = generateStaticMetadata({
 - Modify : `src/utils/artSalonCalculations.ts` (+40 %)
 - Données en base : `Team` (rôle « Développeur Blockchain »), `Translation`, FAQ, manifeste
 
-- [ ] **Step 1 : Test qui échoue** — `npm run recette` → FAIL `vocabulaire` ; et inventaire code :
+- [x] ✅ **Step 1 : Test qui échoue** — `npm run recette` → FAIL `vocabulaire` ; et inventaire code :
 
 ```bash
 grep -rniE "nft|blockchain|web3|tokenis|\btoken\b|investisseur" src/locales/fr.json src/data src/app src/components --include=*.ts --include=*.tsx --include=*.json | grep -v generated
 ```
 
-- [ ] **Step 2 : Bandeau Capital** (`fr.json` l.1261-1262 et équivalents en.json, `LeasingAdvantages.tsx`) — remplacer par deux colonnes distinctes :
+  **FAIT (15/10/2026)** : recette prod → **19 FAIL `vocabulaire`** (résultat : `scratchpad/recette-prod-apres-t2.txt`). Inventaire :
+
+  **A. Pages du site (texte visible, 12 pages)**
+  | Page | Texte en cause | Origine |
+  |---|---|---|
+  | `/about`, `/team` | rôle « Directeur technique / Développeur Blockchain » ; bio « spécialisé en blockchain et data » (`/about`) | rôle : base (`Team`) ; bio : `fr.json:179` `about.team.paragraph3Description` (`AboutTeam.tsx:20`) |
+  | `/manifest` | « L'innovation (tokenisation, contrats intelligents…) », « dont la tokenisation » | `fr.json` `manifest.p2/p4` (manifeste V2 attendu de l'équipe) |
+  | `/academy` | « …sur l'art, la tokenisation et le patrimoine » | `fr.json` `academy.hero` |
+  | `/heritage-art-simulator` | « Crypto / Actifs numériques (%) », libellé graphique « Crypto », « Profil investisseur » | `fr.json:3064,3067,3096` (`heritageArtSimulator.form.*`), `heritageArtCalculations.ts:121` (+ champ `crypto` dans le calcul) ; e-mails/PDF : `send-pdf/route.ts:22,66,77,211,229,239`, `send-company-info/route.ts:31,43,76` |
+  | `/usecase/companies` | FAQ « Les œuvres d'entreprise peuvent-elles être tokenisées ? » | **base** (FAQ `usecaseCompanies` via `PageFAQ`) — pas dans le code |
+  | `/usecase/lending` | « Sécurité et Transparence via la Blockchain », « Finance Décentralisée (DeFi)… Web3 » | `fr.json:1905-1906` `lending.whyChoose.items` rendus par `ForWho.tsx:13-20` (`WhyChoose.tsx` n'est pas utilisé) — **page entière bâtie sur la DeFi** |
+  | `/usecase/fractionate` | « tokenisation fractionnée », « revendre vos tokens », « investisseurs » | `fr.json` `fractionate.*` — **page entière bâtie sur la tokenisation** |
+  | `/joinInRealArt/galleries` | « Réseau d'investisseurs » | `fr.json:719` |
+| `/marketplace` | `alt` de l'image hero « …Investisseurs de Prestige » | `fr.json:510` / `en.json:505` `marketplace.hero.title` (`Hero.tsx:13`) |
+  | `/glossary` | onglet et définitions Blockchain/NFT | `src/data/glossary.ts` (décision n°2) |
+  | `/terms` | CGV : NFT/blockchain dans ~11 articles sur 26 (`lots`, `nft`, `physicalNft`, `presale`, `authenticity`, `advantages`, `salesTerms`, `commitment`, `copyright`, `buyerCommitments`, `modifications`) + « cryptomonnaie » (`price`) | `fr.json:2393-2441` `terms.*` — **texte juridique** |
+  | `/terms-nft` | page entière | `src/app/terms-nft/page.tsx` (décision n°2) |
+
+  **B. Contenus de la base (7 URL, ne relèvent pas du code)** : articles Artprice FR/EN et « Art contemporain 2026 » FR/EN (« NFT » cité comme segment de marché), portrait Alexandre Leadouze FR/EN (« investisseur »), catégorie blog `investissements-leasing` (extrait d'article « L'art attire les investisseurs »). → décision éditoriale déjà ouverte (garder / reformuler / exclure de la règle).
+
+  **C. Non vu par la recette (head, JSON-LD, e-mails, fichiers `public/`) mais à corriger** : `public/llms.txt` (11), `public/llms-full.txt` (16), `public/capabilities.txt` (13), `public/agents.txt:77`, `public/footer.sitemap.xml:89` (`/terms-nft`) — lus par les crawlers et les IA ; JSON-LD Organisation de l'accueil `metadata.ts:226` `knowsAbout: 'art tokenization'` ; libellés des tags de blog `blog.tags.nft/blockchain/tokenization` (`fr.json:1997-2003`, affichés par `BlogPostCard.tsx:17` si un article de la base porte ces tags) ; `terms-nft/layout.tsx` (title/description) ; descriptions `blog/category/layout.tsx`, `blog/category/[slug]/page.tsx`, `faq/translated/layout.tsx`, `glossary/layout.tsx` (« art tokenisé », « blockchain, NFTs ») ; `heritage-art-simulator/layout.tsx` ; JSON-LD `generateBlogJsonLd` (`metadata.ts:457,471,475` « tokenisation », émis sur `/blog`) ; `sitemap.ts:38` (`/terms-nft`) ; e-mails/PDF heritage (« Profil investisseur »). `keywords` restants (`artwork/[id]`, `joinInRealArt/artists`, `terms-nft`, `defaultMetadata`) : non émis depuis la Task 2, à retirer pour propreté.
+
+  **D. Code mort (jamais importé/rendu → aucun effet visible ; à supprimer, sinon le grep du Step 7 ne sera jamais à 0)** : `src/components/token/*` (9 fichiers), `src/components/presale/TokenHero.tsx`, `src/components/presale/PresaleFeatures.tsx`, `src/actions/tokenActions.ts` ; `src/data/faq.ts`, `faq.backup.ts`, `leasing.ts` ; `src/components/usecase/lending/WhyChoose.tsx`, `usecase/leasing/SliderSection.tsx`, `blog/WeeklyMostReadPosts.tsx` ; rendus commentés : `home/HowItWorks.tsx`, `usecase/CustomerStories.tsx`, `ReadyToStart.tsx` ; `defaultMetadata.token` (`metadata.ts:525`) ; `generateBlogListJsonLd` (`generateJsonLd.ts:195`, jamais appelé) ; maquettes `src/templates/*.html`. Clés i18n mortes : `token.*`, `presale.token.*`, `nav.ico`, `intro.title`, `footer.termsNft`, `faq.tabs.*`, `blog.articles.*` (~100 lignes), `leasing.slider.*`, `home.howItWorks.*`, `usecase.items.*`, `roadmap.items.*` (`/roadmap` rend `items={[]}`), `lending.advantages.subtitle`, `cookieConsent.csrfTokens`, `en.json` `generalConditions` (~200 lignes).
+  Le reviewer a corrigé : `WhyChoose.tsx`, `PresaleFeatures.tsx`, `leasing.ts` (listés en « Modify ») sont morts → suppression, pas modification.
+
+  **E. Faux positifs (technique, à laisser)** : « token reCAPTCHA » (commentaires), clé `'/terms-nft'` de `StickyFooterManager`. L'état initial `useState("Blockchain")` de `glossary/page.tsx:13` est technique mais devra suivre `glossaryTabs` (`glossary.ts:3`, visible).
+
+  - [x] ✅ **Revue Step 1** — inventaire complété : fichiers `public/` (llms, capabilities, agents, footer.sitemap), JSON-LD Organisation, `alt` du hero `/marketplace`, étendue réelle des CGV, libellé « Crypto » du graphique, tags de blog ; sources corrigées (bio `/about` dans `fr.json`, FAQ `/usecase/companies` en base, `/usecase/lending` via `ForWho.tsx`) ; code mort élargi.
+
+  **Décisions prises (15/10/2026)** : (1) `/usecase/fractionate` et `/usecase/lending` **dépubliés** (redirection 308 vers `/usecase`, retrait du sitemap et des liens internes, `KNOWN_STATIC_ROUTES` conservé tant que la redirection existe) ; (2) CGV `/terms` : **passages NFT retirés** (validation juridique à faire par l'utilisateur) ; (3) `/terms-nft` : **supprimée** (410) + entrées NFT/Blockchain du glossaire retirées ; (4) manifeste : **retrait des mentions de « tokenisation »** (pas d'attente du texte V2) ; (5) rôle Team : **déjà modifié dans le back-office** ; bio `/about` (`fr.json:179`) à reformuler dans le code ; (6) articles de blog : **en attente de décision** (slugs communiqués).
+
+  **Décisions qui étaient nécessaires avant les Steps 4-6** : (1) `/usecase/fractionate` et `/usecase/lending` — réécrire, ou dépublier (noindex + retrait sitemap + redirection, cf. Task 9) ; (2) CGV `/terms` — retrait des articles NFT à valider juridiquement ; (3) `/terms-nft` et glossaire (décision n°2) ; (4) texte du manifeste V2 ; (5) nouveau libellé du rôle et de la bio Team ; (6) articles de blog et FAQ `usecaseCompanies` en base.
+
+- [x] ✅ **Step 2 : Bandeau Capital** (`fr.json` l.1261-1262 et équivalents en.json, `LeasingAdvantages.tsx`) — remplacer par deux colonnes distinctes :
   - Leasing : « Loyers déductibles du résultat imposable »
   - Achat (art. 238 bis AB du CGI) : « Déduction étalée sur 5 ans, dans la limite de 5 ‰ du chiffre d'affaires »
   - Mention : « Renseignez-vous auprès de votre expert-comptable. »
   Idem l.1458 (« 100% charges déductibles ») et l.1663.
+  **FAIT (15/10/2026)** : `LeasingCTA.tsx` rend deux blocs (leasing / achat art. 238 bis AB) + mention expert-comptable ; clés `presale.leasing.{lease,purchase,disclaimer}` FR/EN (`bullets` retiré) ; l.1458 et l.1663 reformulées en « loyers déductibles du résultat imposable ». `LeasingAdvantages.tsx` déjà conforme. `tsc` OK, JSON valides. Conservé : `loaSimulator…benefits.fullDeductibility` (« loyers déductibles à 100 % », exact pour le leasing). Non commité.
 
-- [ ] **Step 3 : Chiffres sans source** — supprimer les 9 KPI non sourcés (identifier dans `Statistics.tsx`, pages Services/Agence) et le témoignage « cote +40 % » (Services, `artSalonCalculations.ts`). Pour chaque chiffre conservé, ajouter une source visible (note de bas de bloc).
+- [x] ✅ **Step 3 : Chiffres sans source** — supprimer les 9 KPI non sourcés (identifier dans `Statistics.tsx`, pages Services/Agence) et le témoignage « cote +40 % » (Services, `artSalonCalculations.ts`). Pour chaque chiffre conservé, ajouter une source visible (note de bas de bloc).
+  **FAIT (15/10/2026)** : les « 9 KPI » = `agence.caseStudies` (3 cas × 3 métriques, `AgenceCaseStudies.tsx`, jamais importé) → clés supprimées FR/EN. Témoignage « cote +40 % » (`services.testimonial`) → bloc retiré de `services/page.tsx`, clés supprimées. `tsc` OK, JSON valides. ⏳ Fichiers orphelins à supprimer (suppression refusée par le garde-fou) : `src/components/agence/AgenceCaseStudies.tsx`, `src/app/services/components/TestimonialSection.tsx`. **Décision utilisateur** : stats de l'accueil (500 / 40+ / 150+ / 20+) conservées telles quelles ; « +18 % satisfaction équipes » (`/usecase`, `usecase.scenarios.scenario1.roi`) conservé tel quel. Non commité.
 
 - [ ] **Step 4 : Vocabulaire** — « Réseau d'investisseurs » → « Réseau de collectionneurs et d'entreprises » ; mots-clés « art tokenisé » retirés ; manifeste remplacé par la V2 (texte fourni par l'équipe) ; entrées NFT/blockchain du glossaire et de `faq.ts` supprimées (selon décision n°2).
 
@@ -308,29 +342,12 @@ export function formatPrice(price: number | null | undefined): string | null {
 ### Task 5 : IRA-10a + IRA-17a — Accueil et catalogue
 
 **Files :**
-- Modify : `src/app/page.tsx`, composant hero de l'accueil (H1), `src/components/home/Statistics.tsx`
-- Create : `src/actions/catalogStatsActions.ts`
+- Modify : `src/app/page.tsx`, composant hero de l'accueil (H1)
 - Modify : `src/app/presale/page.tsx`, `src/locales/fr.json` / `en.json` (FAQ catalogue)
 
 - [ ] **Step 1 : Test qui échoue** — `curl -s localhost:3000/ | grep -c "<h1"` ≠ 1 ou H1 en bas de page ; « 500 œuvres / 40+ artistes » visibles.
 
-- [ ] **Step 2 : Chiffres depuis la base**
-
-```ts
-// src/actions/catalogStatsActions.ts
-'use server'
-import { prisma } from '@/lib/prisma'
-
-export async function getCatalogStats(): Promise<{ artworks: number; artists: number }> {
-  const [artworks, artists] = await Promise.all([
-    prisma.presaleArtwork.count(),
-    prisma.landingArtist.count({ where: { isActive: true } }),
-  ])
-  return { artworks, artists }
-}
-```
-
-(vérifier le chemin d'import réel du client Prisma dans `src/lib/` et le champ `isActive` sur `LandingArtist`.) Appeler `getCatalogStats()` dans `src/app/page.tsx` et passer le résultat en props à `Statistics`.
+- [x] ✅ **Step 2 : Chiffres depuis la base** — ABANDONNÉ (décision utilisateur 15/10/2026) : les stats de l'accueil (500 / 40+ / 150+ / 20+) restent telles quelles ; `getCatalogStats()` non créé.
 
 - [ ] **Step 3 : H1 unique en haut** — le H1 doit être dans le hero (premier écran). Rétrograder tout autre `<h1>` de la page d'accueil en `<h2>`.
 

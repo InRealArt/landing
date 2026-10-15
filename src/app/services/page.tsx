@@ -7,7 +7,6 @@ import type { TeamMemberData } from '@/actions/teamActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
 import ExpertsSection from './components/ExpertsSection'
 import ServicesGrid from './components/ServicesGrid'
-import TestimonialSection from './components/TestimonialSection'
 import ContactForm from './components/ContactForm'
 import NewsletterInline from '@/components/common/NewsletterInline'
 import PageFAQ from '@/components/common/FAQ/PageFAQ'
@@ -169,16 +168,6 @@ export default async function ServicesPage() {
               cta: t('services.items.taxOptimization.cta'),
             },
           },
-        }}
-      />
-
-      {/* TESTIMONIAL */}
-      <TestimonialSection
-        translations={{
-          eyebrow: t('services.testimonial.eyebrow'),
-          quote: t('services.testimonial.quote'),
-          author: t('services.testimonial.author'),
-          role: t('services.testimonial.role'),
         }}
       />
 
