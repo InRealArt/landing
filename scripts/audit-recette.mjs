@@ -1,12 +1,17 @@
 // scripts/audit-recette.mjs — encode la section 5 de l'audit V2
 // Usage : node scripts/audit-recette.mjs [baseUrl]   (RECETTE_LIMIT=n pour limiter le nombre d'URL)
 // RECETTE_ORIGIN = domaine attendu dans le sitemap et les canonicals (Vercel sert www, l'apex redirige en 308)
+// VERCEL_BYPASS = secret « Protection Bypass for Automation » pour tester une preview Vercel protégée
 const BASE = (process.argv[2] || 'http://localhost:3000').replace(/\/$/, '')
 const ORIGIN = (process.env.RECETTE_ORIGIN || 'https://www.inrealart.com').replace(/\/$/, '')
 const SITE_HOST = /^https:\/\/(www\.)?inrealart\.com/
 const FORBIDDEN = /\b(nft|blockchain|web3|tokenis\w*|tokens?|investisseurs?)\b/i
 const failures = []
 const fail = (rule, url, detail) => failures.push(`FAIL ${rule} ${url} ${detail}`)
+const HEADERS = {
+  'user-agent': 'Googlebot',
+  ...(process.env.VERCEL_BYPASS && { 'x-vercel-protection-bypass': process.env.VERCEL_BYPASS }),
+}
 
 const stripTags = html => html
   .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -19,7 +24,7 @@ const decodeEntities = s => s
   .replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
 
 async function get(url) {
-  const res = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'Googlebot' } })
+  const res = await fetch(url, { redirect: 'manual', headers: HEADERS })
   return { status: res.status, html: res.status === 200 ? await res.text() : '' }
 }
 
@@ -46,7 +51,7 @@ async function checkPage(url) {
   if (/artwork\.\w+|No description available/.test(text)) fail('cle-brute', url, 'chaîne technique visible')
 }
 
-const sitemapRes = await fetch(`${BASE}/sitemap.xml`, { redirect: 'manual' })
+const sitemapRes = await fetch(`${BASE}/sitemap.xml`, { redirect: 'manual', headers: HEADERS })
 if (sitemapRes.status !== 200) {
   console.log(`FAIL sitemap ${BASE}/sitemap.xml statut ${sitemapRes.status}`)
   process.exit(1)
