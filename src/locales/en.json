@@ -11,7 +11,6 @@
     "roadmap": "Roadmap",
     "faq": "FAQ",
     "team": "Team",
-    "ico": "Token InRealArt",
     "glossary": "Glossary",
     "artists": "Artists",
     "presale": "Artworks",
@@ -34,10 +33,6 @@
     "contact": "Contact Us",
     "ateliers": "Studios"
   },
-  "intro": {
-    "title": "The Tokenization of Art accessible to all",
-    "description": "Rare and exclusive artworks"
-  },
   "glossary": {
     "title": "Glossary",
     "description": "Find here all the essential terms related to art, finance and technical aspects, including those used in the digital universe, to better understand our ecosystem."
@@ -52,7 +47,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "legal": "Legal mentions",
-    "termsNft": "Terms & Conditions NFT",
     "pages": "InRealArt",
     "company": "Company",
     "partner": "Partner",
@@ -176,7 +170,7 @@
       "paragraph2": "Maxime Girard — Director Marketing & co-founder",
       "paragraph2Description": "Expert in marketing, Maxime designs and oversees promotion strategies that maximize the visibility of artists and the scope of the platform. He develops targeted and innovative campaigns to reach collectors, institutions and art enthusiasts worldwide.",
       "paragraph3": "Gilles Bruno — Technical Responsible of the Marketplace & co-founder",
-      "paragraph3Description": "Expert in full stack development, specializing in blockchain and data, Gilles designs and oversees tools that ensure traceability, authenticity and the value of works. <br>He ensures a secure, fluid and performant experience for all users of the marketplace.",
+      "paragraph3Description": "Expert in full stack development, specializing in data, Gilles designs and oversees tools that ensure traceability, authenticity and the value of works. <br>He ensures a secure, fluid and performant experience for all users of the marketplace.",
       "subtitlePart1": "Our professional team will be",
       "subtitlePart2": "always operational",
       "buttonText": "Meet the team"
@@ -383,7 +377,7 @@
         },
         "art": {
           "title": "Heritage to transmit",
-          "description": "More than an asset, each work carries a symbolic heritage. InReal Art activates curation, leasing and tokenization levers to strengthen the value and transmission of artistic heritage."
+          "description": "More than an asset, each work carries a symbolic heritage. InReal Art activates curation, leasing and patronage levers to strengthen the value and transmission of artistic heritage."
         }
       }
     },
@@ -1003,8 +997,6 @@
   "faq": {
     "description": "We often have legitimate questions, so we've anticipated them! If you have another question, check out the FAQ page",
     "tabs": {
-      "nft": "NFT",
-      "token": "Token",
       "dao": "DAO",
       "ico": "ICO",
       "project": "Project"
@@ -1026,42 +1018,6 @@
     "faq": {
       "title": "Frequently Asked Questions about the roadmap",
       "description": "Find here the answers to the most common questions about the roadmap."
-    },
-    "items": {
-      "q2_2025": {
-        "title": "Q2 2025",
-        "description": {
-          "0": "CDP SDK: Integration of the Coinbase SDK to enable seamless payments and transactions within the marketplace.",
-          "1": "Regulatory Compliance: Ensure legal compliance, particularly in terms of KYC/AML and regulation of tokenized assets. Begin working with experts on legal aspects.",
-          "2": "Security Audit (Solid Proof): Comprehensive audit of the smart contract and platform to ensure code security and robustness."
-        }
-      },
-      "q3_2025": {
-        "title": "Q3 2025",
-        "description": {
-          "0": "Launch of Marketplace on Mainnet: First traditional art sales via the marketplace with blockchain infrastructure deployment.",
-          "1": "Launch of PreSale: Start fundraising with a private PreSale to accelerate development and offer tokens to early supporters.",
-          "2": "Development of Gallery Creation Tools: Enable users to create their virtual galleries, integrating both tokenized and traditional artworks.",
-          "3": "Token Sale (Private Sale): Launch the private token sale for a select group of investors and strategic partners. This generates funds to accelerate the development phase."
-        }
-      },
-      "q4_2025": {
-        "title": "Q4 2025",
-        "description": {
-          "0": "Token Sale (Public Sale): Launch the public token sale, allowing the wider community to purchase tokens, in both private and public settings (depending on size and participation).",
-          "1": "Launch of the Complete Platform: Full integration of payment functionality and art fractionalization.",
-          "2": "Expansion of Gallery Creation: Enable the creation of physical and digital galleries for artists, and integrate this functionality into the marketplace to encourage artist visibility.",
-          "3": "Launch of the Secondary Market: Establish a marketplace for buying and selling fractionalized artworks, allowing users to resell or purchase shares of art."
-        }
-      },
-      "q1_2026": {
-        "title": "Q1 2026",
-        "description": {
-          "0": "Launch of Community Gallery Curation: DAO members will have the opportunity to vote to select featured galleries based on their artistic preferences. A decentralized governance system should be implemented at this time.",
-          "1": "Strategic Marketing and Partnerships: Consolidate partnerships with art institutions, galleries, and other RWA projects to expand audience and ecosystem.",
-          "2": "Launch of InRealArt Physical Galleries: Implementation of physical galleries to complement the digital platform, with tokenized artworks available as investments in physical spaces."
-        }
-      }
     }
   },
   "presale": {
@@ -1129,153 +1085,8 @@
       "askPrice": "Ask for price",
       "onLeasing": "On leasing"
     },
-    "buyProcess": {
-      "title": "Purchase Process",
-      "subtitle": "a process to secure you",
-      "step": "Step",
-      "steps": {
-        "1": {
-          "title": "Creation of a smart contract<br/>for the presale",
-          "description": "This contract will automatically trigger the transfer of the NFT (purchase order) to the buyer once payment is confirmed.<br/><br/>It will also allow for automatic refund if the artwork is not collected within a specified timeframe."
-        },
-        "2": {
-          "title": "Creation of a smart contract<br/>for the presale",
-          "description": "This contract will automatically trigger the transfer of the NFT (purchase order) to the buyer once payment is confirmed.<br/><br/>It will also allow for automatic refund if the artwork is not collected within a specified timeframe."
-        },
-        "3": {
-          "title": "Creation of a smart contract<br/>for the presale",
-          "description": "This contract will automatically trigger the transfer of the NFT (purchase order) to the buyer once payment is confirmed.<br/><br/>It will also allow for automatic refund if the artwork is not collected within a specified timeframe."
-        },
-        "4": {
-          "title": "Creation of a smart contract<br/>for the presale",
-          "description": "This contract will automatically trigger the transfer of the NFT (purchase order) to the buyer once payment is confirmed.<br/><br/>It will also allow for automatic refund if the artwork is not collected within a specified timeframe."
-        }
-      },
-      "buttons": {
-        "previous": "Previous",
-        "next": "Next"
-      }
-    },
     "onDemand": "Presales",
     "viewAll": "View All",
-    "token": {
-      "limitedAccess": "Limited Access",
-      "accessAllocation": "Access Your Reserved Allocation",
-      "name": "Name",
-      "email": "Email",
-      "phoneNumber": "Phone Number",
-      "namePlaceholder": "Enter your full name",
-      "emailPlaceholder": "Enter your email",
-      "phonePlaceholder": "Enter your phone number",
-      "secureAllocation": "Secure Your Allocation",
-      "kycVerified": "KYC Verified",
-      "auditedBy": "Audited by CertiK",
-      "secureTransaction": "Secure Transaction",
-      "successMessage": "Successfully registered for token allocation",
-      "errorMessage": "An error occurred while processing your request",
-      "countdown": {
-        "title": "Token Sale End In",
-        "days": "Days",
-        "hours": "Hours",
-        "mins": "Mins",
-        "secs": "Secs"
-      },
-      "saleProgress": {
-        "raised": "Raised - {{amount}} Tokens",
-        "target": "Target - {{amount}} Tokens",
-        "softCap": "Soft cap",
-        "crowdsale": "Crowdsale",
-        "hardCap": "Hard cap"
-      },
-      "title": "$InRealArt Exclusive Presale!",
-      "subtitle": "You've been selected to participate in this exclusive presale through our educational program. Early access with guaranteed allocation before public launch.",
-      "features": [
-        "Specially curated for new investors through educational outreach",
-        "Limited participation window before public launch",
-        "Guaranteed allocation at preferential pricing"
-      ],
-      "acquireTokens": "Acquire tokens",
-      "whyChoose": {
-        "title": "Why choose our token",
-        "benefits": {
-          "hardDrawn": {
-            "title": "Art Utility",
-            "description": "Use $InRealArt to buy/sell NFTs & physical art with reduced fees and exclusive pricing. A built-in rating system helps identify top artists and trusted sellers."
-          },
-          "exceptional": {
-            "title": "DAO Gouvernance",
-            "description": "Vote on key decisions like featured artists, platform upgrades, and fund allocation. Stakers with locked $InRealArt earn enhanced voting power and influence."
-          },
-          "donations": {
-            "title": "Staking rewards",
-            "description": "Earn up to 12% APR. Stakers unlock exclusive services : earluy access to drops, premium support, and participation in artist curation and gallery selection."
-          },
-          "royalties": {
-            "title": "Real World Gallery",
-            "description": "$InRealArt is used partner galleries, part of fiat payments is converted to support the token. Stakers gain perks like free custody, insurance discounts, and VIP invites."
-          }
-        }
-      },
-      "howToBuy": {
-        "title": "How you will buy the InRealArt Token?",
-        "subtitle": "Purchasing InRealArt tokens is a straightforward process designed to be accessible for both newcomers and seasoned crypto enthusiasts. Follow these steps to acquire your tokens.",
-        "step1": {
-          "title": "Choose your payment method",
-          "description": "Ensure you have a ETH-compatible wallet set up and funded with Ether. Some popular wallets include Metamask, Rabby and Phantom."
-        },
-        "step2": {
-          "title": "Complete your purchase",
-          "description": "For cryptocurrencies: transfer the desired amount to our official wallet address. For traditional currency: follow the secure payment process via our integrated gateway. Carefully check the details before confirming your transaction.",
-          "copyAddress": "Copy address"
-        },
-        "step3": {
-          "title": "Receiving $InRealArt Tokens",
-          "description": "Once your payment has been validated, your tokens will be automatically sent to your crypto wallet (for crypto payments) or reserved in a wallet created for you (for traditional currency payments). You'll receive an email confirmation with all the details of your purchase.",
-          "additionalInfo": "By following these steps, you can easily participate in our ecosystem and begin your journey with InRealArt. We're excited to welcome you aboard and look forward to seeing the impact your participation will have on our community!"
-        },
-        "secureToken": "Secure your token InRealArt",
-        "toast": {
-          "copied": "Address copied to clipboard!"
-        }
-      },
-      "allocation": {
-        "title": "Token allocation & funds distribution",
-        "subtitle": "Invest now and help to create the next generation of galleries, with the potential for significant profits after the TGE",
-        "tabs": {
-          "distribution": "Distribution",
-          "funding": "Funding allocation"
-        },
-        "maxSupply": "Max supply",
-        "distribution": {
-          "funding": "Funding",
-          "team/founders": "Team/Founders",
-          "treasury": "Treasury",
-          "marketing": "Marketing",
-          "liquidity": "Liquidity",
-          "airdrop": "Airdrop"
-        },
-        "funding": {
-          "description": "Tokens will be progressively unlocked to control inflation and stabilize the market.",
-          "privateSales": {
-            "title": "Private Sales",
-            "description": "Initial release of 20%, the rest is vested over 12 months."
-          },
-          "publicSales": {
-            "title": "Public Sales",
-            "description": "Full unlock during ICO."
-          },
-          "liquidityPools": {
-            "title": "Liquidity Pools",
-            "description": "Initially locked for a period of 12 to 24 months."
-          },
-          "teamAdvisors": {
-            "title": "Team & Advisors",
-            "description": "Vesting over 24 to 36 months with cliff to prevent dumps."
-          }
-        }
-      },
-      "invalidPhone": "Please enter a valid phone number"
-    },
     "availableCount": "{{count}} available artworks",
     "leasing": {
       "eyebrow": "Financing",
@@ -1288,76 +1099,6 @@
       ],
       "cta": "Simulate my LOA financing",
       "ctaNote": "Instant result — no commitment"
-    }
-  },
-  "token": {
-    "faq": {
-      "title": "Frequently Asked Questions about the token",
-      "description": "Find here the answers to the most common questions about the token."
-    },
-    "ico": {
-      "title": "ICO token details",
-      "subtitle": "Invest now and help to create the next generation of galleries, with the potential for significant profits after the TGE",
-      "timeline": {
-        "preseed": {
-          "label": "Pre-Seed",
-          "date": "Coming soon"
-        },
-        "seed": {
-          "label": "Seed",
-          "date": "Coming soon"
-        },
-        "kolRound": {
-          "label": "KOL Round",
-          "date": "Coming soon"
-        },
-        "publicSale": {
-          "label": "Public Sale",
-          "date": "Coming soon"
-        },
-        "launchpad": {
-          "label": "Launchpad",
-          "date": "Coming soon"
-        }
-      },
-      "description": "Participate in the ICO of InRealArt tokens and become part of a revolutionary art investment platform that brings together physical art, digital assets, and blockchain technology.",
-      "button": "Join the ICO",
-      "steps": {
-        "step1": {
-          "title": "Register for the ICO",
-          "description": "Complete the registration process to participate in our token sale. KYC verification will be required to ensure compliance."
-        },
-        "step2": {
-          "title": "Choose Your Investment",
-          "description": "Select the amount of tokens you wish to purchase based on your investment strategy and budget."
-        },
-        "step3": {
-          "title": "Secure Your Tokens",
-          "description": "After confirmation, your tokens will be allocated to your wallet, ready to be used on our platform."
-        }
-      }
-    },
-    "physicalArt": {
-      "title": "InRealArt: Revolutionizing Physical Art by combining it with Web3",
-      "description": "InRealArt is much more than a simple art gallery. It's an innovative Web3 ecosystem where the physical and digital worlds merge to redefine the art experience. Here, each artwork displayed in our physical galleries is directly linked to the blockchain, offering transparency, traceability, and community participation through a DAO.",
-      "tokenIntro": "Our native token is not limited to a simple financial asset. It allows you to:",
-      "features": {
-        "dao": "Participate in decisions through our DAO, influencing acquisitions, exhibitions, and strategic orientations.",
-        "revenue": "Benefit from revenues generated by sales and events organized within the galleries.",
-        "privileges": "Access exclusive privileges such as previews, fractionalized acquisitions of artworks, and private events."
-      },
-      "infrastructure": "Built on a secure and scalable infrastructure, InRealArt offers a unique experience where each investor becomes a key player in the tokenized art market. Dive into a project where physical art comes to life on the blockchain, guaranteeing authenticity, engagement, and return on investment.",
-      "button": "Secure your token",
-      "meaning": {
-        "title": "What InRealArt means",
-        "description": "The name InRealArt embodies our mission of merging physical and digital art, creating an ecosystem where each investor becomes a key player in the tokenized art market. Inspired by the richness of real art, InRealArt offers a platform where authenticity, engagement, and return on investment are guaranteed."
-      },
-      "benefits": {
-        "benefit1": "Authentication and verification of physical artworks through blockchain technology",
-        "benefit2": "Exclusive access to limited edition physical art pieces for token holders",
-        "benefit3": "Fractional ownership of high-value artworks through tokenization",
-        "benefit4": "Seamless transition between physical and digital art ownership"
-      }
     }
   },
   "usecase": {
@@ -1392,20 +1133,6 @@
       }
     },
     "items": {
-      "fractionate": {
-        "title": "InRealArt Fractionalized Art",
-        "description": "Access fractionalized artworks through an exclusive marketplace, offering unique and accessible investment opportunities. Ideal for collectors and investors looking to diversify their portfolio while benefiting from the growing value of art.",
-        "features": [
-          "Access to rare and exclusive artworks",
-          "Guaranteed authenticity and provenance",
-          "Secure ownership through blockchain",
-          "Exclusive benefits for collectors"
-        ],
-        "faq": {
-          "title": "Frequently Asked Questions about our fractional art solutions",
-          "description": "Find answers to the most common questions about our fractional art solutions for collectors and investors."
-        }
-      },
       "companies": {
         "title": "InRealArt Corporate Art Project",
         "description": "Art serving your communication and brand! Capture attention and strengthen your messages through art! InRealArt designs exhibitions and artistic projects adapted to all budgets, enhancing your employer brand and CSR strategy. With customized or rotating artworks, art becomes a powerful lever for innovative and engaging communication.",
@@ -1433,30 +1160,6 @@
           "title": "Frequently Asked Questions about our leasing solutions",
           "description": "Find answers to the most common questions about our leasing solutions for businesses and collectors."
         }
-      },
-      "lending": {
-        "title": "InRealArt Lending",
-        "description": "Transform your artworks into liquidity with InRealArt Lending, a flexible and secure solution to finance your development without traditional bank loans.",
-        "features": [
-          "Loans secured by artworks",
-          "Alternatives to traditional bank loans",
-          "Professional evaluation of artistic assets",
-          "Customized solutions for specific needs"
-        ],
-        "faq": {
-          "title": "Frequently Asked Questions about our lending solutions",
-          "description": "Find answers to the most common questions about our lending solutions for galleries, collectors, and art dealers."
-        }
-      },
-      "gallery": {
-        "title": "For Galleries",
-        "description": "Expand your reach, connect with new collectors, and leverage blockchain technology to enhance the value and traceability of your artworks.",
-        "features": [
-          "Expanded market reach",
-          "New collector connections",
-          "Enhanced artwork value",
-          "Improved traceability"
-        ]
       }
     },
     "faq": {
@@ -1655,27 +1358,6 @@
           "id": "03",
           "title": "Asset Appreciation",
           "description": "Invest in artworks while benefiting from tax and financial advantages, contributing to the appreciation of your company's assets."
-        }
-      ]
-    },
-    "slider": {
-      "title": "Combine leasing, NFTs, and copyright",
-      "subtitle": "The art and technology sectors are constantly evolving. That's why InRealArt offers you an innovative optimization model, combining leasing, NFTs, smart contracts, and blockchain to meet your needs.",
-      "items": [
-        {
-          "id": "01",
-          "title": "Traceability and Security through Blockchain",
-          "description": "The NFT associated with the physical artwork guarantees its authenticity, tracks its provenance, and manages copyright transparently. This technology facilitates artwork management and ensures optimal traceability and security for buyers."
-        },
-        {
-          "id": "02",
-          "title": "Simplified Rights Management",
-          "description": "Smart contracts enable automated management of copyright and royalties, ensuring fair and transparent distribution of revenue among the various stakeholders."
-        },
-        {
-          "id": "03",
-          "title": "Digital Valuation",
-          "description": "Tokenizing artwork opens new possibilities for valuation and exposure in the digital universe, increasing its visibility and value potential."
         }
       ]
     },
@@ -1894,91 +1576,6 @@
     "enhancedEcommerce": "Enhanced e-commerce: Detailed tracking of purchases, cart abandonment, product views, and purchase journeys to optimize shopping experience.",
     "customDimensions": "Custom dimensions: Business-specific variables like artist type, artwork category, price range, geographical origin for advanced analysis."
   },
-  "lending": {
-    "hero": {
-      "title": "InRealArt Lending New Generation: Innovative Financing for the Art Market",
-      "description": "Transform your artworks into liquidity with InRealArt Lending, a flexible and secure solution to finance your development without traditional bank loans.",
-      "button": "Contact us"
-    },
-    "advantages": {
-      "title": "InRealArt Lending",
-      "subtitle": "Benefit from secure and transparent financing through NFT technology. Use your artworks as collateral and obtain funds while maintaining control and ensuring impeccable traceability on the blockchain.",
-      "description": "InRealArt Lending addresses the financial needs of galleries, collectors, and art dealers. We offer a tailored approach for each profession and category.",
-      "button": "Contact us"
-    },
-    "solutions": {
-      "title": "Tailored solutions",
-      "description": "InRealArt Lending addresses the financial needs of galleries, collectors, and art dealers. We help you generate liquidity and value from your assets, ensure collection management and evaluation, all while guaranteeing a tailored approach for complete peace of mind.",
-      "button": "Contact us"
-    },
-    "alternative": {
-      "title": "InRealArt Lending offers <span class=\"text-purpleColor\">a flexible alternative to bank loans</span> and <span class=\"text-purpleColor\">finances</span> your acquisitions, expansions, or artistic projects."
-    },
-    "forWho": {
-      "title": "Who is it for?",
-      "items": [
-        "Galleries and Art Market Professionals: Transform your inventory into assets to seize growth opportunities",
-        "Collectors and Art Enthusiasts: Develop your collection while optimizing your assets",
-        "Institutions and Foundations: Leverage your artistic assets to finance new projects"
-      ]
-    },
-    "whyChoose": {
-      "title": "Why choose InRealArt lending",
-      "items": [
-        "Financial Optimization and Flexibility: Access liquidity while keeping your artworks",
-        "Security and Transparency via Blockchain: Enjoy high traceability and security",
-        "Access to Decentralized Finance (DeFi): Benefit from new Web3 opportunities to optimize your artistic assets"
-      ]
-    }
-  },
-  "fractionate": {
-    "hero": {
-      "title": "Access fractionalized artworks through an exclusive marketplace.",
-      "description": "Access fractionalized artworks through an exclusive marketplace, offering unique and accessible investment opportunities. Ideal for collectors and investors looking to diversify their portfolio while benefiting from the growing value of art.",
-      "button": "Contact us"
-    },
-    "howItWorks": {
-      "title": "How it works",
-      "steps": {
-        "selection": {
-          "number": "01",
-          "title": "Selection of Certified Artworks",
-          "description": "In partnership with world-renowned artists and galleries, InRealArt offers a high-end collection of artworks. This brings together creations by major names in contemporary art, promising emerging talents, and works by essential masters."
-        },
-        "verification": {
-          "number": "02",
-          "title": "Verification Process",
-          "description": "Each artwork undergoes a rigorous verification and authentication process by our experts."
-        },
-        "tokenization": {
-          "number": "03",
-          "title": "Tokenization and Fractionalization",
-          "description": "Artworks are tokenized and fractionalized on the blockchain, allowing investors to acquire shares of high-value artworks through unique and tamper-proof digital certificates of ownership."
-        }
-      }
-    },
-    "benefits": {
-      "title": "Benefits",
-      "items": {
-        "accessibility": {
-          "title": "Access Prestigious Artworks",
-          "description": "Fractionalized tokenization allows you to invest in rare and prestigious artworks, even with a limited budget. By purchasing fractions of artworks, you become the owner of a share of art, without having to invest in the entire piece."
-        },
-        "diversification": {
-          "title": "Diversify and Optimize Your Investments",
-          "description": "Fractionalized tokenization allows you to diversify your portfolio by investing in a variety of artworks, offering protection against traditional market volatility. You can invest in contemporary artists, old masters, or even emerging talents, while spreading your risks."
-        },
-        "liquidity": {
-          "title": "Enjoy Optimized Liquidity",
-          "description": "Thanks to our dedicated marketplace, you can easily buy and sell your tokens, offering flexibility and liquidity that traditional art cannot match. You can exchange your shares of artworks whenever you wish, with complete transparency."
-        },
-        "transparency": {
-          "title": "Security and Traceability Guarantees",
-          "description": "All transactions are recorded on the blockchain, ensuring maximum security and complete traceability. Each token represents a verified and authenticated part of the artwork, offering complete confidence in your investment."
-        }
-      }
-    }
-  },
   "blog": {
     "title": "A look at the news",
     "subtitle": "Explore our latest articles: art world news, cultural reflections, stories of transmission and upcoming projects. Keep up to date with the approaches, works and ideas that fuel our vision of living heritage.",
@@ -2018,116 +1615,11 @@
       "technology": "Technology",
       "investment": "Investment",
       "art": "Art",
-      "nft": "NFT",
-      "blockchain": "Blockchain",
       "business": "Business",
       "artists": "Artists",
       "trends": "Trends",
       "authentication": "Authentication",
-      "tokenization": "Tokenization",
       "strategy": "Strategy"
-    },
-    "articles": {
-      "companyArtInvestment": {
-        "title": "Can a Company Invest in Art?",
-        "description": "For a long time, art was seen as the domain of private collectors and public institutions. But that landscape is changing. Today, a new kind of player is entering the scene: the company. At the crossroads of asset management, brand identity, and cultural engagement, art is becoming a powerful and strategic investment for modern businesses.",
-        "introduction": "At InRealArt, we believe that art belongs not only in museums or private salons, but also at the heart of forward-thinking enterprises. More than an opportunity, it's a transformation in how companies can create and express value.",
-        "sections": [
-          {
-            "title": "Why Art Makes Strategic Sense for Businesses",
-            "content": "Art is never just decoration. For a company, acquiring an artwork is a bold gesture. It is a way to express identity, taste, and long-term vision. It builds an emotional connection with teams and clients, anchors the brand in cultural relevance, and communicates ambition.\n\nIt is also a means of diversifying corporate assets. The art market, while sometimes opaque, offers significant appreciation potential. And in countries like France, favorable tax incentives (such as article 238 bis AB of the French tax code) support corporate art acquisitions.\n\nStill, most companies aren't experts in the art market. What they need is clarity, security, and trust. That's where we come in."
-          },
-          {
-            "title": "InRealArt: Making Art Investment Simple, Secure, and Ambitious",
-            "content": "Our mission is clear: to empower companies to become confident art collectors—without the complexity or uncertainty. We offer a complete, curated ecosystem that blends artistic excellence with technological reliability.\n\nEach piece presented by InRealArt is handpicked from respected artists. It is delivered in physical form and paired with a certified NFT. Thanks to blockchain technology, each transaction is traceable, every artwork verifiable. No guesswork. No opacity. Only verified value.\n\nOur model goes beyond simple ownership. Through our dedicated marketplace and physical galleries, businesses can resell or exhibit their acquisitions within a controlled, high-standard environment. This is not speculation—it's structured, selective circulation. Every transaction is designed to protect the integrity and value of the work."
-          },
-          {
-            "title": "A New Way to Invest",
-            "content": "InRealArt is not just another digital gallery. It is a new way for companies to experience and engage with art: as investors, as curators, as cultural actors.\n\nInvesting in art means choosing distinction over convention. It's about placing meaningful objects in meaningful spaces. It's about letting artworks speak—to clients, to employees, to the moment we're living in.\n\nAnd it's about projection. Art is not a passive asset. It evolves. It circulates. It holds potential—not just aesthetic, but strategic. In the hands of a business, art becomes a living asset, merging cultural relevance with financial intelligence."
-          },
-          {
-            "title": "In Conclusion",
-            "content": "Yes, a company can invest in art. And with the right partner, it can do so with clarity, purpose, and ambition.\n\nAt InRealArt, art investment becomes a guided, transparent, and enriching experience. Art no longer simply hangs on a wall—it becomes a pillar of brand value, a strategic asset, and a human, emotional journey.\n\nWe don't just sell art. We empower our clients to become modern, confident, visionary collectors."
-          }
-        ]
-      },
-      "artInvestmentStrategy": {
-        "title": "Investing in Art: A Strategic and Valuable Asset in 2025",
-        "description": "In a time of economic uncertainty and market volatility, investing in art is gaining traction among individuals and companies looking for tangible, long-term value. Art offers a unique mix of financial potential, emotional return, and portfolio diversification.",
-        "introduction": "Why Consider Art as an Investment?",
-        "sections": [
-          {
-            "title": "The Benefits of Art Investment",
-            "content": "1. Strong Performance Potential\nBlue-chip artworks have shown remarkable returns over time. According to the Artprice100 Index, art has outperformed the S&P 500 by over 250% since 2000. For high-value pieces (over €100,000), annual returns can exceed 10%, making art a credible and strategic asset class.\n\n2. A Safe Haven in Unstable Markets\nLike gold or real estate, art is often seen as a store of value. It is less reactive to market shocks and serves as a buffer in periods of inflation or geopolitical instability.\n\n3. A Tool for Diversification\nArt offers uncorrelated returns compared to traditional investments. Including art in a portfolio spreads risk and brings added stability, especially for those looking to balance tangible and financial assets.\n\n4. Emotional and Cultural Value\nUnlike stocks or bonds, art is visible, personal, and emotionally enriching. It can enhance a space, convey meaning, and offer daily inspiration—while also acting as a long-term store of value."
-          },
-          {
-            "title": "The Risks of Art Investment",
-            "content": "1. Low Liquidity\nArtworks are not easily sold. Finding a buyer can take time, and the value is only realized at the moment of sale—unlike publicly traded assets.\n\n2. Uncertain Returns\nArt market performance can be highly variable. Success depends on factors like artistic trends, artist reputation, and market conditions—all of which can change rapidly.\n\n3. Hidden Costs\nMany collectors underestimate expenses like insurance, secure storage, restoration, and transaction fees. These can significantly impact net returns over time.\n\n4. Authentication Challenges\nWithout proper verification, there's always risk of forgeries or misattributions. The art market still lacks the standardized verification systems found in financial markets."
-          },
-          {
-            "title": "Art Market Trends in 2025",
-            "content": "The art market of 2025 is being transformed by technology and changing collector profiles. Blockchain-based NFTs now provide unprecedented transparency for provenance tracking and ownership rights. Digital platforms have democratized access, allowing more diverse participation in what was once an exclusive market.\n\nHowever, this evolution brings new challenges. Market fragmentation makes quality assessment more difficult, and the line between legitimate art investments and speculative ventures is increasingly blurred.\n\nInRealArt addresses these challenges with a comprehensive approach that combines:\n* Curatorial Excellence: Every artwork is selected for both artistic merit and long-term value potential\n* Technological Security: Blockchain authentication and NFT pairing for every physical piece\n* Market Access: A controlled marketplace that balances liquidity with value preservation\n* Expert Guidance: Professional support for collectors at every experience level\n\nBy maintaining a closed ecosystem with verified participants, InRealArt creates a more secure, transparent environment for art investment."
-          },
-          {
-            "title": "Conclusion: A Thoughtful Approach to Art Investment",
-            "content": "Art investment requires careful consideration, informed selection, and proper management. When approached strategically, it offers unique advantages that few other asset classes can match—cultural significance, visual pleasure, and financial potential.\n\nAt InRealArt, we believe in art's power as both a cultural and financial asset. Our approach goes beyond transactions to build lasting, valuable collections that reflect both artistic vision and investment wisdom.\n\nWe don't just help clients buy art. We help them build collections that stand the test of time—aesthetically, culturally, and financially."
-          }
-        ]
-      },
-      "artTokenization": {
-        "title": "Understanding Art Tokenization: A Beginner's Guide to the Future of Art Investment",
-        "description": "In the rapidly evolving art market, one concept is gaining momentum: tokenization. Closely linked to blockchain technology, this innovation is reshaping how artworks are owned, exchanged, and valued.",
-        "introduction": "At InRealArt, we believe that tokenization should not be reserved for insiders. It deserves a clear, thoughtful explanation—accessible to beginners, yet aligned with a high standard of excellence. Here's what you need to know to get started with art tokenization.",
-        "sections": [
-          {
-            "title": "What Is Tokenization?",
-            "content": "Tokenization is the process of converting a physical or digital asset into digital tokens that live on a blockchain. In the art world, this means transforming a single artwork into multiple fractional shares—each one represented by a digital token.\n\nIn simple terms: rather than purchasing an entire artwork, investors can own a portion of it. This opens up new possibilities for collectors, investors, and artists alike."
-          },
-          {
-            "title": "Core Principles of Art Tokenization",
-            "content": "1. Fractional Ownership\nOne artwork can be split into hundreds or thousands of tokens. Each token corresponds to a share of the work's overall value, enabling multiple people to own a stake in the same piece.\n\n2. Blockchain Technology\nAll transactions are securely recorded on a public or private blockchain. This ensures transparency, authenticity, and tamper-proof ownership records—critical advantages in a historically opaque market.\n\n3. Greater Accessibility\nTokenization democratizes the art world. Investors no longer need to commit large sums to participate. A growing number of people can now engage with high-value assets, previously reserved for a privileged few.\n\n4. Improved Liquidity\nUnlike traditional art investments, which are often locked up for years, tokens can be traded more easily on digital marketplaces. This adds flexibility and fluidity to a once rigid asset class."
-          },
-          {
-            "title": "Benefits for Investors",
-            "content": "Portfolio Diversification\nTokenized artworks provide a powerful way to diversify your investment portfolio with a tangible, cultural asset—without having to buy or store physical pieces.\n\nArtist Financing Opportunities\nArtists can finance their work by selling fractional ownership early on, engaging a community of supporters and bypassing traditional gatekeepers.\n\nTrust and Security\nBlockchain technology eliminates much of the risk tied to provenance and forgery. Each token is verifiable and traceable, offering a higher level of control and confidence."
-          },
-          {
-            "title": "Challenges to Keep in Mind",
-            "content": "As with any innovation, art tokenization comes with nuances.\n* Regulatory uncertainty: Legal frameworks vary between countries. Tokenized assets may fall under different classifications depending on local financial regulations.  \n* Technical literacy: While platforms like InRealArt streamline the process, some level of blockchain and NFT understanding remains essential for informed decision-making.  \n\nInRealArt's Approach to Tokenization\nAt InRealArt, we don't follow trends—we build frameworks that last. We integrate tokenization with rigor, integrity, and intention:\n* Each physical artwork comes with an authentication NFT, recorded on the blockchain\n* Only our verified buyers can resell works through our marketplace or physical galleries\n* Our curation standards remain stringent—quality always trumps quantity\n\nOur mission: to empower everyone—from casual enthusiasts to serious investors—to become enlightened collectors by combining security, accessibility, and excellence."
-          },
-          {
-            "title": "Conclusion: Art Enters a New Era",
-            "content": "Tokenization is profoundly transforming our relationship with art—making it more accessible, liquid, and secure. Yet it doesn't replace what truly matters. The artwork itself—its power, history, and place in our personal or collective heritage—remains central.\n\nAt InRealArt, we make no compromises: we use the best technology to showcase the best art. We ensure that every acquisition, even a fractional one, becomes an authentic, ambitious, and lasting experience."
-          }
-        ]
-      },
-      "beginnerArtInvestment": {
-        "title": "Getting Started with Art Investment: A Practical Guide for Curious Investors",
-        "description": "In an increasingly volatile financial landscape, investors are seeking value that goes beyond numbers. Art is no longer just a matter of personal taste or cultural capital — it's emerging as a credible asset class. With the right approach, it can bring both long-term returns and emotional reward.",
-        "introduction": "But how do you begin investing in art without prior expertise, and without falling into the usual traps of a complex and unregulated market? Here's a practical, structured guide for those who want to explore art as a smart and enriching investment — with confidence.",
-        "sections": [
-          {
-            "title": "1. Define Your Budget and Objectives",
-            "content": "Start with what makes sense for you. Contrary to popular belief, you don't need millions to invest in art. A starting budget between €1,000 and €5,000 is enough to begin, especially with emerging artists or fractional models. Know why you're investing: Diversification: Add a tangible, culturally relevant asset to your portfolio. Capital growth: Seek long-term appreciation. Personal value: Invest in something you connect with. Clear goals shape clear decisions — from the artists you explore to the works you choose."
-          },
-          {
-            "title": "2. Learn Before You Buy",
-            "content": "Develop your eye. Explore books, attend exhibitions, follow art experts, and engage with the community. Learning to read an artwork — and understand its market value — is part of the process. Understand the art market. Familiarize yourself with art movements, price trends, signature artists, and emerging talents. Know what makes a piece valuable: provenance, rarity, condition, and context."
-          },
-          {
-            "title": "3. Choose the Right Investment Strategy",
-            "content": "Buy physical artworks. Traditional collecting — through galleries or directly from artists — remains a meaningful and authentic approach, combining aesthetic enjoyment with financial potential. Try fractional investment. If your budget is limited, consider owning a fraction of a high-value piece via secure platforms. This allows broader access to established artworks without full acquisition costs. InRealArt offers a hybrid model: physical artworks, each certified and traceable via NFTs, are available exclusively to verified buyers. Our controlled marketplace allows for future resale, while ensuring the artwork's integrity is preserved."
-          },
-          {
-            "title": "4. Balance Emotion with Strategy",
-            "content": "Investing in art should never be purely transactional. A piece that resonates with you is more than an asset — it becomes part of your environment, your story. But emotion should be grounded in good judgment. Is the artist recognized? Is the provenance clear? Is there long-term value? At InRealArt, we believe in transforming passion into strategy — where every acquisition is both personal and purposeful."
-          },
-          {
-            "title": "5. Avoid Common Pitfalls",
-            "content": "Never buy without verifying authenticity or securing certificates. Avoid impulse buys based on hype or trend. Be realistic: art grows in value over time, not overnight. Don't underestimate ownership costs."
-          }
-        ]
-      }
     }
   },
   "media": {
@@ -2710,218 +2202,6 @@
       "international": {
         "title": "18.1. Internationally Competent Jurisdiction",
         "content": "In case of a dispute involving non-French parties, the PARTIES agree that the dispute will be submitted to the exclusive jurisdiction of the French courts, except in cases where the rule of international jurisdiction is imperative."
-      }
-    }
-  },
-  "termsNft": {
-    "title": "General Conditions of Use for NFT Artworks",
-    "subtitle": "These General Conditions of Use (hereinafter the \"GCU\") govern the use of the InRealArt platform (hereinafter the \"Platform\") for the purchase, sale, and management of NFT artworks.",
-    "introduction": {
-      "title": "Introduction",
-      "content": "InRealArt is a platform dedicated to the tokenization and trading of physical artworks through NFTs (Non-Fungible Tokens). These GCU establish the terms and conditions under which users can access and use the Platform to purchase, sell, and manage NFT artworks."
-    },
-    "article1": {
-      "title": "Article 1 - Object of the Agreement",
-      "description": {
-        "title": "Description of the Service",
-        "content": "InRealArt provides a platform for the tokenization and trading of physical artworks through NFTs. The Platform allows users to purchase, sell, and manage NFT artworks, which represent digital certificates of ownership for physical artworks."
-      },
-      "technicalIdentification": {
-        "title": "Technical Identification",
-        "content": "Each NFT artwork is uniquely identified on the blockchain with a specific token ID. This identification ensures the authenticity and traceability of each artwork."
-      },
-      "purpose": {
-        "title": "Purpose of the Agreement",
-        "content": "The purpose of this agreement is to define the terms and conditions under which users can access and use the Platform to purchase, sell, and manage NFT artworks."
-      },
-      "withdrawal": {
-        "title": "Right of Withdrawal",
-        "content": "In accordance with applicable consumer protection laws, users have the right to withdraw from this agreement within 14 days of its conclusion without having to justify their decision or incur any penalty."
-      }
-    },
-    "article2": {
-      "title": "Article 2 - Scope of the License",
-      "content": {
-        "title": "Content of the License",
-        "content": "The purchase of an NFT artwork grants the buyer a non-exclusive, non-transferable license to use, display, and resell the artwork in accordance with these GCU."
-      },
-      "territorialScope": {
-        "title": "Territorial Scope",
-        "content": "The license is granted worldwide, subject to applicable laws and regulations."
-      },
-      "duration": {
-        "title": "Duration",
-        "content": "The license is granted for the duration of the NFT's existence on the blockchain, unless terminated in accordance with these GCU."
-      },
-      "access": {
-        "title": "Access to the Artwork",
-        "content": "The buyer has access to the digital representation of the artwork through the Platform. The physical artwork remains in the custody of InRealArt or its designated custodian."
-      },
-      "credits": {
-        "title": "Credits and Attribution",
-        "content": "The buyer must maintain all credits and attributions associated with the artwork, including the artist's name and the Platform's branding."
-      }
-    },
-    "article3": {
-      "title": "Article 3 - Price of Transfer",
-      "content": "The price of each NFT artwork is clearly indicated on the Platform. All prices are in euros (€) and include all applicable taxes. Payment is processed securely through the Platform's payment system."
-    },
-    "article4": {
-      "title": "Article 4 - Warranties and Guarantees",
-      "copyright": {
-        "title": "Copyright and Intellectual Property",
-        "content": "InRealArt warrants that it has the necessary rights to tokenize and sell the artworks on the Platform. The buyer acknowledges that the purchase of an NFT does not transfer the copyright or other intellectual property rights in the artwork."
-      },
-      "exclusiveRights": {
-        "title": "Exclusive Rights",
-        "content": "The buyer has the exclusive right to display, use, and resell the NFT artwork in accordance with these GCU. However, this does not include the right to reproduce, modify, or create derivative works based on the artwork."
-      },
-      "thirdPartyRights": {
-        "title": "Third-Party Rights",
-        "content": "The buyer acknowledges that the artwork may be subject to third-party rights, such as moral rights of the artist. The buyer must respect these rights and obtain necessary permissions before using the artwork in certain ways."
-      },
-      "precautions": {
-        "title": "Precautions",
-        "content": "The buyer is responsible for taking all necessary precautions to protect their NFT, including securing their digital wallet and private keys."
-      },
-      "deletion": {
-        "title": "Deletion of the NFT",
-        "content": "InRealArt reserves the right to delete or invalidate an NFT if it is found to be counterfeit, stolen, or otherwise obtained in violation of these GCU or applicable laws."
-      },
-      "indemnities": {
-        "title": "Indemnities",
-        "content": "The buyer agrees to indemnify and hold harmless InRealArt from any claims, damages, or expenses arising from the buyer's use of the NFT artwork in violation of these GCU."
-      },
-      "authenticity": {
-        "title": "Authenticity",
-        "content": "InRealArt warrants that each NFT artwork is authentic and represents a genuine physical artwork. However, the buyer acknowledges that the value of NFTs can be volatile and that past performance is not indicative of future results."
-      }
-    },
-    "article5": {
-      "title": "Article 5 - Risks",
-      "economicRisks": {
-        "title": "Economic Risks",
-        "content": "The buyer acknowledges that the value of NFTs can be highly volatile and that there is no guarantee of profit or protection against loss. The buyer should only invest what they can afford to lose."
-      },
-      "technologicalRisks": {
-        "title": "Technological Risks",
-        "content": "NFTs are based on blockchain technology, which is still evolving. The buyer acknowledges the risks associated with this technology, including potential technical failures, security breaches, and regulatory changes."
-      },
-      "regulatoryRisks": {
-        "title": "Regulatory Risks",
-        "content": "The regulatory environment for NFTs is still developing and may vary by jurisdiction. The buyer is responsible for understanding and complying with applicable laws and regulations."
-      },
-      "modification": {
-        "title": "Modification of the Platform",
-        "content": "InRealArt reserves the right to modify, suspend, or discontinue the Platform at any time without prior notice. The buyer acknowledges that this may affect their ability to access or use their NFT artworks."
-      }
-    },
-    "article6": {
-      "title": "Article 6 - Execution of the Agreement",
-      "content": "The agreement is executed electronically through the Platform. By completing the purchase process, the buyer accepts these GCU and agrees to be bound by them."
-    },
-    "article7": {
-      "title": "Article 7 - Resale",
-      "content": "The buyer has the right to resell their NFT artwork on the Platform or through other authorized channels. However, the resale must comply with these GCU and applicable laws and regulations."
-    },
-    "article8": {
-      "title": "Article 8 - Applicable Law",
-      "conditions": {
-        "title": "Conditions",
-        "content": "These GCU are governed by French law, without regard to its conflict of law provisions."
-      },
-      "resaleRight": {
-        "title": "Resale Right",
-        "content": "In accordance with French law, artists have a right to a percentage of the resale price of their works. This right is managed by InRealArt on behalf of the artists."
-      }
-    },
-    "article9": {
-      "title": "Article 9 - Dispute Resolution",
-      "content": "Any dispute arising from these GCU shall be subject to the exclusive jurisdiction of the courts of Paris, France."
-    },
-    "article10": {
-      "title": "Article 10 - Severability",
-      "content": "If any provision of these GCU is found to be invalid or unenforceable, the remaining provisions shall continue to be valid and enforceable."
-    },
-    "article11": {
-      "title": "Article 11 - Personal Data",
-      "content": "InRealArt collects and processes personal data in accordance with its Privacy Policy and applicable data protection laws, including the General Data Protection Regulation (GDPR).",
-      "gdpr": {
-        "title": "GDPR Compliance",
-        "content": "InRealArt is committed to protecting the privacy and personal data of its users. We collect and process personal data in accordance with the GDPR and other applicable data protection laws."
-      },
-      "rights": {
-        "title": "User Rights",
-        "content": "Users have the right to access, rectify, and delete their personal data, as well as the right to object to its processing and the right to data portability. These rights can be exercised by contacting InRealArt's Data Protection Officer."
-      }
-    },
-    "article12": {
-      "title": "Article 12 - User Obligations",
-      "registration": {
-        "title": "Registration",
-        "content": "Users must provide accurate and complete information when registering on the Platform. They must keep their account credentials secure and notify InRealArt of any unauthorized access."
-      },
-      "conduct": {
-        "title": "Conduct",
-        "content": "Users must use the Platform in accordance with these GCU and applicable laws and regulations. They must not engage in any fraudulent, deceptive, or illegal activities."
-      },
-      "restrictions": {
-        "title": "Restrictions",
-        "content": "Users must not attempt to circumvent the Platform's security measures, interfere with its operation, or use it for any purpose other than its intended use."
-      }
-    },
-    "article13": {
-      "title": "Article 13 - Intellectual Property",
-      "content": "InRealArt retains all intellectual property rights in the Platform and its content, except for the artworks themselves. The purchase of an NFT does not transfer any intellectual property rights in the Platform or its content.",
-      "moralRights": {
-        "title": "Moral Rights",
-        "content": "Artists retain their moral rights in their artworks, regardless of the sale of the NFT. These rights include the right to be identified as the author and the right to object to derogatory treatment of the artwork."
-      },
-      "modifications": {
-        "title": "Modifications",
-        "content": "Users must not modify, adapt, or create derivative works based on the artworks without the express permission of the artist and InRealArt."
-      }
-    },
-    "article14": {
-      "title": "Article 14 - Limitation of Liability",
-      "content": "InRealArt shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from the use of the Platform or the purchase, sale, or management of NFT artworks."
-    },
-    "article15": {
-      "title": "Article 15 - Security",
-      "security": {
-        "title": "Security Measures",
-        "content": "InRealArt implements reasonable security measures to protect the Platform and users' data. However, no method of transmission over the Internet or electronic storage is 100% secure."
-      },
-      "storage": {
-        "title": "Storage",
-        "content": "Users are responsible for securing their digital wallets and private keys. InRealArt does not store or have access to users' private keys and cannot recover them if lost."
-      }
-    },
-    "article16": {
-      "title": "Article 16 - Force Majeure",
-      "content": "InRealArt shall not be liable for any failure to perform its obligations under these GCU due to circumstances beyond its reasonable control, including acts of God, war, strikes, or governmental restrictions."
-    },
-    "article17": {
-      "title": "Article 17 - Termination",
-      "byCompany": {
-        "title": "Termination by InRealArt",
-        "content": "InRealArt may terminate these GCU and suspend or terminate a user's access to the Platform if the user violates these GCU or applicable laws and regulations."
-      },
-      "byOwner": {
-        "title": "Termination by the User",
-        "content": "Users may terminate these GCU by deleting their account and discontinuing their use of the Platform."
-      },
-      "consequences": {
-        "title": "Consequences of Termination",
-        "content": "Upon termination, users will lose access to the Platform but will retain ownership of their NFT artworks. InRealArt will retain any fees already paid and may charge additional fees for processing the termination."
-      }
-    },
-    "article18": {
-      "title": "Article 18 - International Transfers",
-      "content": "InRealArt may transfer personal data to countries outside the European Economic Area (EEA). In such cases, InRealArt will ensure that appropriate safeguards are in place to protect the data in accordance with applicable data protection laws.",
-      "international": {
-        "title": "International Compliance",
-        "content": "Users acknowledge that the Platform may be subject to different laws and regulations in different jurisdictions. Users are responsible for ensuring their compliance with applicable laws and regulations in their jurisdiction."
       }
     }
   },
