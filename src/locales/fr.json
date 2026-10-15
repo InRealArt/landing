@@ -1256,16 +1256,12 @@
     "leasing": {
       "eyebrow": "Financement",
       "title": "Financez votre acquisition",
-      "subtitle": "Intégrez une œuvre d'exception dans votre patrimoine ou vos espaces professionnels. Deux modes d'acquisition, deux traitements fiscaux distincts.",
-      "lease": {
-        "title": "Leasing (LOA)",
-        "text": "Loyers déductibles du résultat imposable"
-      },
-      "purchase": {
-        "title": "Achat (art. 238 bis AB du CGI)",
-        "text": "Déduction étalée sur 5 ans, dans la limite de 5 ‰ du chiffre d'affaires"
-      },
-      "disclaimer": "Renseignez-vous auprès de votre expert-comptable.",
+      "subtitle": "Intégrez une œuvre d'exception dans votre patrimoine ou vos espaces professionnels grâce au leasing d'art. Déductible fiscalement, sans immobiliser votre capital.",
+      "bullets": [
+        "100 % déductible du résultat imposable",
+        "Amortissement sur 5 ans",
+        "TVA récupérable"
+      ],
       "cta": "Simuler mon financement LOA",
       "ctaNote": "Résultat immédiat — sans engagement"
     }
@@ -1459,7 +1455,7 @@
         ],
         "cta": "Étude de cas détaillée →",
         "ctaSecondary": "Simulateur LOA",
-        "roi": "+18% satisfaction équipes · loyers déductibles du résultat imposable"
+        "roi": "+18% satisfaction équipes · 100% charges déductibles"
       },
       "scenario2": {
         "badge": "Scénario 01",
@@ -1664,7 +1660,7 @@
       "description": "Les conseils d'un expert du marché de l'art, Code Général des Impôts, le leasing artistique derrière des collections d'entreprise, tout en créant une véritable démarche RSE grâce à un suivi personnalisé de votre projet selon vos objectifs, votre image de marque et d'innovations.",
       "bullets": [
         "Objectifs et expertise du marché d'art pour une stratégie d'image et de patrimoine",
-        "Loyers de leasing déductibles du résultat imposable, avec avantages ESG, optimisation du bilan et réduction de l'IS (déblocage du cashflow et réaffectation de l'épargne)",
+        "Fiscalité déductible à 100% avec avantages ESG, optimisation du bilan, réduction de l'IS (déblocage ainsi du cashflow et réaffectation de l'épargne)",
         "Protection contre l'Inflation (diversification d'actifs non corrélés et résilients) pour les PME"
       ]
     }

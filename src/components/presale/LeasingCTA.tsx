@@ -6,6 +6,8 @@ import { useTranslation } from '@/hooks/useTranslation'
 export default function LeasingCTA() {
   const { t } = useTranslation()
 
+  const bullets = t('presale.leasing.bullets') as unknown as string[]
+
   return (
     <section className="my-24 border-t border-borderColor pt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -30,26 +32,18 @@ export default function LeasingCTA() {
 
         {/* Right — bullets + CTA */}
         <div>
-          {/* Deux traitements fiscaux distincts : leasing (loyers) et achat (art. 238 bis AB) */}
-          <div className="space-y-8 mb-10">
-            {(['lease', 'purchase'] as const).map((mode) => (
-              <div key={mode} className="flex items-start gap-4">
+          {/* Fiscal bullets */}
+          <ul className="space-y-5 mb-10">
+            {(Array.isArray(bullets) ? bullets : []).map((item, i) => (
+              <li key={i} className="flex items-start gap-4">
                 {/* Thin gold rule */}
                 <span className="mt-1.5 w-5 h-px bg-[#b89c72] flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <h3 className="text-xs uppercase tracking-[0.3em] text-textColor leading-relaxed" suppressHydrationWarning>
-                    {t(`presale.leasing.${mode}.title`)}
-                  </h3>
-                  <p className="mt-2 text-xs uppercase tracking-[0.3em] text-textColor/70 leading-relaxed" suppressHydrationWarning>
-                    {t(`presale.leasing.${mode}.text`)}
-                  </p>
-                </div>
-              </div>
+                <span className="text-xs uppercase tracking-[0.3em] text-textColor/70 leading-relaxed">
+                  {item}
+                </span>
+              </li>
             ))}
-            <p className="text-xs tracking-[0.1em] text-textColor/50 leading-relaxed" suppressHydrationWarning>
-              {t('presale.leasing.disclaimer')}
-            </p>
-          </div>
+          </ul>
 
           {/* CTA */}
           <div>
