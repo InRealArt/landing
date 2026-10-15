@@ -4,8 +4,8 @@
 
 Name: InRealArt
 Domain: https://www.inrealart.com
-Type: Plateforme curatoriale d'art tokenisé
-Mission: Rendre l'art, la culture et le patrimoine accessibles, humains et éthiques via la tokenisation blockchain
+Type: Plateforme curatoriale d'art, de culture et de patrimoine
+Mission: Rendre l'art, la culture et le patrimoine accessibles, humains et éthiques via une sélection curatoriale
 Location: Paris, France
 Language: Français (primary), English (available)
 Contact: teaminrealart@gmail.com
@@ -17,8 +17,8 @@ Contact: teaminrealart@gmail.com
 ### Acteurs principaux
 
 - **Visiteur** — Toute personne découvrant la plateforme sans compte
-- **Artiste** — Créateur souhaitant référencer et tokeniser ses œuvres
-- **Collectionneur** — Acheteur d'œuvres tokenisées (particulier)
+- **Artiste** — Créateur souhaitant référencer et valoriser ses œuvres
+- **Collectionneur** — Acheteur d'œuvres d'art (particulier)
 - **Entreprise / Mécène** — Structure cherchant à investir dans l'art (B2B)
 - **Galerie / Partenaire** — Institution artistique partenaire
 
@@ -32,7 +32,7 @@ Contact: teaminrealart@gmail.com
 - browse_presale — Voir les œuvres en prévente
 - read_blog — Lire les articles de blog
 - read_faq — Accéder aux questions fréquentes
-- read_glossary — Consulter le glossaire art/blockchain
+- read_glossary — Consulter le glossaire art/finance
 - read_manifest — Lire le manifeste InRealArt
 - read_roadmap — Consulter la feuille de route
 - meet_team — Découvrir l'équipe
@@ -46,16 +46,15 @@ Contact: teaminrealart@gmail.com
 
 ### Artiste
 - All Visiteur capabilities
-- submit_artwork — Soumettre une œuvre pour tokenisation
+- submit_artwork — Soumettre une œuvre pour référencement
 - manage_profile — Gérer son profil artiste
 - view_artwork_stats — Voir les statistiques de vues/ventes
 - receive_sale_proceeds — Percevoir les revenus de vente
 
 ### Collectionneur
 - All Visiteur capabilities
-- purchase_artwork — Acheter une œuvre tokenisée
+- purchase_artwork — Acheter une œuvre
 - acquire_via_loa — Acquérir via location avec option d'achat
-- acquire_fractional — Investir en co-propriété d'œuvre
 - manage_portfolio — Gérer son portefeuille d'œuvres
 
 ### Entreprise / Mécène
@@ -74,24 +73,21 @@ Contact: teaminrealart@gmail.com
 
 ## Services et capacités métier
 
-### 1. Tokenisation d'art
-Description: Transformation d'œuvres physiques ou numériques en NFTs certifiés
+### 1. Référencement d'œuvres
+Description: Sélection et référencement d'œuvres physiques ou numériques
 Acteurs: Artistes, Galeries, InRealArt (curation)
 Processus:
   1. Candidature artiste
   2. Sélection curatoriale par l'équipe InRealArt
   3. Documentation et authentification de l'œuvre
-  4. Création du NFT sur blockchain
-  5. Mise en vente sur marketplace
+  4. Mise en vente sur marketplace
 
 ### 2. Marketplace d'œuvres
-Description: Plateforme d'achat/vente d'œuvres tokenisées
+Description: Plateforme d'achat/vente d'œuvres
 URL: https://www.inrealart.com/marketplace
 Modes d'acquisition:
   - Achat direct (paiement comptant)
   - Location avec Option d'Achat (LOA)
-  - Fractionnement (co-propriété)
-  - Prêt garanti (collatéral NFT)
 
 ### 3. Simulateurs financiers
 Description: Outils de calcul gratuits pour projeter l'acquisition d'art
@@ -118,7 +114,7 @@ Délai moyen de traitement: Contact sous 48h ouvrées
 Formulaire: Renseignements + portfolio/catalogue
 
 ### 5. Newsletter & communauté
-Description: Communication régulière sur l'actualité art/tokenisation
+Description: Communication régulière sur l'actualité art/patrimoine
 Fréquence: Hebdomadaire
 Inscription: https://www.inrealart.com/ (footer)
 
@@ -141,7 +137,6 @@ Permissions actuelles:
 ## Ce que InRealArt N'EST PAS
 
 - Pas une place de marché d'art traditionnel (pas de vente aux enchères généraliste)
-- Pas une bourse de cryptomonnaies
 - Pas un service de gestion de patrimoine réglementé (CGP)
 - Pas une galerie physique
 

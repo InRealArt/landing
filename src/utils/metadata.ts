@@ -223,7 +223,6 @@ export function generateOrganizationJsonLd(): string {
     },
     areaServed: ['FR', 'BE', 'CH', 'LU'],
     knowsAbout: [
-      'art tokenization',
       'art leasing',
       'contemporary art',
       'art investment',
@@ -454,7 +453,7 @@ export function generateBlogJsonLd(): string {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: `Blog InRealArt`,
-    description: "Tendances, interviews, analyses curatoriales et conseils pratiques sur l'art contemporain, la déficalisationn le leasing, la tokenisation et le marché de l'art.",
+    description: "Tendances, interviews, analyses curatoriales et conseils pratiques sur l'art contemporain, la défiscalisation, le leasing et le marché de l'art.",
     url: blogUrl,
     publisher: {
       '@type': 'Organization',
@@ -468,11 +467,9 @@ export function generateBlogJsonLd(): string {
     inLanguage: ['fr', 'en'],
     about: [
       { '@type': 'Thing', name: 'Art contemporain' },
-      { '@type': 'Thing', name: 'Tokenisation d\'art' },
       { '@type': 'Thing', name: 'Marché de l\'art' },
       { '@type': 'Thing', name: 'Défiscalisation' },
       { '@type': 'Thing', name: 'Leasing' },
-      { '@type': 'Thing', name: 'Tokenisation' },
       { '@type': 'Thing', name: 'LOA artistique' },
     ],
   }
@@ -520,12 +517,6 @@ export const defaultMetadata = {
     title: 'Marketplace InRealArt — Achetez, louez, soutenez l\'Art Vivant',
     description: 'Découvrez notre marketplace sélective : vente, leasing et collection d\'œuvres d\'art contextualisées. Un nouveau modèle de circulation artistique.',
     keywords: ['marketplace art', 'leasing artistique', 'collection art', 'art contemporain en ligne']
-  },
-  
-  token: {
-    title: 'Token IRA — Investir dans l\'Art avec sens et sécurité',
-    description: 'Le token IRA vous donne accès à une gouvernance éthique de l\'art. Un levier d\'investissement symbolique, culturel et responsable.',
-    keywords: ['token art', 'crypto éthique', 'gouvernance artistique', 'blockchain culturelle']
   },
   
   blog: {

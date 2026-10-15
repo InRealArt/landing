@@ -1,6 +1,6 @@
 # InRealArt
 
-> Plateforme curatoriale française dédiée à la tokenisation de l'art, de la culture et du patrimoine. Rend l'art accessible, humain et éthique pour artistes, collectionneurs et mécènes.
+> Plateforme curatoriale française dédiée à l'art, à la culture et au patrimoine. Rend l'art accessible, humain et éthique pour artistes, collectionneurs et mécènes.
 
 URL: https://www.inrealart.com/
 Langue principale: Français (English available)
@@ -9,27 +9,27 @@ Contact: teaminrealart@gmail.com
 
 ## Mission
 
-InRealArt est un catalyseur d'art, de culture et de patrimoine. La plateforme connecte artistes, galeries, collectionneurs et investisseurs autour de la tokenisation d'œuvres d'art — rendant l'art rare et exclusif accessible à tous via des NFTs et des mécanismes de financement innovants (LOA, fractionnement, mécénat).
+InRealArt est un catalyseur d'art, de culture et de patrimoine. La plateforme connecte artistes, galeries, collectionneurs et entreprises mécènes autour d'œuvres d'art — rendant l'art accessible à tous via des mécanismes de financement adaptés (LOA, mécénat).
 
 ## Pages principales
 
 - [Accueil](https://www.inrealart.com/) — Présentation de la plateforme, statistiques, artistes et œuvres en vedette
-- [Marketplace](https://www.inrealart.com/marketplace) — Œuvres d'art tokenisées disponibles à l'achat
+- [Marketplace](https://www.inrealart.com/marketplace) — Œuvres d'art disponibles à l'achat
 - [Artistes](https://www.inrealart.com/artists) — Catalogue des artistes référencés sur la plateforme
-- [Œuvres en prévente](https://www.inrealart.com/presale) — Artworks disponibles en prévente avant tokenisation
-- [Blog](https://www.inrealart.com/blog) — Articles sur l'art, la tokenisation, et les actualités InRealArt
-- [FAQ](https://www.inrealart.com/faq) — Questions fréquentes sur la plateforme et la tokenisation
-- [Glossaire](https://www.inrealart.com/glossary) — Terminologie de l'art et de la blockchain
+- [Œuvres en prévente](https://www.inrealart.com/presale) — Artworks disponibles en prévente avant leur mise en vente officielle
+- [Blog](https://www.inrealart.com/blog) — Articles sur l'art, le patrimoine, et les actualités InRealArt
+- [FAQ](https://www.inrealart.com/faq) — Questions fréquentes sur la plateforme
+- [Glossaire](https://www.inrealart.com/glossary) — Terminologie de l'art et de la finance
 - [Équipe](https://www.inrealart.com/team) — L'équipe fondatrice d'InRealArt
 - [À propos](https://www.inrealart.com/about) — Histoire et valeurs de la plateforme
 - [Manifeste](https://www.inrealart.com/manifest) — Vision et philosophie d'InRealArt
 - [Roadmap](https://www.inrealart.com/roadmap) — Feuille de route et jalons du projet
 - [Contact](https://www.inrealart.com/contact) — Formulaire de contact
-- [Academy](https://www.inrealart.com/academy) — Formation et éducation autour de l'art tokenisé
+- [Academy](https://www.inrealart.com/academy) — Formation et éducation autour de l'art et du patrimoine
 
 ## Cas d'usage
 
-- [Entreprises](https://www.inrealart.com/usecase/companies) — Mécénat d'entreprise et acquisition d'art tokenisé
+- [Entreprises](https://www.inrealart.com/usecase/companies) — Mécénat d'entreprise et acquisition d'œuvres d'art
 - [Location avec option d'achat (LOA)](https://www.inrealart.com/usecase/leasing) — Accéder à l'art via crédit-bail
 
 ## Rejoindre InRealArt

@@ -1,7 +1,7 @@
 # InRealArt — Documentation complète pour agents LLM
 
 URL: https://www.inrealart.com/
-Type: Plateforme curatoriale d'art tokenisé
+Type: Plateforme curatoriale d'art, de culture et de patrimoine
 Pays: France
 Langue principale: Français (English available)
 Contact: teaminrealart@gmail.com
@@ -11,11 +11,11 @@ Réseau social: @inrealart
 
 ## Description complète
 
-InRealArt est une plateforme curatoriale française fondée à Paris. Elle a pour mission de rendre l'art, la culture et le patrimoine accessibles, humains et éthiques. La plateforme opère à l'intersection de l'art contemporain et de la technologie blockchain, en proposant la tokenisation d'œuvres d'art sous forme de NFTs.
+InRealArt est une plateforme curatoriale française fondée à Paris. Elle a pour mission de rendre l'art, la culture et le patrimoine accessibles, humains et éthiques. La plateforme met en relation artistes, galeries, collectionneurs et entreprises autour d'œuvres d'art, avec une sélection curatoriale.
 
 InRealArt s'adresse à trois profils principaux :
-- **Artistes** : référencer et valoriser leurs œuvres via la tokenisation
-- **Collectionneurs** : acquérir des œuvres rares via marketplace, LOA, ou fractionnement
+- **Artistes** : référencer et valoriser leurs œuvres via la plateforme
+- **Collectionneurs** : acquérir des œuvres rares via marketplace ou LOA
 - **Entreprises et mécènes** : investir dans l'art avec des mécanismes de financement adaptés
 
 ---
@@ -25,7 +25,7 @@ InRealArt s'adresse à trois profils principaux :
 ### Accueil (/)
 Page principale présentant :
 - Hero section avec le positionnement de la plateforme
-- Statistiques clés du marché de l'art tokenisé
+- Statistiques clés de la plateforme
 - Section "Comment ça marche" (How It Works)
 - Carrousel d'artistes en vedette
 - Carrousel d'œuvres en vedette
@@ -35,31 +35,30 @@ Page principale présentant :
 - Inscription à la newsletter
 
 ### Marketplace (/marketplace)
-Catalogue des œuvres d'art tokenisées disponibles à l'achat. Chaque œuvre dispose d'une fiche avec description, artiste, prix, et mécanisme d'acquisition.
+Catalogue des œuvres d'art disponibles à l'achat. Chaque œuvre dispose d'une fiche avec description, artiste, prix, et mécanisme d'acquisition.
 
 ### Artistes (/artists)
 Annuaire des artistes référencés sur la plateforme. Filtrage par catégorie et nationalité. Chaque artiste dispose d'un profil détaillé avec biographie et portfolio.
 
 ### Œuvres en prévente (/presale)
-Artworks sélectionnés disponibles avant leur tokenisation officielle. Permet aux collectionneurs d'acquérir des positions privilégiées.
+Artworks sélectionnés disponibles avant leur mise en vente officielle. Permet aux collectionneurs d'acquérir des positions privilégiées.
 
 ### Blog (/blog)
 Articles éditoriaux sur :
 - L'art contemporain et les artistes
-- La tokenisation et les NFTs artistiques
+- Le patrimoine et le marché de l'art
 - Les actualités InRealArt
 - Les tendances du marché de l'art
 
 ### FAQ (/faq)
 Questions fréquemment posées organisées par thématiques :
-- Comprendre InRealArt et la tokenisation
+- Comprendre InRealArt
 - Processus d'acquisition d'œuvres
 - Aspects juridiques et fiscaux
-- NFTs et technologie blockchain
 
 ### Glossaire (/glossary)
-Définitions des termes techniques liés à l'art et à la blockchain :
-NFT, tokenisation, blockchain, smart contract, fractionnement, LOA, mécénat, etc.
+Définitions des termes liés à l'art et à la finance :
+LOA, mécénat, défiscalisation, etc.
 
 ### À propos (/about)
 Histoire de la fondation d'InRealArt, valeurs, et vision à long terme.
@@ -74,7 +73,7 @@ Présentation de l'équipe fondatrice avec biographies et rôles.
 Feuille de route du projet avec jalons passés et futurs.
 
 ### Academy (/academy)
-Ressources éducatives pour comprendre l'art tokenisé, la blockchain appliquée à l'art, et les mécanismes d'investissement.
+Ressources éducatives pour comprendre l'art, le patrimoine et les mécanismes de financement.
 
 ---
 
@@ -82,7 +81,7 @@ Ressources éducatives pour comprendre l'art tokenisé, la blockchain appliquée
 
 ### Entreprises (/usecase/companies)
 InRealArt propose aux entreprises :
-- Mécénat culturel via acquisition d'œuvres tokenisées
+- Mécénat culturel via acquisition d'œuvres d'art
 - Défiscalisation liée au mécénat d'art (loi Aillagon)
 - Décoration de locaux avec œuvres certifiées
 - Avantages RSE et image de marque culturelle
@@ -120,14 +119,13 @@ Point d'entrée unique pour tous les profils souhaitant rejoindre la plateforme.
 
 ### Pour les artistes (/joinInRealArt/artists)
 - Processus de candidature et sélection curatoriale
-- Tokenisation des œuvres
 - Partage des revenus de vente
 - Visibilité internationale
 
 ### Pour les galeries (/joinInRealArt/galleries)
 - Partenariat pour référencer le catalogue galerie
 - Co-marketing et visibilité
-- Accès aux outils de tokenisation
+- Accès aux outils de la plateforme
 
 ---
 
