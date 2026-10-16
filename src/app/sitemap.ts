@@ -8,6 +8,9 @@ import { toSlug } from '@/utils/slug'
 
 const BASE_URL = 'https://www.inrealart.com'
 
+// Sans revalidation, le sitemap reste figé au build : il ignore les contenus créés ou renommés en base ensuite
+export const revalidate = 300
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: '2026-02-27', changeFrequency: 'weekly', priority: 1.0 },
