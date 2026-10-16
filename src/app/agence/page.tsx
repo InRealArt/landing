@@ -7,6 +7,8 @@ import { getFeaturedAgencyEvents } from '@/actions/agencyEventActions'
 import NewsletterInline from '@/components/common/NewsletterInline'
 import AgenceFAQ from '@/components/agence/AgenceFAQ'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 const { t } = getServerTranslations('fr')
 
 export const metadata: Metadata = generateStaticMetadata({

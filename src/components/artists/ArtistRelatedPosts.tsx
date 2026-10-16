@@ -8,11 +8,15 @@ import { useTranslation } from '@/hooks/useTranslation'
 import { SeoPost } from '@/types/seoPost'
 
 interface Props {
+  /** Nom civil : sert à rechercher les articles qui citent l'artiste */
   artistName: string
+  /** Nom d'usage affiché (IRA-13) */
+  displayName?: string
   artistSurname: string
 }
 
-export default function ArtistRelatedPosts({ artistName, artistSurname }: Props) {
+export default function ArtistRelatedPosts({ artistName, artistSurname, displayName }: Props) {
+  const shownName = displayName || artistName
   const { language } = useTranslation()
   const [posts, setPosts] = useState<SeoPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -145,7 +149,9 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
     }
   }, [loading, posts])
 
-  if (!loading && posts.length === 0) return null
+  // Rien tant qu'aucun article n'est chargé : la page étant rendue côté serveur, un squelette
+  // ajouterait au HTML servi un titre « Nos articles sur… » pour des artistes sans article
+  if (posts.length === 0) return null
 
   return (
     <section
@@ -164,9 +170,9 @@ export default function ArtistRelatedPosts({ artistName, artistSurname }: Props)
             </span>
             <h2 className="rp-title text-4xl lg:text-5xl font-cormorant font-light text-textColor leading-tight">
               {language === 'fr' ? (
-                <>Nos articles sur{' '}<span className="italic" style={{ color: '#b89c72' }}>{artistName}</span></>
+                <>Nos articles sur{' '}<span className="italic" style={{ color: '#b89c72' }}>{shownName}</span></>
               ) : (
-                <>Articles about{' '}<span className="italic" style={{ color: '#b89c72' }}>{artistName}</span></>
+                <>Articles about{' '}<span className="italic" style={{ color: '#b89c72' }}>{shownName}</span></>
               )}
             </h2>
           </div>

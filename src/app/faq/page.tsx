@@ -4,6 +4,8 @@ import { getGlobalDetailedFaqData } from '@/actions/detailedFaqActions'
 import FaqClient from './FaqClient'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Questions Fréquentes — Tout comprendre sur InRealArt',
   description: "Retrouvez les réponses aux questions les plus fréquentes sur le fonctionnement d'In Real Art, nos services, nos engagements éthiques et notre accompagnement artistique.",

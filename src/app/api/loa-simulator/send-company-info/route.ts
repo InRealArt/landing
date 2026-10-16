@@ -1,28 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendEmailViaBrevo, createAdminEmailTemplate } from '@/utils/emailTemplates'
-import { FormData, LeaseResults, Comparison } from '@/utils/pdfGenerator'
+import { sendEmailViaBrevo, createAdminEmailTemplate, contactLabel } from '@/utils/emailTemplates'
+import { loaSimulationWithRecaptchaSchema } from '@/utils/loaSimulatorSchema'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
-    const { formData, leaseResults, comparison }: {
-      formData: FormData
-      leaseResults: LeaseResults
-      comparison: Comparison
-    } = body
+    const parsed = loaSimulationWithRecaptchaSchema.safeParse(await request.json().catch(() => null))
+    if (!parsed.success) {
+      return NextResponse.json({ success: false, error: 'Invalid request data' }, { status: 400 })
+    }
+
+    const { formData, leaseResults, comparison, recaptchaToken } = parsed.data
+    // Notification d'un lead : seulement si le visiteur a laissé des coordonnées
+    if (!formData.email && !formData.phoneNumber) {
+      return NextResponse.json({ success: false, error: 'No contact details' }, { status: 400 })
+    }
+    if (!(await verifyRecaptchaToken(recaptchaToken))) {
+      return NextResponse.json({ success: false, error: 'reCAPTCHA verification failed' }, { status: 403 })
+    }
 
     // Send admin notification email with company info and calculation results
     await sendEmailViaBrevo(
       'teaminrealart@gmail.com',
-      `Nouvelle simulation de leasing - ${formData.company}`,
+      `Nouvelle simulation de leasing - ${contactLabel(formData)}`,
       createAdminEmailTemplate(formData, leaseResults, comparison)
     )
 
     console.log('✅ Company info sent to admin successfully')
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Company information sent successfully' 
+    return NextResponse.json({
+      success: true,
+      message: 'Company information sent successfully'
     })
 
   } catch (error) {
@@ -32,4 +40,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
-} 
+}

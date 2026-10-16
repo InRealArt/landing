@@ -44,6 +44,30 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  // Pages héritées (audit V2, IRA-07) : 308 permanentes vers la page qui les remplace.
+  // Exécutées avant src/proxy.ts. /terms-nft répond 410 (GONE_ROUTES dans src/proxy.ts).
+  async redirects() {
+    return [
+      { source: '/marketplace', destination: '/presale', permanent: true },
+      { source: '/about', destination: '/team', permanent: true },
+      { source: '/academy', destination: '/blog', permanent: true },
+      { source: '/roadmap', destination: '/', permanent: true },
+      { source: '/usecase/fractionate', destination: '/usecase', permanent: true },
+      { source: '/usecase/lending', destination: '/usecase/leasing', permanent: true },
+      // Une seule URL pour le simulateur LOA (IRA-18)
+      { source: '/simulators/loa', destination: '/loa-simulator', permanent: true },
+      // Slugs de blog tronqués corrigés en base (IRA-06, docs/audit/sql/2026-10-16-blog-slugs-ira06.sql)
+      { source: '/blog/institutions-et-pme-des-partenaires-incontournables-pour-la-culture-franaise', destination: '/blog/institutions-et-pme-des-partenaires-incontournables-pour-la-culture-francaise', permanent: true },
+      { source: '/blog/en-catherine-s-n-chal-the-alchemist-of-pure-color', destination: '/blog/en-catherine-senechal-the-alchemist-of-pure-color', permanent: true },
+      { source: '/blog/en-fran-ois-poulat-travel-nature-and-art-the-journey-of-an-inspired-artist', destination: '/blog/en-francois-poulat-travel-nature-and-art-the-journey-of-an-inspired-artist', permanent: true },
+      { source: '/blog/en-l-art-ce-passeur-silencieux-la-transmission-patrimoniale-comme-acte-de-r-sistance-culturelle', destination: '/blog/en-lart-ce-passeur-silencieux-la-transmission-patrimoniale-comme-acte-de-resistance-culturelle', permanent: true },
+      { source: '/blog/en-the-versaillaise-biennale-contemporary-art-takes-place-at-carr-la-farine-in-partnership-with-inrealart', destination: '/blog/en-the-versaillaise-biennale-contemporary-art-takes-place-at-carre-a-la-farine-in-partnership-with-inrealart', permanent: true },
+      { source: '/blog/en-artialy-in-the-spotlight-in-les-m-tiers-de-la-cr-ation-an-immersion-in-the-world-of-a-young-artist-in-the-making', destination: '/blog/en-artialy-in-the-spotlight-in-les-metiers-de-la-creation-an-immersion-in-the-world-of-a-young-artist-in-the-making', permanent: true },
+      { source: '/blog/en-cime-et-cistre-the-pictorial-horizon-of-lucia-mamos-moreaux-at-the-cimes-du-ch-teau', destination: '/blog/en-cime-et-cistre-the-pictorial-horizon-of-lucia-mamos-moreaux-at-the-cimes-du-chateau', permanent: true },
+      { source: '/blog/en-plong-e-dans-l-univers-d-alexandre-leadouze-une-vie-au-service-des-artistes-de-la-culture-et-du-patrimoine', destination: '/blog/en-plongee-dans-lunivers-dalexandre-leadouze-une-vie-au-service-des-artistes-de-la-culture-et-du-patrimoine', permanent: true },
+    ]
+  },
+
   // Configuration des en-têtes de cache pour les images
   async headers() {
     return [

@@ -13,11 +13,13 @@ interface ArtworkCardProps {
   };
   name: string;
   type?: 'artist' | 'artwork';
+  /** Slug de l'URL ; à fournir pour un artiste (le nom affiché peut être un pseudo, IRA-13) */
+  slug?: string;
 }
 
-const ArtworkCard = ({ image, name, type = 'artwork' }: ArtworkCardProps) => {
-  // Convert the name to a slug for the URL
-  const slug = stringToSlug(name);
+const ArtworkCard = ({ image, name, type = 'artwork', slug: slugProp }: ArtworkCardProps) => {
+  // Slug fourni, sinon dérivé du nom (œuvres : /artwork/<slug du nom>)
+  const slug = slugProp || stringToSlug(name);
   const { src: imgSrc, status, onLoad, onError } = useCloudStorageImage(image.src)
 
   if (type === 'artist') {

@@ -1,0 +1,15 @@
+-- IRA-06 : slugs de blog tronqués (lettres accentuées remplacées par « - » ou supprimées)
+-- À exécuter AVANT (ou au moment de) la mise en ligne : next.config.ts redirige déjà l'ancien slug vers le nouveau.
+-- Idempotent : ne modifie que les lignes qui ont encore l'ancien slug.
+BEGIN;
+UPDATE landing."SeoPost" SET slug = 'institutions-et-pme-des-partenaires-incontournables-pour-la-culture-francaise' WHERE id = 17 AND slug = 'institutions-et-pme-des-partenaires-incontournables-pour-la-culture-franaise';
+UPDATE landing."SeoPost" SET slug = 'en-catherine-senechal-the-alchemist-of-pure-color' WHERE id = 22 AND slug = 'en-catherine-s-n-chal-the-alchemist-of-pure-color';
+UPDATE landing."SeoPost" SET slug = 'en-francois-poulat-travel-nature-and-art-the-journey-of-an-inspired-artist' WHERE id = 101 AND slug = 'en-fran-ois-poulat-travel-nature-and-art-the-journey-of-an-inspired-artist';
+UPDATE landing."SeoPost" SET slug = 'en-lart-ce-passeur-silencieux-la-transmission-patrimoniale-comme-acte-de-resistance-culturelle' WHERE id = 133 AND slug = 'en-l-art-ce-passeur-silencieux-la-transmission-patrimoniale-comme-acte-de-r-sistance-culturelle';
+UPDATE landing."SeoPost" SET slug = 'en-the-versaillaise-biennale-contemporary-art-takes-place-at-carre-a-la-farine-in-partnership-with-inrealart' WHERE id = 208 AND slug = 'en-the-versaillaise-biennale-contemporary-art-takes-place-at-carr-la-farine-in-partnership-with-inrealart';
+UPDATE landing."SeoPost" SET slug = 'en-artialy-in-the-spotlight-in-les-metiers-de-la-creation-an-immersion-in-the-world-of-a-young-artist-in-the-making' WHERE id = 214 AND slug = 'en-artialy-in-the-spotlight-in-les-m-tiers-de-la-cr-ation-an-immersion-in-the-world-of-a-young-artist-in-the-making';
+UPDATE landing."SeoPost" SET slug = 'en-cime-et-cistre-the-pictorial-horizon-of-lucia-mamos-moreaux-at-the-cimes-du-chateau' WHERE id = 258 AND slug = 'en-cime-et-cistre-the-pictorial-horizon-of-lucia-mamos-moreaux-at-the-cimes-du-ch-teau';
+UPDATE landing."SeoPost" SET slug = 'en-plongee-dans-lunivers-dalexandre-leadouze-une-vie-au-service-des-artistes-de-la-culture-et-du-patrimoine' WHERE id = 281 AND slug = 'en-plong-e-dans-l-univers-d-alexandre-leadouze-une-vie-au-service-des-artistes-de-la-culture-et-du-patrimoine';
+-- Contrôle : 0 ligne attendue
+SELECT id, slug FROM landing."SeoPost" WHERE id IN (17, 22, 101, 133, 208, 214, 258, 281) AND slug NOT IN ('institutions-et-pme-des-partenaires-incontournables-pour-la-culture-francaise', 'en-catherine-senechal-the-alchemist-of-pure-color', 'en-francois-poulat-travel-nature-and-art-the-journey-of-an-inspired-artist', 'en-lart-ce-passeur-silencieux-la-transmission-patrimoniale-comme-acte-de-resistance-culturelle', 'en-the-versaillaise-biennale-contemporary-art-takes-place-at-carre-a-la-farine-in-partnership-with-inrealart', 'en-artialy-in-the-spotlight-in-les-metiers-de-la-creation-an-immersion-in-the-world-of-a-young-artist-in-the-making', 'en-cime-et-cistre-the-pictorial-horizon-of-lucia-mamos-moreaux-at-the-cimes-du-chateau', 'en-plongee-dans-lunivers-dalexandre-leadouze-une-vie-au-service-des-artistes-de-la-culture-et-du-patrimoine');
+COMMIT;

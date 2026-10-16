@@ -114,18 +114,9 @@ export function compareWithDirectPurchase(
 export function validateArtworkLeaseInputs(inputs: Partial<ArtworkLeaseInputs>): string[] {
   const errors: string[] = [];
 
-  if (!inputs.company?.trim()) {
-    errors.push('Le nom de l\'entreprise est requis');
-  }
-
-  if (!inputs.email?.trim()) {
-    errors.push('L\'adresse email est requise');
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs.email)) {
+  // Coordonnées facultatives (IRA-18) : le calcul n'en dépend pas ; l'e-mail n'est contrôlé que s'il est saisi
+  if (inputs.email?.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs.email.trim())) {
     errors.push('L\'adresse email n\'est pas valide');
-  }
-
-  if (!inputs.phoneNumber?.trim()) {
-    errors.push('Le numéro de téléphone est requis');
   }
 
   if (!inputs.artworkValue || inputs.artworkValue <= 0) {

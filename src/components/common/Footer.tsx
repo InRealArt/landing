@@ -9,31 +9,8 @@ import { subscribeToNewsletter } from '@/actions/newsletterActions'
 import { salons } from '@/utils/artSalonCalculations'
 import Link from 'next/link'
 
-const atelierLinks = [
-  { label: 'Sandrine Hirson', href: 'https://share.google/GewswgKB0Od9tyFEV' },
-  { label: 'Nadine LePrince', href: 'https://share.google/7uieG9SlEVKaUTHvO' },
-  { label: 'Mr Hope', href: 'https://share.google/ZwMEQTKtzRROGGeUF' },
-  { label: 'Marie de Saint Germain', href: 'https://share.google/7XwDxxwXSRlo3IfpQ' },
-  { label: 'Marianne Quinzin', href: 'https://share.google/kYGzFfbZQ7NZdExgQ' },
-  { label: 'Marc Peltzer', href: 'https://share.google/1A8fKvVlZ3lKXIrD7' },
-  { label: 'Jean-Paul Boyer', href: 'https://share.google/374mb9VcmQvHSyppN' },
-  { label: 'François Poulat', href: 'https://share.google/c0cqNa2fGo738bTei' },
-  { label: 'Franck Alagna', href: 'https://share.google/7MeBYyD6SPH1P1I89' },
-  { label: 'Florence Autelin', href: 'https://share.google/C8KXeYSLAwtW0ya3Z' },
-  { label: 'Catherine Sénéchal', href: 'https://share.google/DfFrXEYyGarxVUkUf' },
-  { label: 'Alves Antoine Junior', href: 'https://share.google/IzSfhbdnUDNx0e47K' },
-]
-
-interface ResidentArtist {
-  label: string
-  slug: string
-}
-
-interface FooterProps {
-  residentArtists?: ResidentArtist[]
-}
-
-const Footer = ({ residentArtists = [] }: FooterProps) => {
+// Pied de page unique de 15 à 20 liens internes, sans liens share.google (IRA-08)
+const Footer = () => {
   const { t, language } = useTranslation()
   const [email, setEmail] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -93,7 +70,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
         </div>
 
         {/* Colonnes de navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 mb-14 text-center md:text-left">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 mb-14 text-center md:text-left">
 
           {/* Colonne : À propos */}
           <div>
@@ -128,7 +105,6 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             <Link href="/services" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/media" className="footer-link">{t('nav.blog')}</Link>
-            <Link href="/artists-studio" className="footer-link">{t('footer.ateliersIndex')}</Link>
           </div>
 
           {/* Colonne : Simulateurs */}
@@ -159,7 +135,7 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
             </Link>
           </div>
 
-          {/* Colonne : Atelier de nos artistes */}
+          {/* Colonne : Artistes */}
           <div>
             <h5
               className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
@@ -169,46 +145,12 @@ const Footer = ({ residentArtists = [] }: FooterProps) => {
               }}
               suppressHydrationWarning
             >
-              {t('footer.atelier')}
+              {t('nav.artists')}
             </h5>
-            <div className="h-40 overflow-y-auto pr-2 custom-scrollbar">
-              {atelierLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="artist-list-item"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Colonne : Artistes résidents */}
-          <div>
-            <h5
-              className="text-xs uppercase tracking-[0.3em] font-bold mb-5 pb-3 montserrat"
-              style={{
-                color: 'var(--ink-black)',
-                borderBottom: '1px solid var(--border-light)',
-              }}
-              suppressHydrationWarning
-            >
-              {t('footer.residents')}
-            </h5>
-            <div className="h-40 overflow-y-auto pr-2 custom-scrollbar">
-              {residentArtists.map((artist) => (
-                <Link
-                  key={artist.slug}
-                  href={`/artists/${artist.slug}`}
-                  className="artist-list-item"
-                >
-                  {artist.label}
-                </Link>
-              ))}
-            </div>
+            <Link href="/artists" className="footer-link">{t('footer.residents')}</Link>
+            <Link href="/artists-studio" className="footer-link">{t('footer.ateliersIndex')}</Link>
+            <Link href="/agence/artists" className="footer-link">{t('footer.agencyCreators')}</Link>
+            <Link href="/presale" className="footer-link">{t('footer.catalogue')}</Link>
           </div>
         </div>
 

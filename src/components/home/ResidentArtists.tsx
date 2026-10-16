@@ -4,6 +4,7 @@ import { useTranslation } from '@/hooks/useTranslation'
 import { loadGsap } from '@/lib/gsap'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface ResidentArtist {
   id: number
@@ -79,10 +80,7 @@ export default function ResidentArtists({ artists }: ResidentArtistsProps) {
     return () => ctx?.revert()
   }, [])
 
-  const getDisplayName = (artist: ResidentArtist) => {
-    if (artist.pseudo) return artist.pseudo
-    return `${artist.name} ${artist.surname}`.trim()
-  }
+  const getDisplayName = (artist: ResidentArtist) => getArtistDisplayName(artist)
 
   const getCategory = (_artist: ResidentArtist) => {
     return 'Peintre & artiste résident'

@@ -5,12 +5,12 @@ import ArtworkImageWithHover from '@/components/common/ArtworkImageWithHover'
 import ArtworkImageModal from '@/components/common/ArtworkImageModal'
 import SoldStatusBadge from '@/components/common/SoldStatusBadge'
 import { useTranslation } from '@/hooks/useTranslation'
-import { generateCreativeWorkJsonLd, generateBreadcrumbJsonLd } from '@/utils/metadata'
 import { ArtistInfoSection, ArtistArtworkCarousel } from '@/components/artists'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
 import { formatPrice } from '@/utils/formatPrice'
 import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 import type { TransformedArtistData } from '@/types/artist'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   artwork: PresaleArtworkData
@@ -54,39 +54,10 @@ export default function ArtworkPageClient({ artwork, artist, relatedArtworks }: 
     return images
   }, [artwork.imageUrl, artwork.mockupUrls])
 
-  const artistFullName = `${artwork.artist.name} ${artwork.artist.surname}`
+  const artistFullName = getArtistDisplayName(artwork.artist)
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: generateCreativeWorkJsonLd(
-            artworkName,
-            sanitizedDescription || rawDescription || "Oeuvre d'art unique",
-            artwork.imageUrl,
-            artistFullName,
-            undefined,
-            undefined,
-            artwork.width && artwork.height
-              ? `${artwork.width} x ${artwork.height} cm`
-              : undefined,
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: generateBreadcrumbJsonLd([
-            { name: 'Accueil', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com' },
-            { name: 'Oeuvres', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'}/artworks` },
-            { name: artworkName },
-          ]),
-        }}
-      />
-
       <div className="container mx-auto px-4 py-8 pt-headerSize">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="relative rounded-lg overflow-hidden min-h-[400px] border border-borderColor shadow-lg hover:shadow-xl transition-all duration-300 hover:border-purpleColor/30">

@@ -7,6 +7,7 @@ import ArtistSlide from './slides/ArtistSlide'
 import ArtworkSlide from './slides/ArtworkSlide'
 import PostSlide from './slides/PostSlide'
 import ExhibitionSlide from './slides/ExhibitionSlide'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 type Props = {
   items: FeaturedItem[]
@@ -97,7 +98,7 @@ export default function FeaturedSliderClient({ items }: Props) {
                   {current.kind === 'exhibition' && 'Exposition en avant'}
                 </p>
                 <h3 className="serif text-4xl font-light text-textColor leading-tight">
-                  {current.kind === 'artist' && `${current.name} ${current.surname}`}
+                  {current.kind === 'artist' && getArtistDisplayName(current)}
                   {current.kind === 'artwork' && current.title}
                   {current.kind === 'post' && current.title}
                   {current.kind === 'exhibition' && current.title}

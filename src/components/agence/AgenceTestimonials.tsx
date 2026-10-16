@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   t: (key: string) => string
@@ -116,7 +117,7 @@ export default function AgenceTestimonials({ t, artists }: Props) {
           className={`grid grid-cols-1 gap-px bg-borderColor ${selected.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'}`}
         >
           {selected.map(({ artist, testimonial }, i) => {
-            const name = artist.profile.pseudo || [artist.profile.name, artist.profile.surname].filter(Boolean).join(' ') || 'Créateur'
+            const name = getArtistDisplayName(artist.profile) || 'Créateur'
             const img = getImageUrl(artist.profile.profileImageUrl)
 
             return (

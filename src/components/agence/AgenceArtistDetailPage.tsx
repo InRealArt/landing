@@ -5,15 +5,14 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
 import type { UgcArtistProfileData } from '@/actions/ugcActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   artist: UgcArtistProfileData
 }
 
 function displayName(artist: UgcArtistProfileData): string {
-  if (artist.pseudo) return artist.pseudo
-  const parts = [artist.name, artist.surname].filter(Boolean)
-  return parts.length > 0 ? parts.join(' ') : '—'
+  return getArtistDisplayName(artist) || '—'
 }
 
 function formatMetric(value: number | null | undefined): string {
@@ -137,8 +136,21 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
   const name = displayName(artist)
   const profileImage = getImageUrl(artist.profileImageUrl)
   const metrics = artist.socialMetrics
+
   const networks = metrics?.socialNetworks ?? []
   const { photos, videos } = splitMediaUrls(artist.mediaUrls)
+
+  // Numérotation continue des sections réellement affichées (IRA-16) : 01, 02, 03… sans trou
+  const sectionNumbers: Record<'presentation' | 'metrics' | 'videos' | 'photos', string> = { presentation: '', metrics: '', videos: '', photos: '' }
+  let sectionCount = 0
+  for (const [key, visible] of [
+    ['presentation', !!artist.presentation],
+    ['metrics', !!metrics],
+    ['videos', videos.length > 0],
+    ['photos', photos.length > 0],
+  ] as const) {
+    if (visible) sectionNumbers[key] = String(++sectionCount).padStart(2, '0')
+  }
   const sanitizedPresentation = useSanitizedHtml(artist.presentation)
 
   // Refs for GSAP targets
@@ -501,7 +513,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-12 lg:gap-20">
               <div data-anim-label className="flex flex-col gap-3" style={{ opacity: 0 }}>
                 <div className="flex items-center gap-4">
-                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">01</span>
+                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">{sectionNumbers.presentation}</span>
                   <span className="flex-1 h-px bg-borderColor" />
                 </div>
                 <p className="serif text-2xl font-light text-textColor">
@@ -528,7 +540,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div data-anim-header className="mb-14" style={{ opacity: 0 }}>
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
-                  {t('agence.artists.detail.metricsNumber')}
+                  {sectionNumbers.metrics} — {t('agence.artists.detail.metricsNumber')}
                 </span>
                 <span className="h-px bg-borderColor w-12" />
               </div>
@@ -594,7 +606,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
             <div data-anim-header className="flex items-end justify-between mb-12 pb-10 border-b border-borderColor" style={{ opacity: 0 }}>
               <div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">03</span>
+                  <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">{sectionNumbers.videos}</span>
                   <span className="h-px bg-borderColor w-8" />
                   <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                     {t('agence.artists.detail.reelsLabel')}
@@ -642,7 +654,7 @@ export default function AgenceArtistDetailPage({ artist }: Props) {
               <div>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
-                    {videos.length > 0 ? '04' : '03'}
+                    {sectionNumbers.photos}
                   </span>
                   <span className="h-px bg-borderColor w-8" />
                   <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">

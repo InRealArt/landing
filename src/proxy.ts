@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { resolveArtistCategorySlug, resolveArtistSlug, resolveArtworkParam, resolveUgcProfileSlug, type SlugResolution } from '@/lib/slugIndex'
 
 // Map first URL segment → redirect target for unknown sub-paths
 const SEGMENT_REDIRECTS: Record<string, string> = {
@@ -15,29 +16,27 @@ const SEGMENT_REDIRECTS: Record<string, string> = {
   usecase: '/usecase',
   joinInRealArt: '/joinInRealArt',
   faq: '/faq',
-  about: '/about',
+  about: '/team',
   team: '/team',
-  marketplace: '/marketplace',
+  marketplace: '/presale',
   glossary: '/glossary',
-  academy: '/academy',
+  academy: '/blog',
   contact: '/contact',
   legal: '/legal',
   terms: '/terms',
-  roadmap: '/roadmap',
+  roadmap: '/',
   manifest: '/manifest',
   services: '/services',
 }
 
-// Pages retirées : /usecase/fractionate et /usecase/lending ne figurent plus dans KNOWN_STATIC_ROUTES,
-// ils tombent donc dans la redirection 308 vers /usecase (SEGMENT_REDIRECTS).
+// Pages retirées : /marketplace, /about, /academy, /roadmap, /usecase/fractionate et /usecase/lending
+// sont redirigées en 308 par next.config.ts (redirects), avant ce proxy.
 // /terms-nft est définitivement supprimée : 410 Gone.
 const GONE_ROUTES = new Set(['/terms-nft'])
 
 // Known valid static routes — these are never redirected
 const KNOWN_STATIC_ROUTES = new Set([
   '/',
-  '/about',
-  '/academy',
   '/artists',
   '/artists-studio',
   '/art-salon-simulator',
@@ -53,11 +52,9 @@ const KNOWN_STATIC_ROUTES = new Set([
   '/legal',
   '/loa-simulator',
   '/manifest',
-  '/marketplace',
   '/media',
   '/media/production',
   '/presale',
-  '/roadmap',
   '/simulators',
   '/team',
   '/terms',
@@ -98,7 +95,46 @@ function nextWithPathname(request: NextRequest): NextResponse {
   return response
 }
 
-export function proxy(request: NextRequest) {
+function redirectTo(request: NextRequest, pathname: string): NextResponse {
+  const url = request.nextUrl.clone()
+  url.pathname = pathname // les paramètres (UTM…) sont conservés
+  return NextResponse.redirect(url, { status: 308 })
+}
+
+const SLUG_SECTIONS = {
+  artwork: { resolve: resolveArtworkParam, fallback: '/presale' },
+  artists: { resolve: resolveArtistSlug, fallback: '/artists' },
+  'agence/artists': { resolve: resolveUgcProfileSlug, fallback: '/agence/artists' },
+  'artists/category': { resolve: resolveArtistCategorySlug, fallback: '/artists' },
+} as const satisfies Record<string, { resolve: (slug: string) => Promise<SlugResolution>; fallback: string }>
+
+/**
+ * Fiches à slug (IRA-07) : vérifie l'existence avant le rendu, pour répondre un vrai 308
+ * au lieu d'une page 200 (voir src/lib/slugIndex.ts). Index indisponible ou erreur : on laisse passer.
+ */
+async function checkSlugPage(request: NextRequest, pathname: string): Promise<NextResponse | null> {
+  const match = pathname.match(/^\/(artwork|artists\/category|artists|agence\/artists)\/([^/]+)\/?$/)
+  if (!match) return null
+  const section = SLUG_SECTIONS[match[1] as keyof typeof SLUG_SECTIONS]
+  let slug: string
+  try {
+    slug = decodeURIComponent(match[2])
+  } catch {
+    return null
+  }
+
+  try {
+    const resolution = await section.resolve(slug)
+    if (resolution.kind === 'redirect') return redirectTo(request, `/${match[1]}/${resolution.slug}`)
+    if (resolution.kind === 'unknown') return redirectTo(request, section.fallback)
+    return null
+  } catch (error) {
+    console.error('[proxy] slug index unavailable:', error)
+    return null
+  }
+}
+
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Pass through Server Actions (POST requests with Next-Action header)
@@ -125,6 +161,9 @@ export function proxy(request: NextRequest) {
   if (KNOWN_STATIC_ROUTES.has(pathname)) {
     return nextWithPathname(request)
   }
+
+  const slugResponse = await checkSlugPage(request, pathname)
+  if (slugResponse) return slugResponse
 
   // Known dynamic prefixes: allow any single slug segment
   for (const prefix of DYNAMIC_PREFIXES) {

@@ -3,11 +3,10 @@
 import Link from 'next/link'
 import type { UgcArtistProfileData } from '@/actions/ugcActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 function displayName(artist: UgcArtistProfileData): string {
-  if (artist.pseudo) return artist.pseudo
-  const parts = [artist.name, artist.surname].filter(Boolean)
-  return parts.length > 0 ? parts.join(' ') : '—'
+  return getArtistDisplayName(artist) || '—'
 }
 
 function formatMetric(value: number | null | undefined): string {

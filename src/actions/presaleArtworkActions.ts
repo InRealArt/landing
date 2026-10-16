@@ -2,16 +2,7 @@
 
 import { prisma } from '@/lib/prisma'
 import { organizeTranslations } from '@/utils/translations'
-const toSlug = (str: string) =>
-    str
-        .toLowerCase()
-        .trim()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-
+import { toSlug } from '@/utils/slug'
 export interface PresaleArtworkData {
     id: number
     name: string
@@ -28,6 +19,8 @@ export interface PresaleArtworkData {
         name: string
         surname: string
         slug: string | null
+        /** Nom d'usage (IRA-13) — à afficher via getArtistDisplayName */
+        pseudo?: string | null
     }
     translations?: {
         name?: Record<string, string>
@@ -63,6 +56,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                     select: {
                         name: true,
                         surname: true,
+                        pseudo: true,
                         slug: true,
                     }
                 }
@@ -121,6 +115,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 artist: {
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
+                    pseudo: artwork.artist.pseudo ?? null,
                     slug: artwork.artist.slug ?? null,
                 },
                 mockupUrls,
@@ -162,6 +157,7 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
                         select: {
                             name: true,
                             surname: true,
+                            pseudo: true,
                             slug: true,
                         }
                     }
@@ -213,6 +209,7 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
             artist: {
                 name: artwork.artist.name ?? '',
                 surname: artwork.artist.surname ?? '',
+                pseudo: artwork.artist.pseudo ?? null,
                 slug: artwork.artist.slug ?? null,
             },
             mockupUrls,
@@ -254,6 +251,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
                     select: {
                         name: true,
                         surname: true,
+                        pseudo: true,
                         slug: true,
                     }
                 }
@@ -271,7 +269,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
             }
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null }, mockupUrls, translations: { name: {}, description: {} } }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null, pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
         return null
@@ -281,7 +279,8 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
 export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtworkData | null> {
     try {
         // Scan minimal : récupérer seulement id + name pour trouver la correspondance du slug
-        const names = await prisma.presaleArtwork.findMany({ select: { id: true, name: true } })
+        // Tri par id : en cas de doublon de nom, la même œuvre (la plus ancienne) répond toujours au slug
+        const names = await prisma.presaleArtwork.findMany({ select: { id: true, name: true }, orderBy: { id: 'asc' } })
         const match = names.find(a => toSlug(a.name) === slug)
         if (!match) return null
 
@@ -304,6 +303,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
                         name: true,
                         surname: true,
                         slug: true,
+                        pseudo: true,
                     }
                 }
             }
@@ -331,7 +331,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             description: translationsByEntity[artworkKey]?.description || {}
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null }, mockupUrls, translations }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null, pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null
@@ -360,6 +360,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
                     select: {
                         name: true,
                         surname: true,
+                        pseudo: true,
                         slug: true,
                     },
                 },
@@ -374,6 +375,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
             artist: {
                 name: a.artist.name ?? '',
                 surname: a.artist.surname ?? '',
+                pseudo: a.artist.pseudo ?? null,
                 slug: a.artist.slug ?? null,
             },
             mockupUrls: null,
@@ -407,6 +409,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                     select: {
                         name: true,
                         surname: true,
+                        pseudo: true,
                         slug: true,
                     }
                 }
@@ -465,6 +468,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 artist: {
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
+                    pseudo: artwork.artist.pseudo ?? null,
                     slug: artwork.artist.slug ?? null,
                 },
                 mockupUrls,

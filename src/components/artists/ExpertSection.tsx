@@ -25,7 +25,7 @@ export default function ExpertSection() {
           text={t('artistPage.seeMarketplace')} 
           additionalClassName="bg-purpleColor" 
           icon={<ArrowRight />}
-          link="/marketplace" 
+          link="/presale" 
         />
       </div>
     </section>

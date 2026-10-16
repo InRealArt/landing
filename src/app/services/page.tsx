@@ -58,7 +58,7 @@ const getServiceExperts = unstable_cache(
     })) as TeamMemberData[]
   },
   ['service-experts'],
-  { revalidate: 3600, tags: ['team'] }
+  { revalidate: 300, tags: ['team'] }
 )
 
 export default async function ServicesPage() {

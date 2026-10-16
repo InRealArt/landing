@@ -5,6 +5,7 @@ import { useTranslation } from '@/hooks/useTranslation'
 import ArtistCard from './ArtistCard'
 import { useQueryStates, parseAsInteger } from 'nuqs'
 import { ArtistData } from '@/actions/artistActions'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 const PAGE_SIZE = 16 // 4 colonnes x 4 lignes
 
@@ -62,7 +63,7 @@ export default function ArtistCategoryGrid({ artists }: ArtistCategoryGridProps)
         {current.map(artist => (
           <ArtistCard
             key={artist.slug}
-            name={artist.name}
+            name={getArtistDisplayName(artist)}
             role={artist.artworkStyle || ''}
             countryName={artist.countryName}
             imageUrl={artist.imageUrl}

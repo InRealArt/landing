@@ -52,7 +52,7 @@ const Slider = ({ context, items, isReverse, additionnalClassName, onItemClick }
       case 'artist':
         return (
           <div onClick={handleClick} className={onItemClick ? 'cursor-pointer' : ''}>
-            <ArtworkCard name={infos.name} image={infos.image} type="artist" />
+            <ArtworkCard name={infos.name} image={infos.image} type="artist" slug={infos.slug} />
           </div>
         );
       case 'artwork':

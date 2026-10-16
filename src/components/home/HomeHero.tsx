@@ -77,7 +77,7 @@ const PROFILES: ProfileConfig[] = [
 export default function HomeHero({ featuredArtist, featuredArtwork, featuredExhibition, featuredPost }: HomeHeroProps) {
   const { t } = useTranslation()
   const [active, setActive] = useState<Profile>('collector')
-  const headlineRef = useRef<HTMLHeadingElement>(null)
+  const headlineRef = useRef<HTMLParagraphElement>(null)
   const subheadlineRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
 
@@ -177,14 +177,14 @@ export default function HomeHero({ featuredArtist, featuredArtwork, featuredExhi
 
         {/* Dynamic Claim */}
         <div className="mb-6 md:mb-8 max-w-2xl">
-          <h1
+          <p
             ref={headlineRef}
             className="unbounded text-white font-black uppercase leading-[0.9] tracking-tight text-xl sm:text-2xl md:text-3xl"
             suppressHydrationWarning
           >
             <span className="block text-white">{t(current.headlineKey)}</span>
             {t(current.accentKey) && <span className="block text-gold-accent">{t(current.accentKey)}</span>}
-          </h1>
+          </p>
 
           <p
             ref={subheadlineRef}

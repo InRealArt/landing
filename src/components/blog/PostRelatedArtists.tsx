@@ -7,6 +7,7 @@ import { getArtistsMentionedInPost } from '@/actions/artistActions'
 import { useTranslation } from '@/hooks/useTranslation'
 import { ArtistData } from '@/actions/artistActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   postTitle: string
@@ -61,7 +62,7 @@ export default function PostRelatedArtists({ postTitle, postMetaKeywords, postLi
       ) : (
         <div className="flex gap-5 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
           {artists.map(artist => {
-            const displayName = `${artist.name} ${artist.surname}`
+            const displayName = getArtistDisplayName(artist)
             const tags = artist.mediumTags?.slice(0, 2).join(' · ') || artist.artworkStyle || ''
             return (
               <Link

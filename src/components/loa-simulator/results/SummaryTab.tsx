@@ -27,11 +27,11 @@ export default function SummaryTab({ leaseResults, comparison, formData }: Summa
         <div className="grid grid-cols-2">
           <div className="flex justify-between items-center px-4 py-3 border-r border-[var(--border-light)]">
             <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.summary.email')}</span>
-            <span className="text-sm text-[var(--ink-black)] font-medium truncate ml-2">{formData.email}</span>
+            <span className="text-sm text-[var(--ink-black)] font-medium truncate ml-2">{formData.email || '—'}</span>
           </div>
           <div className="flex justify-between items-center px-4 py-3">
             <span className="text-sm text-[var(--gray-text)]">{t('loaSimulator.results.summary.company')}</span>
-            <span className="text-sm text-[var(--ink-black)] font-medium">{formData.company}</span>
+            <span className="text-sm text-[var(--ink-black)] font-medium">{formData.company || '—'}</span>
           </div>
         </div>
 

@@ -24,9 +24,7 @@ export default async function AgenceGalleryBridge({ ugcArtistProfileId, landingA
         <div className="flex items-end justify-between mb-12 pb-10 border-b border-borderColor">
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-xs uppercase tracking-[0.5em] montserrat text-gold-accent">
-                {t('agence.artists.detail.galleryBridgeNumber')}
-              </span>
+              {/* Section non numérotée (IRA-16) : la numérotation 01… de la fiche s'arrête aux sections du profil */}
               <span className="h-px bg-borderColor w-8" />
               <span className="text-xs uppercase tracking-[0.35em] montserrat text-grayText">
                 {t('agence.artists.detail.galleryBridgeLabel')}

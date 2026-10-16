@@ -11,6 +11,7 @@ import type { Swiper as SwiperType } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 const FEATURED_IMAGE_ASPECT = 'aspect-[4/3] sm:aspect-[16/9]'
 
@@ -67,9 +68,9 @@ function buildSlides(
       key: 'artist',
       href: `/artists/${featuredArtist.slug}`,
       imageUrl: featuredArtist.imageUrl,
-      alt: `${featuredArtist.name} ${featuredArtist.surname}`,
+      alt: getArtistDisplayName(featuredArtist),
       eyebrow: t('exhibitions.hero.featuredArtistEyebrow'),
-      title: `${featuredArtist.name} ${featuredArtist.surname}`,
+      title: getArtistDisplayName(featuredArtist),
       descriptionText: t('exhibitions.hero.featuredArtistDescription'),
       ctaLabel: t('exhibitions.hero.featuredArtistCta'),
     })

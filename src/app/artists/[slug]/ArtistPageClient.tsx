@@ -13,6 +13,7 @@ import { Lang } from '@/types/types'
 import { ArtistData } from '@/actions/artistActions'
 import { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 export interface ArtistPageClientProps {
   slug: string
@@ -49,7 +50,7 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
 
     return {
         ...initialArtist,
-        name: `${initialArtist.name} ${initialArtist.surname}`, // Combine name
+        name: getArtistDisplayName(initialArtist), // Nom d'usage (IRA-13)
         photo: initialArtist.imageUrl, // Map imageUrl to photo
         secondaryImageUrl: initialArtist.secondaryImageUrl || '',
         ugcSlug: initialArtist.ugcSlug ?? null,
@@ -108,7 +109,7 @@ export default function ArtistPageClient({ slug: _slug, initialArtist, initialAr
         {/* Section biographie de l'artiste */}
         <ArtistBiography artist={artist} />
 
-        <ArtistRelatedPosts artistName={initialArtist.name} artistSurname={initialArtist.surname} />
+        <ArtistRelatedPosts artistName={initialArtist.name} artistSurname={initialArtist.surname} displayName={artist.name} />
       </>
   )
 }

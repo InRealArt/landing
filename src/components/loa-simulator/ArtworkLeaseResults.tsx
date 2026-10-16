@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { type ArtworkLeaseResults, type ArtworkLeaseComparison } from '@/utils/artworkLeaseCalculations'
 import { useTranslation } from '@/hooks/useTranslation'
 import { toast } from 'sonner'
@@ -12,6 +13,7 @@ import ComparisonTab from './results/ComparisonTab'
 import TaxAdvantagesTab from './results/TaxAdvantagesTab'
 import ActionButtons from './results/ActionButtons'
 import Button from '../common/Button'
+import SimulatorInput from '../common/simulator/SimulatorInput'
 
 interface ArtworkLeaseResultsProps {
   leaseResults: ArtworkLeaseResults
@@ -31,24 +33,38 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
   const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState<'summary' | 'lease' | 'comparison' | 'tax'>('summary')
   const [isSendingPDF, setIsSendingPDF] = useState(false)
+  // E-mail saisi après le calcul quand le visiteur n'a pas laissé de coordonnées (IRA-18)
+  const [pdfEmail, setPdfEmail] = useState('')
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'button' })
+  const recipientEmail = (formData?.email || pdfEmail).trim()
 
   const handleSendPDF = async () => {
     if (!formData) {
       toast.error(t('loaSimulator.toast.formDataRequired'))
       return
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(recipientEmail)) {
+      toast.error(t('loaSimulator.form.errors.emailRequiredForPdf'))
+      return
+    }
 
     setIsSendingPDF(true)
     try {
+      const recaptchaToken = await executeRecaptcha('loa_send_pdf')
+      if (!recaptchaToken) {
+        toast.error(t('loaSimulator.toast.pdfSentError'))
+        return
+      }
       const response = await fetch('/api/loa-simulator/send-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formData,
+          formData: { ...formData, email: recipientEmail },
           leaseResults,
-          comparison
+          comparison,
+          recaptchaToken
         }),
       })
 
@@ -136,7 +152,18 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
       </div>
 
       {/* Send PDF Button */}
-      <div className="pt-6 border-t border-[var(--border-light)]">
+      <div className="pt-6 border-t border-[var(--border-light)] space-y-4">
+        {formData && !formData.email && (
+          <SimulatorInput
+            label=""
+            id="pdfEmail"
+            name="pdfEmail"
+            type="email"
+            value={pdfEmail}
+            onChange={value => setPdfEmail(String(value))}
+            placeholder={t('loaSimulator.form.email')}
+          />
+        )}
         <Button
           action={handleSendPDF}
           disabled={isSendingPDF || !formData}

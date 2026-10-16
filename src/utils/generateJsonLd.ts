@@ -1,6 +1,12 @@
 import { SeoPost } from '@/types/seoPost'
 import { ArtistData } from '@/actions/artistActions'
-import { ArtWork } from '@/types/types'
+import type { PresaleArtworkData } from '@/actions/presaleArtworkActions'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
+import { serializeJsonLd, toJsonLdUrl, toPlainText } from '@/utils/jsonLd'
+import { toSlug } from '@/utils/slug'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
+
+const DEFAULT_BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
 
 interface JsonLdOptions {
     baseUrl?: string
@@ -73,7 +79,7 @@ export function generateArticleJsonLd(
         ...(aboutEntities.length > 0 && { "about": aboutEntities })
     }
 
-    return JSON.stringify(jsonLd, null, 2)
+    return serializeJsonLd(jsonLd)
 }
 
 /**
@@ -135,7 +141,7 @@ export function generateArtistArticleJsonLd(
         "inLanguage": post.languageId === 1 ? "fr-FR" : "en-US"
     }
 
-    return JSON.stringify(jsonLd, null, 2)
+    return serializeJsonLd(jsonLd)
 }
 
 /**
@@ -173,7 +179,7 @@ export function generateBreadcrumbJsonLd(
         ]
     }
 
-    return JSON.stringify(jsonLd, null, 2)
+    return serializeJsonLd(jsonLd)
 }
 
 /**
@@ -211,7 +217,7 @@ export function generateBlogListJsonLd(
         }))
     }
 
-    return JSON.stringify(jsonLd, null, 2)
+    return serializeJsonLd(jsonLd)
 }
 
 /**
@@ -264,19 +270,22 @@ export function generatePostJsonLd(post: SeoPost): string {
 }
 
 /**
- * Génère le JSON-LD Schema Person enrichi pour une page artiste (point 3 du template SEO)
+ * Génère le JSON-LD Schema Person enrichi pour une page artiste (IRA-02)
+ * `name` = nom d'usage (pseudo s'il existe), `alternateName` = nom civil s'il diffère.
  */
 export function generateArtistPersonJsonLd(
     artist: ArtistData,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
+    baseUrl: string = DEFAULT_BASE_URL
 ): string {
-    const artistName = `${artist.name} ${artist.surname}`
+    const displayName = getArtistDisplayName(artist)
+    const legalName = [artist.name, artist.surname].filter(Boolean).join(' ').trim()
     const artistUrl = `${baseUrl}/artists/${artist.slug}`
 
     const personData: Record<string, unknown> = {
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: artistName,
+        '@id': `${artistUrl}#person`,
+        name: displayName,
         url: artistUrl,
         worksFor: {
             '@type': 'Organization',
@@ -285,20 +294,26 @@ export function generateArtistPersonJsonLd(
         }
     }
 
-    if (artist.pseudo) {
-        personData.alternateName = artist.pseudo
+    if (legalName && legalName !== displayName) {
+        personData.alternateName = legalName
+    }
+
+    if (artist.sameAs && artist.sameAs.length > 0) {
+        personData.sameAs = artist.sameAs
     }
 
     if (artist.artworkStyle) {
         personData.jobTitle = artist.artworkStyle
     }
 
-    if (artist.intro || artist.description) {
-        personData.description = (artist.intro || artist.description || '').replace(/<[^>]*>/g, '').slice(0, 200)
+    const description = toPlainText(artist.intro || artist.description)
+    if (description) {
+        personData.description = description.slice(0, 300)
     }
 
-    if (artist.imageUrl) {
-        personData.image = artist.imageUrl
+    const image = toJsonLdUrl(getImageUrl(artist.imageUrl))
+    if (image) {
+        personData.image = image
     }
 
     if (artist.birthYear) {
@@ -321,77 +336,111 @@ export function generateArtistPersonJsonLd(
         }
     }
 
-    return JSON.stringify(personData)
+    return serializeJsonLd(personData)
 }
 
 /**
- * Génère le JSON-LD Schema VisualArtwork pour les œuvres d'un artiste (point 3 du template SEO)
+ * Objet schema.org VisualArtwork (+ Offer) d'une œuvre du catalogue, partagé par la fiche
+ * œuvre et la fiche artiste. Offer : prix > 0 → prix en EUR ; sinon « sur demande » (sans prix).
+ */
+export function buildVisualArtwork(
+    artwork: PresaleArtworkData,
+    creator: { name: string; url?: string },
+    baseUrl: string = DEFAULT_BASE_URL
+): Record<string, unknown> {
+    const url = `${baseUrl}/artwork/${toSlug(artwork.name)}`
+    const item: Record<string, unknown> = {
+        '@type': 'VisualArtwork',
+        '@id': `${url}#artwork`,
+        name: artwork.name,
+        url,
+        creator: {
+            '@type': 'Person',
+            name: creator.name,
+            ...(creator.url && { url: creator.url })
+        }
+    }
+
+    const description = toPlainText(artwork.description)
+    if (description) item.description = description.slice(0, 500)
+
+    const image = toJsonLdUrl(getImageUrl(artwork.imageUrl))
+    if (image) item.image = image
+
+    if (artwork.width) {
+        item.width = { '@type': 'QuantitativeValue', value: artwork.width, unitCode: 'CMT' }
+    }
+    if (artwork.height) {
+        item.height = { '@type': 'QuantitativeValue', value: artwork.height, unitCode: 'CMT' }
+    }
+
+    const offer: Record<string, unknown> = {
+        '@type': 'Offer',
+        url,
+        priceCurrency: 'EUR',
+        availability: artwork.isSold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        seller: { '@type': 'Organization', name: 'InRealArt', url: baseUrl }
+    }
+    if (artwork.price && artwork.price > 0) offer.price = artwork.price
+    // Sans prix, une Offer est invalide pour Google : on ne la publie que si l'œuvre a un prix ou est vendue
+    if (offer.price || artwork.isSold) item.offers = offer
+
+    return item
+}
+
+/**
+ * Génère le JSON-LD VisualArtwork pour la fiche œuvre (IRA-02)
+ */
+export function generateArtworkJsonLd(
+    artwork: PresaleArtworkData,
+    creator: { name: string; url?: string },
+    baseUrl: string = DEFAULT_BASE_URL
+): string {
+    return serializeJsonLd({
+        '@context': 'https://schema.org',
+        ...buildVisualArtwork(artwork, creator, baseUrl)
+    })
+}
+
+/**
+ * Génère le JSON-LD BreadcrumbList pour la fiche œuvre : Accueil > Catalogue > (artiste) > œuvre
+ */
+export function generateArtworkBreadcrumbJsonLd(
+    artworkName: string,
+    artworkSlug: string,
+    artist?: { name: string; slug: string | null },
+    baseUrl: string = DEFAULT_BASE_URL
+): string {
+    const items = [
+        { name: 'Accueil', item: baseUrl },
+        { name: 'Catalogue', item: `${baseUrl}/presale` },
+        ...(artist?.slug ? [{ name: artist.name, item: `${baseUrl}/artists/${artist.slug}` }] : []),
+        { name: artworkName, item: `${baseUrl}/artwork/${artworkSlug}` }
+    ]
+    return serializeJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: items.map((entry, index) => ({ '@type': 'ListItem', position: index + 1, ...entry }))
+    })
+}
+
+/**
+ * Génère le JSON-LD VisualArtwork pour les œuvres d'un artiste (fiche artiste)
  */
 export function generateArtistVisualArtworksJsonLd(
-    artworks: ArtWork[],
+    artworks: PresaleArtworkData[],
     artistName: string,
     artistSlug: string,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
+    baseUrl: string = DEFAULT_BASE_URL
 ): string {
-    const artistUrl = `${baseUrl}/artists/${artistSlug}`
-
-    const items = artworks.slice(0, 10).map(artwork => {
-        const name = artwork.name.FR || artwork.name.EN || Object.values(artwork.name)[0] || ''
-        const item: Record<string, unknown> = {
-            '@context': 'https://schema.org',
-            '@type': 'VisualArtwork',
-            name,
-            creator: {
-                '@type': 'Person',
-                name: artistName,
-                url: artistUrl
-            }
-        }
-
-        if (artwork.image) {
-            item.image = {
-                '@type': 'ImageObject',
-                url: artwork.image
-            }
-        }
-
-        if (artwork.width) {
-            item.width = {
-                '@type': 'QuantitativeValue',
-                value: artwork.width,
-                unitCode: 'CMT'
-            }
-        }
-
-        if (artwork.height) {
-            item.height = {
-                '@type': 'QuantitativeValue',
-                value: artwork.height,
-                unitCode: 'CMT'
-            }
-        }
-
-        if (artwork.price && !artwork.isSold) {
-            item.offers = {
-                '@type': 'Offer',
-                price: artwork.price,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                seller: {
-                    '@type': 'Organization',
-                    name: 'InRealArt'
-                }
-            }
-        }
-
-        return item
-    })
+    const creator = { name: artistName, url: `${baseUrl}/artists/${artistSlug}` }
+    const items = artworks.slice(0, 10).map(artwork => buildVisualArtwork(artwork, creator, baseUrl))
 
     if (items.length === 0) return ''
 
-    if (items.length === 1) return JSON.stringify(items[0])
+    if (items.length === 1) return serializeJsonLd({ '@context': 'https://schema.org', ...items[0] })
 
-    return JSON.stringify({
+    return serializeJsonLd({
         '@context': 'https://schema.org',
         '@graph': items
     })
@@ -403,9 +452,9 @@ export function generateArtistVisualArtworksJsonLd(
 export function generateArtistBreadcrumbJsonLd(
     artistName: string,
     artistSlug: string,
-    baseUrl: string = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
+    baseUrl: string = DEFAULT_BASE_URL
 ): string {
-    return JSON.stringify({
+    return serializeJsonLd({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [

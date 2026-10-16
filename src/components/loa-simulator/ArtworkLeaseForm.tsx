@@ -1,5 +1,6 @@
 'use client'
 
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { useState } from 'react'
 import { z } from 'zod'
 import { toast } from 'sonner'
@@ -21,15 +22,20 @@ import SimulatorSelect from '../common/simulator/SimulatorSelect'
 
 interface ArtworkLeaseFormProps {
   onCalculate: (leaseResults: ArtworkLeaseResults, comparison: ArtworkLeaseComparison, formData: ArtworkLeaseInputs) => void
+  /** h1 sur /loa-simulator ; h2 quand le simulateur est intégré dans une autre page */
+  headingLevel?: 'h1' | 'h2'
 }
 
-export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps) {
+export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: ArtworkLeaseFormProps) {
   const { t } = useTranslation()
+  const Heading = headingLevel
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'form' })
 
   const artworkLeaseSchema = z.object({
-    company: z.string().min(1, t('loaSimulator.form.errors.companyRequired')),
-    email: z.string().email(t('loaSimulator.form.errors.emailInvalid')),
-    phoneNumber: z.string().min(1, t('loaSimulator.form.errors.phoneRequired')),
+    // Coordonnées facultatives (IRA-18) : le résultat s'affiche sans elles ; elles servent à recevoir le PDF
+    company: z.string().trim(),
+    email: z.union([z.literal(''), z.string().trim().email(t('loaSimulator.form.errors.emailInvalid'))]),
+    phoneNumber: z.string().refine(value => !value || isValidPhoneNumber(value), t('loaSimulator.form.errors.phoneInvalid')),
     taxRate: z.number().min(0, t('loaSimulator.form.errors.taxRateMin')).max(50, t('loaSimulator.form.errors.taxRateMax')),
     artworkValue: z.number().min(100, t('loaSimulator.form.errors.artworkValueMin')),
     leaseDuration: z.number().min(12, t('loaSimulator.form.errors.leaseDurationMin')).max(72, t('loaSimulator.form.errors.leaseDurationMax')),
@@ -84,14 +90,6 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
     setErrors({})
 
     try {
-      // Validate phone number first
-      if (!formData.phoneNumber || !isValidPhoneNumber(formData.phoneNumber)) {
-        setErrors(prev => ({ ...prev, phoneNumber: t('loaSimulator.form.errors.phoneInvalid') }))
-        toast.error(t('loaSimulator.form.errors.phoneInvalid'))
-        setIsCalculating(false)
-        return
-      }
-
       // Convert form data to proper types for validation
       const dataToValidate = {
         company: formData.company,
@@ -127,8 +125,10 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
         formData: validatedData
       })
 
-      // Send company info to admin immediately after calculation
-      try {
+      // Lead transmis à l'équipe seulement si le visiteur a laissé des coordonnées
+      if (validatedData.email || validatedData.phoneNumber) try {
+        const recaptchaToken = await executeRecaptcha('loa_simulation_lead')
+        if (!recaptchaToken) throw new Error('reCAPTCHA indisponible')
         await fetch('/api/loa-simulator/send-company-info', {
           method: 'POST',
           headers: {
@@ -137,7 +137,8 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
           body: JSON.stringify({
             formData: validatedData,
             leaseResults,
-            comparison
+            comparison,
+            recaptchaToken
           }),
         })
         console.log('✅ Company info sent to admin')
@@ -173,48 +174,11 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
   return (
     <div className="bg-[var(--canvas-bg)] p-8 lg:p-10">
       <span className="section-number block mb-4">{t('loaSimulator.title')}</span>
-      <h1 className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
+      <Heading className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
         Simulateur LOA
-      </h1>
+      </Heading>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Première ligne: Entreprise et Adresse mail */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <SimulatorInput
-            label=""
-            id="company"
-            name="company"
-            type="text"
-            value={formData.company}
-            onChange={(value) => handleInputChange('company', value)}
-            placeholder={t('loaSimulator.form.company')}
-            error={errors.company}
-          />
-
-          <SimulatorInput
-            label=""
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={(value) => handleInputChange('email', value)}
-            placeholder={t('loaSimulator.form.email')}
-            error={errors.email}
-          />
-        </div>
-
-        {/* Phone Number */}
-        <SimulatorInput
-          label={t('loaSimulator.form.phoneNumber')}
-          id="phoneNumber"
-          name="phoneNumber"
-          type="tel"
-          value={formData.phoneNumber}
-          onChange={handlePhoneChange}
-          placeholder={t('loaSimulator.form.phoneNumber')}
-          error={errors.phoneNumber}
-        />
-
         {/* Taux d'imposition personnalisé */}
         <SimulatorInput
           label=""
@@ -287,6 +251,48 @@ export default function ArtworkLeaseForm({ onCalculate }: ArtworkLeaseFormProps)
             </div>
           </div>
         </div>
+
+        {/* Coordonnées facultatives : uniquement pour recevoir le rapport PDF (IRA-18) */}
+        <fieldset className="space-y-4 pt-2">
+          <legend className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-1">{t('loaSimulator.form.contactTitle')}</legend>
+          <p className="text-sm text-[var(--gray-text)]">{t('loaSimulator.form.contactHint')}</p>
+          {/* Première ligne: Entreprise et Adresse mail */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <SimulatorInput
+              label=""
+              id="company"
+              name="company"
+              type="text"
+              value={formData.company}
+              onChange={(value) => handleInputChange('company', value)}
+              placeholder={t('loaSimulator.form.company')}
+              error={errors.company}
+            />
+
+            <SimulatorInput
+              label=""
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={(value) => handleInputChange('email', value)}
+              placeholder={t('loaSimulator.form.email')}
+              error={errors.email}
+            />
+          </div>
+
+          {/* Phone Number */}
+          <SimulatorInput
+            label={t('loaSimulator.form.phoneNumber')}
+            id="phoneNumber"
+            name="phoneNumber"
+            type="tel"
+            value={formData.phoneNumber}
+            onChange={handlePhoneChange}
+            placeholder={t('loaSimulator.form.phoneNumber')}
+            error={errors.phoneNumber}
+          />
+        </fieldset>
 
         {/* Boutons */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4">

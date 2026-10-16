@@ -1,4 +1,5 @@
 import type { FeaturedArtist } from '@/types/featured-item'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 type Props = {
   item: FeaturedArtist
@@ -13,7 +14,7 @@ export default function ArtistSlide({ item }: Props) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={item.imageUrl}
-            alt={`${item.name} ${item.surname}`}
+            alt={getArtistDisplayName(item)}
             fetchPriority="high"
             loading="eager"
             decoding="sync"
@@ -30,7 +31,7 @@ export default function ArtistSlide({ item }: Props) {
           Artiste du moment
         </p>
         <h3 className="serif text-2xl font-light text-textColor">
-          {item.name} {item.surname}
+          {getArtistDisplayName(item)}
         </h3>
         {item.speciality && (
           <p className="text-sm text-grayText">{item.speciality}</p>

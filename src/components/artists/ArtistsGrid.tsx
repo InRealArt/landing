@@ -7,6 +7,7 @@ import { ArtistData } from '@/actions/artistActions'
 import { ArtistArtworkPreview } from '@/actions/presaleArtworkActions'
 import ArtistsMosaic from './ArtistsMosaic'
 import ArtistRosterWithPreview from './ArtistHoverPreview'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   initialArtists: ArtistData[]
@@ -67,7 +68,7 @@ export default function ArtistsGrid({ initialArtists, artworkPreviews }: Props) 
     () =>
       initialArtists.map(a => ({
         slug: a.slug,
-        fullName: a.pseudo?.trim() || `${a.name} ${a.surname}`.trim(),
+        fullName: getArtistDisplayName(a),
         surname: a.surname,
         pseudo: a.pseudo,
         imageUrl: a.imageUrl,

@@ -8,7 +8,7 @@ import { ArtistsGridSkeleton } from '@/components/artists/ArtistsGrid'
 import ArtistsAnimations from '@/components/artists/ArtistsAnimations'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
-export const revalidate = 1800
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Artistes InRealArt — Créateurs sélectionnés, histoires singulières',

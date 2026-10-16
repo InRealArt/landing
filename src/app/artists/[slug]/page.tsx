@@ -3,15 +3,17 @@ import { permanentRedirect } from 'next/navigation'
 import { generateDynamicMetadata } from '@/utils/metadata'
 import { getArtistBySlug } from '@/actions/artistActions'
 import { getKeyWorksByArtistId } from '@/actions/presaleArtworkActions'
-import { transformPresaleArtworkToArtwork } from '@/utils/transformers'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 
-export const revalidate = 1800 // régénère toutes les 30 min
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 import {
   generateArtistPersonJsonLd,
   generateArtistVisualArtworksJsonLd,
   generateArtistBreadcrumbJsonLd
 } from '@/utils/generateJsonLd'
-import ArtistPageClientWrapper from './ArtistPageClientWrapper'
+// Import direct (pas de dynamic ssr:false) : la fiche est pré-rendue côté serveur (IRA-01)
+import ArtistPageClient from './ArtistPageClient'
 
 type ParamsType = Promise<{ slug: string }>
 
@@ -22,17 +24,14 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
 
+  const artist = await getArtistBySlug(slug)
+  // Redirection décidée ici (avant l'envoi du HTML) pour obtenir un vrai 308, pas une page 200 ;
+  // hors du try : permanentRedirect lève une exception que le catch avalerait
+  if (!artist) permanentRedirect('/artists')
+
   try {
-    const artist = await getArtistBySlug(slug)
 
-    if (!artist) {
-      return {
-        title: 'Artiste non trouvé',
-        description: 'Cet artiste n\'existe pas ou n\'est plus disponible.'
-      }
-    }
-
-    const artistName = artist.name ? `${artist.name} ${artist.surname}` : slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    const artistName = getArtistDisplayName(artist) || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
 
     const specialty = artist.artworkStyle || (artist.mediumTags?.[0] ? `Artiste ${artist.mediumTags[0]}` : 'Artiste')
     const nationality = artist.countryName ? ` ${artist.countryName}` : ''
@@ -47,6 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: titleTag,
       description: metaDescription,
       keywords: [artistName, 'artiste', 'œuvres d\'art', 'art contemporain', 'galerie', ...(artist.mediumTags || [])],
+      image: getImageUrl(artist.imageUrl) ?? undefined,
+      imageAlt: artistName,
       canonical,
       alternateLanguages: {
         'x-default': canonical,
@@ -74,9 +75,9 @@ export default async function ArtistPage({ params }: Props) {
 
   const artworks = await getKeyWorksByArtistId(artist.artistId)
 
-  const artistName = `${artist.name} ${artist.surname}`
+  const artistName = getArtistDisplayName(artist)
   const personJsonLd = generateArtistPersonJsonLd(artist)
-  const artworksJsonLd = generateArtistVisualArtworksJsonLd(artworks.map(transformPresaleArtworkToArtwork), artistName, slug)
+  const artworksJsonLd = generateArtistVisualArtworksJsonLd(artworks, artistName, slug)
   const breadcrumbJsonLd = generateArtistBreadcrumbJsonLd(artistName, slug)
 
   return (
@@ -97,7 +98,7 @@ export default async function ArtistPage({ params }: Props) {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }}
       />
-      <ArtistPageClientWrapper
+      <ArtistPageClient
         slug={slug}
         initialArtist={artist}
         initialArtworks={artworks}

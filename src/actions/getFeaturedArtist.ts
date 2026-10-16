@@ -17,6 +17,7 @@ export async function getFeaturedArtist(): Promise<FeaturedArtist | null> {
           select: {
             name: true,
             surname: true,
+            pseudo: true,
           },
         },
       },
@@ -29,6 +30,7 @@ export async function getFeaturedArtist(): Promise<FeaturedArtist | null> {
       id: artist.id,
       name: artist.artist.name || '',
       surname: artist.artist.surname || '',
+      pseudo: artist.artist.pseudo ?? null,
       slug: artist.slug,
       imageUrl: getImageUrl(artist.imageUrl) || '',
       speciality: artist.artworkStyle,

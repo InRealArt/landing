@@ -17,6 +17,7 @@ interface ArtistProfileHeroProps {
     countryCode?: string | null
     countryName?: string | null
     ugcSlug?: string | null
+    pseudo?: string | null
   }
 }
 
@@ -29,10 +30,11 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
   const specialtyRef = useRef<HTMLParagraphElement>(null)
   const quoteRef = useRef<HTMLParagraphElement>(null)
 
-  // Split "Prénom Nom" — surname is the last word, firstName is everything before
+  // `artist.name` = nom d'usage (IRA-13). Un pseudo ne se découpe pas ; « Prénom Nom » : nom = dernier mot
+  const hasPseudo = !!artist.pseudo?.trim()
   const nameParts = artist.name.trim().split(' ')
-  const firstName = nameParts.slice(0, -1).join(' ') || artist.name
-  const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : ''
+  const firstName = hasPseudo ? artist.name.trim() : nameParts.slice(0, -1).join(' ') || artist.name
+  const lastName = !hasPseudo && nameParts.length > 1 ? nameParts[nameParts.length - 1] : ''
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,8 +51,6 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
         }
 
         if (nameRef.current) {
-          // Target only the semantically meaningful name spans, not the
-          // duplicate hidden/visible pair used for the mobile inline layout.
           const spans = nameRef.current.querySelectorAll('[data-anim-name]')
           tl.fromTo(
             spans,
@@ -110,26 +110,20 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
               ref={nameRef}
               className="leading-none mb-1 lg:mb-3"
             >
-              {/* On mobile: inline so first + last name sit on one line.
-                  On desktop: block to restore the stacked two-line layout.
-                  GSAP targets [data-anim-name] — all three spans are included so
-                  neither the mobile nor desktop lastName span is left at opacity:0. */}
+              {/* Mobile : prénom et nom sur une ligne (inline) ; desktop : deux lignes (block), nom en italique.
+                  Un seul span par partie du nom : le H1 servi doit contenir le nom une seule fois (IRA-01).
+                  L'espace initial du nom est ignoré en début de bloc sur desktop. */}
               <span data-anim-name className="inline lg:block text-2xl lg:text-5xl font-cormorant font-light text-textColor opacity-0">
                 {firstName}
               </span>
               {lastName && (
-                <>
-                  <span data-anim-name className="inline lg:hidden text-2xl font-cormorant font-light opacity-0" style={{ color: '#b89c72' }}>
-                    {' '}{lastName}
-                  </span>
-                  <span
-                    data-anim-name
-                    className="hidden lg:block text-5xl font-cormorant font-light italic opacity-0"
-                    style={{ color: '#b89c72' }}
-                  >
-                    {lastName}
-                  </span>
-                </>
+                <span
+                  data-anim-name
+                  className="inline lg:block text-2xl lg:text-5xl font-cormorant font-light lg:italic opacity-0"
+                  style={{ color: '#b89c72' }}
+                >
+                  {' '}{lastName}
+                </span>
               )}
             </h1>
 
@@ -184,7 +178,7 @@ export default function ArtistProfileHero({ artist }: ArtistProfileHeroProps) {
               href={`/agence/artists/${artist.ugcSlug}`}
               className="px-5 py-2 border border-gold-accent text-gold-accent text-xs uppercase tracking-[0.2em] font-bold hover:bg-gold-accent hover:text-black transition-colors duration-200"
             >
-              {t('artists.profile.collaborateCta').replace('{name}', firstName)}
+              {t('artists.profile.collaborateCta').replace('{name}', hasPseudo ? artist.name.trim() : firstName)}
             </Link>
           )}
         </div>

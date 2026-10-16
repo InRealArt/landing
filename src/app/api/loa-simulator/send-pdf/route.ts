@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { z } from 'zod'
+import { loaSimulationWithRecaptchaSchema } from '@/utils/loaSimulatorSchema'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 import { generateLeasingPDF } from '@/utils/pdfGenerator'
 import { 
   createUserEmailTemplate, 
@@ -7,32 +8,7 @@ import {
   sendEmailViaBrevo 
 } from '@/utils/emailTemplates'
 
-// Schema for validating the request data
-const sendPDFSchema = z.object({
-  formData: z.object({
-    company: z.string(),
-    email: z.string().email(),
-    phoneNumber: z.string(),
-    taxRate: z.number(),
-    artworkValue: z.number(),
-    leaseDuration: z.number(),
-    firstRentIncrease: z.boolean()
-  }),
-  leaseResults: z.object({
-    monthlyRent: z.number(),
-    firstMonthRent: z.number(),
-    totalLeaseAmount: z.number(),
-    taxSavings: z.number(),
-    netCostAfterTax: z.number(),
-    monthlyTaxDeduction: z.number()
-  }),
-  comparison: z.object({
-    purchasePrice: z.number(),
-    leaseCost: z.number(),
-    savings: z.number(),
-    savingsPercentage: z.number()
-  })
-})
+const sendPDFSchema = loaSimulationWithRecaptchaSchema
 
 export async function POST(request: Request) {
   try {
@@ -51,7 +27,14 @@ export async function POST(request: Request) {
       )
     }
 
-    const { formData, leaseResults, comparison } = result.data
+    const { formData, leaseResults, comparison, recaptchaToken } = result.data
+    // Envoi d'un e-mail vers l'adresse saisie : e-mail obligatoire ici, et anti-robot (reCAPTCHA v3)
+    if (!formData.email) {
+      return NextResponse.json({ success: false, message: 'Email required' }, { status: 400 })
+    }
+    if (!(await verifyRecaptchaToken(recaptchaToken))) {
+      return NextResponse.json({ success: false, message: 'reCAPTCHA verification failed' }, { status: 403 })
+    }
 
     try {
       // Try to generate PDF
@@ -59,7 +42,7 @@ export async function POST(request: Request) {
       
       // Create PDF attachment
       const pdfAttachment = {
-        name: `Rapport-Leasing-${formData.company.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.pdf`,
+        name: `Rapport-Leasing-${formData.company.trim() ? `${formData.company.trim().replace(/\s+/g, '-')}-` : ''}${new Date().toISOString().split('T')[0]}.pdf`,
         content: pdfBuffer.toString('base64')
       }
 

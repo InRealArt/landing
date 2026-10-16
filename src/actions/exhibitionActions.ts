@@ -15,6 +15,8 @@ export interface ExhibitionArtistData {
   slug: string
   name: string
   surname: string
+  /** Nom d'usage (IRA-13) — afficher via getArtistDisplayName */
+  pseudo: string | null
   imageUrl: string
 }
 
@@ -64,6 +66,7 @@ export async function getExhibitions(): Promise<ExhibitionData[]> {
                   select: {
                     name: true,
                     surname: true,
+                    pseudo: true,
                   },
                 },
               },
@@ -86,6 +89,7 @@ export async function getExhibitions(): Promise<ExhibitionData[]> {
         slug: ea.landingArtist.slug,
         name: ea.landingArtist.artist.name ?? '',
         surname: ea.landingArtist.artist.surname ?? '',
+        pseudo: ea.landingArtist.artist.pseudo ?? null,
         imageUrl: resolveImageUrl(ea.landingArtist.imageUrl) ?? '',
       })),
     }))

@@ -3,9 +3,9 @@ import { permanentRedirect } from 'next/navigation'
 import PostDetail from '@/components/blog/PostDetail'
 import PostDetailAnimations from '@/components/blog/PostDetailAnimations'
 import PostLanguageSwitchOverride from '@/components/blog/PostLanguageSwitchOverride'
-import { getPostBySlug } from '@/actions/seoPostActions'
+import { getPostBySlug, getTranslatedPostSlug } from '@/actions/seoPostActions'
 
-export const revalidate = 1800 // régénère toutes les 30 min
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 
 type ParamsType = Promise<{ id: string }>
 
@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id: slug } = await params
   
   try {
-    const post = await getPostBySlug(slug, 'fr') ?? await getPostBySlug(slug, 'en')
+    const frPost = await getPostBySlug(slug, 'fr')
+    const post = frPost ?? await getPostBySlug(slug, 'en')
 
     if (!post) {
       return {
@@ -28,6 +29,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
     const articleUrl = `${baseUrl}/blog/${slug}`
+
+    // hreflang FR/EN réciproques (IRA-06) : chaque version pointe vers sa traduction publiée
+    const lang = frPost ? 'fr' : 'en'
+    const otherLang = lang === 'fr' ? 'en' : 'fr'
+    const otherSlug = await getTranslatedPostSlug(post.id, otherLang)
+    const otherPost = otherSlug ? await getPostBySlug(otherSlug, otherLang) : null
+    // Version anglaise non traduite (titre identique à l'original français) : noindex, pas de hreflang
+    const untranslated = lang === 'en' && !!otherPost && otherPost.title.trim() === post.title.trim()
+    const languages: Record<string, string> = untranslated ? {} : { [lang]: articleUrl }
+    if (otherPost && !untranslated) languages[otherLang] = `${baseUrl}/blog/${otherSlug}`
+    if (!untranslated) languages['x-default'] = languages.fr ?? articleUrl
 
     return {
       title: post.title,
@@ -63,15 +75,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
       // URL canonique
       alternates: {
-        canonical: articleUrl
+        canonical: articleUrl,
+        ...(Object.keys(languages).length > 1 && { languages })
       },
 
       // Autres métadonnées
       robots: {
-        index: true,
+        index: !untranslated,
         follow: true,
         googleBot: {
-          index: true,
+          index: !untranslated,
           follow: true,
           'max-video-preview': -1,
           'max-image-preview': 'large',

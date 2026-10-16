@@ -10,7 +10,7 @@ import {
   getPublishedPostsPaginated,
 } from '@/actions/seoPostActions'
 
-export const revalidate = 1800
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Le Blog InRealArt — Art, Culture & Patrimoine en Mouvement',

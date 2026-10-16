@@ -6,7 +6,7 @@ import TeamFAQ from '@/components/team/TeamFAQ'
 import { getTeamMembers } from '@/actions/teamActions'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
-export const revalidate = 3600
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 
 export const metadata: Metadata = generateStaticMetadata({
   title: 'L\'équipe InRealArt — Une vision, des acteurs et des artistes',

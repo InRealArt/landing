@@ -15,7 +15,7 @@ import {
 } from '@/utils/artworkLeaseCalculations'
 import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
 
-export default function LoaSimulatorClient() {
+export default function LoaSimulatorClient({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'h2' }) {
   const { t } = useTranslation()
   const [results, setResults] = useState<{
     leaseResults: LeaseResultsType | null
@@ -50,7 +50,7 @@ export default function LoaSimulatorClient() {
   return (
     <SimulatorLayout>
       <FormSection>
-        <ArtworkLeaseForm onCalculate={handleCalculation} />
+        <ArtworkLeaseForm onCalculate={handleCalculation} headingLevel={headingLevel} />
       </FormSection>
 
       <ResultSection

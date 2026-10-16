@@ -6,9 +6,10 @@ import Statistics from "@/components/home/Statistics"
 import ExhibitionSlider from "@/components/home/ExhibitionSlider"
 import FeaturedSlider from "@/components/home/FeaturedSlider/FeaturedSlider"
 import HomeHeroWrapper from "@/components/home/HomeHeroWrapper"
+import HomeSeoHeading from "@/components/home/HomeSeoHeading"
 import { generateStaticMetadata, generateOrganizationJsonLd, generateWebSiteJsonLd, generateArtGalleryJsonLd, defaultMetadata } from '@/utils/metadata'
 
-export const revalidate = 1800 // régénère toutes les 30 min
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
 
 // ✅ OPTIMISÉ: Lazy loading des composants below-the-fold
 // Impact: Réduit le bundle JavaScript initial de ~40-60%
@@ -78,6 +79,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: generateArtGalleryJsonLd() }}
       />
 
+      <HomeSeoHeading />
       <HomeHeroWrapper />
       {/* <FeaturedSlider /> */}
       <ExhibitionSlider />

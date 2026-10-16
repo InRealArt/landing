@@ -1,5 +1,16 @@
 import { FormData, LeaseResults, Comparison } from './pdfGenerator'
 
+// Les valeurs saisies par le visiteur sont échappées : elles ne doivent pas injecter de HTML dans l'e-mail
+export const escapeHtml = (value: string | null | undefined): string =>
+  (value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char] as string)
+
+// Coordonnées facultatives (IRA-18) : « Non renseigné » plutôt qu'une ligne vide
+const orNotProvided = (value: string | null | undefined): string => escapeHtml(value?.trim()) || 'Non renseigné'
+
+/** Libellé court du prospect pour un sujet d'e-mail : entreprise, sinon e-mail, sinon téléphone */
+export const contactLabel = (formData: Pick<FormData, 'company' | 'email' | 'phoneNumber'>): string =>
+  formData.company?.trim() || formData.email?.trim() || formData.phoneNumber?.trim() || 'prospect anonyme'
+
 // User email template (sent to the client)
 export const createUserEmailTemplate = (formData: FormData, leaseResults: LeaseResults, comparison: Comparison): string => `
 <!DOCTYPE html>
@@ -92,7 +103,7 @@ export const createUserEmailTemplate = (formData: FormData, leaseResults: LeaseR
             <div class="highlight-box">
                 <h3>📊 Résultats de votre simulation</h3>
                 <ul>
-                    <li><strong>Entreprise :</strong> ${formData.company}</li>
+                    <li><strong>Entreprise :</strong> ${orNotProvided(formData.company)}</li>
                     <li><strong>Valeur des œuvres :</strong> ${leaseResults.totalLeaseAmount.toLocaleString('fr-FR')} €</li>
                     <li><strong>Durée du bail :</strong> ${formData.leaseDuration} mois</li>
                     <li><strong>Loyer mensuel :</strong> ${leaseResults.monthlyRent.toLocaleString('fr-FR')} €</li>
@@ -125,7 +136,7 @@ export const createAdminEmailTemplate = (formData: FormData, leaseResults?: Leas
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Nouvelle simulation de leasing - ${formData.company}</title>
+    <title>Nouvelle simulation de leasing - ${escapeHtml(contactLabel(formData))}</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -213,9 +224,9 @@ export const createAdminEmailTemplate = (formData: FormData, leaseResults?: Leas
             <div class="info-box priority-high">
                 <h3>👤 Informations du prospect</h3>
                 <ul>
-                    <li><strong>Entreprise :</strong> ${formData.company}</li>
-                    <li><strong>Email :</strong> ${formData.email}</li>
-                    <li><strong>Téléphone :</strong> ${formData.phoneNumber}</li>
+                    <li><strong>Entreprise :</strong> ${orNotProvided(formData.company)}</li>
+                    <li><strong>Email :</strong> ${orNotProvided(formData.email)}</li>
+                    <li><strong>Téléphone :</strong> ${orNotProvided(formData.phoneNumber)}</li>
                     <li><strong>Valeur des œuvres :</strong> ${formData.artworkValue.toLocaleString('fr-FR')} €</li>
                     <li><strong>Durée souhaitée :</strong> ${formData.leaseDuration} mois</li>
                     <li><strong>Taux d'imposition personnalisé :</strong> ${formData.taxRate}%</li>

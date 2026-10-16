@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { serializeJsonLd, toPlainText } from '@/utils/jsonLd'
 
 // Base configuration
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inrealart.com'
@@ -257,7 +258,7 @@ export function generateOrganizationJsonLd(): string {
     ]
   }
 
-  return JSON.stringify(organizationData)
+  return serializeJsonLd(organizationData)
 }
 
 /**
@@ -272,7 +273,7 @@ export function generateWebSiteJsonLd(): string {
     url: BASE_URL,
   }
 
-  return JSON.stringify(websiteData)
+  return serializeJsonLd(websiteData)
 }
 
 /**
@@ -299,7 +300,7 @@ export function generatePersonJsonLd(
     }
   }
 
-  return JSON.stringify(personData)
+  return serializeJsonLd(personData)
 }
 
 /**
@@ -329,7 +330,7 @@ export function generateCreativeWorkJsonLd(
     ...(dimensions && { size: dimensions })
   }
 
-  return JSON.stringify(creativeWorkData)
+  return serializeJsonLd(creativeWorkData)
 }
 
 /**
@@ -341,17 +342,20 @@ export function generateFAQJsonLd(
   const faqData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map(faq => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer
-      }
-    }))
+    mainEntity: faqs
+      .map(faq => ({ question: toPlainText(faq.question), answer: toPlainText(faq.answer) }))
+      .filter(faq => faq.question && faq.answer)
+      .map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer
+        }
+      }))
   }
 
-  return JSON.stringify(faqData)
+  return serializeJsonLd(faqData)
 }
 
 /**
@@ -374,7 +378,7 @@ export function generateCollectionJsonLd(
     }))
   }
 
-  return JSON.stringify(collectionData)
+  return serializeJsonLd(collectionData)
 }
 
 /**
@@ -401,7 +405,7 @@ export function generateDefinedTermSetJsonLd(
     }))
   }
 
-  return JSON.stringify(data)
+  return serializeJsonLd(data)
 }
 
 /**
@@ -437,11 +441,11 @@ export function generateArtGalleryJsonLd(): string {
       '@type': 'OfferCatalog',
       name: 'Œuvres d\'art contemporain',
       description: 'Sélection d\'œuvres originales disponibles à l\'achat, à la location et à l\'investissement',
-      url: `${BASE_URL}/marketplace`,
+      url: `${BASE_URL}/presale`,
     },
   }
 
-  return JSON.stringify(data)
+  return serializeJsonLd(data)
 }
 
 /**
@@ -474,7 +478,7 @@ export function generateBlogJsonLd(): string {
     ],
   }
 
-  return JSON.stringify(data)
+  return serializeJsonLd(data)
 }
 
 /**
@@ -494,7 +498,7 @@ export function generateBreadcrumbJsonLd(
     }))
   }
 
-  return JSON.stringify(breadcrumbData)
+  return serializeJsonLd(breadcrumbData)
 }
 
 /**

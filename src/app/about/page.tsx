@@ -15,6 +15,8 @@ import AboutTeam from '@/components/about/AboutTeam'
 import AboutOurInvitation from '@/components/about/AboutOurInvitation'
 import NewsletterInline from '@/components/common/NewsletterInline'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 export default async function AboutPage() {
   const members = await getTeamMembers()
 

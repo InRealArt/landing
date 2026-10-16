@@ -4,13 +4,14 @@ import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
 import { useTranslation } from '@/hooks/useTranslation'
 import { CurrentlyExposedArtist } from '@/actions/artistActions'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface Props {
   artists: CurrentlyExposedArtist[]
 }
 
 function ArtistCard({ artist }: { artist: CurrentlyExposedArtist }) {
-  const fullName = artist.pseudo?.trim() || `${artist.name} ${artist.surname}`.trim()
+  const fullName = getArtistDisplayName(artist)
   return (
     <Link
       href={`/artists/${artist.slug}`}

@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { UgcTopArtistData } from '@/actions/ugcActions'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 type Vertical = 'all' | 'luxury' | 'lifestyle' | 'cultural' | 'institutional'
 
@@ -24,9 +25,7 @@ interface Props {
 }
 
 function displayName(profile: UgcTopArtistData['profile']): string {
-  if (profile.pseudo) return profile.pseudo
-  const parts = [profile.name, profile.surname].filter(Boolean)
-  return parts.length > 0 ? parts.join(' ') : '—'
+  return getArtistDisplayName(profile) || '—'
 }
 
 export default function AgenceTopCreateurs({ t, artists }: Props) {

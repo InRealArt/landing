@@ -153,7 +153,7 @@ export default function UseCaseScenarios() {
                 <a href={scenario.ctaHref} className="btn-mag self-start">
                   {scenario.cta}
                 </a>
-                <a href="/simulators/loa" className="btn-mag self-start" style={{ color: 'var(--gold-accent)', borderColor: 'var(--gold-accent)' }}>
+                <a href="/loa-simulator" className="btn-mag self-start" style={{ color: 'var(--gold-accent)', borderColor: 'var(--gold-accent)' }}>
                   {scenario.ctaSecondary}
                 </a>
               </div>

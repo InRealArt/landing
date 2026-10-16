@@ -37,6 +37,8 @@ export interface ArtistData {
     interviewUrl?: string | null
     artitudeUrl?: string | null
     ugcSlug?: string | null
+    /** Profils officiels de l'artiste (site, réseaux) pour le JSON-LD `sameAs` — renseigné par getArtistBySlug */
+    sameAs?: string[]
     translations?: {
         intro?: Record<string, string>
         description?: Record<string, string>
@@ -244,6 +246,7 @@ export async function getTestimonialArtists(): Promise<ArtistData[]> {
                 id: true,
                 name: true,
                 surname: true,
+                pseudo: true,
                 imageUrl: true,
                 LandingArtist: {
                     select: {
@@ -261,7 +264,7 @@ export async function getTestimonialArtists(): Promise<ArtistData[]> {
             slug: artist.LandingArtist[0]?.slug || '',
             name: artist.name ?? '',
             surname: artist.surname ?? '',
-            pseudo: '',
+            pseudo: artist.pseudo ?? '',
             intro: null,
             description: null,
             artworkStyle: null,
@@ -291,6 +294,7 @@ export async function getTestimonialGalleries(): Promise<ArtistData[]> {
                 id: true,
                 name: true,
                 surname: true,
+                pseudo: true,
                 imageUrl: true,
                 LandingArtist: {
                     select: {
@@ -308,7 +312,7 @@ export async function getTestimonialGalleries(): Promise<ArtistData[]> {
             slug: gallery.LandingArtist[0]?.slug || '',
             name: gallery.name ?? '',
             surname: gallery.surname ?? '',
-            pseudo: '',
+            pseudo: gallery.pseudo ?? '',
             intro: null,
             description: null,
             artworkStyle: null,
@@ -376,6 +380,11 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
                         isGallery: true,
                         countryCode: true,
                         birthYear: true,
+                        websiteUrl: true,
+                        instagramUrl: true,
+                        facebookUrl: true,
+                        twitterUrl: true,
+                        linkedinUrl: true,
                         Country: {
                             select: {
                                 code: true,
@@ -390,6 +399,10 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
         if (!landingArtist) {
             return null
         }
+
+        const { websiteUrl, instagramUrl, facebookUrl, twitterUrl, linkedinUrl } = landingArtist.artist
+        const sameAs = [websiteUrl, instagramUrl, facebookUrl, twitterUrl, linkedinUrl, landingArtist.seo?.artitudeUrl]
+            .filter((url): url is string => !!url && /^https?:\/\//.test(url))
 
         // Récupérer les traductions pour cet artiste
         const allTranslations = await prisma.translation.findMany({
@@ -473,6 +486,7 @@ export async function getArtistBySlug(slug: string): Promise<ArtistData | null> 
             interviewUrl: landingArtist.seo?.interviewUrl ?? null,
             artitudeUrl: landingArtist.seo?.artitudeUrl ?? null,
             ugcSlug: landingArtist.ugcArtistProfile ? generateUgcSlug(landingArtist.ugcArtistProfile) : null,
+            sameAs,
             translations
         }
     } catch (error) {

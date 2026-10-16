@@ -4,6 +4,8 @@ import { getAllUgcArtists } from '@/actions/ugcActions'
 import AgenceArtistsPage from '@/components/agence/AgenceArtistsPage'
 import AgenceArtistsFAQ from '@/components/agence/AgenceArtistsFAQ'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 export const metadata: Metadata = {
   title: 'Nos artistes — Agence',
   description:

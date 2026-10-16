@@ -1,5 +1,6 @@
 import { PresaleArtworkData } from '@/actions/presaleArtworkActions'
 import { ArtWork, Lang } from '@/types/types'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 export function transformPresaleArtworkToArtwork(artwork: PresaleArtworkData): ArtWork {
     // Helper to create multi-lang object
@@ -36,7 +37,7 @@ export function transformPresaleArtworkToArtwork(artwork: PresaleArtworkData): A
     return {
         id: artwork.id.toString(),
         artistId: artwork.artistId,
-        artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
+        artistName: getArtistDisplayName(artwork.artist),
         name: createMultiLangObject(artwork.name, artwork.translations?.name),
         description: createMultiLangObject(artwork.description || '', artwork.translations?.description),
         image: artwork.imageUrl,

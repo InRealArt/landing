@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
 import type { ExhibitionData } from '@/actions/exhibitionActions'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -21,7 +22,7 @@ function formatDateRange(startIso: string, endIso: string, locale: string): stri
 
 function formatArtistNames(exhibition: ExhibitionData): string {
   return exhibition.artists
-    .map((a) => `${a.name} ${a.surname}`.trim())
+    .map((a) => getArtistDisplayName(a))
     .filter(Boolean)
     .join(', ')
 }

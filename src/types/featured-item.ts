@@ -3,6 +3,8 @@ export type FeaturedArtist = {
   id: number
   name: string
   surname: string
+  /** Nom d'usage (IRA-13) — afficher via getArtistDisplayName */
+  pseudo?: string | null
   slug: string
   imageUrl: string
   speciality: string | null

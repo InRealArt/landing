@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { getTopArtworks } from '@/actions/presaleArtworkActions'
 import { stringToSlug } from '@/utils/functions'
 import CatalogSectionClient from './CatalogSectionClient'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 export interface CatalogArtworkItem {
   id: number
@@ -25,7 +26,7 @@ async function CatalogSectionContent() {
     imageUrl: a.imageUrl,
     price: a.price,
     isSold: a.isSold,
-    artistName: `${a.artist.name} ${a.artist.surname}`.trim(),
+    artistName: getArtistDisplayName(a.artist),
     width: a.width,
     height: a.height,
   }))

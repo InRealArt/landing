@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import Slider from './Slider'
 import { ArtistData } from '@/actions/artistActions'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 interface ArtistSliderClientProps {
   artists: ArtistData[]
@@ -14,7 +15,7 @@ export default function ArtistSliderClient({ artists }: ArtistSliderClientProps)
   // Adapter les données pour les rendre compatibles avec le composant Slider
   const formattedArtistImages = artists.map(artist => ({
     id: artist.id,
-    name: `${artist.name} ${artist.surname}`.trim(),
+    name: getArtistDisplayName(artist),
     description: artist.description || '',
     slug: artist.slug,
     image: {

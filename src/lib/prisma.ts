@@ -10,4 +10,5 @@ export const prisma =
         log: [/*'query', */'info', 'warn', 'error'],
     })
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+// Singleton aussi en production : le proxy (src/lib/slugIndex.ts) et les pages partagent le même pool de connexions
+globalForPrisma.prisma = prisma

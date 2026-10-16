@@ -220,11 +220,11 @@ export const LeaseResultsPDF: React.FC<LeaseResultsPDFProps> = ({
           <Text style={styles.sectionTitle}>{t.clientInfo}</Text>
           <View style={styles.row}>
             <Text style={styles.label}>{t.company}</Text>
-            <Text style={styles.value}>{formData.company}</Text>
+            <Text style={styles.value}>{formData.company || '—'}</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t.email}</Text>
-            <Text style={styles.value}>{formData.email}</Text>
+            <Text style={styles.value}>{formData.email || '—'}</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t.taxRate}</Text>

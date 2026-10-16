@@ -1,4 +1,5 @@
 import React from "react";
+import { toSlug } from "./slug";
 import { ArtWork, TeamMemberData } from "@/types/types";
 import { ref } from "firebase/storage";
 import { getDownloadURL } from "firebase/storage";
@@ -65,16 +66,7 @@ export const validateEmail = (email: string): boolean => {
  * @param str The string to convert to a slug
  * @returns The slugified string
  */
-export const stringToSlug = (str: string): string => {
-  return str
-    .toLowerCase()
-    .trim()
-    .normalize('NFD') // Decompose accented characters
-    .replace(/[\u0300-\u036f]/g, '') // Remove diacritical marks (accents)
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/-+/g, '-'); // Replace multiple - with single -
-};
+export const stringToSlug = (str: string): string => toSlug(str);
 
 /**
  * Formats text with line breaks for JSX rendering

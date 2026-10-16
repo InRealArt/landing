@@ -22,7 +22,7 @@ export default function UseCaseInlineSimulator() {
           </div>
         </div>
 
-        <LoaSimulatorClient />
+        <LoaSimulatorClient headingLevel="h2" />
       </div>
     </section>
   )

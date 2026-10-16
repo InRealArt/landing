@@ -223,9 +223,9 @@ export async function generateLeasingPDF(
 
     // Client Information Section
     let sectionY = createSectionBox(margin, yPosition, contentWidth, 40, 'Informations client')
-    addKeyValue(margin + 5, sectionY, 'Entreprise :', formData.company)
-    addKeyValue(margin + 5, sectionY + 4, 'Email :', formData.email)
-    addKeyValue(margin + 5, sectionY + 8, 'Téléphone :', formData.phoneNumber)
+    addKeyValue(margin + 5, sectionY, 'Entreprise :', formData.company?.trim() || '—')
+    addKeyValue(margin + 5, sectionY + 4, 'Email :', formData.email?.trim() || '—')
+    addKeyValue(margin + 5, sectionY + 8, 'Téléphone :', formData.phoneNumber?.trim() || '—')
     addKeyValue(margin + 5, sectionY + 12, 'Taux d\'imposition :', `${formData.taxRate}%`)
 
     yPosition += 50 // Reduced spacing
@@ -295,7 +295,7 @@ export async function generateLeaseResultsPDF(data: {
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = `Rapport-Leasing-${data.formData.company.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.pdf`
+      link.download = `Rapport-Leasing-${data.formData.company.trim() ? `${data.formData.company.trim().replace(/\s+/g, '-')}-` : ''}${new Date().toISOString().split('T')[0]}.pdf`
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)

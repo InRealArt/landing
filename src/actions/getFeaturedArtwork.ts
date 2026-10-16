@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
 import type { FeaturedArtwork } from '@/types/featured-item'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 export async function getFeaturedArtwork(): Promise<FeaturedArtwork | null> {
   try {
@@ -25,7 +26,7 @@ export async function getFeaturedArtwork(): Promise<FeaturedArtwork | null> {
 
     if (!artwork) return null
 
-    const artistName = `${artwork.artist.name ?? ''} ${artwork.artist.surname ?? ''}`.trim() || artwork.artist.pseudo || ''
+    const artistName = getArtistDisplayName(artwork.artist)
 
     return {
       kind: 'artwork',

@@ -10,6 +10,8 @@ import {
 import BlogCategoryPageClient from './BlogCategoryPageClient'
 import { SeoPost } from '@/types/seoPost'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 type ParamsType = Promise<{ slug: string }>
 
 interface Props {

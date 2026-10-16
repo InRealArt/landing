@@ -3,6 +3,7 @@
 import { prisma } from '@/lib/prisma'
 import { getImageUrl } from '@/lib/cloufare/r2/url'
 import { ArtistMedium, ArtistStudio } from '@/types/artistsStudio'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 type OpeningHourEntry = {
   day?: string
@@ -43,8 +44,7 @@ function formatOpeningHours(openingHours: unknown): { openPublic: boolean; hours
 }
 
 function buildArtistName(artist: { name: string | null; surname: string | null; pseudo: string | null }): string {
-  if (artist.pseudo) return artist.pseudo
-  return [artist.name, artist.surname].filter(Boolean).join(' ')
+  return getArtistDisplayName(artist)
 }
 
 // Retire le paramètre authuser (lié à une session GMB) des liens copiés depuis le Gestionnaire de fiches

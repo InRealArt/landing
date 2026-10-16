@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { getArtists } from '@/actions/artistActions'
 import PartnersSkeleton from './PartnersSkeleton'
 import PartnersClientWrapper from './PartnersClientWrapper'
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 async function PartnersContent() {
   const artists = await getArtists(true)
@@ -9,7 +10,7 @@ async function PartnersContent() {
   const partners = artists.map(artist => ({
     id: artist.id,
     slug: artist.slug,
-    name: `${artist.name} ${artist.surname}`.trim(),
+    name: getArtistDisplayName(artist),
     photo: artist.imageUrl,
     countryName: artist.countryName ?? null
   }))

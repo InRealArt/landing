@@ -8,6 +8,8 @@ import NewsletterInline from '@/components/common/NewsletterInline'
 import PageFAQ from '@/components/common/FAQ/PageFAQ'
 import { getLanguageIdByCode, getPublishedPosts } from '@/actions/seoPostActions'
 
+export const revalidate = 300 // filet de sécurité : 5 min max (IRA-22), en plus de /api/revalidate
+
 export const metadata: Metadata = generateStaticMetadata({
   title: 'Académie — Ressources sur l\'art et le patrimoine',
   description: "Guides, articles et ressources de l'Académie InRealArt pour comprendre le marché de l'art, la collection et la transmission du patrimoine artistique.",

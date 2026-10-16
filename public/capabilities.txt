@@ -84,7 +84,7 @@ Processus:
 
 ### 2. Marketplace d'œuvres
 Description: Plateforme d'achat/vente d'œuvres
-URL: https://www.inrealart.com/marketplace
+URL: https://www.inrealart.com/presale
 Modes d'acquisition:
   - Achat direct (paiement comptant)
   - Location avec Option d'Achat (LOA)

@@ -12,6 +12,7 @@ import { downloadCatalog } from '@/actions/catalogActions'
 import CatalogSuccessModal from '@/components/common/SuccessModal'
 import LeasingCTA from '@/components/presale/LeasingCTA'
 import { PresaleArtworkData } from '@/actions/presaleArtworkActions';
+import { getArtistDisplayName } from '@/utils/artistDisplayName'
 
 const PAGE_SIZE = 12
 
@@ -70,7 +71,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
 
   // Unique sorted artist list
   const artists = useMemo(() => {
-    const unique = Array.from(new Set(initialArtworks.map(a => `${a.artist.name} ${a.artist.surname}`)))
+    const unique = Array.from(new Set(initialArtworks.map(a => getArtistDisplayName(a.artist))))
     return unique.sort()
   }, [initialArtworks])
 
@@ -81,7 +82,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
     // Artist
     if (params.artist) {
       result = result.filter(a =>
-        `${a.artist.name} ${a.artist.surname}`.toLowerCase().includes(params.artist.toLowerCase())
+        getArtistDisplayName(a.artist).toLowerCase().includes(params.artist.toLowerCase())
       )
     }
 
@@ -90,7 +91,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
     if (q) {
       result = result.filter(a =>
         a.name.toLowerCase().includes(q) ||
-        `${a.artist.name} ${a.artist.surname}`.toLowerCase().includes(q)
+        getArtistDisplayName(a.artist).toLowerCase().includes(q)
       )
     }
 
@@ -126,8 +127,8 @@ export default function PresaleClient({ children, initialArtworks }: { children?
     if (params.sort === 'price_asc')  sorted.sort((a, b) => (a.price ?? Infinity)  - (b.price ?? Infinity))
     if (params.sort === 'price_desc') sorted.sort((a, b) => (b.price ?? -Infinity) - (a.price ?? -Infinity))
     if (params.sort === 'artist_az')  sorted.sort((a, b) =>
-      `${a.artist.name} ${a.artist.surname}`.toLowerCase()
-        .localeCompare(`${b.artist.name} ${b.artist.surname}`.toLowerCase())
+      getArtistDisplayName(a.artist).toLowerCase()
+        .localeCompare(getArtistDisplayName(b.artist).toLowerCase())
     )
 
     return sorted
@@ -170,7 +171,7 @@ export default function PresaleClient({ children, initialArtworks }: { children?
     name: artwork.name,
     price: artwork.price,
     order: artwork.order,
-    artistName: `${artwork.artist.name} ${artwork.artist.surname}`,
+    artistName: getArtistDisplayName(artwork.artist),
     artistSlug: artwork.artist.slug ?? null,
     isSold: artwork.isSold || false
   }))
