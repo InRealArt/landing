@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { submitAgenceBrief } from '@/actions/agenceBriefAction'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
+import { trackBriefSubmit } from '@/utils/gtm'
 
 interface Props {
   t: (key: string) => string
@@ -68,6 +69,7 @@ export default function AgenceBriefForm({ t }: Props) {
       recaptchaToken,
     })
     setStatus(result.success ? 'success' : 'error')
+    if (result.success) trackBriefSubmit('agence')
   }
 
   if (status === 'success') {

@@ -100,12 +100,16 @@ export default function ArtistSubNav({ hasArtworks = false, hasExhibitions = fal
 
   return (
     <>
+      {/* Hauteurs par défaut = valeurs mesurées header + hero (16/10/2026), servies dès le HTML :
+          sans elles, le spacer passait de 0 à ~330-430 px à l'hydratation (CLS 0,40 sur les fiches).
+          Le calcul JS ci-dessus les remplace ensuite par la valeur exacte. */}
       <nav
         ref={navRef}
         aria-label="Navigation de la page artiste"
+        className={topOffset > 0 ? undefined : 'top-[274px] md:top-[284px] lg:top-[359px]'}
         style={{
           position: 'fixed',
-          top: topOffset > 0 ? `${topOffset}px` : '220px',
+          ...(topOffset > 0 && { top: `${topOffset}px` }),
           left: 0,
           right: 0,
           zIndex: 40,
@@ -182,9 +186,11 @@ export default function ArtistSubNav({ hasArtworks = false, hasExhibitions = fal
       </nav>
 
       {/* Spacer compensant hero fixe + sous-menu fixe */}
-      {spacerHeight > 0 && (
-        <div aria-hidden="true" style={{ height: `${spacerHeight}px` }} />
-      )}
+      <div
+        aria-hidden="true"
+        className={spacerHeight > 0 ? undefined : 'h-[326px] sm:h-[346px] md:h-[356px] lg:h-[431px]'}
+        style={spacerHeight > 0 ? { height: `${spacerHeight}px` } : undefined}
+      />
     </>
   )
 }

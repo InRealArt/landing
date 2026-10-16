@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Robots servis avec les métadonnées (title, description, canonical, hreflang, robots) dans le <head>.
+  // Par défaut Next diffuse en streaming celles de generateMetadata dans le <body> : constaté le 16/10/2026 sur
+  // les fiches artiste/œuvre et les articles, y compris pour Googlebot. Les robots IA n'exécutent pas le JS
+  // et une canonical / des hreflang hors du <head> sont ignorés. = liste par défaut de Next
+  // (next/dist/shared/lib/router/utils/html-bots.js) + Googlebot, Bing et robots IA.
+  // ⚠️ Fiable tant que ces pages sont rendues à chaque requête (`headers()` dans le layout, cf. docs/CACHE_REVALIDATION.md).
+  // Si elles repassent en ISR, le cache n'a pas de Vary User-Agent : la variante « streaming » rendue pour un visiteur
+  // serait servie aux robots jusqu'à la revalidation suivante. Revérifier alors le <head> servi à Googlebot.
+  htmlLimitedBots: /Googlebot|bingbot|GPTBot|OAI-SearchBot|ChatGPT-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|CCBot|Amazonbot|meta-externalagent|[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i,
   images: {
     // Configuration des patterns d'images distantes
     remotePatterns: [

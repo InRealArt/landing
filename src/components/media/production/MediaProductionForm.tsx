@@ -5,6 +5,7 @@ import { submitMediaProduction } from '@/actions/mediaProductionAction'
 import type { MediaProductionInput } from '@/actions/mediaProductionAction'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { useTranslation } from '@/hooks/useTranslation'
+import { trackBriefSubmit } from '@/utils/gtm'
 
 type ProjectType = 'portrait' | 'reportage' | 'campaign' | 'other'
 
@@ -52,6 +53,7 @@ export default function MediaProductionForm() {
     }
     const result = await submitMediaProduction(payload)
     setStatus(result.success ? 'success' : 'error')
+    if (result.success) trackBriefSubmit('media_production')
   }
 
   if (status === 'success') {

@@ -7,6 +7,7 @@ import SimulatorInput from '@/components/common/simulator/SimulatorInput'
 import SimulatorSelect from '@/components/common/simulator/SimulatorSelect'
 import { type HeritageArtFormData, type HeritageArtResults, type ProfilInvestisseur, type Objectif, calculateHeritageArtRecommendation } from '@/utils/heritageArtCalculations'
 import Button from '../common/Button'
+import { trackSimulatorStart } from '@/utils/gtm'
 import { isValidPhoneNumber } from 'react-phone-number-input'
 
 interface HeritageArtFormProps {
@@ -141,6 +142,7 @@ export default function HeritageArtForm({ onCalculate }: HeritageArtFormProps) {
       }
 
       onCalculate(results, personalInfo)
+      trackSimulatorStart('heritage')
     } catch (error) {
       console.error('Erreur lors du calcul:', error)
       setErrors({ general: error instanceof Error ? error.message : 'Une erreur est survenue' })

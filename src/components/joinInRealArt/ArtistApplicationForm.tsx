@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import { useTranslation } from '@/hooks/useTranslation'
+import { trackArtistApply } from '@/utils/gtm'
 import {
   FormData,
   INITIAL_FORM,
@@ -125,6 +126,7 @@ export default function ArtistApplicationForm() {
       })
       if (!res.ok) throw new Error('server error')
       setStatus('success')
+      trackArtistApply('artist')
     } catch {
       setStatus('error')
       setErrorMessage(t(`${fp}.error`))

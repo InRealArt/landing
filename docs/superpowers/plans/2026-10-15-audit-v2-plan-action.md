@@ -597,7 +597,13 @@ async redirects() {
 
 ### Task 21 : Mesure
 
-> **Statut 16/10/2026 : ⏸ À FAIRE APRÈS DÉPLOIEMENT** — Lighthouse mobile à mesurer sur la prod ; événements GA4 `purchase_click`, `visit_booking` dépendent des boutons de la Task 11. ⚠️ Noté pour la performance : toutes les pages sont rendues à chaque requête (`headers()` dans le layout, cf. Task 6).
+> **Statut 16/10/2026 (après déploiement) : 🟡 PARTIEL**
+> - Lighthouse mobile prod (médianes de 3 passages) — perf / LCP / CLS : accueil 62 / 6,7 s / 0,10 ; fiche artiste 46 / 7,3 s / **0,40** ; fiche œuvre 64 / 8,2 s / 0 ; /presale 65 / 6,4 s / 0 ; /loa-simulator 64 / 14,2 s / 0. SEO 92-100, accessibilité 86-92, bonnes pratiques 96-100.
+> - **Objectif LCP < 2,5 s non atteint.** Le serveur n'est pas en cause (TTFB 40-60 ms malgré le rendu dynamique) : c'est le JS côté navigateur (accueil : 10,8 s de travail du thread principal, 2,9 Mo) et les éléments masqués avant animation GSAP (`opacity-0`, /presale et /loa-simulator : LCP = un texte). → chantier performance dédié à planifier.
+> - ✅ CLS fiche artiste corrigé : spacer de `ArtistSubNav` à 0 jusqu'à l'hydratation → hauteurs CSS mesurées servies dès le HTML. Build local : CLS 0,396 → 0.
+> - ✅ GA4 : `simulator_start` (LOA, salon, patrimoine), `brief_submit` (agence, capital, production média), `artist_apply` (artiste, galerie) via `src/utils/gtm.ts`. Ruling : `simulator_start` = calcul réussi (pas la première saisie), envoyé à chaque calcul. `purchase_click`, `visit_booking` restent liés à la Task 11. Reste hors code : déclencheurs/balises GA4 dans GTM + vérification DebugView.
+> - ✅ Métadonnées dans le `<body>` : sur les pages à `generateMetadata` asynchrone (fiches artiste/œuvre, articles), title/description/canonical/hreflang/robots étaient diffusés en streaming dans le `<body>`, y compris pour Googlebot et les robots IA (liste par défaut de Next). → `htmlLimitedBots` dans `next.config.ts` (liste Next + Googlebot, Bing, GPTBot, ClaudeBot, PerplexityBot…) : vérifié en build local, robots → `<head>`, navigateurs → streaming inchangé. C'était la cause du « meta-description » Lighthouse (SEO 92).
+> - Autres constats : accessibilité : contrastes, ordre des titres, taille des cibles, `select` sans nom sur /loa-simulator.
 - [ ] `npm run lighthouse` en mobile : LCP < 2,5 s ; événements GA4 `purchase_click`, `visit_booking`, `simulator_start`, `brief_submit`, `artist_apply` via l'utilitaire GTM existant ; vérifier dans DebugView.
 
 ---

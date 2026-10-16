@@ -63,5 +63,20 @@ export const trackButtonClick = (buttonName: string, buttonText: string) => {
     button_name: buttonName,
     button_text: buttonText
   });
-  
-}; 
+
+};
+
+// Événements de conversion GA4 (audit V2, Task 21). Le Consent Mode v2 de GoogleTag.tsx décide de leur envoi à GA4.
+// purchase_click et visit_booking viendront avec les boutons d'achat / de visite (Task 11).
+export type SimulatorName = 'loa' | 'art_salon' | 'heritage'
+export type BriefForm = 'agence' | 'capital' | 'media_production'
+export type ApplicantType = 'artist' | 'gallery'
+
+/** Simulation lancée avec succès (calcul effectué) */
+export const trackSimulatorStart = (simulator: SimulatorName) => pushEvent('simulator_start', { simulator })
+
+/** Demande de projet / brief envoyée avec succès */
+export const trackBriefSubmit = (form: BriefForm) => pushEvent('brief_submit', { form })
+
+/** Candidature artiste ou galerie envoyée avec succès */
+export const trackArtistApply = (applicant_type: ApplicantType) => pushEvent('artist_apply', { applicant_type })

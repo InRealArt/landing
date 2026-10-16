@@ -17,6 +17,7 @@ import {
 } from '@/utils/artworkLeaseCalculations'
 
 import Button from '../common/Button'
+import { trackSimulatorStart } from '@/utils/gtm'
 import SimulatorInput from '../common/simulator/SimulatorInput'
 import SimulatorSelect from '../common/simulator/SimulatorSelect'
 
@@ -149,6 +150,7 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
 
       // Send results to parent
       onCalculate(leaseResults, comparison, validatedData)
+      trackSimulatorStart('loa')
 
       toast.success(t('loaSimulator.toast.calculationSuccess'))
 

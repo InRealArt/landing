@@ -15,6 +15,7 @@ import {
   accommodationComfortCosts
 } from '@/utils/artSalonCalculations';
 import { useTranslation } from '@/hooks/useTranslation';
+import { trackSimulatorStart } from '@/utils/gtm';
 
 interface ArtSalonFormProps {
   onCalculate: (results: ArtSalonResults, formData: { firstName: string, lastName: string, email: string, phone: string }) => void;
@@ -104,6 +105,7 @@ export default function ArtSalonForm({ onCalculate, salonId, salonName }: ArtSal
 
       const results = calculateSalonCost(finalFormData);
       onCalculate(results, { firstName: finalFormData.firstName, lastName: finalFormData.lastName, email: finalFormData.email, phone: finalFormData.phone });
+      trackSimulatorStart('art_salon');
 
       // Send company info to admin immediately after calculation
       try {

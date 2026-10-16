@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
+import { trackArtistApply } from '@/utils/gtm'
 import { z } from 'zod'
 
 // ─── Zod schema ──────────────────────────────────────────────────────────────
@@ -105,6 +106,7 @@ export default function GalleriesContactSection() {
       })
       if (!res.ok) throw new Error('server error')
       setStatus('success')
+      trackArtistApply('gallery')
       setForm({ galleryName: '', email: '', profile: '' })
       setTouched({ galleryName: false, email: false, profile: false })
       setErrors({})

@@ -5,6 +5,7 @@ import { submitCapitalContact } from '@/actions/capitalContactAction'
 import type { CapitalContactInput } from '@/actions/capitalContactAction'
 import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { useTranslation } from '@/hooks/useTranslation'
+import { trackBriefSubmit } from '@/utils/gtm'
 
 type Sector = 'hotel' | 'real_estate' | 'sme' | 'large_group' | 'other'
 type CompanySize = 's1' | 's2' | 's3' | 's4'
@@ -58,6 +59,7 @@ export default function CapitalContactForm() {
     }
     const result = await submitCapitalContact(payload)
     setStatus(result.success ? 'success' : 'error')
+    if (result.success) trackBriefSubmit('capital')
   }
 
   if (status === 'success') {
