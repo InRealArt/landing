@@ -86,7 +86,9 @@ function buildSlides(
       alt: featuredExhibition.title,
       eyebrow: t('exhibitions.hero.featuredExhibitionEyebrow'),
       title: featuredExhibition.title,
-      descriptionText: t('exhibitions.hero.featuredExhibitionDescription'),
+      descriptionText:
+        featuredExhibition.description?.trim() ||
+        t('exhibitions.hero.featuredExhibitionDescription'),
       ctaLabel: t('exhibitions.hero.featuredExhibitionCta'),
     })
   }
@@ -190,7 +192,7 @@ export default function HomeHeroFeaturedSlider({
     return (
       <div className="mb-12 max-w-7xl">
         <FeaturedSlideContent slide={slides[0]} priority />
-        <p className="mt-4 text-white/30 text-xs leading-relaxed">{slides[0].descriptionText}</p>
+        <p className="cormorant-italic mt-5 text-white/80 text-xl sm:text-2xl lg:text-3xl font-light leading-snug">{slides[0].descriptionText}</p>
       </div>
     )
   }
@@ -260,7 +262,7 @@ export default function HomeHeroFeaturedSlider({
         {/* Anchored to the image's aspect ratio, not the slide (which also contains the caption text below it) */}
         <div className={`featured-slider-pagination-target ${FEATURED_IMAGE_ASPECT}`} />
       </div>
-      <p className="mt-4 text-white/30 text-xs leading-relaxed">
+      <p className="cormorant-italic mt-5 text-white/80 text-xl sm:text-2xl lg:text-3xl font-light leading-snug">
         {activeSlide.descriptionText}
       </p>
     </div>

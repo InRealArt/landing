@@ -34,6 +34,7 @@ export type FeaturedExhibition = {
   id: number
   title: string
   imageUrl: string | null
+  description: string | null
   location: string | null
   startDate: string
   endDate: string
