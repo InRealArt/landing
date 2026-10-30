@@ -34,7 +34,7 @@ function createHeritageArtUserEmailTemplate(formData: any, results: HeritageArtR
       
       <div style="background-color: #e0e7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
         <p style="margin: 0; font-size: 14px; color: #4c1d95;">
-          📎 <strong>Votre simulation détaillée est disponible en pièce jointe</strong> - Elle contient tous les détails de votre simulation avec la répartition complète de votre patrimoine optimisé.
+          📎 <strong>Votre simulation détaillée est disponible en pièce jointe</strong> - Elle contient tous les détails de votre simulation avec la répartition recommandée de votre patrimoine.
         </p>
       </div>
       
@@ -71,7 +71,7 @@ function createHeritageArtFallbackEmailTemplate(formData: any, results: Heritage
       </div>
 
       <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-        <h3 style="color: #333; margin-top: 0;">🎯 Répartition optimisée recommandée</h3>
+        <h3 style="color: #333; margin-top: 0;">🎯 Répartition recommandée</h3>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 8px;"><strong>Immobilier :</strong> ${repartitionAjustee.immobilier}%</li>
           <li style="margin-bottom: 8px;"><strong>Liquidités :</strong> ${repartitionAjustee.liquidites}%</li>
@@ -201,38 +201,39 @@ async function generateHeritageArtPDF(results: HeritageArtResults, _formData: an
   }
 
   // Personal Information Section
-  let sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Informations personnelles')
+  let sectionY = createSectionBox(margin, yPosition, contentWidth, 30, 'Informations personnelles')
   addKeyValue(margin + 5, sectionY, 'Nom :', `${results.personalInfo.firstName} ${results.personalInfo.lastName}`)
   addKeyValue(margin + 5, sectionY + 4, 'Email :', results.personalInfo.email)
   addKeyValue(margin + 5, sectionY + 8, 'Téléphone :', results.personalInfo.phone)
 
-  yPosition += 45
+  // Hauteur + 8 mm d'écart : l'ensemble doit tenir sur une page A4 (297 mm), pied de page compris
+  yPosition += 38
 
   // Profile Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 30, 'Profil patrimonial')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 25, 'Profil patrimonial')
   addKeyValue(margin + 5, sectionY, 'Profil :', results.profil)
   addKeyValue(margin + 5, sectionY + 4, 'Objectif patrimonial :', results.objectif)
 
-  yPosition += 40
+  yPosition += 33
 
   // Recommendation Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Recommandation')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 25, 'Recommandation')
   addKeyValue(margin + 5, sectionY, 'Fourchette recommandée :', `${results.recommendation.minArt}% - ${results.recommendation.maxArt}%`)
-  addKeyValue(margin + 5, sectionY + 4, 'Allocation optimale :', `${results.recommendation.artMoyenne}%`)
+  addKeyValue(margin + 5, sectionY + 4, 'Part d\'art recommandée :', `${results.recommendation.artMoyenne}%`)
 
-  yPosition += 45
+  yPosition += 33
 
   // Current Distribution Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 51, 'Répartition actuelle du patrimoine')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 35, 'Répartition actuelle du patrimoine')
   addKeyValue(margin + 5, sectionY, 'Immobilier :', `${results.patrimoineActuel.immobilier}%`)
   addKeyValue(margin + 5, sectionY + 4, 'Liquidités :', `${results.patrimoineActuel.liquidites}%`)
   addKeyValue(margin + 5, sectionY + 8, 'Produits financiers :', `${results.patrimoineActuel.financier}%`)
   addKeyValue(margin + 5, sectionY + 12, 'Biens tangibles :', `${results.patrimoineActuel.tangibles}%`)
 
-  yPosition += 61
+  yPosition += 43
 
   // Recommended Distribution Section
-  sectionY = createSectionBox(margin, yPosition, contentWidth, 61, 'Répartition optimisée recommandée')
+  sectionY = createSectionBox(margin, yPosition, contentWidth, 45, 'Répartition recommandée')
   addKeyValue(margin + 5, sectionY, 'Immobilier :', `${results.repartitionAjustee.immobilier}%`)
   addKeyValue(margin + 5, sectionY + 4, 'Liquidités :', `${results.repartitionAjustee.liquidites}%`)
   addKeyValue(margin + 5, sectionY + 8, 'Produits financiers :', `${results.repartitionAjustee.financier}%`)
@@ -249,7 +250,7 @@ async function generateHeritageArtPDF(results: HeritageArtResults, _formData: an
   doc.text('ART RECOMMANDÉ :', margin + 5, sectionY + 24)
   doc.text(`${results.repartitionAjustee.art}%`, margin + contentWidth - 15, sectionY + 24, { align: 'right' })
 
-  yPosition += 71
+  yPosition += 55
 
   // Footer
   doc.setFont(fontFamily, 'normal')
