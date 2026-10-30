@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server'
 import jsPDF from 'jspdf'
-import { sendEmailViaBrevo } from '@/utils/emailTemplates'
-import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
+import { sendEmailViaBrevo, escapeHtml } from '@/utils/emailTemplates'
+import { type HeritageArtResults, calculateHeritageArtRecommendation } from '@/utils/heritageArtCalculations'
+import { heritageArtRequestSchema } from '@/utils/heritageArtSimulatorSchema'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 
 
@@ -13,7 +15,7 @@ function createHeritageArtUserEmailTemplate(formData: any, results: HeritageArtR
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #7c3aed; margin-bottom: 20px;">🎨 Votre simulation personnalisée - Patrimoine & Art</h2>
       
-      <p>Bonjour ${personalInfo.firstName} ${personalInfo.lastName},</p>
+      <p>Bonjour ${escapeHtml(personalInfo.firstName)} ${escapeHtml(personalInfo.lastName)},</p>
       
       <p>Merci d'avoir utilisé notre simulateur d'intégration de l'art dans un patrimoine. Vous trouverez en pièce jointe votre simulation détaillée au format PDF.</p>
       
@@ -57,7 +59,7 @@ function createHeritageArtFallbackEmailTemplate(formData: any, results: Heritage
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #7c3aed; margin-bottom: 20px;">🎨 Votre simulation personnalisée - Patrimoine & Art</h2>
       
-      <p>Bonjour ${personalInfo.firstName} ${personalInfo.lastName},</p>
+      <p>Bonjour ${escapeHtml(personalInfo.firstName)} ${escapeHtml(personalInfo.lastName)},</p>
       
       <p>Merci d'avoir utilisé notre simulateur d'intégration de l'art dans un patrimoine. Voici le détail de votre simulation :</p>
       
@@ -261,15 +263,19 @@ async function generateHeritageArtPDF(results: HeritageArtResults, _formData: an
 
 export async function POST(request: Request) {
   try {
-    const { results, formData } = await request.json() as {
-      results: HeritageArtResults
-      formData: { firstName: string, lastName: string, email: string, phone: string }
+    const parsed = heritageArtRequestSchema.safeParse(await request.json().catch(() => null))
+    if (!parsed.success) {
+      return NextResponse.json({ success: false, message: 'Données invalides' }, { status: 400 })
     }
 
-    if (!results || !formData) {
-      return NextResponse.json({ success: false, message: 'Données manquantes' }, { status: 400 })
+    const { formData, recaptchaToken } = parsed.data
+    // Envoi d'un e-mail vers l'adresse saisie : anti-robot (reCAPTCHA v3)
+    if (!(await verifyRecaptchaToken(recaptchaToken))) {
+      return NextResponse.json({ success: false, message: 'reCAPTCHA verification failed' }, { status: 403 })
     }
 
+    // Recalcul côté serveur : les résultats envoyés par le navigateur ne sont pas repris
+    const results = calculateHeritageArtRecommendation(formData)
     const { personalInfo } = results
 
     // Generate PDF
@@ -284,7 +290,7 @@ export async function POST(request: Request) {
       
       // Create PDF attachment
       const pdfAttachment = {
-        name: `Simulation-Patrimoine-Art-${formData.firstName}-${formData.lastName}-${new Date().toISOString().split('T')[0]}.pdf`,
+        name: `Simulation-Patrimoine-Art-${`${formData.firstName}-${formData.lastName}`.replace(/[^\p{L}\p{N}-]+/gu, '-')}-${new Date().toISOString().split('T')[0]}.pdf`,
         content: pdfBuffer.toString('base64')
       }
 
@@ -298,9 +304,9 @@ export async function POST(request: Request) {
       // Send notification to company
       const companyTemplate = `
         <h2>🎨 Nouvelle simulation patrimoine & art</h2>
-        <p><strong>Nom :</strong> ${personalInfo.firstName} ${personalInfo.lastName}</p>
-        <p><strong>Email :</strong> ${personalInfo.email}</p>
-        <p><strong>Téléphone :</strong> ${personalInfo.phone}</p>
+        <p><strong>Nom :</strong> ${escapeHtml(personalInfo.firstName)} ${escapeHtml(personalInfo.lastName)}</p>
+        <p><strong>Email :</strong> ${escapeHtml(personalInfo.email)}</p>
+        <p><strong>Téléphone :</strong> ${escapeHtml(personalInfo.phone)}</p>
         <p><strong>Profil :</strong> ${results.profil}</p>
         <p><strong>Objectif :</strong> ${results.objectif}</p>
         <p><strong>Allocation art recommandée :</strong> ${results.recommendation.artMoyenne}% (${results.recommendation.minArt}%-${results.recommendation.maxArt}%)</p>

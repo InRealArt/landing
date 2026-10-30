@@ -1,18 +1,24 @@
 import { NextResponse } from 'next/server'
-import { sendEmailViaBrevo } from '@/utils/emailTemplates'
-import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
+import { sendEmailViaBrevo, escapeHtml } from '@/utils/emailTemplates'
+import { calculateHeritageArtRecommendation } from '@/utils/heritageArtCalculations'
+import { heritageArtRequestSchema } from '@/utils/heritageArtSimulatorSchema'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 export async function POST(request: Request) {
   try {
-    const { results, formData } = await request.json() as {
-      results: HeritageArtResults
-      formData: { firstName: string, lastName: string, email: string, phone: string }
+    const parsed = heritageArtRequestSchema.safeParse(await request.json().catch(() => null))
+    if (!parsed.success) {
+      return NextResponse.json({ success: false, message: 'Données invalides' }, { status: 400 })
     }
 
-    if (!results || !formData) {
-      return NextResponse.json({ success: false, message: 'Données manquantes' }, { status: 400 })
+    const { formData, recaptchaToken } = parsed.data
+    // Envoi d'e-mails (dont un vers l'adresse saisie) : anti-robot (reCAPTCHA v3)
+    if (!(await verifyRecaptchaToken(recaptchaToken))) {
+      return NextResponse.json({ success: false, message: 'reCAPTCHA verification failed' }, { status: 403 })
     }
 
+    // Recalcul côté serveur : les résultats envoyés par le navigateur ne sont pas repris
+    const results = calculateHeritageArtRecommendation(formData)
     const { personalInfo } = results
 
     // Template for company notification
@@ -22,9 +28,9 @@ export async function POST(request: Request) {
         
         <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
           <h3 style="color: #333; margin-top: 0;">👤 Informations du prospect</h3>
-          <p><strong>Nom :</strong> ${personalInfo.firstName} ${personalInfo.lastName}</p>
-          <p><strong>Email :</strong> ${personalInfo.email}</p>
-          <p><strong>Téléphone :</strong> ${personalInfo.phone}</p>
+          <p><strong>Nom :</strong> ${escapeHtml(personalInfo.firstName)} ${escapeHtml(personalInfo.lastName)}</p>
+          <p><strong>Email :</strong> ${escapeHtml(personalInfo.email)}</p>
+          <p><strong>Téléphone :</strong> ${escapeHtml(personalInfo.phone)}</p>
         </div>
 
         <div style="background-color: #e0e7ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -66,7 +72,7 @@ export async function POST(request: Request) {
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #7c3aed; margin-bottom: 20px;">🎨 Demande de contact reçue - InRealArt</h2>
         
-        <p>Bonjour ${personalInfo.firstName} ${personalInfo.lastName},</p>
+        <p>Bonjour ${escapeHtml(personalInfo.firstName)} ${escapeHtml(personalInfo.lastName)},</p>
         
         <p>Nous avons bien reçu votre demande de contact suite à votre simulation d'intégration de l'art dans votre patrimoine.</p>
         
@@ -90,7 +96,7 @@ export async function POST(request: Request) {
 
         <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
           <p style="margin: 0; font-size: 14px; color: #92400e;">
-            📞 <strong>Nous vous appellerons au :</strong> ${personalInfo.phone}
+            📞 <strong>Nous vous appellerons au :</strong> ${escapeHtml(personalInfo.phone)}
           </p>
         </div>
 

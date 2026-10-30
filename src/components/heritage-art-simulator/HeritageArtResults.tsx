@@ -11,6 +11,7 @@ import {
 import { Send } from 'lucide-react'
 import { toast } from 'sonner'
 import { useTranslation } from '@/hooks/useTranslation'
+import { useLazyRecaptcha } from '@/hooks/useLazyRecaptcha'
 import { type HeritageArtResults } from '@/utils/heritageArtCalculations'
 import Button from '../common/Button'
 
@@ -31,20 +32,36 @@ interface HeritageArtResultsProps {
 export default function HeritageArtResults({ results, formData }: HeritageArtResultsProps) {
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
+  const { executeRecaptcha } = useLazyRecaptcha({ preloadOnInteraction: true, interactionTarget: 'button' })
 
   const handleSendPDF = async () => {
     if (!formData) return;
 
     setIsLoading(true);
     try {
+      const recaptchaToken = await executeRecaptcha('heritage_send_pdf')
+      if (!recaptchaToken) {
+        toast.error(t('heritageArtSimulator.results.pdfSentError'))
+        return
+      }
+      // Saisies seulement : le serveur recalcule la recommandation
+      const { immobilier, liquidites, financier, tangibles } = results.patrimoineActuel
       const response = await fetch('/api/heritage-art-simulator/send-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          results,
-          formData,
+          formData: {
+            immobilier,
+            liquidites,
+            financier,
+            tangibles,
+            profil: results.profil,
+            objectif: results.objectif,
+            ...formData,
+          },
+          recaptchaToken,
         }),
       });
 
