@@ -13,10 +13,11 @@ import {
   type ArtworkLeaseComparison as ComparisonType,
   type ArtworkLeaseInputs
 } from '@/utils/artworkLeaseCalculations'
-import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
+import { useRandomSimulatorImage } from '@/hooks/useRandomSimulatorImage'
 
 export default function LoaSimulatorClient({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'h2' }) {
   const { t } = useTranslation()
+  const imageSrc = useRandomSimulatorImage()
   const [results, setResults] = useState<{
     leaseResults: LeaseResultsType | null
     comparison: ComparisonType | null
@@ -34,13 +35,17 @@ export default function LoaSimulatorClient({ headingLevel = 'h1' }: { headingLev
   // Default content for LOA simulator
   const defaultContent = (
     <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
-      <OptimizedImage
-        src={getRandomSimulatorImage()}
-        alt="Simulateur LOA"
-        width={500}
-        height={500}
-        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
-      />
+      {imageSrc ? (
+        <OptimizedImage
+          src={imageSrc}
+          alt="Simulateur LOA"
+          width={500}
+          height={500}
+          className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
+        />
+      ) : (
+        <div className="w-full max-w-lg aspect-[2/3]" aria-hidden="true" />
+      )}
       <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
         {t('loaSimulator.title')}
       </p>

@@ -8,9 +8,10 @@ import SimulatorLayout from '@/components/common/simulator/SimulatorLayout'
 import FormSection from '@/components/common/simulator/FormSection'
 import ResultSection from '@/components/common/simulator/ResultSection'
 import { type HeritageArtResults as HeritageArtResultsType } from '@/utils/heritageArtCalculations'
-import { getRandomSimulatorImage } from '@/utils/randomSimulatorImage'
+import { useRandomSimulatorImage } from '@/hooks/useRandomSimulatorImage'
 
 export default function HeritageArtSimulatorClient() {
+  const imageSrc = useRandomSimulatorImage()
   const [results, setResults] = useState<{
     results: HeritageArtResultsType | null
     formData: {
@@ -31,13 +32,17 @@ export default function HeritageArtSimulatorClient() {
   // Default content for Heritage Art simulator
   const defaultContent = (
     <div className="flex-1 flex flex-col items-center justify-center p-8 gap-6">
-      <OptimizedImage
-        src={getRandomSimulatorImage()}
-        alt="Simulateur Art Patrimoine"
-        width={700}
-        height={700}
-        className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
-      />
+      {imageSrc ? (
+        <OptimizedImage
+          src={imageSrc}
+          alt="Simulateur Art Patrimoine"
+          width={700}
+          height={700}
+          className="w-full max-w-lg [&_img]:w-full [&_img]:h-auto [&_img]:object-cover"
+        />
+      ) : (
+        <div className="w-full max-w-lg aspect-[2/3]" aria-hidden="true" />
+      )}
       <p className="text-xs uppercase tracking-[0.3em] text-[var(--gray-text)] text-center">
         Patrimoine & Art
       </p>
