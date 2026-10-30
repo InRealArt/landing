@@ -3,6 +3,18 @@
 import { prisma } from '@/lib/prisma'
 import { organizeTranslations } from '@/utils/translations'
 import { toSlug } from '@/utils/slug'
+
+// Slug de la fiche /artists/[slug] : celui de LandingArtist publié (artistsPage), comme dans src/lib/slugIndex.ts.
+// Artist.slug (schéma public) est souvent vide ou différent (« horea-mme » pour « horea ») → lien redirigé vers /artists.
+const ARTIST_SELECT = {
+    name: true,
+    surname: true,
+    pseudo: true,
+    LandingArtist: { where: { artistsPage: true }, select: { slug: true }, orderBy: { id: 'asc' }, take: 1 },
+} as const
+
+const artistPageSlug = (artist: { LandingArtist: { slug: string }[] }): string | null =>
+    artist.LandingArtist[0]?.slug ?? null
 export interface PresaleArtworkData {
     id: number
     name: string
@@ -52,14 +64,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                 width: true,
                 height: true,
                 isSold: true,
-                artist: {
-                    select: {
-                        name: true,
-                        surname: true,
-                        pseudo: true,
-                        slug: true,
-                    }
-                }
+                artist: { select: ARTIST_SELECT }
             },
             orderBy: {
                 order: 'asc'
@@ -116,7 +121,7 @@ export async function getPresaleArtworks(): Promise<PresaleArtworkData[]> {
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
                     pseudo: artwork.artist.pseudo ?? null,
-                    slug: artwork.artist.slug ?? null,
+                    slug: artistPageSlug(artwork.artist),
                 },
                 mockupUrls,
                 translations
@@ -153,14 +158,7 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
                     width: true,
                     height: true,
                     isSold: true,
-                    artist: {
-                        select: {
-                            name: true,
-                            surname: true,
-                            pseudo: true,
-                            slug: true,
-                        }
-                    }
+                    artist: { select: ARTIST_SELECT }
                 }
             }
         },
@@ -210,7 +208,7 @@ async function fetchKeyWorks(artistId?: number): Promise<PresaleArtworkData[]> {
                 name: artwork.artist.name ?? '',
                 surname: artwork.artist.surname ?? '',
                 pseudo: artwork.artist.pseudo ?? null,
-                slug: artwork.artist.slug ?? null,
+                slug: artistPageSlug(artwork.artist),
             },
             mockupUrls,
             translations
@@ -247,14 +245,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
                 width: true,
                 height: true,
                 isSold: true,
-                artist: {
-                    select: {
-                        name: true,
-                        surname: true,
-                        pseudo: true,
-                        slug: true,
-                    }
-                }
+                artist: { select: ARTIST_SELECT }
             }
         })
 
@@ -269,7 +260,7 @@ export async function getPresaleArtworkById(id: number): Promise<PresaleArtworkD
             }
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null, pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations: { name: {}, description: {} } }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artistPageSlug(artwork.artist), pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations: { name: {}, description: {} } }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork ${id}:`, error)
         return null
@@ -298,14 +289,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
                 width: true,
                 height: true,
                 isSold: true,
-                artist: {
-                    select: {
-                        name: true,
-                        surname: true,
-                        slug: true,
-                        pseudo: true,
-                    }
-                }
+                artist: { select: ARTIST_SELECT }
             }
         })
 
@@ -331,7 +315,7 @@ export async function getPresaleArtworkBySlug(slug: string): Promise<PresaleArtw
             description: translationsByEntity[artworkKey]?.description || {}
         }
 
-        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artwork.artist.slug ?? null, pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations }
+        return { ...artwork, artist: { name: artwork.artist.name ?? '', surname: artwork.artist.surname ?? '', slug: artistPageSlug(artwork.artist), pseudo: artwork.artist.pseudo ?? null }, mockupUrls, translations }
     } catch (error) {
         console.error(`Erreur lors de la récupération de l'artwork par slug "${slug}":`, error)
         return null
@@ -356,14 +340,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
                 width: true,
                 height: true,
                 isSold: true,
-                artist: {
-                    select: {
-                        name: true,
-                        surname: true,
-                        pseudo: true,
-                        slug: true,
-                    },
-                },
+                artist: { select: ARTIST_SELECT },
             },
             orderBy: {
                 order: 'asc',
@@ -376,7 +353,7 @@ export async function getTopArtworks(): Promise<PresaleArtworkData[]> {
                 name: a.artist.name ?? '',
                 surname: a.artist.surname ?? '',
                 pseudo: a.artist.pseudo ?? null,
-                slug: a.artist.slug ?? null,
+                slug: artistPageSlug(a.artist),
             },
             mockupUrls: null,
             translations: { name: {}, description: {} },
@@ -405,14 +382,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                 width: true,
                 height: true,
                 isSold: true,
-                artist: {
-                    select: {
-                        name: true,
-                        surname: true,
-                        pseudo: true,
-                        slug: true,
-                    }
-                }
+                artist: { select: ARTIST_SELECT }
             },
             orderBy: {
                 displayOrder: 'asc'
@@ -469,7 +439,7 @@ export async function getPresaleArtworksByArtistId(artistId: number): Promise<Pr
                     name: artwork.artist.name ?? '',
                     surname: artwork.artist.surname ?? '',
                     pseudo: artwork.artist.pseudo ?? null,
-                    slug: artwork.artist.slug ?? null,
+                    slug: artistPageSlug(artwork.artist),
                 },
                 mockupUrls,
                 translations
