@@ -44,12 +44,10 @@ const ArtworkCardOrder = ({
     on_demand: t('presale.artworks.askPrice'),
   }[status]
 
+  // Lien « étiré » : le lien de l'œuvre (sur le titre) couvre toute la carte via ::after,
+  // ce qui évite d'imbriquer le lien artiste dans un autre <a> (erreur d'hydratation #418)
   return (
-    <Link
-      href={`/artwork/${slug}`}
-      className="group artwork-container block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#b89c72]"
-      aria-label={`${name} — ${artistName}`}
-    >
+    <div className="group artwork-container relative block">
       {/* Image */}
       <div className="artwork-image relative w-full overflow-hidden bg-[#f9f9f9]" style={{ aspectRatio: '4/5' }}>
         <FirebaseImage
@@ -69,7 +67,7 @@ const ArtworkCardOrder = ({
         </div>
 
         {/* Status badge */}
-        <div className={`absolute top-3 right-3 z-10 px-2.5 py-[5px] text-[7px] uppercase tracking-[0.22em] border backdrop-blur-sm font-medium ${STATUS_STYLES[status]}`}>
+        <div className={`pointer-events-none absolute top-3 right-3 z-10 px-2.5 py-[5px] text-[7px] uppercase tracking-[0.22em] border backdrop-blur-sm font-medium ${STATUS_STYLES[status]}`}>
           {statusLabel}
         </div>
       </div>
@@ -80,8 +78,7 @@ const ArtworkCardOrder = ({
         {artistSlug ? (
           <Link
             href={`/artists/${artistSlug}`}
-            onClick={e => e.stopPropagation()}
-            className="text-xs uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate block hover:underline underline-offset-2"
+            className="relative z-20 text-xs uppercase tracking-widest text-[#b89c72] font-medium mb-1 truncate block hover:underline underline-offset-2"
           >
             {artistName}
           </Link>
@@ -93,7 +90,13 @@ const ArtworkCardOrder = ({
 
         {/* Artwork title */}
         <h3 className="serif text-xl italic font-light text-textColor leading-snug line-clamp-2">
-          {name}
+          <Link
+            href={`/artwork/${slug}`}
+            className="focus-visible:outline-none after:absolute after:inset-0 after:z-10 focus-visible:after:ring-1 focus-visible:after:ring-[#b89c72]"
+            aria-label={`${name} — ${artistName}`}
+          >
+            {name}
+          </Link>
         </h3>
 
         {/* Price or CTA */}
@@ -115,7 +118,7 @@ const ArtworkCardOrder = ({
           )}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 

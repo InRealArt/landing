@@ -602,6 +602,9 @@
     "loadingError": "Loading Error",
     "artistLoadingError": "Unable to load artist information.",
     "artistType": "Artist",
+    "errorTitle": "An error occurred",
+    "artistPageError": "Unable to load the artist page. Please try again.",
+    "retry": "Try again",
     "faq": {
       "title": "Frequently Asked Questions",
       "description": "Find here the answers to the most common questions."

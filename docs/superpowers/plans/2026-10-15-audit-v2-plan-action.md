@@ -10,6 +10,19 @@
 
 **Spec :** `docs/audit/InRealArt_Audit_V2_plan_action_dev.docx`
 
+## État au 30/10/2026
+
+| Statut | Tasks | Commits |
+|---|---|---|
+| ✅ En prod (15-16/10) | 1, 2, 3 (sauf test Patrimoine), 4, 5, 6 (code), 7, 8, 9, 10, 14, 15, 17, 20 | `bc2a7a1`, `0fcfce0`…`70d0ada`, `8a7fc72`, `55019d9`, `e700fa3`, `046fd31` |
+| 🟡 Partiel | 18 (études de cas bloquées), 21 (LCP < 2,5 s non atteint → chantier performance) | `55019d9`, `ef73be4` |
+| ⛔ Bloqué | 11, 12, 13, 16, 19 | — |
+| ⏳ Fin d'audit | Test Patrimoine de bout en bout (Task 3, 7e) puis rapport final pour l'associé | — |
+
+**Actions restant à l'utilisateur :** test de purge back-office → landing (Task 6, Steps 3 et 5) ; test LOA + PDF ; déclencheurs/balises GA4 dans GTM + DebugView (Task 21) ; vérifier `RECAPTCHA_SECRET_KEY` et `REVALIDATE_SECRET` sur Vercel ; supprimer `src/app/{about,marketplace,academy,roadmap}` ; traduire les articles EN 133 et 281 ; validation juridique des CGV.
+
+**Constats hors périmètre (à traiter ou à reporter au rapport) :** ✅ corrigés le 30/10 (non commités, vérifiés dans Chrome) : hydratation React #418 sur `/presale` (liens artiste imbriqués dans le lien de la carte → lien étiré, `ArtworkCardOrder.tsx`), `artists/[slug]/error.tsx` traduit FR/EN, `select` nommé sur `/loa-simulator` (sans l'astérisque du placeholder). Revue ✅ (code-reviewer) : aucun défaut. Nouveau : hydratation `/loa-simulator` et `/heritage-art-simulator` (image tirée par `Math.random()` au rendu, `getRandomSimulatorImage`). Restent : routes du simulateur Patrimoine sans reCAPTCHA ; PDF Patrimoine « Allocation optimale : » vide ; `npm run lint` cassé.
+
 ## Contraintes globales
 
 - Ne rien commiter sans demande explicite ; pas de commit sur `main` (CLAUDE.md). Les étapes « Commit » ci-dessous sont à exécuter uniquement après feu vert.
@@ -374,7 +387,7 @@ export function formatPrice(price: number | null | undefined): string | null {
 - [x] ✅ **Step 6 : Vérifier** — FAIT le 16/10/2026 (build local) : `/` 1 H1 (à 26 % du HTML, avant le hero), `/presale` 1 H1. « Pourquoi investir » encore 2× sur `/presale` : contenu de la table `Faq` (back-office, décision Step 5), pas du code. Ajouté : `/usecase` avait 2 H1 (le formulaire LOA intégré `ArtworkLeaseForm.tsx` rendait un `<h1>`) → prop `headingLevel` (`h1` par défaut sur `/loa-simulator`, `h2` dans `UseCaseInlineSimulator`) ; `tsc` OK. ⚠️ Outil : `curl | grep` est réécrit par le hook rtk et fausse les comptages → mesurer avec `scratchpad/h1.py` (urllib).
   - [x] ✅ **Revue Task 5** — aucun défaut à forte confiance ; aucune page ne passe à 0 H1 (seul `/presale` rend `FAQClient`, son H1 vient de `PresaleHero`) ; H1 `sr-only` = claim visible par défaut du hero (pas de contenu caché trompeur). Mineur reporté : sur `/usecase`, titre du formulaire en `h2` juste sous le `h2` de section (un `h3` serait plus propre).
 
-- [ ] **Step 7 : Commit** — à faire par l'utilisateur — `fix(home): H1 unique en haut, H1 en double retiré de /presale et /usecase (IRA-10a/17a)` — fichiers : `src/app/page.tsx`, `src/components/home/HomeHero.tsx`, `src/components/home/HomeSeoHeading.tsx` (nouveau), `src/components/common/FAQ/FAQClient.tsx`, `src/components/loa-simulator/ArtworkLeaseForm.tsx`, `LoaSimulatorClient.tsx`, `src/components/usecase/UseCaseInlineSimulator.tsx`
+- [x] ✅ **Step 7 : Commit** — FAIT le 16/10/2026 dans `55019d9` (en prod) — `fix(home): H1 unique en haut, H1 en double retiré de /presale et /usecase (IRA-10a/17a)` — fichiers : `src/app/page.tsx`, `src/components/home/HomeHero.tsx`, `src/components/home/HomeSeoHeading.tsx` (nouveau), `src/components/common/FAQ/FAQClient.tsx`, `src/components/loa-simulator/ArtworkLeaseForm.tsx`, `LoaSimulatorClient.tsx`, `src/components/usecase/UseCaseInlineSimulator.tsx`
 
 ---
 
@@ -437,9 +450,9 @@ export async function POST(req: NextRequest) {
 
 - [x] ✅ **Step 4 : Réduire la fenêtre** — FAIT : 16 pages à `revalidate = 300` + `unstable_cache` de `/services` à 300 s. — en filet de sécurité, passer `export const revalidate = 1800` à `300` sur les 8 pages concernées (`grep -rn "export const revalidate" src/app`) — critère « < 5 min ».
 
-- [ ] **Step 5 : Vérifier** — à faire en prod après déploiement — modifier une donnée en base, appeler la route, puis `curl -s https://inrealart.com/team | grep "<nouvelle valeur>"` sans paramètre → présent en < 5 min.
+- [ ] **Step 5 : Vérifier** — code en prod (`55019d9`) ; test de purge à faire par l'utilisateur une fois le back-office branché — modifier une donnée en base, appeler la route, puis `curl -s https://inrealart.com/team | grep "<nouvelle valeur>"` sans paramètre → présent en < 5 min.
 
-- [ ] **Step 6 : Commit** — à faire par l'utilisateur — `fix(cache): revalidation multi-chemins et fenêtre ISR 5 min (IRA-22)`
+- [x] ✅ **Step 6 : Commit** — FAIT le 16/10/2026 dans `55019d9` (+ sitemap `e700fa3`) — `fix(cache): revalidation multi-chemins et fenêtre ISR 5 min (IRA-22)`
 
 ---
 
@@ -459,11 +472,11 @@ export async function POST(req: NextRequest) {
 - [x] ✅ **Step 6 :** Ruling — `ssr: false` conservé sur les carrousels de l'accueil (`ArtistSliderClientWrapper`, `ArtworkSliderClientWrapper`, `PartnersClientWrapper`, `MediaPartnersWrapper`) : Swiper avec garde `mounted`, cartes en `div onClick` (aucun lien crawlable, gain SEO marginal, risque d'hydratation) ; `TeamClientWrapper` : `Team` commenté sur l'accueil, non rendu ailleurs ; `ArtistsStudioMap` (Leaflet) conservé. Coût si faux : pas de maillage interne accueil → fiches dans le HTML (à reprendre en Task 19 avec de vrais `<Link>`).
 - [x] ✅ **Step 7 : Vérifier** — FAIT (build local) : `/artists/ophelie-simonet` « Ophélie SIMONET », `/artists/galerie-artthema`, `/artists/horea`, `/artists/stefan-beiu` → 1 H1 chacune ; biographie (« Biographie & Démarche… ») et 3-4 liens `/artwork/...` dans le HTML servi.
   - [x] ✅ **Revue Task 7** — aucun défaut Critique/Important ; ruling Step 6 jugé défendable. Corrigé : `ArtistRelatedPosts` ne rend plus son squelette (sinon le HTML servi affichait « Nos articles sur … » pour tous les artistes). Mineurs reportés : warning GSAP « Invalid scope » préexistant (`ArtistBiography.tsx` sans biographie, `ArtistRelatedPosts` démonté) ; slide vertical du nom inopérant en mobile (`inline`, préexistant) ; `artists/[slug]/error.tsx` mélange FR/EN (« Impossible to load »). Constat hors périmètre : **erreur d'hydratation React #418 sur `/presale`** (préexistante) → rapport.
-- [ ] **Commit** — à faire par l'utilisateur — `fix(seo): fiches artistes rendues côté serveur, H1 unique (IRA-01)`
+- [x] ✅ **Commit** — FAIT le 16/10/2026 dans `55019d9` (en prod) — `fix(seo): fiches artistes rendues côté serveur, H1 unique (IRA-01)`
 
 ### Task 8 : IRA-02 — Meta, Open Graph, JSON-LD
 
-> **Statut 16/10/2026 : ✅ FAIT (non commité)** — JSON-LD rendu côté serveur : fiche œuvre `VisualArtwork` + `Offer` (prix EUR, `InStock`/`SoldOut`, pas d'Offer sans prix), fil d'Ariane Accueil > Catalogue > artiste > œuvre (l'ancien pointait vers `/artworks`, inexistant) ; fiche artiste `Person` (nom d'usage, `alternateName` = nom civil, `sameAs` = site/réseaux/Artitude, `@id`) + `VisualArtwork` des œuvres ; `FAQPage` généré par `PageFAQ` depuis les mêmes données. og:image = image de l'œuvre / photo de l'artiste. Nouveaux utilitaires : `src/utils/jsonLd.ts` (`serializeJsonLd` échappe `<`, appliqué à tous les JSON-LD ; `toPlainText` ; `toJsonLdUrl` encode espaces/accents des URL d'images), `src/utils/artistDisplayName.ts`. Vérifié en local (JSON valide sur 3 URL). **Reste à faire par l'utilisateur après déploiement : test des résultats enrichis Google sur 3 URL** (impossible sur localhost).
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10)** — JSON-LD rendu côté serveur : fiche œuvre `VisualArtwork` + `Offer` (prix EUR, `InStock`/`SoldOut`, pas d'Offer sans prix), fil d'Ariane Accueil > Catalogue > artiste > œuvre (l'ancien pointait vers `/artworks`, inexistant) ; fiche artiste `Person` (nom d'usage, `alternateName` = nom civil, `sameAs` = site/réseaux/Artitude, `@id`) + `VisualArtwork` des œuvres ; `FAQPage` généré par `PageFAQ` depuis les mêmes données. og:image = image de l'œuvre / photo de l'artiste. Nouveaux utilitaires : `src/utils/jsonLd.ts` (`serializeJsonLd` échappe `<`, appliqué à tous les JSON-LD ; `toPlainText` ; `toJsonLdUrl` encode espaces/accents des URL d'images), `src/utils/artistDisplayName.ts`. Vérifié en local (JSON valide sur 3 URL). **Reste à faire par l'utilisateur après déploiement : test des résultats enrichis Google sur 3 URL** (impossible sur localhost).
 > - [x] ✅ Revue — aucun défaut bloquant ; corrigé : décodage des entités HTML dans le texte JSON-LD. Noté : la FAQ « artists » du layout est répétée sur toutes les fiches artistes (contenu générique).
 
 **Files :** `src/utils/generateJsonLd.ts`, `src/app/artwork/[id]/page.tsx`, `src/app/artists/[slug]/page.tsx`, `src/components/common/FAQ/PageFAQ.tsx`.
@@ -475,7 +488,7 @@ export async function POST(req: NextRequest) {
 
 ### Task 9 : IRA-07 — Sitemap et redirections
 
-> **Statut 16/10/2026 : ✅ FAIT (non commité)** — `src/utils/slug.ts` (`toSlug`, source unique) ; sitemap : œuvres en slugs dédoublonnés, `/marketplace` `/about` `/academy` `/roadmap` retirés, ajout de `/agence`, `/agence/artists` (+ profils), `/agence/brief`, `/media`, `/media/production`, `/services`, `/artists-studio`, `/usecase/leasing/{hotelPrestige,immobilier}`, `/usecase/capital/contact` ; `lastModified: new Date()` supprimé (Ruling : aucune date réelle en base hors blog → on n'en publie pas plutôt qu'une fausse). Redirections 308 dans `next.config.ts` : `/marketplace`→`/presale`, `/about`→`/team` (le menu « À propos » pointe déjà sur `/team`), `/academy`→`/blog`, `/roadmap`→`/`, `/usecase/fractionate`→`/usecase`, `/usecase/lending`→`/usecase/leasing` (aucun lien interne vers ces pages, vérifié). `/terms-nft` 410 (déjà).
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10)** — `src/utils/slug.ts` (`toSlug`, source unique) ; sitemap : œuvres en slugs dédoublonnés, `/marketplace` `/about` `/academy` `/roadmap` retirés, ajout de `/agence`, `/agence/artists` (+ profils), `/agence/brief`, `/media`, `/media/production`, `/services`, `/artists-studio`, `/usecase/leasing/{hotelPrestige,immobilier}`, `/usecase/capital/contact` ; `lastModified: new Date()` supprimé (Ruling : aucune date réelle en base hors blog → on n'en publie pas plutôt qu'une fausse). Redirections 308 dans `next.config.ts` : `/marketplace`→`/presale`, `/about`→`/team` (le menu « À propos » pointe déjà sur `/team`), `/academy`→`/blog`, `/roadmap`→`/`, `/usecase/fractionate`→`/usecase`, `/usecase/lending`→`/usecase/leasing` (aucun lien interne vers ces pages, vérifié). `/terms-nft` 410 (déjà).
 > - **Soft 404 corrigés** : les pages sont streamées (Suspense du layout racine), donc `notFound()`/`permanentRedirect()` dans la page donnaient 200 + meta refresh (vérifié ; ni le retrait de `loading.tsx` ni celui du Suspense ne suffisent). Ruling : vérification dans `src/proxy.ts` avant rendu via un index de slugs en mémoire (`src/lib/slugIndex.ts`, TTL 60 s, rechargement sur miss, stale-while-revalidate, timeout 2 s, fail-open) : `/artwork/{id}` → 308 slug, slug d'œuvre inconnu → 308 `/presale`, artiste inconnu → 308 `/artists`, catégorie inconnue → 308 `/artists`, profil agence : graphie non canonique → 308 vers le slug canonique, inconnu → 308 `/agence/artists`. Coût si faux : une requête Prisma par minute et par instance ; en cas de panne base, les pages se comportent comme avant.
 > - Vérifié (build local) : **recette complète 707 URL → 11 échecs, tous « crochets »** (avant : 1 219) ; 0 échec status/canonical/h1/title/vocabulaire. `/artwork/5` → 308 `/artwork/kingdom-of-the-lollipop` (UTM conservés).
 > - [x] ✅ Revue — corrigé : URL agence en double (toute graphie `…-<id>` répondait 200), index résilient (périmé servi, timeout, backoff), singleton Prisma aussi en production (pool partagé proxy/pages), soft 404 des catégories, liens `/marketplace` restants (`ExpertSection.tsx`, JSON-LD Organisation `hasOfferCatalog`), UTM conservés. Code mort laissé : `src/app/{about,marketplace,academy,roadmap}` et composants associés (inaccessibles) → suppression à faire par l'utilisateur.
@@ -542,7 +555,7 @@ async redirects() {
 
 ### Task 14 : IRA-13 — Nom d'usage unique par artiste
 
-> **Statut 16/10/2026 : ✅ FAIT (non commité)** — `getArtistDisplayName` (`src/utils/artistDisplayName.ts`) = pseudo, sinon « Prénom Nom » ; pseudo exposé par toutes les requêtes d'œuvres/artistes (presale, featured, expositions, témoignages) ; utilisé sur fiches artiste et œuvre (H1, metadata, JSON-LD), catalogue (filtre et tri), accueil (sliders, partenaires, expositions, artiste du moment), grilles et catégories d'artistes, blog, agence, ateliers. ⚠️ Effet visible : les artistes à pseudo s'affichent sous leur pseudo partout (ex. « Ophélie SIMONET » → « KOA », « Romain Hurdequint » → « Rom av.JC »). H1 de `/artists` présent dans le HTML servi.
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10)** — `getArtistDisplayName` (`src/utils/artistDisplayName.ts`) = pseudo, sinon « Prénom Nom » ; pseudo exposé par toutes les requêtes d'œuvres/artistes (presale, featured, expositions, témoignages) ; utilisé sur fiches artiste et œuvre (H1, metadata, JSON-LD), catalogue (filtre et tri), accueil (sliders, partenaires, expositions, artiste du moment), grilles et catégories d'artistes, blog, agence, ateliers. ⚠️ Effet visible : les artistes à pseudo s'affichent sous leur pseudo partout (ex. « Ophélie SIMONET » → « KOA », « Romain Hurdequint » → « Rom av.JC »). H1 de `/artists` présent dans le HTML servi.
 > - [x] ✅ Revue — corrigé : « Nos articles sur … » affichait le prénom seul, grille des catégories en prénom seul, slide mobile « Artiste du moment », découpe prénom/nom d'un pseudo dans le hero (+ CTA « Collaborer avec … »), logiques agence non alignées. Bug évité : les cartes artistes de l'accueil construisaient l'URL depuis le nom affiché (`/artists/koa`) → prop `slug` explicite. Noté : le H1 de `/artists` est en `opacity: 0` jusqu'à l'animation GSAP (indexable, mais invisible sans JS).
 
 - [ ] Règle d'affichage unique `getArtistDisplayName(artist) = pseudo ?? \`${name} ${surname}\`` dans `src/utils/` ; l'utiliser partout (métadonnées, JSON-LD, cartes, fiche œuvre `artwork/[id]/page.tsx` qui construit encore `name surname`).
@@ -551,7 +564,7 @@ async redirects() {
 
 ### Task 15 : IRA-18 — Simulateurs LOA / Patrimoine
 
-> **Statut 16/10/2026 : ✅ FAIT (non commité)** — LOA : résultat calculé avec les 4 champs financiers seulement ; coordonnées regroupées en « Recevoir le rapport PDF (facultatif) » ; e-mail demandé après le calcul pour recevoir le PDF ; notification lead à l'équipe seulement si des coordonnées sont saisies. Une seule URL : lien `/simulators/loa` (route inexistante) → `/loa-simulator` + redirection 308. Patrimoine : « allocation optimale » / « Optimisez votre allocation » retirés (title, description, `fr.json`/`en.json`). **Sécurité (préexistant, aggravé par l'e-mail saisi après coup)** : routes `send-pdf` et `send-company-info` désormais protégées par reCAPTCHA v3, schéma Zod partagé borné (`src/utils/loaSimulatorSchema.ts`), valeurs échappées dans les e-mails. Testé en local : 400 sans jeton / sans coordonnées, 403 jeton invalide, aperçu PDF 200 sans coordonnées.
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10)** — LOA : résultat calculé avec les 4 champs financiers seulement ; coordonnées regroupées en « Recevoir le rapport PDF (facultatif) » ; e-mail demandé après le calcul pour recevoir le PDF ; notification lead à l'équipe seulement si des coordonnées sont saisies. Une seule URL : lien `/simulators/loa` (route inexistante) → `/loa-simulator` + redirection 308. Patrimoine : « allocation optimale » / « Optimisez votre allocation » retirés (title, description, `fr.json`/`en.json`). **Sécurité (préexistant, aggravé par l'e-mail saisi après coup)** : routes `send-pdf` et `send-company-info` désormais protégées par reCAPTCHA v3, schéma Zod partagé borné (`src/utils/loaSimulatorSchema.ts`), valeurs échappées dans les e-mails. Testé en local : 400 sans jeton / sans coordonnées, 403 jeton invalide, aperçu PDF 200 sans coordonnées.
 > - [x] ✅ Revue — corrigé : **bloquant** `validateArtworkLeaseInputs` exigeait encore entreprise/e-mail/téléphone (calcul refusé) ; lignes vides dans e-mails, PDF et récapitulatif (« Non renseigné » / « — ») ; noms de fichier PDF. Noté : le PDF Patrimoine contient encore le libellé « Allocation optimale : » (`api/heritage-art-simulator/send-pdf/route.ts`, hors balises) ; les routes Patrimoine n'ont pas de reCAPTCHA (même faille).
 > - **À tester par l'utilisateur dans le navigateur** : `/loa-simulator` sans coordonnées → résultat ; « Recevoir le PDF » avec un e-mail → e-mail reçu (reCAPTCHA réel).
 
@@ -571,14 +584,14 @@ async redirects() {
 
 ### Task 17 : IRA-08 — Pied de page
 
-> **Statut 16/10/2026 : ✅ FAIT (non commité)** — `Footer.tsx` : 0 lien `share.google` ; 16 liens de navigation + 2 réseaux + 2 mentions légales (+ 2 liens reCAPTCHA obligatoires) ; colonnes InRealArt / Expertises / Simulateurs / Artistes (résidents, ateliers, créateurs de l'agence, catalogue) ; la liste déroulante de ~37 artistes est remplacée par le lien `/artists` (Ruling : critère 15-20 liens ; coût si faux : moins de liens internes vers les fiches, compensés par `/artists` et le sitemap). Même composant sur toutes les pages (`layout.tsx`). `FooterWrapper` ne requête plus la base.
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10)** — `Footer.tsx` : 0 lien `share.google` ; 16 liens de navigation + 2 réseaux + 2 mentions légales (+ 2 liens reCAPTCHA obligatoires) ; colonnes InRealArt / Expertises / Simulateurs / Artistes (résidents, ateliers, créateurs de l'agence, catalogue) ; la liste déroulante de ~37 artistes est remplacée par le lien `/artists` (Ruling : critère 15-20 liens ; coût si faux : moins de liens internes vers les fiches, compensés par `/artists` et le sitemap). Même composant sur toutes les pages (`layout.tsx`). `FooterWrapper` ne requête plus la base.
 > - [x] ✅ Revue — conforme ; corrigé : CSS mort (`.custom-scrollbar`, `.artist-list-item`), clé orpheline `footer.atelier`.
 - [ ] `Footer.tsx` : 15-20 liens, sans `share.google` ; même composant sur toutes les pages.
 - [ ] Test : `grep -c "share.google" src/components/common/Footer.tsx` = 0.
 
 ### Task 18 : IRA-16 — Agence
 
-> **Statut 16/10/2026 : 🟡 PARTIEL (non commité)** — « pré-lancement » retiré (stats du hero FR/EN) ; numérotation continue des sections de la fiche créateur (01… selon les sections affichées ; bandeau galerie non numéroté). **Bloqué** : études de cas Logitech G et Grim (contenu à fournir).
+> **Statut 16/10/2026 : 🟡 PARTIEL, en prod (`55019d9`, 16/10)** — « pré-lancement » retiré (stats du hero FR/EN) ; numérotation continue des sections de la fiche créateur (01… selon les sections affichées ; bandeau galerie non numéroté). **Bloqué** : études de cas Logitech G et Grim (contenu à fournir).
 > - [x] ✅ Revue — corrigé : « 05 » codé en dur dans `AgenceGalleryBridge`. Noté (non visible : `AgenceStreams`/`AgenceUgc` ne sont pas rendus sur `/agence`) : « Disponible année 2 / courant 2026 ».
 - [ ] Retirer « pré-lancement » (`fr.json`/`en.json`), numérotation continue 01-02-03-04 ; page(s) d'étude de cas Logitech G et Grim (`src/app/agence/cas/[slug]/page.tsx` ou contenu en base) + `KNOWN_STATIC_ROUTES`/`DYNAMIC_PREFIXES` + sitemap.
 
@@ -591,7 +604,7 @@ async redirects() {
 
 ### Task 20 : IRA-06 — Articles anglais
 
-> **Statut 16/10/2026 : ✅ FAIT côté code (non commité), SQL à exécuter** — `hreflang` FR/EN réciproques + `x-default` (FR) sur chaque article ayant une traduction publiée ; article EN non traduit (titre identique à l'original FR : ids 133, 281) → `noindex` sans hreflang. 8 slugs tronqués détectés (accents remplacés par « - », ex. `en-catherine-s-n-chal-…`) : **script `docs/audit/sql/2026-10-16-blog-slugs-ira06.sql` à exécuter par l'utilisateur au moment du déploiement** (redirections 308 ancien → nouveau slug déjà dans `next.config.ts` ; sans le SQL, les anciennes URL redirigeraient vers un slug inexistant). Collisions vérifiées : aucune.
+> **Statut 16/10/2026 : ✅ FAIT, en prod (`55019d9`, 16/10), SQL exécuté** — `hreflang` FR/EN réciproques + `x-default` (FR) sur chaque article ayant une traduction publiée ; article EN non traduit (titre identique à l'original FR : ids 133, 281) → `noindex` sans hreflang. 8 slugs tronqués détectés (accents remplacés par « - », ex. `en-catherine-s-n-chal-…`) : **script `docs/audit/sql/2026-10-16-blog-slugs-ira06.sql` à exécuter par l'utilisateur au moment du déploiement** (redirections 308 ancien → nouveau slug déjà dans `next.config.ts` ; sans le SQL, les anciennes URL redirigeraient vers un slug inexistant). Collisions vérifiées : aucune.
 - [ ] Slugs EN propres (ou `noindex` des articles EN non traduits) ; `alternates.languages` FR/EN réciproques dans `src/app/blog/[id]/page.tsx`.
 - [ ] Test : aucune URL de blog avec slug tronqué dans le sitemap.
 

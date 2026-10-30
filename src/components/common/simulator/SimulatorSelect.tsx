@@ -49,6 +49,9 @@ export default function SimulatorSelect({
           value={value}
           onChange={handleChange}
           required={required}
+          // Sans label visible, le placeholder sert de nom accessible (sans l'astérisque : `required` l'annonce déjà)
+          aria-label={label ? undefined : placeholder?.replace(/\s*\*$/, '')}
+          aria-invalid={error ? true : undefined}
           className={`w-full px-4 py-3 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)] focus:border-[var(--ink-black)] focus:outline-none text-[var(--ink-black)] appearance-none font-montserrat text-sm transition-colors duration-200`}
         >
           {placeholder && (

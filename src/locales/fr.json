@@ -571,6 +571,9 @@
     "loadingError": "Erreur de chargement",
     "artistLoadingError": "Impossible de charger les informations de l'artiste.",
     "artistType": "Artiste",
+    "errorTitle": "Une erreur est survenue",
+    "artistPageError": "Impossible de charger la page de l'artiste. Veuillez réessayer.",
+    "retry": "Réessayer",
     "faq": {
       "title": "Questions fréquentes",
       "description": "Trouvez ici les réponses aux questions les plus courantes."
