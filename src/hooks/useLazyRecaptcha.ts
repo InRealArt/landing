@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useCallback } from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { useEffect } from 'react'
 import { useRecaptchaContext } from '@/contexts/RecaptchaContext'
 
 /**
@@ -18,8 +17,7 @@ export function useLazyRecaptcha(options?: {
     preloadOnInteraction?: boolean // Précharger sur hover/focus (défaut: true)
     interactionTarget?: 'form' | 'input' | 'button' // Cible de l'interaction (défaut: 'form')
 }) {
-    const { loadRecaptcha, executeRecaptcha: executeFromContext } = useRecaptchaContext()
-    const { executeRecaptcha: executeFromProvider } = useGoogleReCaptcha()
+    const { loadRecaptcha, executeRecaptcha } = useRecaptchaContext()
 
     const preloadOnInteraction = options?.preloadOnInteraction !== false
     const interactionTarget = options?.interactionTarget || 'form'
@@ -60,23 +58,8 @@ export function useLazyRecaptcha(options?: {
         }
     }, [preloadOnInteraction, interactionTarget, loadRecaptcha])
 
-    // Fonction wrapper qui charge reCAPTCHA si nécessaire
-    const executeRecaptcha = useCallback(async (action: string): Promise<string | null> => {
-        try {
-            // Essayer d'utiliser le provider si disponible
-            if (executeFromProvider) {
-                return await executeFromProvider(action)
-            }
-
-            // Sinon, utiliser le contexte (qui chargera si nécessaire)
-            return await executeFromContext(action)
-        } catch (error) {
-            console.error('Erreur lors de l\'exécution de reCAPTCHA:', error)
-            return null
-        }
-    }, [executeFromProvider, executeFromContext])
-
     return {
+        // Charge reCAPTCHA si nécessaire, renvoie null en cas d'échec
         executeRecaptcha,
         loadRecaptcha
     }
