@@ -27,9 +27,10 @@ export default async function ArtistsPage() {
 
   return (
     <>
-      <ArtistsAnimations />
       <Suspense fallback={<ArtistsGridSkeleton />}>
         <ArtistsHubClient initialArtists={artists} artworkPreviews={artworkPreviews} currentlyExposedArtists={currentlyExposedArtists} />
+        {/* Dans le même Suspense que le hero : l'effet GSAP ne part qu'une fois le h1 hydraté (sinon mismatch sur style) */}
+        <ArtistsAnimations />
       </Suspense>
       <NewsletterInline />
     </>

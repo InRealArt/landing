@@ -228,7 +228,7 @@ const GDPRConsentBanner = () => {
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               <div className="flex-1">
                 <span className="section-number mb-4 block">
-                  {t('cookieConsent.consent')}
+                  {t('cookieConsent.title')}
                 </span>
                 
                 <h3 className="serif text-4xl md:text-5xl italic leading-tight text-ink-black mb-4">

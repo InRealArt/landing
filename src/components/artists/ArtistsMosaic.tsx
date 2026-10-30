@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import FirebaseImage from '@/components/common/FirebaseImage'
+import { getImageUrl } from '@/lib/cloufare/r2/url'
 import { useTranslation } from '@/hooks/useTranslation'
 
 interface MosaicArtist {
@@ -197,7 +198,8 @@ export default function ArtistsMosaic({ artists }: Props) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             key={artist.slug}
-            src={artist.imageUrl}
+            // Clé R2 relative en base pour certains artistes : même résolution que FirebaseImage
+            src={getImageUrl(artist.imageUrl) ?? artist.imageUrl}
             alt=""
             onLoad={e => handleProbeLoad(artist.slug, e)}
           />
