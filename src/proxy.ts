@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { resolveArtistCategorySlug, resolveArtistSlug, resolveArtworkParam, resolveUgcProfileSlug, type SlugResolution } from '@/lib/slugIndex'
+import { resolveArtSalonSlug, resolveArtistCategorySlug, resolveArtistSlug, resolveArtworkParam, resolveBlogCategorySlug, resolveBlogPostSlug, resolveGameSlug, resolveUgcProfileSlug, type SlugResolution } from '@/lib/slugIndex'
 
 // Map first URL segment → redirect target for unknown sub-paths
 const SEGMENT_REDIRECTS: Record<string, string> = {
@@ -84,9 +84,11 @@ const DYNAMIC_PREFIXES = new Set([
   '/agence/artists/',
 ])
 
-function getRedirectTarget(pathname: string): string {
-  const firstSegment = pathname.split('/').filter(Boolean)[0]
-  return SEGMENT_REDIRECTS[firstSegment] ?? '/'
+/** Chemin inconnu : 308 vers la section qui le remplace, sinon vraie 404 */
+function redirectToParentOrNotFound(request: NextRequest): NextResponse {
+  const firstSegment = request.nextUrl.pathname.split('/').filter(Boolean)[0]
+  const target = Object.hasOwn(SEGMENT_REDIRECTS, firstSegment) ? SEGMENT_REDIRECTS[firstSegment] : null
+  return target ? redirectTo(request, target) : notFound(request)
 }
 
 function nextWithPathname(request: NextRequest): NextResponse {
@@ -101,19 +103,31 @@ function redirectTo(request: NextRequest, pathname: string): NextResponse {
   return NextResponse.redirect(url, { status: 308 })
 }
 
+/** Réécrit vers la page 404 de l'app : statut 404 décidé avant tout rendu, donc sans streaming en 200 */
+function notFound(request: NextRequest): NextResponse {
+  const url = request.nextUrl.clone()
+  url.pathname = '/_not-found'
+  return NextResponse.rewrite(url, { status: 404 })
+}
+
+// fallback : page qui remplace un slug inconnu ; null quand il n'y en a pas (vraie 404)
 const SLUG_SECTIONS = {
   artwork: { resolve: resolveArtworkParam, fallback: '/presale' },
   artists: { resolve: resolveArtistSlug, fallback: '/artists' },
   'agence/artists': { resolve: resolveUgcProfileSlug, fallback: '/agence/artists' },
   'artists/category': { resolve: resolveArtistCategorySlug, fallback: '/artists' },
-} as const satisfies Record<string, { resolve: (slug: string) => Promise<SlugResolution>; fallback: string }>
+  blog: { resolve: resolveBlogPostSlug, fallback: null },
+  'blog/category': { resolve: resolveBlogCategorySlug, fallback: null },
+  'art-salon-simulator': { resolve: resolveArtSalonSlug, fallback: null },
+  games: { resolve: resolveGameSlug, fallback: null },
+} as const satisfies Record<string, { resolve: (slug: string) => Promise<SlugResolution>; fallback: string | null }>
 
 /**
- * Fiches à slug (IRA-07) : vérifie l'existence avant le rendu, pour répondre un vrai 308
- * au lieu d'une page 200 (voir src/lib/slugIndex.ts). Index indisponible ou erreur : on laisse passer.
+ * Fiches à slug (IRA-07) : vérifie l'existence avant le rendu, pour répondre un vrai 308 ou une
+ * vraie 404 au lieu d'une page 200 (voir src/lib/slugIndex.ts). Index indisponible ou erreur : on laisse passer.
  */
 async function checkSlugPage(request: NextRequest, pathname: string): Promise<NextResponse | null> {
-  const match = pathname.match(/^\/(artwork|artists\/category|artists|agence\/artists)\/([^/]+)\/?$/)
+  const match = pathname.match(/^\/(artwork|artists\/category|artists|agence\/artists|blog\/category|blog|art-salon-simulator|games)\/([^/]+)\/?$/)
   if (!match) return null
   const section = SLUG_SECTIONS[match[1] as keyof typeof SLUG_SECTIONS]
   let slug: string
@@ -126,7 +140,7 @@ async function checkSlugPage(request: NextRequest, pathname: string): Promise<Ne
   try {
     const resolution = await section.resolve(slug)
     if (resolution.kind === 'redirect') return redirectTo(request, `/${match[1]}/${resolution.slug}`)
-    if (resolution.kind === 'unknown') return redirectTo(request, section.fallback)
+    if (resolution.kind === 'unknown') return section.fallback ? redirectTo(request, section.fallback) : notFound(request)
     return null
   } catch (error) {
     console.error('[proxy] slug index unavailable:', error)
@@ -143,11 +157,12 @@ export async function proxy(request: NextRequest) {
   }
 
   // Pass through Next.js internals, API routes, and static files
+  // (sous /blog/, un point n'indique pas un fichier : Google connaît /blog/www.inrealart.com)
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/images') ||
-    pathname.includes('.')
+    (pathname.includes('.') && !pathname.startsWith('/blog/'))
   ) {
     return nextWithPathname(request)
   }
@@ -173,17 +188,13 @@ export async function proxy(request: NextRequest) {
       if (rest.length > 0 && !rest.includes('/')) {
         return nextWithPathname(request)
       }
-      // Deep unknown path under a known prefix → redirect to parent
-      const url = request.nextUrl.clone()
-      url.pathname = getRedirectTarget(pathname)
-      return NextResponse.redirect(url, { status: 308 })
+      // Deep unknown path under a known prefix
+      return redirectToParentOrNotFound(request)
     }
   }
 
-  // Completely unknown top-level path → redirect to intelligent parent
-  const url = request.nextUrl.clone()
-  url.pathname = getRedirectTarget(pathname)
-  return NextResponse.redirect(url, { status: 308 })
+  // Completely unknown path
+  return redirectToParentOrNotFound(request)
 }
 
 export const config = {

@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/prisma'
 import { toSlug } from '@/utils/slug'
 import { generateUgcSlug } from '@/utils/ugcSlug'
+import { salons } from '@/utils/artSalonCalculations'
+import { games, isGameOpen } from '@/data/games'
 
 /**
  * Index des slugs publics, lu par src/proxy.ts avant le rendu (IRA-07).
@@ -14,7 +16,10 @@ import { generateUgcSlug } from '@/utils/ugcSlug'
  *   (getPresaleArtworkBySlug) ;
  * - artistes : LandingArtist avec artistsPage = true (getArtistBySlug) ;
  * - profils agence : LandingUgcArtistProfile par id (dernier segment), slug canonique = generateUgcSlug ;
- * - catégories d'artistes : nom de ArtistCategory, insensible à la casse (getArtistCategoryBySlug).
+ * - catégories d'artistes : nom de ArtistCategory, insensible à la casse (getArtistCategoryBySlug) ;
+ * - articles : SeoPost publiés en français ou en anglais (getPostBySlug) ;
+ * - catégories de blog : url de SeoCategory (getCategoryBySlug) ;
+ * - salons et jeux : listes statiques, hors index (salons, games).
  *
  * Résilience : l'index périmé est servi pendant son rechargement ; un rechargement est borné à 2 s ;
  * après un échec, on ne réessaie pas avant 10 s. Sans index, le proxy laisse passer (les pages gèrent).
@@ -25,6 +30,8 @@ interface SlugIndex {
   artistSlugs: Set<string>
   ugcSlugById: Map<number, string>
   categoryNames: Set<string>
+  postSlugs: Set<string>
+  blogCategorySlugs: Set<string>
   loadedAt: number
 }
 
@@ -39,11 +46,16 @@ let loading: Promise<SlugIndex> | null = null
 let lastFailureAt = 0
 
 async function load(): Promise<SlugIndex> {
-  const [artworks, artists, ugcProfiles, categories] = await Promise.all([
+  const [artworks, artists, ugcProfiles, categories, posts, blogCategories] = await Promise.all([
     prisma.presaleArtwork.findMany({ select: { id: true, name: true }, orderBy: { id: 'asc' } }),
     prisma.landingArtist.findMany({ where: { artistsPage: true }, select: { slug: true } }),
     prisma.landingUgcArtistProfile.findMany({ select: { id: true, pseudo: true, name: true, surname: true } }),
     prisma.artistCategory.findMany({ select: { name: true } }),
+    prisma.seoPost.findMany({
+      where: { status: 'PUBLISHED', language: { code: { in: ['fr', 'en'] } } },
+      select: { slug: true },
+    }),
+    prisma.seoCategory.findMany({ where: { url: { not: null } }, select: { url: true } }),
   ])
 
   const artworkSlugs = new Set<string>()
@@ -61,6 +73,8 @@ async function load(): Promise<SlugIndex> {
     artistSlugs: new Set(artists.map(a => a.slug)),
     ugcSlugById: new Map(ugcProfiles.map(p => [p.id, generateUgcSlug(p)])),
     categoryNames: new Set(categories.map(c => c.name.toLowerCase())),
+    postSlugs: new Set(posts.map(p => p.slug)),
+    blogCategorySlugs: new Set(blogCategories.flatMap(c => (c.url ? [c.url] : []))),
     loadedAt: Date.now(),
   }
 }
@@ -141,4 +155,26 @@ export async function resolveArtistCategorySlug(slug: string): Promise<SlugResol
   const exists = await lookup(i => (i.categoryNames.has(slug.toLowerCase()) ? true : undefined))
   if (exists === null) return { kind: 'unavailable' }
   return exists ? { kind: 'ok' } : { kind: 'unknown' }
+}
+
+export async function resolveBlogPostSlug(slug: string): Promise<SlugResolution> {
+  const exists = await lookup(i => (i.postSlugs.has(slug) ? true : undefined))
+  if (exists === null) return { kind: 'unavailable' }
+  return exists ? { kind: 'ok' } : { kind: 'unknown' }
+}
+
+export async function resolveBlogCategorySlug(slug: string): Promise<SlugResolution> {
+  const exists = await lookup(i => (i.blogCategorySlugs.has(slug) ? true : undefined))
+  if (exists === null) return { kind: 'unavailable' }
+  return exists ? { kind: 'ok' } : { kind: 'unknown' }
+}
+
+export async function resolveArtSalonSlug(slug: string): Promise<SlugResolution> {
+  return Object.hasOwn(salons, slug) ? { kind: 'ok' } : { kind: 'unknown' }
+}
+
+/** Un jeu inactif ou terminé n'a plus de page : même réponse qu'un jeu inconnu */
+export async function resolveGameSlug(slug: string): Promise<SlugResolution> {
+  const game = games.find(g => g.slug === slug)
+  return game && isGameOpen(game) ? { kind: 'ok' } : { kind: 'unknown' }
 }

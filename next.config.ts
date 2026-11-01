@@ -65,6 +65,18 @@ const nextConfig: NextConfig = {
       { source: '/usecase/lending', destination: '/usecase/leasing', permanent: true },
       // Une seule URL pour le simulateur LOA (IRA-18)
       { source: '/simulators/loa', destination: '/loa-simulator', permanent: true },
+      // Pages sans contenu propre, redirigées avant le rendu (sinon 200 + meta refresh)
+      { source: '/home', destination: '/', permanent: true },
+      { source: '/blog/category', destination: '/blog', permanent: true },
+      { source: '/art-salon-simulator', destination: '/art-salon-simulator/artbasel-paris', permanent: false },
+      // Ancien format des fiches artistes
+      { source: '/artist/:slug', destination: '/artists/:slug', permanent: true },
+      // Articles renommés, encore connus de Google (Search Console, 2026-11-01)
+      { source: '/blog/top-10-des-uvres-les-plus-cheres-jamais-vendues', destination: '/blog/top-10-des-oeuvres-les-plus-cheres-jamais-vendues', permanent: true },
+      { source: '/blog/alain-la-lumiere-lil-et-linfini-effort-interview-dun-peintre-visionnaire', destination: '/blog/alain-la-lumiere-loeil-et-linfini-effort', permanent: true },
+      { source: '/blog/top-10-residences-dartistes-en-europe-2025', destination: '/blog/top-10-residences-dartistes-en-europe-2026', permanent: true },
+      { source: '/blog/en-top-10-artist-residences-in-europe-covered-costs-2025', destination: '/blog/en-top-10-artist-residencies-in-europe-2026', permanent: true },
+      { source: '/blog/marie-de-saint-', destination: '/blog/marie-de-saint-germain-une-traversee-surrealiste-de-lidentite-et-de-linvisible', permanent: true },
       // Slugs de blog tronqués corrigés en base (IRA-06, docs/audit/sql/2026-10-16-blog-slugs-ira06.sql)
       { source: '/blog/institutions-et-pme-des-partenaires-incontournables-pour-la-culture-franaise', destination: '/blog/institutions-et-pme-des-partenaires-incontournables-pour-la-culture-francaise', permanent: true },
       { source: '/blog/en-catherine-s-n-chal-the-alchemist-of-pure-color', destination: '/blog/en-catherine-senechal-the-alchemist-of-pure-color', permanent: true },

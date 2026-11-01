@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { permanentRedirect, redirect } from 'next/navigation';
 import { generateStaticMetadata, BASE_URL } from '@/utils/metadata';
-import { games } from '@/data/games';
+import { games, isGameOpen } from '@/data/games';
 import GameHero from '@/components/games/GameHero';
 import GameArtist from '@/components/games/GameArtist';
 import GameParticipation from '@/components/games/GameParticipation';
@@ -11,11 +11,6 @@ type ParamsType = Promise<{ slug: string }>
 
 interface Props {
   params: ParamsType
-}
-
-function isGameEnded(endDate: string): boolean {
-  const today = new Date().toISOString().slice(0, 10);
-  return today > endDate;
 }
 
 export async function generateStaticParams() {
@@ -44,7 +39,7 @@ export default async function GamePage({ params }: Props) {
     permanentRedirect('/');
   }
 
-  if (!game.active || isGameEnded(game.endDate)) {
+  if (!isGameOpen(game)) {
     redirect('/');
   }
 

@@ -1,5 +1,10 @@
 import { GamePage } from '@/types/game';
 
+export function isGameOpen(game: GamePage): boolean {
+  const today = new Date().toISOString().slice(0, 10);
+  return game.active && today <= game.endDate;
+}
+
 export const games: GamePage[] = [
   {
     slug: 'monique-letang-aux-glycines',
