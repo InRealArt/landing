@@ -109,6 +109,55 @@ export async function getPublishedPosts(
     }
 }
 
+/**
+ * Articles à déclarer dans le sitemap, FR et EN, sans limite de pagination.
+ * Exclut les versions anglaises non traduites (titre identique à l'original français),
+ * que /blog/[id] passe en noindex : même règle que son generateMetadata.
+ */
+export async function getSitemapPosts(): Promise<{ slug: string, updatedAt: Date }[]> {
+    try {
+        const posts = await prisma.seoPost.findMany({
+            where: {
+                status: 'PUBLISHED',
+                language: { code: { in: ['fr', 'en'] } }
+            },
+            select: {
+                id: true,
+                originalPostId: true,
+                title: true,
+                slug: true,
+                updatedAt: true,
+                language: { select: { code: true } }
+            }
+        })
+
+        const frPosts = posts.filter(post => post.language.code === 'fr')
+        const frSlugs = new Set(frPosts.map(post => post.slug))
+        const frTitlesByGroup = new Map<number, string[]>()
+        for (const post of frPosts) {
+            const group = post.originalPostId ?? post.id
+            frTitlesByGroup.set(group, [...(frTitlesByGroup.get(group) ?? []), post.title.trim()])
+        }
+
+        const indexable = posts.filter(post =>
+            post.language.code === 'fr' ||
+            frSlugs.has(post.slug) || // À slug égal, la page sert la version française
+            !frTitlesByGroup.get(post.originalPostId ?? post.id)?.includes(post.title.trim())
+        )
+
+        // Une seule entrée par URL, avec la date de modification la plus récente
+        const bySlug = new Map<string, { slug: string, updatedAt: Date }>()
+        for (const { slug, updatedAt } of indexable) {
+            const existing = bySlug.get(slug)
+            if (!existing || updatedAt > existing.updatedAt) bySlug.set(slug, { slug, updatedAt })
+        }
+        return Array.from(bySlug.values())
+    } catch (error) {
+        console.error('Erreur lors de la récupération des posts du sitemap:', error)
+        return []
+    }
+}
+
 export async function getLanguageIdByCode(languageCode: string): Promise<number | null> {
     try {
         const language = await prisma.language.findUnique({

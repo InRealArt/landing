@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getArtists } from '@/actions/artistActions'
 import { getArtistCategories } from '@/actions/artistCategoryActions'
-import { getPublishedPosts, getLanguageIdByCode, getCategoriesWithTranslations } from '@/actions/seoPostActions'
+import { getSitemapPosts, getCategoriesWithTranslations } from '@/actions/seoPostActions'
 import { getPresaleArtworks } from '@/actions/presaleArtworkActions'
 import { getAllUgcArtists } from '@/actions/ugcActions'
 import { toSlug } from '@/utils/slug'
@@ -48,11 +48,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/usecase/capital/contact`, lastModified: '2026-10-16', changeFrequency: 'yearly', priority: 0.5 },
   ]
 
-  const [artists, artistCategories, frLangId, enLangId, blogCategories, artworks, ugcArtists] = await Promise.all([
+  const [artists, artistCategories, posts, blogCategories, artworks, ugcArtists] = await Promise.all([
     getArtists().catch(() => []),
     getArtistCategories().catch(() => []),
-    getLanguageIdByCode('fr').catch(() => null),
-    getLanguageIdByCode('en').catch(() => null),
+    getSitemapPosts().catch(() => []),
     getCategoriesWithTranslations('fr').catch(() => []),
     getPresaleArtworks().catch(() => []),
     getAllUgcArtists().catch(() => []),
@@ -74,34 +73,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     }))
 
-  const [frPosts, enPosts] = await Promise.all([
-    frLangId ? getPublishedPosts(frLangId).catch(() => ({ posts: [] })) : Promise.resolve({ posts: [] }),
-    enLangId ? getPublishedPosts(enLangId).catch(() => ({ posts: [] })) : Promise.resolve({ posts: [] }),
-  ])
-
-  const allBlogPosts = [
-    ...frPosts.posts.map(p => ({
-      url: `${BASE_URL}/blog/${p.slug}`,
-      lastModified: p.updatedAt,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...enPosts.posts.map(p => ({
-      url: `${BASE_URL}/blog/${p.slug}`,
-      lastModified: p.updatedAt,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-  ]
-  // Dédupliquer par URL en gardant la date de modification la plus récente
-  const blogUrlMap = new Map<string, (typeof allBlogPosts)[0]>()
-  for (const entry of allBlogPosts) {
-    const existing = blogUrlMap.get(entry.url)
-    if (!existing || entry.lastModified > existing.lastModified) {
-      blogUrlMap.set(entry.url, entry)
-    }
-  }
-  const blogEntries: MetadataRoute.Sitemap = Array.from(blogUrlMap.values())
+  const blogEntries: MetadataRoute.Sitemap = posts.map(p => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: p.updatedAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
   const blogCategoryEntries: MetadataRoute.Sitemap = blogCategories
     .filter(c => c.url)
