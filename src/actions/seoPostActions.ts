@@ -506,18 +506,23 @@ export async function getPostsByCategorySlug(
         const categoryIds = categories.map(c => c.id)
         const primaryCategory = categories[0]
 
-        // Récupérer la traduction du nom de la catégorie principale pour cette langue
-        const categoryTranslation = await prisma.translation.findFirst({
+        // Traductions du nom de chaque catégorie demandée (une par catégorie,
+        // pour que chaque article garde le libellé de SA catégorie)
+        const categoryTranslations = await prisma.translation.findMany({
             where: {
                 entityType: 'SeoCategory',
-                entityId: primaryCategory.id,
+                entityId: { in: categoryIds },
                 languageId: languageId,
                 field: 'name'
             }
         })
-
-        // Utiliser la traduction si disponible, sinon le nom par défaut
-        const translatedCategoryName = categoryTranslation?.value || primaryCategory.name
+        const translatedNameById = new Map<number, string>(
+            categories.map(c => [
+                c.id,
+                categoryTranslations.find(t => t.entityId === c.id)?.value || c.name
+            ])
+        )
+        const translatedCategoryName = translatedNameById.get(primaryCategory.id) ?? primaryCategory.name
 
         const whereClause = {
             status: 'PUBLISHED' as const,
@@ -553,7 +558,7 @@ export async function getPostsByCategorySlug(
             ...post,
             category: {
                 ...post.category,
-                name: translatedCategoryName
+                name: translatedNameById.get(post.categoryId) ?? post.category.name
             }
         }))
 
