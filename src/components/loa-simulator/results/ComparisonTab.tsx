@@ -45,37 +45,37 @@ export default function ComparisonTab({ leaseResults, comparison }: ComparisonTa
 
       {/* Tableau comparatif */}
       <div className="border border-[var(--border-light)]">
-        <div className="px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
+        <div className="px-3 sm:px-4 py-3 border-b border-[var(--border-light)] bg-[var(--soft-gray)]">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)]">{t('loaSimulator.results.comparison.detailedComparison')}</h3>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full table-fixed sm:table-auto">
             <thead>
               <tr className="border-b border-[var(--border-light)]">
-                <th className="text-left px-4 py-3 text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.criteria')}</th>
-                <th className="text-right px-4 py-3 text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.leasingWithPurchase')}</th>
-                <th className="text-right px-4 py-3 text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] font-normal">{t('loaSimulator.results.comparison.directPurchase')}</th>
+                <th className="text-left px-2 sm:px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[var(--gray-text)] font-normal align-bottom">{t('loaSimulator.results.comparison.criteria')}</th>
+                <th className="text-right px-2 sm:px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[var(--gray-text)] font-normal align-bottom">{t('loaSimulator.results.comparison.leasingWithPurchase')}</th>
+                <th className="text-right px-2 sm:px-4 py-3 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[var(--gray-text)] font-normal align-bottom">{t('loaSimulator.results.comparison.directPurchase')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--border-light)]">
               <tr>
-                <td className="px-4 py-3 text-sm text-[var(--gray-text)]">{t('loaSimulator.results.comparison.costBeforeTax')}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--ink-black)]">{formatCurrency(leaseResults.totalLeaseAmount)}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--ink-black)]">{formatCurrency(comparison.purchasePrice)}</td>
+                <td className="px-3 sm:px-4 py-3 text-sm text-[var(--gray-text)]">{t('loaSimulator.results.comparison.costBeforeTax')}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--ink-black)]">{formatCurrency(leaseResults.totalLeaseAmount)}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--ink-black)]">{formatCurrency(comparison.purchasePrice)}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm text-[var(--gold-accent)]">{t('loaSimulator.results.comparison.taxSavings')}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--gold-accent)]">-{formatCurrency(leaseResults.taxSavings)}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--gray-text)]">€0.00</td>
+                <td className="px-3 sm:px-4 py-3 text-sm text-[var(--gold-accent)]">{t('loaSimulator.results.comparison.taxSavings')}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--gold-accent)]">-{formatCurrency(leaseResults.taxSavings)}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--gray-text)]">€0.00</td>
               </tr>
               <tr className="bg-[var(--soft-gray)]">
-                <td className="px-4 py-3 text-sm text-[var(--ink-black)] font-medium">{t('loaSimulator.results.comparison.finalNetCost')}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.netCostAfterTax)}</td>
-                <td className="px-4 py-3 text-right text-sm text-[var(--ink-black)] font-medium">{formatCurrency(comparison.purchasePrice)}</td>
+                <td className="px-3 sm:px-4 py-3 text-sm text-[var(--ink-black)] font-medium">{t('loaSimulator.results.comparison.finalNetCost')}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--ink-black)] font-medium">{formatCurrency(leaseResults.netCostAfterTax)}</td>
+                <td className="px-2 sm:px-4 py-3 text-right text-xs sm:text-sm text-[var(--ink-black)] font-medium">{formatCurrency(comparison.purchasePrice)}</td>
               </tr>
               <tr className="bg-[var(--ink-black)]">
-                <td className="px-4 py-3 text-sm text-white/60 uppercase tracking-[0.15em]">{t('loaSimulator.results.comparison.difference')}</td>
-                <td className="px-4 py-3 text-right" colSpan={2}>
+                <td className="px-3 sm:px-4 py-3 text-sm text-white/60 uppercase tracking-[0.15em]">{t('loaSimulator.results.comparison.difference')}</td>
+                <td className="px-3 sm:px-4 py-3 text-right" colSpan={2}>
                   <span className={`serif italic text-xl ${isLeasingAdvantage ? 'text-[var(--gold-accent)]' : 'text-white'}`}>
                     {isLeasingAdvantage ? '-' : '+'}{formatCurrency(Math.abs(comparison.savings))}
                   </span>
@@ -87,8 +87,8 @@ export default function ComparisonTab({ leaseResults, comparison }: ComparisonTa
       </div>
 
       {/* Avantages leasing vs achat */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="border border-[var(--border-light)] p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        <div className="border border-[var(--border-light)] p-4 sm:p-5">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.comparison.leasingAdvantages')}</h3>
           <ul className="space-y-2">
             {['taxDeductibility', 'noCapitalImmobilization', 'flexibility', 'artworkRenewal'].map(key => (
@@ -99,7 +99,7 @@ export default function ComparisonTab({ leaseResults, comparison }: ComparisonTa
             ))}
           </ul>
         </div>
-        <div className="border border-[var(--border-light)] p-5">
+        <div className="border border-[var(--border-light)] p-4 sm:p-5">
           <h3 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.comparison.purchaseAdvantages')}</h3>
           <ul className="space-y-2">
             {['immediateOwnership', 'capitalGains', 'depreciation', 'noConstraints'].map(key => (

@@ -43,7 +43,7 @@ export default function SimulatorInput({
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="block text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-2">
+        <label htmlFor={id} className="block text-xs uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[var(--gray-text)] mb-2">
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
@@ -70,13 +70,16 @@ export default function SimulatorInput({
           min={min}
           max={max}
           step={step}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${id}-error` : undefined}
+          inputMode={type === 'number' ? 'decimal' : undefined}
           placeholder={placeholder}
-          className={`w-full px-4 py-3 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)] focus:border-[var(--ink-black)] focus:outline-none text-[var(--ink-black)] placeholder-[var(--gray-text)] font-montserrat text-sm transition-colors duration-200`}
+          className={`w-full px-4 py-3.5 sm:py-3 min-h-12 border ${error ? 'border-red-500' : 'border-[var(--border-light)]'} bg-[var(--canvas-bg)] focus:border-[var(--ink-black)] focus:outline-none text-[var(--ink-black)] placeholder:text-[var(--gray-text)] placeholder:opacity-40 font-montserrat text-base sm:text-sm transition-colors duration-200`}
         />
       )}
       
       {error && (
-        <p className="text-red-400 text-sm mt-1">{error}</p>
+        <p id={`${id}-error`} role="alert" className="text-red-400 text-sm mt-1">{error}</p>
       )}
     </div>
   );

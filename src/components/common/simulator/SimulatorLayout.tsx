@@ -9,7 +9,7 @@ export default function SimulatorLayout({ children }: SimulatorLayoutProps) {
   return (
     <div className="min-h-screen bg-[var(--canvas-bg)]">
       <Container>
-        <div className="py-20">
+        <div className="py-6 sm:py-12 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 border border-[var(--border-light)]">
             {children}
           </div>

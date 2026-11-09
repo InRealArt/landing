@@ -174,22 +174,22 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
   }
 
   return (
-    <div className="bg-[var(--canvas-bg)] p-8 lg:p-10">
+    <div className="bg-[var(--canvas-bg)] p-5 sm:p-8 lg:p-10">
       <span className="section-number block mb-4">{t('loaSimulator.title')}</span>
-      <Heading className="serif italic text-3xl lg:text-4xl text-[var(--ink-black)] mb-8 leading-tight">
+      <Heading className="serif italic text-2xl sm:text-3xl lg:text-4xl text-[var(--ink-black)] mb-6 sm:mb-8 leading-tight">
         Simulateur LOA
       </Heading>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Taux d'imposition personnalisé */}
         <SimulatorInput
-          label=""
+          label={`${t('loaSimulator.form.taxRate')} *`}
           id="taxRate"
           name="taxRate"
           type="number"
           value={formData.taxRate}
           onChange={(value) => handleInputChange('taxRate', value)}
-          placeholder={`${t('loaSimulator.form.taxRate')} *`}
+          placeholder="30"
           min={0}
           max={50}
           step="0.1"
@@ -199,13 +199,13 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
         {/* Deuxième ligne: Durée du bail et Valeur des œuvres */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <SimulatorInput
-            label=""
+            label={t('loaSimulator.form.leaseDuration')}
             id="leaseDuration"
             name="leaseDuration"
             type="number"
             value={formData.leaseDuration}
             onChange={(value) => handleInputChange('leaseDuration', value)}
-            placeholder={t('loaSimulator.form.leaseDuration')}
+            placeholder="12 – 72"
             min={12}
             max={72}
             step="1"
@@ -213,13 +213,13 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
           />
 
           <SimulatorInput
-            label=""
+            label={t('loaSimulator.form.artworkValue')}
             id="artworkValue"
             name="artworkValue"
             type="number"
             value={formData.artworkValue}
             onChange={(value) => handleInputChange('artworkValue', value)}
-            placeholder={t('loaSimulator.form.artworkValue')}
+            placeholder="10000"
             min={100}
             step="100"
             error={errors.artworkValue}
@@ -228,20 +228,20 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
 
         {/* Majoration du premier loyer */}
         <SimulatorSelect
-          label=""
+          label={`${t('loaSimulator.form.firstRentIncrease')} *`}
           id="firstRentIncrease"
           name="firstRentIncrease"
           value={formData.firstRentIncrease}
           onChange={(value) => handleInputChange('firstRentIncrease', value)}
           options={firstRentOptions}
-          placeholder={`${t('loaSimulator.form.firstRentIncrease')} *`}
+          placeholder="—"
           error={errors.firstRentIncrease}
         />
 
         {/* Explication des champs marqués d'un astérisque */}
-        <div className="border border-[var(--border-light)] p-5 space-y-3">
+        <div className="border border-[var(--border-light)] p-4 sm:p-5 space-y-3">
           <h3 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-3">{t('loaSimulator.form.infoBloc.title')}</h3>
-          <div className="space-y-2 text-sm text-[var(--gray-text)] leading-loose">
+          <div className="space-y-2 text-sm text-[var(--gray-text)] leading-relaxed sm:leading-loose">
             <div>
               <span className="text-[var(--gold-accent)]">— {t('loaSimulator.form.taxRate')} :</span> {t('loaSimulator.form.infoBloc.taxRateExplanation')}
             </div>
@@ -261,24 +261,22 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
           {/* Première ligne: Entreprise et Adresse mail */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SimulatorInput
-              label=""
+              label={t('loaSimulator.form.company')}
               id="company"
               name="company"
               type="text"
               value={formData.company}
               onChange={(value) => handleInputChange('company', value)}
-              placeholder={t('loaSimulator.form.company')}
               error={errors.company}
             />
 
             <SimulatorInput
-              label=""
+              label={t('loaSimulator.form.email')}
               id="email"
               name="email"
               type="email"
               value={formData.email}
               onChange={(value) => handleInputChange('email', value)}
-              placeholder={t('loaSimulator.form.email')}
               error={errors.email}
             />
           </div>
@@ -297,7 +295,7 @@ export default function ArtworkLeaseForm({ onCalculate, headingLevel = 'h1' }: A
         </fieldset>
 
         {/* Boutons */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row gap-4 pt-2 sm:pt-4">
           <Button
             type="submit"
             disabled={isCalculating}

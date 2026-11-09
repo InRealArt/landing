@@ -15,9 +15,9 @@ export default function TaxAdvantagesTab({ leaseResults }: TaxAdvantagesTabProps
       <h2 className="text-xs uppercase tracking-[0.25em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.tax.title')}</h2>
 
       {/* Total économies — bloc hero */}
-      <div className="border border-[var(--ink-black)] bg-[var(--ink-black)] p-8 text-center">
+      <div className="border border-[var(--ink-black)] bg-[var(--ink-black)] p-6 sm:p-8 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-white/40 mb-3">{t('loaSimulator.results.tax.totalTaxSavings')}</p>
-        <p className="serif italic text-4xl text-[var(--gold-accent)]">
+        <p className="serif italic text-3xl sm:text-4xl text-[var(--gold-accent)]">
           {formatCurrency(leaseResults.taxSavings)}
         </p>
       </div>
@@ -44,7 +44,7 @@ export default function TaxAdvantagesTab({ leaseResults }: TaxAdvantagesTabProps
       </div>
 
       {/* À savoir */}
-      <div className="border border-[var(--border-light)] p-5">
+      <div className="border border-[var(--border-light)] p-4 sm:p-5">
         <h4 className="text-xs uppercase tracking-[0.2em] text-[var(--gray-text)] mb-4">{t('loaSimulator.results.tax.goodToKnow')}</h4>
         <ul className="space-y-2">
           {['fullDeductibility', 'immediateAdvantage', 'noComplexDepreciation', 'positiveImpact'].map(key => (

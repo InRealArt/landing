@@ -121,7 +121,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <LoaTabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Blurred content container */}
@@ -152,7 +152,7 @@ export default function ArtworkLeaseResults({ leaseResults, comparison, formData
       </div>
 
       {/* Send PDF Button */}
-      <div className="pt-6 border-t border-[var(--border-light)] space-y-4">
+      <div className="pt-4 sm:pt-6 border-t border-[var(--border-light)] space-y-4">
         {formData && !formData.email && (
           <SimulatorInput
             label=""

@@ -20,12 +20,12 @@ export default function TabNavigation<T extends string = string>({
 }: TabNavigationProps<T>) {
   return (
     <div className={`border border-[var(--border-light)] overflow-hidden ${className}`}>
-      <div className="flex overflow-x-auto">
+      <div className="grid grid-cols-2 sm:flex sm:overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 py-3 px-4 text-xs uppercase tracking-[0.2em] font-montserrat transition-colors duration-300 ${
+            className={`flex-1 min-h-11 py-3 px-3 sm:px-4 text-xs sm:whitespace-nowrap max-sm:[&:nth-child(-n+2)]:border-b border-[var(--border-light)] uppercase tracking-[0.12em] sm:tracking-[0.2em] font-montserrat transition-colors duration-300 ${
               activeTab === tab.id
                 ? 'bg-[var(--ink-black)] text-white'
                 : 'text-[var(--gray-text)] hover:text-[var(--ink-black)] hover:bg-[var(--canvas-bg)]'

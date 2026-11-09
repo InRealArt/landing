@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import OptimizedImage from '@/components/common/OptimizedImage'
 import { useTranslation } from '@/hooks/useTranslation'
 import ArtworkLeaseForm from '@/components/loa-simulator/ArtworkLeaseForm'
@@ -27,6 +27,16 @@ export default function LoaSimulatorClient({ headingLevel = 'h1' }: { headingLev
     comparison: null,
     formData: null
   })
+
+  const resultsRef = useRef<HTMLDivElement>(null)
+  const hasResults = !!(results.leaseResults && results.comparison)
+
+  // Mobile : les résultats s'affichent sous le formulaire, on y amène le visiteur
+  useEffect(() => {
+    if (hasResults && window.matchMedia('(max-width: 1023px)').matches) {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [results, hasResults])
 
   const handleCalculation = (leaseResults: LeaseResultsType, comparison: ComparisonType, formData: ArtworkLeaseInputs) => {
     setResults({ leaseResults, comparison, formData })
@@ -59,7 +69,8 @@ export default function LoaSimulatorClient({ headingLevel = 'h1' }: { headingLev
       </FormSection>
 
       <ResultSection
-        hasResults={!!(results.leaseResults && results.comparison)}
+        hasResults={hasResults}
+        sectionRef={resultsRef}
         defaultContent={defaultContent}
       >
         {results.leaseResults && results.comparison && (
