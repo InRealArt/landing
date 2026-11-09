@@ -40,13 +40,13 @@ const PageFAQClient = ({
   }
 
   return (
-    <section className={`w-full py-32 px-10 max-w-screen-2xl mx-auto ${className}`}>
-      <div className="flex flex-col md:flex-row gap-20">
+    <section className={`w-full py-16 px-5 sm:px-8 md:py-32 md:px-10 max-w-screen-2xl mx-auto ${className}`}>
+      <div className="flex flex-col md:flex-row gap-10 md:gap-20">
 
         {/* Left column — title + CTA */}
         <div className="w-full md:w-1/3 md:sticky md:top-32 self-start" data-anim="faq-left">
           <span className="section-number">Questions</span>
-          <h2 className="serif text-5xl md:text-6xl leading-tight mb-8">
+          <h2 className="serif text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 md:mb-8 break-words">
             <TranslatedText
               as="span"
               translationKey={titleKey}
@@ -57,7 +57,7 @@ const PageFAQClient = ({
           <TranslatedText
             as="p"
             translationKey={descriptionKey}
-            className="text-sm text-[var(--gray-text)] leading-loose mb-8"
+            className="text-sm text-[var(--gray-text)] leading-relaxed md:leading-loose mb-6 md:mb-8"
             allowHtml={true}
           />
           <Button
@@ -68,7 +68,7 @@ const PageFAQClient = ({
         </div>
 
         {/* Right column — questions */}
-        <div className="w-full md:w-2/3 border-t border-[var(--border-light)]">
+        <div className="w-full min-w-0 md:w-2/3 border-t border-[var(--border-light)]">
           {sortedFaqItems.map((item, index) => (
             <Question
               key={`${item.title}-${index}`}
