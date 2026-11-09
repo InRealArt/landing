@@ -102,7 +102,6 @@ const Footer = () => {
             >
               {t('footer.expertise')}
             </h5>
-            <Link href="/services" className="footer-link">{t('nav.services')}</Link>
             <Link href="/usecase" className="footer-link">{t('nav.usecase')}</Link>
             <Link href="/media" className="footer-link">{t('nav.blog')}</Link>
           </div>
