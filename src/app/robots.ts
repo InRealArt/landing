@@ -6,32 +6,32 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/faq/translated'],
+        disallow: ['/api/', '/faq/translated', '/audit/'],
       },
       {
         userAgent: 'GPTBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/audit/'],
       },
       {
         userAgent: 'ClaudeBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/audit/'],
       },
       {
         userAgent: 'PerplexityBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/audit/'],
       },
       {
         userAgent: 'GoogleOther',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/audit/'],
       },
       {
         userAgent: 'Applebot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/audit/'],
       },
     ],
     sitemap: 'https://www.inrealart.com/sitemap.xml',

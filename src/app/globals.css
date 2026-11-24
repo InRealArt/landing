@@ -555,3 +555,14 @@ body {
   from { clip-path: inset(0 0 100% 0); }
   to   { clip-path: inset(0 0 0% 0); }
 }
+
+/* Pages d'audit, thème clair : doré assombri et bordures de champs renforcées (contraste AA / 3:1) */
+[data-theme='light'] [data-audit] {
+  --gold-accent: #7a5f32;
+}
+[data-theme='light'] [data-audit] .text-gold-accent {
+  color: #7a5f32;
+}
+[data-theme='light'] [data-audit] .border-textColor\/30 {
+  border-color: #8c8c8c;
+}

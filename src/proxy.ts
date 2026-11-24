@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { auditLinkIsValid } from '@/lib/audit/link'
 import { resolveArtSalonSlug, resolveArtistCategorySlug, resolveArtistSlug, resolveArtworkParam, resolveBlogCategorySlug, resolveBlogPostSlug, resolveGameSlug, resolveUgcProfileSlug, type SlugResolution } from '@/lib/slugIndex'
 
 // Map first URL segment → redirect target for unknown sub-paths
@@ -110,6 +111,16 @@ function notFound(request: NextRequest): NextResponse {
   return NextResponse.rewrite(url, { status: 404 })
 }
 
+/** 404 des pages d'audit : page neutre dédiée dans le shell isolé (x-audit-page), sans chrome ni traceur du site. */
+function auditNotFound(request: NextRequest): NextResponse {
+  const url = request.nextUrl.clone()
+  url.pathname = '/audit/unavailable'
+  url.search = ''
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-audit-page', '1')
+  return NextResponse.rewrite(url, { status: 404, request: { headers: requestHeaders } })
+}
+
 // fallback : page qui remplace un slug inconnu ; null quand il n'y en a pas (vraie 404)
 const SLUG_SECTIONS = {
   artwork: { resolve: resolveArtworkParam, fallback: '/presale' },
@@ -154,6 +165,24 @@ export async function proxy(request: NextRequest) {
   // Pass through Server Actions (POST requests with Next-Action header)
   if (request.method === 'POST' && request.headers.has('next-action')) {
     return nextWithPathname(request)
+  }
+
+  // Formulaire d'audit à lien privé : vraie 404 (identique) si le jeton est mal formé, inconnu, révoqué ou expiré,
+  // décidée avant le rendu (sinon loading.tsx envoie un 200). Pas de redirection de slug.
+  // En-tête x-audit-page : le layout racine coupe alors traceurs, cookies et bandeaux (le jeton est dans l'URL).
+  if (pathname === '/audit' || pathname.startsWith('/audit/')) {
+    const match = pathname.match(/^\/audit\/([^/]+)\/?$/)
+    if (!match) return auditNotFound(request)
+    try {
+      if (!(await auditLinkIsValid(match[1]))) return auditNotFound(request)
+    } catch {
+      // Base indisponible : la page refait la même vérification
+    }
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-audit-page', '1')
+    const response = NextResponse.next({ request: { headers: requestHeaders } })
+    response.headers.set('x-pathname', '/audit')
+    return response
   }
 
   // Pass through Next.js internals, API routes, and static files

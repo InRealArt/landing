@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
     provider = "postgresql"
-    schemas  = ["auth", "public", "landing", "marketplace", "blockchain", "landingUi", "landingUgc", "backoffice", "statistics", "gallery_lj"]
+    schemas  = ["auth", "public", "agency", "landing", "marketplace", "blockchain", "landingUi", "landingUgc", "backoffice", "statistics"]
 }
 
 // Orders in the Marketplace
@@ -749,7 +749,6 @@ enum BackofficeUserRoles {
     admin
     artist
     galleryManager
-    galleryLjManager
 
     @@schema("backoffice")
 }
@@ -1939,120 +1938,71 @@ model ArtistApplicationForm {
     @@schema("landing")
 }
 
-// ---------------------------------------------------------------------------
-// Gallery LJ — modèles dédiés à la galerie Lj
-// ---------------------------------------------------------------------------
+// ─── Audit de carrière payant (formulaire client à lien privé) ───
 
-// Artiste exposé dans la galerie Lj
-model GalleryLjArtist {
-    id        Int      @id @default(autoincrement())
-    firstName String?  // Prénom
-    lastName  String?  // Nom de famille
-    pseudo    String   // Nom d'artiste (obligatoire)
-    slug      String   @unique // Slug de l'artiste
-    imageUrl  String?  // URL de la photo / portrait
-    shortDescription  String?  // Courte description de l'artiste
-    description  String?  // Description optionnelle de l'artiste
-    formation  String?  // Formation / études artistiques
-    personalExhibitions  String?  // Expositions personnelles
-    collectiveExhibitions  String?  // Expositions collectives
-    publicCollections  String?  // Collections publiques
-    order     Int      @default(0) // Ordre d'affichage de l'artiste
-    permanent   Boolean  @default(true)
-    createdAt DateTime @default(now())
+enum AuditPaymentType {
+    DEPOSIT // Acompte
+    FULL // Totalité
 
-    artworks GalleryLjArtwork[]
-    events   GalleryLjEventArtist[]
-
-    @@schema("gallery_lj")
+    @@schema("agency")
 }
 
-// Œuvre d'art référencée dans la galerie Lj
-model GalleryLjArtwork {
-    id           Int      @id @default(autoincrement())
-    name         String   // Nom / titre de l'œuvre
-    description  String?  // Description optionnelle de l'œuvre
-    price        Decimal? @db.Decimal(10, 2) // Prix de vente (optionnel)
-    dimensions   String?  // Dimensions, ex. "50x70cm"
-    creationYear Int?     // Année de création
-    imageUrl     String   // URL de l'image principale (obligatoire)
-    images       String[] @default([]) // URLs des images secondaires
-    order        Int      @default(0) // Ordre d'affichage de l'œuvre
-    visible      Boolean  @default(true)
-    artistId     Int      // FK → GalleryLjArtist
-    createdAt    DateTime @default(now())
+enum AuditStatus {
+    OPEN // Lien créé, formulaire non commencé
+    DRAFT // Brouillon en cours
+    SUBMITTED // Soumis (lecture seule)
 
-    artist      GalleryLjArtist            @relation(fields: [artistId], references: [id])
-    exhibitions GalleryLjExhibitionArtwork[]
-
-    @@index([artistId])
-    @@schema("gallery_lj")
+    @@schema("agency")
 }
 
-// Exposition organisée par la galerie Lj
-model GalleryLjEvent {
-    id          Int       @id @default(autoincrement())
-    name        String    // Nom de l'exposition
-    slug        String    @unique // Slug de l'exposition
-    description String?   // Description libre
-    startDate   DateTime? // Date de début
-    endDate     DateTime? // Date de fin
-    location    String?   // Lieu
-    imageUrl    String?   // URL de l'image d'affiche
-    featured    Boolean   @default(false) // Exposition mise en avant
-    visible     Boolean            @default(true)
-    eventType   GalleryLjEventType @default(exhibition) // Type d'événement
-    createdAt   DateTime           @default(now())
+enum AuditFileKind {
+    CV_PORTFOLIO
+    REVENUE_DECLARATIONS
+    GALLERY_CONTRACTS
+    INVENTORY
+    PRICE_LIST
+    RETIREMENT_STATEMENT
 
-    artworks GalleryLjExhibitionArtwork[]
-    artists  GalleryLjEventArtist[]
-
-    @@schema("gallery_lj")
+    @@schema("agency")
 }
 
-// Table de jonction Exposition ↔ Œuvre (many-to-many explicite)
-model GalleryLjExhibitionArtwork {
-    id           Int @id @default(autoincrement())
-    eventId Int // FK → GalleryLjEvent
-    artworkId    Int // FK → GalleryLjArtwork
+// Audit vendu à un artiste ; le client accède à son formulaire via un jeton secret (seul le hash SHA-256 est stocké)
+model AuditClient {
+    id                   String           @id @default(cuid())
+    createdAt            DateTime         @default(now())
+    updatedAt            DateTime         @updatedAt
+    clientName           String
+    clientEmail          String
+    auditorName          String?
+    paymentType          AuditPaymentType
+    paidAt               DateTime?
+    dueDate              DateTime // « À retourner avant le »
+    tokenHash            String           @unique // SHA-256 du jeton (jamais le jeton en clair)
+    expiresAt            DateTime
+    revokedAt            DateTime?
+    status               AuditStatus      @default(OPEN)
+    questionnaireVersion Int              @default(1)
+    answers              Json             @default("{}") // clés stables q1..q38
+    consentAt            DateTime?
+    signatureName        String?
+    submittedAt          DateTime?
+    files                AuditFile[]
 
-    event GalleryLjEvent @relation(fields: [eventId], references: [id])
-    artwork    GalleryLjArtwork    @relation(fields: [artworkId], references: [id])
-
-    @@unique([eventId, artworkId])
-    @@schema("gallery_lj")
+    @@index([status])
+    @@schema("agency")
 }
 
-// Table de jonction Exposition ↔ Artiste (many-to-many explicite)
-model GalleryLjEventArtist {
-    id       Int @id @default(autoincrement())
-    eventId  Int // FK → GalleryLjEvent
-    artistId Int // FK → GalleryLjArtist
+model AuditFile {
+    id            String        @id @default(cuid())
+    auditClientId String
+    auditClient   AuditClient   @relation(fields: [auditClientId], references: [id], onDelete: Cascade)
+    kind          AuditFileKind
+    r2Key         String // audits/<auditClientId>/<uuid>-<nom>
+    filename      String
+    mimeType      String
+    sizeBytes     Int
+    createdAt     DateTime      @default(now())
 
-    event  GalleryLjEvent  @relation(fields: [eventId], references: [id], onDelete: Cascade)
-    artist GalleryLjArtist @relation(fields: [artistId], references: [id], onDelete: Cascade)
-
-    @@unique([eventId, artistId])
-    @@index([eventId])
-    @@index([artistId])
-    @@schema("gallery_lj")
-}
-
-// Section hero de la page d'accueil de la galerie Lj (image, titre, texte, CTA)
-model GalleryLjHero {
-    id     Int     @id @default(autoincrement())
-    image  String  // URL de l'image hero (obligatoire)
-    title  String  // Titre de la section hero (obligatoire)
-    text   String? // Texte descriptif (optionnel)
-    ctaUrl String? // URL du bouton CTA (optionnel)
-
-    @@schema("gallery_lj")
-}
-
-// Type d'événement organisé par la galerie Lj
-enum GalleryLjEventType {
-    event      // Événement générique (vernissage, soirée, etc.)
-    exhibition // Exposition artistique
-
-    @@schema("gallery_lj")
+    @@index([auditClientId])
+    @@schema("agency")
 }

@@ -15,6 +15,7 @@ import UmamiAnalytics from '@/components/common/UmamiAnalytics'
 import ScrollToTop from '@/components/ScrollToTop'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
+import { headers } from 'next/headers'
 // Import pour exposer debugGTM globalement (dev uniquement)
 if (process.env.NODE_ENV === 'development') {
   import('@/utils/analyticsDebug')
@@ -61,11 +62,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout ({
+export default async function RootLayout ({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Pages à lien privé (/audit/<jeton>) : aucun traceur ni bandeau, le jeton est dans l'URL (posé par src/proxy.ts)
+  const isPrivatePage = (await headers()).get('x-audit-page') === '1'
+  if (isPrivatePage) {
+    // Shell isolé : ni header, footer, bandeaux, providers ni scripts tiers. Seuls polices, styles et thème.
+    return (
+      <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
+        <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `try{var t=localStorage.getItem('audit-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}`,
+            }}
+          />
+        </head>
+        <body className={`antialiased ${bricolageGrotesque.className}`}>{children}</body>
+      </html>
+    )
+  }
   return (
     <html lang="fr" className={`${unbounded.variable} ${bricolageGrotesque.variable} ${cormorantGaramond.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>

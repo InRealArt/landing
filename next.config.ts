@@ -92,6 +92,15 @@ const nextConfig: NextConfig = {
   // Configuration des en-têtes de cache pour les images
   async headers() {
     return [
+      // Formulaire d'audit à lien privé : jamais indexé, jamais mis en cache, pas de fuite du jeton via Referer
+      {
+        source: '/audit/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+          { key: 'Cache-Control', value: 'no-store' },
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+        ],
+      },
       {
         source: '/images/:path*',
         headers: [
