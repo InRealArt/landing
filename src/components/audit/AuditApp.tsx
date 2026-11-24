@@ -130,6 +130,8 @@ export default function AuditApp({ token, clientName, auditorName, dueLabel, sub
     else if (view.kind === 'review') void go({ kind: 'done' }, -1)
   }, [go, view])
 
+  const [inTextarea, setInTextarea] = useState(false)
+
   function onKeyDown(e: React.KeyboardEvent) {
     if (view.kind !== 'step' || e.key !== 'Enter' || e.nativeEvent.isComposing) return
     const el = e.target as HTMLElement
@@ -175,7 +177,9 @@ export default function AuditApp({ token, clientName, auditorName, dueLabel, sub
 
   return (
     <AuditFrame>
-    <main className={view.kind === 'welcome' ? '' : 'mx-auto max-w-3xl px-4 pb-24 pt-8 sm:px-6 sm:pt-12'} onKeyDown={onKeyDown}>
+    <main className={view.kind === 'welcome' ? '' : 'mx-auto max-w-3xl px-4 pb-24 pt-8 sm:px-6 sm:pt-12'} onKeyDown={onKeyDown}
+      onFocus={(e) => setInTextarea(e.target instanceof HTMLTextAreaElement)}
+      onBlur={() => setInTextarea(false)}>
       {view.kind !== 'welcome' && view.kind !== 'done' && (
         <header className="mb-10">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
@@ -223,7 +227,7 @@ export default function AuditApp({ token, clientName, auditorName, dueLabel, sub
             <button type="button" onClick={goBack} className={ghostButton}>← Précédent</button>
             {showNav && (
               <div className="flex items-center gap-5">
-                <span className="hidden text-xs uppercase tracking-[0.2em] text-textColor/60 md:inline">Entrée ↵</span>
+                <span className="hidden text-xs uppercase tracking-[0.2em] text-textColor/60 md:inline">{inTextarea ? 'Ctrl / ⌘ + Entrée ↵' : 'Entrée ↵'}</span>
                 <button type="button" onClick={goNext} className={primaryButton}>
                   {stepIndex === STEPS.length - 1 ? 'Relire et envoyer' : 'Suivant →'}
                 </button>
