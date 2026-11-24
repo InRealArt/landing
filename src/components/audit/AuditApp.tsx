@@ -135,7 +135,9 @@ export default function AuditApp({ token, clientName, auditorName, dueLabel, sub
   function onKeyDown(e: React.KeyboardEvent) {
     if (view.kind !== 'step' || e.key !== 'Enter' || e.nativeEvent.isComposing) return
     const el = e.target as HTMLElement
-    const isField = el instanceof HTMLInputElement && ['text', 'email', 'url', 'radio', 'checkbox'].includes(el.type)
+    const isField =
+      el instanceof HTMLSelectElement ||
+      (el instanceof HTMLInputElement && ['text', 'email', 'url', 'radio', 'checkbox'].includes(el.type))
     const isTextarea = el instanceof HTMLTextAreaElement && (e.metaKey || e.ctrlKey)
     if (isField || isTextarea) {
       e.preventDefault()
